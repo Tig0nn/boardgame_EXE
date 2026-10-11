@@ -2,14 +2,14 @@ import { useState } from 'react'
 import { RULES } from '../data/config'
 import { savingsProfileForMode } from '../game/savings'
 import type { GameModeId, Term } from '../game/types'
-import { GAME_MODES, gameMode } from '../data/modes'
+import { gameMode } from '../data/modes'
 import { money } from '../game/format'
 import { City } from './City'
 import { Icon } from './Icon'
 import { GoalChecks } from './GoalChecks'
 
 export function Setup({ onStart }: { onStart: (seed: string, savings: number, term: Term, mode: GameModeId) => void }) {
-  const [mode, setMode] = useState<GameModeId>('original')
+  const mode: GameModeId = 'experimental-b'
   const selected = gameMode(mode)
   const rates = savingsProfileForMode(mode).rates
   const [savings, setSavings] = useState(20_000_000)
@@ -18,20 +18,18 @@ export function Setup({ onStart }: { onStart: (seed: string, savings: number, te
   return <main className="setup-page">
     <section className="setup-story">
       <span className="eyebrow"><span className="status-dot" /> CHƠI ĐỂ HIỂU TÀI CHÍNH</span>
-      <h1>Mỗi quyết định,<br />một <em>bước tiến.</em></h1>
-      <p className="setup-description">Từ 50 triệu đầu tiên, mua món đồ {RULES.goal / 1_000_000} triệu.<br />Và còn ít nhất {RULES.cashGoal / 1_000_000} triệu sau khi mua.</p>
+      <h1>Phố nhỏ.<br /><em>Ước mơ lớn.</em></h1>
+      <p className="setup-description">50 triệu khởi đầu. 4 vòng khám phá.<br />Huy động đủ 90 triệu để chạm đích cùng bạn.</p>
       <div className="setup-illustration"><City /><span className="illustration-caption">Một hành trình nhỏ. Những lựa chọn lớn.</span></div>
       <div className="game-facts"><span><strong>01</strong> người chơi</span><span><strong>{String(selected.totalLaps).padStart(2,'0')}</strong> vòng chơi</span><span><strong>20</strong> ô bàn cờ</span></div>
     </section>
     <section className="setup-card">
       <div className="section-kicker"><Icon name="flag" size={18} /> VẠCH XUẤT PHÁT</div>
-      <h2>Chuẩn bị hành trang</h2><p>Chia vốn ban đầu theo cách của bạn.</p>
-      <label className="seed-label" htmlFor="game-mode">Chế độ chơi</label>
-      <select id="game-mode" className="text-input" value={mode} onChange={event=>setMode(event.target.value as GameModeId)} aria-describedby="mode-note">
-        {GAME_MODES.map(item=><option key={item.id} value={item.id}>{item.label} · {item.totalLaps} vòng · {item.boardLayout}</option>)}
-      </select>
-      <p id="mode-note" className="inline-note">{selected.description}. {mode==='original'?'Mặc định chính thức.':mode==='experimental-b'?'Playtest V2.2 · tiết kiệm 4/5/6% theo kỳ hạn · mục tiêu 90 triệu.':'Playtest · tiết kiệm 6/7/8% theo kỳ hạn · mục tiêu 90 triệu.'}</p>
+      <h2>Sẵn sàng dạo phố?</h2><p>Một người chơi · 4 vòng · Bàn C20</p>
       <div className="initial-capital"><span>Vốn ban đầu</span><strong>{money(RULES.startingCapital)}</strong></div>
+      <div className="setup-defaults"><span><Icon name="wallet" size={18} /> Tiền mặt <b>{money(RULES.startingCapital - savings)}</b></span><span><Icon name="bank" size={18} /> Tiết kiệm <b>{money(savings)}</b></span></div>
+      <button className="button primary start-button" onClick={() => onStart(seed, savings, term, mode)}>Bắt đầu hành trình <Icon name="arrow" /></button>
+      <details className="setup-customize"><summary>Tùy chỉnh hành trang <span>Tiết kiệm & mã ván chơi</span></summary>
       <div className="allocation-heading"><label htmlFor="allocation">Phân bổ vào tiết kiệm</label><strong>{money(savings)}</strong></div>
       <input id="allocation" type="range" min="0" max={RULES.startingCapital} step="1000000" value={savings} onChange={e => setSavings(Number(e.target.value))} />
       <div className="range-labels"><span>0 ₫</span><span>50 triệu ₫</span></div>
@@ -43,7 +41,7 @@ export function Setup({ onStart }: { onStart: (seed: string, savings: number, te
       <p className="inline-note"><Icon name="info" size={16} /> Đáo hạn tại START vòng {term}, gốc + {money(Math.round(savings * rates[term] * term))} lãi về tiền mặt. Rút toàn khoản trước hạn mất toàn bộ lãi chưa trả.</p>
       <label className="seed-label" htmlFor="seed">Mã hạt giống <span>Cùng mã, cùng chuỗi ngẫu nhiên</span></label>
       <input id="seed" className="text-input" value={seed} maxLength={64} onChange={e => setSeed(e.target.value)} placeholder="VD: SAIGON-2026" />
-      <button className="button primary start-button" onClick={() => onStart(seed, savings, term, mode)}>Bắt đầu hành trình <Icon name="arrow" /></button>
+      </details>
       <GoalChecks />
       <p className="setup-footnote">Sau {selected.totalLaps} vòng, cần đạt cả hai điều kiện để chiến thắng.</p>
     </section>
