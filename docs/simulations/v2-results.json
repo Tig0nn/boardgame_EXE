@@ -1,0 +1,2954 @@
+{
+  "version": "gameplay-v2-experimental-2026-10-10",
+  "seedPrefix": "XVTL-V2-",
+  "firstSeed": 0,
+  "lastSeed": 4999,
+  "policy": "Cash reserve 10M; optional purchases cash-only; mandatory funding savings -> stocks -> bonds -> gold -> capped debt. Cash-heavy buys no course. Others course only laps 1/2. Business bought/upgraded laps 1/2 and sold at business tile in lap3. No START purchases or forced dice.",
+  "config": {
+    "RULES": {
+      "laps": 3,
+      "tiles": 20,
+      "startingCapital": 50000000,
+      "recurringIncome": 14000000,
+      "livingCost": 7000000,
+      "goal": 80000000,
+      "cashGoal": 10000000,
+      "savingsRate": 0.06,
+      "debtRate": 0.1,
+      "courseCost": 6000000,
+      "courseBoost": 3000000,
+      "borrowingLimit": 30000000
+    },
+    "ECONOMY": {
+      "savingsRates": {
+        "1": 0.06,
+        "2": 0.07,
+        "3": 0.08
+      },
+      "tradeFees": {
+        "stocks": 0.01,
+        "bonds": 0.015,
+        "gold": 0.01
+      },
+      "goldSpread": 0.03,
+      "stockTicket": 10000000,
+      "goldTicket": 6000000,
+      "bondTicket": 8000000,
+      "bond": {
+        "issuer": "Liên hiệp Mây Ngọc (giả lập)",
+        "facePrice": 100000,
+        "coupon": 0.05,
+        "term": 2,
+        "creditRisk": "Giá bán có thể giảm do rủi ro tín dụng; mẫu hiện tại không mô phỏng vỡ nợ ngẫu nhiên."
+      },
+      "market": {
+        "historyPoints": 12,
+        "initialStockPrice": 100000,
+        "initialGoldPrice": 1000000,
+        "sectorVolatility": 0.035,
+        "minimumReturn": -0.8,
+        "historyMarketVolatility": 0.07,
+        "historySectorVolatility": 0.025,
+        "historyGoldVolatility": 0.1,
+        "historyBondVolatility": 0.03
+      },
+      "business": {
+        "cost": 20000000,
+        "baseIncome": 3000000,
+        "upgradeCost": 5000000,
+        "baseUplift": 700000,
+        "matchingBonus": 1000000,
+        "maxUpgrades": 6,
+        "capitalRecovery": 0.7,
+        "upgradeRecovery": 0.5,
+        "depreciation": 0.08,
+        "trendIncome": {
+          "growth": 1.25,
+          "uncertain": 0.75,
+          "recovery": 1.1
+        },
+        "trendWeights": {
+          "growth": 1,
+          "uncertain": 1,
+          "recovery": 1
+        },
+        "minimumEconomicMultiplier": 0.3,
+        "maximumEconomicMultiplier": 1.8,
+        "economicIncomeImpact": 2000000
+      },
+      "personal": {
+        "medical": [
+          5000000,
+          6000000
+        ],
+        "repair": [
+          4000000,
+          1000000,
+          4000000
+        ],
+        "family": [
+          3000000,
+          3500000
+        ]
+      },
+      "obligation": {
+        "bills": [
+          2000000,
+          2500000
+        ],
+        "contract": [
+          1500000,
+          2000000
+        ],
+        "bonus": 2000000
+      }
+    },
+    "SCENARIOS": [
+      {
+        "id": "growth",
+        "label": "Nhịp tăng trưởng",
+        "description": "Tiêu dùng khởi sắc, doanh nghiệp có thêm cơ hội. Thị trường vẫn có thể đi ngược dự báo.",
+        "tendencies": {
+          "stocks": "Xu hướng tăng",
+          "bonds": "Khá ổn định",
+          "gold": "Có thể hạ nhiệt",
+          "business": "Nhu cầu tích cực"
+        },
+        "ranges": {
+          "stocks": [
+            -0.08,
+            0.3
+          ],
+          "bonds": [
+            0.03,
+            0.07
+          ],
+          "gold": [
+            -0.1,
+            0.12
+          ],
+          "business": [
+            0.15,
+            0.5
+          ]
+        }
+      },
+      {
+        "id": "uncertain",
+        "label": "Thị trường thận trọng",
+        "description": "Nhà đầu tư dè dặt hơn. Tài sản phòng thủ được chú ý, nhưng không có kết quả nào được đảm bảo.",
+        "tendencies": {
+          "stocks": "Dễ biến động",
+          "bonds": "Khá ổn định",
+          "gold": "Được quan tâm",
+          "business": "Tiêu dùng chậm lại"
+        },
+        "ranges": {
+          "stocks": [
+            -0.22,
+            0.16
+          ],
+          "bonds": [
+            0.02,
+            0.06
+          ],
+          "gold": [
+            -0.05,
+            0.2
+          ],
+          "business": [
+            -0.08,
+            0.28
+          ]
+        }
+      },
+      {
+        "id": "recovery",
+        "label": "Tín hiệu phục hồi",
+        "description": "Niềm tin đang quay trở lại. Cơ hội xuất hiện cùng những biến động khó đoán.",
+        "tendencies": {
+          "stocks": "Có cơ hội phục hồi",
+          "bonds": "Tăng trưởng nhẹ",
+          "gold": "Đi ngang",
+          "business": "Dần khởi sắc"
+        },
+        "ranges": {
+          "stocks": [
+            -0.12,
+            0.25
+          ],
+          "bonds": [
+            0.03,
+            0.08
+          ],
+          "gold": [
+            -0.08,
+            0.14
+          ],
+          "business": [
+            0.05,
+            0.4
+          ]
+        }
+      }
+    ],
+    "STOCKS": [
+      {
+        "id": "XV-MAY",
+        "name": "Mây Lục",
+        "sector": "technology",
+        "volatility": 0.06
+      },
+      {
+        "id": "XV-HAT",
+        "name": "Hạt Sáng",
+        "sector": "technology",
+        "volatility": 0.08
+      },
+      {
+        "id": "XV-SONG",
+        "name": "Ngân hàng Sông Biếc",
+        "sector": "banking",
+        "volatility": 0.04
+      },
+      {
+        "id": "XV-DEM",
+        "name": "Ngân hàng Đệm Xanh",
+        "sector": "banking",
+        "volatility": 0.05
+      },
+      {
+        "id": "XV-GOM",
+        "name": "Xưởng Gốm Sao",
+        "sector": "manufacturing",
+        "volatility": 0.05
+      },
+      {
+        "id": "XV-SOI",
+        "name": "Sợi Nắng",
+        "sector": "manufacturing",
+        "volatility": 0.07
+      }
+    ],
+    "MACRO_EVENTS": [
+      {
+        "id": "credit-tightening",
+        "label": "Tín dụng thắt chặt",
+        "stocks": {
+          "technology": -0.12,
+          "banking": -0.16,
+          "manufacturing": -0.1
+        },
+        "bonds": -0.06,
+        "gold": 0.08,
+        "business": -0.2
+      },
+      {
+        "id": "demand-boom",
+        "label": "Nhu cầu khởi sắc",
+        "stocks": {
+          "technology": 0.14,
+          "banking": 0.08,
+          "manufacturing": 0.12
+        },
+        "bonds": 0.02,
+        "gold": -0.05,
+        "business": 0.2
+      },
+      {
+        "id": "supply-recovery",
+        "label": "Chuỗi cung ứng phục hồi",
+        "stocks": {
+          "technology": 0.06,
+          "banking": -0.03,
+          "manufacturing": 0.16
+        },
+        "bonds": -0.02,
+        "gold": -0.04,
+        "business": 0.1
+      }
+    ],
+    "BOARD": [
+      {
+        "index": 0,
+        "type": "start",
+        "category": "income",
+        "label": "Xuất phát",
+        "icon": "flag",
+        "row": 1,
+        "col": 1
+      },
+      {
+        "index": 1,
+        "type": "bank",
+        "category": "investment",
+        "label": "Ngân hàng",
+        "icon": "bank",
+        "row": 1,
+        "col": 2
+      },
+      {
+        "index": 2,
+        "type": "stocks",
+        "category": "investment",
+        "label": "Cổ phiếu",
+        "icon": "chart",
+        "row": 1,
+        "col": 3
+      },
+      {
+        "index": 3,
+        "type": "living",
+        "category": "obligation",
+        "label": "Sinh hoạt",
+        "icon": "receipt",
+        "row": 1,
+        "col": 4
+      },
+      {
+        "index": 4,
+        "type": "course",
+        "category": "income",
+        "label": "Đầu tư bản thân",
+        "icon": "leaf",
+        "row": 1,
+        "col": 5
+      },
+      {
+        "index": 5,
+        "type": "macro",
+        "category": "shock",
+        "label": "Kinh tế",
+        "icon": "bolt",
+        "row": 1,
+        "col": 6
+      },
+      {
+        "index": 6,
+        "type": "bonds",
+        "category": "investment",
+        "label": "Trái phiếu",
+        "icon": "receipt",
+        "row": 2,
+        "col": 6
+      },
+      {
+        "index": 7,
+        "type": "personal",
+        "category": "shock",
+        "label": "Biến cố cá nhân",
+        "icon": "bolt",
+        "row": 3,
+        "col": 6
+      },
+      {
+        "index": 8,
+        "type": "business",
+        "category": "investment",
+        "label": "Kinh doanh",
+        "icon": "shop",
+        "row": 4,
+        "col": 6
+      },
+      {
+        "index": 9,
+        "type": "gold",
+        "category": "investment",
+        "label": "Vàng",
+        "icon": "gold",
+        "row": 5,
+        "col": 6
+      },
+      {
+        "index": 10,
+        "type": "obligation",
+        "category": "obligation",
+        "label": "Dòng tiền",
+        "icon": "wallet",
+        "row": 6,
+        "col": 6
+      },
+      {
+        "index": 11,
+        "type": "stocks",
+        "category": "investment",
+        "label": "Cổ phiếu",
+        "icon": "chart",
+        "row": 6,
+        "col": 5
+      },
+      {
+        "index": 12,
+        "type": "bank",
+        "category": "investment",
+        "label": "Ngân hàng",
+        "icon": "bank",
+        "row": 6,
+        "col": 4
+      },
+      {
+        "index": 13,
+        "type": "macro",
+        "category": "shock",
+        "label": "Kinh tế",
+        "icon": "bolt",
+        "row": 6,
+        "col": 3
+      },
+      {
+        "index": 14,
+        "type": "living",
+        "category": "obligation",
+        "label": "Sinh hoạt",
+        "icon": "receipt",
+        "row": 6,
+        "col": 2
+      },
+      {
+        "index": 15,
+        "type": "business",
+        "category": "investment",
+        "label": "Kinh doanh",
+        "icon": "shop",
+        "row": 6,
+        "col": 1
+      },
+      {
+        "index": 16,
+        "type": "course",
+        "category": "income",
+        "label": "Đầu tư bản thân",
+        "icon": "leaf",
+        "row": 5,
+        "col": 1
+      },
+      {
+        "index": 17,
+        "type": "personal",
+        "category": "shock",
+        "label": "Biến cố cá nhân",
+        "icon": "bolt",
+        "row": 4,
+        "col": 1
+      },
+      {
+        "index": 18,
+        "type": "gold",
+        "category": "investment",
+        "label": "Vàng",
+        "icon": "gold",
+        "row": 3,
+        "col": 1
+      },
+      {
+        "index": 19,
+        "type": "bonds",
+        "category": "investment",
+        "label": "Trái phiếu",
+        "icon": "receipt",
+        "row": 2,
+        "col": 1
+      }
+    ]
+  },
+  "baseline": {
+    "cash-heavy": {
+      "seeds": 5000,
+      "wins": 119,
+      "winRate": 0.0238,
+      "funds": {
+        "p10": 61500000,
+        "median": 74000000,
+        "p90": 85000000,
+        "mean": 73374800
+      },
+      "debt": {
+        "p10": 0,
+        "median": 0,
+        "p90": 0,
+        "mean": 0
+      },
+      "shortfall": {
+        "p10": 5000000,
+        "median": 16000000,
+        "p90": 28500000,
+        "mean": 16667600
+      },
+      "shortages": 0,
+      "meanShortageAmount": 0,
+      "indebtedRate": 0,
+      "courseUptake": 0,
+      "business": {
+        "meanEncounters": 1.7096,
+        "repeatEncounterRate": 0.5552,
+        "noEncounterRate": 0.1254,
+        "buyRate": 0,
+        "upgradeRate": 0,
+        "saleRate": 0,
+        "meanUpgrades": 0,
+        "lockedAtFinishRate": 0
+      },
+      "stockBuyRate": 0,
+      "living": {
+        "mean": 1.6458,
+        "p90": 3
+      },
+      "macro": {
+        "mean": 1.7358,
+        "p90": 3
+      },
+      "meanRolls": 17.6096,
+      "meanTileVisits": {
+        "start": 0.8702,
+        "bank": 1.593,
+        "stocks": 1.6304,
+        "living": 1.6458,
+        "course": 1.681,
+        "macro": 1.7358,
+        "bonds": 1.8,
+        "personal": 1.6536,
+        "business": 1.7096,
+        "gold": 1.7144,
+        "obligation": 0.8726
+      },
+      "noEncounterRateByType": {
+        "start": 0.3558,
+        "bank": 0.156,
+        "stocks": 0.1464,
+        "living": 0.1424,
+        "course": 0.1386,
+        "macro": 0.1264,
+        "bonds": 0.1052,
+        "personal": 0.1384,
+        "business": 0.1254,
+        "gold": 0.1344,
+        "obligation": 0.3576
+      },
+      "meanStopsByTile": [
+        {
+          "index": 0,
+          "label": "Xuất phát",
+          "type": "start",
+          "mean": 0.8702,
+          "noStopRate": 0.3558
+        },
+        {
+          "index": 1,
+          "label": "Ngân hàng",
+          "type": "bank",
+          "mean": 0.7286,
+          "noStopRate": 0.4334
+        },
+        {
+          "index": 2,
+          "label": "Cổ phiếu",
+          "type": "stocks",
+          "mean": 0.7532,
+          "noStopRate": 0.4158
+        },
+        {
+          "index": 3,
+          "label": "Sinh hoạt",
+          "type": "living",
+          "mean": 0.783,
+          "noStopRate": 0.4028
+        },
+        {
+          "index": 4,
+          "label": "Đầu tư bản thân",
+          "type": "course",
+          "mean": 0.8268,
+          "noStopRate": 0.3764
+        },
+        {
+          "index": 5,
+          "label": "Kinh tế",
+          "type": "macro",
+          "mean": 0.9084,
+          "noStopRate": 0.3398
+        },
+        {
+          "index": 6,
+          "label": "Trái phiếu",
+          "type": "bonds",
+          "mean": 0.9528,
+          "noStopRate": 0.3146
+        },
+        {
+          "index": 7,
+          "label": "Biến cố cá nhân",
+          "type": "personal",
+          "mean": 0.8052,
+          "noStopRate": 0.3934
+        },
+        {
+          "index": 8,
+          "label": "Kinh doanh",
+          "type": "business",
+          "mean": 0.8412,
+          "noStopRate": 0.374
+        },
+        {
+          "index": 9,
+          "label": "Vàng",
+          "type": "gold",
+          "mean": 0.8458,
+          "noStopRate": 0.37
+        },
+        {
+          "index": 10,
+          "label": "Dòng tiền",
+          "type": "obligation",
+          "mean": 0.8726,
+          "noStopRate": 0.3576
+        },
+        {
+          "index": 11,
+          "label": "Cổ phiếu",
+          "type": "stocks",
+          "mean": 0.8772,
+          "noStopRate": 0.3546
+        },
+        {
+          "index": 12,
+          "label": "Ngân hàng",
+          "type": "bank",
+          "mean": 0.8644,
+          "noStopRate": 0.3616
+        },
+        {
+          "index": 13,
+          "label": "Kinh tế",
+          "type": "macro",
+          "mean": 0.8274,
+          "noStopRate": 0.378
+        },
+        {
+          "index": 14,
+          "label": "Sinh hoạt",
+          "type": "living",
+          "mean": 0.8628,
+          "noStopRate": 0.3578
+        },
+        {
+          "index": 15,
+          "label": "Kinh doanh",
+          "type": "business",
+          "mean": 0.8684,
+          "noStopRate": 0.36
+        },
+        {
+          "index": 16,
+          "label": "Đầu tư bản thân",
+          "type": "course",
+          "mean": 0.8542,
+          "noStopRate": 0.3694
+        },
+        {
+          "index": 17,
+          "label": "Biến cố cá nhân",
+          "type": "personal",
+          "mean": 0.8484,
+          "noStopRate": 0.363
+        },
+        {
+          "index": 18,
+          "label": "Vàng",
+          "type": "gold",
+          "mean": 0.8686,
+          "noStopRate": 0.356
+        },
+        {
+          "index": 19,
+          "label": "Trái phiếu",
+          "type": "bonds",
+          "mean": 0.8472,
+          "noStopRate": 0.371
+        }
+      ],
+      "termination": {
+        "completed": 5000,
+        "insolvent": 0
+      }
+    },
+    "saving-heavy": {
+      "seeds": 5000,
+      "wins": 1395,
+      "winRate": 0.279,
+      "funds": {
+        "p10": 65887000,
+        "median": 83216753,
+        "p90": 96722000,
+        "mean": 82100449.806
+      },
+      "debt": {
+        "p10": 0,
+        "median": 0,
+        "p90": 0,
+        "mean": 0
+      },
+      "shortfall": {
+        "p10": 0,
+        "median": 6764000,
+        "p90": 24113000,
+        "mean": 9488677.45
+      },
+      "shortages": 1878,
+      "meanShortageAmount": 945272.3122,
+      "indebtedRate": 0,
+      "courseUptake": 0.6544,
+      "business": {
+        "meanEncounters": 1.7096,
+        "repeatEncounterRate": 0.5552,
+        "noEncounterRate": 0.1254,
+        "buyRate": 0,
+        "upgradeRate": 0,
+        "saleRate": 0,
+        "meanUpgrades": 0,
+        "lockedAtFinishRate": 0
+      },
+      "stockBuyRate": 0,
+      "living": {
+        "mean": 1.6458,
+        "p90": 3
+      },
+      "macro": {
+        "mean": 1.7358,
+        "p90": 3
+      },
+      "meanRolls": 17.6096,
+      "meanTileVisits": {
+        "start": 0.8702,
+        "bank": 1.593,
+        "stocks": 1.6304,
+        "living": 1.6458,
+        "course": 1.681,
+        "macro": 1.7358,
+        "bonds": 1.8,
+        "personal": 1.6536,
+        "business": 1.7096,
+        "gold": 1.7144,
+        "obligation": 0.8726
+      },
+      "noEncounterRateByType": {
+        "start": 0.3558,
+        "bank": 0.156,
+        "stocks": 0.1464,
+        "living": 0.1424,
+        "course": 0.1386,
+        "macro": 0.1264,
+        "bonds": 0.1052,
+        "personal": 0.1384,
+        "business": 0.1254,
+        "gold": 0.1344,
+        "obligation": 0.3576
+      },
+      "meanStopsByTile": [
+        {
+          "index": 0,
+          "label": "Xuất phát",
+          "type": "start",
+          "mean": 0.8702,
+          "noStopRate": 0.3558
+        },
+        {
+          "index": 1,
+          "label": "Ngân hàng",
+          "type": "bank",
+          "mean": 0.7286,
+          "noStopRate": 0.4334
+        },
+        {
+          "index": 2,
+          "label": "Cổ phiếu",
+          "type": "stocks",
+          "mean": 0.7532,
+          "noStopRate": 0.4158
+        },
+        {
+          "index": 3,
+          "label": "Sinh hoạt",
+          "type": "living",
+          "mean": 0.783,
+          "noStopRate": 0.4028
+        },
+        {
+          "index": 4,
+          "label": "Đầu tư bản thân",
+          "type": "course",
+          "mean": 0.8268,
+          "noStopRate": 0.3764
+        },
+        {
+          "index": 5,
+          "label": "Kinh tế",
+          "type": "macro",
+          "mean": 0.9084,
+          "noStopRate": 0.3398
+        },
+        {
+          "index": 6,
+          "label": "Trái phiếu",
+          "type": "bonds",
+          "mean": 0.9528,
+          "noStopRate": 0.3146
+        },
+        {
+          "index": 7,
+          "label": "Biến cố cá nhân",
+          "type": "personal",
+          "mean": 0.8052,
+          "noStopRate": 0.3934
+        },
+        {
+          "index": 8,
+          "label": "Kinh doanh",
+          "type": "business",
+          "mean": 0.8412,
+          "noStopRate": 0.374
+        },
+        {
+          "index": 9,
+          "label": "Vàng",
+          "type": "gold",
+          "mean": 0.8458,
+          "noStopRate": 0.37
+        },
+        {
+          "index": 10,
+          "label": "Dòng tiền",
+          "type": "obligation",
+          "mean": 0.8726,
+          "noStopRate": 0.3576
+        },
+        {
+          "index": 11,
+          "label": "Cổ phiếu",
+          "type": "stocks",
+          "mean": 0.8772,
+          "noStopRate": 0.3546
+        },
+        {
+          "index": 12,
+          "label": "Ngân hàng",
+          "type": "bank",
+          "mean": 0.8644,
+          "noStopRate": 0.3616
+        },
+        {
+          "index": 13,
+          "label": "Kinh tế",
+          "type": "macro",
+          "mean": 0.8274,
+          "noStopRate": 0.378
+        },
+        {
+          "index": 14,
+          "label": "Sinh hoạt",
+          "type": "living",
+          "mean": 0.8628,
+          "noStopRate": 0.3578
+        },
+        {
+          "index": 15,
+          "label": "Kinh doanh",
+          "type": "business",
+          "mean": 0.8684,
+          "noStopRate": 0.36
+        },
+        {
+          "index": 16,
+          "label": "Đầu tư bản thân",
+          "type": "course",
+          "mean": 0.8542,
+          "noStopRate": 0.3694
+        },
+        {
+          "index": 17,
+          "label": "Biến cố cá nhân",
+          "type": "personal",
+          "mean": 0.8484,
+          "noStopRate": 0.363
+        },
+        {
+          "index": 18,
+          "label": "Vàng",
+          "type": "gold",
+          "mean": 0.8686,
+          "noStopRate": 0.356
+        },
+        {
+          "index": 19,
+          "label": "Trái phiếu",
+          "type": "bonds",
+          "mean": 0.8472,
+          "noStopRate": 0.371
+        }
+      ],
+      "termination": {
+        "completed": 5000,
+        "insolvent": 0
+      }
+    },
+    "stock-heavy": {
+      "seeds": 5000,
+      "wins": 776,
+      "winRate": 0.1552,
+      "funds": {
+        "p10": 62397905,
+        "median": 77539510,
+        "p90": 93749129,
+        "mean": 78026902.7072
+      },
+      "debt": {
+        "p10": 0,
+        "median": 0,
+        "p90": 0,
+        "mean": 0
+      },
+      "shortfall": {
+        "p10": 0,
+        "median": 12454308,
+        "p90": 27602062,
+        "mean": 13208541.8412
+      },
+      "shortages": 301,
+      "meanShortageAmount": 130561.9046,
+      "indebtedRate": 0,
+      "courseUptake": 0.7184,
+      "business": {
+        "meanEncounters": 1.7096,
+        "repeatEncounterRate": 0.5552,
+        "noEncounterRate": 0.1254,
+        "buyRate": 0,
+        "upgradeRate": 0,
+        "saleRate": 0,
+        "meanUpgrades": 0,
+        "lockedAtFinishRate": 0
+      },
+      "stockBuyRate": 0.8536,
+      "living": {
+        "mean": 1.6458,
+        "p90": 3
+      },
+      "macro": {
+        "mean": 1.7358,
+        "p90": 3
+      },
+      "meanRolls": 17.6096,
+      "meanTileVisits": {
+        "start": 0.8702,
+        "bank": 1.593,
+        "stocks": 1.6304,
+        "living": 1.6458,
+        "course": 1.681,
+        "macro": 1.7358,
+        "bonds": 1.8,
+        "personal": 1.6536,
+        "business": 1.7096,
+        "gold": 1.7144,
+        "obligation": 0.8726
+      },
+      "noEncounterRateByType": {
+        "start": 0.3558,
+        "bank": 0.156,
+        "stocks": 0.1464,
+        "living": 0.1424,
+        "course": 0.1386,
+        "macro": 0.1264,
+        "bonds": 0.1052,
+        "personal": 0.1384,
+        "business": 0.1254,
+        "gold": 0.1344,
+        "obligation": 0.3576
+      },
+      "meanStopsByTile": [
+        {
+          "index": 0,
+          "label": "Xuất phát",
+          "type": "start",
+          "mean": 0.8702,
+          "noStopRate": 0.3558
+        },
+        {
+          "index": 1,
+          "label": "Ngân hàng",
+          "type": "bank",
+          "mean": 0.7286,
+          "noStopRate": 0.4334
+        },
+        {
+          "index": 2,
+          "label": "Cổ phiếu",
+          "type": "stocks",
+          "mean": 0.7532,
+          "noStopRate": 0.4158
+        },
+        {
+          "index": 3,
+          "label": "Sinh hoạt",
+          "type": "living",
+          "mean": 0.783,
+          "noStopRate": 0.4028
+        },
+        {
+          "index": 4,
+          "label": "Đầu tư bản thân",
+          "type": "course",
+          "mean": 0.8268,
+          "noStopRate": 0.3764
+        },
+        {
+          "index": 5,
+          "label": "Kinh tế",
+          "type": "macro",
+          "mean": 0.9084,
+          "noStopRate": 0.3398
+        },
+        {
+          "index": 6,
+          "label": "Trái phiếu",
+          "type": "bonds",
+          "mean": 0.9528,
+          "noStopRate": 0.3146
+        },
+        {
+          "index": 7,
+          "label": "Biến cố cá nhân",
+          "type": "personal",
+          "mean": 0.8052,
+          "noStopRate": 0.3934
+        },
+        {
+          "index": 8,
+          "label": "Kinh doanh",
+          "type": "business",
+          "mean": 0.8412,
+          "noStopRate": 0.374
+        },
+        {
+          "index": 9,
+          "label": "Vàng",
+          "type": "gold",
+          "mean": 0.8458,
+          "noStopRate": 0.37
+        },
+        {
+          "index": 10,
+          "label": "Dòng tiền",
+          "type": "obligation",
+          "mean": 0.8726,
+          "noStopRate": 0.3576
+        },
+        {
+          "index": 11,
+          "label": "Cổ phiếu",
+          "type": "stocks",
+          "mean": 0.8772,
+          "noStopRate": 0.3546
+        },
+        {
+          "index": 12,
+          "label": "Ngân hàng",
+          "type": "bank",
+          "mean": 0.8644,
+          "noStopRate": 0.3616
+        },
+        {
+          "index": 13,
+          "label": "Kinh tế",
+          "type": "macro",
+          "mean": 0.8274,
+          "noStopRate": 0.378
+        },
+        {
+          "index": 14,
+          "label": "Sinh hoạt",
+          "type": "living",
+          "mean": 0.8628,
+          "noStopRate": 0.3578
+        },
+        {
+          "index": 15,
+          "label": "Kinh doanh",
+          "type": "business",
+          "mean": 0.8684,
+          "noStopRate": 0.36
+        },
+        {
+          "index": 16,
+          "label": "Đầu tư bản thân",
+          "type": "course",
+          "mean": 0.8542,
+          "noStopRate": 0.3694
+        },
+        {
+          "index": 17,
+          "label": "Biến cố cá nhân",
+          "type": "personal",
+          "mean": 0.8484,
+          "noStopRate": 0.363
+        },
+        {
+          "index": 18,
+          "label": "Vàng",
+          "type": "gold",
+          "mean": 0.8686,
+          "noStopRate": 0.356
+        },
+        {
+          "index": 19,
+          "label": "Trái phiếu",
+          "type": "bonds",
+          "mean": 0.8472,
+          "noStopRate": 0.371
+        }
+      ],
+      "termination": {
+        "completed": 5000,
+        "insolvent": 0
+      }
+    },
+    "business-heavy": {
+      "seeds": 5000,
+      "wins": 307,
+      "winRate": 0.0614,
+      "funds": {
+        "p10": 55300000,
+        "median": 70950000,
+        "p90": 87000000,
+        "mean": 71034220.5506
+      },
+      "debt": {
+        "p10": 0,
+        "median": 0,
+        "p90": 0,
+        "mean": 0
+      },
+      "shortfall": {
+        "p10": 3000000,
+        "median": 19038590,
+        "p90": 34650000,
+        "mean": 19262566.0148
+      },
+      "shortages": 0,
+      "meanShortageAmount": 0,
+      "indebtedRate": 0,
+      "courseUptake": 0.728,
+      "business": {
+        "meanEncounters": 1.7096,
+        "repeatEncounterRate": 0.5552,
+        "noEncounterRate": 0.1254,
+        "buyRate": 0.752,
+        "upgradeRate": 0.3216,
+        "saleRate": 0.3708,
+        "meanUpgrades": 0.3868,
+        "lockedAtFinishRate": 0.3812
+      },
+      "stockBuyRate": 0,
+      "living": {
+        "mean": 1.6458,
+        "p90": 3
+      },
+      "macro": {
+        "mean": 1.7358,
+        "p90": 3
+      },
+      "meanRolls": 17.6096,
+      "meanTileVisits": {
+        "start": 0.8702,
+        "bank": 1.593,
+        "stocks": 1.6304,
+        "living": 1.6458,
+        "course": 1.681,
+        "macro": 1.7358,
+        "bonds": 1.8,
+        "personal": 1.6536,
+        "business": 1.7096,
+        "gold": 1.7144,
+        "obligation": 0.8726
+      },
+      "noEncounterRateByType": {
+        "start": 0.3558,
+        "bank": 0.156,
+        "stocks": 0.1464,
+        "living": 0.1424,
+        "course": 0.1386,
+        "macro": 0.1264,
+        "bonds": 0.1052,
+        "personal": 0.1384,
+        "business": 0.1254,
+        "gold": 0.1344,
+        "obligation": 0.3576
+      },
+      "meanStopsByTile": [
+        {
+          "index": 0,
+          "label": "Xuất phát",
+          "type": "start",
+          "mean": 0.8702,
+          "noStopRate": 0.3558
+        },
+        {
+          "index": 1,
+          "label": "Ngân hàng",
+          "type": "bank",
+          "mean": 0.7286,
+          "noStopRate": 0.4334
+        },
+        {
+          "index": 2,
+          "label": "Cổ phiếu",
+          "type": "stocks",
+          "mean": 0.7532,
+          "noStopRate": 0.4158
+        },
+        {
+          "index": 3,
+          "label": "Sinh hoạt",
+          "type": "living",
+          "mean": 0.783,
+          "noStopRate": 0.4028
+        },
+        {
+          "index": 4,
+          "label": "Đầu tư bản thân",
+          "type": "course",
+          "mean": 0.8268,
+          "noStopRate": 0.3764
+        },
+        {
+          "index": 5,
+          "label": "Kinh tế",
+          "type": "macro",
+          "mean": 0.9084,
+          "noStopRate": 0.3398
+        },
+        {
+          "index": 6,
+          "label": "Trái phiếu",
+          "type": "bonds",
+          "mean": 0.9528,
+          "noStopRate": 0.3146
+        },
+        {
+          "index": 7,
+          "label": "Biến cố cá nhân",
+          "type": "personal",
+          "mean": 0.8052,
+          "noStopRate": 0.3934
+        },
+        {
+          "index": 8,
+          "label": "Kinh doanh",
+          "type": "business",
+          "mean": 0.8412,
+          "noStopRate": 0.374
+        },
+        {
+          "index": 9,
+          "label": "Vàng",
+          "type": "gold",
+          "mean": 0.8458,
+          "noStopRate": 0.37
+        },
+        {
+          "index": 10,
+          "label": "Dòng tiền",
+          "type": "obligation",
+          "mean": 0.8726,
+          "noStopRate": 0.3576
+        },
+        {
+          "index": 11,
+          "label": "Cổ phiếu",
+          "type": "stocks",
+          "mean": 0.8772,
+          "noStopRate": 0.3546
+        },
+        {
+          "index": 12,
+          "label": "Ngân hàng",
+          "type": "bank",
+          "mean": 0.8644,
+          "noStopRate": 0.3616
+        },
+        {
+          "index": 13,
+          "label": "Kinh tế",
+          "type": "macro",
+          "mean": 0.8274,
+          "noStopRate": 0.378
+        },
+        {
+          "index": 14,
+          "label": "Sinh hoạt",
+          "type": "living",
+          "mean": 0.8628,
+          "noStopRate": 0.3578
+        },
+        {
+          "index": 15,
+          "label": "Kinh doanh",
+          "type": "business",
+          "mean": 0.8684,
+          "noStopRate": 0.36
+        },
+        {
+          "index": 16,
+          "label": "Đầu tư bản thân",
+          "type": "course",
+          "mean": 0.8542,
+          "noStopRate": 0.3694
+        },
+        {
+          "index": 17,
+          "label": "Biến cố cá nhân",
+          "type": "personal",
+          "mean": 0.8484,
+          "noStopRate": 0.363
+        },
+        {
+          "index": 18,
+          "label": "Vàng",
+          "type": "gold",
+          "mean": 0.8686,
+          "noStopRate": 0.356
+        },
+        {
+          "index": 19,
+          "label": "Trái phiếu",
+          "type": "bonds",
+          "mean": 0.8472,
+          "noStopRate": 0.371
+        }
+      ],
+      "termination": {
+        "completed": 5000,
+        "insolvent": 0
+      }
+    },
+    "diversified": {
+      "seeds": 5000,
+      "wins": 424,
+      "winRate": 0.0848,
+      "funds": {
+        "p10": 59934353,
+        "median": 75026905,
+        "p90": 89266433,
+        "mean": 74697625.4948
+      },
+      "debt": {
+        "p10": 0,
+        "median": 0,
+        "p90": 0,
+        "mean": 0
+      },
+      "shortfall": {
+        "p10": 732975,
+        "median": 14960937,
+        "p90": 30057587,
+        "mean": 15682522.303
+      },
+      "shortages": 38,
+      "meanShortageAmount": 11149.5586,
+      "indebtedRate": 0,
+      "courseUptake": 0.7246,
+      "business": {
+        "meanEncounters": 1.7096,
+        "repeatEncounterRate": 0.5552,
+        "noEncounterRate": 0.1254,
+        "buyRate": 0.5094,
+        "upgradeRate": 0.102,
+        "saleRate": 0.2498,
+        "meanUpgrades": 0.1094,
+        "lockedAtFinishRate": 0.2596
+      },
+      "stockBuyRate": 0.8506,
+      "living": {
+        "mean": 1.6458,
+        "p90": 3
+      },
+      "macro": {
+        "mean": 1.7358,
+        "p90": 3
+      },
+      "meanRolls": 17.6096,
+      "meanTileVisits": {
+        "start": 0.8702,
+        "bank": 1.593,
+        "stocks": 1.6304,
+        "living": 1.6458,
+        "course": 1.681,
+        "macro": 1.7358,
+        "bonds": 1.8,
+        "personal": 1.6536,
+        "business": 1.7096,
+        "gold": 1.7144,
+        "obligation": 0.8726
+      },
+      "noEncounterRateByType": {
+        "start": 0.3558,
+        "bank": 0.156,
+        "stocks": 0.1464,
+        "living": 0.1424,
+        "course": 0.1386,
+        "macro": 0.1264,
+        "bonds": 0.1052,
+        "personal": 0.1384,
+        "business": 0.1254,
+        "gold": 0.1344,
+        "obligation": 0.3576
+      },
+      "meanStopsByTile": [
+        {
+          "index": 0,
+          "label": "Xuất phát",
+          "type": "start",
+          "mean": 0.8702,
+          "noStopRate": 0.3558
+        },
+        {
+          "index": 1,
+          "label": "Ngân hàng",
+          "type": "bank",
+          "mean": 0.7286,
+          "noStopRate": 0.4334
+        },
+        {
+          "index": 2,
+          "label": "Cổ phiếu",
+          "type": "stocks",
+          "mean": 0.7532,
+          "noStopRate": 0.4158
+        },
+        {
+          "index": 3,
+          "label": "Sinh hoạt",
+          "type": "living",
+          "mean": 0.783,
+          "noStopRate": 0.4028
+        },
+        {
+          "index": 4,
+          "label": "Đầu tư bản thân",
+          "type": "course",
+          "mean": 0.8268,
+          "noStopRate": 0.3764
+        },
+        {
+          "index": 5,
+          "label": "Kinh tế",
+          "type": "macro",
+          "mean": 0.9084,
+          "noStopRate": 0.3398
+        },
+        {
+          "index": 6,
+          "label": "Trái phiếu",
+          "type": "bonds",
+          "mean": 0.9528,
+          "noStopRate": 0.3146
+        },
+        {
+          "index": 7,
+          "label": "Biến cố cá nhân",
+          "type": "personal",
+          "mean": 0.8052,
+          "noStopRate": 0.3934
+        },
+        {
+          "index": 8,
+          "label": "Kinh doanh",
+          "type": "business",
+          "mean": 0.8412,
+          "noStopRate": 0.374
+        },
+        {
+          "index": 9,
+          "label": "Vàng",
+          "type": "gold",
+          "mean": 0.8458,
+          "noStopRate": 0.37
+        },
+        {
+          "index": 10,
+          "label": "Dòng tiền",
+          "type": "obligation",
+          "mean": 0.8726,
+          "noStopRate": 0.3576
+        },
+        {
+          "index": 11,
+          "label": "Cổ phiếu",
+          "type": "stocks",
+          "mean": 0.8772,
+          "noStopRate": 0.3546
+        },
+        {
+          "index": 12,
+          "label": "Ngân hàng",
+          "type": "bank",
+          "mean": 0.8644,
+          "noStopRate": 0.3616
+        },
+        {
+          "index": 13,
+          "label": "Kinh tế",
+          "type": "macro",
+          "mean": 0.8274,
+          "noStopRate": 0.378
+        },
+        {
+          "index": 14,
+          "label": "Sinh hoạt",
+          "type": "living",
+          "mean": 0.8628,
+          "noStopRate": 0.3578
+        },
+        {
+          "index": 15,
+          "label": "Kinh doanh",
+          "type": "business",
+          "mean": 0.8684,
+          "noStopRate": 0.36
+        },
+        {
+          "index": 16,
+          "label": "Đầu tư bản thân",
+          "type": "course",
+          "mean": 0.8542,
+          "noStopRate": 0.3694
+        },
+        {
+          "index": 17,
+          "label": "Biến cố cá nhân",
+          "type": "personal",
+          "mean": 0.8484,
+          "noStopRate": 0.363
+        },
+        {
+          "index": 18,
+          "label": "Vàng",
+          "type": "gold",
+          "mean": 0.8686,
+          "noStopRate": 0.356
+        },
+        {
+          "index": 19,
+          "label": "Trái phiếu",
+          "type": "bonds",
+          "mean": 0.8472,
+          "noStopRate": 0.371
+        }
+      ],
+      "termination": {
+        "completed": 5000,
+        "insolvent": 0
+      }
+    }
+  },
+  "sensitivity": [
+    {
+      "id": "business-income-half",
+      "config": {
+        "cost": 20000000,
+        "baseIncome": 1500000,
+        "upgradeCost": 5000000,
+        "baseUplift": 350000,
+        "matchingBonus": 500000,
+        "maxUpgrades": 6,
+        "capitalRecovery": 0.7,
+        "upgradeRecovery": 0.5,
+        "depreciation": 0.08,
+        "trendIncome": {
+          "growth": 1.25,
+          "uncertain": 0.75,
+          "recovery": 1.1
+        },
+        "trendWeights": {
+          "growth": 1,
+          "uncertain": 1,
+          "recovery": 1
+        },
+        "minimumEconomicMultiplier": 0.3,
+        "maximumEconomicMultiplier": 1.8,
+        "economicIncomeImpact": 2000000
+      },
+      "results": {
+        "business-heavy": {
+          "seeds": 5000,
+          "wins": 182,
+          "winRate": 0.0364,
+          "funds": {
+            "p10": 51150000,
+            "median": 68525000,
+            "p90": 84572257,
+            "mean": 68052253.5684
+          },
+          "debt": {
+            "p10": 0,
+            "median": 0,
+            "p90": 0,
+            "mean": 0
+          },
+          "shortfall": {
+            "p10": 5418020,
+            "median": 21473911,
+            "p90": 38842878,
+            "mean": 22099463.1422
+          },
+          "shortages": 0,
+          "meanShortageAmount": 0,
+          "indebtedRate": 0,
+          "courseUptake": 0.728,
+          "business": {
+            "meanEncounters": 1.7096,
+            "repeatEncounterRate": 0.5552,
+            "noEncounterRate": 0.1254,
+            "buyRate": 0.752,
+            "upgradeRate": 0.3214,
+            "saleRate": 0.3708,
+            "meanUpgrades": 0.3864,
+            "lockedAtFinishRate": 0.3812
+          },
+          "stockBuyRate": 0,
+          "living": {
+            "mean": 1.6458,
+            "p90": 3
+          },
+          "macro": {
+            "mean": 1.7358,
+            "p90": 3
+          },
+          "meanRolls": 17.6096,
+          "meanTileVisits": {
+            "start": 0.8702,
+            "bank": 1.593,
+            "stocks": 1.6304,
+            "living": 1.6458,
+            "course": 1.681,
+            "macro": 1.7358,
+            "bonds": 1.8,
+            "personal": 1.6536,
+            "business": 1.7096,
+            "gold": 1.7144,
+            "obligation": 0.8726
+          },
+          "noEncounterRateByType": {
+            "start": 0.3558,
+            "bank": 0.156,
+            "stocks": 0.1464,
+            "living": 0.1424,
+            "course": 0.1386,
+            "macro": 0.1264,
+            "bonds": 0.1052,
+            "personal": 0.1384,
+            "business": 0.1254,
+            "gold": 0.1344,
+            "obligation": 0.3576
+          },
+          "meanStopsByTile": [
+            {
+              "index": 0,
+              "label": "Xuất phát",
+              "type": "start",
+              "mean": 0.8702,
+              "noStopRate": 0.3558
+            },
+            {
+              "index": 1,
+              "label": "Ngân hàng",
+              "type": "bank",
+              "mean": 0.7286,
+              "noStopRate": 0.4334
+            },
+            {
+              "index": 2,
+              "label": "Cổ phiếu",
+              "type": "stocks",
+              "mean": 0.7532,
+              "noStopRate": 0.4158
+            },
+            {
+              "index": 3,
+              "label": "Sinh hoạt",
+              "type": "living",
+              "mean": 0.783,
+              "noStopRate": 0.4028
+            },
+            {
+              "index": 4,
+              "label": "Đầu tư bản thân",
+              "type": "course",
+              "mean": 0.8268,
+              "noStopRate": 0.3764
+            },
+            {
+              "index": 5,
+              "label": "Kinh tế",
+              "type": "macro",
+              "mean": 0.9084,
+              "noStopRate": 0.3398
+            },
+            {
+              "index": 6,
+              "label": "Trái phiếu",
+              "type": "bonds",
+              "mean": 0.9528,
+              "noStopRate": 0.3146
+            },
+            {
+              "index": 7,
+              "label": "Biến cố cá nhân",
+              "type": "personal",
+              "mean": 0.8052,
+              "noStopRate": 0.3934
+            },
+            {
+              "index": 8,
+              "label": "Kinh doanh",
+              "type": "business",
+              "mean": 0.8412,
+              "noStopRate": 0.374
+            },
+            {
+              "index": 9,
+              "label": "Vàng",
+              "type": "gold",
+              "mean": 0.8458,
+              "noStopRate": 0.37
+            },
+            {
+              "index": 10,
+              "label": "Dòng tiền",
+              "type": "obligation",
+              "mean": 0.8726,
+              "noStopRate": 0.3576
+            },
+            {
+              "index": 11,
+              "label": "Cổ phiếu",
+              "type": "stocks",
+              "mean": 0.8772,
+              "noStopRate": 0.3546
+            },
+            {
+              "index": 12,
+              "label": "Ngân hàng",
+              "type": "bank",
+              "mean": 0.8644,
+              "noStopRate": 0.3616
+            },
+            {
+              "index": 13,
+              "label": "Kinh tế",
+              "type": "macro",
+              "mean": 0.8274,
+              "noStopRate": 0.378
+            },
+            {
+              "index": 14,
+              "label": "Sinh hoạt",
+              "type": "living",
+              "mean": 0.8628,
+              "noStopRate": 0.3578
+            },
+            {
+              "index": 15,
+              "label": "Kinh doanh",
+              "type": "business",
+              "mean": 0.8684,
+              "noStopRate": 0.36
+            },
+            {
+              "index": 16,
+              "label": "Đầu tư bản thân",
+              "type": "course",
+              "mean": 0.8542,
+              "noStopRate": 0.3694
+            },
+            {
+              "index": 17,
+              "label": "Biến cố cá nhân",
+              "type": "personal",
+              "mean": 0.8484,
+              "noStopRate": 0.363
+            },
+            {
+              "index": 18,
+              "label": "Vàng",
+              "type": "gold",
+              "mean": 0.8686,
+              "noStopRate": 0.356
+            },
+            {
+              "index": 19,
+              "label": "Trái phiếu",
+              "type": "bonds",
+              "mean": 0.8472,
+              "noStopRate": 0.371
+            }
+          ],
+          "termination": {
+            "completed": 5000,
+            "insolvent": 0
+          }
+        },
+        "diversified": {
+          "seeds": 5000,
+          "wins": 353,
+          "winRate": 0.0706,
+          "funds": {
+            "p10": 57390942,
+            "median": 73740234,
+            "p90": 88357165,
+            "mean": 73177505.5546
+          },
+          "debt": {
+            "p10": 0,
+            "median": 0,
+            "p90": 0,
+            "mean": 0
+          },
+          "shortfall": {
+            "p10": 1638075,
+            "median": 16254071,
+            "p90": 32563291,
+            "mean": 17104597.8888
+          },
+          "shortages": 38,
+          "meanShortageAmount": 11149.5586,
+          "indebtedRate": 0,
+          "courseUptake": 0.7246,
+          "business": {
+            "meanEncounters": 1.7096,
+            "repeatEncounterRate": 0.5552,
+            "noEncounterRate": 0.1254,
+            "buyRate": 0.5094,
+            "upgradeRate": 0.1016,
+            "saleRate": 0.2498,
+            "meanUpgrades": 0.1084,
+            "lockedAtFinishRate": 0.2596
+          },
+          "stockBuyRate": 0.8506,
+          "living": {
+            "mean": 1.6458,
+            "p90": 3
+          },
+          "macro": {
+            "mean": 1.7358,
+            "p90": 3
+          },
+          "meanRolls": 17.6096,
+          "meanTileVisits": {
+            "start": 0.8702,
+            "bank": 1.593,
+            "stocks": 1.6304,
+            "living": 1.6458,
+            "course": 1.681,
+            "macro": 1.7358,
+            "bonds": 1.8,
+            "personal": 1.6536,
+            "business": 1.7096,
+            "gold": 1.7144,
+            "obligation": 0.8726
+          },
+          "noEncounterRateByType": {
+            "start": 0.3558,
+            "bank": 0.156,
+            "stocks": 0.1464,
+            "living": 0.1424,
+            "course": 0.1386,
+            "macro": 0.1264,
+            "bonds": 0.1052,
+            "personal": 0.1384,
+            "business": 0.1254,
+            "gold": 0.1344,
+            "obligation": 0.3576
+          },
+          "meanStopsByTile": [
+            {
+              "index": 0,
+              "label": "Xuất phát",
+              "type": "start",
+              "mean": 0.8702,
+              "noStopRate": 0.3558
+            },
+            {
+              "index": 1,
+              "label": "Ngân hàng",
+              "type": "bank",
+              "mean": 0.7286,
+              "noStopRate": 0.4334
+            },
+            {
+              "index": 2,
+              "label": "Cổ phiếu",
+              "type": "stocks",
+              "mean": 0.7532,
+              "noStopRate": 0.4158
+            },
+            {
+              "index": 3,
+              "label": "Sinh hoạt",
+              "type": "living",
+              "mean": 0.783,
+              "noStopRate": 0.4028
+            },
+            {
+              "index": 4,
+              "label": "Đầu tư bản thân",
+              "type": "course",
+              "mean": 0.8268,
+              "noStopRate": 0.3764
+            },
+            {
+              "index": 5,
+              "label": "Kinh tế",
+              "type": "macro",
+              "mean": 0.9084,
+              "noStopRate": 0.3398
+            },
+            {
+              "index": 6,
+              "label": "Trái phiếu",
+              "type": "bonds",
+              "mean": 0.9528,
+              "noStopRate": 0.3146
+            },
+            {
+              "index": 7,
+              "label": "Biến cố cá nhân",
+              "type": "personal",
+              "mean": 0.8052,
+              "noStopRate": 0.3934
+            },
+            {
+              "index": 8,
+              "label": "Kinh doanh",
+              "type": "business",
+              "mean": 0.8412,
+              "noStopRate": 0.374
+            },
+            {
+              "index": 9,
+              "label": "Vàng",
+              "type": "gold",
+              "mean": 0.8458,
+              "noStopRate": 0.37
+            },
+            {
+              "index": 10,
+              "label": "Dòng tiền",
+              "type": "obligation",
+              "mean": 0.8726,
+              "noStopRate": 0.3576
+            },
+            {
+              "index": 11,
+              "label": "Cổ phiếu",
+              "type": "stocks",
+              "mean": 0.8772,
+              "noStopRate": 0.3546
+            },
+            {
+              "index": 12,
+              "label": "Ngân hàng",
+              "type": "bank",
+              "mean": 0.8644,
+              "noStopRate": 0.3616
+            },
+            {
+              "index": 13,
+              "label": "Kinh tế",
+              "type": "macro",
+              "mean": 0.8274,
+              "noStopRate": 0.378
+            },
+            {
+              "index": 14,
+              "label": "Sinh hoạt",
+              "type": "living",
+              "mean": 0.8628,
+              "noStopRate": 0.3578
+            },
+            {
+              "index": 15,
+              "label": "Kinh doanh",
+              "type": "business",
+              "mean": 0.8684,
+              "noStopRate": 0.36
+            },
+            {
+              "index": 16,
+              "label": "Đầu tư bản thân",
+              "type": "course",
+              "mean": 0.8542,
+              "noStopRate": 0.3694
+            },
+            {
+              "index": 17,
+              "label": "Biến cố cá nhân",
+              "type": "personal",
+              "mean": 0.8484,
+              "noStopRate": 0.363
+            },
+            {
+              "index": 18,
+              "label": "Vàng",
+              "type": "gold",
+              "mean": 0.8686,
+              "noStopRate": 0.356
+            },
+            {
+              "index": 19,
+              "label": "Trái phiếu",
+              "type": "bonds",
+              "mean": 0.8472,
+              "noStopRate": 0.371
+            }
+          ],
+          "termination": {
+            "completed": 5000,
+            "insolvent": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "business-upgrade-cost-8M",
+      "config": {
+        "cost": 20000000,
+        "baseIncome": 3000000,
+        "upgradeCost": 8000000,
+        "baseUplift": 700000,
+        "matchingBonus": 1000000,
+        "maxUpgrades": 6,
+        "capitalRecovery": 0.7,
+        "upgradeRecovery": 0.5,
+        "depreciation": 0.08,
+        "trendIncome": {
+          "growth": 1.25,
+          "uncertain": 0.75,
+          "recovery": 1.1
+        },
+        "trendWeights": {
+          "growth": 1,
+          "uncertain": 1,
+          "recovery": 1
+        },
+        "minimumEconomicMultiplier": 0.3,
+        "maximumEconomicMultiplier": 1.8,
+        "economicIncomeImpact": 2000000
+      },
+      "results": {
+        "business-heavy": {
+          "seeds": 5000,
+          "wins": 279,
+          "winRate": 0.0558,
+          "funds": {
+            "p10": 53950000,
+            "median": 70137132,
+            "p90": 86359561,
+            "mean": 70236777.8398
+          },
+          "debt": {
+            "p10": 0,
+            "median": 0,
+            "p90": 0,
+            "mean": 0
+          },
+          "shortfall": {
+            "p10": 3552743,
+            "median": 19850000,
+            "p90": 36050000,
+            "mean": 20028618.561
+          },
+          "shortages": 1,
+          "meanShortageAmount": 270,
+          "indebtedRate": 0,
+          "courseUptake": 0.728,
+          "business": {
+            "meanEncounters": 1.7096,
+            "repeatEncounterRate": 0.5552,
+            "noEncounterRate": 0.1254,
+            "buyRate": 0.752,
+            "upgradeRate": 0.3136,
+            "saleRate": 0.3708,
+            "meanUpgrades": 0.373,
+            "lockedAtFinishRate": 0.3812
+          },
+          "stockBuyRate": 0,
+          "living": {
+            "mean": 1.6458,
+            "p90": 3
+          },
+          "macro": {
+            "mean": 1.7358,
+            "p90": 3
+          },
+          "meanRolls": 17.6096,
+          "meanTileVisits": {
+            "start": 0.8702,
+            "bank": 1.593,
+            "stocks": 1.6304,
+            "living": 1.6458,
+            "course": 1.681,
+            "macro": 1.7358,
+            "bonds": 1.8,
+            "personal": 1.6536,
+            "business": 1.7096,
+            "gold": 1.7144,
+            "obligation": 0.8726
+          },
+          "noEncounterRateByType": {
+            "start": 0.3558,
+            "bank": 0.156,
+            "stocks": 0.1464,
+            "living": 0.1424,
+            "course": 0.1386,
+            "macro": 0.1264,
+            "bonds": 0.1052,
+            "personal": 0.1384,
+            "business": 0.1254,
+            "gold": 0.1344,
+            "obligation": 0.3576
+          },
+          "meanStopsByTile": [
+            {
+              "index": 0,
+              "label": "Xuất phát",
+              "type": "start",
+              "mean": 0.8702,
+              "noStopRate": 0.3558
+            },
+            {
+              "index": 1,
+              "label": "Ngân hàng",
+              "type": "bank",
+              "mean": 0.7286,
+              "noStopRate": 0.4334
+            },
+            {
+              "index": 2,
+              "label": "Cổ phiếu",
+              "type": "stocks",
+              "mean": 0.7532,
+              "noStopRate": 0.4158
+            },
+            {
+              "index": 3,
+              "label": "Sinh hoạt",
+              "type": "living",
+              "mean": 0.783,
+              "noStopRate": 0.4028
+            },
+            {
+              "index": 4,
+              "label": "Đầu tư bản thân",
+              "type": "course",
+              "mean": 0.8268,
+              "noStopRate": 0.3764
+            },
+            {
+              "index": 5,
+              "label": "Kinh tế",
+              "type": "macro",
+              "mean": 0.9084,
+              "noStopRate": 0.3398
+            },
+            {
+              "index": 6,
+              "label": "Trái phiếu",
+              "type": "bonds",
+              "mean": 0.9528,
+              "noStopRate": 0.3146
+            },
+            {
+              "index": 7,
+              "label": "Biến cố cá nhân",
+              "type": "personal",
+              "mean": 0.8052,
+              "noStopRate": 0.3934
+            },
+            {
+              "index": 8,
+              "label": "Kinh doanh",
+              "type": "business",
+              "mean": 0.8412,
+              "noStopRate": 0.374
+            },
+            {
+              "index": 9,
+              "label": "Vàng",
+              "type": "gold",
+              "mean": 0.8458,
+              "noStopRate": 0.37
+            },
+            {
+              "index": 10,
+              "label": "Dòng tiền",
+              "type": "obligation",
+              "mean": 0.8726,
+              "noStopRate": 0.3576
+            },
+            {
+              "index": 11,
+              "label": "Cổ phiếu",
+              "type": "stocks",
+              "mean": 0.8772,
+              "noStopRate": 0.3546
+            },
+            {
+              "index": 12,
+              "label": "Ngân hàng",
+              "type": "bank",
+              "mean": 0.8644,
+              "noStopRate": 0.3616
+            },
+            {
+              "index": 13,
+              "label": "Kinh tế",
+              "type": "macro",
+              "mean": 0.8274,
+              "noStopRate": 0.378
+            },
+            {
+              "index": 14,
+              "label": "Sinh hoạt",
+              "type": "living",
+              "mean": 0.8628,
+              "noStopRate": 0.3578
+            },
+            {
+              "index": 15,
+              "label": "Kinh doanh",
+              "type": "business",
+              "mean": 0.8684,
+              "noStopRate": 0.36
+            },
+            {
+              "index": 16,
+              "label": "Đầu tư bản thân",
+              "type": "course",
+              "mean": 0.8542,
+              "noStopRate": 0.3694
+            },
+            {
+              "index": 17,
+              "label": "Biến cố cá nhân",
+              "type": "personal",
+              "mean": 0.8484,
+              "noStopRate": 0.363
+            },
+            {
+              "index": 18,
+              "label": "Vàng",
+              "type": "gold",
+              "mean": 0.8686,
+              "noStopRate": 0.356
+            },
+            {
+              "index": 19,
+              "label": "Trái phiếu",
+              "type": "bonds",
+              "mean": 0.8472,
+              "noStopRate": 0.371
+            }
+          ],
+          "termination": {
+            "completed": 5000,
+            "insolvent": 0
+          }
+        },
+        "diversified": {
+          "seeds": 5000,
+          "wins": 415,
+          "winRate": 0.083,
+          "funds": {
+            "p10": 59627329,
+            "median": 74858295,
+            "p90": 89076642,
+            "mean": 74502157.6012
+          },
+          "debt": {
+            "p10": 0,
+            "median": 0,
+            "p90": 0,
+            "mean": 0
+          },
+          "shortfall": {
+            "p10": 873336,
+            "median": 15141123,
+            "p90": 30341280,
+            "mean": 15863940.4798
+          },
+          "shortages": 38,
+          "meanShortageAmount": 11149.5586,
+          "indebtedRate": 0,
+          "courseUptake": 0.7246,
+          "business": {
+            "meanEncounters": 1.7096,
+            "repeatEncounterRate": 0.5552,
+            "noEncounterRate": 0.1254,
+            "buyRate": 0.5094,
+            "upgradeRate": 0.0902,
+            "saleRate": 0.2498,
+            "meanUpgrades": 0.096,
+            "lockedAtFinishRate": 0.2596
+          },
+          "stockBuyRate": 0.8506,
+          "living": {
+            "mean": 1.6458,
+            "p90": 3
+          },
+          "macro": {
+            "mean": 1.7358,
+            "p90": 3
+          },
+          "meanRolls": 17.6096,
+          "meanTileVisits": {
+            "start": 0.8702,
+            "bank": 1.593,
+            "stocks": 1.6304,
+            "living": 1.6458,
+            "course": 1.681,
+            "macro": 1.7358,
+            "bonds": 1.8,
+            "personal": 1.6536,
+            "business": 1.7096,
+            "gold": 1.7144,
+            "obligation": 0.8726
+          },
+          "noEncounterRateByType": {
+            "start": 0.3558,
+            "bank": 0.156,
+            "stocks": 0.1464,
+            "living": 0.1424,
+            "course": 0.1386,
+            "macro": 0.1264,
+            "bonds": 0.1052,
+            "personal": 0.1384,
+            "business": 0.1254,
+            "gold": 0.1344,
+            "obligation": 0.3576
+          },
+          "meanStopsByTile": [
+            {
+              "index": 0,
+              "label": "Xuất phát",
+              "type": "start",
+              "mean": 0.8702,
+              "noStopRate": 0.3558
+            },
+            {
+              "index": 1,
+              "label": "Ngân hàng",
+              "type": "bank",
+              "mean": 0.7286,
+              "noStopRate": 0.4334
+            },
+            {
+              "index": 2,
+              "label": "Cổ phiếu",
+              "type": "stocks",
+              "mean": 0.7532,
+              "noStopRate": 0.4158
+            },
+            {
+              "index": 3,
+              "label": "Sinh hoạt",
+              "type": "living",
+              "mean": 0.783,
+              "noStopRate": 0.4028
+            },
+            {
+              "index": 4,
+              "label": "Đầu tư bản thân",
+              "type": "course",
+              "mean": 0.8268,
+              "noStopRate": 0.3764
+            },
+            {
+              "index": 5,
+              "label": "Kinh tế",
+              "type": "macro",
+              "mean": 0.9084,
+              "noStopRate": 0.3398
+            },
+            {
+              "index": 6,
+              "label": "Trái phiếu",
+              "type": "bonds",
+              "mean": 0.9528,
+              "noStopRate": 0.3146
+            },
+            {
+              "index": 7,
+              "label": "Biến cố cá nhân",
+              "type": "personal",
+              "mean": 0.8052,
+              "noStopRate": 0.3934
+            },
+            {
+              "index": 8,
+              "label": "Kinh doanh",
+              "type": "business",
+              "mean": 0.8412,
+              "noStopRate": 0.374
+            },
+            {
+              "index": 9,
+              "label": "Vàng",
+              "type": "gold",
+              "mean": 0.8458,
+              "noStopRate": 0.37
+            },
+            {
+              "index": 10,
+              "label": "Dòng tiền",
+              "type": "obligation",
+              "mean": 0.8726,
+              "noStopRate": 0.3576
+            },
+            {
+              "index": 11,
+              "label": "Cổ phiếu",
+              "type": "stocks",
+              "mean": 0.8772,
+              "noStopRate": 0.3546
+            },
+            {
+              "index": 12,
+              "label": "Ngân hàng",
+              "type": "bank",
+              "mean": 0.8644,
+              "noStopRate": 0.3616
+            },
+            {
+              "index": 13,
+              "label": "Kinh tế",
+              "type": "macro",
+              "mean": 0.8274,
+              "noStopRate": 0.378
+            },
+            {
+              "index": 14,
+              "label": "Sinh hoạt",
+              "type": "living",
+              "mean": 0.8628,
+              "noStopRate": 0.3578
+            },
+            {
+              "index": 15,
+              "label": "Kinh doanh",
+              "type": "business",
+              "mean": 0.8684,
+              "noStopRate": 0.36
+            },
+            {
+              "index": 16,
+              "label": "Đầu tư bản thân",
+              "type": "course",
+              "mean": 0.8542,
+              "noStopRate": 0.3694
+            },
+            {
+              "index": 17,
+              "label": "Biến cố cá nhân",
+              "type": "personal",
+              "mean": 0.8484,
+              "noStopRate": 0.363
+            },
+            {
+              "index": 18,
+              "label": "Vàng",
+              "type": "gold",
+              "mean": 0.8686,
+              "noStopRate": 0.356
+            },
+            {
+              "index": 19,
+              "label": "Trái phiếu",
+              "type": "bonds",
+              "mean": 0.8472,
+              "noStopRate": 0.371
+            }
+          ],
+          "termination": {
+            "completed": 5000,
+            "insolvent": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "business-recovery-40pct",
+      "config": {
+        "cost": 20000000,
+        "baseIncome": 3000000,
+        "upgradeCost": 5000000,
+        "baseUplift": 700000,
+        "matchingBonus": 1000000,
+        "maxUpgrades": 6,
+        "capitalRecovery": 0.4,
+        "upgradeRecovery": 0.3,
+        "depreciation": 0.08,
+        "trendIncome": {
+          "growth": 1.25,
+          "uncertain": 0.75,
+          "recovery": 1.1
+        },
+        "trendWeights": {
+          "growth": 1,
+          "uncertain": 1,
+          "recovery": 1
+        },
+        "minimumEconomicMultiplier": 0.3,
+        "maximumEconomicMultiplier": 1.8,
+        "economicIncomeImpact": 2000000
+      },
+      "results": {
+        "business-heavy": {
+          "seeds": 5000,
+          "wins": 77,
+          "winRate": 0.0154,
+          "funds": {
+            "p10": 54050000,
+            "median": 68354723,
+            "p90": 81434148,
+            "mean": 67987750.0114
+          },
+          "debt": {
+            "p10": 0,
+            "median": 0,
+            "p90": 0,
+            "mean": 0
+          },
+          "shortfall": {
+            "p10": 8564386,
+            "median": 21635596,
+            "p90": 35907387,
+            "mean": 22045674.9112
+          },
+          "shortages": 0,
+          "meanShortageAmount": 0,
+          "indebtedRate": 0,
+          "courseUptake": 0.728,
+          "business": {
+            "meanEncounters": 1.7096,
+            "repeatEncounterRate": 0.5552,
+            "noEncounterRate": 0.1254,
+            "buyRate": 0.752,
+            "upgradeRate": 0.3216,
+            "saleRate": 0.3708,
+            "meanUpgrades": 0.3868,
+            "lockedAtFinishRate": 0.3812
+          },
+          "stockBuyRate": 0,
+          "living": {
+            "mean": 1.6458,
+            "p90": 3
+          },
+          "macro": {
+            "mean": 1.7358,
+            "p90": 3
+          },
+          "meanRolls": 17.6096,
+          "meanTileVisits": {
+            "start": 0.8702,
+            "bank": 1.593,
+            "stocks": 1.6304,
+            "living": 1.6458,
+            "course": 1.681,
+            "macro": 1.7358,
+            "bonds": 1.8,
+            "personal": 1.6536,
+            "business": 1.7096,
+            "gold": 1.7144,
+            "obligation": 0.8726
+          },
+          "noEncounterRateByType": {
+            "start": 0.3558,
+            "bank": 0.156,
+            "stocks": 0.1464,
+            "living": 0.1424,
+            "course": 0.1386,
+            "macro": 0.1264,
+            "bonds": 0.1052,
+            "personal": 0.1384,
+            "business": 0.1254,
+            "gold": 0.1344,
+            "obligation": 0.3576
+          },
+          "meanStopsByTile": [
+            {
+              "index": 0,
+              "label": "Xuất phát",
+              "type": "start",
+              "mean": 0.8702,
+              "noStopRate": 0.3558
+            },
+            {
+              "index": 1,
+              "label": "Ngân hàng",
+              "type": "bank",
+              "mean": 0.7286,
+              "noStopRate": 0.4334
+            },
+            {
+              "index": 2,
+              "label": "Cổ phiếu",
+              "type": "stocks",
+              "mean": 0.7532,
+              "noStopRate": 0.4158
+            },
+            {
+              "index": 3,
+              "label": "Sinh hoạt",
+              "type": "living",
+              "mean": 0.783,
+              "noStopRate": 0.4028
+            },
+            {
+              "index": 4,
+              "label": "Đầu tư bản thân",
+              "type": "course",
+              "mean": 0.8268,
+              "noStopRate": 0.3764
+            },
+            {
+              "index": 5,
+              "label": "Kinh tế",
+              "type": "macro",
+              "mean": 0.9084,
+              "noStopRate": 0.3398
+            },
+            {
+              "index": 6,
+              "label": "Trái phiếu",
+              "type": "bonds",
+              "mean": 0.9528,
+              "noStopRate": 0.3146
+            },
+            {
+              "index": 7,
+              "label": "Biến cố cá nhân",
+              "type": "personal",
+              "mean": 0.8052,
+              "noStopRate": 0.3934
+            },
+            {
+              "index": 8,
+              "label": "Kinh doanh",
+              "type": "business",
+              "mean": 0.8412,
+              "noStopRate": 0.374
+            },
+            {
+              "index": 9,
+              "label": "Vàng",
+              "type": "gold",
+              "mean": 0.8458,
+              "noStopRate": 0.37
+            },
+            {
+              "index": 10,
+              "label": "Dòng tiền",
+              "type": "obligation",
+              "mean": 0.8726,
+              "noStopRate": 0.3576
+            },
+            {
+              "index": 11,
+              "label": "Cổ phiếu",
+              "type": "stocks",
+              "mean": 0.8772,
+              "noStopRate": 0.3546
+            },
+            {
+              "index": 12,
+              "label": "Ngân hàng",
+              "type": "bank",
+              "mean": 0.8644,
+              "noStopRate": 0.3616
+            },
+            {
+              "index": 13,
+              "label": "Kinh tế",
+              "type": "macro",
+              "mean": 0.8274,
+              "noStopRate": 0.378
+            },
+            {
+              "index": 14,
+              "label": "Sinh hoạt",
+              "type": "living",
+              "mean": 0.8628,
+              "noStopRate": 0.3578
+            },
+            {
+              "index": 15,
+              "label": "Kinh doanh",
+              "type": "business",
+              "mean": 0.8684,
+              "noStopRate": 0.36
+            },
+            {
+              "index": 16,
+              "label": "Đầu tư bản thân",
+              "type": "course",
+              "mean": 0.8542,
+              "noStopRate": 0.3694
+            },
+            {
+              "index": 17,
+              "label": "Biến cố cá nhân",
+              "type": "personal",
+              "mean": 0.8484,
+              "noStopRate": 0.363
+            },
+            {
+              "index": 18,
+              "label": "Vàng",
+              "type": "gold",
+              "mean": 0.8686,
+              "noStopRate": 0.356
+            },
+            {
+              "index": 19,
+              "label": "Trái phiếu",
+              "type": "bonds",
+              "mean": 0.8472,
+              "noStopRate": 0.371
+            }
+          ],
+          "termination": {
+            "completed": 5000,
+            "insolvent": 0
+          }
+        },
+        "diversified": {
+          "seeds": 5000,
+          "wins": 246,
+          "winRate": 0.0492,
+          "funds": {
+            "p10": 58831247,
+            "median": 73084954,
+            "p90": 86801807,
+            "mean": 72839255.82
+          },
+          "debt": {
+            "p10": 0,
+            "median": 0,
+            "p90": 0,
+            "mean": 0
+          },
+          "shortfall": {
+            "p10": 3169701,
+            "median": 16899229,
+            "p90": 31160837,
+            "mean": 17332459.1866
+          },
+          "shortages": 38,
+          "meanShortageAmount": 11149.5586,
+          "indebtedRate": 0,
+          "courseUptake": 0.7246,
+          "business": {
+            "meanEncounters": 1.7096,
+            "repeatEncounterRate": 0.5552,
+            "noEncounterRate": 0.1254,
+            "buyRate": 0.5094,
+            "upgradeRate": 0.102,
+            "saleRate": 0.2498,
+            "meanUpgrades": 0.1094,
+            "lockedAtFinishRate": 0.2596
+          },
+          "stockBuyRate": 0.8506,
+          "living": {
+            "mean": 1.6458,
+            "p90": 3
+          },
+          "macro": {
+            "mean": 1.7358,
+            "p90": 3
+          },
+          "meanRolls": 17.6096,
+          "meanTileVisits": {
+            "start": 0.8702,
+            "bank": 1.593,
+            "stocks": 1.6304,
+            "living": 1.6458,
+            "course": 1.681,
+            "macro": 1.7358,
+            "bonds": 1.8,
+            "personal": 1.6536,
+            "business": 1.7096,
+            "gold": 1.7144,
+            "obligation": 0.8726
+          },
+          "noEncounterRateByType": {
+            "start": 0.3558,
+            "bank": 0.156,
+            "stocks": 0.1464,
+            "living": 0.1424,
+            "course": 0.1386,
+            "macro": 0.1264,
+            "bonds": 0.1052,
+            "personal": 0.1384,
+            "business": 0.1254,
+            "gold": 0.1344,
+            "obligation": 0.3576
+          },
+          "meanStopsByTile": [
+            {
+              "index": 0,
+              "label": "Xuất phát",
+              "type": "start",
+              "mean": 0.8702,
+              "noStopRate": 0.3558
+            },
+            {
+              "index": 1,
+              "label": "Ngân hàng",
+              "type": "bank",
+              "mean": 0.7286,
+              "noStopRate": 0.4334
+            },
+            {
+              "index": 2,
+              "label": "Cổ phiếu",
+              "type": "stocks",
+              "mean": 0.7532,
+              "noStopRate": 0.4158
+            },
+            {
+              "index": 3,
+              "label": "Sinh hoạt",
+              "type": "living",
+              "mean": 0.783,
+              "noStopRate": 0.4028
+            },
+            {
+              "index": 4,
+              "label": "Đầu tư bản thân",
+              "type": "course",
+              "mean": 0.8268,
+              "noStopRate": 0.3764
+            },
+            {
+              "index": 5,
+              "label": "Kinh tế",
+              "type": "macro",
+              "mean": 0.9084,
+              "noStopRate": 0.3398
+            },
+            {
+              "index": 6,
+              "label": "Trái phiếu",
+              "type": "bonds",
+              "mean": 0.9528,
+              "noStopRate": 0.3146
+            },
+            {
+              "index": 7,
+              "label": "Biến cố cá nhân",
+              "type": "personal",
+              "mean": 0.8052,
+              "noStopRate": 0.3934
+            },
+            {
+              "index": 8,
+              "label": "Kinh doanh",
+              "type": "business",
+              "mean": 0.8412,
+              "noStopRate": 0.374
+            },
+            {
+              "index": 9,
+              "label": "Vàng",
+              "type": "gold",
+              "mean": 0.8458,
+              "noStopRate": 0.37
+            },
+            {
+              "index": 10,
+              "label": "Dòng tiền",
+              "type": "obligation",
+              "mean": 0.8726,
+              "noStopRate": 0.3576
+            },
+            {
+              "index": 11,
+              "label": "Cổ phiếu",
+              "type": "stocks",
+              "mean": 0.8772,
+              "noStopRate": 0.3546
+            },
+            {
+              "index": 12,
+              "label": "Ngân hàng",
+              "type": "bank",
+              "mean": 0.8644,
+              "noStopRate": 0.3616
+            },
+            {
+              "index": 13,
+              "label": "Kinh tế",
+              "type": "macro",
+              "mean": 0.8274,
+              "noStopRate": 0.378
+            },
+            {
+              "index": 14,
+              "label": "Sinh hoạt",
+              "type": "living",
+              "mean": 0.8628,
+              "noStopRate": 0.3578
+            },
+            {
+              "index": 15,
+              "label": "Kinh doanh",
+              "type": "business",
+              "mean": 0.8684,
+              "noStopRate": 0.36
+            },
+            {
+              "index": 16,
+              "label": "Đầu tư bản thân",
+              "type": "course",
+              "mean": 0.8542,
+              "noStopRate": 0.3694
+            },
+            {
+              "index": 17,
+              "label": "Biến cố cá nhân",
+              "type": "personal",
+              "mean": 0.8484,
+              "noStopRate": 0.363
+            },
+            {
+              "index": 18,
+              "label": "Vàng",
+              "type": "gold",
+              "mean": 0.8686,
+              "noStopRate": 0.356
+            },
+            {
+              "index": 19,
+              "label": "Trái phiếu",
+              "type": "bonds",
+              "mean": 0.8472,
+              "noStopRate": 0.371
+            }
+          ],
+          "termination": {
+            "completed": 5000,
+            "insolvent": 0
+          }
+        }
+      }
+    }
+  ]
+}

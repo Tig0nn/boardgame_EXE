@@ -1,0 +1,528 @@
+[
+  {
+    "file": "original-log.json",
+    "mode": {
+      "id": "original",
+      "boardLayout": "A20",
+      "totalLaps": 3
+    },
+    "seed": "SAIGON-2026",
+    "diceRolls": 17,
+    "tileEncounters": [
+      {
+        "turn": 1,
+        "lap": 1,
+        "tile": 3,
+        "eventId": "stocks"
+      },
+      {
+        "turn": 2,
+        "lap": 1,
+        "tile": 5,
+        "eventId": "course"
+      },
+      {
+        "turn": 3,
+        "lap": 1,
+        "tile": 9,
+        "eventId": "business"
+      },
+      {
+        "turn": 4,
+        "lap": 1,
+        "tile": 13,
+        "eventId": "bank"
+      },
+      {
+        "turn": 5,
+        "lap": 1,
+        "tile": 19,
+        "eventId": "gold"
+      },
+      {
+        "turn": 6,
+        "lap": 2,
+        "tile": 4,
+        "eventId": "living"
+      },
+      {
+        "turn": 7,
+        "lap": 2,
+        "tile": 7,
+        "eventId": "bonds"
+      },
+      {
+        "turn": 8,
+        "lap": 2,
+        "tile": 13,
+        "eventId": "bank"
+      },
+      {
+        "turn": 9,
+        "lap": 2,
+        "tile": 17,
+        "eventId": "course"
+      },
+      {
+        "turn": 10,
+        "lap": 2,
+        "tile": 19,
+        "eventId": "gold"
+      },
+      {
+        "turn": 11,
+        "lap": 3,
+        "tile": 2,
+        "eventId": "bank"
+      },
+      {
+        "turn": 12,
+        "lap": 3,
+        "tile": 4,
+        "eventId": "living"
+      },
+      {
+        "turn": 13,
+        "lap": 3,
+        "tile": 8,
+        "eventId": "medical"
+      },
+      {
+        "turn": 14,
+        "lap": 3,
+        "tile": 11,
+        "eventId": "bills"
+      },
+      {
+        "turn": 15,
+        "lap": 3,
+        "tile": 16,
+        "eventId": "business"
+      },
+      {
+        "turn": 16,
+        "lap": 3,
+        "tile": 17,
+        "eventId": "course"
+      }
+    ],
+    "salaryPayments": 3,
+    "businessPurchases": 0,
+    "businessUpgrades": 0,
+    "businessSales": 0,
+    "lockedBusinessCapital": 0,
+    "lockedBusinessQuote": 0,
+    "courseInvestment": 6000000,
+    "macroEvents": [],
+    "savingsDeposits": [
+      {
+        "id": "deposit-1",
+        "principal": 20000000,
+        "startLap": 1,
+        "maturityLap": 1,
+        "rate": 0.06,
+        "status": "matured",
+        "earnedInterest": 1200000
+      }
+    ],
+    "savingsWithdrawals": 0,
+    "financialPurchases": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    },
+    "financialSales": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    },
+    "fundingDecisions": 0,
+    "finalResult": {
+      "status": "defeat",
+      "won": false,
+      "lawfulProceeds": 75200000,
+      "termination": "completed"
+    },
+    "deterministicReplay": true
+  },
+  {
+    "file": "a-log.json",
+    "mode": {
+      "id": "experimental-a",
+      "boardLayout": "A20",
+      "totalLaps": 4
+    },
+    "seed": "XVTL-V2-0",
+    "diceRolls": 25,
+    "tileEncounters": [
+      {
+        "turn": 1,
+        "lap": 1,
+        "tile": 4,
+        "eventId": "living"
+      },
+      {
+        "turn": 2,
+        "lap": 1,
+        "tile": 5,
+        "eventId": "course"
+      },
+      {
+        "turn": 3,
+        "lap": 1,
+        "tile": 9,
+        "eventId": "business"
+      },
+      {
+        "turn": 4,
+        "lap": 1,
+        "tile": 11,
+        "eventId": "bonus"
+      },
+      {
+        "turn": 5,
+        "lap": 1,
+        "tile": 17,
+        "eventId": "course"
+      },
+      {
+        "turn": 6,
+        "lap": 2,
+        "tile": 3,
+        "eventId": "stocks"
+      },
+      {
+        "turn": 7,
+        "lap": 2,
+        "tile": 9,
+        "eventId": "business"
+      },
+      {
+        "turn": 8,
+        "lap": 2,
+        "tile": 12,
+        "eventId": "stocks"
+      },
+      {
+        "turn": 9,
+        "lap": 2,
+        "tile": 18,
+        "eventId": "medical"
+      },
+      {
+        "turn": 11,
+        "lap": 3,
+        "tile": 6,
+        "eventId": "credit-tightening"
+      },
+      {
+        "turn": 12,
+        "lap": 3,
+        "tile": 7,
+        "eventId": "bonds"
+      },
+      {
+        "turn": 13,
+        "lap": 3,
+        "tile": 10,
+        "eventId": "gold"
+      },
+      {
+        "turn": 14,
+        "lap": 3,
+        "tile": 12,
+        "eventId": "stocks"
+      },
+      {
+        "turn": 15,
+        "lap": 3,
+        "tile": 15,
+        "eventId": "living"
+      },
+      {
+        "turn": 16,
+        "lap": 3,
+        "tile": 18,
+        "eventId": "repair"
+      },
+      {
+        "turn": 17,
+        "lap": 3,
+        "tile": 19,
+        "eventId": "gold"
+      },
+      {
+        "turn": 19,
+        "lap": 4,
+        "tile": 2,
+        "eventId": "bank"
+      },
+      {
+        "turn": 20,
+        "lap": 4,
+        "tile": 4,
+        "eventId": "living"
+      },
+      {
+        "turn": 21,
+        "lap": 4,
+        "tile": 7,
+        "eventId": "bonds"
+      },
+      {
+        "turn": 22,
+        "lap": 4,
+        "tile": 10,
+        "eventId": "gold"
+      },
+      {
+        "turn": 23,
+        "lap": 4,
+        "tile": 16,
+        "eventId": "business"
+      },
+      {
+        "turn": 24,
+        "lap": 4,
+        "tile": 20,
+        "eventId": "bonds"
+      }
+    ],
+    "salaryPayments": 4,
+    "businessPurchases": 1,
+    "businessUpgrades": 1,
+    "businessSales": 1,
+    "lockedBusinessCapital": 0,
+    "lockedBusinessQuote": 0,
+    "courseInvestment": 6000000,
+    "macroEvents": [
+      "11:credit-tightening"
+    ],
+    "savingsDeposits": [
+      {
+        "id": "deposit-1",
+        "principal": 5000000,
+        "startLap": 4,
+        "maturityLap": 4,
+        "rate": 0.06,
+        "status": "matured",
+        "earnedInterest": 300000
+      }
+    ],
+    "savingsWithdrawals": 0,
+    "financialPurchases": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    },
+    "financialSales": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    },
+    "fundingDecisions": 0,
+    "finalResult": {
+      "status": "victory",
+      "won": true,
+      "lawfulProceeds": 92384234,
+      "termination": "completed"
+    },
+    "deterministicReplay": true
+  },
+  {
+    "file": "b-log.json",
+    "mode": {
+      "id": "experimental-b",
+      "boardLayout": "C20",
+      "totalLaps": 4
+    },
+    "seed": "XVTL-V2-6",
+    "diceRolls": 26,
+    "tileEncounters": [
+      {
+        "turn": 1,
+        "lap": 1,
+        "tile": 2,
+        "eventId": "bank"
+      },
+      {
+        "turn": 2,
+        "lap": 1,
+        "tile": 8,
+        "eventId": "medical"
+      },
+      {
+        "turn": 3,
+        "lap": 1,
+        "tile": 11,
+        "eventId": "bonus"
+      },
+      {
+        "turn": 4,
+        "lap": 1,
+        "tile": 12,
+        "eventId": "stocks"
+      },
+      {
+        "turn": 5,
+        "lap": 1,
+        "tile": 17,
+        "eventId": "course"
+      },
+      {
+        "turn": 6,
+        "lap": 2,
+        "tile": 3,
+        "eventId": "stocks"
+      },
+      {
+        "turn": 7,
+        "lap": 2,
+        "tile": 5,
+        "eventId": "course"
+      },
+      {
+        "turn": 8,
+        "lap": 2,
+        "tile": 7,
+        "eventId": "bonds"
+      },
+      {
+        "turn": 9,
+        "lap": 2,
+        "tile": 8,
+        "eventId": "family"
+      },
+      {
+        "turn": 10,
+        "lap": 2,
+        "tile": 11,
+        "eventId": "contract"
+      },
+      {
+        "turn": 11,
+        "lap": 2,
+        "tile": 14,
+        "eventId": "business"
+      },
+      {
+        "turn": 12,
+        "lap": 2,
+        "tile": 16,
+        "eventId": "business"
+      },
+      {
+        "turn": 13,
+        "lap": 2,
+        "tile": 18,
+        "eventId": "family"
+      },
+      {
+        "turn": 14,
+        "lap": 3,
+        "tile": 2,
+        "eventId": "bank"
+      },
+      {
+        "turn": 15,
+        "lap": 3,
+        "tile": 7,
+        "eventId": "bonds"
+      },
+      {
+        "turn": 16,
+        "lap": 3,
+        "tile": 10,
+        "eventId": "gold"
+      },
+      {
+        "turn": 17,
+        "lap": 3,
+        "tile": 14,
+        "eventId": "business"
+      },
+      {
+        "turn": 18,
+        "lap": 3,
+        "tile": 15,
+        "eventId": "living"
+      },
+      {
+        "turn": 19,
+        "lap": 3,
+        "tile": 17,
+        "eventId": "course"
+      },
+      {
+        "turn": 21,
+        "lap": 4,
+        "tile": 2,
+        "eventId": "bank"
+      },
+      {
+        "turn": 22,
+        "lap": 4,
+        "tile": 6,
+        "eventId": "demand-boom"
+      },
+      {
+        "turn": 23,
+        "lap": 4,
+        "tile": 9,
+        "eventId": "business"
+      },
+      {
+        "turn": 24,
+        "lap": 4,
+        "tile": 11,
+        "eventId": "bonus"
+      },
+      {
+        "turn": 25,
+        "lap": 4,
+        "tile": 17,
+        "eventId": "course"
+      }
+    ],
+    "salaryPayments": 4,
+    "businessPurchases": 1,
+    "businessUpgrades": 2,
+    "businessSales": 1,
+    "lockedBusinessCapital": 0,
+    "lockedBusinessQuote": 0,
+    "courseInvestment": 6000000,
+    "macroEvents": [
+      "22:demand-boom"
+    ],
+    "savingsDeposits": [
+      {
+        "id": "deposit-1",
+        "principal": 5000000,
+        "startLap": 3,
+        "maturityLap": 4,
+        "rate": 0.07,
+        "status": "matured",
+        "earnedInterest": 700000
+      }
+    ],
+    "savingsWithdrawals": 0,
+    "financialPurchases": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    },
+    "financialSales": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    },
+    "fundingDecisions": 0,
+    "finalResult": {
+      "status": "victory",
+      "won": true,
+      "lawfulProceeds": 116734938,
+      "termination": "completed"
+    },
+    "deterministicReplay": true
+  }
+]

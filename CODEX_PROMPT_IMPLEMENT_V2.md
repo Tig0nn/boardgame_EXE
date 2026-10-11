@@ -1,0 +1,44 @@
+# CODEX IMPLEMENTATION PROMPT — XOAY VONG TIEN LUI V2
+
+You are working inside the EXISTING React + TypeScript + Vite repository for the Vietnamese financial board game **Xoay Vòng Tiến Lui**.
+
+**IMPORTANT CONTEXT:** Previous Codex sessions have already modified this repository since an older ZIP snapshot. Inspect the **CURRENT WORKTREE** rather than assuming any earlier file list or reverting completed changes. Some tasks (funding dialog, recurring income, rebalancing, liquidity goal, tests) may already be implemented. Preserve working behavior. Do not start over.
+
+Read and follow the specification in `docs/XVTL_GAME_SPEC_V2.md` (provided with this prompt). In the specification, `CHỐT` means CONFIRMED: implement as a hard requirement. `THỬ NGHIỆM` means EXPERIMENTAL: keep those numbers/formulas configurable and never present them as final. `CẦN BÁO CÁO` means REPORT REQUIRED: evaluate and report these concerns; do not silently finalize them. Where code/previous rules conflict with V2, record the conflict and implement V2. If an essential ambiguity remains, pick the **smallest reversible config-driven default** and report it; do NOT expand scope.
+
+## Phase 0 — READ / AUDIT BEFORE WRITING
+
+1. Inspect `package.json`, current git status/diff, game types, config, board/events, engine, settlement, funding UI, dialogs, tests, and README.
+2. Produce a small checklist: V2 requirement -> already implemented / partially implemented / missing -> affected files. Do not overwrite recent changes.
+3. Preserve current visual style, dice board, determinism, logs, existing tests, UX and mobile behavior. Do not add backend, login, database, live AI, real market data or multiplayer.
+
+## Phase 1 — IMPLEMENT MINIMAL COHERENT ENGINE CHANGES
+
+1. **Board:** represent dedicated tile types for Savings/Bank, Stocks, Bonds, Gold, Business, Self-Investment, Living Expense, Personal Shock, Macro Economic Event, Cashflow/Obligation, START. Investment tiles are scattered. Living expenses trigger **ONLY on exact landing**, not pass-through. START is pass-through checkpoint. Make layout data-driven.
+2. **START settlement:** consistent single-use order: normal market update -> base salary 14M + purchased 3M salary upgrade -> business cashflow -> deposits/bond schedules -> debt and obligations (with player-chosen funding if needed) -> sell-only START checkpoint -> final result or forecast next lap. If dice overshoots START, settle before destination tile; preserve that pending landing once. No double income/market shocks after reopening UI.
+3. **Self-investment:** tile with optional course: cost 6M once per game, salary +3M starting next START. Clear payoff preview. No skills/reputation systems.
+4. **Savings:** allow one-time initial allocation; bank tiles open NEW separate deposit lots with selected 1/2/3-lap maturities; existing nonmatured deposits remain unchanged. Maturity and coupon idempotent. Early withdrawal of a WHOLE lot forfeits applicable unpaid term interest. Report future maturity outside game horizon to player.
+5. **Stocks:** fully fictional companies, tickers, history AND future price evolution; start with six (three sectors x two fictional companies) as tunable content. All price paths derived from one deterministic market engine, with correlated market/sector/idiosyncratic components. A chart price MUST exactly match trade/holdings valuation. No future leaks. Create 12 pregame history points using an isolated historical RNG so looking at graphs never changes future dice or shocks.
+6. **Macro shocks:** randomized positive or negative macro events when stopping on the dedicated tile. Apply price changes IMMEDIATELY to affected stock symbols, bonds/gold market data and business economic state as specified. Append history/event markers, one shock once only. At START, apply only normal returns from the current post-shock price. Example: 100,000 -> -12% => 88,000 -> +5% normal => 92,400; NEVER reapply shock.
+7. **Stocks UI:** simple readable line chart with fictional company/sector, last price, historical change, volatility, annotated shock point; no advanced indicators. **Bonds UI:** issuer, coupon, maturity, repayment timetable, credit risk and early-sale quote (chart optional). **Gold UI:** fictional history chart, player buy price and player sell price/spread.
+8. **Trading rights:** buy only when landing on corresponding tile (except initial Savings allocation); at START sell Stocks/Bonds/Gold ONLY; business may be sold ONLY at business tile. During mandatory funding shortages, allow emergency sale of stocks/bonds/gold (and early savings withdrawal / borrowing); business excluded. Report fees, spread and loss of interest before confirmation. Can combine sources. If none available and no borrowing allowed, terminate in explicit insolvency result instead of deadlock.
+9. **Business:** initial investment at business tile, recurring cashflow at subsequent START, repeatable trend-specific upgrades, persistent base uplift plus extra bonus only if upgrade trend matches current trend. On trend change, keep base upgrade benefit, remove old trend bonus. Business sale price based on remaining recoverable capital/business state, NOT always full refund. Sale only at business tile. Put ALL sample costs, returns, limits/formulas and trend probabilities in config. Report economic/payback sensitivity in simulations.
+10. **Goal:** this V2 goal is to **buy an 80M item and still retain at least 10M after purchase**. Check lawful liquidatable proceeds (cash + net sale quotes for tradable stocks/bonds/gold + lawful redeemable savings proceeds - outstanding debt); exclude unsold locked Business; do NOT use merely `netWorth >= 80M && cash >= 10M`. Use one canonical calculation for UI/result and actual sale quote. Be explicit about this changed interpretation compared with previous code.
+11. **Logs:** record all financial mutations with state before/after, salary/cashflow, deposit lots, shocks per symbol, equity/bond/gold trades, sell quotes, debt, business trend/upgrade, and event markers; seeded reproducibility across saved/reloaded runs.
+
+## Phase 2 — TEST THOROUGHLY
+
+- Add unit/integration tests for exact-landing living costs, start checkpoint ordering/once-only, terminal lap behavior, salary and course boost, deposit lots, maturity/early withdrawal, all asset quotes/trading gates, macro shock / normal return compounding, chart=engine price, correlated symbols, trend upgrades and sales, borrowing and terminal outstanding debt, liquidatable goal, no debt-funded false victory, RNG reproducibility and non-mutating chart viewing.
+- Specifically cover dice crossing START and landing on an event tile, multiple macro shocks before START, macro shocks on assets not yet owned, two separate savings maturities, START obligations requiring funding, business sale restriction, and a legitimate insolvency loss without freezing.
+- Run actual commands: `npm test`, `npm run build`, and `npm run lint` when available. If browser tools exist, complete a three-lap user flow and inspect 320px layout; otherwise explicitly say browser manual test was not performed.
+- Run seeded simulations for **at least 5,000 seeds per strategy**, with at least five reasonable strategies: cash-heavy, saving-heavy, stock-heavy, business-heavy, diversified. Use the exact SAME seeds across strategies to compare. Report the distribution, not only average: wins, p10/median/p90 liquidatable funds, shortfalls, debt, self-investment uptake, business encounters/upgrades/sales, number of living costs, relevant events and termination types. Note access-limited strategies might fail to buy their target tile.
+- If a simulation is blocked by unknown balancing values, implement a CONFIG snapshot with clearly labeled example values, report assumptions and sensitivity, and do not present uncalibrated outcomes as validated game balance.
+
+## Phase 3 — DELIVERABLES
+
+1. Updated working game in the same repository (no rewrite).
+2. `docs/V2_IMPLEMENTATION_REPORT.md` listing requirements done/partial/not done, changed files, exact economic assumptions, tests run and results, known issues.
+3. `docs/V2_BALANCE_REPORT.md` containing seeded quantitative results, risks of luck dominance / unreachable business tiles / too-easy salary-only strategy / impossible target / excessive market shocks, and proposals for parameter tuning. Do NOT auto-retune numbers silently.
+4. Concise final summary with actual command outcomes, reproducibility instructions, and remaining manual checks.
+
+Write all implementation instructions, technical discussion, code comments, and test descriptions in English. Keep all player-facing UI text in Vietnamese and write the two final project reports in Vietnamese for the team. Keep code modular and strongly typed. Never claim tests or browser runs passed if they were not executed. Do not redeploy to Vercel unless the user explicitly asks.

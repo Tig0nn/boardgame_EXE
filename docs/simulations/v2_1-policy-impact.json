@@ -1,0 +1,39 @@
+{
+  "version": "v2.1",
+  "seedRange": "XVTL-V2-0..4999",
+  "groups": {
+    "A20/cash-heavy": 5000,
+    "A20/saving-heavy": 5000,
+    "A20/stock-heavy": 5000,
+    "A20/business-heavy": 5000,
+    "A20/diversified": 5000,
+    "A20/business-exit-window": 5000,
+    "C20/cash-heavy": 5000,
+    "C20/saving-heavy": 5000,
+    "C20/stock-heavy": 5000,
+    "C20/business-heavy": 5000,
+    "C20/diversified": 5000,
+    "C20/business-exit-window": 5000,
+    "Original3/cash-heavy": 5000,
+    "Original3/saving-heavy": 5000,
+    "Original3/stock-heavy": 5000,
+    "Original3/business-heavy": 5000,
+    "Original3/diversified": 5000
+  },
+  "totalGames": 85000,
+  "financialConfigurationUnchanged": true,
+  "historicalOutcomesIdentical": true,
+  "financialHashes": {
+    "src/data/config.ts": "df966518474c1821e337e73203c0970eaab8e3fd5b51fb0b9e14bddea04a7071",
+    "src/data/events.ts": "33acca96158cb81dc9ad374856c30d4fd26bed7f5a6da13e1687e7ebe0bf6d88",
+    "src/game/market.ts": "15ef1f763f7b55f1dcfdbc054f2bb9225b47c188dd80bc4d5fc30c301a4a3ed1",
+    "src/game/random.ts": "6701ad680fd1cbf4dcf68f54c4998345190a28c3fdbbcfac4cafdab2f1124d29",
+    "src/game/selectors.ts": "b99fb88e22723a7984269e366502805fd7cea5944079a123087bbf468425659b"
+  },
+  "assumptions": "Historical business policies execute at most one action per encounter. Initial purchase and upgrade were never combined. No historical outputs/manifests were overwritten.",
+  "historicalResultsHashes": {
+    "docs/simulations/v2-game-length-results.json": "c0c5d6c7fa232ef6ec691d1012ea4903ea03edeb378a8c3b1679eef74728db8c",
+    "docs/simulations/v2-board-balance-results.json": "242e7380d2cca840e2de6df77db4ea227df872b18b5b40bca5f94f8c8848b841",
+    "docs/simulations/v2-board-balance-runs.jsonl.gz": "79db63e05d36ff910c1ed814f13da875a15f004d6dafef78a431a87f2f64ef68"
+  }
+}

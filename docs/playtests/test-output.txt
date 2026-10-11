@@ -1,0 +1,472 @@
+
+> xoay-vong-tien-lui@0.0.0 test
+> node --experimental-strip-types --test tests/*.test.ts
+
+TAP version 13
+# (node:22112) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: allocation preserves starting capital and rejects invalid inputs
+ok 1 - allocation preserves starting capital and rejects invalid inputs
+  ---
+  duration_ms: 5.7006
+  ...
+# Subtest: a complete three-lap game is reproducible with the same seed and decisions
+ok 2 - a complete three-lap game is reproducible with the same seed and decisions
+  ---
+  duration_ms: 54.9102
+  ...
+# Subtest: dice and ordinary tile events do not apply market returns
+ok 3 - dice and ordinary tile events do not apply market returns
+  ---
+  duration_ms: 1.1557
+  ...
+# Subtest: early withdrawal forfeits savings interest and records the decision
+ok 4 - early withdrawal forfeits savings interest and records the decision
+  ---
+  duration_ms: 1.1371
+  ...
+# Subtest: lap settlement pays salary and savings maturity before debt without fixed living costs
+ok 5 - lap settlement pays salary and savings maturity before debt without fixed living costs
+  ---
+  duration_ms: 0.7262
+  ...
+# Subtest: settlement shortfalls pause for funding without automatically borrowing
+ok 6 - settlement shortfalls pause for funding without automatically borrowing
+  ---
+  duration_ms: 0.4893
+  ...
+# Subtest: optional investment without cash is rejected and skip snapshots remain independent
+ok 7 - optional investment without cash is rejected and skip snapshots remain independent
+  ---
+  duration_ms: 1.3296
+  ...
+# Subtest: board has 20 unique perimeter positions and all four event categories
+ok 8 - board has 20 unique perimeter positions and all four event categories
+  ---
+  duration_ms: 0.1941
+  ...
+# Subtest: crossing start preserves overshoot and requires forecast before landing event
+ok 9 - crossing start preserves overshoot and requires forecast before landing event
+  ---
+  duration_ms: 0.6033
+  ...
+# Subtest: final crossing ends after third settlement without a fourth forecast or event
+ok 10 - final crossing ends after third settlement without a fourth forecast or event
+  ---
+  duration_ms: 0.6264
+  ...
+# Subtest: deferred expenses reduce net worth immediately and are settled once
+ok 11 - deferred expenses reduce net worth immediately and are settled once
+  ---
+  duration_ms: 0.3916
+  ...
+# Subtest: every sample event has an affordable choice even with zero liquidity
+ok 12 - every sample event has an affordable choice even with zero liquidity
+  ---
+  duration_ms: 0.4913
+  ...
+# Subtest: VND formatting normalizes negative zero
+ok 13 - VND formatting normalizes negative zero
+  ---
+  duration_ms: 0.0794
+  ...
+# Subtest: SAIGON-2026 replay terminates with the updated financial rules
+ok 14 - SAIGON-2026 replay terminates with the updated financial rules
+  ---
+  duration_ms: 2.1083
+  ...
+# Subtest: exported JSON retains the seed and independent financial decision snapshots
+ok 15 - exported JSON retains the seed and independent financial decision snapshots
+  ---
+  duration_ms: 153.1082
+  ...
+# (node:18640) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: victory requires 90M lawful proceeds and excludes locked business and unpaid obligations
+ok 16 - victory requires 90M lawful proceeds and excludes locked business and unpaid obligations
+  ---
+  duration_ms: 8.0136
+  ...
+# Subtest: a shortage spends available cash but never automatically withdraws or borrows
+ok 17 - a shortage spends available cash but never automatically withdraws or borrows
+  ---
+  duration_ms: 1.7041
+  ...
+# Subtest: player can combine funding sources; early withdrawal logs lost interest once
+ok 18 - player can combine funding sources; early withdrawal logs lost interest once
+  ---
+  duration_ms: 2.2177
+  ...
+# Subtest: stocks funding sells actual units at the current net quote and records proceeds
+ok 19 - stocks funding sells actual units at the current net quote and records proceeds
+  ---
+  duration_ms: 1.566
+  ...
+# Subtest: bonds funding sells actual units at the current net quote and records proceeds
+ok 20 - bonds funding sells actual units at the current net quote and records proceeds
+  ---
+  duration_ms: 1.294
+  ...
+# Subtest: gold funding sells actual units at the current net quote and records proceeds
+ok 21 - gold funding sells actual units at the current net quote and records proceeds
+  ---
+  duration_ms: 1.2761
+  ...
+# Subtest: business cannot fund expenses or be sold at START, and rebalancing is checkpoint-only
+ok 22 - business cannot fund expenses or be sold at START, and rebalancing is checkpoint-only
+  ---
+  duration_ms: 1.1576
+  ...
+# Subtest: recurring income upgrade changes each remaining settlement without immediate cash
+ok 23 - recurring income upgrade changes each remaining settlement without immediate cash
+  ---
+  duration_ms: 2.9392
+  ...
+# Subtest: bank transfers preserve worth and prior encounters never grant checkpoint purchase rights
+ok 24 - bank transfers preserve worth and prior encounters never grant checkpoint purchase rights
+  ---
+  duration_ms: 1.8738
+  ...
+# Subtest: checkpoint debt repayment charges interest rather than offering free borrowing
+ok 25 - checkpoint debt repayment charges interest rather than offering free borrowing
+  ---
+  duration_ms: 2.0377
+  ...
+# Subtest: invalid funding and rebalancing values are rejected without mutating state
+ok 26 - invalid funding and rebalancing values are rejected without mutating state
+  ---
+  duration_ms: 2.5097
+  ...
+# Subtest: early withdrawal forfeits the whole lot term interest at settlement
+ok 27 - early withdrawal forfeits the whole lot term interest at settlement
+  ---
+  duration_ms: 0.7835
+  ...
+# Subtest: settlement can pause twice without repeating income or charging newly borrowed principal
+ok 28 - settlement can pause twice without repeating income or charging newly borrowed principal
+  ---
+  duration_ms: 0.8679
+  ...
+# Subtest: mature savings and business income fund obligations without clawing back earned interest
+ok 29 - mature savings and business income fund obligations without clawing back earned interest
+  ---
+  duration_ms: 0.8165
+  ...
+# Subtest: debt first borrowed during final settlement includes its contractual interest in final net worth
+ok 30 - debt first borrowed during final settlement includes its contractual interest in final net worth
+  ---
+  duration_ms: 0.4079
+  ...
+# Subtest: optional course requires cash and grants its recurring benefit only once
+ok 31 - optional course requires cash and grants its recurring benefit only once
+  ---
+  duration_ms: 0.4644
+  ...
+# Subtest: buying at matching tiles and selling all holdings at START moves the quoted net cash
+ok 32 - buying at matching tiles and selling all holdings at START moves the quoted net cash
+  ---
+  duration_ms: 0.9218
+  ...
+# Subtest: financial decisions never alter seeded dice, event selection or economic draws
+ok 33 - financial decisions never alter seeded dice, event selection or economic draws
+  ---
+  duration_ms: 3.6146
+  ...
+# Subtest: all categories and deferred payment choices have clear financial trade-offs
+ok 34 - all categories and deferred payment choices have clear financial trade-offs
+  ---
+  duration_ms: 0.2766
+  ...
+# (node:28404) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: V2 START pays 14M salary without deducting a fixed living expense
+ok 35 - V2 START pays 14M salary without deducting a fixed living expense
+  ---
+  duration_ms: 3.4924
+  ...
+# Subtest: V2 self investment costs 6M and increases subsequent START salary by 3M
+ok 36 - V2 self investment costs 6M and increases subsequent START salary by 3M
+  ---
+  duration_ms: 1.5778
+  ...
+# Subtest: V2 START never permits an asset purchase even after a prior asset encounter
+ok 37 - V2 START never permits an asset purchase even after a prior asset encounter
+  ---
+  duration_ms: 1.2248
+  ...
+# Subtest: V2 80M item plus 10M retained cash requires 90M lawful proceeds
+ok 38 - V2 80M item plus 10M retained cash requires 90M lawful proceeds
+  ---
+  duration_ms: 0.6594
+  ...
+# Subtest: V2 locked business cannot satisfy the final purchase goal
+ok 39 - V2 locked business cannot satisfy the final purchase goal
+  ---
+  duration_ms: 0.9255
+  ...
+# Subtest: V2 board retains 20 unique perimeter tiles and covers every dedicated opportunity
+ok 40 - V2 board retains 20 unique perimeter tiles and covers every dedicated opportunity
+  ---
+  duration_ms: 0.3294
+  ...
+# Subtest: V2 historical prices contain 12 past points for six fictional symbols in three sectors
+ok 41 - V2 historical prices contain 12 past points for six fictional symbols in three sectors
+  ---
+  duration_ms: 0.6117
+  ...
+# Subtest: V2 historical chart creation and viewing never consume future dice RNG
+ok 42 - V2 historical chart creation and viewing never consume future dice RNG
+  ---
+  duration_ms: 8.2337
+  ...
+# Subtest: V2 historical stock returns share sector movement and retain distinct idiosyncratic paths
+ok 43 - V2 historical stock returns share sector movement and retain distinct idiosyncratic paths
+  ---
+  duration_ms: 23.3209
+  ...
+# Subtest: V2 two macro shocks change all listed prices immediately without owning assets
+ok 44 - V2 two macro shocks change all listed prices immediately without owning assets
+  ---
+  duration_ms: 0.8232
+  ...
+# Subtest: V2 reopening the same macro event does not apply its shock twice
+ok 45 - V2 reopening the same macro event does not apply its shock twice
+  ---
+  duration_ms: 0.4036
+  ...
+# Subtest: V2 normal market updates compound from the current post-shock price
+ok 46 - V2 normal market updates compound from the current post-shock price
+  ---
+  duration_ms: 0.4307
+  ...
+# Subtest: V2 stock quotes, chart values and portfolio valuation use the same engine price
+ok 47 - V2 stock quotes, chart values and portfolio valuation use the same engine price
+  ---
+  duration_ms: 0.6064
+  ...
+# Subtest: V2 symbols in a sector retain distinct idiosyncratic normal returns
+ok 48 - V2 symbols in a sector retain distinct idiosyncratic normal returns
+  ---
+  duration_ms: 0.3378
+  ...
+# Subtest: V2 same-sector prices share market movement across independent seeds
+ok 49 - V2 same-sector prices share market movement across independent seeds
+  ---
+  duration_ms: 14.8998
+  ...
+# Subtest: V2 stocks can be purchased only at its corresponding landed tile
+ok 50 - V2 stocks can be purchased only at its corresponding landed tile
+  ---
+  duration_ms: 0.3904
+  ...
+# Subtest: V2 stocks emergency and START sales use the identical net quote
+ok 51 - V2 stocks emergency and START sales use the identical net quote
+  ---
+  duration_ms: 0.8523
+  ...
+# Subtest: V2 bonds can be purchased only at its corresponding landed tile
+ok 52 - V2 bonds can be purchased only at its corresponding landed tile
+  ---
+  duration_ms: 0.3112
+  ...
+# Subtest: V2 bonds emergency and START sales use the identical net quote
+ok 53 - V2 bonds emergency and START sales use the identical net quote
+  ---
+  duration_ms: 0.451
+  ...
+# Subtest: V2 gold can be purchased only at its corresponding landed tile
+ok 54 - V2 gold can be purchased only at its corresponding landed tile
+  ---
+  duration_ms: 0.3831
+  ...
+# Subtest: V2 gold emergency and START sales use the identical net quote
+ok 55 - V2 gold emergency and START sales use the identical net quote
+  ---
+  duration_ms: 0.3339
+  ...
+# Subtest: V2 gold has a disclosed sale spread and no periodic coupon
+ok 56 - V2 gold has a disclosed sale spread and no periodic coupon
+  ---
+  duration_ms: 0.3484
+  ...
+# Subtest: V2 bond coupons and maturity principal are paid once per lot and lap
+ok 57 - V2 bond coupons and maturity principal are paid once per lot and lap
+  ---
+  duration_ms: 0.5446
+  ...
+# Subtest: V2 a fully sold bond lot receives no subsequent coupon or maturity payment
+ok 58 - V2 a fully sold bond lot receives no subsequent coupon or maturity payment
+  ---
+  duration_ms: 0.7775
+  ...
+# Subtest: V2 savings terms accept only 1, 2 and 3 laps and never create free money
+ok 59 - V2 savings terms accept only 1, 2 and 3 laps and never create free money
+  ---
+  duration_ms: 0.6025
+  ...
+# Subtest: V2 bank deposits are separate lots and mature once on their respective START
+ok 60 - V2 bank deposits are separate lots and mature once on their respective START
+  ---
+  duration_ms: 0.5589
+  ...
+# Subtest: V2 deposits beyond the remaining horizon remain separate and disclose late maturity
+ok 61 - V2 deposits beyond the remaining horizon remain separate and disclose late maturity
+  ---
+  duration_ms: 0.3928
+  ...
+# Subtest: V2 emergency savings withdrawal redeems the whole lot and leaves unused proceeds in cash
+ok 62 - V2 emergency savings withdrawal redeems the whole lot and leaves unused proceeds in cash
+  ---
+  duration_ms: 0.4324
+  ...
+# Subtest: V2 START is sell-only and cannot open a new deposit or withdraw outside mandatory funding
+ok 63 - V2 START is sell-only and cannot open a new deposit or withdraw outside mandatory funding
+  ---
+  duration_ms: 0.2101
+  ...
+# Subtest: V2 maturity is credited before obligations and settlement retries never duplicate income
+ok 64 - V2 maturity is credited before obligations and settlement retries never duplicate income
+  ---
+  duration_ms: 0.3418
+  ...
+# Subtest: V2 paused START obligations resume once without rerunning market or salary
+ok 65 - V2 paused START obligations resume once without rerunning market or salary
+  ---
+  duration_ms: 0.4923
+  ...
+# Subtest: V2 after a maturity the player may choose stock sale and borrowing to finish START obligations
+ok 66 - V2 after a maturity the player may choose stock sale and borrowing to finish START obligations
+  ---
+  duration_ms: 0.4205
+  ...
+# Subtest: V2 purchased course is permanent and may never be purchased twice
+ok 67 - V2 purchased course is permanent and may never be purchased twice
+  ---
+  duration_ms: 1.0715
+  ...
+# Subtest: V2 business upgrades preserve base income and retain tiers for multiple trends
+ok 68 - V2 business upgrades preserve base income and retain tiers for multiple trends
+  ---
+  duration_ms: 0.3874
+  ...
+# Subtest: V2 business pays at the next START and sale recovers less than nominal invested capital
+ok 69 - V2 business pays at the next START and sale recovers less than nominal invested capital
+  ---
+  duration_ms: 0.411
+  ...
+# Subtest: V2 final liquidatable funds subtract outstanding debt and exclude unsold business
+ok 70 - V2 final liquidatable funds subtract outstanding debt and exclude unsold business
+  ---
+  duration_ms: 0.1834
+  ...
+# Subtest: V2 financial assets count after sale costs and savings count without unearned interest
+ok 71 - V2 financial assets count after sale costs and savings count without unearned interest
+  ---
+  duration_ms: 0.2805
+  ...
+# Subtest: V2 borrowing is capped and exhausted liquidity produces explicit insolvency
+ok 72 - V2 borrowing is capped and exhausted liquidity produces explicit insolvency
+  ---
+  duration_ms: 0.2334
+  ...
+# Subtest: V2 an unfundable mandatory expense ends immediately instead of leaving a trapped dialog
+ok 73 - V2 an unfundable mandatory expense ends immediately instead of leaving a trapped dialog
+  ---
+  duration_ms: 0.194
+  ...
+# Subtest: V2 overshoot settles once before the pending destination and final lap keeps sell checkpoint
+ok 74 - V2 overshoot settles once before the pending destination and final lap keeps sell checkpoint
+  ---
+  duration_ms: 0.4382
+  ...
+# Subtest: V2 landing exactly on living expenses charges once while passing over them charges nothing
+ok 75 - V2 landing exactly on living expenses charges once while passing over them charges nothing
+  ---
+  duration_ms: 0.3459
+  ...
+# Subtest: V2 a START overshoot into living expenses pays salary before charging the destination once
+ok 76 - V2 a START overshoot into living expenses pays salary before charging the destination once
+  ---
+  duration_ms: 0.4811
+  ...
+# Subtest: V2 JSON replay preserves deterministic future state and immutable financial snapshots
+ok 77 - V2 JSON replay preserves deterministic future state and immutable financial snapshots
+  ---
+  duration_ms: 10.9334
+  ...
+# Subtest: V2 rejected transactions leave prices, RNG, holdings and log unchanged
+ok 78 - V2 rejected transactions leave prices, RNG, holdings and log unchanged
+  ---
+  duration_ms: 1.9586
+  ...
+# Subtest: V2 financial log deltas reconcile allocation, trades, funding, shocks and all START stages
+ok 79 - V2 financial log deltas reconcile allocation, trades, funding, shocks and all START stages
+  ---
+  duration_ms: 3.2875
+  ...
+# Subtest: V2 final START debt repayment never charges interest twice after capitalization
+ok 80 - V2 final START debt repayment never charges interest twice after capitalization
+  ---
+  duration_ms: 0.6586
+  ...
+# Subtest: V2 SAIGON-2026 engine replay matches the completed three-lap 320px browser game
+ok 81 - V2 SAIGON-2026 engine replay matches the completed three-lap 320px browser game
+  ---
+  duration_ms: 1.3829
+  ...
+# (node:3960) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: V2.1 default original mode matches explicit original and leaves finances untouched
+ok 82 - V2.1 default original mode matches explicit original and leaves finances untouched
+  ---
+  duration_ms: 12.652
+  ...
+# Subtest: V2.1 C20 differs from A20 only at tile14 with original coordinates preserved
+ok 83 - V2.1 C20 differs from A20 only at tile14 with original coordinates preserved
+  ---
+  duration_ms: 0.5559
+  ...
+# Subtest: V2.1 original completes once per lap and survives JSON continuation
+ok 84 - V2.1 original completes once per lap and survives JSON continuation
+  ---
+  duration_ms: 153.5153
+  ...
+# Subtest: V2.1 experimental-a completes once per lap and survives JSON continuation
+ok 85 - V2.1 experimental-a completes once per lap and survives JSON continuation
+  ---
+  duration_ms: 141.1965
+  ...
+# Subtest: V2.1 experimental-b completes once per lap and survives JSON continuation
+ok 86 - V2.1 experimental-b completes once per lap and survives JSON continuation
+  ---
+  duration_ms: 173.222
+  ...
+# Subtest: V2.1 business initial purchase blocks immediate upgrade without state mutation
+ok 87 - V2.1 business initial purchase blocks immediate upgrade without state mutation
+  ---
+  duration_ms: 3.0765
+  ...
+# Subtest: V2.1 subsequent encounter permits upgrades; sale clears state and repurchase locks again
+ok 88 - V2.1 subsequent encounter permits upgrades; sale clears state and repurchase locks again
+  ---
+  duration_ms: 0.6633
+  ...
+# Subtest: V2.1 a real seeded return to business permits upgrading in the same lap or later
+ok 89 - V2.1 a real seeded return to business permits upgrading in the same lap or later
+  ---
+  duration_ms: 10.0884
+  ...
+# Subtest: V2.1 final START funding resumes once in every mode without shared horizon mutation
+ok 90 - V2.1 final START funding resumes once in every mode without shared horizon mutation
+  ---
+  duration_ms: 13.425
+  ...
+1..90
+# tests 90
+# suites 0
+# pass 90
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 861.3311

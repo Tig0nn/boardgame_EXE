@@ -1,0 +1,2127 @@
+{
+  "source": "v2-board-balance-runs.jsonl.gz",
+  "sourceResultsSha256": "242e7380d2cca840e2de6df77db4ea227df872b18b5b40bca5f94f8c8848b841",
+  "rawRowsVerified": 210000,
+  "definitions": {
+    "income": "Resolved course encounters only; START salary is separate.",
+    "investment": "bank+stocks+bonds+gold+business",
+    "shock": "personal+macro",
+    "obligation": "living+obligation"
+  },
+  "results": {
+    "A20": {
+      "cash-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 11.2712,
+            "p10": 8,
+            "median": 11,
+            "p90": 14,
+            "min": 4,
+            "max": 21
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.248,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0746
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5576,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0034
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "saving-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 11.2712,
+            "p10": 8,
+            "median": 11,
+            "p90": 14,
+            "min": 4,
+            "max": 21
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.248,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0746
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5576,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0034
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "stock-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 11.2712,
+            "p10": 8,
+            "median": 11,
+            "p90": 14,
+            "min": 4,
+            "max": 21
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.248,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0746
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5576,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0034
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "business-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 11.2712,
+            "p10": 8,
+            "median": 11,
+            "p90": 14,
+            "min": 4,
+            "max": 21
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.248,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0746
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5576,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0034
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "diversified": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 11.2712,
+            "p10": 8,
+            "median": 11,
+            "p90": 14,
+            "min": 4,
+            "max": 21
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.248,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0746
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5576,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0034
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "business-exit-window": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 11.2712,
+            "p10": 8,
+            "median": 11,
+            "p90": 14,
+            "min": 4,
+            "max": 21
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.248,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0746
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5576,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0034
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      }
+    },
+    "B20": {
+      "cash-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.4072,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 5,
+            "max": 23
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 1.112,
+            "p10": 0,
+            "median": 1,
+            "p90": 2,
+            "min": 0,
+            "max": 4
+          },
+          "neverRate": 0.273
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5576,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0034
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "saving-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.4072,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 5,
+            "max": 23
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 1.112,
+            "p10": 0,
+            "median": 1,
+            "p90": 2,
+            "min": 0,
+            "max": 4
+          },
+          "neverRate": 0.273
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5576,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0034
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "stock-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.4072,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 5,
+            "max": 23
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 1.112,
+            "p10": 0,
+            "median": 1,
+            "p90": 2,
+            "min": 0,
+            "max": 4
+          },
+          "neverRate": 0.273
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5576,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0034
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "business-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.4072,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 5,
+            "max": 23
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 1.112,
+            "p10": 0,
+            "median": 1,
+            "p90": 2,
+            "min": 0,
+            "max": 4
+          },
+          "neverRate": 0.273
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5576,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0034
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "diversified": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.4072,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 5,
+            "max": 23
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 1.112,
+            "p10": 0,
+            "median": 1,
+            "p90": 2,
+            "min": 0,
+            "max": 4
+          },
+          "neverRate": 0.273
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5576,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0034
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "business-exit-window": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.4072,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 5,
+            "max": 23
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 1.112,
+            "p10": 0,
+            "median": 1,
+            "p90": 2,
+            "min": 0,
+            "max": 4
+          },
+          "neverRate": 0.273
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5576,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0034
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      }
+    },
+    "C20": {
+      "cash-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.391,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 4,
+            "max": 22
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.248,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0746
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.4378,
+            "p10": 2,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0124
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "saving-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.391,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 4,
+            "max": 22
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.248,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0746
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.4378,
+            "p10": 2,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0124
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "stock-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.391,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 4,
+            "max": 22
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.248,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0746
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.4378,
+            "p10": 2,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0124
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "business-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.391,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 4,
+            "max": 22
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.248,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0746
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.4378,
+            "p10": 2,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0124
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "diversified": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.391,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 4,
+            "max": 22
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.248,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0746
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.4378,
+            "p10": 2,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0124
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      },
+      "business-exit-window": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.391,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 4,
+            "max": 22
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.248,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0746
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.4378,
+            "p10": 2,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0124
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3682,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0154
+        }
+      }
+    },
+    "D20": {
+      "cash-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 11.3114,
+            "p10": 8,
+            "median": 11,
+            "p90": 14,
+            "min": 4,
+            "max": 20
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.1962,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.077
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5914,
+            "p10": 3,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 10
+          },
+          "neverRate": 0.0028
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.346,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0174
+        }
+      },
+      "saving-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 11.3114,
+            "p10": 8,
+            "median": 11,
+            "p90": 14,
+            "min": 4,
+            "max": 20
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.1962,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.077
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5914,
+            "p10": 3,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 10
+          },
+          "neverRate": 0.0028
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.346,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0174
+        }
+      },
+      "stock-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 11.3114,
+            "p10": 8,
+            "median": 11,
+            "p90": 14,
+            "min": 4,
+            "max": 20
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.1962,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.077
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5914,
+            "p10": 3,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 10
+          },
+          "neverRate": 0.0028
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.346,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0174
+        }
+      },
+      "business-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 11.3114,
+            "p10": 8,
+            "median": 11,
+            "p90": 14,
+            "min": 4,
+            "max": 20
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.1962,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.077
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5914,
+            "p10": 3,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 10
+          },
+          "neverRate": 0.0028
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.346,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0174
+        }
+      },
+      "diversified": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 11.3114,
+            "p10": 8,
+            "median": 11,
+            "p90": 14,
+            "min": 4,
+            "max": 20
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.1962,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.077
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5914,
+            "p10": 3,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 10
+          },
+          "neverRate": 0.0028
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.346,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0174
+        }
+      },
+      "business-exit-window": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 11.3114,
+            "p10": 8,
+            "median": 11,
+            "p90": 14,
+            "min": 4,
+            "max": 20
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.1962,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.077
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5914,
+            "p10": 3,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 10
+          },
+          "neverRate": 0.0028
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.346,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0174
+        }
+      }
+    },
+    "E20": {
+      "cash-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.4668,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 6,
+            "max": 20
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 1.0424,
+            "p10": 0,
+            "median": 1,
+            "p90": 2,
+            "min": 0,
+            "max": 4
+          },
+          "neverRate": 0.2928
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5898,
+            "p10": 3,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0024
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.346,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0174
+        }
+      },
+      "saving-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.4668,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 6,
+            "max": 20
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 1.0424,
+            "p10": 0,
+            "median": 1,
+            "p90": 2,
+            "min": 0,
+            "max": 4
+          },
+          "neverRate": 0.2928
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5898,
+            "p10": 3,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0024
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.346,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0174
+        }
+      },
+      "stock-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.4668,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 6,
+            "max": 20
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 1.0424,
+            "p10": 0,
+            "median": 1,
+            "p90": 2,
+            "min": 0,
+            "max": 4
+          },
+          "neverRate": 0.2928
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5898,
+            "p10": 3,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0024
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.346,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0174
+        }
+      },
+      "business-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.4668,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 6,
+            "max": 20
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 1.0424,
+            "p10": 0,
+            "median": 1,
+            "p90": 2,
+            "min": 0,
+            "max": 4
+          },
+          "neverRate": 0.2928
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5898,
+            "p10": 3,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0024
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.346,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0174
+        }
+      },
+      "diversified": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.4668,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 6,
+            "max": 20
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 1.0424,
+            "p10": 0,
+            "median": 1,
+            "p90": 2,
+            "min": 0,
+            "max": 4
+          },
+          "neverRate": 0.2928
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5898,
+            "p10": 3,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0024
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.346,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0174
+        }
+      },
+      "business-exit-window": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 12.4668,
+            "p10": 9,
+            "median": 12,
+            "p90": 15,
+            "min": 6,
+            "max": 20
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 1.0424,
+            "p10": 0,
+            "median": 1,
+            "p90": 2,
+            "min": 0,
+            "max": 4
+          },
+          "neverRate": 0.2928
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5898,
+            "p10": 3,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 11
+          },
+          "neverRate": 0.0024
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.346,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0174
+        }
+      }
+    },
+    "F16": {
+      "cash-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 6.7734,
+            "p10": 4,
+            "median": 7,
+            "p90": 9,
+            "min": 0,
+            "max": 15
+          },
+          "neverRate": 0.0002
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.2084,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 8
+          },
+          "neverRate": 0.073
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5366,
+            "p10": 2,
+            "median": 4,
+            "p90": 7,
+            "min": 0,
+            "max": 13
+          },
+          "neverRate": 0.0044
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3544,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0178
+        }
+      },
+      "saving-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 6.7734,
+            "p10": 4,
+            "median": 7,
+            "p90": 9,
+            "min": 0,
+            "max": 15
+          },
+          "neverRate": 0.0002
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.2084,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 8
+          },
+          "neverRate": 0.073
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5366,
+            "p10": 2,
+            "median": 4,
+            "p90": 7,
+            "min": 0,
+            "max": 13
+          },
+          "neverRate": 0.0044
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3544,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0178
+        }
+      },
+      "stock-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 6.7734,
+            "p10": 4,
+            "median": 7,
+            "p90": 9,
+            "min": 0,
+            "max": 15
+          },
+          "neverRate": 0.0002
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.2084,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 8
+          },
+          "neverRate": 0.073
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5366,
+            "p10": 2,
+            "median": 4,
+            "p90": 7,
+            "min": 0,
+            "max": 13
+          },
+          "neverRate": 0.0044
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3544,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0178
+        }
+      },
+      "business-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 6.7734,
+            "p10": 4,
+            "median": 7,
+            "p90": 9,
+            "min": 0,
+            "max": 15
+          },
+          "neverRate": 0.0002
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.2084,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 8
+          },
+          "neverRate": 0.073
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5366,
+            "p10": 2,
+            "median": 4,
+            "p90": 7,
+            "min": 0,
+            "max": 13
+          },
+          "neverRate": 0.0044
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3544,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0178
+        }
+      },
+      "diversified": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 6.7734,
+            "p10": 4,
+            "median": 7,
+            "p90": 9,
+            "min": 0,
+            "max": 15
+          },
+          "neverRate": 0.0002
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.2084,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 8
+          },
+          "neverRate": 0.073
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5366,
+            "p10": 2,
+            "median": 4,
+            "p90": 7,
+            "min": 0,
+            "max": 13
+          },
+          "neverRate": 0.0044
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3544,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0178
+        }
+      },
+      "business-exit-window": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 6.7734,
+            "p10": 4,
+            "median": 7,
+            "p90": 9,
+            "min": 0,
+            "max": 15
+          },
+          "neverRate": 0.0002
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.2084,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 8
+          },
+          "neverRate": 0.073
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5366,
+            "p10": 2,
+            "median": 4,
+            "p90": 7,
+            "min": 0,
+            "max": 13
+          },
+          "neverRate": 0.0044
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3544,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0178
+        }
+      }
+    },
+    "G24": {
+      "cash-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 15.8878,
+            "p10": 13,
+            "median": 16,
+            "p90": 19,
+            "min": 7,
+            "max": 26
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.203,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0764
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5788,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 10
+          },
+          "neverRate": 0.0026
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3928,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0148
+        }
+      },
+      "saving-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 15.8878,
+            "p10": 13,
+            "median": 16,
+            "p90": 19,
+            "min": 7,
+            "max": 26
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.203,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0764
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5788,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 10
+          },
+          "neverRate": 0.0026
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3928,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0148
+        }
+      },
+      "stock-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 15.8878,
+            "p10": 13,
+            "median": 16,
+            "p90": 19,
+            "min": 7,
+            "max": 26
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.203,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0764
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5788,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 10
+          },
+          "neverRate": 0.0026
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3928,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0148
+        }
+      },
+      "business-heavy": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 15.8878,
+            "p10": 13,
+            "median": 16,
+            "p90": 19,
+            "min": 7,
+            "max": 26
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.203,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0764
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5788,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 10
+          },
+          "neverRate": 0.0026
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3928,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0148
+        }
+      },
+      "diversified": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 15.8878,
+            "p10": 13,
+            "median": 16,
+            "p90": 19,
+            "min": 7,
+            "max": 26
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.203,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0764
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5788,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 10
+          },
+          "neverRate": 0.0026
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3928,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0148
+        }
+      },
+      "business-exit-window": {
+        "investment": {
+          "visits": {
+            "n": 5000,
+            "mean": 15.8878,
+            "p10": 13,
+            "median": 16,
+            "p90": 19,
+            "min": 7,
+            "max": 26
+          },
+          "neverRate": 0
+        },
+        "income": {
+          "visits": {
+            "n": 5000,
+            "mean": 2.203,
+            "p10": 1,
+            "median": 2,
+            "p90": 4,
+            "min": 0,
+            "max": 7
+          },
+          "neverRate": 0.0764
+        },
+        "shock": {
+          "visits": {
+            "n": 5000,
+            "mean": 4.5788,
+            "p10": 2,
+            "median": 5,
+            "p90": 7,
+            "min": 0,
+            "max": 10
+          },
+          "neverRate": 0.0026
+        },
+        "obligation": {
+          "visits": {
+            "n": 5000,
+            "mean": 3.3928,
+            "p10": 1,
+            "median": 3,
+            "p90": 5,
+            "min": 0,
+            "max": 9
+          },
+          "neverRate": 0.0148
+        }
+      }
+    }
+  }
+}

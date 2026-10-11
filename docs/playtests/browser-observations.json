@@ -1,0 +1,56 @@
+{
+  "browser": "Codex In-app Browser",
+  "date": "2026-10-11",
+  "fullGames": [
+    {
+      "mode": "original",
+      "viewport": "1440x1000",
+      "seed": "SAIGON-2026"
+    },
+    {
+      "mode": "experimental-a",
+      "viewport": "1440x1000",
+      "seed": "XVTL-V2-0"
+    },
+    {
+      "mode": "experimental-b",
+      "viewport": "390x844",
+      "seed": "XVTL-V2-6"
+    }
+  ],
+  "responsive": {
+    "320x740": [
+      "original",
+      "experimental-a",
+      "experimental-b"
+    ],
+    "horizontalOverflow": false,
+    "1440x1000": [
+      "original",
+      "experimental-a",
+      "experimental-b"
+    ]
+  },
+  "businessAndMacroEvidence": [
+    "Buy; upgrade disabled: Vòng 1 · Ô 9 · Lượt 3",
+    "Subsequent upgrade: Vòng 2 · Ô 9 · Lượt 7",
+    "Macro effect + charts: Vòng 3 · Ô 6 · Lượt 11",
+    "Sale: Vòng 4 · Ô 16 · Lượt 23",
+    "Buy; upgrade disabled: Vòng 2 · Ô 14 · Lượt 11",
+    "Subsequent upgrade: Vòng 2 · Ô 16 · Lượt 12",
+    "Subsequent upgrade: Vòng 3 · Ô 14 · Lượt 17",
+    "START sale options: Cổ phiếu\nTrái phiếu\nVàng",
+    "Sale: Vòng 4 · Ô 9 · Lượt 23"
+  ],
+  "fixtures": [
+    "funding: sell 1M stock -> 990k net, borrow 1.01M",
+    "withdrawal: withdraw 2M lot, forfeit 480k interest",
+    "start-business: 14M business excluded from lawful proceeds; sell list only stocks/bonds/gold",
+    "insolvent: no cash/assets/credit, 5M shortage -> result",
+    "defeat: 89,999,999 -> defeat with reserve 9,999,999",
+    "victory: 90,000,000 -> victory with reserve 10,000,000",
+    "locked-final: net worth 103M, locked business cost 20M/quote 14M, lawful proceeds 89M -> defeat; downloaded JSON verified"
+  ],
+  "consoleErrors": [],
+  "note": "Full games are ordinary seeded UI interactions. Fixtures are synthetic states in a dev-only page; not natural playthroughs."
+}
