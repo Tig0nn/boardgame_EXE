@@ -24,7 +24,7 @@ function fixture(id:string):GameState {
     s = { ...s, phase: 'event', eventId, position, turn: 2 }
     if (id === 'business-upgrade') {
       s = transact(s, { kind: 'buy', asset: 'business', amount: 20_000_000 })
-      s = { ...s, turn: 3 }
+      s = { ...s, phase: 'event', eventId: 'business', turn: 3 }
     }
     if (id === 'bank-later') {
       s = transact(s, { kind: 'deposit', amount: 1_000_000, term: 1 })

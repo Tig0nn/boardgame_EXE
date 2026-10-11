@@ -20,7 +20,7 @@ export function Board({ game, onRoll, rolling }: { game: GameState; onRoll: () =
   const tile = selected === null ? null : tiles[selected]
   const rollButton = useRef<HTMLButtonElement>(null)
   const last = game.log.at(-1)
-  const purchased = game.phase === 'rolling' && (last?.decisionId === 'buy-stocks-complete' || last?.decisionId === 'deposit-bank')
+  const purchased = game.phase === 'rolling' && (last?.decisionId === 'buy-stocks-complete' || last?.decisionId === 'deposit-bank' || last?.decisionId === 'buy-business')
   useEffect(() => {
     if (purchased) { rollButton.current?.focus({ preventScroll: true }); rollButton.current?.scrollIntoView({ block: 'nearest' }) }
   }, [purchased])
@@ -63,7 +63,7 @@ export function Board({ game, onRoll, rolling }: { game: GameState; onRoll: () =
     <div className="board-legend">{Object.entries(CATEGORIES).map(([key, cat]) => <span key={key}><i className={key} />{cat.short}</span>)}<span className="legend-player"><i />Bạn</span></div>
     <div className="roll-dock">
       <div className={`die ${rolling ? 'rolling' : ''}`} role="img" aria-label={game.dice ? `Xúc xắc ${game.dice}` : 'Xúc xắc sẵn sàng'}>{Array.from({ length: 9 }, (_, i) => <span key={i} className={game.dice && dots[game.dice].includes(i + 1) ? 'visible' : ''} />)}{!game.dice && <b className="die-ready">?</b>}</div>
-      <div className="roll-control">{purchased && <p className="purchase-success" role="status">{last.decisionId === 'deposit-bank' ? 'Đã gửi tiết kiệm' : 'Đã mua cổ phiếu'} · {last.decision}. Tiền mặt còn {money(game.portfolio.cash)}. Bạn có thể gieo tiếp.</p>}<button ref={rollButton} className="button primary roll-button" onClick={onRoll} disabled={game.phase !== 'rolling' || rolling}>{rolling ? 'Đang gieo…' : 'Gieo xúc xắc'}<Icon name="arrow" size={20} /></button><p className="board-hint" aria-live="polite">{rolling ? 'Cơ hội nào đang chờ bạn?' : game.dice ? `Kết quả: ${game.dice} bước · Vòng ${game.lap}/${game.totalLaps}` : 'Gieo 1 xúc xắc để bắt đầu khám phá'}</p></div>
+      <div className="roll-control">{purchased && <p className="purchase-success" role="status">{last.decisionId === 'deposit-bank' ? 'Đã gửi tiết kiệm' : last.decisionId === 'buy-business' ? 'Đã mua cơ sở kinh doanh' : 'Đã mua cổ phiếu'} · {last.decision}. Tiền mặt còn {money(game.portfolio.cash)}. Bạn có thể gieo tiếp.</p>}<button ref={rollButton} className="button primary roll-button" onClick={onRoll} disabled={game.phase !== 'rolling' || rolling}>{rolling ? 'Đang gieo…' : 'Gieo xúc xắc'}<Icon name="arrow" size={20} /></button><p className="board-hint" aria-live="polite">{rolling ? 'Cơ hội nào đang chờ bạn?' : game.dice ? `Kết quả: ${game.dice} bước · Vòng ${game.lap}/${game.totalLaps}` : 'Gieo 1 xúc xắc để bắt đầu khám phá'}</p></div>
     </div>
     {tile && <Modal title={`Ô ${tile.index + 1}: ${tile.label}`} onClose={() => setSelected(null)}><span className="section-kicker">Ô {tile.index + 1} / 20 · {CATEGORIES[tile.category].short}</span><h2>{tile.label}</h2><p className="modal-lead">{tile.index === 0 ? 'Đi qua START để quyết toán vòng: nhận lương, cập nhật thị trường, đáo hạn và thanh toán nghĩa vụ.' : 'Sự kiện chỉ kích hoạt khi bạn dừng đúng ô này. Gieo xúc xắc để tiếp tục hành trình.'}</p><button className="button primary full-button" onClick={() => setSelected(null)}>Trở lại bàn chơi<Icon name="arrow" /></button></Modal>}
   </section>

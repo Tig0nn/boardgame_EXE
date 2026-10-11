@@ -9,7 +9,7 @@ export type TileType = 'start' | 'bank' | TradableAsset | 'business' | 'course' 
 export type Term = 1 | 2 | 3
 export type SavingsProfileId = 'v2.1-standard' | 'v2.2-c20'
 export type BusinessRulesVersion = 'v2.2-trend-shock' | 'v2.3-fixed-income'
-export type EncounterRulesVersion = 'legacy-multi-action' | 'v2.3-single-action'
+export type EncounterRulesVersion = 'legacy-multi-action' | 'v2.3-single-action' | 'v2.4-business-purchase-complete'
 export interface SavingsProfile { id: SavingsProfileId; rates: Record<Term, number> }
 export interface DepositLot {
   id: string; principal: number; startLap: number; maturityLap: number; rate: number

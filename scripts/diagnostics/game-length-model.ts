@@ -64,7 +64,8 @@ export function playDiagnostic(seed: string, strategy: Strategy, horizon: number
   const runGame = () => {
     const savingOnly = strategy === 'saving-heavy' || strategy === 'saving-no-course'
     const initialSavings = policy.initialSavings ?? (savingOnly ? 40_000_000 : strategy === 'diversified' ? 15_000_000 : 0)
-    let s = createGame(seed, initialSavings, policy.initialTerm ?? (savingOnly ? 3 : 1), policy.mode, policy.savingsProfileId)
+    // This published diagnostic models the V2.3 scenario-based upgrade policy.
+    let s = createGame(seed, initialSavings, policy.initialTerm ?? (savingOnly ? 3 : 1), policy.mode, policy.savingsProfileId, 'v2.3-fixed-income', 'v2.3-single-action')
     assert.equal(s.totalLaps, horizon)
     const BOARD = boardFor(s)
     const visits: Record<string, number> = Object.fromEntries([...new Set(BOARD.map(tile => tile.type))].map(type => [type, 0]))

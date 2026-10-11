@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { createGame, transact, decide, fundPayment, snapshot } from '../src/game/engine.ts'
+import { transact, decide, fundPayment, snapshot } from '../src/game/engine.ts'
+import { createV23Game as createGame } from './helpers/v2_3.ts'
 import { beginSettlement } from '../src/game/settlement.ts'
 import { liquidatableFunds, lostInterestOnWithdrawal } from '../src/game/selectors.ts'
 import { serializeLog } from '../src/game/log.ts'

@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { advance, createGame, decide, roll, transact } from '../src/game/engine.ts'
+import { advance, decide, roll, transact } from '../src/game/engine.ts'
+import { createV23Game as createGame } from './helpers/v2_3.ts'
 import { serializeLog } from '../src/game/log.ts'
 import { replayGameLog } from '../scripts/diagnostics/replay-game-log.ts'
 import { EVENTS } from '../src/data/events.ts'

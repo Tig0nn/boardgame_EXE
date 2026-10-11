@@ -55,7 +55,7 @@ test('deposits opened after lap three mature once at the correct START', () => w
 }))
 
 test('post-lap-three trend changes preserve upgrades and deterministic macro histories', () => withHorizon(6, () => {
-  let s: GameState = { ...createGame('late-business', 0), lap: 4, position: 8, phase: 'event', eventId: 'business', scenarioId: 'growth' }
+  let s: GameState = { ...createGame('late-business', 0, 1, undefined, undefined, 'v2.3-fixed-income', 'v2.3-single-action'), lap: 4, position: 8, phase: 'event', eventId: 'business', scenarioId: 'growth' }
   s = transact(s, { kind: 'buy', asset: 'business', amount: 20_000_000 })
   s = { ...s, turn:s.turn+1 } // V2.1 upgrades start at a subsequent encounter.
   s = transact(s, { kind: 'upgrade', asset: 'business', amount: 5_000_000, trend: 'growth' })
