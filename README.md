@@ -19,7 +19,7 @@ The development URL defaults to http://localhost:5173. The simulation command ge
 
 ## Gameplay V2
 
-The authoritative rules are in [XVTL_GAME_SPEC_V2.md](docs/XVTL_GAME_SPEC_V2.md). The current experimental configuration starts with 50M VND and ends after three laps. Winning requires enough lawful proceeds to buy an 80M item and retain 10M after purchase. The calculation includes net sale quotes and redeemable savings principal, subtracts outstanding debt and obligations, and excludes unsold business capital.
+The authoritative rules are in [XVTL_GAME_SPEC_V2.md](docs/XVTL_GAME_SPEC_V2.md). The primary Web MVP uses Experimental B: 50M VND, four laps on C20, and 4/5/6% simple savings rates for 1/2/3-START terms. Original (three laps, A20) and Experimental A remain available internally for historical replay and regression tests. Winning requires enough lawful proceeds to buy an 80M item and retain 10M after purchase. The calculation includes net sale quotes and redeemable savings principal, subtracts outstanding debt and obligations, and excludes unsold business capital.
 
 - The data-driven 20-tile board has dedicated bank, stock, bond, gold, business, course, living expense, personal shock, macro and obligation tiles, plus START. Living expenses apply only on exact landing.
 - START processes normal market changes, 14M salary (plus a purchased course's 3M increase), business cashflow, deposit maturities and bond schedules, then debt and obligations. A sell-only checkpoint follows every lap, including the last. Overshoot resolves after settlement and the next forecast; final-lap overshoot is discarded.
@@ -48,8 +48,18 @@ Economic parameters remain experimental and are centralized in `src/data/config.
 
 ## Reproducibility and verification
 
-The same seed and actions reproduce the same state and ordered logs. Viewing charts does not advance the future RNG. Schema 3 JSON exports contain full state, before/after snapshots and lap summaries; JSON state replay is tested. There is no UI import or automatic persistence. Browser file-download completion has not been confirmed.
+The same seed and actions reproduce the same state and ordered logs. Viewing charts does not advance the future RNG. Schema 5 JSON exports contain the versioned savings profile, full state, before/after snapshots and lap summaries. Historical V2.1 profiles and replays remain supported. There is no UI import or automatic persistence. Browser JSON download and complete snapshot replay are verified.
 
-Verification on 11 October 2026: 81/81 tests passed; TypeScript/Vite production build and ESLint passed. A real browser run from the implementation session covered all three laps and the final Result at 320px; its exact outcome is pinned by an automated replay test. That browser path did not cover every funding, business or macro UI branch; those rules have automated engine coverage. Balance results describe heuristic policies, not approved final balance or optimal play.
+Verification on 11 October 2026: 109/109 engine tests, 19/19 diagnostic tests, ESLint, TypeScript and the production build passed. Browser checks cover 320px, 390px, 430px and 1440px, all financial transaction families, and a complete four-lap Experimental B game (26 rolls, 102.8M lawful proceeds). Its exported state matches the prior V2.2 playthrough exactly. See [mobile MVP report](docs/MVP_MOBILE_UI_REPORT.md) and [machine-readable browser evidence](docs/playtests/mobile-mvp/verification.json).
+
+Additional checks:
+
+```sh
+node --experimental-strip-types --test scripts/diagnostics/*.test.ts
+npx tsc -b
+node --experimental-strip-types scripts/verify-mobile-ui.mjs
+```
+
+The UI script needs a running Vite server and an existing Playwright installation with Chrome. Set `PLAYWRIGHT_MODULE` to its absolute module directory when using a bundled installation; `UI_URL` defaults to `http://localhost:5173`. No production dependency is added. The script saves screenshots, downloads a real browser log, replays every snapshot, and stores the verified log as gzip under `docs/playtests/mobile-mvp/`. Financial harness cases are explicitly synthetic and development-only.
 
 See the Vietnamese [implementation report](docs/V2_IMPLEMENTATION_REPORT.md), [balance report](docs/V2_BALANCE_REPORT.md), and [320px final-result screenshot](docs/screenshots/v2-result-320.jpg) for evidence, exact assumptions and remaining manual checks.

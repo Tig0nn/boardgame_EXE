@@ -8,11 +8,29 @@ import { PhaseDialog } from '../src/components/GameDialogs'
 import { Board } from '../src/components/Board'
 import { Portfolio } from '../src/components/Portfolio'
 import { exportLog } from '../src/exportLog'
+import '../src/index.css'
 import '../src/App.css'
 import '../src/finance.css'
+import '../src/mobile.css'
 
 function fixture(id:string):GameState {
   let s=createGame(`V21-FIXTURE-${id}`,0,1,'experimental-b')
+  if (['bank', 'stocks', 'bonds', 'gold', 'business', 'business-upgrade'].includes(id)) {
+    const eventId = id === 'business-upgrade' ? 'business' : id
+    const position = ({ bank: 1, stocks: 2, bonds: 6, gold: 9, business: 8 } as Record<string, number>)[eventId]
+    s = { ...s, phase: 'event', eventId, position, turn: 2 }
+    if (id === 'business-upgrade') {
+      s = transact(s, { kind: 'buy', asset: 'business', amount: 20_000_000 })
+      s = { ...s, turn: 3 }
+    }
+    return s
+  }
+  if (id === 'start-sales') {
+    for (const asset of ['stocks', 'bonds', 'gold'] as const) {
+      s = transact({ ...s, phase: 'event', eventId: asset, position: { stocks: 2, bonds: 6, gold: 9 }[asset] }, { kind: 'buy', asset, amount: 2_000_000 })
+    }
+    return { ...s, phase: 'rebalancing', position: 0, portfolio: { ...s.portfolio, debt: 1_000_000 } }
+  }
   if(id==='funding'||id==='withdrawal') {
     s={...s,position:2,phase:'event',eventId:'stocks'}
     s=transact(s,{kind:'buy',asset:'stocks',amount:4_000_000})
@@ -40,7 +58,7 @@ function fixture(id:string):GameState {
 export default function Harness() {
   const [id,setId]=useState('funding')
   const [game,setGame]=useState<GameState|null>(null)
-  return <><header className="app-header"><strong>V2.1 · FIXTURE TỔNG HỢP, KHÔNG PHẢI VÁN TỰ NHIÊN</strong><select aria-label="Fixture" value={id} onChange={event=>setId(event.target.value)}>{['funding','withdrawal','insolvent','start-business','locked-final','victory','defeat','lap4'].map(name=><option key={name}>{name}</option>)}</select><button onClick={()=>setGame(fixture(id))}>Nạp fixture</button></header>
+  return <><header className="app-header fixture-header"><strong>V2.1 · FIXTURE TỔNG HỢP, KHÔNG PHẢI VÁN TỰ NHIÊN</strong><select aria-label="Fixture" value={id} onChange={event=>setId(event.target.value)}>{['funding','withdrawal','insolvent','start-business','locked-final','victory','defeat','lap4','bank','stocks','bonds','gold','business','business-upgrade','start-sales'].map(name=><option key={name}>{name}</option>)}</select><button onClick={()=>setGame(fixture(id))}>Nạp fixture</button></header>
     {game&&<main className="game-page"><p>Seed {game.seed} · {game.gameMode} · {game.boardLayout} · {game.totalLaps} vòng</p><div className="game-layout"><Board game={game} onRoll={()=>setGame(roll(game))} rolling={false}/><Portfolio game={game}/></div><PhaseDialog game={game} onAdvance={()=>setGame(advance(game))} onChoose={option=>setGame(decide(game,option))} onFund={(source,amount,lot)=>setGame(fundPayment(game,source,amount,lot))} onTransaction={action=>setGame(transact(game,action))} onRestart={()=>setGame(null)} onExport={()=>exportLog(game)}/></main>}</>
 }
 if(import.meta.env.DEV) createRoot(document.getElementById('root')!).render(<Harness/> )
