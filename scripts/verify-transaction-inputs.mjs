@@ -1,7 +1,7 @@
 // Focused input/short-screen checks after the full browser regression run.
 import assert from 'node:assert/strict'
 import { createRequire } from 'node:module'
-import { writeFileSync } from 'node:fs'
+import { mkdirSync, writeFileSync } from 'node:fs'
 import { money } from '../src/game/format.ts'
 import { ECONOMY } from '../src/data/config.ts'
 const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE || 'playwright')
@@ -11,7 +11,8 @@ const page = await context.newPage()
 const errors = []
 page.on('pageerror', error => errors.push(error.message))
 const base = process.env.UI_URL || 'http://localhost:5173'
-const folder = 'docs/playtests/transaction-ux'
+const folder = 'docs/playtests/encounter-limits-v2_3'
+mkdirSync(folder, { recursive: true })
 async function fixture(id) {
   await page.goto(`${base}/scripts/playtest-harness.html`)
   await page.getByRole('combobox', { name: 'Fixture', exact: true }).selectOption(id)
@@ -52,19 +53,17 @@ try {
   assert.equal(await page.locator('dialog[open]').count(), 0)
   assert.equal(await page.locator('.status-cash strong').textContent(), money(48_765_433))
   await page.setViewportSize({ width: 390, height: 844 })
-  await fixture('bank')
-  for (const term of ['1', '3']) {
-    await page.locator('#deposit-term').selectOption(term)
-    await page.locator('#trade-amount').fill('1000000')
-    await page.getByRole('button', { name: /Xác nhận gửi khoản mới/ }).click()
-  }
+  await fixture('bank-later')
   await page.locator('.trade-details summary').click()
   const lots = page.locator('.trade-details p').filter({ hasText: /deposit-/ })
-  assert.equal(await lots.count(), 2)
+  assert.equal(await lots.count(), 1)
   assert.match(await lots.nth(0).textContent(), /vòng 1/)
-  assert.match(await lots.nth(1).textContent(), /vòng 3/)
-  await page.screenshot({ path: `${folder}/390-bank-multiple-lots.png` })
-  await page.getByRole('button', { name: /Hoàn tất · Về bàn chơi/ }).click()
+  await page.locator('#deposit-term').selectOption('3')
+  await page.locator('#trade-amount').fill('1000000')
+  await page.screenshot({ path: `${folder}/390-bank-existing-lot.png` })
+  await page.getByRole('button', { name: /Xác nhận gửi khoản mới/ }).click()
+  assert.equal(await page.locator('dialog[open]').count(), 0)
+  assert.equal(await page.locator('.status-cash strong').textContent(), money(48_000_000))
   for (const id of ['family', 'bills', 'contract']) {
     await fixture(id)
     await page.getByRole('button', { name: /Thanh toán cuối vòng/ }).click()
@@ -77,7 +76,7 @@ try {
   assert.equal(await page.locator('dialog[open]').count(), 0)
   assert.deepEqual(errors, [])
   const result = { exactDong: 1_234_567, middleEditing: true, malformedPasteRejected: true, numericKeyboardHint: true,
-    reducedViewport: '320x460', realDeviceKeyboardTested: false, bankIndependentLots: [1, 3], deferredObligations: ['family', 'bills', 'contract', 'repair'], errors }
+    reducedViewport: '320x460', realDeviceKeyboardTested: false, bankIndependentTermsFromDifferentEncounters: [1, 3], deferredObligations: ['family', 'bills', 'contract', 'repair'], errors }
   writeFileSync(`${folder}/input-verification.json`, JSON.stringify(result, null, 2) + '\n')
   console.log(JSON.stringify(result, null, 2))
 } finally { await browser.close() }

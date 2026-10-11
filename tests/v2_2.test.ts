@@ -9,7 +9,7 @@ import type { GameModeId, GameState, Term } from '../src/game/types.ts'
 import { readFileSync } from 'node:fs'
 import { replayGameLog } from '../scripts/diagnostics/replay-game-log.ts'
 
-function bank(s: GameState, lap = s.lap): GameState { return { ...s, lap, phase: 'event', position: 1, eventId: 'bank' } }
+function bank(s: GameState, lap = s.lap): GameState { return { ...s, lap, turn: s.turn + 1, phase: 'event', position: 1, eventId: 'bank' } }
 for (const mode of ['original', 'experimental-a', 'experimental-b'] as GameModeId[]) {
   for (const term of [1, 2, 3] as Term[]) test(`V2.2 ${mode}: term ${term} uses simple interest and matures once`, () => {
     const rate = (mode === 'experimental-b' ? { 1: .04, 2: .05, 3: .06 } : { 1: .06, 2: .07, 3: .08 })[term]

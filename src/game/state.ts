@@ -5,6 +5,8 @@ import { savingsProfileForGame } from './savings.ts'
 
 export function snapshot(s: GameState): Snapshot {
   return { gameMode:s.gameMode, boardLayout:s.boardLayout, totalLaps:s.totalLaps, businessPurchaseTurn:s.businessPurchaseTurn,
+    ...(s.encounterRulesVersion ? { encounterRulesVersion: s.encounterRulesVersion } : {}),
+    ...(s.businessRulesVersion ? { businessRulesVersion: s.businessRulesVersion } : {}),
     ...(s.savingsProfile ? { savingsProfile: savingsProfileForGame(s) } : {}),
     lap: s.lap, position: s.position, turn: s.turn, portfolio: { ...s.portfolio },
     savingsEligible: s.savingsEligible, savingsMatured: s.savingsMatured,

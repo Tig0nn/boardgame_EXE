@@ -14,7 +14,7 @@ import { replayGameLog } from './diagnostics/replay-game-log.ts'
 const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE || 'playwright')
 const browser = await chromium.launch({ channel: 'chrome', headless: true })
 const base = process.env.UI_URL || 'http://localhost:5173'
-const folder = 'docs/playtests/transaction-ux'
+const folder = process.env.MVP_EVIDENCE_DIR || 'docs/playtests/encounter-limits-v2_3/regression'
 mkdirSync(folder, { recursive: true })
 const errors = []
 const page = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
@@ -122,7 +122,10 @@ try {
         await page.locator('#trade-amount').fill('5000000')
         await page.getByRole('button', { name: /Xác nhận gửi khoản mới/ }).click()
         expected = transact(expected, { kind: 'deposit', amount: 5_000_000, term })
-        await cash(expected.portfolio.cash)
+        await page.locator('dialog[open]').waitFor({ state: 'detached' })
+        assert.equal(await page.locator('.status-cash strong').textContent(), money(expected.portfolio.cash))
+        assert.ok(await page.getByRole('status').filter({ hasText: 'Đã gửi tiết kiệm' }).isVisible())
+        continue
       }
       if (expected.eventId === 'stocks') {
         await page.locator('#trade-amount').fill('1000000')
@@ -205,10 +208,14 @@ try {
           await page.getByRole('button', { name: 'Bỏ qua cơ hội', exact: true }).click()
           assert.equal(await page.locator('.status-cash strong').textContent(), money(50_000_000))
           assert.equal(await page.locator('dialog[open]').count(), 0)
+        } else if (name === 'bank') {
+          await confirm.evaluate(button => { button.click(); button.click() })
+          await page.locator('dialog[open]').waitFor({ state: 'detached' })
+          assert.equal(await page.locator('.status-cash strong').textContent(), money(49_000_000))
+          assert.ok(await page.getByRole('button', { name: 'Gieo xúc xắc', exact: true }).isEnabled())
         } else {
           await confirm.click()
           await cash(49_000_000)
-          if (name === 'bank') await page.locator('#deposit-term').selectOption('3')
           await page.locator('#trade-amount').fill('1000000')
           await confirm.click()
           await cash(48_000_000)
@@ -223,8 +230,7 @@ try {
       } else if (name === 'business-upgrade') {
         await page.getByRole('button', { name: /Nâng cấp/ }).click()
         await cash(25_000_000)
-        await page.getByRole('button', { name: /Nâng cấp/ }).click()
-        await cash(20_000_000)
+        assert.ok(await page.getByRole('button', { name: /Nâng cấp/ }).isDisabled())
         await page.getByRole('button', { name: /Bán toàn cơ sở/ }).click()
         assert.ok(await page.getByRole('button', { name: /Đầu tư cơ sở/ }).isVisible())
       } else if (name === 'funding' || name === 'withdrawal') {

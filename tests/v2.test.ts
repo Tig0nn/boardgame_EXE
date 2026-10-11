@@ -387,7 +387,7 @@ test('V2 purchased course is permanent and may never be purchased twice', () => 
 })
 
 test('V2 business upgrades preserve base income and retain tiers for multiple trends', () => {
-  let state = buy(createGame('v2-business-upgrades', 0), 'business', 20_000_000)
+  let state = buy(createGame('v2-business-upgrades', 0, 1, undefined, undefined, 'v2.2-trend-shock', 'legacy-multi-action'), 'business', 20_000_000)
   state = { ...state, turn:state.turn+1 } // Subsequent encounter under V2.1.
   const before = businessIncome(state)
   state = transact(tileState(state, 'business'), { kind: 'upgrade', asset: 'business', amount: ECONOMY.business.upgradeCost, trend: 'growth' })

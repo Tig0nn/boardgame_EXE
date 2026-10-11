@@ -8,6 +8,8 @@ export type Category = 'investment' | 'income' | 'shock' | 'obligation'
 export type TileType = 'start' | 'bank' | TradableAsset | 'business' | 'course' | 'living' | 'personal' | 'macro' | 'obligation'
 export type Term = 1 | 2 | 3
 export type SavingsProfileId = 'v2.1-standard' | 'v2.2-c20'
+export type BusinessRulesVersion = 'v2.2-trend-shock' | 'v2.3-fixed-income'
+export type EncounterRulesVersion = 'legacy-multi-action' | 'v2.3-single-action'
 export interface SavingsProfile { id: SavingsProfileId; rates: Record<Term, number> }
 export interface DepositLot {
   id: string; principal: number; startLap: number; maturityLap: number; rate: number
@@ -38,6 +40,10 @@ export interface GameEvent {
   id: string; category: Category; title: string; description: string; options: Option[]
 }
 export interface Snapshot {
+  // Missing in historical logs, including V2.3 games before encounter limits.
+  encounterRulesVersion?: EncounterRulesVersion
+  // Missing metadata retains the V2.1/V2.2 income formula.
+  businessRulesVersion?: BusinessRulesVersion
   // Absent only in historical V2.1 snapshots; absence always means legacy rates.
   savingsProfile?: SavingsProfile
   gameMode: GameModeId; boardLayout: BoardLayoutId; totalLaps: number
