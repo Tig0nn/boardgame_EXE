@@ -61,7 +61,7 @@ export interface DiagnosticPolicy {
   choose?: (state: GameState, preferred: string) => string
 }
 export function playDiagnostic(seed: string, strategy: Strategy, horizon: number, policy: DiagnosticPolicy = {}) {
-  return withHorizon(horizon, () => {
+  const runGame = () => {
     const savingOnly = strategy === 'saving-heavy' || strategy === 'saving-no-course'
     const initialSavings = policy.initialSavings ?? (savingOnly ? 40_000_000 : strategy === 'diversified' ? 15_000_000 : 0)
     let s = createGame(seed, initialSavings, policy.initialTerm ?? (savingOnly ? 3 : 1), policy.mode, policy.savingsProfileId)
@@ -206,7 +206,9 @@ export function playDiagnostic(seed: string, strategy: Strategy, horizon: number
       first90Lap, first90Checkpoint, terminalSavings: s.portfolio.savings,
       path, checkpoints, visits, stopsByTile }
     return { run, state: s }
-  })
+  }
+  // Explicit browser modes already carry their horizon; leave global config untouched.
+  return policy.mode ? runGame() : withHorizon(horizon, runGame)
 }
 
 export type Run = ReturnType<typeof playDiagnostic>['run']

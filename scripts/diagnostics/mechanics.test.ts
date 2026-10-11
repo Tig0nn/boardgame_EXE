@@ -7,7 +7,9 @@ import { numericMetrics } from './mechanics-statistics.ts'
 
 test('explicit C20 mode is audited using C20 encounters, with identical cash result to A20', () => {
   const a = playDiagnostic('XVTL-V2-6', 'cash-heavy', 4)
-  const b = playDiagnostic('XVTL-V2-6', 'cash-heavy', 4, { mode: 'experimental-b' })
+  const baselineLaps = RULES.laps
+  const b = playDiagnostic('XVTL-V2-6', 'cash-heavy', 4, { mode: 'experimental-b',
+    choose: (_s, preferred) => { assert.equal(RULES.laps, baselineLaps); return preferred } })
   assert.equal(b.state.boardLayout, 'C20')
   assert.equal(b.run.funds, a.run.funds)
   assert.equal(b.run.visits.business, b.state.log.filter(e => e.kind === 'encounter' && e.eventId === 'business').length)
