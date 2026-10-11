@@ -17,12 +17,6 @@ export const experiments = [
 ] as const
 export type Experiment = typeof experiments[number]
 
-export function withSavingsRates<T>(rates: typeof ECONOMY.savingsRates, work: () => T): T {
-  const before = { ...ECONOMY.savingsRates }
-  Object.assign(ECONOMY.savingsRates, rates)
-  try { return work() } finally { Object.assign(ECONOMY.savingsRates, before) }
-}
-
 export function fundConservatively(s: GameState, debtFirst = false): GameState {
   const sources = fundingSources(s)
   const source = debtFirst && sources.includes('debt') ? 'debt' : sources[0]
@@ -78,7 +72,8 @@ function business(s: GameState, exitLap: number, selectiveUpgrade: boolean) {
 
 export function playMechanics(seed: string, experiment: Experiment) {
   let strategy: Strategy = 'cash-course'
-  const policy: DiagnosticPolicy = { mode: 'experimental-b' }
+  // Preserve the pre-approval study's rates without mutating global configuration.
+  const policy: DiagnosticPolicy = { mode: 'experimental-b', savingsProfileId: experiment === 'saving-456' ? 'v2.2-c20' : 'v2.1-standard' }
   if (experiment === 'cash') strategy = 'cash-heavy'
   if (experiment.startsWith('saving')) strategy = 'saving-heavy'
   if (experiment === 'saving-30M') policy.initialSavings = 30_000_000
@@ -99,6 +94,5 @@ export function playMechanics(seed: string, experiment: Experiment) {
   }
   // Explicitly retain legacy savings/diversification actions in the reference groups.
   if (!policy.act) policy.act = s => tileAction(s, strategy, 4)
-  const run = () => playDiagnostic(seed, strategy, 4, policy)
-  return experiment === 'saving-456' ? withSavingsRates({ 1: 0.04, 2: 0.05, 3: 0.06 }, run) : run()
+  return playDiagnostic(seed, strategy, 4, policy)
 }

@@ -6,7 +6,7 @@ import { liquidatableFunds, saleQuote, victory } from '../../src/game/selectors.
 import { boardFor } from '../../src/data/board.ts'
 import { ECONOMY, RULES } from '../../src/data/config.ts'
 import { EVENTS } from '../../src/data/events.ts'
-import type { GameModeId, GameState, Term } from '../../src/game/types.ts'
+import type { GameModeId, GameState, Term, SavingsProfileId } from '../../src/game/types.ts'
 
 export const strategies = ['cash-heavy', 'saving-heavy', 'stock-heavy', 'business-heavy', 'diversified'] as const
 export type Strategy = typeof strategies[number] | 'cash-course' | 'saving-no-course' | 'business-exit-window'
@@ -51,6 +51,7 @@ export function tileAction(s: GameState, strategy: Strategy, horizon: number): G
 
 // Offline experiments may replace policy decisions, never the accounting audit.
 export interface DiagnosticPolicy {
+  savingsProfileId?: SavingsProfileId
   mode?: GameModeId
   initialSavings?: number
   initialTerm?: Term
@@ -63,7 +64,7 @@ export function playDiagnostic(seed: string, strategy: Strategy, horizon: number
   return withHorizon(horizon, () => {
     const savingOnly = strategy === 'saving-heavy' || strategy === 'saving-no-course'
     const initialSavings = policy.initialSavings ?? (savingOnly ? 40_000_000 : strategy === 'diversified' ? 15_000_000 : 0)
-    let s = createGame(seed, initialSavings, policy.initialTerm ?? (savingOnly ? 3 : 1), policy.mode)
+    let s = createGame(seed, initialSavings, policy.initialTerm ?? (savingOnly ? 3 : 1), policy.mode, policy.savingsProfileId)
     assert.equal(s.totalLaps, horizon)
     const BOARD = boardFor(s)
     const visits: Record<string, number> = Object.fromEntries([...new Set(BOARD.map(tile => tile.type))].map(type => [type, 0]))

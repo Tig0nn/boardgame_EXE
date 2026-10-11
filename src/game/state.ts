@@ -1,9 +1,11 @@
 import type { FinancialEffects, GameState, LogEntry, Snapshot } from './types.ts'
 import { random } from './random.ts'
 import { EVENTS } from '../data/events.ts'
+import { savingsProfileForGame } from './savings.ts'
 
 export function snapshot(s: GameState): Snapshot {
   return { gameMode:s.gameMode, boardLayout:s.boardLayout, totalLaps:s.totalLaps, businessPurchaseTurn:s.businessPurchaseTurn,
+    ...(s.savingsProfile ? { savingsProfile: savingsProfileForGame(s) } : {}),
     lap: s.lap, position: s.position, turn: s.turn, portfolio: { ...s.portfolio },
     savingsEligible: s.savingsEligible, savingsMatured: s.savingsMatured,
     obligations: s.obligations, rng: s.rng, phase: s.phase, scenarioId: s.scenarioId,
@@ -43,6 +45,7 @@ export function record(s: GameState, before: Snapshot, entry: Entry): GameState 
 
 export function copyState(s: GameState): GameState {
   return { ...s, portfolio: { ...s.portfolio }, unlockedAssets: [...s.unlockedAssets],
+    ...(s.savingsProfile ? { savingsProfile: savingsProfileForGame(s) } : {}),
     deposits: s.deposits.map(lot => ({ ...lot })),
     stockHoldings: Object.fromEntries(Object.entries(s.stockHoldings).map(([id, holding]) => [id, { ...holding }])),
     bondLots: s.bondLots.map(lot => ({ ...lot })), business: { ...s.business, upgrades: { ...s.business.upgrades } },

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { playDiagnostic } from './game-length-model.ts'
-import { experiments, playMechanics, withSavingsRates } from './mechanics-model.ts'
+import { experiments, playMechanics } from './mechanics-model.ts'
 import { ECONOMY, RULES } from '../../src/data/config.ts'
 import { numericMetrics } from './mechanics-statistics.ts'
 
@@ -14,9 +14,8 @@ test('explicit C20 mode is audited using C20 encounters, with identical cash res
   assert.notEqual(b.run.visits.business, a.run.visits.business)
 })
 
-test('rate sensitivity restores config on failure; all focused policies reconcile and replay exactly', () => {
+test('versioned rate policies never mutate config; all focused policies reconcile and replay exactly', () => {
   const original = JSON.stringify({ RULES, ECONOMY })
-  assert.throws(() => withSavingsRates({ 1: .04, 2: .05, 3: .06 }, () => { throw new Error('probe') }))
   assert.equal(JSON.stringify({ RULES, ECONOMY }), original)
   for (const id of experiments) {
     const first = playMechanics('XVTL-V2-6', id)

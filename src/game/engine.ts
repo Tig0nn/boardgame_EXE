@@ -7,7 +7,8 @@ import { copyState, draw, record, snapshot } from './state.ts'
 import { collectPayment, fundSource, openDeposit, resolveInsolvency } from './transactions.ts'
 import { applyMacroShock, initializeMarket } from './market.ts'
 import { beginSettlement, continueSettlement } from './settlement.ts'
-import type { FundingSource, GameModeId, GameState, Option, Term } from './types.ts'
+import { createSavingsProfile, savingsProfileForMode } from './savings.ts'
+import type { FundingSource, GameModeId, GameState, Option, Term, SavingsProfileId } from './types.ts'
 export { snapshot } from './state.ts'
 export { netWorth, totalWorth, victory } from './selectors.ts'
 export { rebalance, transact, withdrawSavings, fundingSources } from './transactions.ts'
@@ -22,10 +23,11 @@ function forecast(s: GameState): GameState {
   }
   return next
 }
-export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId): GameState {
+export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId, replayProfile?: SavingsProfileId): GameState {
   if (!Number.isFinite(savings) || !Number.isInteger(savings) || savings < 0 || savings > RULES.startingCapital) throw new Error('Phân bổ tiết kiệm không hợp lệ.')
   const selected = gameMode(mode ?? 'original')
   const state: GameState = {
+    savingsProfile: replayProfile ? createSavingsProfile(replayProfile) : savingsProfileForMode(selected.id),
     gameMode:selected.id, boardLayout:selected.boardLayout,
     // Legacy offline diagnostics can still scope RULES.laps before creating a game.
     // Browser setup always passes an explicit mode and never mutates shared config.

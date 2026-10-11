@@ -7,6 +7,8 @@ export type Phase = 'forecast' | 'rolling' | 'event' | 'funding' | 'summary' | '
 export type Category = 'investment' | 'income' | 'shock' | 'obligation'
 export type TileType = 'start' | 'bank' | TradableAsset | 'business' | 'course' | 'living' | 'personal' | 'macro' | 'obligation'
 export type Term = 1 | 2 | 3
+export type SavingsProfileId = 'v2.1-standard' | 'v2.2-c20'
+export interface SavingsProfile { id: SavingsProfileId; rates: Record<Term, number> }
 export interface DepositLot {
   id: string; principal: number; startLap: number; maturityLap: number; rate: number
   status: 'active' | 'matured' | 'withdrawn'; earnedInterest: number
@@ -36,6 +38,8 @@ export interface GameEvent {
   id: string; category: Category; title: string; description: string; options: Option[]
 }
 export interface Snapshot {
+  // Absent only in historical V2.1 snapshots; absence always means legacy rates.
+  savingsProfile?: SavingsProfile
   gameMode: GameModeId; boardLayout: BoardLayoutId; totalLaps: number
   businessPurchaseTurn: number | null
   lap: number; position: number; turn: number; portfolio: Portfolio

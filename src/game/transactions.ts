@@ -5,6 +5,7 @@ import { lostInterestOnWithdrawal, saleQuote } from './selectors.ts'
 import { syncValuations } from './market.ts'
 import { businessSaleQuote, businessUpgradeUnlocked } from './business.ts'
 import { money } from './format.ts'
+import { savingsProfileForGame } from './savings.ts'
 import type { FundingSource, GameState, PendingPayment, RebalanceAction, Term, TradableAsset } from './types.ts'
 
 export function validateAmount(amount: number, max: number) {
@@ -15,7 +16,7 @@ export function openDeposit(s: GameState, amount: number, term: Term) {
   if (![1, 2, 3].includes(term)) throw new Error('Kỳ hạn phải là 1, 2 hoặc 3 vòng.')
   s.portfolio.cash -= amount
   s.deposits.push({ id: `deposit-${s.deposits.length + 1}`, principal: amount, startLap: s.lap,
-    maturityLap: s.lap + term - 1, rate: ECONOMY.savingsRates[term], status: 'active', earnedInterest: 0 })
+    maturityLap: s.lap + term - 1, rate: savingsProfileForGame(s).rates[term], status: 'active', earnedInterest: 0 })
   syncValuations(s)
 }
 export function collectPayment(s: GameState, payment: Omit<PendingPayment, 'remaining'>) {
