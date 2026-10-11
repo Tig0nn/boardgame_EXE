@@ -1,0 +1,188 @@
+{
+  "baseline": "71e722d",
+  "sourceNormalization": "UTF-8 without BOM, LF",
+  "sourceFiles": [
+    {
+      "file": "src/App.tsx",
+      "unchanged": true,
+      "baselineSha256": "18729fd5314765398d35f7c161800952f3cd7afc7f77775f68aa84dffa6e8c5d",
+      "currentSha256": "18729fd5314765398d35f7c161800952f3cd7afc7f77775f68aa84dffa6e8c5d"
+    },
+    {
+      "file": "src/components/Board.tsx",
+      "unchanged": true,
+      "baselineSha256": "d25bf1ccdef2fcb336b8954684184d841fc09d528b7e6ca77328dfd019b458b2",
+      "currentSha256": "d25bf1ccdef2fcb336b8954684184d841fc09d528b7e6ca77328dfd019b458b2"
+    },
+    {
+      "file": "src/components/FundingDialog.tsx",
+      "unchanged": true,
+      "baselineSha256": "9be9549d171a16f8ce6b6f74fd33005122950e9c5679c6b465e16485af4ca5d6",
+      "currentSha256": "9be9549d171a16f8ce6b6f74fd33005122950e9c5679c6b465e16485af4ca5d6"
+    },
+    {
+      "file": "src/components/GameDialogs.tsx",
+      "unchanged": true,
+      "baselineSha256": "a99771cb42e5152d982b1ef1ddafd318dbc24ff3d103775c0f03927252416d82",
+      "currentSha256": "a99771cb42e5152d982b1ef1ddafd318dbc24ff3d103775c0f03927252416d82"
+    },
+    {
+      "file": "src/components/MoneyInput.tsx",
+      "unchanged": true,
+      "baselineSha256": "50cc0702447c148aa97234cbac25c05c8af48bc1ba760b9e9434399119e6ff1d",
+      "currentSha256": "50cc0702447c148aa97234cbac25c05c8af48bc1ba760b9e9434399119e6ff1d"
+    },
+    {
+      "file": "src/components/RebalanceDialog.tsx",
+      "unchanged": true,
+      "baselineSha256": "241656744fab9a322e4b9311aa72e4f642b1187022f80b797fab4af01ec1d3eb",
+      "currentSha256": "241656744fab9a322e4b9311aa72e4f642b1187022f80b797fab4af01ec1d3eb"
+    },
+    {
+      "file": "src/data/board.ts",
+      "unchanged": true,
+      "baselineSha256": "568827bc46d74c105e895ec2415ee8690fc1eb199b6f7fa4854881a57be6fc87",
+      "currentSha256": "568827bc46d74c105e895ec2415ee8690fc1eb199b6f7fa4854881a57be6fc87"
+    },
+    {
+      "file": "src/data/config.ts",
+      "unchanged": true,
+      "baselineSha256": "df966518474c1821e337e73203c0970eaab8e3fd5b51fb0b9e14bddea04a7071",
+      "currentSha256": "df966518474c1821e337e73203c0970eaab8e3fd5b51fb0b9e14bddea04a7071"
+    },
+    {
+      "file": "src/data/events.ts",
+      "unchanged": true,
+      "baselineSha256": "31988efe724a0b1ee93aca53c8ce46b9d53802fdc173f072eef9b861b62565b9",
+      "currentSha256": "31988efe724a0b1ee93aca53c8ce46b9d53802fdc173f072eef9b861b62565b9"
+    },
+    {
+      "file": "src/data/modes.ts",
+      "unchanged": true,
+      "baselineSha256": "5c5a5eb0e8fa42e721a11b1b79556b619fda87a9a197c1c42343506248b4899d",
+      "currentSha256": "5c5a5eb0e8fa42e721a11b1b79556b619fda87a9a197c1c42343506248b4899d"
+    },
+    {
+      "file": "src/game/business.ts",
+      "unchanged": false,
+      "baselineSha256": "f303c080fd46ee9dab7c66d3429cf85d70da82d358a601783b7eec8e98414ee4",
+      "currentSha256": "8a9edd8c385e9748cc04725926bf03cd7aa9ca05cbd747d1f941f1b5711a4451"
+    },
+    {
+      "file": "src/game/engine.ts",
+      "unchanged": false,
+      "baselineSha256": "0f73b07eb1c653962edfe412e4b00cfddd15ece9a4b4e6d18e800c3b86b4c278",
+      "currentSha256": "530c6d94b8159b744f2b1b2ad539c633d41b1da3e73f8d675a1844528ec4b69e"
+    },
+    {
+      "file": "src/game/format.ts",
+      "unchanged": true,
+      "baselineSha256": "e7ac228b47f3276351166b2957ca039b0773abe9991d22abcddb8574c65d610e",
+      "currentSha256": "e7ac228b47f3276351166b2957ca039b0773abe9991d22abcddb8574c65d610e"
+    },
+    {
+      "file": "src/game/log.ts",
+      "unchanged": false,
+      "baselineSha256": "5aa4be5f3d900f99b56982592f693205bc9077ae5e00254730a3d35074c31fb9",
+      "currentSha256": "807f433ffcb5f1e18bb261e6af17fbc927e22a2f5f2b7edc775ae282ad375c96"
+    },
+    {
+      "file": "src/game/market.ts",
+      "unchanged": true,
+      "baselineSha256": "15ef1f763f7b55f1dcfdbc054f2bb9225b47c188dd80bc4d5fc30c301a4a3ed1",
+      "currentSha256": "15ef1f763f7b55f1dcfdbc054f2bb9225b47c188dd80bc4d5fc30c301a4a3ed1"
+    },
+    {
+      "file": "src/game/random.ts",
+      "unchanged": true,
+      "baselineSha256": "6701ad680fd1cbf4dcf68f54c4998345190a28c3fdbbcfac4cafdab2f1124d29",
+      "currentSha256": "6701ad680fd1cbf4dcf68f54c4998345190a28c3fdbbcfac4cafdab2f1124d29"
+    },
+    {
+      "file": "src/game/savings.ts",
+      "unchanged": true,
+      "baselineSha256": "1b40f4a47d5b927128abdd087d5f9ac6843ca0272f28363463ffe8c3d3b50a36",
+      "currentSha256": "1b40f4a47d5b927128abdd087d5f9ac6843ca0272f28363463ffe8c3d3b50a36"
+    },
+    {
+      "file": "src/game/selectors.ts",
+      "unchanged": true,
+      "baselineSha256": "904c2e2486cfba67004fdae046801ced06e09d3c1f47b33c1a3465557afceb82",
+      "currentSha256": "904c2e2486cfba67004fdae046801ced06e09d3c1f47b33c1a3465557afceb82"
+    },
+    {
+      "file": "src/game/settlement.ts",
+      "unchanged": true,
+      "baselineSha256": "6d6aa8b221bcdd2b69eda39a8967ad72aa4f650ed02a9d82c9fe0fdd2b08b59c",
+      "currentSha256": "6d6aa8b221bcdd2b69eda39a8967ad72aa4f650ed02a9d82c9fe0fdd2b08b59c"
+    },
+    {
+      "file": "src/game/state.ts",
+      "unchanged": false,
+      "baselineSha256": "a697187a36732f583e97cb4c9d2d2f86afb740b1ca8a4372015121a2498da9ac",
+      "currentSha256": "21b2893b7d9254851fbc5ac2185387fc585ddf1728d608f2abf04d937c9b9c2a"
+    },
+    {
+      "file": "src/game/transactions.ts",
+      "unchanged": true,
+      "baselineSha256": "7a83b421a9691a3f9a7c693d0a34e3e7c1437f08f677a61a4d3d84479f6866fe",
+      "currentSha256": "7a83b421a9691a3f9a7c693d0a34e3e7c1437f08f677a61a4d3d84479f6866fe"
+    },
+    {
+      "file": "src/game/types.ts",
+      "unchanged": false,
+      "baselineSha256": "8255c10b2089081f8fd9566cadb56302f902eb1f3ab3c8acaa099b6e1a2a0eaa",
+      "currentSha256": "b54b5a047e18cc1c4e643a788fefbf4cd37357c6906bfe85c0f0f5a911ada64d"
+    },
+    {
+      "file": "src/mobile.css",
+      "unchanged": true,
+      "baselineSha256": "c1ebdb220995bd024170e6b8bee52107ca854b78e1e12e3181e641d4a8959274",
+      "currentSha256": "c1ebdb220995bd024170e6b8bee52107ca854b78e1e12e3181e641d4a8959274"
+    },
+    {
+      "file": "src/ui/money-input.ts",
+      "unchanged": true,
+      "baselineSha256": "48a2b05aff746a23fcd9614c38a7581b4af307ae94dec58212c437c41b3604bb",
+      "currentSha256": "48a2b05aff746a23fcd9614c38a7581b4af307ae94dec58212c437c41b3604bb"
+    }
+  ],
+  "historicalFiles": [
+    {
+      "file": "docs/playtests/original-log.json",
+      "unchanged": true,
+      "comparison": "exact bytes",
+      "sha256": "fe80ab162036a77b6aeb11cb193753aca92dc485d75f464d5b59beac6d2dff02"
+    },
+    {
+      "file": "docs/playtests/a-log.json",
+      "unchanged": true,
+      "comparison": "exact bytes",
+      "sha256": "9c211e051c0ba3cdd4a27e6febb4f49d7b67a27cb4a50854e518da04212bf0c5"
+    },
+    {
+      "file": "docs/playtests/b-log.json",
+      "unchanged": true,
+      "comparison": "exact bytes",
+      "sha256": "422d69f21e0e28a0d8574ef263591cc987c1421ba476b0779e1926e79e9df477"
+    },
+    {
+      "file": "docs/playtests/v2_2-b-log.json",
+      "unchanged": true,
+      "comparison": "exact bytes",
+      "sha256": "def4500c782dd0f7cf175f396e7d7d2f3e4fa9ecaf044d740cffae56bda586fe"
+    },
+    {
+      "file": "docs/playtests/transaction-ux/browser-game-log.json.gz",
+      "unchanged": true,
+      "comparison": "exact bytes",
+      "sha256": "d2a0bc09d7124cd5f31c252917cd0006505022c3a389f0921c15741618770315"
+    },
+    {
+      "file": "docs/simulations/v2_2-protected-hashes.json",
+      "unchanged": true,
+      "comparison": "normalized text",
+      "sha256": "567baead001e55fe63bbf912d61d857e2378356f1f21c7ebc4b4d95be2b385a4"
+    }
+  ]
+}

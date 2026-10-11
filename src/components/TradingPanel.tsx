@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { ASSETS, ECONOMY, SCENARIOS, SECTORS } from '../data/config'
-import { businessUpgradeUnlocked } from '../game/business'
+import { businessRulesForGame, businessUpgradeUnlocked } from '../game/business'
 import { money, percent } from '../game/format'
 import { businessOverview, depositPreview, purchasePreview, stockQuote } from '../game/selectors'
 import type { Asset, GameState, RebalanceAction, Term } from '../game/types'
@@ -31,6 +31,7 @@ export function TradingPanel({ game, onTransaction, onSkip }: { game: GameState;
     const config = ECONOMY.business
     const view = businessOverview(game, trend)
     const owned = view.locked > 0
+    const fixedIncome = businessRulesForGame(game) === 'v2.3-fixed-income'
     const upgradeReason = !businessUpgradeUnlocked(game) ? 'Nâng cấp mở từ lần gặp ô Kinh doanh tiếp theo sau khi mua.'
       : view.levels >= config.maxUpgrades ? `Đã đạt tối đa ${config.maxUpgrades} tầng nâng cấp.`
       : game.portfolio.cash < config.upgradeCost ? 'Chưa đủ tiền mặt để nâng cấp.' : ''
@@ -42,6 +43,8 @@ export function TradingPanel({ game, onTransaction, onSkip }: { game: GameState;
         <div><span>Số START còn lại</span><strong>{view.remainingStarts} kỳ</strong></div>
       </div>
       <p className="financial-warning">Thu nhập vận hành dương không đảm bảo tổng lợi nhuận. Chỉ bán tại ô Kinh doanh; vốn chưa bán không tính vào mục tiêu 90 triệu và không dùng trả khoản thiếu bắt buộc.</p>
+      <p>{fixedIncome ? `Nền cố định ${money(config.baseIncome)}/START khi sở hữu; không nhân theo xu hướng hoặc cú sốc kinh tế.` : `Luật lịch sử: nền ${money(config.baseIncome)}/START × hệ số xu hướng, cộng điều chỉnh từ cú sốc kinh tế.`} Nâng cấp {money(config.upgradeCost)}/tầng: +{money(config.baseUplift)} cố định và +{money(config.matchingBonus)} mỗi tầng trùng xu hướng hiện tại.</p>
+      <p>Xu hướng hiện tại: <b>{SCENARIOS.find(scenario => scenario.id === game.scenarioId)!.label}</b>. {fixedIncome ? 'Chỉ phần thưởng trùng xu hướng thay đổi khi xu hướng đổi.' : 'Luật lịch sử còn điều chỉnh cả thu nhập nền theo xu hướng.'}</p>
       {!owned ? <><p>Đầu tư {money(config.cost)} · Giá thu hồi ban đầu {config.capitalRecovery * 100}% vốn, trước biến động và khấu hao.</p>
         {game.portfolio.cash < config.cost && <p className="input-error">Chưa đủ tiền mặt để mua cơ sở.</p>}
         <button className="button primary full-button" disabled={game.portfolio.cash < config.cost} onClick={() => submit({ kind: 'buy', asset: 'business', amount: config.cost })}>Đầu tư cơ sở {money(config.cost)}</button></> : <>
@@ -51,7 +54,7 @@ export function TradingPanel({ game, onTransaction, onSkip }: { game: GameState;
         <button className="button secondary full-button" disabled={!!upgradeReason} onClick={() => submit({ kind: 'upgrade', asset: 'business', amount: config.upgradeCost, trend })}>Nâng cấp {money(config.upgradeCost)}</button>
         <button className="button secondary full-button" onClick={() => submit({ kind: 'sell', asset: 'business', amount: game.portfolio.business })}>Bán toàn cơ sở · Nhận {money(view.sale)}</button>
       </>}
-      <details className="trade-details"><summary>Chi phí, thu hồi vốn và rủi ro</summary><p>Thu nhập cơ bản {money(config.baseIncome)}/START × hệ số xu hướng. Giá thu hồi chịu khấu hao {config.depreciation * 100}%/vòng và cú sốc kinh tế. Nâng cấp chỉ tăng giá thu hồi bằng {config.upgradeRecovery * 100}% chi phí.</p><p>Báo giá và thu nhập có thể đổi tại START hoặc sự kiện kinh tế. Có thể lỗ tổng vốn, hoặc không gặp lại ô để bán trước khi hết {view.remainingStarts} kỳ còn lại.</p></details>
+      <details className="trade-details"><summary>Chi phí, thu hồi vốn và rủi ro</summary><p>Giá thu hồi chịu xu hướng kinh tế, khấu hao {config.depreciation * 100}%/vòng và cú sốc kinh tế. Nâng cấp chỉ tăng giá thu hồi bằng {config.upgradeRecovery * 100}% chi phí.</p><p>{fixedIncome ? 'Cú sốc kinh tế đổi giá thu hồi, không đổi thu nhập vận hành. Phần thưởng nâng cấp trùng xu hướng phụ thuộc scenario hiện tại.' : 'Theo luật lịch sử, cú sốc kinh tế có thể đổi cả giá thu hồi và thu nhập.'} Có thể lỗ tổng vốn, hoặc không gặp lại ô để bán trước khi hết {view.remainingStarts} kỳ còn lại.</p></details>
       <p className="inline-note">Có thể nâng cấp nhiều tầng hợp lệ hoặc bán tại lần dừng này. Chọn “Hoàn tất” khi đã xong.</p>
     </section>
   }
