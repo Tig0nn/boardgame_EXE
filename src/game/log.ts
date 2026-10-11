@@ -18,7 +18,8 @@ export function serializeLog(game: GameState): string {
   const withProfile = (value: Snapshot): Snapshot => ({ ...value, savingsProfile: savingsProfileForGame(value), businessRulesVersion: businessRulesForGame(value), encounterRulesVersion: encounterRulesForGame(value) })
   const entries = game.log.map(entry => ({ ...entry, before: withProfile(entry.before), after: withProfile(entry.after) }))
   const settlement = game.settlement ? { ...game.settlement, before: withProfile(game.settlement.before) } : null
-  return JSON.stringify({ schemaVersion: 5, seed: game.seed, rulesVersion: businessRulesVersion === 'v2.3-fixed-income' ? 'gameplay-v2.3-fixed-income' : 'gameplay-v2.2-savings-2026-10-11', savingsProfile, businessRulesVersion, encounterRulesVersion,
+  return JSON.stringify({ schemaVersion: 5, seed: game.seed, rulesVersion: businessRulesVersion === 'v2.4-customer-preferences' ? 'gameplay-v2.4-customer-preferences' : businessRulesVersion === 'v2.3-fixed-income' ? 'gameplay-v2.3-fixed-income' : 'gameplay-v2.2-savings-2026-10-11', savingsProfile, businessRulesVersion, encounterRulesVersion,
+    ...(game.customerPreferenceId ? { customerPreferenceId: game.customerPreferenceId } : {}),
     mode:{id:game.gameMode,boardLayout:game.boardLayout,totalLaps:game.totalLaps},
     board:boardFor(game), financialConfig:{RULES,ECONOMY:{...ECONOMY,savingsRates:{...savingsProfile.rates}}},
     playtest:{diceRolls:game.log.filter(entry=>entry.kind==='roll').length,

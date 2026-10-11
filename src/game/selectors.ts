@@ -1,6 +1,6 @@
 import { ECONOMY, RULES } from '../data/config.ts'
 import type { GameState, Portfolio, Snapshot, TradableAsset } from './types.ts'
-import { businessIncome, businessSaleQuote } from './business.ts'
+import { businessIncome, businessMatchingKey, businessSaleQuote } from './business.ts'
 import { savingsProfileForGame } from './savings.ts'
 import type { Term } from './types.ts'
 
@@ -43,10 +43,11 @@ export function depositPreview(s: GameState, amount: number, term: Term) {
     ? Math.round(amount * savingsProfileForGame(s).rates[term] * term) : 0 }
 }
 
-export function businessOverview(s: GameState, trend = s.scenarioId) {
+export function businessOverview(s: GameState, trend = businessMatchingKey(s)) {
   const upgraded = { ...s, business: { ...s.business, upgrades: { ...s.business.upgrades,
     [trend]: (s.business.upgrades[trend] ?? 0) + 1 } } }
   return { income: businessIncome(s), sale: businessSaleQuote(s), locked: s.business.capital,
+    initialSale: Math.round(ECONOMY.business.cost * ECONOMY.business.capitalRecovery),
     levels: Object.values(s.business.upgrades).reduce((sum, n) => sum + n, 0),
     remainingStarts: Math.max(0, s.totalLaps - s.lap + 1),
     incrementalIncome: s.business.capital > 0 ? businessIncome(upgraded) - businessIncome(s) : 0 }

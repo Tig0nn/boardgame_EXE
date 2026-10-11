@@ -8,6 +8,7 @@ import { MarketDetails } from './MarketDetails'
 import { MoneyInput } from './MoneyInput'
 import { savingsProfileForGame } from '../game/savings'
 import { encounterActionUsed, singleActionEncounters } from '../game/encounters'
+import { BusinessPanel } from './BusinessPanel'
 
 export function TradingPanel({ game, onTransaction, onSkip }: { game: GameState; onTransaction: (action: RebalanceAction) => void; onSkip: () => void }) {
   const tile = game.eventId as Asset | 'bank'
@@ -28,6 +29,9 @@ export function TradingPanel({ game, onTransaction, onSkip }: { game: GameState;
   const last = game.log.at(-1)
   const feedback = last?.kind === 'rebalancing' && last.turn === game.turn
     ? <p className="transaction-feedback" role="status">Đã thực hiện: {last.decision}. Tiền mặt còn {money(game.portfolio.cash)}.</p> : null
+  if (tile === 'business' && businessRulesForGame(game) === 'v2.4-customer-preferences') {
+    return <BusinessPanel game={game} onTransaction={submit} feedback={feedback} />
+  }
   if (tile === 'business') {
     const config = ECONOMY.business
     const view = businessOverview(game, trend)

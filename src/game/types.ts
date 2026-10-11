@@ -8,8 +8,9 @@ export type Category = 'investment' | 'income' | 'shock' | 'obligation'
 export type TileType = 'start' | 'bank' | TradableAsset | 'business' | 'course' | 'living' | 'personal' | 'macro' | 'obligation'
 export type Term = 1 | 2 | 3
 export type SavingsProfileId = 'v2.1-standard' | 'v2.2-c20'
-export type BusinessRulesVersion = 'v2.2-trend-shock' | 'v2.3-fixed-income'
-export type EncounterRulesVersion = 'legacy-multi-action' | 'v2.3-single-action'
+export type BusinessRulesVersion = 'v2.2-trend-shock' | 'v2.3-fixed-income' | 'v2.4-customer-preferences'
+export type CustomerPreferenceId = 'checkin' | 'budget' | 'taste'
+export type EncounterRulesVersion = 'legacy-multi-action' | 'v2.3-single-action' | 'v2.4-business-purchase-complete'
 export interface SavingsProfile { id: SavingsProfileId; rates: Record<Term, number> }
 export interface DepositLot {
   id: string; principal: number; startLap: number; maturityLap: number; rate: number
@@ -44,6 +45,8 @@ export interface Snapshot {
   encounterRulesVersion?: EncounterRulesVersion
   // Missing metadata retains the V2.1/V2.2 income formula.
   businessRulesVersion?: BusinessRulesVersion
+  // V2.4 only; fixed throughout the saved lap, independent of scenarioId.
+  customerPreferenceId?: CustomerPreferenceId
   // Absent only in historical V2.1 snapshots; absence always means legacy rates.
   savingsProfile?: SavingsProfile
   gameMode: GameModeId; boardLayout: BoardLayoutId; totalLaps: number
@@ -86,6 +89,7 @@ export interface SettlementProgress {
 export interface RebalanceAction {
   kind: 'deposit' | 'withdraw' | 'buy' | 'sell' | 'repay' | 'upgrade'; amount: number; asset?: Asset
   symbolId?: string; lotId?: string; term?: Term; trend?: string
+  customerPreferenceId?: CustomerPreferenceId
   /** Atomic MVP stock purchase + encounter completion; omitted for historical multi-trade flows. */
   completeEncounter?: boolean
 }

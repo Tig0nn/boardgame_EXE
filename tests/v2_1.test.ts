@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { createGame, advance, roll, decide, canChoose, transact, fundPayment } from '../src/game/engine.ts'
+import { advance, roll, decide, canChoose, transact, fundPayment } from '../src/game/engine.ts'
+import { createV23Game as createGame } from './helpers/v2_3.ts'
 import { fundingSources, borrowingAvailable } from '../src/game/transactions.ts'
 import { serializeLog } from '../src/game/log.ts'
 import { boardFor } from '../src/data/board.ts'

@@ -14,7 +14,7 @@ import { replayGameLog } from './diagnostics/replay-game-log.ts'
 const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE || 'playwright')
 const browser = await chromium.launch({ channel: 'chrome', headless: true })
 const base = process.env.UI_URL || 'http://localhost:5173'
-const folder = process.env.MVP_EVIDENCE_DIR || 'docs/playtests/encounter-limits-v2_3/regression'
+const folder = process.env.MVP_EVIDENCE_DIR || 'docs/playtests/business-v2_4/regression'
 mkdirSync(folder, { recursive: true })
 const errors = []
 const page = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
@@ -223,10 +223,9 @@ try {
         }
       } else if (name === 'business') {
         await page.getByRole('button', { name: /Đầu tư cơ sở/ }).click()
-        await cash(30_000_000)
-        assert.ok(await page.getByRole('button', { name: /Nâng cấp/ }).isDisabled())
-        await page.getByRole('button', { name: /Bán toàn cơ sở/ }).click()
-        await cash(44_000_000)
+        await page.locator('dialog[open]').waitFor({ state: 'detached' })
+        assert.equal(await page.locator('.status-cash strong').textContent(), money(30_000_000))
+        assert.ok(await page.getByRole('button', { name: 'Gieo xúc xắc', exact: true }).isEnabled())
       } else if (name === 'business-upgrade') {
         await page.getByRole('button', { name: /Nâng cấp/ }).click()
         await cash(25_000_000)

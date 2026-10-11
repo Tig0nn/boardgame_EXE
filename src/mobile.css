@@ -261,3 +261,43 @@ h1, .setup-story h1, .setup-card h2, .modal h2, .game-topline h1, .brand { font-
   .business-facts { gap: 10px; }
   .funding-source { min-height: 56px; }
 }
+
+/* V2.4 beverage-shop decisions; economic forecast styling stays unchanged. */
+.business-modal h2 { margin: 8px 0; }
+.business-modal .event-category { float: right; font-size: 10px; }
+.business-modal .event-category svg { display: none; }
+.business-modal .event-location { margin-top: 0; }
+.business-modal .modal-lead { font-size: 12px; line-height: 1.5; margin: 0 0 12px; }
+.business-modal .event-cash { padding: 10px 12px; margin-bottom: 12px; }
+.business-panel.trading-panel { border: 0; padding: 0; margin: 0; font-size: 13px; line-height: 1.6; }
+.business-intro { display: flex; align-items: center; gap: 12px; color: var(--green-dark); }
+.business-intro span { font-size: 10px; font-weight: 600; }
+.business-intro h3 { margin: 4px 0; font-size: 19px; }
+.business-purchase-facts { display: grid; gap: 12px; margin: 16px 0; }
+.business-purchase-facts > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; }
+.business-purchase-facts dt { color: var(--muted); }
+.business-purchase-facts dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+.customer-preference { padding: 12px 16px; border-radius: 12px; background: var(--mint); border-left: 4px solid var(--green); }
+.customer-preference > span { display: block; font-size: 10px; font-weight: 700; color: var(--green-dark); }
+.customer-preference > strong { display: block; font-size: 18px; margin: 4px 0; }
+.customer-preference p { font-size: 11px; color: var(--muted); margin: 4px 0 0; }
+.business-specializations { min-width: 0; border: 0; padding: 0; margin: 16px 0; }
+.business-specializations legend { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+.business-panel label.specialization { display: flex; gap: 12px; padding: 12px; margin: 8px 0; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; }
+.business-panel label.specialization.selected { border-color: var(--green); background: var(--mint); }
+.specialization input { width: 20px; height: 20px; flex-shrink: 0; margin: 0; accent-color: var(--green); }
+.specialization strong, .specialization small { display: block; }
+.specialization small { font-size: 11px; color: var(--muted); line-height: 1.5; margin-top: 4px; }
+.specialization:focus-within { outline: 2px solid var(--green); outline-offset: 2px; }
+.upgrade-benefits { padding: 12px; border-radius: 12px; background: var(--mint); }
+.upgrade-benefits > span { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 8px; font-size: 11px; margin: 4px 0; }
+.upgrade-benefits p { font-size: 12px; margin: 12px 0 0; }
+.business-panel .full-button { font-size: 13px; }
+.business-panel > .inline-note { display: block; }
+.business-panel > .inline-note b { white-space: nowrap; }
+.business-risks { margin-top: 8px; }
+@media (max-width: 360px) {
+  .business-modal { padding-right: 16px; padding-left: 16px; }
+  .business-panel { font-size: 12px; }
+  .business-panel .full-button { font-size: 12px; }
+}

@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { createGame, advance, decide, roll, fundPayment, rebalance, victory, totalWorth, canChoose } from '../src/game/engine.ts'
+import { advance, decide, roll, fundPayment, rebalance, victory, totalWorth, canChoose } from '../src/game/engine.ts'
+import { createV23Game as createGame } from './helpers/v2_3.ts'
 import type { GameState } from '../src/game/types.ts'
 import { beginSettlement } from '../src/game/settlement.ts'
 import { RULES, CATEGORIES } from '../src/data/config.ts'
