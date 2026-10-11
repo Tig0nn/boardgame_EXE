@@ -1,0 +1,12 @@
+# V2.2 — chốt cơ chế (11/10/2026)
+
+Phạm vi được chủ dự án giao: review + thí nghiệm offline + hướng dẫn solo; chỉ sửa production nếu chứng minh được lỗi tài chính. Cấu hình chính 4/C20/50M/90M, baseline 3/A20 giữ nguyên. Không deploy, không đổi cân bằng chưa duyệt.
+
+1. Đọc báo cáo và audit settlement, giá, maturity, business, funding/goal. Lưu hash sản phẩm trước nghiên cứu.
+2. Tái sử dụng runner/audit hiện có, bổ sung hook policy chỉ dùng diagnostic. Test hook và replay trước khi chạy.
+3. Một đợt 5.000 seed ghép cặp: controls, savings hiện tại so 4/5/6%, business thoát vốn/nâng cấp, tài sản và forecast/chart, funding. Thay rate chỉ trong process đồng bộ, restore finally.
+4. Đối chiếu kế toán từng ván, tổng hợp paired delta/CI và goal hậu xử lý. Không tìm tham số để đạt 50% thắng.
+5. Ghi review tiếng Việt, gói thay đổi nhỏ ưu tiên impact/effort; hướng dẫn tối đa 5–6 ván người thật. Phân biệt đo được, suy luận và chưa xác minh.
+6. Test toàn bộ + diagnostic, replay JSON browser có sẵn, lint, typecheck, build; kiểm hash production. Chỉ regression RED/GREEN nếu có lỗi xác nhận.
+
+Tiêu chí xong: hai báo cáo + dữ liệu/CLI tái lập; không có nghiên cứu hoặc feature ngoài phạm vi; đề xuất tài chính chỉ ở báo cáo.
