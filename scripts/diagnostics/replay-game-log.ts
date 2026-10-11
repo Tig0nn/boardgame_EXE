@@ -1,20 +1,24 @@
 import assert from 'node:assert/strict'
 import { createGame, advance, decide, roll, transact, fundPayment, snapshot } from '../../src/game/engine.ts'
 import { createSavingsProfile } from '../../src/game/savings.ts'
-import type { Asset, FundingSource, GameState, LogEntry, RebalanceAction, SavingsProfile, Term } from '../../src/game/types.ts'
+import { businessRulesForGame } from '../../src/game/business.ts'
+import type { Asset, BusinessRulesVersion, FundingSource, GameState, LogEntry, RebalanceAction, SavingsProfile, Term } from '../../src/game/types.ts'
 
-export interface ReplayLog { schemaVersion: number; seed: string; savingsProfile?: SavingsProfile; entries: LogEntry[]; state: GameState }
+export interface ReplayLog { schemaVersion: number; seed: string; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; entries: LogEntry[]; state: GameState }
 export function replayGameLog(data: ReplayLog): GameState {
   assert.ok(data.schemaVersion === 4 || data.schemaVersion === 5, 'Only V2.1/schema4 and V2.2/schema5 are supported')
   const historical = data.schemaVersion === 4
+  const legacyBusiness = data.businessRulesVersion === undefined && data.state.businessRulesVersion === undefined
+  const businessRulesVersion = businessRulesForGame({ businessRulesVersion: data.businessRulesVersion ?? data.state.businessRulesVersion })
+  if (data.businessRulesVersion) assert.equal(data.state.businessRulesVersion, data.businessRulesVersion, 'Business rules metadata must agree')
   const profile = historical ? createSavingsProfile('v2.1-standard') : data.savingsProfile
   assert.ok(profile, 'Schema5 requires a savings profile')
   assert.deepEqual(profile, createSavingsProfile(profile.id), 'Saved rates must match the declared versioned profile')
   // Historical logs have no profile fields; every original financial value must still match.
-  const comparable = (value: unknown) => JSON.parse(JSON.stringify(value, (key, v) => historical && key === 'savingsProfile' ? undefined : v))
+  const comparable = (value: unknown) => JSON.parse(JSON.stringify(value, (key, v) => (historical && key === 'savingsProfile') || (legacyBusiness && key === 'businessRulesVersion') ? undefined : v))
   const initial = data.entries[0].after
   const term = initial.deposits[0] ? initial.deposits[0].maturityLap - initial.deposits[0].startLap + 1 : 1
-  let s = createGame(data.seed, initial.portfolio.savings, term as Term, data.state.gameMode, profile.id)
+  let s = createGame(data.seed, initial.portfolio.savings, term as Term, data.state.gameMode, profile.id, businessRulesVersion)
   for (const entry of data.entries) {
     if (!['roll', 'decision', 'rebalancing', 'funding'].includes(entry.kind)) continue
     for (let i = 0; i < 4 && (s.phase !== entry.before.phase || s.lap !== entry.before.lap); i++) s = advance(s)
