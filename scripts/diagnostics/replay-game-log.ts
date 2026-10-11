@@ -3,12 +3,13 @@ import { createGame, advance, decide, roll, transact, fundPayment, snapshot } fr
 import { createSavingsProfile } from '../../src/game/savings.ts'
 import { businessRulesForGame } from '../../src/game/business.ts'
 import { encounterRulesForGame } from '../../src/game/encounters.ts'
-import type { Asset, BusinessRulesVersion, EncounterRulesVersion, FundingSource, GameState, LogEntry, RebalanceAction, SavingsProfile, Term } from '../../src/game/types.ts'
+import type { Asset, BusinessRulesVersion, CustomerPreferenceId, EncounterRulesVersion, FundingSource, GameState, LogEntry, RebalanceAction, SavingsProfile, Term } from '../../src/game/types.ts'
 
-export interface ReplayLog { schemaVersion: number; seed: string; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; entries: LogEntry[]; state: GameState }
+export interface ReplayLog { schemaVersion: number; seed: string; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
 export function replayGameLog(data: ReplayLog): GameState {
   assert.ok(data.schemaVersion === 4 || data.schemaVersion === 5, 'Only V2.1/schema4 and V2.2/schema5 are supported')
   const historical = data.schemaVersion === 4
+  if (data.customerPreferenceId) assert.equal(data.state.customerPreferenceId, data.customerPreferenceId, 'Customer preference metadata must agree')
   const legacyEncounters = data.encounterRulesVersion === undefined && data.state.encounterRulesVersion === undefined
   const encounterRulesVersion = encounterRulesForGame({ encounterRulesVersion: data.encounterRulesVersion ?? data.state.encounterRulesVersion })
   if (data.encounterRulesVersion) assert.equal(data.state.encounterRulesVersion, data.encounterRulesVersion, 'Encounter rules metadata must agree')
@@ -44,7 +45,11 @@ export function replayGameLog(data: ReplayLog): GameState {
         assert.equal(entry.decisionId, 'buy-stocks-complete', 'Only stock purchases support atomic completion')
         action.completeEncounter = true
       }
-      if (kind === 'upgrade') action.trend = Object.keys(after.business.upgrades).find(id => after.business.upgrades[id] > (before.business.upgrades[id] ?? 0))
+      if (kind === 'upgrade') {
+        const key = Object.keys(after.business.upgrades).find(id => after.business.upgrades[id] > (before.business.upgrades[id] ?? 0))
+        if (businessRulesVersion === 'v2.4-customer-preferences') action.customerPreferenceId = key as CustomerPreferenceId
+        else action.trend = key
+      }
       if (kind === 'sell' && asset !== 'business') action.amount = entry.assetSaleAmounts[asset as 'stocks' | 'gold' | 'bonds']
       if (kind === 'repay') action.amount = before.portfolio.debt - after.portfolio.debt
       s = transact(s, action)

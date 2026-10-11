@@ -39,9 +39,9 @@ test('new purchase encounter rejects sale/upgrade even if reopened directly or a
 test('later Business encounter allows one upgrade and then sale at the original quote', () => {
   const bought = transact(encounter(), buy)
   const later = encounter({ ...bought, turn: bought.turn + 1 })
-  const upgraded = transact(later, { kind: 'upgrade', asset: 'business', amount: 5_000_000, trend: later.scenarioId })
+  const upgraded = transact(later, { kind: 'upgrade', asset: 'business', amount: 5_000_000, customerPreferenceId: later.customerPreferenceId })
   assert.equal(businessIncome(upgraded), 4_700_000)
-  assert.throws(() => transact(upgraded, { kind: 'upgrade', amount: 5_000_000, trend: later.scenarioId }))
+  assert.throws(() => transact(upgraded, { kind: 'upgrade', amount: 5_000_000, customerPreferenceId: later.customerPreferenceId }))
   const sold = transact(upgraded, { kind: 'sell', asset: 'business', amount: upgraded.portfolio.business })
   assert.equal(sold.portfolio.cash, 41_500_000)
   assert.equal(sold.business.capital, 0)

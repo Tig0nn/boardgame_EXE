@@ -1,0 +1,42 @@
+{
+  "widths": [
+    320,
+    390,
+    430,
+    768,
+    1024,
+    1440
+  ],
+  "screenshots": 38,
+  "errors": [],
+  "seed": "XVTL-V2-0",
+  "businessRulesVersion": "v2.4-customer-preferences",
+  "encounterRulesVersion": "v2.4-business-purchase-complete",
+  "customerPreferencesByLap": {
+    "1": "budget",
+    "2": "budget",
+    "3": "checkin",
+    "4": "budget"
+  },
+  "rounds": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "rolls": 25,
+  "lawfulProceeds": 85128031,
+  "businessPurchases": 1,
+  "businessUpgrades": 1,
+  "businessSales": 1,
+  "atomicStocks": 3,
+  "completeSnapshotReplay": true,
+  "legacyRngDiceMovementUnchanged": true,
+  "customerSpecializations": [
+    "checkin",
+    "budget",
+    "taste"
+  ],
+  "nativeRadioKeyboardNavigation": true,
+  "forecastContainsOnlyFinancialAssets": true
+}

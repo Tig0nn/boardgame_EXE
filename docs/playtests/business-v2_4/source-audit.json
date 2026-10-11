@@ -1,0 +1,129 @@
+{
+  "baseline": "661bcf6",
+  "partACommit": "8362ce1",
+  "sourceNormalization": "UTF-8 without BOM, LF",
+  "protectedFiles": [
+    {
+      "file": "src/App.tsx",
+      "unchanged": true,
+      "sha256": "18729fd5314765398d35f7c161800952f3cd7afc7f77775f68aa84dffa6e8c5d"
+    },
+    {
+      "file": "src/data/board.ts",
+      "unchanged": true,
+      "sha256": "568827bc46d74c105e895ec2415ee8690fc1eb199b6f7fa4854881a57be6fc87"
+    },
+    {
+      "file": "src/data/config.ts",
+      "unchanged": true,
+      "sha256": "df966518474c1821e337e73203c0970eaab8e3fd5b51fb0b9e14bddea04a7071"
+    },
+    {
+      "file": "src/data/events.ts",
+      "unchanged": true,
+      "sha256": "31988efe724a0b1ee93aca53c8ce46b9d53802fdc173f072eef9b861b62565b9"
+    },
+    {
+      "file": "src/data/modes.ts",
+      "unchanged": true,
+      "sha256": "5c5a5eb0e8fa42e721a11b1b79556b619fda87a9a197c1c42343506248b4899d"
+    },
+    {
+      "file": "src/game/random.ts",
+      "unchanged": true,
+      "sha256": "6701ad680fd1cbf4dcf68f54c4998345190a28c3fdbbcfac4cafdab2f1124d29"
+    },
+    {
+      "file": "src/game/market.ts",
+      "unchanged": true,
+      "sha256": "15ef1f763f7b55f1dcfdbc054f2bb9225b47c188dd80bc4d5fc30c301a4a3ed1"
+    },
+    {
+      "file": "src/game/settlement.ts",
+      "unchanged": true,
+      "sha256": "6d6aa8b221bcdd2b69eda39a8967ad72aa4f650ed02a9d82c9fe0fdd2b08b59c"
+    },
+    {
+      "file": "src/game/savings.ts",
+      "unchanged": true,
+      "sha256": "1b40f4a47d5b927128abdd087d5f9ac6843ca0272f28363463ffe8c3d3b50a36"
+    },
+    {
+      "file": "src/components/Forecast.tsx",
+      "unchanged": true,
+      "sha256": "381f09040519898c3b19c8040ecebc349069f5f2ea00f594fb3ef6c589c91e35"
+    },
+    {
+      "file": "package.json",
+      "unchanged": true,
+      "sha256": "f5230a951ed3790992c60e4592f62672a209c161ad706d7e4dbf9d2ab644f7d9"
+    },
+    {
+      "file": "package-lock.json",
+      "unchanged": true,
+      "sha256": "9bd717dd53b4586264a3ccb9ea4452cb1dade1e60c8d7abfa1fa710e490b51ab"
+    }
+  ],
+  "historicalArtifacts": [
+    {
+      "file": "docs/playtests/original-log.json",
+      "unchanged": true,
+      "comparison": "exact bytes",
+      "sha256": "fe80ab162036a77b6aeb11cb193753aca92dc485d75f464d5b59beac6d2dff02"
+    },
+    {
+      "file": "docs/playtests/a-log.json",
+      "unchanged": true,
+      "comparison": "exact bytes",
+      "sha256": "9c211e051c0ba3cdd4a27e6febb4f49d7b67a27cb4a50854e518da04212bf0c5"
+    },
+    {
+      "file": "docs/playtests/b-log.json",
+      "unchanged": true,
+      "comparison": "exact bytes",
+      "sha256": "422d69f21e0e28a0d8574ef263591cc987c1421ba476b0779e1926e79e9df477"
+    },
+    {
+      "file": "docs/playtests/v2_2-b-log.json",
+      "unchanged": true,
+      "comparison": "exact bytes",
+      "sha256": "def4500c782dd0f7cf175f396e7d7d2f3e4fa9ecaf044d740cffae56bda586fe"
+    },
+    {
+      "file": "docs/playtests/transaction-ux/browser-game-log.json.gz",
+      "unchanged": true,
+      "comparison": "exact bytes",
+      "sha256": "d2a0bc09d7124cd5f31c252917cd0006505022c3a389f0921c15741618770315"
+    },
+    {
+      "file": "docs/playtests/business-v2_3/browser-game-log.json.gz",
+      "unchanged": true,
+      "comparison": "exact bytes",
+      "sha256": "28397880de6b524894daf409607e954f0180b36ea516a3cbb911184742e5aaab"
+    },
+    {
+      "file": "docs/playtests/encounter-limits-v2_3/browser-game-log.json.gz",
+      "unchanged": true,
+      "comparison": "exact bytes",
+      "sha256": "ff7fd3f77a4f604c72fed4fb5dd74e4e1b0fcdb19e8ca71ba1fc597b8480e72a"
+    },
+    {
+      "file": "docs/simulations/v2_2-protected-hashes.json",
+      "unchanged": true,
+      "comparison": "normalized text",
+      "sha256": "567baead001e55fe63bbf912d61d857e2378356f1f21c7ebc4b4d95be2b385a4"
+    }
+  ],
+  "artifactVerifier": {
+    "status": "known historical UI checksum mismatch",
+    "file": "src/components/GameDialogs.tsx",
+    "manifestUnchanged": true
+  },
+  "review": {
+    "correctness": "pass: versioned purchase completion, stable customer preference, permanent/matching benefits and legacy replay",
+    "readability": "pass: separate BusinessPanel and typed preference definition",
+    "architecture": "pass: domain-separated seed/lap source; independent income and encounter versions",
+    "security": "pass: version/choice/cash/tile validation and duplicate transaction protection; no new external service",
+    "performance": "pass: one local preference draw per lap; small static option list; bounded transaction log guards"
+  }
+}

@@ -24,10 +24,10 @@ export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, on
     const event = EVENTS.find(e => e.id === game.eventId)!
     const category = CATEGORIES[event.category]
     const traded = game.log.some(entry => entry.turn === game.turn && entry.kind === 'rebalancing')
-    return <Modal key={`event-${game.turn}`} title={event.title} className={event.id === 'stocks' ? 'stock-modal' : ''}>
+    return <Modal key={`event-${game.turn}`} title={event.title} className={event.id === 'stocks' ? 'stock-modal' : event.id === 'business' && game.businessRulesVersion === 'v2.4-customer-preferences' ? 'business-modal' : ''}>
       <div className={`event-category ${event.category}`}><Icon name={category.icon} size={24} /><span>{category.label}</span></div>
       <span className="event-location">Vòng {game.lap} · Ô {game.position + 1} · Lượt {game.turn}</span>
-      <h2>{event.title}</h2><p className="modal-lead">{event.id === 'stocks' ? 'Cơ hội tự nguyện · Chọn mã và số tiền mua.' : event.description}</p>
+      <h2>{event.title}</h2><p className="modal-lead">{event.id === 'stocks' ? 'Cơ hội tự nguyện · Chọn mã và số tiền mua.' : event.id === 'business' && game.businessRulesVersion === 'v2.4-customer-preferences' ? 'Cơ hội tự nguyện · Phát triển quán qua từng lần gặp ô.' : event.description}</p>
       <div className="event-cash"><span>Tiền mặt hiện có</span><strong>{money(game.portfolio.cash)}</strong></div>
       {['stocks', 'bonds', 'gold', 'business', 'bank'].includes(event.id) && <TradingPanel key={`${game.turn}-${game.log.length}`} game={game} onTransaction={onTransaction} onSkip={() => onChoose('skip')} />}
       {game.market.appliedShocks.includes(`${game.turn}:${event.id}`) && <details className="trade-details"><summary>Báo giá sau cú sốc</summary><MarketDetails game={game} asset="stocks" /><MarketDetails game={game} asset="gold" /><MarketDetails game={game} asset="bonds" /></details>}

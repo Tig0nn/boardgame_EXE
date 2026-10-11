@@ -10,12 +10,14 @@ import { beginSettlement, continueSettlement } from './settlement.ts'
 import { createSavingsProfile, savingsProfileForMode } from './savings.ts'
 import { businessRulesForGame } from './business.ts'
 import { encounterRulesForGame } from './encounters.ts'
+import { customerPreferenceForLap } from './customer-preferences.ts'
 import type { BusinessRulesVersion, EncounterRulesVersion, FundingSource, GameModeId, GameState, Option, Term, SavingsProfileId } from './types.ts'
 export { snapshot } from './state.ts'
 export { netWorth, totalWorth, victory } from './selectors.ts'
 export { rebalance, transact, withdrawSavings, fundingSources } from './transactions.ts'
 function forecast(s: GameState): GameState {
   const next = { ...s, phase: 'forecast' as const }
+  if (businessRulesForGame(s) === 'v2.4-customer-preferences') next.customerPreferenceId = customerPreferenceForLap(s.seed, s.lap)
   const weights = ECONOMY.business.trendWeights
   let pick = draw(next) * Object.values(weights).reduce((sum, weight) => sum + weight, 0)
   next.scenarioId = SCENARIOS.at(-1)!.id
@@ -25,12 +27,13 @@ function forecast(s: GameState): GameState {
   }
   return next
 }
-export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId, replayProfile?: SavingsProfileId, businessRulesVersion: BusinessRulesVersion = 'v2.3-fixed-income', encounterRulesVersion: EncounterRulesVersion = 'v2.4-business-purchase-complete'): GameState {
+export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId, replayProfile?: SavingsProfileId, businessRulesVersion: BusinessRulesVersion = 'v2.4-customer-preferences', encounterRulesVersion: EncounterRulesVersion = 'v2.4-business-purchase-complete'): GameState {
   if (!Number.isFinite(savings) || !Number.isInteger(savings) || savings < 0 || savings > RULES.startingCapital) throw new Error('Phân bổ tiết kiệm không hợp lệ.')
   const selected = gameMode(mode ?? 'original')
   const state: GameState = {
     encounterRulesVersion: encounterRulesForGame({ encounterRulesVersion }),
     businessRulesVersion: businessRulesForGame({ businessRulesVersion }),
+    ...(businessRulesVersion === 'v2.4-customer-preferences' ? { customerPreferenceId: customerPreferenceForLap(seed.trim() || 'xoay-vong', 1) } : {}),
     savingsProfile: replayProfile ? createSavingsProfile(replayProfile) : savingsProfileForMode(selected.id),
     gameMode:selected.id, boardLayout:selected.boardLayout,
     // Legacy offline diagnostics can still scope RULES.laps before creating a game.
