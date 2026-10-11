@@ -4,6 +4,7 @@ import { ECONOMY, RULES } from '../data/config.ts'
 import { liquidatableFunds, victory } from './selectors.ts'
 import { savingsProfileForGame } from './savings.ts'
 import { businessRulesForGame } from './business.ts'
+import { encounterRulesForGame } from './encounters.ts'
 
 export function serializeLog(game: GameState): string {
   const actions = game.log.filter(entry=>entry.kind==='rebalancing')
@@ -12,11 +13,12 @@ export function serializeLog(game: GameState): string {
   const result = victory(game)
   const savingsProfile = savingsProfileForGame(game)
   const businessRulesVersion = businessRulesForGame(game)
+  const encounterRulesVersion = encounterRulesForGame(game)
   // Make legacy profiles/rules explicit without changing historical financial values.
-  const withProfile = (value: Snapshot): Snapshot => ({ ...value, savingsProfile: savingsProfileForGame(value), businessRulesVersion: businessRulesForGame(value) })
+  const withProfile = (value: Snapshot): Snapshot => ({ ...value, savingsProfile: savingsProfileForGame(value), businessRulesVersion: businessRulesForGame(value), encounterRulesVersion: encounterRulesForGame(value) })
   const entries = game.log.map(entry => ({ ...entry, before: withProfile(entry.before), after: withProfile(entry.after) }))
   const settlement = game.settlement ? { ...game.settlement, before: withProfile(game.settlement.before) } : null
-  return JSON.stringify({ schemaVersion: 5, seed: game.seed, rulesVersion: businessRulesVersion === 'v2.3-fixed-income' ? 'gameplay-v2.3-fixed-income' : 'gameplay-v2.2-savings-2026-10-11', savingsProfile, businessRulesVersion,
+  return JSON.stringify({ schemaVersion: 5, seed: game.seed, rulesVersion: businessRulesVersion === 'v2.3-fixed-income' ? 'gameplay-v2.3-fixed-income' : 'gameplay-v2.2-savings-2026-10-11', savingsProfile, businessRulesVersion, encounterRulesVersion,
     mode:{id:game.gameMode,boardLayout:game.boardLayout,totalLaps:game.totalLaps},
     board:boardFor(game), financialConfig:{RULES,ECONOMY:{...ECONOMY,savingsRates:{...savingsProfile.rates}}},
     playtest:{diceRolls:game.log.filter(entry=>entry.kind==='roll').length,
@@ -31,5 +33,5 @@ export function serializeLog(game: GameState): string {
       fundingDecisions:funding.length},
     finalResult:{status:game.phase!=='finished'?'in-progress':game.termination==='insolvent'?'insolvent':result.won?'victory':'defeat',
       won:game.phase==='finished'?result.won:null,lawfulProceeds:liquidatableFunds(game),termination:game.termination},
-    finalPhase: game.phase, entries, summaries: game.summaries, state: {...game,savingsProfile,businessRulesVersion,log:entries,settlement} }, null, 2)
+    finalPhase: game.phase, entries, summaries: game.summaries, state: {...game,savingsProfile,businessRulesVersion,encounterRulesVersion,log:entries,settlement} }, null, 2)
 }

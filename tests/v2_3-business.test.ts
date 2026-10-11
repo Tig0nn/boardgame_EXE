@@ -74,12 +74,12 @@ test('V2.3 normal market recovery and RNG exactly match legacy rules', () => {
   assert.equal(businessIncome(current), 3_000_000)
 })
 
-test('V2.3 purchase lock, multiple upgrades, sale and liquidity restrictions remain intact', () => {
+test('V2.3 purchase lock, upgrades on later encounters, sale and liquidity restrictions remain intact', () => {
   const state = owned()
   assert.throws(() => transact(state, { kind: 'upgrade', asset: 'business', amount: 5_000_000, trend: 'growth' }))
   const later = { ...state, turn: 2, scenarioId: 'growth' }
   const first = transact(later, { kind: 'upgrade', asset: 'business', amount: 5_000_000, trend: 'growth' })
-  const second = transact(first, { kind: 'upgrade', asset: 'business', amount: 5_000_000, trend: 'growth' })
+  const second = transact({ ...first, turn: 3 }, { kind: 'upgrade', asset: 'business', amount: 5_000_000, trend: 'growth' })
   assert.equal(second.portfolio.cash, 20_000_000)
   assert.equal(businessIncome(second), 6_400_000)
   assert.equal(businessSaleQuote(second), 19_000_000)

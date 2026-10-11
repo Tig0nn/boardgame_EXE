@@ -1,0 +1,38 @@
+{
+  "widths": [
+    320,
+    390,
+    430,
+    1440
+  ],
+  "screenshots": 36,
+  "errors": [],
+  "seed": "XVTL-V2-0",
+  "businessRulesVersion": "v2.3-fixed-income",
+  "encounterRulesVersion": "v2.3-single-action",
+  "bankAtomicCompletion": true,
+  "bankDoubleTapProtected": true,
+  "bankLaterEncounterWithExistingLot": true,
+  "businessDoubleTapProtected": true,
+  "businessSaleAfterUpgrade": true,
+  "laps": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "rolls": 25,
+  "lawfulProceeds": 86088031,
+  "legacyLawfulProceedsSameActions": 86588031,
+  "businessPurchases": 1,
+  "businessUpgrades": 1,
+  "businessSales": 1,
+  "stockPurchases": 3,
+  "forecastAssets": [
+    "stocks",
+    "bonds",
+    "gold"
+  ],
+  "fullSnapshotReplay": true,
+  "legacyDicePathUnchanged": true
+}

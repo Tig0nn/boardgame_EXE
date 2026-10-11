@@ -9,7 +9,8 @@ import { applyMacroShock, initializeMarket } from './market.ts'
 import { beginSettlement, continueSettlement } from './settlement.ts'
 import { createSavingsProfile, savingsProfileForMode } from './savings.ts'
 import { businessRulesForGame } from './business.ts'
-import type { BusinessRulesVersion, FundingSource, GameModeId, GameState, Option, Term, SavingsProfileId } from './types.ts'
+import { encounterRulesForGame } from './encounters.ts'
+import type { BusinessRulesVersion, EncounterRulesVersion, FundingSource, GameModeId, GameState, Option, Term, SavingsProfileId } from './types.ts'
 export { snapshot } from './state.ts'
 export { netWorth, totalWorth, victory } from './selectors.ts'
 export { rebalance, transact, withdrawSavings, fundingSources } from './transactions.ts'
@@ -24,10 +25,11 @@ function forecast(s: GameState): GameState {
   }
   return next
 }
-export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId, replayProfile?: SavingsProfileId, businessRulesVersion: BusinessRulesVersion = 'v2.3-fixed-income'): GameState {
+export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId, replayProfile?: SavingsProfileId, businessRulesVersion: BusinessRulesVersion = 'v2.3-fixed-income', encounterRulesVersion: EncounterRulesVersion = 'v2.3-single-action'): GameState {
   if (!Number.isFinite(savings) || !Number.isInteger(savings) || savings < 0 || savings > RULES.startingCapital) throw new Error('Phân bổ tiết kiệm không hợp lệ.')
   const selected = gameMode(mode ?? 'original')
   const state: GameState = {
+    encounterRulesVersion: encounterRulesForGame({ encounterRulesVersion }),
     businessRulesVersion: businessRulesForGame({ businessRulesVersion }),
     savingsProfile: replayProfile ? createSavingsProfile(replayProfile) : savingsProfileForMode(selected.id),
     gameMode:selected.id, boardLayout:selected.boardLayout,

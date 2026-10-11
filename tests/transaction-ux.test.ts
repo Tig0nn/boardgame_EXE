@@ -35,8 +35,8 @@ test('stock purchase completes once, preserves finances and RNG, and has no skip
   assert.deepEqual(skipped.stockHoldings, initial.stockHoldings)
 })
 
-test('completion is restricted to a valid stock buy; bank lots remain independent', () => {
-  const initial = { ...createGame('bank-multi', 0, 1, 'experimental-b'), phase: 'event' as const, eventId: 'bank', position: 1 }
+test('explicit completion remains stock-only; legacy bank encounters allow independent lots', () => {
+  const initial = { ...createGame('bank-multi', 0, 1, 'experimental-b', undefined, 'v2.2-trend-shock', 'legacy-multi-action'), phase: 'event' as const, eventId: 'bank', position: 1 }
   const action = { kind: 'deposit' as const, amount: 1_000_000, term: 1 as const }
   assert.throws(() => transact(initial, { ...action, completeEncounter: true }))
   const one = transact(initial, action)

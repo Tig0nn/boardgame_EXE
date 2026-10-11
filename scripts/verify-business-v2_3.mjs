@@ -14,7 +14,7 @@ const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODUL
 const browser = await chromium.launch({ channel: 'chrome', headless: true })
 const page = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
 const base = process.env.UI_URL || 'http://localhost:5173'
-const folder = 'docs/playtests/business-v2_3'
+const folder = 'docs/playtests/encounter-limits-v2_3'
 mkdirSync(folder, { recursive: true })
 const errors = []
 page.on('pageerror', error => errors.push(error.message))
@@ -44,6 +44,29 @@ try {
     await forecast()
     await fit()
     await screenshot(`${width}-forecast`)
+    for (const fixture of ['bank', 'bank-later']) {
+      await page.goto(`${base}/scripts/playtest-harness.html`)
+      await page.getByRole('combobox', { name: 'Fixture', exact: true }).selectOption(fixture)
+      await page.getByRole('button', { name: 'Nạp fixture', exact: true }).click()
+      await page.locator('dialog[open]').waitFor()
+      if (fixture === 'bank-later') {
+        await page.locator('.trade-details summary').click()
+        assert.equal(await page.locator('.trade-details p').filter({ hasText: /deposit-/ }).count(), 1)
+        assert.match(await page.locator('.trade-details').textContent(), /đáo hạn vòng 1/)
+        await page.locator('#deposit-term').selectOption('3')
+      }
+      await page.locator('#trade-amount').fill('1000000')
+      await fit()
+      await screenshot(`${width}-${fixture}`)
+      await page.getByRole('button', { name: /Xác nhận gửi khoản mới/ }).evaluate(button => { button.click(); button.click() })
+      await page.locator('dialog[open]').waitFor({ state: 'detached' })
+      await cash(fixture === 'bank' ? 49_000_000 : 48_000_000)
+      assert.ok(await page.getByRole('status').filter({ hasText: 'Đã gửi tiết kiệm' }).isVisible())
+      assert.ok(await page.getByRole('button', { name: 'Gieo xúc xắc', exact: true }).isEnabled())
+      assert.ok(await page.getByRole('button', { name: 'Gieo xúc xắc', exact: true }).evaluate(el => el === document.activeElement))
+      await fit()
+      await screenshot(`${width}-${fixture}-success`)
+    }
     await page.goto(`${base}/scripts/playtest-harness.html`)
     await page.getByRole('combobox', { name: 'Fixture', exact: true }).selectOption('business-upgrade')
     await page.getByRole('button', { name: 'Nạp fixture', exact: true }).click()
@@ -53,16 +76,18 @@ try {
     assert.doesNotMatch(await page.locator('.trading-panel').textContent(), /× hệ số xu hướng/)
     await fit()
     await screenshot(`${width}-business`)
-    await page.getByRole('button', { name: /Nâng cấp 5/ }).click()
+    await page.getByRole('button', { name: /Nâng cấp 5/ }).evaluate(button => { button.click(); button.click() })
     await cash(25_000_000)
     assert.equal(await page.locator('.business-facts strong').first().textContent(), money(4_700_000))
-    await page.getByRole('button', { name: /Nâng cấp 5/ }).click()
-    await cash(20_000_000)
-    assert.equal(await page.locator('.business-facts strong').first().textContent(), money(6_400_000))
+    assert.ok(await page.getByRole('button', { name: /Nâng cấp 5/ }).isDisabled())
+    assert.match(await page.locator('.trading-panel').textContent(), /Đã nâng cấp một lần tại ô này/)
+    await page.getByRole('button', { name: /Nâng cấp 5/ }).scrollIntoViewIfNeeded()
+    await fit()
+    await screenshot(`${width}-business-upgrade-used`)
     await page.locator('.trade-details summary').click()
     assert.match(await page.locator('.trade-details').textContent(), /Cú sốc kinh tế đổi giá thu hồi, không đổi thu nhập vận hành/)
     await page.getByRole('button', { name: /Bán toàn cơ sở/ }).click()
-    await cash(39_000_000)
+    await cash(41_500_000)
   }
 
   await page.setViewportSize({ width: 390, height: 844 })
@@ -109,11 +134,12 @@ try {
             act(s => transact(s, { kind: 'sell', asset: 'business', amount: s.portfolio.business }))
             traded = true
           } else if (expected.business.capital > 0 && expected.turn > expected.businessPurchaseTurn) {
-            for (let count = 0; count < 2 && expected.portfolio.cash >= 5_000_000 && Object.values(expected.business.upgrades).reduce((a, b) => a + b, 0) < 6; count++) {
+            if (expected.portfolio.cash >= 5_000_000 && Object.values(expected.business.upgrades).reduce((a, b) => a + b, 0) < 6) {
               await page.locator('#business-trend').selectOption(expected.scenarioId)
               await page.getByRole('button', { name: /Nâng cấp/ }).click()
               act(s => transact(s, { kind: 'upgrade', asset: 'business', amount: 5_000_000, trend: s.scenarioId }))
               traded = true
+              assert.ok(await page.getByRole('button', { name: /Nâng cấp/ }).isDisabled())
             }
           }
           await cash(expected.portfolio.cash)
@@ -147,11 +173,13 @@ try {
   await download.saveAs(path)
   const data = JSON.parse(readFileSync(path, 'utf8'))
   assert.equal(data.businessRulesVersion, 'v2.3-fixed-income')
+  assert.equal(data.encounterRulesVersion, 'v2.3-single-action')
   assert.deepEqual(JSON.parse(JSON.stringify(replayGameLog(data))), JSON.parse(JSON.stringify(expected)))
   for (const entry of data.entries.filter(e => e.decisionId === 'buy-stocks-complete')) assert.ok(!data.entries.some(e => e.turn === entry.turn && e.decisionId === 'skip'))
   writeFileSync(`${path}.gz`, gzipSync(readFileSync(path))); rmSync(path)
   assert.deepEqual(errors, [])
   const evidence = { widths: [320, 390, 430, 1440], screenshots, errors, seed: expected.seed, businessRulesVersion: expected.businessRulesVersion,
+    encounterRulesVersion: expected.encounterRulesVersion, bankAtomicCompletion: true, bankDoubleTapProtected: true, bankLaterEncounterWithExistingLot: true, businessDoubleTapProtected: true, businessSaleAfterUpgrade: true,
     laps: expected.summaries.map(s => s.lap), rolls: expected.turn, lawfulProceeds: liquidatableFunds(expected), legacyLawfulProceedsSameActions: liquidatableFunds(legacy),
     businessPurchases: data.playtest.businessPurchases, businessUpgrades: data.playtest.businessUpgrades, businessSales: data.playtest.businessSales,
     stockPurchases: data.playtest.financialPurchases.stocks, forecastAssets: ['stocks', 'bonds', 'gold'], fullSnapshotReplay: true, legacyDicePathUnchanged: true }

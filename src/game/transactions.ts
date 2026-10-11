@@ -4,6 +4,7 @@ import { copyState, record, snapshot } from './state.ts'
 import { lostInterestOnWithdrawal, saleQuote } from './selectors.ts'
 import { syncValuations } from './market.ts'
 import { businessSaleQuote, businessUpgradeUnlocked } from './business.ts'
+import { encounterActionUsed, singleActionEncounters } from './encounters.ts'
 import { money } from './format.ts'
 import { savingsProfileForGame } from './savings.ts'
 import type { FundingSource, GameState, PendingPayment, RebalanceAction, Term, TradableAsset } from './types.ts'
@@ -117,6 +118,7 @@ export function transact(state: GameState, action: RebalanceAction): GameState {
   let label: string; let net = 0; let fee = 0; const lost = 0; let interest = 0
   if (kind === 'deposit') {
     if (!tileAccess || tile !== 'bank') throw new Error('Chỉ mở tiết kiệm tại ô Ngân hàng.')
+    if (encounterActionUsed(s, 'deposit')) throw new Error('Mỗi lần gặp ô Ngân hàng chỉ được gửi một khoản mới.')
     openDeposit(s, amount, action.term ?? 1); label = 'Mở khoản tiết kiệm mới'
   } else if (kind === 'withdraw') {
     throw new Error('Khoản tiết kiệm tự đáo hạn; rút sớm chỉ khi thiếu tiền bắt buộc.')
@@ -152,6 +154,7 @@ export function transact(state: GameState, action: RebalanceAction): GameState {
       const quote = sellAsset(s, asset, amount, symbolId); net = quote.net; fee = quote.fee + quote.spread; label = `Bán ${ASSETS[asset].label.toLowerCase()}`
     }
   } else if (kind === 'upgrade') {
+    if (encounterActionUsed(s, 'upgrade')) throw new Error('Mỗi lần gặp ô Kinh doanh chỉ được nâng cấp một lần. Hãy quay lại ở lượt sau.')
     if (!businessUpgradeUnlocked(s)) throw new Error('Nâng cấp chỉ mở từ lần gặp ô Kinh doanh tiếp theo sau khi mua.')
     const trend = action.trend ?? s.scenarioId
     if (!tileAccess || tile !== 'business' || s.business.capital <= 0 || !SCENARIOS.some(scenario => scenario.id === trend)) throw new Error('Chỉ nâng cấp cơ sở đang sở hữu tại ô Kinh doanh.')
@@ -168,7 +171,7 @@ export function transact(state: GameState, action: RebalanceAction): GameState {
     s.portfolio.debt -= amount; s.portfolio.cash -= amount + interest; label = 'Trả gốc nợ và lãi'
   } else throw new Error('Giao dịch không hợp lệ.')
   syncValuations(s)
-  if (action.completeEncounter) { s.phase = 'rolling'; s.eventId = null }
+  if (action.completeEncounter || (kind === 'deposit' && singleActionEncounters(s))) { s.phase = 'rolling'; s.eventId = null }
   return record(s, snapshot(state), { kind: 'rebalancing', title: label, decisionId: `${kind}-${asset ?? tile}${action.completeEncounter ? '-complete' : ''}`,
     decision: `${label}: ${money(amount)}`, consequence: `${label}. Nhận ${money(net)}, phí/spread ${money(fee)}, mất lãi ${money(lost)}.${kind === 'deposit' && s.deposits.at(-1)!.maturityLap > s.totalLaps ? ' Khoản này chưa đáo hạn trong màn; chỉ rút sớm hợp lệ khi thiếu tiền hoặc xét mục tiêu cuối màn.' : ''}`,
     debtInterestPaid: interest, cashProceeds: net, lostSavingsInterest: lost,

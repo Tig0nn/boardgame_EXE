@@ -106,6 +106,8 @@ export function playDiagnostic(seed: string, strategy: Strategy, horizon: number
         s = policy.act ? policy.act(s) : tileAction(s, strategy, horizon)
         if (!hadBusiness && s.business.capital > 0 && purchaseLap === null) purchaseLap = s.lap
         observe()
+        // A versioned Bank deposit completes the encounter atomically.
+        if (s.phase !== 'event') continue
         const event = EVENTS.find(event => event.id === s.eventId)!
         if (event.options.filter(option => canChoose(s, option.id)).length > 1) alternativeChoices++
         // At least two future salary payments cover the 6M course cost. No future prices are inspected.
