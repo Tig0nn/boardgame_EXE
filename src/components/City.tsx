@@ -1,5 +1,5 @@
-export function City() {
-  return <svg className="city" viewBox="0 0 440 175" fill="none" aria-hidden="true">
+export function City({ board = false }: { board?: boolean }) {
+  return <svg className={board ? 'board-city' : 'city'} x={board ? 190 : undefined} y={board ? 140 : undefined} width={board ? 220 : undefined} height={board ? 88 : undefined} viewBox="0 0 440 175" fill="none" aria-hidden="true">
     <path d="M28 151c24-65 77-80 126-39 42-50 96-52 132-7 39-36 87-21 125 46" fill="#dce8ce"/>
     <path d="M40 38h38M65 25h22M318 30h43M348 43h26" stroke="#c4d7bc" strokeWidth="3" strokeLinecap="round"/>
     <circle cx="288" cy="38" r="17" fill="#ead49c"/>
