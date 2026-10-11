@@ -50,7 +50,9 @@ Economic parameters remain experimental and are centralized in `src/data/config.
 
 The same seed and actions reproduce the same state and ordered logs. Viewing charts does not advance the future RNG. Schema 5 JSON exports contain the versioned savings profile, full state, before/after snapshots and lap summaries. Historical V2.1 profiles and replays remain supported. There is no UI import or automatic persistence. Browser JSON download and complete snapshot replay are verified.
 
-Verification on 11 October 2026: 109/109 engine tests, 19/19 diagnostic tests, ESLint, TypeScript and the production build passed. Browser checks cover 320px, 390px, 430px and 1440px, all financial transaction families, and a complete four-lap Experimental B game (26 rolls, 102.8M lawful proceeds). Its exported state matches the prior V2.2 playthrough exactly. See [mobile MVP report](docs/MVP_MOBILE_UI_REPORT.md) and [machine-readable browser evidence](docs/playtests/mobile-mvp/verification.json).
+Verification on 11 October 2026: 114/114 product tests, 19/19 diagnostic tests, ESLint, TypeScript and the production build passed. Browser checks cover 320px, 390px, 430px and 1440px. The current four-lap C20 playthrough includes two atomic stock purchases (26 rolls, 103,921,205 VND lawful proceeds); complete snapshot replay and historical dice/RNG paths match. See the Vietnamese [UX audit and fixes](docs/MVP_UX_AUDIT_AND_FIXES.md) and [browser evidence](docs/playtests/transaction-ux/verification.json). The earlier [mobile MVP report](docs/MVP_MOBILE_UI_REPORT.md) retains baseline evidence and the historical artifact-checksum limitation.
+
+The player-facing stock flow confirms one purchase and returns directly to rolling. A new schema 5 `buy-stocks-complete` record represents that atomic action; ordinary `buy-stocks` retains historical multi-trade behavior. Bank deposits, bonds, gold and business still support multiple valid transactions per encounter. No economic formulas or RNG were changed.
 
 Additional checks:
 
@@ -58,8 +60,9 @@ Additional checks:
 node --experimental-strip-types --test scripts/diagnostics/*.test.ts
 npx tsc -b
 node --experimental-strip-types scripts/verify-mobile-ui.mjs
+node --experimental-strip-types scripts/verify-transaction-inputs.mjs
 ```
 
-The UI script needs a running Vite server and an existing Playwright installation with Chrome. Set `PLAYWRIGHT_MODULE` to its absolute module directory when using a bundled installation; `UI_URL` defaults to `http://localhost:5173`. No production dependency is added. The script saves screenshots, downloads a real browser log, replays every snapshot, and stores the verified log as gzip under `docs/playtests/mobile-mvp/`. Financial harness cases are explicitly synthetic and development-only.
+The UI script needs a running Vite server and an existing Playwright installation with Chrome. Set `PLAYWRIGHT_MODULE` to its absolute module directory when using a bundled installation; `UI_URL` defaults to `http://localhost:5173`. No production dependency is added. The script saves screenshots, downloads a real browser log, replays every snapshot, and stores the verified log as gzip under `docs/playtests/transaction-ux/`. Financial harness cases are explicitly synthetic and development-only.
 
 See the Vietnamese [implementation report](docs/V2_IMPLEMENTATION_REPORT.md), [balance report](docs/V2_BALANCE_REPORT.md), and [320px final-result screenshot](docs/screenshots/v2-result-320.jpg) for evidence, exact assumptions and remaining manual checks.

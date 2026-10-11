@@ -15,7 +15,7 @@ export function PriceChart({ instrument, label }: { instrument: MarketInstrument
       <polyline points={prices.map((price, index) => `${x(index)},${y(price)}`).join(' ')} fill="none" stroke="currentColor" strokeWidth="2" />
       {history.map((point, index) => point.kind === 'shock' && <circle key={index} cx={x(index)} cy={y(point.priceAfter)} r="4" className="shock-marker"><title>{MACRO_EVENTS.find(event => event.id === point.eventId)?.label} · Lượt {point.timestamp} · {money(point.priceAfter)}</title></circle>)}
     </svg>
-    <small>{money(low)} – {money(high)} · Hiện tại {money(instrument.currentPrice)} · Thay đổi {percent(instrument.currentPrice / prices[0] - 1)}</small>
+    <small>{money(low)} – {money(high)} · Hiện tại {money(instrument.currentPrice)} · So với điểm đầu biểu đồ {percent(instrument.currentPrice / prices[0] - 1)}</small>
     {history.filter(point => point.kind === 'shock').map((point, index) => <small key={index}>● {MACRO_EVENTS.find(event => event.id === point.eventId)?.label} · Vòng {point.lap}, lượt {point.timestamp}: {percent(point.returnRate)}</small>)}
   </figure>
 }

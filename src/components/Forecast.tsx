@@ -1,13 +1,17 @@
 import { ASSETS, SCENARIOS } from '../data/config'
 import type { Asset, GameState } from '../game/types'
 import { Icon } from './Icon'
+import { businessOverview } from '../game/selectors'
+import { money } from '../game/format'
 
 export function Forecast({ game, expanded = false }: { game: GameState; expanded?: boolean }) {
   const scenario = SCENARIOS.find(s => s.id === game.scenarioId)!
+  const business = businessOverview(game)
   return <div className={`forecast ${expanded ? 'expanded' : ''}`}>
     <div className="forecast-intro"><span className="forecast-icon"><Icon name="leaf" /></span><div><span className="eyebrow">DỰ BÁO VÒNG {game.lap}</span><p className="forecast-title">{scenario.label}</p></div></div>
     {expanded && <p>{scenario.description}</p>}
     <div className="forecast-assets">{(['stocks', 'bonds', 'gold', 'business'] as Asset[]).map(asset => <div key={asset}><span>{ASSETS[asset].label}</span><strong>{scenario.tendencies[asset]}</strong></div>)}</div>
+    {business.locked > 0 && <p className="inline-note">Kinh doanh theo hiện trạng: {money(business.income)}/START · Giá bán {money(business.sale)} · Còn {business.remainingStarts} START. Thu nhập dương không đảm bảo hoàn vốn; chỉ bán tại ô Kinh doanh.</p>}
     {expanded && <p className="inline-note"><Icon name="info" size={16} /> Dự báo gợi ý xu hướng, không đảm bảo. Giá cập nhật tại START và ngay khi có sự kiện kinh tế.</p>}
   </div>
 }

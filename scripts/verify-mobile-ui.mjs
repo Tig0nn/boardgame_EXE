@@ -14,7 +14,7 @@ import { replayGameLog } from './diagnostics/replay-game-log.ts'
 const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE || 'playwright')
 const browser = await chromium.launch({ channel: 'chrome', headless: true })
 const base = process.env.UI_URL || 'http://localhost:5173'
-const folder = 'docs/playtests/mobile-mvp'
+const folder = 'docs/playtests/transaction-ux'
 mkdirSync(folder, { recursive: true })
 const errors = []
 const page = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
@@ -87,7 +87,7 @@ try {
     await page.keyboard.press('Escape')
   }
 
-  // Complete real four-lap B game, matching the historical V2.2 browser playthrough.
+  // Complete real four-lap B game with atomic stock purchases and unchanged dice path.
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto(base)
   await page.locator('.setup-customize summary').click()
@@ -124,10 +124,19 @@ try {
         expected = transact(expected, { kind: 'deposit', amount: 5_000_000, term })
         await cash(expected.portfolio.cash)
       }
+      if (expected.eventId === 'stocks') {
+        await page.locator('#trade-amount').fill('1000000')
+        await page.getByRole('button', { name: /Xác nhận mua cổ phiếu/ }).click()
+        expected = transact(expected, { kind: 'buy', asset: 'stocks', amount: 1_000_000, symbolId: expected.market.stocks[0].id, completeEncounter: true })
+        await page.locator('dialog[open]').waitFor({ state: 'detached' })
+        assert.ok(await page.getByRole('button', { name: 'Gieo xúc xắc', exact: true }).isEnabled())
+        assert.ok(await page.getByRole('status').filter({hasText:'Đã mua cổ phiếu'}).isVisible())
+        continue
+      }
       const option = event.id === 'course' && canChoose(expected, 'upgrade') ? event.options[0] : event.options.find(o => o.id === 'skip') || event.options[0]
       await fit()
       if ([1, 8, 16, 22].includes(expected.turn)) await screenshot(`game-event-${expected.eventId}`)
-      await page.getByRole('button', { name: option.label, exact: false }).click()
+      await page.getByRole('button', { name: expected.eventId === 'bank' ? 'Hoàn tất · Về bàn chơi' : option.label, exact: false }).click()
       expected = decide(expected, option.id)
     } else if (expected.phase === 'summary') {
       await page.getByRole('dialog', { name: `Quyết toán vòng ${expected.lap}` }).waitFor()
@@ -145,7 +154,7 @@ try {
   }
   assert.equal(expected.termination, 'completed')
   assert.equal(expected.turn, 26)
-  assert.equal(liquidatableFunds(expected), 102_800_000)
+  assert.ok(expected.log.some(e => e.decisionId === 'buy-stocks-complete'))
   await page.getByRole('dialog', { name: 'Kết quả hành trình' }).waitFor()
   await fit()
   await screenshot('390-result')
@@ -161,22 +170,50 @@ try {
   assert.deepEqual([...new Set(data.entries.filter(entry => entry.kind === 'roll').map(entry => entry.after.dice))].sort(), [1, 2, 3, 4, 5, 6])
   const replay = replayGameLog(data)
   assert.deepEqual(JSON.parse(JSON.stringify(replay)), JSON.parse(JSON.stringify(expected)))
-  assert.deepEqual(data.state, JSON.parse(readFileSync('docs/playtests/v2_2-b-log.json', 'utf8')).state)
+  const historical = JSON.parse(readFileSync('docs/playtests/v2_2-b-log.json', 'utf8'))
+  replayGameLog(historical)
+  const path = entries => entries.filter(e => e.kind === 'roll').map(e => [e.turn, e.after.dice, e.after.position, e.after.rng])
+  assert.deepEqual(path(data.entries), path(historical.entries), 'Purchasing does not change the historical RNG or movement path')
   writeFileSync(`${logFile}.gz`, gzipSync(readFileSync(logFile)))
   rmSync(logFile)
 
   // Controlled financial panels: verify every transaction family using real UI actions.
-  for (const width of [320, 390, 1440]) {
+  for (const width of [320, 390, 430, 1440]) {
     await page.setViewportSize({ width, height: width === 1440 ? 1000 : 844 })
-    for (const name of ['bank', 'stocks', 'bonds', 'gold', 'business', 'business-upgrade', 'funding', 'withdrawal', 'lap4', 'locked-final', 'insolvent', 'start-sales']) {
+    for (const name of ['bank', 'stocks', 'bonds', 'gold', 'business', 'business-upgrade', 'funding', 'withdrawal', 'lap4', 'locked-final', 'insolvent', 'start-sales', 'course', 'course-owned', 'course-poor', 'living', 'repair', 'family', 'bills', 'contract', 'bonus', 'macro']) {
       await fixture(name)
       await screenshot(`${width}-${name}`)
       if (['bank', 'stocks', 'bonds', 'gold'].includes(name)) {
         await page.locator('#trade-amount').fill('0')
         assert.ok(await page.getByRole('button', { name: /Xác nhận (mua|gửi)/ }).isDisabled())
         await page.locator('#trade-amount').fill('1000000')
-        await page.getByRole('button', { name: /Xác nhận (mua|gửi)/ }).click()
-        await cash(49_000_000)
+        const confirm = page.getByRole('button', { name: /Xác nhận (mua|gửi)/ })
+        assert.equal(await page.locator('#trade-amount').inputValue(), '1.000.000')
+        if (name === 'stocks') {
+          assert.equal(await page.locator('#trade-symbol option').count(), 6)
+          const box = await confirm.boundingBox()
+          assert.ok(box.y + box.height <= page.viewportSize().height, 'Stock confirm is immediately visible')
+          await page.locator('.trade-details summary').click()
+          assert.ok(await page.locator('.price-chart').isVisible())
+          await page.locator('.trade-details summary').click()
+          await confirm.evaluate(button => { button.click(); button.click() })
+          await page.locator('dialog[open]').waitFor({ state: 'detached' })
+          assert.equal(await page.locator('.status-cash strong').textContent(), money(49_000_000))
+          assert.ok(await page.getByRole('button', { name: 'Gieo xúc xắc', exact: true }).isEnabled())
+          await screenshot(`${width}-stocks-success`)
+          await fixture('stocks')
+          await page.getByRole('button', { name: 'Bỏ qua cơ hội', exact: true }).click()
+          assert.equal(await page.locator('.status-cash strong').textContent(), money(50_000_000))
+          assert.equal(await page.locator('dialog[open]').count(), 0)
+        } else {
+          await confirm.click()
+          await cash(49_000_000)
+          if (name === 'bank') await page.locator('#deposit-term').selectOption('3')
+          await page.locator('#trade-amount').fill('1000000')
+          await confirm.click()
+          await cash(48_000_000)
+          assert.ok(await page.getByRole('button', { name: 'Hoàn tất · Về bàn chơi', exact: false }).isVisible())
+        }
       } else if (name === 'business') {
         await page.getByRole('button', { name: /Đầu tư cơ sở/ }).click()
         await cash(30_000_000)
@@ -186,6 +223,8 @@ try {
       } else if (name === 'business-upgrade') {
         await page.getByRole('button', { name: /Nâng cấp/ }).click()
         await cash(25_000_000)
+        await page.getByRole('button', { name: /Nâng cấp/ }).click()
+        await cash(20_000_000)
         await page.getByRole('button', { name: /Bán toàn cơ sở/ }).click()
         assert.ok(await page.getByRole('button', { name: /Đầu tư cơ sở/ }).isVisible())
       } else if (name === 'funding' || name === 'withdrawal') {
@@ -203,6 +242,21 @@ try {
         }
         await page.getByRole('button', { name: 'Dùng nguồn tiền này' }).click()
         assert.equal(await page.locator('dialog[open]').count(), 0)
+      } else if (name.startsWith('course')) {
+        const purchase = page.getByRole('button', { name: /Tham gia khóa học/ })
+        if (name === 'course') {
+          await purchase.click()
+          assert.equal(await page.locator('.status-cash strong').textContent(), money(44_000_000))
+        } else {
+          assert.ok(await purchase.isDisabled())
+          await page.getByRole('button', { name: /Bỏ qua cơ hội/ }).click()
+        }
+        assert.equal(await page.locator('dialog[open]').count(), 0)
+      } else if (['living', 'repair', 'family', 'bills', 'contract', 'bonus', 'macro'].includes(name)) {
+        await page.keyboard.press('Escape')
+        assert.ok(await page.getByRole('dialog').isVisible())
+        await page.locator('.event-options button').first().click()
+        assert.equal(await page.locator('dialog[open]').count(), 0)
       } else if (name === 'start-sales') {
         for (const asset of ['stocks', 'bonds', 'gold']) {
           await page.locator('#sell-asset').selectOption(asset)
@@ -218,7 +272,7 @@ try {
   const evidence = { widths: [320, 390, 430, 1440], screenshots, errors, seed: expected.seed,
     mode: expected.gameMode, board: expected.boardLayout, laps: expected.summaries.map(s => s.lap),
     rolls: expected.turn, lawfulProceeds: liquidatableFunds(expected), fullSnapshotReplay: true,
-    matchesHistoricalV22Game: true, transactionPanels: ['bank', 'stocks', 'bonds', 'gold', 'business', 'funding', 'START', 'result'] }
+    matchesHistoricalV22DicePath: true, atomicStockPurchases: expected.log.filter(e => e.decisionId === 'buy-stocks-complete').length, transactionPanels: ['bank', 'stocks', 'bonds', 'gold', 'business', 'funding', 'START', 'result'] }
   writeFileSync(`${folder}/verification.json`, JSON.stringify(evidence, null, 2) + '\n')
   console.log(JSON.stringify(evidence, null, 2))
 } finally { await browser.close() }

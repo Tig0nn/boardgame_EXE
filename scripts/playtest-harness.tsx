@@ -2,9 +2,12 @@
 import { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { advance, createGame, decide, fundPayment, roll, transact } from '../src/game/engine'
+import { applyMacroShock } from '../src/game/market'
+import { MACRO_EVENTS } from '../src/data/config'
 import { beginSettlement } from '../src/game/settlement'
 import type { GameState } from '../src/game/types'
 import { PhaseDialog } from '../src/components/GameDialogs'
+import { GameStatus } from '../src/components/GameStatus'
 import { Board } from '../src/components/Board'
 import { Portfolio } from '../src/components/Portfolio'
 import { exportLog } from '../src/exportLog'
@@ -31,6 +34,8 @@ function fixture(id:string):GameState {
     }
     return { ...s, phase: 'rebalancing', position: 0, portfolio: { ...s.portfolio, debt: 1_000_000 } }
   }
+  if (['course', 'course-owned', 'course-poor', 'living', 'repair', 'family', 'bills', 'contract', 'bonus'].includes(id)) return { ...s, phase: 'event', eventId: id.startsWith('course') ? 'course' : id, position: id.startsWith('course') ? 4 : 3, turn: 2, coursePurchased: id === 'course-owned', portfolio: { ...s.portfolio, cash: id === 'course-poor' ? 1_000_000 : 50_000_000 } }
+  if (id === 'macro') return applyMacroShock({ ...s, phase: 'event', eventId: MACRO_EVENTS[0].id, position: 5, turn: 2 }, MACRO_EVENTS[0].id)
   if(id==='funding'||id==='withdrawal') {
     s={...s,position:2,phase:'event',eventId:'stocks'}
     s=transact(s,{kind:'buy',asset:'stocks',amount:4_000_000})
@@ -58,7 +63,7 @@ function fixture(id:string):GameState {
 export default function Harness() {
   const [id,setId]=useState('funding')
   const [game,setGame]=useState<GameState|null>(null)
-  return <><header className="app-header fixture-header"><strong>V2.1 · FIXTURE TỔNG HỢP, KHÔNG PHẢI VÁN TỰ NHIÊN</strong><select aria-label="Fixture" value={id} onChange={event=>setId(event.target.value)}>{['funding','withdrawal','insolvent','start-business','locked-final','victory','defeat','lap4','bank','stocks','bonds','gold','business','business-upgrade','start-sales'].map(name=><option key={name}>{name}</option>)}</select><button onClick={()=>setGame(fixture(id))}>Nạp fixture</button></header>
-    {game&&<main className="game-page"><p>Seed {game.seed} · {game.gameMode} · {game.boardLayout} · {game.totalLaps} vòng</p><div className="game-layout"><Board game={game} onRoll={()=>setGame(roll(game))} rolling={false}/><Portfolio game={game}/></div><PhaseDialog game={game} onAdvance={()=>setGame(advance(game))} onChoose={option=>setGame(decide(game,option))} onFund={(source,amount,lot)=>setGame(fundPayment(game,source,amount,lot))} onTransaction={action=>setGame(transact(game,action))} onRestart={()=>setGame(null)} onExport={()=>exportLog(game)}/></main>}</>
+  return <><header className="app-header fixture-header"><strong>V2.1 · FIXTURE TỔNG HỢP, KHÔNG PHẢI VÁN TỰ NHIÊN</strong><select aria-label="Fixture" value={id} onChange={event=>setId(event.target.value)}>{['funding','withdrawal','insolvent','start-business','locked-final','victory','defeat','lap4','bank','stocks','bonds','gold','business','business-upgrade','start-sales','course','course-owned','course-poor','living','repair','family','bills','contract','bonus','macro'].map(name=><option key={name}>{name}</option>)}</select><button onClick={()=>setGame(fixture(id))}>Nạp fixture</button></header>
+    {game&&<main className="game-page"><p>Seed {game.seed} · {game.gameMode} · {game.boardLayout} · {game.totalLaps} vòng</p><GameStatus game={game}/><div className="game-layout"><Board game={game} onRoll={()=>setGame(state=>state===game?roll(state):state)} rolling={false}/><Portfolio game={game}/></div><PhaseDialog game={game} onAdvance={()=>setGame(state=>state===game?advance(state):state)} onChoose={option=>setGame(state=>state===game?decide(state,option):state)} onFund={(source,amount,lot)=>setGame(state=>state===game?fundPayment(state,source,amount,lot):state)} onTransaction={action=>setGame(state=>state===game?transact(state,action):state)} onRestart={()=>setGame(null)} onExport={()=>exportLog(game)}/></main>}</>
 }
 if(import.meta.env.DEV) createRoot(document.getElementById('root')!).render(<Harness/> )

@@ -220,3 +220,44 @@ h1, .setup-story h1, .setup-card h2, .modal h2, .game-topline h1, .brand { font-
 .fixture-header select { min-width: 0; max-width: 100%; }
 
 @media (max-width: 360px) { .header-actions .text-button svg { display: none; } }
+
+/* Focused transaction UX: keep the board theme and expose decisions before detail. */
+.trade-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; margin: 10px 0; border-radius: 12px; background: #edf5ef; }
+.trade-facts > div { min-width: 0; }
+.trade-facts span, .trade-facts small { display: block; color: #536970; font-size: 11px; line-height: 1.5; }
+.trade-facts strong { display: block; font-size: 14px; font-variant-numeric: tabular-nums; }
+.stock-trading .trade-facts > div:last-child { grid-column: 1 / -1; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.trade-remaining { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 10px; margin-top: 10px; font-size: 13px; }
+.trade-remaining strong { font-variant-numeric: tabular-nums; }
+.trade-risk, .input-error { font-size: 12px; line-height: 1.5; margin: 8px 0; }
+.input-error { color: #9b3929; }
+.trade-details { border-top: 1px solid var(--line); margin-top: 16px; }
+.trade-details summary { min-height: 44px; padding: 12px 0; cursor: pointer; color: #305b64; font-size: 13px; }
+.trade-details > p { font-size: 13px; line-height: 1.7; }
+.money-input { position: relative; }
+.money-input .text-input { width: 100%; padding-right: 36px; font-variant-numeric: tabular-nums; }
+.money-input > span { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #536970; pointer-events: none; }
+.text-input[aria-invalid="true"] { border-color: #ba7661; }
+.purchase-success, .transaction-feedback { font-size: 12px; line-height: 1.6; padding: 10px 12px; margin: 0 0 12px; border-radius: 10px; background: #e4f3e7; color: #235b45; }
+.sheet-actions { position: sticky; bottom: -28px; z-index: 2; padding: 10px 0 22px; background: var(--paper); border-top: 1px solid var(--line); margin-top: 16px; }
+.sheet-actions .full-button { margin-top: 0; }
+.stock-modal .event-category { float: right; font-size: 10px; }
+.stock-modal .event-category svg { display: none; }
+.stock-modal .event-location { margin-top: 0; font-size: 10px; }
+.stock-modal h2 { margin: 8px 0 6px; font-size: 23px; }
+.stock-modal .modal-lead { font-size: 12px; line-height: 1.5; margin: 0 0 10px; }
+.stock-modal .event-cash { padding: 10px 12px; margin-bottom: 8px; }
+.stock-modal .trading-panel { margin: 8px 0 0; padding: 0; border: 0; }
+.stock-modal .trading-panel label { margin: 8px 0 4px; font-size: 12px; }
+.stock-modal .trade-facts { padding: 10px; gap: 8px; }
+.stock-modal .trade-facts strong { font-size: 13px; }
+.stock-modal .trade-continuation { font-size: 11px; margin: 10px 0 0; line-height: 1.5; }
+.stock-modal .stock-skip { margin-top: 10px; }
+.stock-modal .event-options:empty { display: none; }
+@media (max-width: 720px) {
+  .sheet-actions { bottom: -24px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  .stock-modal { padding: 20px 16px 24px; }
+  .stock-modal::before { margin-bottom: 12px; }
+  .business-facts { gap: 10px; }
+  .funding-source { min-height: 56px; }
+}

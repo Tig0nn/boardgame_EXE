@@ -1,0 +1,106 @@
+{
+  "baseline": "51843df",
+  "normalization": "UTF-8 without BOM, LF",
+  "files": [
+    {
+      "file": "src/data/board.ts",
+      "unchanged": true,
+      "baselineSha256": "568827bc46d74c105e895ec2415ee8690fc1eb199b6f7fa4854881a57be6fc87",
+      "currentSha256": "568827bc46d74c105e895ec2415ee8690fc1eb199b6f7fa4854881a57be6fc87"
+    },
+    {
+      "file": "src/data/config.ts",
+      "unchanged": true,
+      "baselineSha256": "df966518474c1821e337e73203c0970eaab8e3fd5b51fb0b9e14bddea04a7071",
+      "currentSha256": "df966518474c1821e337e73203c0970eaab8e3fd5b51fb0b9e14bddea04a7071"
+    },
+    {
+      "file": "src/data/events.ts",
+      "unchanged": true,
+      "baselineSha256": "31988efe724a0b1ee93aca53c8ce46b9d53802fdc173f072eef9b861b62565b9",
+      "currentSha256": "31988efe724a0b1ee93aca53c8ce46b9d53802fdc173f072eef9b861b62565b9"
+    },
+    {
+      "file": "src/data/modes.ts",
+      "unchanged": true,
+      "baselineSha256": "5c5a5eb0e8fa42e721a11b1b79556b619fda87a9a197c1c42343506248b4899d",
+      "currentSha256": "5c5a5eb0e8fa42e721a11b1b79556b619fda87a9a197c1c42343506248b4899d"
+    },
+    {
+      "file": "src/game/business.ts",
+      "unchanged": true,
+      "baselineSha256": "f303c080fd46ee9dab7c66d3429cf85d70da82d358a601783b7eec8e98414ee4",
+      "currentSha256": "f303c080fd46ee9dab7c66d3429cf85d70da82d358a601783b7eec8e98414ee4"
+    },
+    {
+      "file": "src/game/engine.ts",
+      "unchanged": true,
+      "baselineSha256": "0f73b07eb1c653962edfe412e4b00cfddd15ece9a4b4e6d18e800c3b86b4c278",
+      "currentSha256": "0f73b07eb1c653962edfe412e4b00cfddd15ece9a4b4e6d18e800c3b86b4c278"
+    },
+    {
+      "file": "src/game/format.ts",
+      "unchanged": true,
+      "baselineSha256": "e7ac228b47f3276351166b2957ca039b0773abe9991d22abcddb8574c65d610e",
+      "currentSha256": "e7ac228b47f3276351166b2957ca039b0773abe9991d22abcddb8574c65d610e"
+    },
+    {
+      "file": "src/game/log.ts",
+      "unchanged": false,
+      "baselineSha256": "5144d4de7fe33bfcd5bf229028b84b47b513a9f2859ef72cb467368bcae36f9b",
+      "currentSha256": "5aa4be5f3d900f99b56982592f693205bc9077ae5e00254730a3d35074c31fb9",
+      "approvedChange": "Count completed stock purchases"
+    },
+    {
+      "file": "src/game/market.ts",
+      "unchanged": true,
+      "baselineSha256": "15ef1f763f7b55f1dcfdbc054f2bb9225b47c188dd80bc4d5fc30c301a4a3ed1",
+      "currentSha256": "15ef1f763f7b55f1dcfdbc054f2bb9225b47c188dd80bc4d5fc30c301a4a3ed1"
+    },
+    {
+      "file": "src/game/random.ts",
+      "unchanged": true,
+      "baselineSha256": "6701ad680fd1cbf4dcf68f54c4998345190a28c3fdbbcfac4cafdab2f1124d29",
+      "currentSha256": "6701ad680fd1cbf4dcf68f54c4998345190a28c3fdbbcfac4cafdab2f1124d29"
+    },
+    {
+      "file": "src/game/savings.ts",
+      "unchanged": true,
+      "baselineSha256": "1b40f4a47d5b927128abdd087d5f9ac6843ca0272f28363463ffe8c3d3b50a36",
+      "currentSha256": "1b40f4a47d5b927128abdd087d5f9ac6843ca0272f28363463ffe8c3d3b50a36"
+    },
+    {
+      "file": "src/game/selectors.ts",
+      "unchanged": false,
+      "baselineSha256": "b99fb88e22723a7984269e366502805fd7cea5944079a123087bbf468425659b",
+      "currentSha256": "904c2e2486cfba67004fdae046801ced06e09d3c1f47b33c1a3465557afceb82",
+      "approvedChange": "Read-only presentation previews using existing formulas"
+    },
+    {
+      "file": "src/game/settlement.ts",
+      "unchanged": true,
+      "baselineSha256": "6d6aa8b221bcdd2b69eda39a8967ad72aa4f650ed02a9d82c9fe0fdd2b08b59c",
+      "currentSha256": "6d6aa8b221bcdd2b69eda39a8967ad72aa4f650ed02a9d82c9fe0fdd2b08b59c"
+    },
+    {
+      "file": "src/game/state.ts",
+      "unchanged": true,
+      "baselineSha256": "a697187a36732f583e97cb4c9d2d2f86afb740b1ca8a4372015121a2498da9ac",
+      "currentSha256": "a697187a36732f583e97cb4c9d2d2f86afb740b1ca8a4372015121a2498da9ac"
+    },
+    {
+      "file": "src/game/transactions.ts",
+      "unchanged": false,
+      "baselineSha256": "7ecd02129e7c12da06f65248f79780aa716d3da83728f9e8e9fa09d917623379",
+      "currentSha256": "7a83b421a9691a3f9a7c693d0a34e3e7c1437f08f677a61a4d3d84479f6866fe",
+      "approvedChange": "Guarded atomic event-to-rolling transition; unchanged financial calculations"
+    },
+    {
+      "file": "src/game/types.ts",
+      "unchanged": false,
+      "baselineSha256": "278ccc7652ac6d0de29ae0c302533a49c2442927c80659b6ed86c799af8795bd",
+      "currentSha256": "8255c10b2089081f8fd9566cadb56302f902eb1f3ab3c8acaa099b6e1a2a0eaa",
+      "approvedChange": "Optional atomic stock completion action"
+    }
+  ]
+}
