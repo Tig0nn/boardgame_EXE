@@ -2,6 +2,8 @@
 
 Ngày: **11/10/2026**. Chủ dự án là người playtest duy nhất. Phạm vi: cơ chế, kế toán, thí nghiệm offline và hướng dẫn solo; chưa làm lại UX hoặc giao diện.
 
+> Cập nhật sau phê duyệt: profile 4/5/6% đã được triển khai riêng cho ván Experimental B mới. Xem [báo cáo triển khai V2.2](V2_2_IMPLEMENTATION_REPORT.md) và [guide đã cập nhật](V2_2_SOLO_TEST_GUIDE.md). Nội dung nghiên cứu bên dưới ghi lại thời điểm trước phê duyệt; các số 5.000 seed và manifest44 file là bằng chứng lịch sử, không phải trạng thái kiểm tra sau thay đổi. Runner nghiên cứu hiện chọn profile tường minh thay cho gán tạm global rates để giữ đúng controls cũ. Không ghi đè kết quả nghiên cứu cũ.
+
 ## Quyết định đề nghị
 
 **Đề nghị gói V2.2 chỉ thay một nhóm tham số cho cấu hình Experimental B 4/C20: tiết kiệm kỳ hạn 1/2/3 từ 6/7/8% xuống 4/5/6% mỗi START. Giữ mọi luật và giá trị khác. Gói này CHƯA ĐƯỢC TRIỂN KHAI, cần chủ dự án phê duyệt.** Original3/A20 và đối chứng Experimental A4/A20 tiếp tục giữ6/7/8%; không thay global config làm mất baseline. Khi duyệt, log phải ghi rõ profile lãi thực của ván: so A/B khi đó đổi cả board và rate, không còn là đối chứng riêng board. Không đề nghị tăng lợi nhuận business, bỏ giới hạn bán business, tăng số macro, đổi xúc xắc hay hạ mục tiêu để nâng tỷ lệ thắng.

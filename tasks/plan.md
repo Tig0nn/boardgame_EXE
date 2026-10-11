@@ -10,3 +10,13 @@ Phạm vi được chủ dự án giao: review + thí nghiệm offline + hướn
 6. Test toàn bộ + diagnostic, replay JSON browser có sẵn, lint, typecheck, build; kiểm hash production. Chỉ regression RED/GREEN nếu có lỗi xác nhận.
 
 Tiêu chí xong: hai báo cáo + dữ liệu/CLI tái lập; không có nghiên cứu hoặc feature ngoài phạm vi; đề xuất tài chính chỉ ở báo cáo.
+
+## Triển khai profile đã duyệt — 11/10/2026
+
+1. Dùng nhánh `feat/v2-2-savings-profile`, giữ công việc review hiện tại.
+2. Regression RED/GREEN: profile riêng theo ván; B4/C20 4/5/6, hai A20 6/7/8; không đổi global.
+3. Ghi profile trong state/snapshot/schema5; fallback V2.1 thiếu profile về lãi cũ; replay và re-export schema4 đúng số tiền cũ.
+4. Cập nhật preview hiện có; giữ lot độc lập, whole-lot, maturity/funding/goal.
+5. So sánh 1.000 seed ×3 policy ×2 profile, audit từng ván, giữ nguyên path.
+6. Browser B đầy đủ qua Result, tải JSON thật, kiểm replay; cập nhật guide/report tiếng Việt.
+7. Test toàn bộ/diagnostic, lint, typecheck/build và review diff. Không push/merge/deploy.
