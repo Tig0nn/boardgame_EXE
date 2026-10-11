@@ -3,10 +3,10 @@ import assert from 'node:assert/strict'
 import { advance, canChoose, createGame, decide, fundPayment, roll, transact } from '../../src/game/engine.ts'
 import { borrowingAvailable, fundingSources } from '../../src/game/transactions.ts'
 import { liquidatableFunds, saleQuote, victory } from '../../src/game/selectors.ts'
-import { BOARD } from '../../src/data/board.ts'
+import { boardFor } from '../../src/data/board.ts'
 import { ECONOMY, RULES } from '../../src/data/config.ts'
 import { EVENTS } from '../../src/data/events.ts'
-import type { GameState, Term } from '../../src/game/types.ts'
+import type { GameModeId, GameState, Term, SavingsProfileId } from '../../src/game/types.ts'
 
 export const strategies = ['cash-heavy', 'saving-heavy', 'stock-heavy', 'business-heavy', 'diversified'] as const
 export type Strategy = typeof strategies[number] | 'cash-course' | 'saving-no-course' | 'business-exit-window'
@@ -20,7 +20,7 @@ export function withHorizon<T>(horizon: number, work: () => T): T {
   try { return work() } finally { RULES.laps = original }
 }
 
-function tileAction(s: GameState, strategy: Strategy, horizon: number): GameState {
+export function tileAction(s: GameState, strategy: Strategy, horizon: number): GameState {
   const id = s.eventId
   const budget = Math.max(0, s.portfolio.cash - 10_000_000)
   const savingOnly = strategy === 'saving-heavy' || strategy === 'saving-no-course'
@@ -49,11 +49,24 @@ function tileAction(s: GameState, strategy: Strategy, horizon: number): GameStat
   return s
 }
 
-export function playDiagnostic(seed: string, strategy: Strategy, horizon: number) {
-  return withHorizon(horizon, () => {
+// Offline experiments may replace policy decisions, never the accounting audit.
+export interface DiagnosticPolicy {
+  savingsProfileId?: SavingsProfileId
+  mode?: GameModeId
+  initialSavings?: number
+  initialTerm?: Term
+  act?: (state: GameState) => GameState
+  course?: (state: GameState) => boolean
+  fund?: (state: GameState) => GameState
+  choose?: (state: GameState, preferred: string) => string
+}
+export function playDiagnostic(seed: string, strategy: Strategy, horizon: number, policy: DiagnosticPolicy = {}) {
+  const runGame = () => {
     const savingOnly = strategy === 'saving-heavy' || strategy === 'saving-no-course'
-    const initialSavings = savingOnly ? 40_000_000 : strategy === 'diversified' ? 15_000_000 : 0
-    let s = createGame(seed, initialSavings, savingOnly ? 3 : 1)
+    const initialSavings = policy.initialSavings ?? (savingOnly ? 40_000_000 : strategy === 'diversified' ? 15_000_000 : 0)
+    let s = createGame(seed, initialSavings, policy.initialTerm ?? (savingOnly ? 3 : 1), policy.mode, policy.savingsProfileId)
+    assert.equal(s.totalLaps, horizon)
+    const BOARD = boardFor(s)
     const visits: Record<string, number> = Object.fromEntries([...new Set(BOARD.map(tile => tile.type))].map(type => [type, 0]))
     const stopsByTile = BOARD.map(() => 0)
     const path: string[] = []
@@ -90,16 +103,17 @@ export function playDiagnostic(seed: string, strategy: Strategy, horizon: number
           if (purchaseLap !== null) businessReturnsAfterPurchase++
         }
         const hadBusiness = s.business.capital > 0
-        s = tileAction(s, strategy, horizon)
+        s = policy.act ? policy.act(s) : tileAction(s, strategy, horizon)
         if (!hadBusiness && s.business.capital > 0 && purchaseLap === null) purchaseLap = s.lap
         observe()
         const event = EVENTS.find(event => event.id === s.eventId)!
         if (event.options.filter(option => canChoose(s, option.id)).length > 1) alternativeChoices++
         // At least two future salary payments cover the 6M course cost. No future prices are inspected.
-        const preferred = event.id === 'course' && !['cash-heavy', 'saving-no-course'].includes(strategy) && horizon - s.lap + 1 >= 2 && canChoose(s, 'upgrade') ? 'upgrade'
+        const preferred = event.id === 'course' && (policy.course ? policy.course(s) : !['cash-heavy', 'saving-no-course'].includes(strategy) && horizon - s.lap + 1 >= 2) && canChoose(s, 'upgrade') ? 'upgrade'
           : event.options.find(option => canChoose(s, option.id) && option.id !== 'upgrade')!.id
-        s = decide(s, preferred)
+        s = decide(s, policy.choose ? policy.choose(s, preferred) : preferred)
       } else if (s.phase === 'funding') {
+        if (policy.fund) { s = policy.fund(s); observe(); continue }
         const source = fundingSources(s)[0]
         assert.ok(source, `Unresolved funding: ${seed}/${strategy}/${horizon}`)
         const lot = s.deposits.find(lot => lot.status === 'active')
@@ -192,7 +206,9 @@ export function playDiagnostic(seed: string, strategy: Strategy, horizon: number
       first90Lap, first90Checkpoint, terminalSavings: s.portfolio.savings,
       path, checkpoints, visits, stopsByTile }
     return { run, state: s }
-  })
+  }
+  // Explicit browser modes already carry their horizon; leave global config untouched.
+  return policy.mode ? runGame() : withHorizon(horizon, runGame)
 }
 
 export type Run = ReturnType<typeof playDiagnostic>['run']

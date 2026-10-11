@@ -4,6 +4,7 @@ import { businessIncome, businessSaleQuote, businessUpgradeUnlocked } from '../g
 import { money } from '../game/format'
 import type { Asset, GameState, RebalanceAction, Term } from '../game/types'
 import { MarketDetails } from './MarketDetails'
+import { savingsProfileForGame } from '../game/savings'
 
 export function TradingPanel({ game, onTransaction }: { game: GameState; onTransaction: (action: RebalanceAction) => void }) {
   const tile = game.eventId as Asset | 'bank'
@@ -12,6 +13,7 @@ export function TradingPanel({ game, onTransaction }: { game: GameState; onTrans
   const [term, setTerm] = useState<Term>(1)
   const [trend, setTrend] = useState(game.scenarioId)
   const valid = Number.isSafeInteger(amount) && amount > 0 && amount <= game.portfolio.cash
+  const rates = savingsProfileForGame(game).rates
   if (tile === 'business') {
     const config = ECONOMY.business
     const levels = Object.values(game.business.upgrades).reduce((sum, count) => sum + count, 0)
@@ -31,8 +33,8 @@ export function TradingPanel({ game, onTransaction }: { game: GameState; onTrans
   return <section className="trading-panel">
     {tile === 'stocks' && <><label htmlFor="trade-symbol">Chọn doanh nghiệp giả lập</label><select id="trade-symbol" className="text-input" value={symbolId} onChange={event => setSymbolId(event.target.value)}>{game.market.stocks.map(stock => <option key={stock.id} value={stock.id}>{stock.id} · {stock.name}</option>)}</select></>}
     {tile !== 'bank' && <MarketDetails game={game} asset={tile} symbolId={symbolId} />}
-    {tile === 'bank' && <><label htmlFor="deposit-term">Kỳ hạn (lần qua START)</label><select id="deposit-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} vòng · {Math.round(ECONOMY.savingsRates[value] * 100)}% lãi game/vòng</option>)}</select>
-      <p>Đáo hạn tại START vòng {game.lap + term - 1}. Lãi đơn trả cuối kỳ {money(Math.round(amount * ECONOMY.savingsRates[term] * term))}. Khoản cũ giữ nguyên.</p>
+    {tile === 'bank' && <><label htmlFor="deposit-term">Kỳ hạn (lần qua START)</label><select id="deposit-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} vòng · {Math.round(rates[value] * 100)}% lãi game/vòng</option>)}</select>
+      <p>Đáo hạn tại START vòng {game.lap + term - 1}. Lãi đơn trả cuối kỳ {money(Math.round(amount * rates[term] * term))}. Khoản cũ giữ nguyên.</p>
       {game.lap + term - 1 > game.totalLaps && <p className="financial-warning">Kỳ hạn vượt màn chơi, chưa đáo hạn khi kết thúc. Rút sớm hợp lệ mất toàn bộ lãi chưa trả.</p>}
       {game.deposits.filter(lot => lot.status === 'active').map(lot => <p key={lot.id}>{lot.id}: {money(lot.principal)} · đáo hạn vòng {lot.maturityLap}</p>)}
     </>}
