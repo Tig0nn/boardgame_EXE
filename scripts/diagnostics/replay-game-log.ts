@@ -26,12 +26,16 @@ export function replayGameLog(data: ReplayLog): GameState {
       const lot = entry.before.deposits.find(lot => lot.status === 'active' && entry.after.deposits.find(after => after.id === lot.id)?.status === 'withdrawn')
       s = fundPayment(s, source, source === 'debt' ? entry.after.portfolio.debt - entry.before.portfolio.debt : source === 'savings' ? lot!.principal : entry.forcedAssetSaleAmount, lot?.id)
     } else {
-      const [kind, asset] = entry.decisionId!.split('-')
+      const [kind, asset, completion] = entry.decisionId!.split('-')
       const after = entry.after; const before = entry.before
       const action: RebalanceAction = { kind: kind as RebalanceAction['kind'], asset: asset === 'bank' ? undefined : asset as Asset,
         amount: kind === 'sell' ? before.portfolio[asset as Asset] : before.portfolio.cash - after.portfolio.cash }
       if (kind === 'deposit') action.term = (after.deposits.at(-1)!.maturityLap - after.lap + 1) as Term
       if (kind === 'buy' && asset === 'stocks') action.symbolId = Object.keys(after.stockHoldings).find(id => after.stockHoldings[id].units > (before.stockHoldings[id]?.units ?? 0))
+      if (completion === 'complete') {
+        assert.equal(entry.decisionId, 'buy-stocks-complete', 'Only stock purchases support atomic completion')
+        action.completeEncounter = true
+      }
       if (kind === 'upgrade') action.trend = Object.keys(after.business.upgrades).find(id => after.business.upgrades[id] > (before.business.upgrades[id] ?? 0))
       if (kind === 'sell' && asset !== 'business') action.amount = entry.assetSaleAmounts[asset as 'stocks' | 'gold' | 'bonds']
       if (kind === 'repay') action.amount = before.portfolio.debt - after.portfolio.debt

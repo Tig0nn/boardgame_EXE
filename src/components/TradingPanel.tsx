@@ -1,47 +1,79 @@
-import { useState } from 'react'
-import { ASSETS, ECONOMY, SCENARIOS } from '../data/config'
-import { businessIncome, businessSaleQuote, businessUpgradeUnlocked } from '../game/business'
-import { money } from '../game/format'
+import { useRef, useState } from 'react'
+import { ASSETS, ECONOMY, SCENARIOS, SECTORS } from '../data/config'
+import { businessUpgradeUnlocked } from '../game/business'
+import { money, percent } from '../game/format'
+import { businessOverview, depositPreview, purchasePreview, stockQuote } from '../game/selectors'
 import type { Asset, GameState, RebalanceAction, Term } from '../game/types'
 import { MarketDetails } from './MarketDetails'
+import { MoneyInput } from './MoneyInput'
 import { savingsProfileForGame } from '../game/savings'
 
-export function TradingPanel({ game, onTransaction }: { game: GameState; onTransaction: (action: RebalanceAction) => void }) {
+export function TradingPanel({ game, onTransaction, onSkip }: { game: GameState; onTransaction: (action: RebalanceAction) => void; onSkip: () => void }) {
   const tile = game.eventId as Asset | 'bank'
   const [amount, setAmount] = useState(tile === 'bonds' ? ECONOMY.bondTicket : tile === 'gold' ? ECONOMY.goldTicket : ECONOMY.stockTicket)
   const [symbolId, setSymbolId] = useState(game.market.stocks[0].id)
   const [term, setTerm] = useState<Term>(1)
   const [trend, setTrend] = useState(game.scenarioId)
-  const valid = Number.isSafeInteger(amount) && amount > 0 && amount <= game.portfolio.cash
+  const submitLock = useRef(false)
+  const submit = (action: RebalanceAction) => {
+    if (submitLock.current) return
+    submitLock.current = true
+    onTransaction(action)
+  }
+  const preview = purchasePreview(game, amount)
   const rates = savingsProfileForGame(game).rates
+  const quote = stockQuote(game, symbolId)
+  const deposit = depositPreview(game, amount, term)
+  const last = game.log.at(-1)
+  const feedback = last?.kind === 'rebalancing' && last.turn === game.turn
+    ? <p className="transaction-feedback" role="status">Đã thực hiện: {last.decision}. Tiền mặt còn {money(game.portfolio.cash)}.</p> : null
   if (tile === 'business') {
     const config = ECONOMY.business
-    const levels = Object.values(game.business.upgrades).reduce((sum, count) => sum + count, 0)
-    return <section className="trading-panel"><p className="financial-warning">Chỉ bán ở ô Kinh doanh. Vốn chưa bán không tính vào nguồn huy động mục tiêu.</p>
-      <p>Vốn ban đầu {money(config.cost)} · Dòng tiền cơ bản {money(config.baseIncome)}/START × hệ số xu hướng. Giá thu hồi ban đầu {config.capitalRecovery * 100}% vốn; biến đổi theo kinh tế và khấu hao {config.depreciation * 100}%/vòng.</p>
-      <p>Hiện tại: thu nhập {money(businessIncome(game))}/START · Giá bán {money(businessSaleQuote(game))} · {levels}/{config.maxUpgrades} tầng nâng cấp.</p>
-      {game.business.capital === 0 ? <button className="button secondary full-button" disabled={game.portfolio.cash < config.cost} onClick={() => onTransaction({ kind: 'buy', asset: 'business', amount: config.cost })}>Đầu tư cơ sở {money(config.cost)}</button> : <>
-        <label htmlFor="business-trend">Xu hướng cho tầng nâng cấp</label><select id="business-trend" className="text-input" value={trend} onChange={event => setTrend(event.target.value)}>{SCENARIOS.map(scenario => <option key={scenario.id} value={scenario.id}>{scenario.label}</option>)}</select>
-        <p>Mỗi tầng trả {money(config.upgradeCost)}, tăng bền vững {money(config.baseUplift)}/START; thêm {money(config.matchingBonus)} chỉ khi trùng xu hướng. Đổi xu hướng vẫn giữ phần bền vững.</p>
-        <p>Còn {game.totalLaps - game.lap + 1} kỳ; hoàn vốn phần tăng cơ bản khoảng {(config.upgradeCost / config.baseUplift).toFixed(1)} kỳ. Các tham số đang thử nghiệm.</p>
-        {!businessUpgradeUnlocked(game) && <p className="financial-warning">Vừa mở cơ sở. Nâng cấp chỉ mở từ lần gặp ô Kinh doanh tiếp theo.</p>}
-        <button className="button secondary full-button" disabled={!businessUpgradeUnlocked(game) || game.portfolio.cash < config.upgradeCost || levels >= config.maxUpgrades} onClick={() => onTransaction({ kind: 'upgrade', asset: 'business', amount: config.upgradeCost, trend })}>Nâng cấp {money(config.upgradeCost)}</button>
-        <button className="button secondary full-button" onClick={() => onTransaction({ kind: 'sell', asset: 'business', amount: game.portfolio.business })}>Bán toàn cơ sở · Nhận {money(businessSaleQuote(game))}</button>
+    const view = businessOverview(game, trend)
+    const owned = view.locked > 0
+    const upgradeReason = !businessUpgradeUnlocked(game) ? 'Nâng cấp mở từ lần gặp ô Kinh doanh tiếp theo sau khi mua.'
+      : view.levels >= config.maxUpgrades ? `Đã đạt tối đa ${config.maxUpgrades} tầng nâng cấp.`
+      : game.portfolio.cash < config.upgradeCost ? 'Chưa đủ tiền mặt để nâng cấp.' : ''
+    return <section className="trading-panel">{feedback}
+      <div className="trade-facts business-facts">
+        <div><span>Thu nhập tại START theo hiện trạng</span><strong>{owned ? money(view.income) : 'Chưa có cơ sở'}</strong></div>
+        <div><span>Báo giá bán hiện tại</span><strong>{money(view.sale)}</strong></div>
+        <div><span>Vốn đã chi, chưa thu hồi</span><strong>{money(view.locked)}</strong></div>
+        <div><span>Số START còn lại</span><strong>{view.remainingStarts} kỳ</strong></div>
+      </div>
+      <p className="financial-warning">Thu nhập vận hành dương không đảm bảo tổng lợi nhuận. Chỉ bán tại ô Kinh doanh; vốn chưa bán không tính vào mục tiêu 90 triệu và không dùng trả khoản thiếu bắt buộc.</p>
+      {!owned ? <><p>Đầu tư {money(config.cost)} · Giá thu hồi ban đầu {config.capitalRecovery * 100}% vốn, trước biến động và khấu hao.</p>
+        {game.portfolio.cash < config.cost && <p className="input-error">Chưa đủ tiền mặt để mua cơ sở.</p>}
+        <button className="button primary full-button" disabled={game.portfolio.cash < config.cost} onClick={() => submit({ kind: 'buy', asset: 'business', amount: config.cost })}>Đầu tư cơ sở {money(config.cost)}</button></> : <>
+        <label htmlFor="business-trend">Xu hướng cho tầng nâng cấp · {view.levels}/{config.maxUpgrades} tầng</label><select id="business-trend" className="text-input" value={trend} onChange={event => setTrend(event.target.value)}>{SCENARIOS.map(scenario => <option key={scenario.id} value={scenario.id}>{scenario.label}</option>)}</select>
+        <p>Chi {money(config.upgradeCost)}; thu nhập START tăng {money(view.incrementalIncome)} theo hiện trạng. Phần cơ bản +{money(config.baseUplift)}; thưởng +{money(config.matchingBonus)} chỉ khi trùng xu hướng.</p>
+        {upgradeReason && <p className="input-error">{upgradeReason}</p>}
+        <button className="button secondary full-button" disabled={!!upgradeReason} onClick={() => submit({ kind: 'upgrade', asset: 'business', amount: config.upgradeCost, trend })}>Nâng cấp {money(config.upgradeCost)}</button>
+        <button className="button secondary full-button" onClick={() => submit({ kind: 'sell', asset: 'business', amount: game.portfolio.business })}>Bán toàn cơ sở · Nhận {money(view.sale)}</button>
       </>}
+      <details className="trade-details"><summary>Chi phí, thu hồi vốn và rủi ro</summary><p>Thu nhập cơ bản {money(config.baseIncome)}/START × hệ số xu hướng. Giá thu hồi chịu khấu hao {config.depreciation * 100}%/vòng và cú sốc kinh tế. Nâng cấp chỉ tăng giá thu hồi bằng {config.upgradeRecovery * 100}% chi phí.</p><p>Báo giá và thu nhập có thể đổi tại START hoặc sự kiện kinh tế. Có thể lỗ tổng vốn, hoặc không gặp lại ô để bán trước khi hết {view.remainingStarts} kỳ còn lại.</p></details>
+      <p className="inline-note">Có thể nâng cấp nhiều tầng hợp lệ hoặc bán tại lần dừng này. Chọn “Hoàn tất” khi đã xong.</p>
     </section>
   }
-  return <section className="trading-panel">
-    {tile === 'stocks' && <><label htmlFor="trade-symbol">Chọn doanh nghiệp giả lập</label><select id="trade-symbol" className="text-input" value={symbolId} onChange={event => setSymbolId(event.target.value)}>{game.market.stocks.map(stock => <option key={stock.id} value={stock.id}>{stock.id} · {stock.name}</option>)}</select></>}
-    {tile !== 'bank' && <MarketDetails game={game} asset={tile} symbolId={symbolId} />}
-    {tile === 'bank' && <><label htmlFor="deposit-term">Kỳ hạn (lần qua START)</label><select id="deposit-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} vòng · {Math.round(rates[value] * 100)}% lãi game/vòng</option>)}</select>
-      <p>Đáo hạn tại START vòng {game.lap + term - 1}. Lãi đơn trả cuối kỳ {money(Math.round(amount * rates[term] * term))}. Khoản cũ giữ nguyên.</p>
-      {game.lap + term - 1 > game.totalLaps && <p className="financial-warning">Kỳ hạn vượt màn chơi, chưa đáo hạn khi kết thúc. Rút sớm hợp lệ mất toàn bộ lãi chưa trả.</p>}
-      {game.deposits.filter(lot => lot.status === 'active').map(lot => <p key={lot.id}>{lot.id}: {money(lot.principal)} · đáo hạn vòng {lot.maturityLap}</p>)}
+  return <section className={`trading-panel ${tile === 'stocks' ? 'stock-trading' : ''}`}>{feedback}
+    {tile === 'stocks' && <>
+      <label htmlFor="trade-symbol">Doanh nghiệp giả lập · {SECTORS[quote.stock.sector]}</label><select id="trade-symbol" className="text-input" value={symbolId} onChange={event => setSymbolId(event.target.value)}>{game.market.stocks.map(stock => <option key={stock.id} value={stock.id}>{stock.id} · {stock.name}</option>)}</select>
+      <div className="trade-facts"><div><span>Giá hiện tại / đơn vị</span><strong>{money(quote.stock.currentPrice)}</strong></div><div><span>Biến động mốc giá gần nhất</span><strong>{percent(quote.recent.returnRate)}</strong><small>{quote.recent.kind === 'history' ? 'Lịch sử giả lập trước ván' : `Vòng ${quote.recent.lap} · Lượt ${quote.recent.timestamp}`}</small></div><div><span>Đang nắm giữ</span><strong>{quote.units.toLocaleString('vi-VN', { maximumFractionDigits: 4 })} đơn vị</strong></div></div>
     </>}
-    <label htmlFor="trade-amount">Số tiền {tile === 'bank' ? 'gửi' : 'mua'}</label><input id="trade-amount" className="text-input" type="number" min="1" max={game.portfolio.cash} step="1" value={amount} onChange={event => setAmount(Number(event.target.value))} />
-    <p>Tiền mặt sau giao dịch: {valid ? money(game.portfolio.cash - amount) : 'Không đủ tiền mặt hoặc số tiền không hợp lệ'}</p>
-    <button className="button secondary full-button" disabled={!valid} onClick={() => onTransaction({ kind: tile === 'bank' ? 'deposit' : 'buy', asset: tile === 'bank' ? undefined : tile, amount, term, symbolId })}>Xác nhận {tile === 'bank' ? 'gửi khoản mới' : `mua ${ASSETS[tile].label.toLowerCase()}`} {money(amount)}</button>
-    <p className="inline-note">Có thể giao dịch nhiều lần trong lần dừng ô này; bấm bỏ qua để tiếp tục. Mua tự nguyện cần đủ tiền mặt.</p>
+    {tile === 'bank' && <><label htmlFor="deposit-term">Kỳ hạn (lần qua START)</label><select id="deposit-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} vòng · {Math.round(rates[value] * 100)}% lãi game/vòng</option>)}</select>
+      <p>Đáo hạn tại START vòng {deposit.maturityLap}. Lãi đơn cuối kỳ {money(deposit.interest)}. Khoản cũ giữ nguyên.</p>
+      {deposit.maturityLap > game.totalLaps && <p className="financial-warning">Chưa đáo hạn trong màn. Rút sớm hợp lệ mất toàn bộ lãi chưa trả.</p>}
+    </>}
+    {tile === 'bonds' && <p>Giá mua {money(game.market.bond.currentPrice)}/đơn vị · Coupon {ECONOMY.bond.coupon * 100}% mệnh giá/vòng · Kỳ hạn {ECONOMY.bond.term} START. Bán sớm có thể lỗ vốn.</p>}
+    {tile === 'gold' && <p>Giá mua {money(game.market.gold.currentPrice)}/đơn vị · Không có lãi định kỳ. Khi bán chịu spread {ECONOMY.goldSpread * 100}% và phí {ECONOMY.tradeFees.gold * 100}%.</p>}
+    <label htmlFor="trade-amount">Số tiền {tile === 'bank' ? 'gửi' : 'mua'}</label><MoneyInput id="trade-amount" amount={amount} onChange={setAmount} invalid={!preview.valid} />
+    <div className="trade-remaining"><span>Tiền mặt sau giao dịch</span><strong>{preview.cashAfter === null ? '—' : money(preview.cashAfter)}</strong></div>
+    {!preview.valid && <p className="input-error" role="status">{preview.error}</p>}
+    {tile === 'stocks' && <p className="trade-risk">Phí mua 0 ₫ · Phí bán {ECONOMY.tradeFees.stocks * 100}%. Giá có thể giảm; không đảm bảo lợi nhuận.</p>}
+    <button className="button primary full-button" disabled={!preview.valid} onClick={() => submit({ kind: tile === 'bank' ? 'deposit' : 'buy', asset: tile === 'bank' ? undefined : tile, amount, term, symbolId, ...(tile === 'stocks' ? { completeEncounter: true } : {}) })}>Xác nhận {tile === 'bank' ? 'gửi khoản mới' : `mua ${ASSETS[tile].label.toLowerCase()}`} {preview.valid ? money(amount) : ''}</button>
+    <p className="inline-note trade-continuation">{tile === 'stocks' ? 'Mua một lần tại ô này; xác nhận xong sẽ trở về bàn chơi.' : 'Có thể giao dịch nhiều lần. Chọn “Hoàn tất” sau khi đã xong, hoặc bỏ qua nếu không giao dịch.'}</p>
+    {tile === 'stocks' && <button className="button secondary full-button stock-skip" onClick={onSkip}>Bỏ qua cơ hội</button>}
+    {tile !== 'bank' && <details className="trade-details"><summary>Lịch sử giá, thông tin và rủi ro</summary><MarketDetails game={game} asset={tile} symbolId={symbolId} /><p>Lịch sử giá giả lập đã xảy ra, không dự báo lợi nhuận tương lai.</p></details>}
+    {tile === 'bank' && <details className="trade-details"><summary>Các khoản gửi đang hoạt động</summary>{game.deposits.filter(lot => lot.status === 'active').map(lot => <p key={lot.id}>{lot.id}: {money(lot.principal)} · đáo hạn vòng {lot.maturityLap}</p>)}<p>Mỗi lần gửi tạo một khoản riêng. Không tự tái tục; rút sớm chỉ khi thiếu tiền bắt buộc, rút toàn khoản và mất lãi chưa trả.</p></details>}
   </section>
 }
-

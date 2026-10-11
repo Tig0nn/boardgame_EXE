@@ -1,5 +1,8 @@
 import { ECONOMY, RULES } from '../data/config.ts'
 import type { GameState, Portfolio, Snapshot, TradableAsset } from './types.ts'
+import { businessIncome, businessSaleQuote } from './business.ts'
+import { savingsProfileForGame } from './savings.ts'
+import type { Term } from './types.ts'
 
 export const netWorth = (p: Portfolio) => p.cash + p.savings + p.stocks + p.bonds + p.gold + p.business - p.debt
 export const totalWorth = (s: GameState | Snapshot) => netWorth(s.portfolio) - s.obligations - (('pendingPayment' in s ? s.pendingPayment?.remaining : s.pendingCost) ?? 0)
@@ -23,3 +26,28 @@ export function liquidatableFunds(s: GameState): number {
 export const lostInterestOnWithdrawal = (s: GameState, lotId?: string) => s.deposits
   .filter(lot => lot.status === 'active' && (!lotId || lot.id === lotId))
   .reduce((sum, lot) => sum + Math.round(lot.principal * lot.rate * (lot.maturityLap - lot.startLap + 1)), 0)
+
+export function purchasePreview(s: GameState, amount: number) {
+  const valid = Number.isSafeInteger(amount) && amount > 0 && amount <= s.portfolio.cash
+  return { valid, cashAfter: valid ? s.portfolio.cash - amount : null,
+    error: !Number.isSafeInteger(amount) || amount <= 0 ? 'Nhập số tiền nguyên dương.' : amount > s.portfolio.cash ? 'Số tiền vượt tiền mặt hiện có.' : '' }
+}
+
+export function stockQuote(s: GameState, symbolId: string) {
+  const stock = s.market.stocks.find(item => item.id === symbolId)!
+  return { stock, units: s.stockHoldings[symbolId]?.units ?? 0, recent: stock.priceHistory.at(-1)! }
+}
+
+export function depositPreview(s: GameState, amount: number, term: Term) {
+  return { maturityLap: s.lap + term - 1, interest: purchasePreview(s, amount).valid
+    ? Math.round(amount * savingsProfileForGame(s).rates[term] * term) : 0 }
+}
+
+export function businessOverview(s: GameState, trend = s.scenarioId) {
+  const upgraded = { ...s, business: { ...s.business, upgrades: { ...s.business.upgrades,
+    [trend]: (s.business.upgrades[trend] ?? 0) + 1 } } }
+  return { income: businessIncome(s), sale: businessSaleQuote(s), locked: s.business.capital,
+    levels: Object.values(s.business.upgrades).reduce((sum, n) => sum + n, 0),
+    remainingStarts: Math.max(0, s.totalLaps - s.lap + 1),
+    incrementalIncome: s.business.capital > 0 ? businessIncome(upgraded) - businessIncome(s) : 0 }
+}

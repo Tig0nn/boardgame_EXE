@@ -80,6 +80,8 @@ export interface SettlementProgress {
 export interface RebalanceAction {
   kind: 'deposit' | 'withdraw' | 'buy' | 'sell' | 'repay' | 'upgrade'; amount: number; asset?: Asset
   symbolId?: string; lotId?: string; term?: Term; trend?: string
+  /** Atomic MVP stock purchase + encounter completion; omitted for historical multi-trade flows. */
+  completeEncounter?: boolean
 }
 export interface GameState extends Snapshot {
   seed: string; eventId: string | null

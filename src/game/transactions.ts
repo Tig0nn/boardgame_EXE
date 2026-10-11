@@ -109,6 +109,9 @@ export function transact(state: GameState, action: RebalanceAction): GameState {
   const checkpoint = state.phase === 'rebalancing'
   const tileAccess = state.phase === 'event' && state.eventId === tile
   if (!checkpoint && !tileAccess) throw new Error('Không có quyền giao dịch tại thời điểm này.')
+  if (action.completeEncounter && !(tileAccess && tile === 'stocks' && action.kind === 'buy' && action.asset === 'stocks')) {
+    throw new Error('Chỉ hoàn tất sự kiện cùng một giao dịch mua cổ phiếu hợp lệ.')
+  }
   const s = copyState(state)
   const { kind, amount, asset, symbolId } = action
   let label: string; let net = 0; let fee = 0; const lost = 0; let interest = 0
@@ -165,7 +168,8 @@ export function transact(state: GameState, action: RebalanceAction): GameState {
     s.portfolio.debt -= amount; s.portfolio.cash -= amount + interest; label = 'Trả gốc nợ và lãi'
   } else throw new Error('Giao dịch không hợp lệ.')
   syncValuations(s)
-  return record(s, snapshot(state), { kind: 'rebalancing', title: label, decisionId: `${kind}-${asset ?? tile}`,
+  if (action.completeEncounter) { s.phase = 'rolling'; s.eventId = null }
+  return record(s, snapshot(state), { kind: 'rebalancing', title: label, decisionId: `${kind}-${asset ?? tile}${action.completeEncounter ? '-complete' : ''}`,
     decision: `${label}: ${money(amount)}`, consequence: `${label}. Nhận ${money(net)}, phí/spread ${money(fee)}, mất lãi ${money(lost)}.${kind === 'deposit' && s.deposits.at(-1)!.maturityLap > s.totalLaps ? ' Khoản này chưa đáo hạn trong màn; chỉ rút sớm hợp lệ khi thiếu tiền hoặc xét mục tiêu cuối màn.' : ''}`,
     debtInterestPaid: interest, cashProceeds: net, lostSavingsInterest: lost,
     assetSaleAmounts: { stocks: kind === 'sell' && asset === 'stocks' ? amount : 0, bonds: kind === 'sell' && asset === 'bonds' ? amount : 0, gold: kind === 'sell' && asset === 'gold' ? amount : 0 } })
