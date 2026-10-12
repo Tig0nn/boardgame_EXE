@@ -1,0 +1,79 @@
+{
+  "personal": [
+    {
+      "id": "medical",
+      "title": "Một Hóa Đơn Y Tế Bất Ngờ",
+      "description": "Chi phí khám chữa bệnh khẩn cấp cần được giải quyết ngay để bảo vệ sức khỏe.",
+      "options": [
+        { "id": "pay", "label": "Thanh toán ngay", "cost": 5000000, "detail": "Trừ 5.000.000 ₫ tiền mặt" },
+        { "id": "defer", "label": "Trả góp cuối vòng", "cost": 0, "obligation": 6000000, "detail": "Nợ 6.000.000 ₫ quyết toán tại START (+1M phí)" }
+      ]
+    },
+    {
+      "id": "repair",
+      "title": "Chiếc Xe Máy Cần Sửa Chữa",
+      "description": "Phương tiện di chuyển đi làm bị hỏng hóc giữa đường cần đưa vào gara.",
+      "options": [
+        { "id": "full", "label": "Sửa toàn bộ ngay", "cost": 4000000, "detail": "Trừ 4.000.000 ₫ tiền mặt" },
+        { "id": "temporary", "label": "Sửa tạm, thanh toán cuối vòng", "cost": 1000000, "obligation": 4000000, "detail": "Trả trước 1.000.000 ₫ + nợ 4.000.000 ₫ tại START" }
+      ]
+    },
+    {
+      "id": "family",
+      "title": "Gia Đình Cần Hỗ Trợ Khẩn",
+      "description": "Người thân cần sự trợ giúp tài chính cho một công việc đột xuất.",
+      "options": [
+        { "id": "pay", "label": "Hỗ trợ ngay", "cost": 3000000, "detail": "Trừ 3.000.000 ₫ tiền mặt" },
+        { "id": "defer", "label": "Hỗ trợ vào cuối vòng", "cost": 0, "obligation": 3500000, "detail": "Trích 3.500.000 ₫ tại vạch START" }
+      ]
+    }
+  ],
+  "obligation": [
+    {
+      "id": "bills",
+      "title": "Đến Kỳ Hóa Đơn Định Kỳ",
+      "description": "Điện, nước, internet và chi phí viễn thông đến hạn thanh toán.",
+      "options": [
+        { "id": "pay", "label": "Thanh toán sớm (Được giảm)", "cost": 2000000, "detail": "Trừ 2.000.000 ₫ tiền mặt" },
+        { "id": "defer", "label": "Gia hạn cuối vòng", "cost": 0, "obligation": 2500000, "detail": "Trả 2.500.000 ₫ tại vạch START" }
+      ]
+    },
+    {
+      "id": "contract",
+      "title": "Phí Cam Kết Hợp Đồng",
+      "description": "Một khoản phí đã ký cam kết sử dụng dịch vụ trước đó đến kỳ thanh toán.",
+      "options": [
+        { "id": "pay", "label": "Tất toán ngay", "cost": 1500000, "detail": "Trừ 1.500.000 ₫ tiền mặt" },
+        { "id": "defer", "label": "Thanh toán cuối vòng", "cost": 0, "obligation": 2000000, "detail": "Trả 2.000.000 ₫ tại vạch START" }
+      ]
+    },
+    {
+      "id": "bonus",
+      "title": "Thưởng Dự Án Bất Ngờ",
+      "description": "Bạn vừa hoàn thành xuất sắc một dự án ngoài giờ và nhận thưởng nóng!",
+      "options": [
+        { "id": "receive", "label": "Nhận thưởng ngay", "income": 2000000, "detail": "Tiền mặt +2.000.000 ₫" }
+      ]
+    }
+  ],
+  "macro": [
+    {
+      "id": "credit-tightening",
+      "title": "Tín Dụng Thắt Chặt (Macro Shock)",
+      "description": "Ngân hàng Nhà nước nâng lãi suất điều hành, dòng tiền vào tài sản rủi ro sụt giảm.",
+      "impact": "Cổ phiếu -12%, Kinh doanh -20%, Vàng +8%"
+    },
+    {
+      "id": "demand-boom",
+      "title": "Nhu Cầu Tiêu Dùng Khởi Sắc",
+      "description": "Kinh tế phục hồi mạnh mẽ, sức mua tiêu dùng tăng vọt trên diện rộng.",
+      "impact": "Cổ phiếu +14%, Kinh doanh +20%, Vàng -5%"
+    },
+    {
+      "id": "supply-recovery",
+      "title": "Chuỗi Cung Ứng Phục Hồi",
+      "description": "Chi phí logistics hạ nhiệt, sản xuất và xuất khẩu tăng trưởng vượt dự báo.",
+      "impact": "Sản xuất +16%, Cổ phiếu +6%, Kinh doanh +10%"
+    }
+  ]
+}
