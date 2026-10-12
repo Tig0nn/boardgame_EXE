@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { boardFor } from '../data/board'
 import { CATEGORIES } from '../data/config'
 import type { GameState } from '../game/types'
-import { City } from './City'
+import { SCENE, tileCenter } from './board-scene'
 import { Icon } from './Icon'
 import { Modal } from './Modal'
 import { money } from '../game/format'
@@ -17,45 +17,52 @@ const labels: Record<string, string[]> = {
 export function Board({ game, onRoll, rolling }: { game: GameState; onRoll: () => void; rolling: boolean }) {
   const tiles = boardFor(game)
   const [selected, setSelected] = useState<number | null>(null)
+  const [artFailed, setArtFailed] = useState(false)
   const tile = selected === null ? null : tiles[selected]
+  const player = tileCenter(tiles[game.position])
+  const scene = useRef<SVGSVGElement>(null)
   const rollButton = useRef<HTMLButtonElement>(null)
   const last = game.log.at(-1)
   const purchased = game.phase === 'rolling' && (last?.decisionId === 'buy-stocks-complete' || last?.decisionId === 'deposit-bank' || last?.decisionId === 'buy-business')
   useEffect(() => {
     if (purchased) { rollButton.current?.focus({ preventScroll: true }); rollButton.current?.scrollIntoView({ block: 'nearest' }) }
   }, [purchased])
+  useEffect(() => {
+    if (selected === null) return
+    const inspected = scene.current?.querySelector<SVGGElement>(`[data-tile-index="${selected}"]`)
+    return () => inspected?.focus({ preventScroll: true })
+  }, [selected])
   return <section className="city-board" aria-label={`Bàn cờ ${game.boardLayout}, 20 ô`}>
     <div className="board-caption"><span><Icon name="flag" size={16} /> Vòng {game.lap}/{game.totalLaps}</span><span>Chạm ô để khám phá <Icon name="info" size={14} /></span></div>
-    <div className="island-scene">
-      <svg className="isometric-board" viewBox="0 0 600 425" role="group" aria-label="Đường đi theo thứ tự ô 01 đến 20">
-        <path className="island-depth" d="M300 18 592 203v25L300 413 8 228v-25Z" />
-        <path className="island-grass" d="m300 18 292 185-292 185L8 203Z" />
-        <path className="city-plaza" d="m300 112 152 96-152 96-152-96Z" />
-        <City board />
-        <text className="city-sign" x="300" y="252" textAnchor="middle">PHỐ TƯƠNG LAI</text>
-        <text className="city-subtitle" x="300" y="271" textAnchor="middle">Mỗi lựa chọn, một bước tiến</text>
+    <div className="island-scene artwork-scene">
+      {artFailed && <p className="scene-fallback" role="status">Ảnh thành phố chưa tải được. Bàn chơi vẫn sẵn sàng.</p>}
+      <svg ref={scene} className="isometric-board" viewBox={`${SCENE.crop.x} ${SCENE.crop.y} ${SCENE.crop.width} ${SCENE.crop.height}`} role="group" aria-label="Đường đi theo thứ tự ô 01 đến 20">
+        <rect x="0" y="0" width={SCENE.width} height={SCENE.height} fill="#bce7b5" aria-hidden="true" />
+        {!artFailed && <image className="city-artwork" href={`${import.meta.env.BASE_URL}art/city-background.webp`} x="0" y="0" width={SCENE.width} height={SCENE.height} preserveAspectRatio="xMidYMid meet" aria-hidden="true" onError={() => setArtFailed(true)} />}
         {tiles.map(item => {
-          const x = 300 + (item.col - item.row) * 49
-          const y = 48 + (item.col + item.row - 2) * 31
+          const { x, y } = tileCenter(item)
           const active = game.position === item.index
-          return <g key={item.index} transform={`translate(${x} ${y})`} className={`board-tile ${item.category} ${active ? 'active' : ''}`} data-tile-index={item.index} data-category={item.category} role="button" tabIndex={0}
+          return <g key={item.index} transform={`translate(${x} ${y}) scale(${SCENE.tileScale})`} className={`board-tile ${item.category} ${active ? 'active' : ''}`} data-tile-index={item.index} data-category={item.category} role="button" tabIndex={0}
             aria-label={`Ô ${item.index + 1}: ${item.label}${active ? ', bạn đang ở đây' : ''}`} aria-current={active ? 'step' : undefined}
             onClick={() => setSelected(item.index)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelected(item.index) } }}>
             <title>{item.index + 1}. {item.label} · {CATEGORIES[item.category].short}</title>
             <path className="tile-depth" d="m-47 0 47 29 47-29v9L0 38-47 9Z" />
             <path className="tile-face" d="M0-29 47 0 0 29-47 0Z" />
             <text className="board-tile-number" textAnchor="middle" y="24">{String(item.index + 1).padStart(2, '0')}</text>
-            <g transform="translate(-8 -23)"><Icon name={item.icon} size={16} /></g>
+            <g className="board-tile-icon" transform="translate(-8 -23)"><Icon name={item.icon} size={16} /></g>
             <text className="board-tile-label" textAnchor="middle" y="3">{labels[item.type].map((line, i) => <tspan key={line} x="0" dy={i === 0 ? 0 : 10}>{line}</tspan>)}</text>
           </g>
         })}
         {/* Render above every tile so the token cannot disappear behind the next tile. */}
-        <g className="city-player" transform={`translate(${300 + (tiles[game.position].col - tiles[game.position].row) * 49} ${48 + (tiles[game.position].col + tiles[game.position].row - 2) * 31})`} aria-hidden="true">
-          <ellipse cy="12" rx="12" ry="6" fill="#214e5540" />
-          <path d="M-8 5v-16Q0-23 8-11V5Z" fill="#f56b45" stroke="white" strokeWidth="2" />
-          <circle cy="-23" r="8" fill="#ffd9a8" stroke="#623e33" strokeWidth="1.5" />
-          <path d="M-11-26 0-36 11-26Z" fill="#ffe69c" stroke="#a36a32" strokeWidth="1.5" />
-          <path d="M-3 5v6M4 5v6" stroke="#244a64" strokeWidth="5" strokeLinecap="round" />
+        <g className="city-player" transform={`translate(${player.x} ${player.y})`} aria-hidden="true">
+          <ellipse className="player-halo" cy="8" rx="23" ry="14" />
+          <g transform={`scale(${SCENE.tileScale})`}>
+            <ellipse cy="12" rx="12" ry="6" fill="#214e5540" />
+            <path d="M-8 5v-16Q0-23 8-11V5Z" fill="#f56b45" stroke="white" strokeWidth="2" />
+            <circle cy="-23" r="8" fill="#ffd9a8" stroke="#623e33" strokeWidth="1.5" />
+            <path d="M-11-26 0-36 11-26Z" fill="#ffe69c" stroke="#a36a32" strokeWidth="1.5" />
+            <path d="M-3 5v6M4 5v6" stroke="#244a64" strokeWidth="5" strokeLinecap="round" />
+          </g>
         </g>
       </svg>
     </div>

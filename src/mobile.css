@@ -69,6 +69,12 @@ h1, .setup-story h1, .setup-card h2, .modal h2, .game-topline h1, .brand { font-
 .board-caption > span:last-child { font-size: 10px; color: #536970; font-weight: 400; }
 .island-scene { margin: 10px -6px -24px; }
 .isometric-board { display: block; width: 100%; overflow: visible; }
+.artwork-scene { position: relative; margin: 12px -6px 10px; overflow: hidden; border-radius: 14px; background: #bce7b5; }
+.artwork-scene .isometric-board { overflow: hidden; }
+.city-artwork { pointer-events: none; }
+.artwork-scene .board-tile-number { font-size: 10px; }
+.player-halo { fill: #fffbe8; fill-opacity: .8; stroke: #145d59; stroke-width: 3; }
+.scene-fallback { position: absolute; inset: 8px 12px auto; margin: 0; text-align: center; font-size: 11px; color: #203e4a; }
 .island-depth { fill: #63bfa1; }
 .island-grass { fill: #bce7b5; stroke: #87cca6; stroke-width: 2; }
 .city-plaza { fill: #e9f5c6; stroke: #fffce5; stroke-width: 6; }
@@ -162,14 +168,14 @@ h1, .setup-story h1, .setup-card h2, .modal h2, .game-topline h1, .brand { font-
   .setup-card h2 { font-size: 24px; }
   .setup-card .section-kicker { font-size: 9px; }
   .how-it-works { display: none; }
-  .game-page { padding: 16px 12px 0; }
-  .game-topline { gap: 12px; margin-bottom: 16px; }
+  .game-page { padding: 12px 12px 0; }
+  .game-topline { gap: 12px; margin-bottom: 12px; }
   .game-topline h1 { font-size: 22px; margin-top: 4px; }
   .game-topline .eyebrow { display: none; }
   .lap-indicator { display: none; }
   .lap-indicator > span { gap: 5px; padding: 6px; font-size: 10px; }
   .game-layout { display: block; }
-  .game-status { gap: 12px; padding: 14px; }
+  .game-status { gap: 10px; padding: 12px; }
   .game-status strong { font-size: clamp(14px, 4vw, 18px); white-space: nowrap; letter-spacing: -.6px; }
   .game-status span { font-size: 11px; }
   .status-funds { padding-left: 12px; }
@@ -180,10 +186,15 @@ h1, .setup-story h1, .setup-card h2, .modal h2, .game-topline h1, .brand { font-
   .city-board { padding: 12px 6px 0; border-radius: 18px; }
   .board-caption > span { font-size: 11px; }
   .board-caption > span:last-child { font-size: 9px; }
-  .city-board .board-legend { gap: 8px; }
+  .city-board .board-legend { gap: 8px; padding: 10px 0; }
   .city-board .board-legend > span { font-size: 9px; gap: 4px; }
   .city-board .board-legend i { width: 7px; height: 7px; }
   .island-scene { margin: 16px -2px -16px; }
+  .artwork-scene { margin: 10px -2px; }
+  .artwork-scene .board-tile-label { display: none; }
+  .artwork-scene .board-tile-number { font-size: 22px; transform: translateY(-5px); }
+  .artwork-scene .board-tile-icon { transform: translate(-14px, -22px); }
+  .artwork-scene .board-tile-icon svg { width: 28px; height: 28px; }
   .roll-dock { margin: 0 -6px -4px; padding: 10px; }
   .roll-dock .roll-button { font-size: 14px; }
   .portfolio-sidebar { display: none; }
@@ -208,7 +219,7 @@ h1, .setup-story h1, .setup-card h2, .modal h2, .game-topline h1, .brand { font-
 }
 @media (min-width: 721px) {
   .game-layout { grid-template-columns: minmax(0, 1fr) 300px; }
-  .island-scene { max-width: 700px; margin-left: auto; margin-right: auto; }
+  .island-scene { max-width: 600px; margin-left: auto; margin-right: auto; }
   .game-status { grid-template-columns: 1fr 1fr 1.5fr; align-items: center; }
   .game-status .status-goal { grid-column: auto; }
   .game-tools { gap: 24px; }
@@ -220,6 +231,21 @@ h1, .setup-story h1, .setup-card h2, .modal h2, .game-topline h1, .brand { font-
 .fixture-header select { min-width: 0; max-width: 100%; }
 
 @media (max-width: 360px) { .header-actions .text-button svg { display: none; } }
+
+/* Keep the full roll dock in reach on the smallest supported phone. */
+@media (max-width: 360px) {
+  .game-page { padding-top: 8px; }
+  .game-topline { margin-bottom: 8px; }
+  .game-status { gap: 8px; padding: 10px; }
+  .game-status strong { margin-top: 4px; }
+  .status-goal progress { margin-top: 6px; }
+  .status-goal small { margin-top: 4px; }
+  .city-board { padding-top: 8px; }
+  .artwork-scene { margin-top: 8px; margin-bottom: 8px; }
+  .location-card { padding-top: 8px; padding-bottom: 8px; }
+  .city-board .board-legend { padding: 6px 0; }
+  .roll-dock .board-hint { margin-top: 6px; }
+}
 
 /* Focused transaction UX: keep the board theme and expose decisions before detail. */
 .trade-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; margin: 10px 0; border-radius: 12px; background: #edf5ef; }
