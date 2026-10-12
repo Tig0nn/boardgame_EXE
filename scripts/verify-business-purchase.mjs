@@ -5,7 +5,7 @@ const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODUL
 const browser = await chromium.launch({ channel: 'chrome', headless: true })
 const page = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
 const base = process.env.UI_URL || 'http://localhost:5173'
-const folder = 'docs/playtests/business-v2_4/purchase-flow'
+const folder = process.env.MVP_EVIDENCE_DIR || 'docs/playtests/business-v2_4/purchase-flow'
 mkdirSync(folder, { recursive: true })
 const errors = []
 page.on('pageerror', e => errors.push(e.message))
