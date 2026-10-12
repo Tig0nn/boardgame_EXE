@@ -11,7 +11,7 @@ const page = await context.newPage()
 const errors = []
 page.on('pageerror', error => errors.push(error.message))
 const base = process.env.UI_URL || 'http://localhost:5173'
-const folder = 'docs/playtests/encounter-limits-v2_3'
+const folder = process.env.MVP_EVIDENCE_DIR || 'docs/playtests/encounter-limits-v2_3'
 mkdirSync(folder, { recursive: true })
 async function fixture(id) {
   await page.goto(`${base}/scripts/playtest-harness.html`)

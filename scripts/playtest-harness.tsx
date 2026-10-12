@@ -18,6 +18,8 @@ import '../src/mobile.css'
 
 function fixture(id:string):GameState {
   let s=createGame(`V21-FIXTURE-${id}`,0,1,'experimental-b')
+  // Synthetic visual coverage only; natural movement is checked in the real app.
+  if (/^board-\d+$/.test(id)) return { ...advance(s), position: Number(id.slice(6)) }
   if (['bank', 'bank-later', 'stocks', 'bonds', 'gold', 'business', 'business-upgrade'].includes(id)) {
     const eventId = id === 'business-upgrade' ? 'business' : id === 'bank-later' ? 'bank' : id
     const position = ({ bank: 1, stocks: 2, bonds: 6, gold: 9, business: 8 } as Record<string, number>)[eventId]
@@ -67,7 +69,7 @@ function fixture(id:string):GameState {
 export default function Harness() {
   const [id,setId]=useState('funding')
   const [game,setGame]=useState<GameState|null>(null)
-  return <><header className="app-header fixture-header"><strong>FIXTURE TỔNG HỢP, KHÔNG PHẢI VÁN TỰ NHIÊN</strong><select aria-label="Fixture" value={id} onChange={event=>setId(event.target.value)}>{['funding','withdrawal','insolvent','start-business','locked-final','victory','defeat','lap4','bank','bank-later','stocks','bonds','gold','business','business-upgrade','start-sales','course','course-owned','course-poor','living','repair','family','bills','contract','bonus','macro'].map(name=><option key={name}>{name}</option>)}</select><button onClick={()=>setGame(fixture(id))}>Nạp fixture</button></header>
+  return <><header className="app-header fixture-header"><strong>FIXTURE TỔNG HỢP, KHÔNG PHẢI VÁN TỰ NHIÊN</strong><select aria-label="Fixture" value={id} onChange={event=>setId(event.target.value)}>{['funding','withdrawal','insolvent','start-business','locked-final','victory','defeat','lap4','bank','bank-later','stocks','bonds','gold','business','business-upgrade','start-sales','course','course-owned','course-poor','living','repair','family','bills','contract','bonus','macro', ...Array.from({ length: 20 }, (_, i) => `board-${i}`)].map(name=><option key={name}>{name}</option>)}</select><button onClick={()=>setGame(fixture(id))}>Nạp fixture</button></header>
     {game&&<main className="game-page"><p>Seed {game.seed} · {game.gameMode} · {game.boardLayout} · {game.totalLaps} vòng</p><GameStatus game={game}/><div className="game-layout"><Board game={game} onRoll={()=>setGame(state=>state===game?roll(state):state)} rolling={false}/><div className="portfolio-sidebar"><Portfolio game={game}/></div></div><PhaseDialog game={game} onAdvance={()=>setGame(state=>state===game?advance(state):state)} onChoose={option=>setGame(state=>state===game?decide(state,option):state)} onFund={(source,amount,lot)=>setGame(state=>state===game?fundPayment(state,source,amount,lot):state)} onTransaction={action=>setGame(state=>state===game?transact(state,action):state)} onRestart={()=>setGame(null)} onExport={()=>exportLog(game)}/></main>}</>
 }
 if(import.meta.env.DEV) createRoot(document.getElementById('root')!).render(<Harness/> )
