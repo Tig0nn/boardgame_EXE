@@ -19,8 +19,8 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
     <div style={{
       position: 'absolute',
       bottom: '36px',
-      left: '32px',
-      right: '32px',
+      left: '16px',
+      right: '16px',
       zIndex: 50,
       display: 'flex',
       flexDirection: 'column',
@@ -53,11 +53,11 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
         WebkitBackdropFilter: 'blur(16px)',
         border: '1.5px solid rgba(56, 189, 248, 0.45)',
         borderRadius: '38px',
-        padding: '10px 24px',
+        padding: '10px 12px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '40px',
+        gap: '24px',
         boxShadow: '0 10px 32px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)',
       }}>
         {/* Nút Ví Tài Sản (Icon Trực Tiếp, Bỏ Viền Bo Vuông) */}
@@ -91,6 +91,7 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
             onClick={!disabled ? onRollClick : undefined}
             disabled={disabled}
             title="Chạm vào để Gieo Xúc Xắc"
+            aria-label="Gieo xúc xắc"
             style={{
               width: '74px',
               height: '74px',
@@ -104,7 +105,7 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
               opacity: disabled ? 0.6 : 1,
               padding: 0,
             }}
-          />
+          >🎲</button>
         </div>
 
         {/* Nút Nhật Ký (Icon Trực Tiếp, Bỏ Viền Bo Vuông) */}

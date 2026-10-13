@@ -1,0 +1,84 @@
+/* Engine sheets use CSS pixels; the illustrated board keeps its designer canvas. */
+.modal {
+  position: fixed; inset: 0; margin: auto; width: min(460px, calc(100vw - 24px));
+  max-height: calc(100dvh - 32px); overflow: auto; padding: 24px 20px;
+  border: 1px solid #456275; border-radius: 24px; color: #f1f5f9;
+  background: linear-gradient(180deg, #1e293b, #0f172a); box-shadow: 0 24px 60px #0008;
+  font-size: 15px; line-height: 1.6; overscroll-behavior: contain;
+}
+.modal::backdrop { background: #07101caa; backdrop-filter: blur(6px); }
+.modal h2 { font: 800 25px/1.25 'Baloo 2', sans-serif; margin: 8px 0 16px; color: #fde68a; }
+.modal h3 { font-size: 19px; margin-block: 8px; }
+.modal p { margin-block: 12px; }
+.modal label { display: block; margin-block: 12px 6px; }
+.modal select, .modal input:not([type='radio']) {
+  font: inherit; font-size: 16px; width: 100%; min-height: 44px; padding: 10px 12px;
+  color: #f1f5f9; background: #0b192a; border: 1px solid #648292; border-radius: 10px;
+  user-select: text;
+}
+.modal select { text-overflow: ellipsis; }
+.modal input[type='radio'] { min-width: 20px; min-height: 20px; accent-color: #fbbf24; }
+.modal button, .modal summary { touch-action: manipulation; cursor: pointer; }
+.modal button { font: inherit; }
+.button, .decision-button, .funding-source {
+  min-height: 44px; padding: 12px; border-radius: 12px; border: 1px solid #658292;
+  color: #f1f5f9; background: #162e44;
+}
+.full-button { display: block; width: 100%; margin-top: 12px; }
+.primary { background: #fbbf24; color: #172133; border-color: #fbbf24; font-weight: 800; }
+.secondary { background: #18334a; }
+button:disabled { opacity: .5; cursor: default; }
+button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible, .modal:focus-visible {
+  outline: 3px solid #7dd3fc; outline-offset: 3px;
+}
+.modal:focus-visible { outline: none; }
+.modal-close { float: right; min-width: 44px; min-height: 44px; background: transparent; color: white; border: 0; }
+.section-kicker { display: block; font-size: 12px; font-weight: 800; color: #bae6fd; letter-spacing: .05em; }
+.modal small, .inline-note { font-size: 13px; color: #cbd5e1; }
+.event-cash { padding-block: 8px; border-block: 1px solid #456275; }
+.decision-button { display: flex; flex-direction: column; text-align: left; width: 100%; gap: 6px; margin-top: 12px; }
+.decision-button span { font-size: 13px; }
+.money-input { position: relative; }
+.money-input input { padding-right: 36px !important; }
+.money-input > span { position: absolute; right: 14px; top: 12px; }
+.input-error, .negative { color: #fda4af; }
+.positive, .transaction-feedback { color: #6ee7b7; }
+.trade-facts, .business-purchase-facts, .decision-preview, .summary-lines,
+.rebalance-balances, .debt-box, .asset-list, .forecast-assets { display: grid; gap: 10px; margin-block: 16px; }
+.trade-facts > div, .business-purchase-facts > div, .decision-preview > span,
+.summary-lines > div, .rebalance-balances > div, .debt-box > span, .forecast-assets > div {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+}
+.trade-facts > div { flex-wrap: wrap; }
+.trade-facts small { flex-basis: 100%; }
+.decision-preview strong, .summary-lines strong { text-align: right; white-space: nowrap; }
+.modal fieldset { border: 0; padding: 0; margin-block: 16px; min-width: 0; }
+.funding-sources { display: grid; gap: 8px; }
+.funding-source { display: flex; align-items: center; gap: 8px; text-align: left; flex-wrap: wrap; }
+.funding-source strong { margin-left: auto; }
+.funding-source.selected, .specialization.selected { border-color: #fbbf24; background: #244059; }
+.funding-progress { display: grid; gap: 6px; }
+.specialization { display: flex !important; align-items: center; gap: 12px; padding: 12px; border: 1px solid #658292; border-radius: 12px; }
+.specialization span, .specialization small, .upgrade-benefits span { display: block; }
+.customer-preference { padding-block: 12px; border-block: 1px solid #456275; }
+.customer-preference > span { font-size: 12px; }
+.customer-preference > strong { display: block; color: #fde68a; }
+.modal details { margin-top: 16px; border-top: 1px solid #456275; }
+.modal summary { min-height: 44px; padding-block: 12px; }
+.price-chart svg { width: 100%; max-height: 150px; color: #7dd3fc; }
+.price-chart small { display: block; }
+.asset-row { display: flex; gap: 10px; align-items: center; }
+.asset-row > div { flex: 1; }
+.asset-row small { display: block; }
+.net-worth > span, .net-worth > small, .result-worth > span { display: block; }
+.net-worth > strong, .result-worth > strong { font-size: 28px; color: #6ee7b7; }
+.goal-track progress { width: 100%; accent-color: #fbbf24; }
+.goal-conditions, .cashflow { margin-block: 16px; }
+.goal-conditions > div { display: flex; align-items: baseline; gap: 8px; }
+.full-log pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 11px; user-select: text; }
+.game-error { position: fixed; z-index: 10000; bottom: 16px; left: 12px; right: 12px; margin: auto;
+  max-width: 460px; background: #4c1827; color: #fff; border: 1px solid #fda4af; padding: 12px; border-radius: 12px; }
+.game-error button { float: right; color: white; background: transparent; border: 0; min-width: 44px; min-height: 44px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.ai-coach-disclaimer { display: none; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }

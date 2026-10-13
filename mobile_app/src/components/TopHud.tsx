@@ -4,6 +4,7 @@ interface TopHudProps {
   cash: number;
   debt: number;
   netWorth: number;
+  lawfulProceeds: number;
   targetGoal: number;
   isMuted?: boolean;
   onToggleMute?: () => void;
@@ -13,6 +14,7 @@ export const TopHud: React.FC<TopHudProps> = ({
   cash,
   debt,
   netWorth,
+  lawfulProceeds,
   targetGoal,
   isMuted = false,
   onToggleMute,
@@ -21,7 +23,7 @@ export const TopHud: React.FC<TopHudProps> = ({
     return (val / 1_000_000).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) + 'M ₫';
   };
 
-  const progressPercent = Math.min(Math.round((netWorth / targetGoal) * 100), 100);
+  const progressPercent = Math.max(0, Math.min(Math.round((lawfulProceeds / targetGoal) * 100), 100));
 
   return (
     <div style={{

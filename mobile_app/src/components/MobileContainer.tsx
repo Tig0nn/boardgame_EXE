@@ -2,9 +2,10 @@ import React, { useEffect, useState, useRef } from 'react';
 
 interface MobileContainerProps {
   children: React.ReactNode;
+  overlay?: React.ReactNode;
 }
 
-export const MobileContainer: React.FC<MobileContainerProps> = ({ children }) => {
+export const MobileContainer: React.FC<MobileContainerProps> = ({ children, overlay }) => {
   const frameRef = useRef<HTMLDivElement>(null);
   const [transformStyle, setTransformStyle] = useState<React.CSSProperties>({
     transform: 'scale(1)',
@@ -69,6 +70,7 @@ export const MobileContainer: React.FC<MobileContainerProps> = ({ children }) =>
         <div className="game-viewport" style={transformStyle}>
           {children}
         </div>
+        {overlay}
       </div>
     </div>
   );
