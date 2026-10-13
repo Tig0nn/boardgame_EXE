@@ -12,6 +12,8 @@ Không tái thực hiện nghiên cứu tài chính hoặc suy dữ liệu hiệ
 
 Trong audit, HTTP Mobile `/` trả 200/title Mobile; GET `/api/ai-coach` trả 405 JSON. CLI xác nhận project Mobile riêng, Ready/Production, Function tồn tại, và cấu hình build/output của hai project khác nhau. User đã xác minh hình ảnh setup/board/HUD/3D/dice. Không chơi online đủ ván, gọi AI provider, đọc secret, thử điện thoại thật hoặc chạy lệnh deploy/merge.
 
+Follow-up sau commit docs `5c91a8c`: PR head đã khớp và working tree sạch; offline docs check qua lại. Actions API cho SHA đó trả **0 workflow runs** tại lúc đọc, trong khi hai status Vercel tự động success. Vì vậy latest verified Actions vẫn ở `13c9c7c` (cùng code sản phẩm), không phải một run mới trên HEAD docs. Nguyên nhân thiếu run chưa xác định; không tự sửa CI/dispatch rerun. Ghi rõ khoảng trống này cho final PR review thay vì tuyên bố CI HEAD mới đã xanh. Ghi chú này được commit riêng, vẫn chỉ Markdown.
+
 ## Inventory đầy đủ và phân loại
 
 CURRENT = đang duy trì; HISTORICAL = bản ghi implementation/research/verification ở mốc cũ; SUPERSEDED = spec/prompt/guide/task đã được thay cho việc sử dụng hiện tại, vẫn giữ lịch sử. Một report V2.4 vẫn có thể HISTORICAL vì số test, deployment và phạm vi test chỉ đúng ở thời điểm ghi.

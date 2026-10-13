@@ -147,6 +147,8 @@ Cập nhật sau review ban đầu, từ yêu cầu của owner và kiểm tra c
 
 HEAD đầu audit là `13c9c7c5fa932e50a3ba23da4b316e1dff4cdda9` (`chore: trigger mobile preview`); commit này không đổi file so với `e4dfef1`. [PR #8](https://github.com/Tig0nn/boardgame_EXE/pull/8) vẫn mở, chưa merge. [CI run 38421516083](https://github.com/Tig0nn/boardgame_EXE/actions/runs/38421516083), job `verify`, đã được đọc log: Node 22.23.3/Ubuntu, **186 product tests + 21 diagnostics**, hai clean install, lint và cả hai build qua. Cả status Vercel Web và Mobile tại SHA này đều success; deployment success không phải bằng chứng full game hoặc AI provider.
 
+Sau push commit documentation-only `5c91a8c`, kiểm tra Actions API tại ngày 13/10/2026 chưa thấy run cho SHA đó (0 run). Hai status Vercel tự động success. Không gán run xanh `13c9c7c` cho HEAD docs; chưa xác định nguyên nhân thiếu run, không dispatch thủ công hoặc đổi workflow. Maintainer cần xác minh check của HEAD cuối khi chốt merge; offline docs check đã qua riêng.
+
 ### Deployment Mobile đã có
 
 - URL hoạt động: https://boardgame-exe-mobile-preview.vercel.app. Audit HTTP trả **200**, title **Xoay Vòng Tiến Lui — Mobile App**.

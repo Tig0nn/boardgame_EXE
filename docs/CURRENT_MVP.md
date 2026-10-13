@@ -123,7 +123,9 @@ Route cùng origin [api/ai-coach.ts](../api/ai-coach.ts): GET 405; POST dữ li�
 | User xác minh Mobile URL | Setup, illustrated board, HUD, 3D character và dice; GET API method rejection. Chưa có bằng chứng thêm về full online game/AI provider/điện thoại |
 | Audit này kiểm tra chỉ đọc | HTTP 200/title Mobile, GET API 405 JSON; CLI deployment Ready/Production của project Mobile riêng, Function tồn tại; PR còn mở |
 
-Không chạy lại game, mô phỏng hoặc test suite trong audit docs; dùng CI đã xác minh và bằng chứng có version. [Workflow](../.github/workflows/pr-checks.yml) chạy PR nhắm main, Node 22, action pinned, fail khi bất kỳ check bắt buộc lỗi, không cần AI key. Việc đặt check thành required trên branch protection thuộc owner.
+Không chạy lại game, mô phỏng hoặc test suite trong audit docs; dùng CI đã xác minh và bằng chứng có version. [Workflow](../.github/workflows/pr-checks.yml) được cấu hình cho PR nhắm main, Node 22, action pinned, fail khi bất kỳ check bắt buộc lỗi, không cần AI key. Việc đặt check thành required trên branch protection thuộc owner.
+
+Follow-up sau push docs ngày 13/10/2026: ở commit chỉ Markdown `5c91a8c`, GitHub Actions API trả **0 run** tại thời điểm đọc; hai status Vercel tự động đã success. CI gần nhất được xác minh vẫn là run tại `13c9c7c` trên cùng code sản phẩm. Không tuyên bố HEAD docs đã có Actions pass; nguyên nhân thiếu run chưa xác định, cần maintainer xác minh check trên HEAD cuối trước quyết định merge. Offline documentation check đã qua riêng; audit không sửa workflow hoặc tự dispatch rerun.
 
 Các nghiên cứu V2–V2.3 chỉ là kết quả trên snapshot/policy của thời điểm đó. Nghiên cứu savings V2.4 [JSON 180.000 ván](simulations/v2_4-savings-lot-comparison.json), 257,829 giây, cũng là heuristic offline, không phải số đo production/người thật. Giữ nguyên Policy A; không triển khai hạn chế Policy B. Xem [báo cáo tích hợp lịch sử](MOBILE_V2_4_FINANCIAL_INTEGRATION_REPORT.md) để đọc phương pháp, bảng, paired intervals và hạn chế.
 
