@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
-import { advance, createGame, decide, roll, fundPayment, transact } from './game/engine'
+import { advance, decide, roll, fundPayment, transact } from './game/engine'
+import { createPlayerGame } from './game/new-game'
 import type { GameState } from './game/types'
 import { Setup } from './components/Setup'
 import { Board } from './components/Board'
@@ -33,7 +34,7 @@ function App() {
   const restart = () => { setGame(null); setOverlay(null) }
   return <>
     <header className="app-header"><a className="brand" href="#" onClick={e => { e.preventDefault(); if (!game || rolling) return; setOverlay('restart') }}><span className="brand-mark"><Icon name="refresh" size={25} /></span><span>Xoay Vòng <em>Tiến Lui</em></span></a><span className="header-tag">TRÒ CHƠI TÀI CHÍNH</span><div className="header-actions"><button className="text-button" onClick={() => setOverlay('rules')}><Icon name="info" size={17} />Luật chơi</button>{game && <button className="button secondary small" disabled={rolling} onClick={() => setOverlay('restart')}><Icon name="refresh" size={15} />Chơi mới</button>}</div></header>
-    {!game ? <Setup onStart={(seed, savings, term, mode) => setGame(createGame(seed, savings, term, mode))} /> : <main className="game-page">
+    {!game ? <Setup onStart={(seed, savings, term, mode) => setGame(createPlayerGame(seed, savings, term, mode))} /> : <main className="game-page">
       <div className="game-topline"><div><span className="eyebrow">TỪNG BƯỚC XÂY DỰNG TƯƠNG LAI</span><h1>Hành trình của bạn<span className="heading-dot">.</span></h1></div><div className="lap-indicator">{Array.from({ length: game.totalLaps }, (_, i) => <span key={i} className={game.lap === i + 1 ? 'current' : game.lap > i + 1 ? 'complete' : ''}>{game.lap > i + 1 ? <Icon name="check" size={15} /> : <i>{i + 1}</i>}Vòng {i + 1}</span>)}</div></div>
       <div className="game-layout"><div className="play-column"><GameStatus game={game} /><div className="game-tools"><button className="text-button" onClick={() => setOverlay('portfolio')}><Icon name="wallet" size={18} />Tài sản</button><button className="text-button" onClick={() => setOverlay('log')}><Icon name="receipt" size={18} />Nhật ký</button></div><details className="forecast-disclosure"><summary>Dự báo thị trường · Vòng {game.lap}</summary><Forecast game={game} /></details><div className="board-topline"><span><span className="status-dot" /> Bàn chơi của bạn</span><span>{game.gameMode} · {game.boardLayout} · Vòng {game.lap}/{game.totalLaps} <i /> Lượt {game.turn}</span></div><Board game={game} onRoll={rollDice} rolling={rolling} /><EventLog game={game} onOpen={() => setOverlay('log')} /></div><div className="portfolio-sidebar"><Portfolio game={game} /></div></div>
       <PhaseDialog game={game} onAdvance={() => setGame(state => state === game ? advance(state) : state)} onChoose={id => setGame(state => state === game ? decide(state, id) : state)} onRestart={restart} onExport={() => exportLog(game)} onFund={(source, amount, lotId) => setGame(state => state === game ? fundPayment(state, source, amount, lotId) : state)} onTransaction={action => setGame(state => state === game ? transact(state, action) : state)} />

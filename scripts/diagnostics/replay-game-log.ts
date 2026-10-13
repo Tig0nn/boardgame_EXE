@@ -3,9 +3,11 @@ import { createGame, advance, decide, roll, transact, fundPayment, snapshot } fr
 import { createSavingsProfile } from '../../src/game/savings.ts'
 import { businessRulesForGame } from '../../src/game/business.ts'
 import { encounterRulesForGame } from '../../src/game/encounters.ts'
+import { stockCatalog } from '../../src/data/stock-catalog.ts'
+import type { StockCatalogVersion } from '../../src/game/types.ts'
 import type { Asset, BusinessRulesVersion, CustomerPreferenceId, EncounterRulesVersion, FundingSource, GameState, LogEntry, RebalanceAction, SavingsProfile, Term } from '../../src/game/types.ts'
 
-export interface ReplayLog { schemaVersion: number; seed: string; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
+export interface ReplayLog { schemaVersion: number; seed: string; stockCatalogVersion?: StockCatalogVersion; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
 export function replayGameLog(data: ReplayLog): GameState {
   assert.ok(data.schemaVersion === 4 || data.schemaVersion === 5, 'Only V2.1/schema4 and V2.2/schema5 are supported')
   const historical = data.schemaVersion === 4
@@ -22,8 +24,12 @@ export function replayGameLog(data: ReplayLog): GameState {
   // Historical logs have no profile fields; every original financial value must still match.
   const comparable = (value: unknown) => JSON.parse(JSON.stringify(value, (key, v) => (historical && key === 'savingsProfile') || (legacyBusiness && key === 'businessRulesVersion') || (legacyEncounters && key === 'encounterRulesVersion') ? undefined : v))
   const initial = data.entries[0].after
+  const catalogVersion = initial.market.catalogVersion
+  stockCatalog(catalogVersion)
+  assert.equal(data.stockCatalogVersion, data.state.market.catalogVersion, 'Catalog metadata must agree')
+  assert.equal(catalogVersion, data.state.market.catalogVersion, 'Catalog cannot change during a game')
   const term = initial.deposits[0] ? initial.deposits[0].maturityLap - initial.deposits[0].startLap + 1 : 1
-  let s = createGame(data.seed, initial.portfolio.savings, term as Term, data.state.gameMode, profile.id, businessRulesVersion, encounterRulesVersion)
+  let s = createGame(data.seed, initial.portfolio.savings, term as Term, data.state.gameMode, profile.id, businessRulesVersion, encounterRulesVersion, catalogVersion)
   for (const entry of data.entries) {
     if (!['roll', 'decision', 'rebalancing', 'funding'].includes(entry.kind)) continue
     for (let i = 0; i < 4 && (s.phase !== entry.before.phase || s.lap !== entry.before.lap); i++) s = advance(s)

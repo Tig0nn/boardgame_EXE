@@ -66,7 +66,7 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false }: {
   }
   return <section className={`trading-panel ${tile === 'stocks' ? 'stock-trading' : ''}`}>{feedback}
     {tile === 'stocks' && <>
-      <label htmlFor="trade-symbol">Doanh nghiệp giả lập · {SECTORS[quote.stock.sector]}</label><select id="trade-symbol" className="text-input" value={symbolId} onChange={event => setSymbolId(event.target.value)}>{game.market.stocks.map(stock => <option key={stock.id} value={stock.id}>{stock.id} · {stock.name}</option>)}</select>
+      <label htmlFor="trade-symbol">Mã cổ phiếu · {SECTORS[quote.stock.sector]}</label><select id="trade-symbol" className="text-input" value={symbolId} onChange={event => setSymbolId(event.target.value)}>{game.market.stocks.map(stock => <option key={stock.id} value={stock.id}>{stock.id} · {stock.name}</option>)}</select>
       <div className="trade-facts"><div><span>Giá hiện tại / đơn vị</span><strong>{money(quote.stock.currentPrice)}</strong></div><div><span>Biến động mốc giá gần nhất</span><strong>{percent(quote.recent.returnRate)}</strong><small>{quote.recent.kind === 'history' ? 'Lịch sử giả lập trước ván' : `Vòng ${quote.recent.lap} · Lượt ${quote.recent.timestamp}`}</small></div><div><span>Đang nắm giữ</span><strong>{quote.units.toLocaleString('vi-VN', { maximumFractionDigits: 4 })} đơn vị</strong></div></div>
     </>}
     {tile === 'bank' && <><label htmlFor="deposit-term">Kỳ hạn (lần qua START)</label><select id="deposit-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} vòng · {Math.round(rates[value] * 100)}% lãi game/vòng</option>)}</select>

@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { advance, createGame, decide, roll, transact, fundPayment } from '../src/game/engine.ts'
+import { advance, decide, roll, transact, fundPayment } from '../src/game/engine.ts'
+import { createPlayerGame } from '../src/game/new-game.ts'
 import { EVENTS } from '../src/data/events.ts'
 import { fundingSources } from '../src/game/transactions.ts'
 import { serializeLog } from '../src/game/log.ts'
@@ -21,7 +22,7 @@ function webStep(s: GameState, command: MobileCommand): GameState {
 
 for (const seed of ['mobile-parity-1', 'mobile-parity-2', 'mobile-parity-3']) {
   test(`mobile controller matches web after every decision and replays four laps: ${seed}`, () => {
-    let web = createGame(seed, 10_000_000, 2, 'experimental-b')
+    let web = createPlayerGame(seed, 10_000_000, 2, 'experimental-b')
     const session = createMobileSession(createMobileGame(seed, 10_000_000, 2))
     assert.deepEqual(session.getSnapshot(), web)
     assert.equal(web.boardLayout, 'C20')

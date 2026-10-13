@@ -1,4 +1,5 @@
-import { advance, createGame, decide, fundPayment, roll, transact } from '../../../src/game/engine.ts'
+import { advance, decide, fundPayment, roll, transact } from '../../../src/game/engine.ts'
+import { createPlayerGame } from '../../../src/game/new-game.ts'
 import { boardFor } from '../../../src/data/board.ts'
 import type { FundingSource, GameState, Phase, RebalanceAction, Term } from '../../../src/game/types.ts'
 
@@ -12,7 +13,7 @@ export type MobileCommand = { type: 'advance' | 'roll' } | { type: 'choose'; id:
   | { type: 'fund'; source: FundingSource; amount: number; lotId?: string }
 
 export function createMobileGame(seed: string, savings = 20_000_000, term: Term = 1) {
-  return createGame(seed, savings, term, 'experimental-b')
+  return createPlayerGame(seed, savings, term, 'experimental-b')
 }
 
 export function createMobileSession(initial: GameState) {

@@ -8,6 +8,7 @@ export type Category = 'investment' | 'income' | 'shock' | 'obligation'
 export type TileType = 'start' | 'bank' | TradableAsset | 'business' | 'course' | 'living' | 'personal' | 'macro' | 'obligation'
 export type Term = 1 | 2 | 3
 export type SavingsProfileId = 'v2.1-standard' | 'v2.2-c20'
+export type StockCatalogVersion = 'fictional-v1' | 'vn-v1'
 export type BusinessRulesVersion = 'v2.2-trend-shock' | 'v2.3-fixed-income' | 'v2.4-customer-preferences'
 export type CustomerPreferenceId = 'checkin' | 'budget' | 'taste'
 export type EncounterRulesVersion = 'legacy-multi-action' | 'v2.3-single-action' | 'v2.4-business-purchase-complete'
@@ -23,6 +24,8 @@ export interface PricePoint {
 export interface MarketInstrument { currentPrice: number; priceHistory: PricePoint[] }
 export interface StockInstrument extends MarketInstrument { id: string; name: string; sector: string; volatility: number }
 export interface MarketState {
+  // Missing in historical logs means the original fictional catalog; never rename holdings.
+  catalogVersion?: StockCatalogVersion
   stocks: StockInstrument[]; gold: MarketInstrument; bond: MarketInstrument; historySeed: number
   appliedShocks: string[]; normalLaps: number[]
 }
