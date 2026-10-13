@@ -5,6 +5,7 @@ import { RULES } from '../../src/data/config'
 import { totalWorth, liquidatableFunds } from '../../src/game/selectors'
 import { money } from '../../src/game/format'
 import { LogDialog } from '../../src/components/EventLog'
+import { Modal } from '../../src/components/Modal'
 import { MobileContainer } from './components/MobileContainer'
 import { TopHud } from './components/TopHud'
 import { BoardView } from './components/BoardView'
@@ -25,7 +26,7 @@ const coordinates = C20_BOARD.map((tile, i) => ({ ...tilesData[i], ...tile }))
 const delay = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms))
 type Session = ReturnType<typeof createMobileSession>
 
-function GameExperience({ session, onRestart }: { session: Session; onRestart: () => void }) {
+export function GameExperience({ session, onRestart }: { session: Session; onRestart: () => void }) {
   // React subscribes to immutable engine snapshots: https://react.dev/reference/react/useSyncExternalStore
   const game = useSyncExternalStore(session.subscribe, session.getSnapshot)
   const [animation, setAnimation] = useState<'dice' | 'pause' | 'moving' | null>(null)
@@ -37,6 +38,7 @@ function GameExperience({ session, onRestart }: { session: Session; onRestart: (
   const busy = useRef(false)
   const generation = useRef(0)
   const particleId = useRef(0)
+  const nextActionAt = useRef(0)
   useEffect(() => () => { generation.current++ }, [])
   useEffect(() => {
     const unlock = () => { sound.unlockAudio(); if (!sound.isMuted) sound.startBgm() }
@@ -45,9 +47,11 @@ function GameExperience({ session, onRestart }: { session: Session; onRestart: (
   }, [])
 
   const send = (command: MobileCommand) => {
-    if (busy.current) return
+    if (busy.current || Date.now() < nextActionAt.current) return
     try {
       if (!session.dispatch(command, game)) return
+      // Reject the second click of a double tap even if a same-phase sheet has already rerendered.
+      nextActionAt.current = Date.now() + 300
       setNotice('')
       sound.playClick()
       const delta = session.getSnapshot().portfolio.cash - game.portfolio.cash
@@ -101,10 +105,10 @@ function GameExperience({ session, onRestart }: { session: Session; onRestart: (
         <FloatingMoney particles={particles} />
       </BoardView>
     </MobileContainer>
-    {notice && <div className="game-error" role="alert">{notice}<button onClick={() => setNotice('')} aria-label="Đóng thông báo">×</button></div>}
     {!animation && !overlay && <GamePhase game={game} send={send} onRestart={onRestart} />}
     {overlay === 'portfolio' && <PortfolioDrawer game={game} onClose={() => setOverlay(null)} />}
     {overlay === 'log' && <LogDialog game={game} onClose={() => setOverlay(null)} />}
+    {notice && <Modal title="Không thể thực hiện" onClose={() => setNotice('')}><p role="alert">{notice}</p></Modal>}
   </>
 }
 
