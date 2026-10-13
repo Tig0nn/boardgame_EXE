@@ -8,7 +8,7 @@ import type { Term } from '../../../src/game/types'
 export function GameSetup({ onStart }: { onStart: (seed: string, savings: number, term: Term) => void }) {
   const [savings, setSavings] = useState(20_000_000)
   const [term, setTerm] = useState<Term>(1)
-  const [seed, setSeed] = useState('mobile-v2.4')
+  const [seed, setSeed] = useState('')
   const valid = Number.isSafeInteger(savings) && savings >= 0 && savings <= RULES.startingCapital
   return <Modal title="Bắt đầu hành trình">
     <span className="section-kicker">EXPERIMENTAL B · C20 · 4 VÒNG</span>
@@ -22,7 +22,7 @@ export function GameSetup({ onStart }: { onStart: (seed: string, savings: number
     </select>
     <p>Tiền mặt khởi đầu: {valid ? money(RULES.startingCapital - savings) : 'Số tiền không hợp lệ'}</p>
     <details><summary>Tùy chọn kiểm thử</summary><label htmlFor="mobile-seed">Seed cố định</label>
-      <input id="mobile-seed" value={seed} maxLength={128} onChange={e => setSeed(e.target.value)} />
+      <input id="mobile-seed" value={seed} placeholder="Để trống: ván ngẫu nhiên mới" maxLength={128} onChange={e => setSeed(e.target.value)} />
     </details>
     <button className="button primary full-button" disabled={!valid} onClick={() => onStart(seed, savings, term)}>Bắt đầu hành trình</button>
     <details><summary>Luật chơi</summary>

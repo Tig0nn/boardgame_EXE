@@ -12,7 +12,7 @@ export type MobileCommand = { type: 'advance' | 'roll' } | { type: 'choose'; id:
   | { type: 'trade'; action: RebalanceAction }
   | { type: 'fund'; source: FundingSource; amount: number; lotId?: string }
 
-export function createMobileGame(seed: string, savings = 20_000_000, term: Term = 1) {
+export function createMobileGame(seed?: string, savings = 20_000_000, term: Term = 1) {
   return createPlayerGame(seed, savings, term, 'experimental-b')
 }
 
