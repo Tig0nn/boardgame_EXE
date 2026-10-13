@@ -3,6 +3,7 @@ import { Modal } from '../../../src/components/Modal'
 import { MoneyInput } from '../../../src/components/MoneyInput'
 import { money } from '../../../src/game/format'
 import { RULES } from '../../../src/data/config'
+import { savingsProfileForMode } from '../../../src/game/savings'
 import type { Term } from '../../../src/game/types'
 
 export function GameSetup({ onStart }: { onStart: (seed: string, savings: number, term: Term) => void }) {
@@ -10,6 +11,7 @@ export function GameSetup({ onStart }: { onStart: (seed: string, savings: number
   const [term, setTerm] = useState<Term>(1)
   const [seed, setSeed] = useState('')
   const valid = Number.isSafeInteger(savings) && savings >= 0 && savings <= RULES.startingCapital
+  const rates = savingsProfileForMode('experimental-b').rates
   return <Modal title="Bắt đầu hành trình">
     <span className="section-kicker">EXPERIMENTAL B · C20 · 4 VÒNG</span>
     <h2>Xoay Vòng Tiến Lui</h2>
@@ -18,7 +20,7 @@ export function GameSetup({ onStart }: { onStart: (seed: string, savings: number
     <MoneyInput id="initial-savings" amount={savings} onChange={setSavings} invalid={!valid} />
     <label htmlFor="initial-term">Kỳ hạn theo START</label>
     <select id="initial-term" value={term} onChange={e => setTerm(Number(e.target.value) as Term)}>
-      <option value={1}>1 START · 4%/START</option><option value={2}>2 START · 5%/START</option><option value={3}>3 START · 6%/START</option>
+      {([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} START · {rates[value] * 100}%/START</option>)}
     </select>
     <p>Tiền mặt khởi đầu: {valid ? money(RULES.startingCapital - savings) : 'Số tiền không hợp lệ'}</p>
     <details><summary>Tùy chọn kiểm thử</summary><label htmlFor="mobile-seed">Seed cố định</label>
