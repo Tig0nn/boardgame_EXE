@@ -7,6 +7,7 @@ interface Dice3DProps {
   disabled?: boolean;
   isPawnMoving?: boolean;
   isUpOnLawn?: boolean;
+  docked?: boolean;
 }
 
 export const Dice3D: React.FC<Dice3DProps> = ({
@@ -16,6 +17,7 @@ export const Dice3D: React.FC<Dice3DProps> = ({
   disabled = false,
   isPawnMoving = false,
   isUpOnLawn,
+  docked = false,
 }) => {
   // Hàm kiến trúc Dynamic Face Mapping:
   // Đảm bảo Mặt trên cùng (Top Face) LUÔN LUÔN hiển thị 100% chính xác bằng `value`.
@@ -138,8 +140,9 @@ export const Dice3D: React.FC<Dice3DProps> = ({
       onClick={!disabled && !isRolling ? onRollClick : undefined}
       style={{
         position: 'absolute',
-        top: currentTop,
-        left: '470px',
+        top: docked ? '50%' : currentTop,
+        left: docked ? '50%' : '470px',
+        visibility: !docked && !isUp ? 'hidden' : 'visible',
         transform: `translate(-50%, -50%) scale(${isUp ? 1 : 0.88})`,
         zIndex: 55,
         cursor: disabled || isRolling ? 'default' : 'pointer',

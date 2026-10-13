@@ -1,4 +1,5 @@
 import React from 'react';
+import { Dice3D } from './Dice3D';
 
 interface BottomControlsProps {
   onRollClick: () => void;
@@ -105,7 +106,7 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
               opacity: disabled ? 0.6 : 1,
               padding: 0,
             }}
-          >🎲</button>
+          ><Dice3D docked value={lastDiceValue || 1} isRolling={false} disabled onRollClick={onRollClick} isUpOnLawn={false} /></button>
         </div>
 
         {/* Nút Nhật Ký (Icon Trực Tiếp, Bỏ Viền Bo Vuông) */}

@@ -29,8 +29,8 @@ export const TopHud: React.FC<TopHudProps> = ({
     <div style={{
       position: 'absolute',
       top: '24px',
-      left: '32px',
-      right: '32px',
+      left: '16px',
+      right: '16px',
       zIndex: 30,
     }}>
       {/* 1 Khung Board Kính Trong Suốt Đại Dương (Cyan / Ocean Glassmorphism) */}
@@ -40,7 +40,7 @@ export const TopHud: React.FC<TopHudProps> = ({
         WebkitBackdropFilter: 'blur(16px)',
         border: '1.5px solid rgba(56, 189, 248, 0.45)',
         borderRadius: '26px',
-        padding: '12px 18px',
+        padding: '12px',
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)',
         display: 'flex',
         flexDirection: 'column',
@@ -53,7 +53,7 @@ export const TopHud: React.FC<TopHudProps> = ({
           justifyContent: 'space-between',
         }}>
           {/* User Profile */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
             <div style={{
               width: '42px',
               height: '42px',
@@ -70,7 +70,7 @@ export const TopHud: React.FC<TopHudProps> = ({
               🎯
             </div>
             <div>
-              <div style={{ fontSize: '16px', fontWeight: 800, color: '#F0F9FF', letterSpacing: '0.2px' }}>
+              <div style={{ fontSize: '14px', fontWeight: 800, color: '#F0F9FF', whiteSpace: 'nowrap' }}>
                 Nhà Đầu Tư
               </div>
               <div style={{ fontSize: '11px', color: '#BAE6FD' }}>
@@ -80,8 +80,8 @@ export const TopHud: React.FC<TopHudProps> = ({
           </div>
 
           {/* Cụm Phải: Thanh tiến độ & Nút âm thanh */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '135px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginLeft: '8px' }}>
+            <div style={{ width: 'clamp(48px, 18vw, 100px)' }}>
               <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -115,8 +115,8 @@ export const TopHud: React.FC<TopHudProps> = ({
               <button
                 onClick={onToggleMute}
                 style={{
-                  width: '36px',
-                  height: '36px',
+                  width: '44px',
+                  height: '44px',
                   borderRadius: '50%',
                   background: isMuted ? 'rgba(239, 68, 68, 0.35)' : 'rgba(56, 189, 248, 0.25)',
                   border: isMuted ? '1.5px solid rgba(239, 68, 68, 0.6)' : '1.5px solid rgba(56, 189, 248, 0.55)',

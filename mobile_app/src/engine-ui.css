@@ -51,6 +51,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 }
 .trade-facts > div { flex-wrap: wrap; }
 .trade-facts small { flex-basis: 100%; }
+.trade-remaining { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-block: 12px; }
 .decision-preview strong, .summary-lines strong { text-align: right; white-space: nowrap; }
 .modal fieldset { border: 0; padding: 0; margin-block: 16px; min-width: 0; }
 .funding-sources { display: grid; gap: 8px; }
