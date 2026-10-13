@@ -82,4 +82,75 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .game-error button { float: right; color: white; background: transparent; border: 0; min-width: 44px; min-height: 44px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .ai-coach-disclaimer { display: none; }
+.sheet-help, .text-button { background: none; border: 0; color: #bae6fd; min-height: 44px; padding: 0 8px; }
+.sheet-help { display: flex; align-items: center; gap: 6px; float: right; font-size: 13px !important; }
+.modal .sheet-actions { position: sticky; bottom: -16px; background: #0f172a; padding-block: 8px; }
+.compact-funding .funding-source { display: grid; grid-template-columns: 18px 1fr; gap: 0 8px; padding: 8px 12px; font-size: 13px; }
+.compact-funding .funding-source strong { grid-column: 2; margin: 0; font-size: 12px; }
+.compact-funding .sheet-actions small { display: block; font-size: 12px; color: #fde68a; }
+.mobile-hud { position: absolute; top: max(40px, env(safe-area-inset-top)); left: 16px; right: 16px; z-index: 30;
+  padding: 12px 16px; border: 1px solid #8dc9d066; border-radius: 20px; background: #102d3be8; box-shadow: 0 8px 24px #001a2044; }
+.hud-row, .hud-actions, .hud-goal { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.hud-wallet span { display: block; font-size: 10px; letter-spacing: .08em; color: #c3e0de; }
+.hud-wallet strong { font: 800 24px/1.2 'Baloo 2', sans-serif; color: #fef3c7; }
+.hud-help { width: 44px; height: 44px; border: 1px solid #8dc9d066; border-radius: 50%; background: #284b58; color: white; font: 800 20px 'Nunito', sans-serif; cursor: pointer; }
+.hud-goal { margin-top: 8px; font-size: 12px; color: #e0f2f1; }
+.mobile-hud progress { display: block; width: 100%; height: 8px; margin-top: 6px; accent-color: #fbbf24; }
+.mobile-hud > small { display: block; margin-top: 4px; color: #fecaca; font-size: 11px; }
+.business-intro { display: flex; gap: 12px; align-items: center; color: #fcd34d; }
+.business-intro span { font-size: 11px; letter-spacing: .08em; }
+.business-intro h3 { color: #fff3c7; }
+.business-purchase-facts dd { font-weight: 800; text-align: right; }
+.business-purchase-facts { padding: 12px 0; border-block: 1px solid #456275; }
+.result-medal { font-size: 56px; text-align: center; clear: both; }
+.game-result h2, .game-result .result-worth { text-align: center; }
+.game-result .result-worth { padding-block: 16px; border-block: 1px solid #456275; }
+.tutorial { padding: 16px; border-color: #b6b58b; background: #122c32; width: min(440px, calc(100vw - 24px)); }
+.tutorial-topline { display: flex; align-items: center; justify-content: space-between; gap: 4px; clear: both; }
+.tutorial-topline .section-kicker { color: #e3d9a6; font-size: 10px; letter-spacing: .08em; }
+.tutorial-topline .text-button { font-size: 12px; padding-right: 0; color: #e5f2ed; }
+.tutorial-progress { display: flex; gap: 6px; margin-bottom: 8px; }
+.tutorial-progress > span { flex: 1; height: 28px; min-width: 0; background: linear-gradient(#365157,#365157) center / 100% 4px no-repeat; }
+.tutorial-progress > span.visited { background-image: linear-gradient(#fbbf24,#fbbf24); }
+.tutorial-progress > span[data-current='true'] { background-size: 100% 7px; }
+.tutorial-scene { height: 144px; border-radius: 14px 14px 0 0; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(#123c3144,#123c31bb), url('/assets/main-background.png') center 42% / cover; }
+.tutorial-scene::before { content: ''; position: absolute; inset: 0; background: url('/assets/playboard.PNG') center 42% / 100% auto; opacity: .35; }
+.tutorial-scene > span { position: relative; display: grid; place-items: center; width: 76px; height: 76px; border-radius: 50%; color: #5d4218; background: #fcd45e; border: 4px solid #ffeda2; box-shadow: 0 5px 0 #916d2b, 0 8px 20px #123c3188; }
+.tutorial-scene > b { position: absolute; bottom: 8px; color: #fff3c7; font: 800 11px 'Baloo 2', sans-serif; letter-spacing: .18em; }
+.tutorial-content { background: #fff6df; color: #193d3d; padding: 20px 16px 8px; border-radius: 0 0 14px 14px; }
+.tutorial-content .section-kicker { color: #396263; font-size: 10px; letter-spacing: .08em; }
+.tutorial-content h2 { color: #173e3b; font-size: 28px; margin: 8px 0; outline: none; }
+.tutorial-content p { font-size: 14px; line-height: 1.5; margin-block: 8px 16px; }
+.tutorial-content small { color: #426460; font-size: 11px; }
+.tutorial-goal { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 12px 0; border-block: 1px solid #d9d8ba; }
+.tutorial-goal small, .tutorial-goal strong { display: block; }
+.tutorial-goal strong { font: 800 25px 'Baloo 2', sans-serif; color: #266047; }
+.tutorial-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tutorial-tiles > div { display: grid; grid-template-columns: 24px 1fr; gap: 0 6px; align-items: center; }
+.tutorial-tiles > div > span { grid-row: span 2; font-size: 20px; }
+.tutorial-tiles strong { font-size: 13px; }
+.tutorial-turn { list-style: none; display: grid; gap: 8px; }
+.tutorial-turn li { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; }
+.tutorial-turn b { width: 32px; height: 32px; display: grid; place-items: center; background: #dce7d0; border-radius: 50%; color: #235e43; }
+.tutorial-earn { list-style: none; display: grid; gap: 12px; font-size: 13px; }
+.tutorial-earn li { display: grid; gap: 2px; padding-left: 4px; }
+.tutorial-earn b { margin-left: 24px; font-size: 12px; color: #426460; }
+.tutorial-bill { padding: 12px; background: #f0e2c2; border-radius: 10px; display: grid; gap: 4px; font-size: 13px; }
+.tutorial-bill strong { font: 800 28px 'Baloo 2', sans-serif; }
+.tutorial-content .tutorial-tip { font-size: 12px; margin-block: 12px; }
+.tutorial-content details { border-color: #d9d8ba; margin-top: 12px; font-size: 13px; }
+.tutorial-content details p { font-size: 13px; }
+.tutorial-actions { display: flex; gap: 8px; padding-top: 16px; position: sticky; bottom: -16px; background: #122c32; padding-bottom: 4px; }
+.tutorial-actions .primary { flex: 1; }
+@media (max-width: 350px), (max-height: 700px) {
+  .modal { padding: 16px; font-size: 14px; }
+  .modal h2 { font-size: 24px; }
+  .tutorial-scene { height: 100px; }
+  .tutorial-scene > span { width: 60px; height: 60px; }
+  .tutorial-content { padding: 16px 12px 4px; }
+  .tutorial-content h2 { font-size: 24px; }
+  .tutorial-content p { font-size: 13px; }
+  .tutorial-topline .section-kicker { font-size: 9px; }
+}
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }

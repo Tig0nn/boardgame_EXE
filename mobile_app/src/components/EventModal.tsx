@@ -5,22 +5,25 @@ import type { GameState, RebalanceAction } from '../../../src/game/types'
 import { Modal } from '../../../src/components/Modal'
 import { TradingPanel } from '../../../src/components/TradingPanel'
 
-export function EventModal({ game, onChoose, onTransaction }: {
-  game: GameState; onChoose: (id: string) => void; onTransaction: (action: RebalanceAction) => boolean | void
+export function EventModal({ game, onChoose, onTransaction, onHelp }: {
+  game: GameState; onChoose: (id: string) => void; onTransaction: (action: RebalanceAction) => boolean | void; onHelp?: () => void
 }) {
   const event = EVENTS.find(e => e.id === game.eventId)!
   const trading = ['stocks', 'bonds', 'gold', 'bank', 'business'].includes(event.id)
-  return <Modal title={event.title}>
-    <span className="section-kicker">Vòng {game.lap} · Ô {game.position + 1} · Lượt {game.turn}</span>
-    <h2>{event.title}</h2>
-    {!trading && <p>{event.description}</p>}
+  const traded = game.log.some(entry => entry.turn === game.turn && entry.kind === 'rebalancing')
+  const title = ({ stocks: 'Cổ phiếu', bonds: 'Trái phiếu', gold: 'Vàng', business: 'Quán của bạn' } as Record<string, string>)[event.id] ?? event.title
+  return <Modal title={title} onHelp={onHelp} className="mobile-event">
+    <span className="section-kicker">VÒNG {game.lap} · Ô {game.position + 1}</span>
+    <h2>{title}</h2>
+    {!trading && <p>{event.id === 'living' ? 'Đến lúc chăm lo cho cuộc sống.' : event.id === 'course' ? 'Học một lần, tăng lương cho những vòng còn lại.' : event.category === 'shock' && !event.options.some(option => option.cost || option.obligation) ? 'Thị trường vừa thay đổi. Cơ hội mới đang chờ bạn!' : event.description}</p>}
     <p className="event-cash">Tiền mặt: <strong>{money(game.portfolio.cash)}</strong></p>
     {trading && <TradingPanel key={`${game.turn}-${game.log.length}`} game={game} compact onTransaction={onTransaction} onSkip={() => onChoose('skip')} />}
+    {event.id === 'course' && !canChoose(game, 'upgrade') && <p className="inline-note">{game.coursePurchased ? 'Bạn đã hoàn thành khóa học này.' : 'Chưa đủ tiền mặt cho khóa học.'}</p>}
     {event.options.filter(() => event.id !== 'stocks').map(option => <button key={option.id}
       className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}>
-      <strong>{option.label}</strong><span>{option.detail}</span>
-      {!!option.cost && <span>Cần trả {money(option.cost)} · Tiền mặt dùng trước {money(Math.min(option.cost, game.portfolio.cash))}</span>}
-      {(option.cost ?? 0) > game.portfolio.cash && <span>Còn thiếu {money(option.cost! - game.portfolio.cash)} · Chọn nguồn ở bước tiếp theo</span>}
+      <strong>{option.id === 'acknowledge' ? 'Đi tiếp' : option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : option.label}</strong>
+      {option.id !== 'skip' && option.id !== 'acknowledge' && <span>{option.detail}</span>}
+      {(option.cost ?? 0) > game.portfolio.cash && <span>Thiếu {money(option.cost! - game.portfolio.cash)} · Chọn nguồn tiền tiếp theo</span>}
     </button>)}
   </Modal>
 }

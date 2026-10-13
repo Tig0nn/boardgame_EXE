@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import tilesData from './data/tiles.json'
 import { C20_BOARD } from '../../src/data/board'
 import { RULES } from '../../src/data/config'
-import { totalWorth, liquidatableFunds } from '../../src/game/selectors'
+import { liquidatableFunds } from '../../src/game/selectors'
 import { money } from '../../src/game/format'
 import { LogDialog } from '../../src/components/EventLog'
 import { Modal } from '../../src/components/Modal'
@@ -19,6 +19,8 @@ import { GamePhase } from './components/GamePhase'
 import { createMobileGame, createMobileSession, movementPath } from './game/session'
 import type { MobileCommand } from './game/session'
 import { sound } from './utils/audio'
+import { Tutorial } from './components/Tutorial'
+import { hasSeenTutorial, rememberTutorial } from './game/onboarding'
 import './engine-ui.css'
 
 // Coordinates are artwork metadata; category/order/labels come from the official C20 board.
@@ -26,7 +28,7 @@ const coordinates = C20_BOARD.map((tile, i) => ({ ...tilesData[i], ...tile }))
 const delay = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms))
 type Session = ReturnType<typeof createMobileSession>
 
-export function GameExperience({ session, onRestart }: { session: Session; onRestart: () => void }) {
+export function GameExperience({ session, onRestart, onHelp, helpOpen = false }: { session: Session; onRestart: () => void; onHelp?: () => void; helpOpen?: boolean }) {
   // React subscribes to immutable engine snapshots: https://react.dev/reference/react/useSyncExternalStore
   const game = useSyncExternalStore(session.subscribe, session.getSnapshot)
   const [animation, setAnimation] = useState<'dice' | 'pause' | 'moving' | null>(null)
@@ -47,7 +49,7 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
   }, [])
 
   const send = (command: MobileCommand): boolean => {
-    if (busy.current || Date.now() < nextActionAt.current) return false
+    if (helpOpen || busy.current || Date.now() < nextActionAt.current) return false
     try {
       if (!session.dispatch(command, game)) return false
       // Reject the second click of a double tap even if a same-phase sheet has already rerendered.
@@ -65,7 +67,7 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
   }
 
   const rollDice = async () => {
-    if (busy.current || overlay || game.phase !== 'rolling') return
+    if (helpOpen || busy.current || overlay || game.phase !== 'rolling') return
     busy.current = true
     const token = ++generation.current
     setAnimatedTile(game.position)
@@ -89,11 +91,12 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
     setAnimation(null)
     sound.playEventShow()
   }
-  const disabled = !!animation || !!overlay || game.phase !== 'rolling'
+  const disabled = helpOpen || !!animation || !!overlay || game.phase !== 'rolling'
   return <>
     <MobileContainer overlay={<>
-      <TopHud cash={game.portfolio.cash} debt={game.portfolio.debt} netWorth={totalWorth(game)}
+      <TopHud cash={game.portfolio.cash} debt={game.portfolio.debt}
         lawfulProceeds={liquidatableFunds(game)} targetGoal={RULES.goal + RULES.cashGoal} isMuted={muted}
+        onHelp={onHelp} helpDisabled={!!animation}
         onToggleMute={() => { const next = !muted; sound.isMuted = next; setMuted(next); if (next) sound.stopBgm(); else { sound.unlockAudio(); sound.startBgm() } }} />
       <BottomControls onRollClick={rollDice} disabled={disabled} lastDiceValue={game.dice || undefined}
         onPortfolioClick={() => { if (!busy.current) setOverlay('portfolio') }}
@@ -106,8 +109,8 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
         <FloatingMoney particles={particles} />
       </BoardView>
     </MobileContainer>
-    {!animation && !overlay && <GamePhase game={game} send={send} onRestart={onRestart} />}
-    {overlay === 'portfolio' && <PortfolioDrawer game={game} onClose={() => setOverlay(null)} />}
+    {!animation && !overlay && <GamePhase game={game} send={send} onRestart={onRestart} onHelp={onHelp} />}
+    {overlay === 'portfolio' && <PortfolioDrawer game={game} onClose={() => setOverlay(null)} onHelp={onHelp} />}
     {overlay === 'log' && <LogDialog game={game} onClose={() => setOverlay(null)} />}
     {notice && <Modal title="Không thể thực hiện" onClose={() => setNotice('')}><p role="alert">{notice}</p></Modal>}
   </>
@@ -115,9 +118,14 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
 
 export default function App() {
   const [session, setSession] = useState<Session | null>(null)
-  if (session) return <GameExperience session={session} onRestart={() => setSession(null)} />
+  const [tutorial, setTutorial] = useState<'first' | 'help' | null>(() => hasSeenTutorial() ? null : 'first')
+  const openHelp = () => setTutorial('help')
+  const closeTutorial = () => { if (tutorial === 'first') rememberTutorial(); setTutorial(null) }
   return <>
-    <MobileContainer><BoardView currentTileIndex={0} tileCoordinates={coordinates} lap={1} totalLaps={4} /></MobileContainer>
-    <GameSetup onStart={(seed, savings, term) => setSession(createMobileSession(createMobileGame(seed, savings, term)))} />
+    {session ? <GameExperience session={session} onRestart={() => setSession(null)} onHelp={openHelp} helpOpen={!!tutorial} /> : <>
+      <MobileContainer><BoardView currentTileIndex={0} tileCoordinates={coordinates} lap={1} totalLaps={4} /></MobileContainer>
+      {tutorial !== 'first' && <GameSetup onHelp={openHelp} onStart={(seed, savings, term) => setSession(createMobileSession(createMobileGame(seed, savings, term)))} />}
+    </>}
+    {tutorial && <Tutorial firstTime={tutorial === 'first'} onClose={closeTutorial} />}
   </>
 }

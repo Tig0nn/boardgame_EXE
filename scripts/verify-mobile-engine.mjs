@@ -18,7 +18,7 @@ await server?.listen()
 const browser = await chromium.launch({ channel: 'chrome', headless: true })
 const page = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
 const base = process.env.UI_URL || 'http://127.0.0.1:5186'
-const folder = 'docs/playtests/mobile-v2-4'
+const folder = process.env.MVP_EVIDENCE_DIR || 'docs/playtests/mobile-onboarding'
 mkdirSync(folder, { recursive: true })
 const errors = []; const consoleErrors = []; const checkpoints = []; const widths = [320, 390, 430, 1440]
 page.on('pageerror', e => errors.push(e.message))
@@ -27,6 +27,15 @@ try {
 // External fonts are optional. Keep browser verification independent of Internet connectivity.
 await page.route('https://fonts.googleapis.com/**', route => route.fulfill({ body: '', contentType: 'text/css' }))
 await page.goto(base)
+await page.getByRole('dialog', { name: 'Hướng dẫn chơi' }).waitFor()
+for (let step = 1; step <= 6; step++) {
+  assert.equal(await page.getByRole('progressbar', { name: 'Tiến độ hướng dẫn' }).getAttribute('aria-valuenow'), String(step))
+  if (step < 6) await page.getByRole('button', { name: 'Tiếp theo →', exact: true }).click()
+}
+await page.getByRole('button', { name: 'Sẵn sàng chơi!', exact: true }).click()
+await page.reload()
+await page.getByRole('dialog', { name: 'Bắt đầu hành trình' }).waitFor()
+assert.equal(await page.getByRole('dialog', { name: 'Hướng dẫn chơi' }).count(), 0, 'Completed onboarding stays dismissed')
 for (const width of widths) {
   await page.setViewportSize({ width, height: width === 1440 ? 1000 : 844 })
   await page.getByRole('dialog', { name: 'Bắt đầu hành trình' }).waitFor()
@@ -35,9 +44,9 @@ for (const width of widths) {
   await page.screenshot({ path: `${folder}/${width}-setup.png` })
 }
 await page.setViewportSize({ width: 390, height: 844 })
-await page.getByText('Tùy chọn kiểm thử', { exact: true }).click()
+await page.getByText('Chơi lại cùng hành trình', { exact: true }).click()
 const seed = 'mobile-browser-v24'
-await page.getByLabel('Seed cố định').fill(seed)
+await page.getByLabel('Mã hành trình', { exact: true }).fill(seed)
 await page.getByRole('button', { name: 'Bắt đầu hành trình', exact: true }).click()
 let web = createPlayerGame(seed, 20e6, 1)
 let moves = 0; let stockBuys = 0; let bankDeposits = 0; let businessPurchases = 0; let upgrades = 0
@@ -70,17 +79,18 @@ while (web.phase !== 'finished') {
     await page.setViewportSize({ width: 390, height: 844 })
   } else if (web.phase === 'event') {
     const event = EVENTS.find(e => e.id === web.eventId)
-    await page.getByRole('dialog', { name: event.title }).waitFor()
+    const mobileTitle = { stocks: 'Cổ phiếu', bonds: 'Trái phiếu', gold: 'Vàng', business: 'Quán của bạn' }[event.id] ?? event.title
+    await page.getByRole('dialog', { name: mobileTitle }).waitFor()
     if (event.id === 'bank' && web.portfolio.cash >= 15e6) {
       await page.locator('#trade-amount').fill('5000000')
-      await page.getByRole('button', { name: /Xác nhận gửi khoản mới/ }).click()
+      await page.getByRole('button', { name: /^Gửi tiết kiệm/ }).click()
       web = transact(web, { kind: 'deposit', amount: 5e6, term: 1 }); bankDeposits++
     } else if (event.id === 'stocks' && web.portfolio.cash >= 15e6) {
       await page.locator('#trade-amount').fill('5000000')
-      await page.getByRole('button', { name: /Xác nhận mua cổ phiếu/ }).click()
+      await page.getByRole('button', { name: /^Mua / }).click()
       web = transact(web, { kind: 'buy', asset: 'stocks', amount: 5e6, symbolId: 'FPT', term: 1, completeEncounter: true }); stockBuys++
     } else if (event.id === 'business' && !web.business.capital && web.lap <= 2 && web.portfolio.cash >= 30e6) {
-      await page.getByRole('button', { name: /Đầu tư cơ sở/ }).click()
+      await page.getByRole('button', { name: /^Mở quán / }).click()
       web = transact(web, { kind: 'buy', asset: 'business', amount: 20e6 }); businessPurchases++
     } else if (event.id === 'business' && web.business.capital && web.lap <= 2 && web.portfolio.cash >= 15e6 &&
       !web.log.some(e => e.turn === web.turn && e.decisionId === 'upgrade-business')) {
@@ -93,11 +103,13 @@ while (web.phase !== 'finished') {
       const option = event.id === 'course' && !web.coursePurchased && web.portfolio.cash >= 6e6 ? event.options.find(o => o.id === 'upgrade')
         : event.options.find(o => o.id === 'skip') ?? event.options[0]
       if (option.id === 'skip' && event.id === 'stocks') await page.getByRole('button', { name: 'Bỏ qua cơ hội', exact: true }).click()
+      else if (option.id === 'skip') await page.getByRole('button', { name: /Bỏ qua cơ hội|Hoàn tất · Về bàn chơi/ }).click()
+      else if (option.id === 'acknowledge') await page.getByRole('button', { name: 'Đi tiếp', exact: true }).click()
       else await page.getByRole('button').filter({ has: page.getByText(option.label, { exact: true }) }).click()
       web = decide(web, option.id)
     }
   } else if (web.phase === 'summary') {
-    await page.getByRole('button', { name: 'Mở quyền bán tại START', exact: true }).click()
+    await page.getByRole('button', { name: 'Ghé ví tại START →', exact: true }).click()
     checkpoints.push({ lap: web.lap, cash: web.portfolio.cash, lawfulProceeds: liquidatableFunds(web) })
     web = advance(web)
   } else if (web.phase === 'rebalancing') {
@@ -108,13 +120,15 @@ while (web.phase !== 'finished') {
 assert.equal(web.summaries.length, 4)
 await page.getByRole('dialog', { name: 'Kết quả hành trình' }).waitFor()
 const downloaded = page.waitForEvent('download')
-await page.getByRole('button', { name: 'Tải nhật ký JSON', exact: true }).click()
+await page.getByText('Chi tiết kết quả & nhật ký', { exact: true }).click()
+await page.getByRole('button', { name: 'Lưu nhật ký hành trình', exact: true }).click()
 const download = await downloaded
 const log = JSON.parse(readFileSync(await download.path(), 'utf8'))
 assert.deepEqual(log.state, JSON.parse(JSON.stringify(web)), 'Real UI financial state must match web engine exactly')
 assert.deepEqual(replayGameLog(log), web)
 writeFileSync(`${folder}/browser-game-log.json.gz`, gzipSync(JSON.stringify(log)))
 await page.route('**/api/ai-coach', route => route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ fallback: 'Phân tích AI hiện chưa sẵn sàng.' }) }))
+await page.getByText('Nhìn lại hành trình', { exact: true }).click()
 await page.getByRole('button', { name: 'Nhờ AI phân tích ván chơi' }).click()
 await page.getByText('Phân tích AI hiện chưa sẵn sàng.', { exact: true }).waitFor()
 assert.equal(await page.getByRole('button', { name: 'Chơi hành trình mới' }).isEnabled(), true)
@@ -170,7 +184,7 @@ assert.equal(funded.portfolio.debt, 79_400)
 assert.equal(funded.log.find(e => e.kind === 'funding').lostSavingsInterest, 540_000)
 
 await page.goto(`${base}/integration-harness.html?fixture=business`)
-await page.getByRole('dialog', { name: 'Kinh doanh' }).waitFor()
+await page.getByRole('dialog', { name: 'Quán của bạn' }).waitFor()
 await page.getByRole('button', { name: /^Nâng cấp/ }).dblclick()
 const upgraded = await page.evaluate(() => window.mobileHarness.getState())
 assert.equal(Object.values(upgraded.business.upgrades).reduce((sum, n) => sum + n, 0), 1)
@@ -181,21 +195,21 @@ for (const width of widths) {
   await page.screenshot({ path: `${folder}/${width}-business-upgraded.png` })
 }
 await page.goto(`${base}/integration-harness.html?fixture=bank`)
-await page.getByRole('button', { name: /Xác nhận gửi khoản mới/ }).dblclick()
+await page.getByRole('button', { name: /^Gửi tiết kiệm/ }).dblclick()
 const deposited = await page.evaluate(() => window.mobileHarness.getState())
 assert.equal(deposited.deposits.filter(l => l.status === 'active').length, 2)
 assert.equal(deposited.phase, 'rolling')
 assert.equal(deposited.deposits[0].principal, 3e6)
 assert.equal(deposited.deposits[1].principal, 10e6)
 await page.goto(`${base}/integration-harness.html?fixture=gold`)
-await page.getByRole('button', { name: /Xác nhận mua vàng/ }).click()
-await page.getByRole('button', { name: /Xác nhận mua vàng/ }).click()
+await page.getByRole('button', { name: /^Mua / }).click()
+await page.getByRole('button', { name: /^Mua / }).click()
 assert.equal((await page.evaluate(() => window.mobileHarness.getState())).goldUnits, 6)
 await page.waitForTimeout(310)
-await page.getByRole('button', { name: /Xác nhận mua vàng/ }).click()
+await page.getByRole('button', { name: /^Mua / }).click()
 assert.equal((await page.evaluate(() => window.mobileHarness.getState())).goldUnits, 12, 'rejected fast tap must not permanently lock trading')
 await page.goto(`${base}/integration-harness.html?fixture=rebalancing`)
-await page.getByRole('dialog', { name: 'Quyền bán tại START' }).waitFor()
+await page.getByRole('dialog', { name: 'Ghé ví tại START' }).waitFor()
 assert.deepEqual(await page.locator('#sell-asset option').evaluateAll(options => options.map(option => option.value)), ['stocks', 'bonds', 'gold'])
 let expectedRebalance = await page.evaluate(() => window.mobileHarness.getState())
 await page.getByRole('button', { name: /Xác nhận bán/ }).click()
