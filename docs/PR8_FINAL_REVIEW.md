@@ -1,3 +1,7 @@
+> **CURRENT** — Review có chronology được duy trì. Nguồn mô tả MVP chuẩn: [CURRENT_MVP.md](CURRENT_MVP.md). Trạng thái sau cập nhật deployment nằm ở [follow-up 13/10/2026](#follow-up-2026-10-13).
+>
+> Các mục 1–8 và kết luận BLOCKED bên dưới ghi lại review ban đầu trước khi Mobile URL mới được xác minh; giữ nguyên để bảo toàn bằng chứng. Blocker thiếu URL không còn là trạng thái hiện tại.
+
 # PR #8 — Rà soát cuối, CI và Mobile Preview
 
 Ngày kiểm tra: 13/10/2026. PR: https://github.com/Tig0nn/boardgame_EXE/pull/8.
@@ -133,3 +137,33 @@ Vite preview chỉ phục vụ frontend tĩnh, không tự chạy Function API. 
 Bằng chứng review mới: `docs/playtests/pr8-final/verification.json`. Các file thay đổi mới chỉ gồm workflow, hai cấu hình compiler/bundler, hai regression test, báo cáo này và JSON bằng chứng. Không commit thư mục snapshot tạm, `.vercel`, `.env`, dependency cài sẵn hoặc `dist`; thư mục upload tạm đã được dọn.
 
 **BLOCKED — chưa an toàn để chốt merge theo yêu cầu review này cho đến khi Mobile Preview riêng được xác minh cùng route API.** Phần code/CI đã qua; không còn lỗi công thức tài chính hoặc artwork được xác nhận trong phạm vi rà soát. Không tự merge hoặc phát hành production.
+
+
+## Follow-up 2026-10-13
+
+Cập nhật sau review ban đầu, từ yêu cầu của owner và kiểm tra chỉ đọc trong documentation audit. Không thay nội dung review trước, JSON evidence hoặc số liệu mô phỏng.
+
+### Git và GitHub Actions
+
+HEAD đầu audit là `13c9c7c5fa932e50a3ba23da4b316e1dff4cdda9` (`chore: trigger mobile preview`); commit này không đổi file so với `e4dfef1`. [PR #8](https://github.com/Tig0nn/boardgame_EXE/pull/8) vẫn mở, chưa merge. [CI run 38421516083](https://github.com/Tig0nn/boardgame_EXE/actions/runs/38421516083), job `verify`, đã được đọc log: Node 22.23.3/Ubuntu, **186 product tests + 21 diagnostics**, hai clean install, lint và cả hai build qua. Cả status Vercel Web và Mobile tại SHA này đều success; deployment success không phải bằng chứng full game hoặc AI provider.
+
+### Deployment Mobile đã có
+
+- URL hoạt động: https://boardgame-exe-mobile-preview.vercel.app. Audit HTTP trả **200**, title **Xoay Vòng Tiến Lui — Mobile App**.
+- User đã visually verified **setup, illustrated board, HUD, 3D character và dice**. Đây là smoke verification được user cung cấp; audit không tự bổ sung lời khẳng định đã chơi online tới Result.
+- CLI inspection: deployment `dpl_4Z5uiiuPHa9YdGT2RGyVMGvp7nnd`, project `boardgame-exe-mobile-preview`, **Ready**, target **Production**. Có Function `api/ai-coach` tại iad1. Tên project có chữ preview không đổi environment thực tế.
+- Mobile project được đọc: root `.`, install `npm ci && npm ci --prefix mobile_app`, build `npm run build --prefix mobile_app`, output `mobile_app/dist`, Node 24.x.
+- Project Web `boardgame-exe` vẫn riêng: root `.`, build `npm run build`, output `dist`, URL https://boardgame-exe.vercel.app. Mobile Production không có nghĩa Web production bị thay hoặc PR đã merge.
+- Lần deployment lỗi/thu hồi trong chronology cũ là deployment khác; không sửa lịch sử thành một lần deploy thành công. [JSON review gốc](playtests/pr8-final/verification.json) vẫn giữ trạng thái ở mốc review đó.
+
+### Route API và phạm vi AI
+
+GET https://boardgame-exe-mobile-preview.vercel.app/api/ai-coach trả **HTTP 405 JSON**, error: “Phương thức không được hỗ trợ. Chỉ chấp nhận POST.” Audit xác minh trực tiếp, khớp user đã quan sát.
+
+GET chứng minh Function route chạy và từ chối method; **không** chứng minh key/model được cấu hình, successful real AI response, hoặc phân tích mọi câu văn đúng. Không POST facts thật, gọi provider hoặc đọc env values trong audit. Root Web result chưa gắn Coach panel; Mobile result đã gắn shared panel. [AI handoff](../AI_COACH_HANDOFF.md) mô tả chính xác grounding schema/ID và giới hạn.
+
+### Trạng thái quyết định và việc còn lại
+
+Blocker cũ **“chưa có URL Mobile online được xác minh” đã được gỡ ở mức smoke**. Chưa chốt release readiness hoặc quyết định merge cuối cùng: full online Mobile game qua bốn START/Result/export/replay, Android/iOS vật lý, sửa icon C20 Mobile, successful provider test và final PR review vẫn ở [roadmap hiện tại](../tasks/current.md). Không dùng smoke/GET để đánh dấu các việc đó hoàn tất.
+
+Tài liệu current đã đồng bộ qua [CURRENT_MVP.md](CURRENT_MVP.md), [index](README.md) và [inventory/contradiction matrix](DOCUMENTATION_AUDIT.md). Audit này chỉ thay Markdown, không thay game rules/UI/assets/simulation/evidence, không merge hoặc deploy. Các lệnh tạo/link/deploy trong mục 5 cũ là phương án ở mốc chưa có deployment, không phải việc cần lặp lại bây giờ; không tự tạo project mới hoặc thay project Web theo những lệnh cũ.

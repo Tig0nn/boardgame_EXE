@@ -1,111 +1,53 @@
-# Báo Cáo Bàn Giao: Mobile App UI (Xoay Vòng Tiến Lui V2.4)
+> **CURRENT** — Bàn giao kỹ thuật illustrated Mobile, cập nhật 13/10/2026. Nguồn mô tả MVP chuẩn: [CURRENT_MVP.md](docs/CURRENT_MVP.md).
 
-**Người phụ trách:** Phát (Mobile Game UI/UX Engineer & AI Engineer)  
-**Nhánh bàn giao:** `feat/ai-mobileapp-ui`  
-**Độ phân giải chuẩn:** 940 × 1672 px (Tỷ lệ Portrait Mobile chuẩn công nghệ game)  
-**Trạng thái kiểm thử:** 168/168 tests PASS · TypeScript Typecheck PASS · Vite Build PASS  
+# Mobile App — bàn giao V2.4
 
----
+Nhánh đang làm việc `feat/mobile-v2-4-engine-integration`, [PR #8](https://github.com/Tig0nn/boardgame_EXE/pull/8) chưa merge. URL: https://boardgame-exe-mobile-preview.vercel.app. Đây là ứng dụng trong `mobile_app/`, khác root Web responsive/SVG. Canvas thiết kế 940 × 1672 được co theo viewport; không phải chứng nhận đã thử trên điện thoại thật.
 
-## 1. Giới Thiệu & Mục Tiêu
+## Kiến trúc và các file có thật
 
-Phiên bản **Mobile App UI** của *Xoay Vòng Tiến Lui* được phát triển độc lập trong thư mục `mobile_app/` nhằm mang lại trải nghiệm game di động trực quan, sống động, chuẩn mực đồ họa Isometric 3D mà vẫn bảo toàn 100% logic động cơ tài chính cá nhân chuẩn V2.4 / C20 (4 vòng, vốn 50M, lương 14M/START, mục tiêu huy động hợp lệ $\ge$ 90M VND).
+| File/thư mục (từ root) | Vai trò |
+| --- | --- |
+| [mobile_app/src/App.tsx](mobile_app/src/App.tsx) | Setup/session, subscribe snapshot, animation hiển thị; không tái tính tài chính |
+| [mobile_app/src/game/session.ts](mobile_app/src/game/session.ts) | Thin dispatcher tới engine root, kiểm snapshot identity, ánh xạ phase |
+| [src/game/new-game.ts](src/game/new-game.ts) | Factory người chơi: B/C20, V2.4, `vn-v1`, crypto seed khi trường seed trống |
+| [mobile_app/src/components/GamePhase.tsx](mobile_app/src/components/GamePhase.tsx) | Render phase/panel theo engine |
+| [mobile_app/src/components/BoardView.tsx](mobile_app/src/components/BoardView.tsx), [Character3D.tsx](mobile_app/src/components/Character3D.tsx), [Dice3D.tsx](mobile_app/src/components/Dice3D.tsx) | Bàn minh họa, model/animation, xúc xắc hiển thị giá trị engine |
+| [BottomControls.tsx](mobile_app/src/components/BottomControls.tsx), [TopHud.tsx](mobile_app/src/components/TopHud.tsx), [PortfolioDrawer.tsx](mobile_app/src/components/PortfolioDrawer.tsx) | Điều khiển, HUD cash/debt/net worth và tiến độ từ lawful proceeds, danh mục |
+| [GameResultModal.tsx](mobile_app/src/components/GameResultModal.tsx) | Result theo selector, export/restart, gắn shared AI Coach |
+| [mobile_app/src/data/tiles.json](mobile_app/src/data/tiles.json) | Tọa độ artwork; loại/nhãn/thứ tự dùng C20 chính thức từ root |
+| [mobile_app/src/utils/audio.ts](mobile_app/src/utils/audio.ts) | Procedural audio/BGM; khả năng unlock/WebGL/touch cần test thiết bị thật |
 
----
+Financial panels tái dùng code `src/components/` và selectors/transactions root. Không còn economy/events JSON riêng của Mobile. Các tên `BottomBar`, `PortfolioModal`, `HistoryModal`, `Toast` trong bàn giao ban đầu không phải file implementation hiện tại. Lịch sử bản cũ vẫn ở [Git trước audit](https://github.com/Tig0nn/boardgame_EXE/blob/13c9c7c5fa932e50a3ba23da4b316e1dff4cdda9/MOBILE_APP_HANDOFF.md).
 
-## 2. Các Tính Năng Đã Hoàn Thiện
+Assets giữ nguyên: [main-background.png](mobile_app/public/assets/main-background.png), [playboard.PNG](mobile_app/public/assets/playboard.PNG), [sectionplay.PNG](mobile_app/public/assets/sectionplay.PNG), [character.glb](mobile_app/public/assets/character.glb), [xucxac.PNG](mobile_app/public/assets/xucxac.PNG), [model-viewer.min.js](mobile_app/public/model-viewer.min.js). Root Web dùng [city-background.webp](public/art/city-background.webp), không phải playboard Mobile. Icon ghép trong playboard còn lệch C20; danh sách chính xác ở [báo cáo tích hợp lịch sử](docs/MOBILE_V2_4_FINANCIAL_INTEGRATION_REPORT.md).
 
-### 2.1. Nhân Vật 3D Hoạt Hình Con Người (Caucasian Student Character)
-- **Tạo hình:** Bạn nam học sinh/sinh viên trẻ tuổi da trắng tự nhiên, ngũ quan mắt mũi miệng và lông mày rõ nét, tóc nâu hạt dẻ, áo trắng học sinh, quần jeans denim và giày thể thao.
-- **Hệ thống Hoạt ảnh Skeletal Rigging:**
-  - `CharacterArmature|Idle`: Đứng thở nhịp nhàng tự nhiên trên ô cờ.
-  - `CharacterArmature|Run`: Chạy bước dài vui tươi lướt mượt mà giữa các ô.
-  - `CharacterArmature|Jump`: Bật nhảy ăn mừng phấn khích khi hoàn thành vòng hoặc thắng game.
-  - `CharacterArmature|Wave`: Chạm tay vào nhân vật để phát âm thanh chào và vẫy tay chào người chơi.
-- **Tự động Xoay Hướng Mắt/Mặt Theo Đường Đi (Dynamic Movement Heading):**
-  - Tự động tính toán vector $(\Delta x, \Delta y)$ giữa ô hiện tại và ô kế tiếp.
-  - Khi di chuyển qua từng cạnh bàn cờ Isometric, nhân vật tự động quay mặt nhìn thẳng về phía trước theo hướng đi của ô tiếp theo.
-  - Tích hợp bộ đệm nội suy `interpolation-decay="150"` giúp góc xoay lướt êm ái, tự nhiên như game 3D thực thụ.
-  - Khi đứng yên, người chơi có thể dùng ngón tay vuốt xoay 360° ngang dọc tự do ngắm nhìn nhân vật; sau 4 giây hoặc khi gieo xúc xắc sẽ tự động hồi phục về góc nhìn bàn cờ.
+## Chạy/build và backend
 
-### 2.2. Xúc Xắc 3D Khối Lập Phương & Kiến Trúc Dynamic Face Mapping
-- **Mặt Trên Cùng Khóa Chặt 100% (Top Face = value):** Áp dụng kiến trúc Dynamic Face Mapping loại bỏ vĩnh viễn lỗi lệch góc Euler trong CSS 3D. Mặt trên cùng đối diện mắt người chơi luôn hiển thị chính xác 100% số chấm tương ứng với số bước nhảy thực tế và huy hiệu kết quả `🎲 {value} Bước`.
-- **Chuẩn Casino Quốc Tế:** Các mặt đối diện luôn có tổng bằng 7 (Top + Bottom = 7, Front + Back = 7, Right + Left = 7).
-- **Chu kỳ Bay & Neo Giữ Sân Cỏ (Flight Lifecycle):**
-  - Khi bấm gieo ở Footer, xúc xắc phóng to xoay lốc xoáy bay vút lên bãi cỏ trung tâm bàn cờ.
-  - Xúc xắc neo giữ cố định trên cỏ trong lúc nhân vật nhảy và khi xuất hiện bảng sự kiện / mua cổ phiếu.
-  - Chỉ khi người chơi bấm **Nhận thưởng**, **Mua**, **Gửi tiết kiệm** hoặc **Bỏ qua / Tiếp tục**, xúc xắc mới từ từ bay lướt êm ái về lại vị trí trung tâm Footer (`transition: 0.75s`).
+Từ root, cài **cả hai** lockfile trước khi chạy:
 
-### 2.3. Hệ Thống Âm Thanh & Nhạc Nền Thư Giãn (Audio & Procedural BGM)
-- **Cơ chế Mở Khóa Tự Động (Mobile Audio Unlock):** Tự động bắt sự kiện `touchstart`/`click` đầu tiên trên màn hình để mở khóa WebKit AudioContext trên iOS Safari và Android.
-- **Nhạc nền Procedural Lo-Fi:** Chuỗi hợp âm Pentatonic ấm áp qua bộ lọc Lowpass Filter êm dịu, không tốn dung lượng tải MP3 nặng.
-- **Bộ SFX sinh động:** Tiếng xúc xắc lăn lách cách, tiếng bước chân nhảy ô, tiếng tiền keng khi nhận lương, tiếng mở hộp cơ hội to rõ trên loa điện thoại. Nút bật/tắt âm thanh tức thì trên Header.
-
-### 2.4. Giao Diện & Bàn Cờ Chơi Game
-- **Top HUD & Header:** Thiết kế tối giản, bo cong nhẹ nhàng trong suốt (Glassmorphism), hiển thị Tiền mặt, Lương/vòng, và nút Âm thanh.
-- **Bàn Cờ 20 Ô C20 Isometric:** Căn chỉnh tọa độ pixel chuẩn xác cho 20 ô với hiệu ứng vòng tròn phát sáng Pulse Glow tại ô quân cờ đang đứng.
-- **Footer Điều Khiển:** Nút xúc xắc trung tâm nổi bật, các icon chức năng mở Ví tài sản (Tiền mặt, Tiết kiệm, Cổ phiếu, Trái phiếu, Vàng, Doanh nghiệp, Nợ) và Nhật ký giao dịch tài chính.
-
----
-
-## 3. Cấu Trúc Mã Nguồn (Source Code Architecture)
-
-```
-mobile_app/
-├── index.html                   # HTML entry point nạp Google model-viewer Web Component
-├── package.json                 # Cấu hình dependency (React, TypeScript, Vite)
-├── tsconfig.json                # TypeScript config
-├── vite.config.ts               # Vite bundler config (Port 5174, Host 0.0.0.0)
-├── public/
-│   └── assets/
-│       ├── character.glb        # Model 3D bạn học sinh nam da trắng đã tối ưu rigging
-│       ├── main-background.png  # Hình nền phố thị & bãi cỏ Isometric
-│       ├── playboard.PNG        # Bàn cờ 20 ô Isometric
-│       ├── sectionplay.PNG      # Bảng gỗ hiển thị số vòng chơi
-│       └── xucxac.PNG           # Texture xúc xắc
-└── src/
-    ├── App.tsx                  # Controller chính điều phối State, Game Loop, Bước nhảy
-    ├── main.tsx                 # React DOM bootstrap
-    ├── components/
-    │   ├── BoardView.tsx        # Bàn cờ Isometric, camera viewport & đĩa hào quang
-    │   ├── Character3D.tsx      # Quản lý model 3D, heading xoay hướng & animation
-    │   ├── Dice3D.tsx           # Xúc xắc 3D Dynamic Face Mapping & chu kỳ bay
-    │   ├── TopHud.tsx           # Thanh trạng thái tài chính phía trên
-    │   ├── BottomBar.tsx        # Thanh công cụ Footer điều khiển
-    │   ├── EventModal.tsx       # Bảng tương tác sự kiện ô cờ & mua tài sản
-    │   ├── LapSummaryModal.tsx  # Bảng tổng kết vòng & nhận lương
-    │   ├── PortfolioModal.tsx   # Drawer chi tiết danh mục đầu tư & nợ vay
-    │   ├── HistoryModal.tsx     # Nhật ký biến động dòng tiền
-    │   └── Toast.tsx            # Thông báo trạng thái nhanh
-    ├── data/
-    │   ├── tiles.json           # Dữ liệu tọa độ 20 ô cờ C20 độc quyền cho mobile
-    │   └── economy.json         # Cấu hình kinh tế chuẩn V2.4 (50M vốn, 14M lương, 4 vòng)
-    └── utils/
-        └── audio.ts             # Bộ tổng hợp Procedural Lo-Fi BGM & SFX tự động unlock
-```
-
----
-
-## 4. Hướng Dẫn Khởi Chạy Dự Án
-
-### Khởi chạy môi trường Dev:
 ```sh
-cd mobile_app
-npm install
-npm run dev
+npm ci
+npm ci --prefix mobile_app
+npm run dev --prefix mobile_app
 ```
-Trình duyệt sẽ mở tại `http://localhost:5174/` hoặc quét mã QR / truy cập theo địa chỉ Network IP trên điện thoại kết nối cùng mạng Wi-Fi.
 
-### Kiểm tra build sản phẩm:
+Mobile mặc định http://localhost:5174. Chạy thêm `npm run dev` ở root terminal khác nếu cần local API tại 5173. [Vite config](mobile_app/vite.config.ts) proxy `/api` tới 5173 và dedupe React/React DOM; bỏ dedupe làm component root dùng React instance khác và gây trắng trang ở production bundle.
+
 ```sh
-cd mobile_app
-npm run build
+npm run build --prefix mobile_app
+npm run preview --prefix mobile_app
 ```
-Kết quả build hoàn tất trong ~400ms với bundle tối ưu hoá cao.
 
----
+Output `mobile_app/dist`; static preview không chạy Function. [Vercel Mobile riêng](https://boardgame-exe-mobile-preview.vercel.app) dùng repository root `.`, install `npm ci && npm ci --prefix mobile_app`, build `npm run build --prefix mobile_app`, output `mobile_app/dist`; giữ root shared source và API. Deployment hiện gắn **Production của project Mobile**, không phải Web production và không phải bằng chứng PR đã merge. Không đổi output project Web gốc để chuyển sang Mobile.
 
-## 5. Cam Kết Tính Toàn Vẹn Hệ Thống
-- 100% logic tài chính gốc tại `src/game/**`, `src/data/**`, `src/ai/**`, `tests/**` được bảo toàn nguyên vẹn.
-- Toàn bộ 168 tests gốc của dự án vượt qua tuyệt đối (168/168 PASS).
-- Thư mục tài liệu nội bộ `app_ui_docs/` và `.agents/` được giữ riêng tư tại máy cục bộ (Local only), không đẩy lên repository.
+Key AI chỉ ở backend/project environment đúng mục đích; không đưa vào frontend hoặc `VITE_*`. Xem [AI handoff](AI_COACH_HANDOFF.md). Không khẳng định key/provider đã hoạt động vì GET route qua.
+
+## Kiểm chứng và việc còn lại
+
+- [CI tại 13c9c7c](https://github.com/Tig0nn/boardgame_EXE/actions/runs/38421516083): 186 product tests, 21 diagnostics, lint, hai build và hai `npm ci` qua. Số 168 của bàn giao cũ là lịch sử, không phải số test hiện tại.
+- [Browser evidence local](docs/playtests/mobile-v2-4/browser-verification.json): full game, state parity/replay, funding, nhiều lot, recovery sau rapid trade tap; AI lỗi 503 được mock. Giữ nguyên bằng chứng, không chuyển thành kết quả online.
+- Online: user đã nhìn thấy setup/board/HUD/3D/dice; audit xác nhận HTTP 200/title Mobile và GET API 405 JSON. Chưa có full online game tới Result/export/replay, successful provider response hoặc physical-phone playtest.
+- Không cam kết “100% mọi đường gameplay/thiết bị/animation đã đúng”. Regression bảo vệ các đường đã có bằng chứng; model/audio/touch cần thử Android/iOS thật.
+
+[Roadmap hiện tại](tasks/current.md) theo dõi full online gameplay, Android/iOS, icon C20, AI provider thật và final merge decision. [PR8 follow-up](docs/PR8_FINAL_REVIEW.md) giữ chronology triển khai và giới hạn mới nhất. Audit này không đổi source, rule, assets hoặc simulation.

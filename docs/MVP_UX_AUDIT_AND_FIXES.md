@@ -1,3 +1,5 @@
+> **HISTORICAL** — UX giao dịch root Web trước follow-up giới hạn Ngân hàng/Kinh doanh V2.3–V2.4. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # MVP UX audit và sửa lỗi giao dịch
 
 Nhánh: `fix/mvp-transaction-ux` · Baseline: `51843df` · 11/10/2026.

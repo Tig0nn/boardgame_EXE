@@ -1,84 +1,43 @@
-# Báo Cáo Bàn Giao Module: AI Post-Game Financial Coach
+> **CURRENT** — Bàn giao AI Coach, cập nhật 13/10/2026. Nguồn mô tả MVP chuẩn: [CURRENT_MVP.md](docs/CURRENT_MVP.md).
 
-**Người phụ trách:** Phát (AI Engineer)  
-**Nhánh làm việc:** `feat/ai-postgame-coach`  
-**Trạng thái kiểm thử:** 168/168 tests PASS · ESLint PASS · Production Build PASS  
+# AI Coach sau ván — tích hợp và giới hạn xác minh
 
----
+Coach hỗ trợ giải thích ván game đã kết thúc; số tiền, thắng/thua và ngẫu nhiên vẫn do engine quyết định. [AICoachPanel](src/ai/AICoachPanel.tsx) đang gắn trong [Mobile GameResultModal](mobile_app/src/components/GameResultModal.tsx), chỉ render khi `game.phase === 'finished'` và feature flag bật. Người chơi bấm yêu cầu phân tích; không tự suy kết quả từ AI.
 
-## 1. Giới thiệu Tính Năng
+Root Web [GameDialogs](src/components/GameDialogs.tsx) **chưa gắn Coach panel**. Root có backend middleware/Function và [harness preview-ai.html](preview-ai.html). Hướng dẫn “UI owner chỉ cần một dòng” trong [bàn giao trước audit](https://github.com/Tig0nn/boardgame_EXE/blob/13c9c7c5fa932e50a3ba23da4b316e1dff4cdda9/AI_COACH_HANDOFF.md) là lịch sử, không chứng minh Web result đã tích hợp. [PR #8](https://github.com/Tig0nn/boardgame_EXE/pull/8) vẫn chưa merge.
 
-Tính năng **AI Post-Game Financial Coach** là một người bạn đồng hành tài chính thông minh, vui nhộn và thân thiện cho người chơi sau khi kết thúc ván board game *Xoay Vòng Tiến Lui*:
-- Chỉ kích hoạt sau khi ván chơi kết thúc (`game.phase === 'finished'`).
-- Phân tích sâu sắc các quyết định (mua khóa học, thời điểm bán kinh doanh, gửi tiết kiệm, danh mục tài sản, nợ vay) dựa trên các con số VND thực tế từ engine.
-- Mách nước mẹo chiến thuật thực chiến giúp người chơi dễ dàng chạm tay vào chiến thắng ở ván sau.
-- **Bảo vệ tính toàn vẹn (Grounding):** 100% nhận định của AI đều trích dẫn bằng chứng thực tế từ ván chơi, chống ảo giác (hallucination), không bao giờ tính toán sai lệch hay can thiệp vào logic của game engine.
+## Luồng và ranh giới đảm bảo
 
----
+1. [facts.ts](src/ai/facts.ts) dựng `CoachFacts` từ game finished và các selector/log deterministic.
+2. Panel POST facts tới `/api/ai-coach` cùng origin, xử lý loading, error/fallback và thử lại. Thiếu backend/key không được coi là thành công AI.
+3. [api/ai-coach.ts](api/ai-coach.ts) chỉ nhận POST, gọi [server handler](src/ai/server/handler.ts). Local root [vite.config.ts](vite.config.ts) có middleware tương ứng.
+4. [schema.ts](src/ai/schema.ts) giới hạn payload, kiểu số nguyên VND, tối đa 8 evidence; output có 1–3 insights, bỏ HTML và lọc evidence IDs không tồn tại. Nhận xét không có ID hợp lệ bị loại; nếu không còn insight hợp lệ thì trả lỗi.
+5. Handler gọi Gemini phía server, timeout 12 giây và thử danh sách model fallback trong code. Model IDs là cấu hình/candidate, không phải chứng minh provider hiện chấp nhận hoặc đã trả thành công.
 
-## 2. Hướng Dẫn Tích Hợp Cho UI Owner (Chỉ cần 1 dòng code)
+Grounding kiểm tra shape và ID trích dẫn, **không xác minh ngữ nghĩa mọi câu văn hoặc bảo đảm “100% không hallucination”**. Payload client chưa phải nguồn chứng thực chống giả mạo. AI không sửa engine state, RNG, transaction hoặc victory. Giới hạn [rateLimiter.ts](src/ai/server/rateLimiter.ts) mặc định 5 request/60 giây/IP, in-memory mỗi process; không phải quota toàn deployment/cluster.
 
-UI Owner có thể gắn trực tiếp component `AICoachPanel` vào màn hình hiển thị kết quả cuối ván (trong `src/components/GameDialogs.tsx` ở phần modal Result):
+| Request/tình huống | Hành vi code / mức xác minh |
+| --- | --- |
+| GET | 405 JSON method rejection; đã xác nhận trên Mobile URL hiện tại |
+| POST payload sai | 400 JSON/fallback; unit tests và Web Preview trước đó đã xác minh |
+| POST facts hợp lệ thiếu key | 503 fallback; tests/local mock coverage, chưa dùng GET để suy điều này online |
+| Provider lỗi/timeout hoặc grounding không hợp lệ | Error/fallback và retry; không thay kết quả game |
+| Provider thành công | Trả output đã validate; chưa có phản hồi thật được xác nhận trong bằng chứng audit |
 
-```tsx
-import { AICoachPanel } from '../ai/AICoachPanel'
+## Cấu hình và chạy
 
-// Bên trong Result Dialog khi ván kết thúc (game.phase === 'finished'):
-<AICoachPanel game={game} />
-```
+Local root cài dependency bằng `npm ci`, chạy `npm run dev` (mặc định 5173). Nếu cần provider thật, owner tự đặt `GEMINI_API_KEY` trong root `.env.local` bị ignore; `GEMINI_MODEL` tùy chọn. Không in, tải từ project khác hoặc commit key; không đặt tên `VITE_GEMINI_API_KEY`. [env example](.env.example) chỉ là placeholder.
 
-### Các đặc tính an toàn:
-- **Tự cô lập lỗi (Graceful degradation):** Nếu chưa có API key hoặc mạng chập chờn, component tự hiển thị thông báo trung thực và nút "Thử lại", tuyệt đối không bao giờ làm crash màn hình kết quả của game.
-- **Độc lập styling:** Sử dụng CSS có scope rõ ràng (`src/ai/aiCoach.css`), không làm ảnh hưởng tới layout hay style hiện có của game.
+Mobile: cài thêm `npm ci --prefix mobile_app`, chạy `npm run dev --prefix mobile_app`; [proxy](mobile_app/vite.config.ts) `/api` về root 5173. Nếu Web dev nhảy sang cổng khác do 5173 bận, proxy chưa tự đổi. `npm run preview --prefix mobile_app` chỉ phục vụ static build, không tự chạy API.
 
----
+Hosting hiện có [Mobile URL](https://boardgame-exe-mobile-preview.vercel.app) và Function root `api/ai-coach`; project Mobile riêng đang được gắn Production. Key phải do owner cấu hình trực tiếp trong đúng project/environment được giao, không suy từ tên “preview” hoặc sao chép key Web. Audit không đọc env values hoặc xác minh key đang được đặt. [tsconfig.json](tsconfig.json) bật `rewriteRelativeImportExtensions` để emitted ESM không còn import file `.ts` thiếu trên runtime.
 
-## 3. Cấu Hình Môi Trường (Environment Variables)
+Harness http://localhost:5173/preview-ai.html có mock output để xem UI, và tùy chọn gọi backend. Mock không chứng minh real provider, cũng không thay ván online hoàn chỉnh. Không gọi provider hoặc ghi secret chỉ để kiểm tra documentation.
 
-Hệ thống sử dụng Google Gemini API với cơ chế tự động fallback model ổn định cao (`gemini-3.5-flash-lite`, `gemini-3.6-flash`, `gemini-flash-lite-latest`, `gemini-flash-latest`).
+## Tests và evidence
 
-1. **Khi chạy Local:**
-   - Tạo file `.env.local` ở thư mục gốc (đã được cấu hình trong `.gitignore`, không bao giờ bị lộ ra ngoài):
-     ```env
-     GEMINI_API_KEY=your_gemini_api_key_here
-     ```
-   - Chạy lệnh `npm run dev`. Middleware trong `vite.config.ts` sẽ tự động chuyển tiếp request tới Gemini API một cách an toàn.
+[CI run 38421516083](https://github.com/Tig0nn/boardgame_EXE/actions/runs/38421516083), code `13c9c7c`: toàn repository **186 product tests + 21 diagnostics**, lint và hai build qua; không phải 168 test của bàn giao AI ban đầu. Kiểm tra AI nằm trong [facts tests](tests/ai-coach-facts.test.ts), [handler/schema tests](tests/ai-coach-handler.test.ts) và [emitted ESM regression](scripts/diagnostics/ai-coach-deployment.test.ts). Tests dùng mock, không yêu cầu AI key.
 
-2. **Khi triển khai Vercel (Production):**
-   - Vào Settings dự án trên Vercel > Environment Variables.
-   - Thêm biến `GEMINI_API_KEY` với giá trị API Key của dự án.
-   - Endpoint `api/ai-coach.ts` sẽ hoạt động dưới dạng Vercel Serverless Function hoàn toàn tự động.
+[PR8 review](docs/PR8_FINAL_REVIEW.md) lưu lỗi `ERR_MODULE_NOT_FOUND` trước sửa và HTTP 405/400 sau sửa. [Mobile browser evidence](docs/playtests/mobile-v2-4/browser-verification.json) mock 503 và vẫn export/restart được; không ghi đó là phản hồi AI thật.
 
----
-
-## 4. Trang Kiểm Thử Giao Diện Độc Lập (Dev Preview Harness)
-
-Bạn có thể chạy dự án và mở ngay trang sau trên trình duyệt để kiểm tra:
-👉 **`http://localhost:5173/preview-ai.html`**
-
-Trang này hỗ trợ:
-- **Chế độ Mock Data:** Xem trước giao diện phân tích AI mẫu cho cả 4 kịch bản (Thắng cuộc >90M, Thua kẹt vốn kinh doanh, Rút tiết kiệm trước hạn, Phá sản) ngay lập tức mà không cần có API key.
-- **Chế độ Gọi API Gemini Thật:** Gửi dữ liệu ván đấu thực tế lên `/api/ai-coach` để kiểm tra phản hồi trực tiếp từ LLM.
-- **Nút "Sinh ván chơi thật mới từ Engine":** Tạo ra các ván chơi 4 vòng ngẫu nhiên hoàn toàn mới từ chính game engine để kiểm thử tính sống động và chính xác của AI Coach.
-
----
-
-## 5. Ranh Giới Mã Nguồn (Code Ownership)
-
-Module AI được thiết kế hoàn toàn độc lập, tuân thủ nguyên tắc không can thiệp vào các vùng cốt lõi của game:
-- `src/ai/**`: Facts builder, types, validation grounding schema, handler và component giao diện.
-- `api/ai-coach.ts`: Vercel Serverless Function endpoint.
-- `tests/ai-coach-*.test.ts`: Bộ unit test và integration test riêng biệt.
-- **Vùng không chỉnh sửa:** Toàn bộ `src/game/**`, `src/data/**`, `src/components/GameDialogs.tsx` và các test engine cũ được giữ nguyên trạng 100%.
-
----
-
-## 6. Lệnh Kiểm Tra Chất Lượng (Quality Gates)
-
-Tất cả các lệnh sau đều đã được kiểm tra và vượt qua tuyệt đối:
-```sh
-npm test          # 168/168 tests pass (155 engine tests + 13 AI tests)
-npm run lint      # 0 error, 0 warning
-npx tsc -b        # Typecheck TypeScript không lỗi
-npm run build     # Production bundle compile thành công
-```
+Còn thiếu successful provider integration test với facts một ván thật, kiểm tra output/evidence và fallback/retry trên deployment đúng environment; full online game và thiết bị thật cũng chưa hoàn tất. Theo dõi ở [tasks/current.md](tasks/current.md). Không thay rule/UI để sửa các giới hạn tài liệu này.

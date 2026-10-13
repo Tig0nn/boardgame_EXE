@@ -1,3 +1,5 @@
+> **HISTORICAL** — Báo cáo tích hợp và nghiên cứu 180.000 ván ngày 13/10/2026; các giới hạn clean install/hosting đã có follow-up PR #8. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # Báo cáo tích hợp Mobile với engine V2.4
 
 Ngày xác minh: **13/10/2026**. Nhánh: `feat/mobile-v2-4-engine-integration`.
