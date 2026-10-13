@@ -6,7 +6,7 @@ import { Modal } from '../../../src/components/Modal'
 import { TradingPanel } from '../../../src/components/TradingPanel'
 
 export function EventModal({ game, onChoose, onTransaction }: {
-  game: GameState; onChoose: (id: string) => void; onTransaction: (action: RebalanceAction) => void
+  game: GameState; onChoose: (id: string) => void; onTransaction: (action: RebalanceAction) => boolean | void
 }) {
   const event = EVENTS.find(e => e.id === game.eventId)!
   const trading = ['stocks', 'bonds', 'gold', 'bank', 'business'].includes(event.id)

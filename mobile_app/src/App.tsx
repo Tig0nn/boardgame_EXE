@@ -46,10 +46,10 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
     return () => window.removeEventListener('pointerdown', unlock)
   }, [])
 
-  const send = (command: MobileCommand) => {
-    if (busy.current || Date.now() < nextActionAt.current) return
+  const send = (command: MobileCommand): boolean => {
+    if (busy.current || Date.now() < nextActionAt.current) return false
     try {
-      if (!session.dispatch(command, game)) return
+      if (!session.dispatch(command, game)) return false
       // Reject the second click of a double tap even if a same-phase sheet has already rerendered.
       nextActionAt.current = Date.now() + 300
       setNotice('')
@@ -60,7 +60,8 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
         setParticles([{ id, text: `${delta > 0 ? '+' : ''}${money(delta)}`, type: delta > 0 ? 'gain' : 'loss', x: 470, y: 1100 }])
         if (delta > 0) sound.playCoin(); else sound.playPay()
       }
-    } catch (error) { setNotice(error instanceof Error ? error.message : 'Không thể thực hiện hành động.') }
+      return true
+    } catch (error) { setNotice(error instanceof Error ? error.message : 'Không thể thực hiện hành động.'); return false }
   }
 
   const rollDice = async () => {

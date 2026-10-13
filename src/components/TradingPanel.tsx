@@ -10,7 +10,7 @@ import { savingsProfileForGame } from '../game/savings'
 import { encounterActionUsed, singleActionEncounters } from '../game/encounters'
 import { BusinessPanel } from './BusinessPanel'
 
-export function TradingPanel({ game, onTransaction, onSkip, compact = false }: { game: GameState; onTransaction: (action: RebalanceAction) => void; onSkip: () => void; compact?: boolean }) {
+export function TradingPanel({ game, onTransaction, onSkip, compact = false }: { game: GameState; onTransaction: (action: RebalanceAction) => boolean | void; onSkip: () => void; compact?: boolean }) {
   const tile = game.eventId as Asset | 'bank'
   const [amount, setAmount] = useState(tile === 'bonds' ? ECONOMY.bondTicket : tile === 'gold' ? ECONOMY.goldTicket : ECONOMY.stockTicket)
   const [symbolId, setSymbolId] = useState(game.market.stocks[0].id)
@@ -20,7 +20,13 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false }: {
   const submit = (action: RebalanceAction) => {
     if (submitLock.current) return
     submitLock.current = true
-    onTransaction(action)
+    try {
+      // A parent input guard may reject a fast second tap without changing the snapshot.
+      if (onTransaction(action) === false) submitLock.current = false
+    } catch (error) {
+      submitLock.current = false
+      throw error
+    }
   }
   const preview = purchasePreview(game, amount)
   const rates = savingsProfileForGame(game).rates

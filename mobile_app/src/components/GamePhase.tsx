@@ -11,7 +11,7 @@ import { RebalanceModal } from './RebalanceModal'
 import { GameResultModal } from './GameResultModal'
 
 export function GamePhase({ game, send, onRestart }: {
-  game: GameState; send: (command: MobileCommand) => void; onRestart: () => void
+  game: GameState; send: (command: MobileCommand) => boolean; onRestart: () => void
 }) {
   switch (PHASE_UI[game.phase]) {
     case 'forecast': return <Modal title={`Dự báo vòng ${game.lap}`}>
