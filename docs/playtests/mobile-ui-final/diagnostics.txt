@@ -1,0 +1,170 @@
+TAP version 13
+# (node:37096) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: AI Coach emitted ESM function loads shared modules and rejects GET without provider credentials
+ok 1 - AI Coach emitted ESM function loads shared modules and rejects GET without provider credentials
+  ---
+  duration_ms: 452.3105
+  ...
+# (node:23016) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: experimental boards restore shared data, including after a failure
+ok 2 - experimental boards restore shared data, including after a failure
+  ---
+  duration_ms: 5.8751
+  ...
+# Subtest: B/C replace exactly one category; D preserves every count
+ok 3 - B/C replace exactly one category; D preserves every count
+  ---
+  duration_ms: 2.1152
+  ...
+# Subtest: control reproduces the old runner; diagnostics count encounters before transactions
+ok 4 - control reproduces the old runner; diagnostics count encounters before transactions
+  ---
+  duration_ms: 31.7233
+  ...
+# Subtest: same-size layouts retain paired dice paths; 16/24 preserve engine terminal semantics
+ok 5 - same-size layouts retain paired dice paths; 16/24 preserve engine terminal semantics
+  ---
+  duration_ms: 105.1741
+  ...
+# Subtest: renewal calculation agrees with an analytically enumerable single six-tile circuit
+ok 6 - renewal calculation agrees with an analytically enumerable single six-tile circuit
+  ---
+  duration_ms: 1.5643
+  ...
+# (node:33556) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: diagnostic horizon is process-local and restores official rules after success or failure
+ok 7 - diagnostic horizon is process-local and restores official rules after success or failure
+  ---
+  duration_ms: 17.0727
+  ...
+# Subtest: diagnostic cash baseline matches the published 5000-seed representative outcome
+ok 8 - diagnostic cash baseline matches the published 5000-seed representative outcome
+  ---
+  duration_ms: 27.8431
+  ...
+# Subtest: six-lap runs settle once per lap, reconcile money, and keep paired dice paths
+ok 9 - six-lap runs settle once per lap, reconcile money, and keep paired dice paths
+  ---
+  duration_ms: 20.908
+  ...
+# Subtest: deposits opened after lap three mature once at the correct START
+ok 10 - deposits opened after lap three mature once at the correct START
+  ---
+  duration_ms: 2.6122
+  ...
+# Subtest: post-lap-three trend changes preserve upgrades and deterministic macro histories
+ok 11 - post-lap-three trend changes preserve upgrades and deterministic macro histories
+  ---
+  duration_ms: 1.9716
+  ...
+# Subtest: sixth-lap debt is capitalized once and terminal proceeds use lawful quotes
+ok 12 - sixth-lap debt is capitalized once and terminal proceeds use lawful quotes
+  ---
+  duration_ms: 1.7473
+  ...
+# Subtest: final sixth-lap overshoot discards its destination while earlier overshoot resolves once
+ok 13 - final sixth-lap overshoot discards its destination while earlier overshoot resolves once
+  ---
+  duration_ms: 1.9931
+  ...
+# Subtest: twelve-lap replay is deterministic and does not persist experimental horizon
+ok 14 - twelve-lap replay is deterministic and does not persist experimental horizon
+  ---
+  duration_ms: 34.4512
+  ...
+# Subtest: savings control excludes course spending and uses the same legal seeded path
+ok 15 - savings control excludes course spending and uses the same legal seeded path
+  ---
+  duration_ms: 11.3902
+  ...
+# Subtest: bonds bought after lap three receive coupons and principal exactly once
+ok 16 - bonds bought after lap three receive coupons and principal exactly once
+  ---
+  duration_ms: 2.4691
+  ...
+# (node:26136) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: explicit C20 mode is audited using C20 encounters, with identical cash result to A20
+ok 17 - explicit C20 mode is audited using C20 encounters, with identical cash result to A20
+  ---
+  duration_ms: 31.1156
+  ...
+# Subtest: versioned rate policies never mutate config; all focused policies reconcile and replay exactly
+ok 18 - versioned rate policies never mutate config; all focused policies reconcile and replay exactly
+  ---
+  duration_ms: 1309.4989
+  ...
+# Subtest: default hooks preserve every historical run field; policy can override initial allocation
+ok 19 - default hooks preserve every historical run field; policy can override initial allocation
+  ---
+  duration_ms: 6.3813
+  ...
+# Subtest: conditional diagnostic metrics exclude null and do not depend on the first seed
+ok 20 - conditional diagnostic metrics exclude null and do not depend on the first seed
+  ---
+  duration_ms: 0.8585
+  ...
+# (node:15492) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Mobile production bundle shares one React instance across root and Mobile components
+ok 21 - Mobile production bundle shares one React instance across root and Mobile components
+  ---
+  duration_ms: 591.9675
+  ...
+# (node:33020) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 4:35:53 PM [vite] (client) [optimizer] scanning dependencies...
+# 4:35:55 PM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: Mobile final UI contracts use the official engine, board and financial previews
+    # Subtest: fresh player sees onboarding without creating a game; returning player sees setup
+    ok 1 - fresh player sees onboarding without creating a game; returning player sees setup
+      ---
+      duration_ms: 41.7876
+      ...
+    # Subtest: term cards show per-START and total simple interest correctly
+    ok 2 - term cards show per-START and total simple interest correctly
+      ---
+      duration_ms: 2.8265
+      ...
+    # Subtest: purchase tiles never offer voluntary selling even when holdings exist
+    ok 3 - purchase tiles never offer voluntary selling even when holdings exist
+      ---
+      duration_ms: 25.3845
+      ...
+    # Subtest: result uses lawful proceeds and never liquidates or claims four laps for insolvency
+    ok 4 - result uses lawful proceeds and never liquidates or claims four laps for insolvency
+      ---
+      duration_ms: 5.974
+      ...
+    # Subtest: tutorial keeps six steps and rulebook displays every official C20 tile
+    ok 5 - tutorial keeps six steps and rulebook displays every official C20 tile
+      ---
+      duration_ms: 7.6087
+      ...
+    # Subtest: stock completion and Bank lots remain atomic through the Mobile controller
+    ok 6 - stock completion and Bank lots remain atomic through the Mobile controller
+      ---
+      duration_ms: 1.676
+      ...
+    # Subtest: Business purchase ends encounter; same-turn sale/upgrade blocked, later upgrade allowed once
+    ok 7 - Business purchase ends encounter; same-turn sale/upgrade blocked, later upgrade allowed once
+      ---
+      duration_ms: 10.6363
+      ...
+    1..7
+ok 22 - Mobile final UI contracts use the official engine, board and financial previews
+  ---
+  duration_ms: 6551.1882
+  ...
+1..22
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7576.9819

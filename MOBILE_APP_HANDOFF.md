@@ -2,6 +2,8 @@
 
 # Mobile App — bàn giao V2.4
 
+Candidate mới ngày 14/10: `codex/mobile-ui-final` giữ foundation `13faa21`, thích ứng visual chọn lọc từ `277d2dc`. [Báo cáo tổng hợp](docs/MOBILE_UI_FINAL_REPORT.md) và [roadmap](tasks/current.md) tách kiểm chứng local mới khỏi các mốc hosting/CI lịch sử bên dưới. Chưa deploy candidate.
+
 Nhánh đang làm việc `feat/mobile-v2-4-engine-integration`, [PR #8](https://github.com/Tig0nn/boardgame_EXE/pull/8) chưa merge. URL: https://boardgame-exe-mobile-preview.vercel.app. Đây là ứng dụng trong `mobile_app/`, khác root Web responsive/SVG. Canvas thiết kế 940 × 1672 được co theo viewport; không phải chứng nhận đã thử trên điện thoại thật.
 
 ## Kiến trúc và các file có thật
@@ -13,7 +15,7 @@ Nhánh đang làm việc `feat/mobile-v2-4-engine-integration`, [PR #8](https://
 | [src/game/new-game.ts](src/game/new-game.ts) | Factory người chơi: B/C20, V2.4, `vn-v1`, crypto seed khi trường seed trống |
 | [mobile_app/src/components/GamePhase.tsx](mobile_app/src/components/GamePhase.tsx) | Render phase/panel theo engine |
 | [mobile_app/src/components/BoardView.tsx](mobile_app/src/components/BoardView.tsx), [Character3D.tsx](mobile_app/src/components/Character3D.tsx), [Dice3D.tsx](mobile_app/src/components/Dice3D.tsx) | Bàn minh họa, model/animation, xúc xắc hiển thị giá trị engine |
-| [BottomControls.tsx](mobile_app/src/components/BottomControls.tsx), [TopHud.tsx](mobile_app/src/components/TopHud.tsx), [PortfolioDrawer.tsx](mobile_app/src/components/PortfolioDrawer.tsx) | Điều khiển, HUD cash/debt/net worth và tiến độ từ lawful proceeds, danh mục |
+| [BottomControls.tsx](mobile_app/src/components/BottomControls.tsx), [TopHud.tsx](mobile_app/src/components/TopHud.tsx), [PortfolioDrawer.tsx](mobile_app/src/components/PortfolioDrawer.tsx) | Điều khiển; HUD cash, debt khi có, tiến độ lawful proceeds; net worth ở Ví |
 | [GameResultModal.tsx](mobile_app/src/components/GameResultModal.tsx) | Result theo selector, export/restart, gắn shared AI Coach |
 | [mobile_app/src/data/tiles.json](mobile_app/src/data/tiles.json) | Tọa độ artwork; loại/nhãn/thứ tự dùng C20 chính thức từ root |
 | [mobile_app/src/utils/audio.ts](mobile_app/src/utils/audio.ts) | Procedural audio/BGM; khả năng unlock/WebGL/touch cần test thiết bị thật |

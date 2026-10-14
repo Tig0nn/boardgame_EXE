@@ -1,6 +1,12 @@
-> **CURRENT** — Roadmap MVP V2.4 trên nhánh tích hợp; cập nhật 13/10/2026. Nguồn trạng thái sản phẩm: [CURRENT_MVP.md](../docs/CURRENT_MVP.md).
+> **CURRENT** — Roadmap MVP V2.4 và candidate UI tổng hợp; cập nhật 14/10/2026. Nguồn trạng thái sản phẩm: [CURRENT_MVP.md](../docs/CURRENT_MVP.md).
 
 # Việc đang hoạt động — Mobile V2.4 và PR #8
+
+## Candidate UI tổng hợp — 14/10/2026
+
+- [x] `codex/mobile-ui-final` từ `13faa21`: tutorial sáu bước, safe marker/overlay, preset/thẻ kỳ hạn, grouping và result progress; không nhận toàn bộ `277d2dc`.
+- [x] Clean installs, 189 product tests, 29 diagnostics, lint và hai build local PASS. [Báo cáo UI final](../docs/MOBILE_UI_FINAL_REPORT.md) ghi ảnh, replay, model native load và các kiểm tra browser.
+- [ ] Owner review candidate và quyết định nhập vào nhánh tích hợp/main. Task này không tự merge/deploy; bằng chứng local không đóng các mục online/thiết bị/provider bên dưới.
 
 Đây là roadmap hiện tại; [plan V2.2](plan.md) và [todo V2.2](todo.md) chỉ là lịch sử hoàn tất. Không chạy lại các nghiên cứu đó hoặc chỉnh luật để khớp kết quả cũ.
 

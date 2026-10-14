@@ -1,6 +1,12 @@
-> **CURRENT** — Nguồn tài liệu chuẩn cho MVP đang có trên nhánh tích hợp. Cập nhật 13/10/2026 từ code, test và bằng chứng triển khai; không phải đặc tả yêu cầu mới.
+> **CURRENT** — Nguồn tài liệu chuẩn cho MVP và candidate UI tổng hợp. Cập nhật candidate 14/10/2026; giữ các mốc audit/hosting 13/10 đúng phạm vi, không phải đặc tả luật mới.
 
 # MVP hiện tại — Xoay Vòng Tiến Lui V2.4
+
+## Candidate UI tổng hợp — 14/10/2026
+
+Nhánh review mới `codex/mobile-ui-final` dựa trên onboarding `13faa21`, chọn lọc visual từ `277d2dc`; không merge/cherry-pick cả commit UI. [Báo cáo tổng hợp](MOBILE_UI_FINAL_REPORT.md) ghi quyết định, kiểm chứng và ảnh trước/sau. Mốc audit/hosting bên dưới là lịch sử ngày 13/10; candidate này chưa deploy và chưa merge vào main.
+
+Mobile giữ tutorial 6 bước trước lần chơi đầu, Bỏ qua, marker an toàn trên thiết bị và Sổ tay phủ trên panel mà không reset game/input. Setup và Bank dùng thẻ kỳ hạn lấy rate từ profile chính thức: 4% / 5% / 6% mỗi START, tổng lãi đơn 4% / 10% / 18% cuối hạn. HUD chỉ cash, goal progress và debt khi có; tài sản ròng ở Ví. Result tính lawful proceeds, không tự thanh lý. Bàn cờ trong Sổ tay lấy trực tiếp C20; asset minh họa vẫn có các icon lệch đã ghi nhận, không thay luật để khớp ảnh.
 
 ## Phạm vi và thứ tự nguồn chuẩn
 
