@@ -1,0 +1,27 @@
+{
+  "name": "xvtl-mobile-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5174",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 5174"
+  },
+  "dependencies": {
+    "@google/model-viewer": "^4.4.0",
+    "@types/qrcode": "^1.5.6",
+    "@types/three": "0.183.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "three": "0.183.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

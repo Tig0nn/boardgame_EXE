@@ -11,6 +11,8 @@ import { MoneyInput } from './MoneyInput'
 
 export function FundingDialog({ game, onFund }: { game: GameState; onFund: (source: FundingSource, amount: number, lotId?: string) => void }) {
   const payment = game.pendingPayment!
+  const cashEntry = game.log.findLast(entry => entry.after.phase === 'funding' && entry.before.phase !== 'funding')
+  const cashUsed = cashEntry ? Math.max(0, cashEntry.before.portfolio.cash - cashEntry.after.portfolio.cash) : 0
   const sources = fundingSources(game)
   const [source, setSource] = useState<FundingSource>(sources[0])
   const lots = game.deposits.filter(lot => lot.status === 'active')
@@ -25,7 +27,7 @@ export function FundingDialog({ game, onFund }: { game: GameState; onFund: (sour
   return <Modal title="Chọn nguồn thanh toán">
     <span className="section-kicker"><Icon name="wallet" /> CHỌN NGUỒN THANH TOÁN</span><h2>Bạn còn thiếu {money(payment.remaining)}.</h2>
     <p className="modal-lead">{payment.title}. Tiền mặt sẵn có đã dùng trước; chọn lần lượt các nguồn theo ý bạn.</p>
-    <div className="funding-progress"><span>Tổng cần trả: {money(payment.total)}</span><span>Đã trả: {money(payment.total - payment.remaining)}</span></div>
+    <div className="funding-progress"><span>Tổng cần trả: {money(payment.total)}</span><span>Đã dùng tiền mặt: {money(cashUsed)}</span><span>Đã trả tổng cộng: {money(payment.total - payment.remaining)}</span></div>
     <fieldset className="funding-sources"><legend>Nguồn tiền hợp lệ</legend>{sources.map(item => <button key={item} type="button" className={`funding-source ${item === source ? 'selected' : ''}`} aria-pressed={item === source} onClick={() => {
       setSource(item); setInput(item === 'debt' ? Math.min(payment.remaining, borrowingAvailable(game)) : game.portfolio[item])
     }}><Icon name={item === 'debt' ? 'receipt' : ASSETS[item].icon} size={18} /><span>{item === 'debt' ? 'Vay phần còn thiếu' : item === 'savings' ? 'Rút toàn khoản tiết kiệm' : `Bán ${ASSETS[item].label.toLowerCase()}`}</span><strong>{money(item === 'debt' ? borrowingAvailable(game) : game.portfolio[item])}</strong></button>)}</fieldset>

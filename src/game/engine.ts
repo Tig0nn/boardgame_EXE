@@ -11,7 +11,7 @@ import { createSavingsProfile, savingsProfileForMode } from './savings.ts'
 import { businessRulesForGame } from './business.ts'
 import { encounterRulesForGame } from './encounters.ts'
 import { customerPreferenceForLap } from './customer-preferences.ts'
-import type { BusinessRulesVersion, EncounterRulesVersion, FundingSource, GameModeId, GameState, Option, Term, SavingsProfileId } from './types.ts'
+import type { BusinessRulesVersion, EncounterRulesVersion, FundingSource, GameModeId, GameState, Option, Term, SavingsProfileId, StockCatalogVersion } from './types.ts'
 export { snapshot } from './state.ts'
 export { netWorth, totalWorth, victory } from './selectors.ts'
 export { rebalance, transact, withdrawSavings, fundingSources } from './transactions.ts'
@@ -27,7 +27,7 @@ function forecast(s: GameState): GameState {
   }
   return next
 }
-export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId, replayProfile?: SavingsProfileId, businessRulesVersion: BusinessRulesVersion = 'v2.4-customer-preferences', encounterRulesVersion: EncounterRulesVersion = 'v2.4-business-purchase-complete'): GameState {
+export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId, replayProfile?: SavingsProfileId, businessRulesVersion: BusinessRulesVersion = 'v2.4-customer-preferences', encounterRulesVersion: EncounterRulesVersion = 'v2.4-business-purchase-complete', stockCatalogVersion?: StockCatalogVersion): GameState {
   if (!Number.isFinite(savings) || !Number.isInteger(savings) || savings < 0 || savings > RULES.startingCapital) throw new Error('Phân bổ tiết kiệm không hợp lệ.')
   const selected = gameMode(mode ?? 'original')
   const state: GameState = {
@@ -44,7 +44,7 @@ export function createGame(seed: string, savings: number, term: Term = 1, mode?:
     savingsEligible: true, savingsMatured: false, recurringIncome: RULES.recurringIncome,
     unlockedAssets: [], pendingCost: 0, pendingPayment: null, settlement: null,
     obligations: 0, pendingLanding: false, summaries: [], log: [],
-    deposits: [], market: initializeMarket(seed.trim() || 'xoay-vong'), stockHoldings: {}, goldUnits: 0, goldCostBasis: 0, bondLots: [],
+    deposits: [], market: initializeMarket(seed.trim() || 'xoay-vong', stockCatalogVersion), stockHoldings: {}, goldUnits: 0, goldCostBasis: 0, bondLots: [],
     business: { capital: 0, recoverableCapital: 0, upgrades: {}, economicMultiplier: 1 },
     coursePurchased: false, borrowingLimit: RULES.borrowingLimit, termination: null,
     portfolio: { cash: RULES.startingCapital, savings: 0, stocks: 0, bonds: 0, gold: 0, business: 0, debt: 0 },

@@ -1,3 +1,5 @@
+> **SUPERSEDED** — Checklist V2.2 đã hoàn tất, không phải việc còn thiếu của MVP V2.4. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](../docs/CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này. Roadmap hiện tại: [tasks/current.md](current.md).
+
 # V2.2
 
 - [x] Đọc báo cáo và code tài chính hiện tại.

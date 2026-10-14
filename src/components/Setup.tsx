@@ -13,7 +13,7 @@ export function Setup({ onStart }: { onStart: (seed: string, savings: number, te
   const selected = gameMode(mode)
   const rates = savingsProfileForMode(mode).rates
   const [savings, setSavings] = useState(20_000_000)
-  const [seed, setSeed] = useState('SAIGON-2026')
+  const [seed, setSeed] = useState('')
   const [term, setTerm] = useState<Term>(1)
   return <main className="setup-page">
     <section className="setup-story">
@@ -40,7 +40,7 @@ export function Setup({ onStart }: { onStart: (seed: string, savings: number, te
       <label className="seed-label" htmlFor="initial-term">Kỳ hạn khoản gửi đầu ván</label><select id="initial-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} lần qua START · {Math.round(rates[value] * 100)}% lãi game/vòng</option>)}</select>
       <p className="inline-note"><Icon name="info" size={16} /> Đáo hạn tại START vòng {term}, gốc + {money(Math.round(savings * rates[term] * term))} lãi về tiền mặt. Rút toàn khoản trước hạn mất toàn bộ lãi chưa trả.</p>
       <label className="seed-label" htmlFor="seed">Mã hạt giống <span>Cùng mã, cùng chuỗi ngẫu nhiên</span></label>
-      <input id="seed" className="text-input" value={seed} maxLength={64} onChange={e => setSeed(e.target.value)} placeholder="VD: SAIGON-2026" />
+      <input id="seed" className="text-input" value={seed} maxLength={64} onChange={e => setSeed(e.target.value)} placeholder="Để trống: ván ngẫu nhiên mới" />
       </details>
       <GoalChecks />
       <p className="setup-footnote">Sau {selected.totalLaps} vòng, cần đạt cả hai điều kiện để chiến thắng.</p>

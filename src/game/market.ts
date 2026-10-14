@@ -1,13 +1,14 @@
-import { ECONOMY, MACRO_EVENTS, SCENARIOS, STOCKS } from '../data/config.ts'
+import { ECONOMY, MACRO_EVENTS, SCENARIOS } from '../data/config.ts'
+import { stockCatalog } from '../data/stock-catalog.ts'
 import { hashSeed, random } from './random.ts'
 import { copyState, draw, record, snapshot } from './state.ts'
-import type { GameState, MarketInstrument, MarketState, PricePoint } from './types.ts'
+import type { GameState, MarketInstrument, MarketState, PricePoint, StockCatalogVersion } from './types.ts'
 
-export function initializeMarket(seed: string): MarketState {
+export function initializeMarket(seed: string, catalogVersion?: StockCatalogVersion): MarketState {
   const historySeed = hashSeed(`${seed}:history-v2`)
   let rng = historySeed
   const sample = () => { const result = random(rng); rng = result[1]; return result[0] }
-  const stocks = STOCKS.map(stock => ({ ...stock, currentPrice: ECONOMY.market.initialStockPrice, priceHistory: [] as PricePoint[] }))
+  const stocks = stockCatalog(catalogVersion).map(stock => ({ ...stock, currentPrice: ECONOMY.market.initialStockPrice, priceHistory: [] as PricePoint[] }))
   const gold: MarketInstrument = { currentPrice: ECONOMY.market.initialGoldPrice, priceHistory: [] }
   const bond: MarketInstrument = { currentPrice: ECONOMY.bond.facePrice, priceHistory: [] }
   const historicalChange = (instrument: MarketInstrument, rate: number, timestamp: number) => {
@@ -35,7 +36,7 @@ export function initializeMarket(seed: string): MarketState {
   }
   stocks.forEach(stock => rebase(stock, ECONOMY.market.initialStockPrice))
   rebase(gold, ECONOMY.market.initialGoldPrice); rebase(bond, ECONOMY.bond.facePrice)
-  return { historySeed, stocks, gold, bond, appliedShocks: [], normalLaps: [] }
+  return { ...(catalogVersion ? { catalogVersion } : {}), historySeed, stocks, gold, bond, appliedShocks: [], normalLaps: [] }
 }
 
 function change(instrument: MarketInstrument, rate: number, s: GameState, kind: 'normal' | 'shock', eventId?: string) {

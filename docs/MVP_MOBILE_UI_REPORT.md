@@ -1,3 +1,5 @@
+> **HISTORICAL** — Responsive mobile của root Web tại src/, không phải ứng dụng minh họa trong mobile_app/. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # Web MVP mobile — Xoay Vòng Tiến Lui V2.2
 
 Ngày kiểm chứng: 11/10/2026. Nhánh: `feat/mvp-mobile-ui`.

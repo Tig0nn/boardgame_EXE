@@ -25,7 +25,7 @@ export function MarketDetails({ game, asset, symbolId }: { game: GameState; asse
   if (asset === 'stocks') {
     const stock = game.market.stocks.find(stock => stock.id === (symbolId ?? selected))!
     const holding = game.stockHoldings[stock.id]
-    return <div className="market-details">{!symbolId && <><label htmlFor="view-symbol">Mã cổ phiếu hư cấu</label><select id="view-symbol" className="text-input" value={selected} onChange={event => setSelected(event.target.value)}>{game.market.stocks.map(stock => <option key={stock.id} value={stock.id}>{stock.id} · {stock.name}</option>)}</select></>}
+    return <div className="market-details">{!symbolId && <><label htmlFor="view-symbol">Mã cổ phiếu</label><select id="view-symbol" className="text-input" value={selected} onChange={event => setSelected(event.target.value)}>{game.market.stocks.map(stock => <option key={stock.id} value={stock.id}>{stock.id} · {stock.name}</option>)}</select></>}
       <p><b>{stock.name}</b> · {SECTORS[stock.sector]} · Biến động riêng ±{stock.volatility * 100}%/vòng (tham số thử nghiệm)</p>
       <p>Giá mua {money(stock.currentPrice)}/đơn vị · Phí bán {ECONOMY.tradeFees.stocks * 100}% · Đang giữ {(holding?.units ?? 0).toFixed(4)} đơn vị</p>
       <PriceChart instrument={stock} label={stock.id} />
