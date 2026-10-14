@@ -1,9 +1,10 @@
 import { useRef, useState } from 'react'
+import type { ReactNode } from 'react'
 import { ASSETS, ECONOMY, SCENARIOS, SECTORS } from '../data/config'
 import { businessRulesForGame, businessUpgradeUnlocked } from '../game/business'
 import { money, percent } from '../game/format'
 import { businessOverview, depositPreview, purchasePreview, stockQuote } from '../game/selectors'
-import type { Asset, GameState, RebalanceAction, Term } from '../game/types'
+import type { Asset, GameState, RebalanceAction, Term, TradableAsset } from '../game/types'
 import { MarketDetails } from './MarketDetails'
 import { MoneyInput } from './MoneyInput'
 import { savingsProfileForGame } from '../game/savings'
@@ -11,7 +12,7 @@ import { encounterActionUsed, singleActionEncounters } from '../game/encounters'
 import { BusinessPanel } from './BusinessPanel'
 import { SavingsTerms } from './SavingsTerms'
 
-export function TradingPanel({ game, onTransaction, onSkip, compact = false }: { game: GameState; onTransaction: (action: RebalanceAction) => boolean | void; onSkip: () => void; compact?: boolean }) {
+export function TradingPanel({ game, onTransaction, onSkip, compact = false, marketContext }: { game: GameState; onTransaction: (action: RebalanceAction) => boolean | void; onSkip: () => void; compact?: boolean; marketContext?: (asset: TradableAsset, symbolId: string) => ReactNode }) {
   const tile = game.eventId as Asset | 'bank'
   const [amount, setAmount] = useState(tile === 'bonds' ? ECONOMY.bondTicket : tile === 'gold' ? ECONOMY.goldTicket : ECONOMY.stockTicket)
   const [symbolId, setSymbolId] = useState(game.market.stocks[0].id)
@@ -80,8 +81,9 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false }: {
       <p>Đến hạn: START vòng {deposit.maturityLap} · Nhận lãi {money(deposit.interest)}</p>
       {deposit.maturityLap > game.totalLaps && <p className={compact ? 'inline-note' : 'financial-warning'}>Đến hạn sau khi hết ván; rút sớm mất lãi chưa nhận.</p>}
     </>}
-    {tile === 'bonds' && <p>Giá {money(game.market.bond.currentPrice)}/đơn vị · Lãi {ECONOMY.bond.coupon * 100}% mệnh giá/vòng · Kỳ hạn {ECONOMY.bond.term} START.{!compact && ' Bán sớm có thể lỗ vốn.'}</p>}
+    {tile === 'bonds' && <p>Giá {money(game.market.bond.currentPrice)}/đơn vị · Lãi {ECONOMY.bond.coupon * 100}% mệnh giá/vòng · Kỳ hạn {ECONOMY.bond.term} START · Phí bán {ECONOMY.tradeFees.bonds * 100}%.{!compact && ' Bán sớm có thể lỗ vốn.'}</p>}
     {tile === 'gold' && <p>Giá {money(game.market.gold.currentPrice)}/đơn vị · Khi bán: chênh lệch {ECONOMY.goldSpread * 100}% + phí {ECONOMY.tradeFees.gold * 100}%.{!compact && ' Không có lãi định kỳ.'}</p>}
+    {tile !== 'bank' && marketContext?.(tile, symbolId)}
     <label htmlFor="trade-amount">Số tiền {tile === 'bank' ? 'gửi' : 'mua'}</label><MoneyInput id="trade-amount" amount={amount} onChange={setAmount} invalid={!preview.valid} />
     <div className="trade-remaining"><span>Tiền mặt sau giao dịch</span><strong>{preview.cashAfter === null ? '—' : money(preview.cashAfter)}</strong></div>
     {!preview.valid && <p className="input-error" role="status">{preview.error}</p>}

@@ -53,6 +53,7 @@ export function Tutorial({ firstTime, onClose }: { firstTime: boolean; onClose: 
       <details key={index}><summary>Luật chi tiết</summary><p>{step.detail}</p>
         {index === 1 && <BoardGuide />}
         {index === 3 && <p>Kỳ hạn 1 / 2 / 3 START: lãi đơn cuối kỳ lần lượt 4% / 10% / 18% tiền gốc. Giá thị trường là dữ liệu hư cấu trong game; không phải giá giao dịch thực tế.</p>}
+        {index === 3 && <p>Đầu vòng đọc Bản tin thị trường; tại ô mua mở “Xem tín hiệu thị trường”. Cuối vòng, “Dự báo vs. Thực tế” cho biết giá đã đổi ra sao, không phải lãi đầu tư của bạn. Quán vẫn dùng sở thích khách, không dùng bảng dự báo này.</p>}
         {index === 5 && <><p>Game tính nguồn tiền có thể huy động theo báo giá hợp lệ, không tự tạo giao dịch thanh lý toàn bộ tài sản.</p><p>AI Coach là gợi ý tùy chọn, có thể không sẵn sàng hoặc nhận xét sai. Hãy đối chiếu với nhật ký ván chơi.</p></>}
       </details>
     </section>

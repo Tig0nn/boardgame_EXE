@@ -4,6 +4,7 @@ import { money } from '../../../src/game/format'
 import type { GameState, RebalanceAction } from '../../../src/game/types'
 import { Modal } from '../../../src/components/Modal'
 import { TradingPanel } from '../../../src/components/TradingPanel'
+import { MarketSignal } from './MarketNews'
 
 export function EventModal({ game, onChoose, onTransaction, onHelp }: {
   game: GameState; onChoose: (id: string) => void; onTransaction: (action: RebalanceAction) => boolean | void; onHelp?: () => void
@@ -17,7 +18,8 @@ export function EventModal({ game, onChoose, onTransaction, onHelp }: {
     <h2>{title}</h2>
     {!trading && <p>{event.id === 'living' ? 'Đến lúc chăm lo cho cuộc sống.' : event.id === 'course' ? 'Học một lần, tăng lương cho những vòng còn lại.' : event.category === 'shock' && !event.options.some(option => option.cost || option.obligation) ? 'Thị trường vừa thay đổi. Cơ hội mới đang chờ bạn!' : event.description}</p>}
     <p className="event-cash">Tiền mặt: <strong>{money(game.portfolio.cash)}</strong></p>
-    {trading && <TradingPanel key={`${game.turn}-${game.log.length}`} game={game} compact onTransaction={onTransaction} onSkip={() => onChoose('skip')} />}
+    {trading && <TradingPanel key={`${game.turn}-${game.log.length}`} game={game} compact onTransaction={onTransaction} onSkip={() => onChoose('skip')}
+      marketContext={(asset, symbolId) => <MarketSignal game={game} asset={asset} symbolId={symbolId} />} />}
     {event.id === 'course' && !canChoose(game, 'upgrade') && <p className="inline-note">{game.coursePurchased ? 'Bạn đã hoàn thành khóa học này.' : 'Chưa đủ tiền mặt cho khóa học.'}</p>}
     {event.options.filter(() => event.id !== 'stocks').map(option => <button key={option.id}
       className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}>

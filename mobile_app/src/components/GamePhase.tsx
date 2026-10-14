@@ -1,4 +1,4 @@
-import { Forecast } from '../../../src/components/Forecast'
+import { EconomicBulletin } from './MarketNews'
 import { Modal } from '../../../src/components/Modal'
 import { exportLog } from '../../../src/exportLog'
 import type { GameState } from '../../../src/game/types'
@@ -14,8 +14,8 @@ export function GamePhase({ game, send, onRestart, onHelp }: {
   game: GameState; send: (command: MobileCommand) => boolean; onRestart: () => void; onHelp?: () => void
 }) {
   switch (PHASE_UI[game.phase]) {
-    case 'forecast': return <Modal title={`Dự báo vòng ${game.lap}`} onHelp={onHelp}>
-      <h2>Dự báo vòng {game.lap}</h2><Forecast game={game} />
+    case 'forecast': return <Modal title={`Bản tin thị trường vòng ${game.lap}`} onHelp={onHelp} className="news-sheet">
+      <EconomicBulletin game={game} />
       <button className="button primary full-button" onClick={() => send({ type: 'advance' })}>Bắt đầu vòng {game.lap}</button>
     </Modal>
     case 'event': return <EventModal game={game} onHelp={onHelp} onChoose={id => send({ type: 'choose', id })} onTransaction={action => send({ type: 'trade', action })} />
