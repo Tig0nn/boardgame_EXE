@@ -9,6 +9,7 @@ import { MoneyInput } from './MoneyInput'
 import { savingsProfileForGame } from '../game/savings'
 import { encounterActionUsed, singleActionEncounters } from '../game/encounters'
 import { BusinessPanel } from './BusinessPanel'
+import { SavingsTerms } from './SavingsTerms'
 
 export function TradingPanel({ game, onTransaction, onSkip, compact = false }: { game: GameState; onTransaction: (action: RebalanceAction) => boolean | void; onSkip: () => void; compact?: boolean }) {
   const tile = game.eventId as Asset | 'bank'
@@ -75,7 +76,7 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false }: {
       <label htmlFor="trade-symbol">Mã cổ phiếu · {SECTORS[quote.stock.sector]}</label><select id="trade-symbol" className="text-input" value={symbolId} onChange={event => setSymbolId(event.target.value)}>{game.market.stocks.map(stock => <option key={stock.id} value={stock.id}>{stock.id} · {stock.name}</option>)}</select>
       <div className="trade-facts"><div><span>Giá / đơn vị</span><strong>{money(quote.stock.currentPrice)}</strong></div><div><span>Thay đổi gần nhất</span><strong>{percent(quote.recent.returnRate)}</strong>{!compact && <small>{quote.recent.kind === 'history' ? 'Lịch sử giả lập trước ván' : `Vòng ${quote.recent.lap} · Lượt ${quote.recent.timestamp}`}</small>}</div>{!compact && <div><span>Đang nắm giữ</span><strong>{quote.units.toLocaleString('vi-VN', { maximumFractionDigits: 4 })} đơn vị</strong></div>}</div>
     </>}
-    {tile === 'bank' && <><label htmlFor="deposit-term">Kỳ hạn (lần qua START)</label><select id="deposit-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} kỳ · Lãi {Math.round(rates[value] * 100)}%/kỳ</option>)}</select>
+    {tile === 'bank' && <>{compact ? <SavingsTerms name="deposit-term" term={term} rates={rates} onChange={setTerm} /> : <><label htmlFor="deposit-term">Kỳ hạn (lần qua START)</label><select id="deposit-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} kỳ · Lãi {Math.round(rates[value] * 100)}%/kỳ</option>)}</select></>}
       <p>Đến hạn: START vòng {deposit.maturityLap} · Nhận lãi {money(deposit.interest)}</p>
       {deposit.maturityLap > game.totalLaps && <p className={compact ? 'inline-note' : 'financial-warning'}>Đến hạn sau khi hết ván; rút sớm mất lãi chưa nhận.</p>}
     </>}

@@ -3,6 +3,7 @@ import { Modal } from '../../../src/components/Modal'
 import { RULES, ECONOMY } from '../../../src/data/config'
 import { money } from '../../../src/game/format'
 import { Icon } from '../../../src/components/Icon'
+import { C20_BOARD } from '../../../src/data/board'
 
 const steps = [
   { title: 'Từ vốn nhỏ, tới ước mơ lớn', tag: 'ĐÍCH ĐẾN CỦA BẠN',
@@ -25,6 +26,10 @@ const steps = [
     detail: 'Mua món đồ 80 triệu và giữ ít nhất 10 triệu dự phòng: cần tổng 90 triệu nguồn tiền hợp lệ sau phí, nợ và nghĩa vụ. Nếu chưa đủ hoặc hết khả năng thanh toán, hãy thử một hành trình mới. Sổ tay luôn ở ngay trên màn hình để bạn xem lại bất cứ lúc nào.' },
 ]
 
+export function BoardGuide() {
+  return <ol className="rulebook-board">{C20_BOARD.map(tile => <li key={tile.index} value={tile.index + 1}><Icon name={tile.icon} size={16} /> {tile.label}</li>)}</ol>
+}
+
 export function Tutorial({ firstTime, onClose }: { firstTime: boolean; onClose: () => void }) {
   const [index, setIndex] = useState(0)
   const heading = useRef<HTMLHeadingElement>(null)
@@ -45,7 +50,11 @@ export function Tutorial({ firstTime, onClose }: { firstTime: boolean; onClose: 
       {index === 3 && <ul className="tutorial-earn"><li><span>🏦 Tiết kiệm</span><b>Nhận gốc + lãi khi đến hạn</b></li><li><span>📈 Cổ phiếu</span><b>Mua ở ô · Bán tại START</b></li><li><span>🧋 Mở quán</span><b>+{money(ECONOMY.business.baseIncome)} / START</b></li><li><span>📚 Khóa học</span><b>Lương +{money(RULES.courseBoost)} / vòng</b></li></ul>}
       {index === 4 && <><div className="tutorial-bill"><span>Sinh hoạt khi dừng đúng ô</span><strong>{money(RULES.livingCost)}</strong></div><p className="tutorial-tip">Tiền mặt → Rút tiết kiệm / Bán tài sản / Vay</p></>}
       {index === 5 && <div className="tutorial-goal"><div><small>Món đồ mơ ước</small><strong>80 triệu</strong></div><span aria-hidden="true">+</span><div><small>Tiền dự phòng</small><strong>10 triệu</strong></div></div>}
-      <details key={index}><summary>Luật chi tiết</summary><p>{step.detail}</p></details>
+      <details key={index}><summary>Luật chi tiết</summary><p>{step.detail}</p>
+        {index === 1 && <BoardGuide />}
+        {index === 3 && <p>Kỳ hạn 1 / 2 / 3 START: lãi đơn cuối kỳ lần lượt 4% / 10% / 18% tiền gốc. Giá thị trường là dữ liệu hư cấu trong game; không phải giá giao dịch thực tế.</p>}
+        {index === 5 && <><p>Game tính nguồn tiền có thể huy động theo báo giá hợp lệ, không tự tạo giao dịch thanh lý toàn bộ tài sản.</p><p>AI Coach là gợi ý tùy chọn, có thể không sẵn sàng hoặc nhận xét sai. Hãy đối chiếu với nhật ký ván chơi.</p></>}
+      </details>
     </section>
     <footer className="tutorial-actions"><button className="button secondary" disabled={index === 0} onClick={() => navigate(index - 1)}>Quay lại</button>
       <button className="button primary" onClick={() => index === steps.length - 1 ? onClose() : navigate(index + 1)}>{index === steps.length - 1 ? firstTime ? 'Sẵn sàng chơi!' : 'Đóng sổ tay' : 'Tiếp theo →'}</button></footer>

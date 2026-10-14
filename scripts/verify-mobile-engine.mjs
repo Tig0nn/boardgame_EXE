@@ -18,7 +18,7 @@ await server?.listen()
 const browser = await chromium.launch({ channel: 'chrome', headless: true })
 const page = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
 const base = process.env.UI_URL || 'http://127.0.0.1:5186'
-const folder = process.env.MVP_EVIDENCE_DIR || 'docs/playtests/mobile-onboarding'
+const folder = process.env.MVP_EVIDENCE_DIR || 'docs/playtests/mobile-ui-final'
 mkdirSync(folder, { recursive: true })
 const errors = []; const consoleErrors = []; const checkpoints = []; const widths = [320, 390, 430, 1440]
 page.on('pageerror', e => errors.push(e.message))
@@ -44,6 +44,11 @@ for (const width of widths) {
   await page.screenshot({ path: `${folder}/${width}-setup.png` })
 }
 await page.setViewportSize({ width: 390, height: 844 })
+await page.getByRole('radio', { name: '2 START · 5% mỗi START · 10% cuối kỳ', exact: true }).check()
+await page.getByRole('dialog', { name: 'Bắt đầu hành trình' }).getByRole('button', { name: 'Mở sổ tay', exact: true }).click()
+await page.getByRole('dialog', { name: 'Sổ tay hành trình' }).getByRole('button', { name: 'Đóng', exact: true }).click()
+assert.equal(await page.getByRole('radio', { name: '2 START · 5% mỗi START · 10% cuối kỳ', exact: true }).isChecked(), true, 'Rulebook preserves the selected savings term')
+await page.getByRole('radio', { name: '1 START · 4% mỗi START · 4% cuối kỳ', exact: true }).check()
 await page.getByText('Chơi lại cùng hành trình', { exact: true }).click()
 const seed = 'mobile-browser-v24'
 await page.getByLabel('Mã hành trình', { exact: true }).fill(seed)

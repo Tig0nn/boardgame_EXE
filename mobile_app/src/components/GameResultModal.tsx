@@ -9,13 +9,19 @@ export function GameResultModal({ game, onRestart, onExport, onHelp }: {
   game: GameState; onRestart: () => void; onExport: () => void; onHelp?: () => void
 }) {
   const won = victory(game).won
+  const funds = liquidatableFunds(game)
+  const target = RULES.goal + RULES.cashGoal
+  const progress = Math.max(0, Math.min(100, funds / target * 100))
   return <Modal title="Kết quả hành trình" onHelp={onHelp} className="game-result">
     <span className="section-kicker">Vòng {game.lap}/{game.totalLaps}</span>
     <div className="result-medal" aria-hidden="true">{won ? '🏆' : '🌱'}</div>
     <h2>{game.termination === 'insolvent' ? 'Hẹn một hành trình mới!' : won ? 'Bạn đã chạm đích!' : 'Thêm một bước trưởng thành'}</h2>
     {game.termination === 'insolvent' && <p>Còn thiếu {money(game.pendingPayment?.remaining ?? 0)}; không còn nguồn hợp lệ.</p>}
-    <div className="result-worth"><span>Nguồn tiền về đích · Sau phí & nợ</span><strong>{money(liquidatableFunds(game))}</strong></div>
-    <p>{won ? 'Đủ cho ước mơ và một khoản dự phòng!' : 'Chưa đủ 90 triệu lần này. Thử một chiến lược mới nhé!'}</p>
+    <div className="result-worth"><span>Nguồn tiền về đích · Sau phí & nợ</span><strong>{money(funds)}</strong>
+      <progress max="100" value={progress} aria-label="Tiến độ nguồn tiền về đích" />
+      <div className="result-progress-labels"><span>{Math.round(progress)}% mục tiêu</span><span>{money(target)}</span></div>
+    </div>
+    <p>{won ? 'Đủ cho ước mơ và một khoản dự phòng!' : game.termination === 'insolvent' ? 'Hành trình dừng vì không còn nguồn thanh toán.' : `Còn ${money(Math.max(0, target - funds))} để chạm đích. Thử một chiến lược mới nhé!`}</p>
     <button className="button primary full-button" onClick={onRestart}>Chơi hành trình mới</button>
     <details><summary>Nhìn lại hành trình</summary><AICoachPanel game={game} /></details>
     <details><summary>Chi tiết kết quả & nhật ký</summary>

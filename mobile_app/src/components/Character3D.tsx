@@ -22,6 +22,19 @@ export const Character3D: React.FC<Character3DProps> = ({
   const resetTimerRef = useRef<number | null>(null);
   const [isWaving, setIsWaving] = useState(false);
 
+  // Expose the real custom-element load result as DOM evidence. Browser DOM snapshots
+  // do not necessarily expose model-viewer's JavaScript-only `loaded` getter.
+  useEffect(() => {
+    const viewer = modelViewerRef.current as (HTMLElement & { loaded?: boolean }) | null;
+    if (!viewer) return;
+    const ready = () => { viewer.dataset.modelStatus = 'ready'; viewer.dataset.modelLoaded = String(viewer.loaded === true); };
+    const failed = () => { viewer.dataset.modelStatus = 'error'; viewer.dataset.modelLoaded = 'false'; };
+    viewer.addEventListener('load', ready);
+    viewer.addEventListener('error', failed);
+    if (viewer.loaded) ready();
+    return () => { viewer.removeEventListener('load', ready); viewer.removeEventListener('error', failed); };
+  }, []);
+
   // Tính toán góc nhìn camera-orbit để mặt và mắt nhân vật luôn hướng về phía ô cờ tiếp theo
   const getOrbitThetaForDirection = (dx: number, dy: number): number => {
     // Sector 1: Lên-Trái (Tiles 0 -> 5)
@@ -167,6 +180,7 @@ export const Character3D: React.FC<Character3DProps> = ({
       >
         <model-viewer
           ref={modelViewerRef}
+          data-model-status="loading"
           src="/assets/character.glb"
           alt="3D Young Student Mascot"
           autoplay
