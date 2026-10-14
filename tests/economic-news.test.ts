@@ -85,6 +85,7 @@ test('no future round, future timestamp, or hidden event leaks into bulletin/rev
   assert.deepEqual(marketBulletin(hidden), marketBulletin(game))
   assert.deepEqual(roundMarketReview(hidden).shocks, [])
   assert.equal(investmentSignal(hidden, 'gold').returnRate, null)
+  assert.equal(investmentSignal(hidden, 'gold').price, game.market.gold.currentPrice)
   assert.equal(roundMarketReview(hidden, 2).forecastId, null)
 })
 
@@ -120,6 +121,15 @@ test('reading all news selectors is deterministic and leaves RNG, snapshots and 
     assert.deepEqual(roundMarketReview(game), one)
   }
   assert.equal(JSON.stringify(game), before)
+})
+
+test('truncated logs or a missing opening shock never masquerade as complete round returns', () => {
+  const game = beginSettlement(applyMacroShock({ ...createMobileGame('truncated', 0), turn: 1 }, 'credit-tightening'))
+  const noOpening = { ...game, log: game.log.filter(entry => entry.kind !== 'setup' && !(entry.kind === 'market' && entry.eventId)) }
+  assert.equal(roundMarketReview(noOpening).assets[2].returnRate, null)
+  const lostShock = structuredClone(game)
+  lostShock.market.gold.priceHistory = lostShock.market.gold.priceHistory.filter(point => point.kind !== 'shock')
+  assert.equal(roundMarketReview(lostShock).assets[2].returnRate, null)
 })
 
 test('four complete rounds with news opened at every step keep full-state replay and START boundaries', () => {

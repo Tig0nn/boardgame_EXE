@@ -16,6 +16,8 @@ function roundSource(game: GameState, lap: number) {
   if (!start) return null
   const scenario = SCENARIOS.find(value => value.id === start.scenarioId)
   if (!scenario) return null
+  // A truncated log starting after a price change cannot establish the opening boundary.
+  if (assets.some(asset => instruments(start, asset).some(instrument => instrument.priceHistory.some(point => point.kind !== 'history' && point.lap === lap)))) return null
   const normal = game.log.find(entry => entry.kind === 'market' && entry.after.lap === lap
     && entry.after.market.normalLaps.includes(lap) && !entry.before.market.normalLaps.includes(lap))
   return { start, scenario, endTurn: normal?.after.turn ?? game.turn }
@@ -32,11 +34,11 @@ export function marketBulletin(game: GameState, lap = game.lap) {
   }
 }
 
-function observations(instrument: MarketInstrument | undefined, lap: number, startTurn: number, endTurn: number): PricePoint[] | null {
+function observations(instrument: MarketInstrument | undefined, lap: number, startTurn: number, endTurn: number, openingPrice?: number): PricePoint[] | null {
   if (!instrument) return null
   const points = instrument.priceHistory.filter(point => point.kind !== 'history' && point.lap === lap
     && point.timestamp >= startTurn && point.timestamp <= endTurn)
-  if (!points.length || points.some((point, index) => !Number.isFinite(point.priceBefore) || !Number.isFinite(point.priceAfter)
+  if (!points.length || (openingPrice !== undefined && points[0].priceBefore !== openingPrice) || points.some((point, index) => !Number.isFinite(point.priceBefore) || !Number.isFinite(point.priceAfter)
     || point.priceBefore <= 0 || point.priceAfter <= 0
     || (index > 0 && (point.timestamp < points[index - 1].timestamp || point.priceBefore !== points[index - 1].priceAfter)))) return null
   return points
@@ -57,7 +59,8 @@ export function roundMarketReview(game: GameState, lap = game.lap) {
   const endTurn = source ? Math.min(source.endTurn, game.turn) : game.turn
   const result = bulletin.assets.map(item => {
     const values = instruments(game, item.asset).map(instrument => {
-      const points = source ? observations(instrument, lap, source.start.turn, endTurn) : null
+      const opening = source ? instruments(source.start, item.asset).find(value => !('id' in instrument) || ('id' in value && value.id === instrument.id)) : undefined
+      const points = source && opening ? observations(instrument, lap, source.start.turn, endTurn, opening.currentPrice) : null
       return { label: 'id' in instrument ? String(instrument.id) : item.label, returnRate: observedReturn(points, true) }
     })
     const complete = values.length > 0 && values.every(value => value.returnRate !== null)
@@ -85,7 +88,7 @@ export function investmentSignal(game: GameState, asset: TradableAsset, symbolId
   const instrument = asset === 'stocks' ? game.market.stocks.find(stock => stock.id === (symbolId ?? game.market.stocks[0]?.id))
     : asset === 'bonds' ? game.market.bond : game.market.gold
   const initial = source ? instruments(source.start, asset).find(value => asset !== 'stocks' || ('id' in value && value.id === (symbolId ?? game.market.stocks[0]?.id))) : undefined
-  const points = source ? observations(instrument, game.lap, source.start.turn, game.turn) : null
+  const points = source && initial ? observations(instrument, game.lap, source.start.turn, game.turn, initial.currentPrice) : null
   return { ...marketBulletin(game).assets.find(item => item.asset === asset)!,
     label: asset === 'stocks' && instrument && 'id' in instrument ? String(instrument.id) : ASSETS[asset].label,
     price: points?.at(-1)?.priceAfter ?? initial?.currentPrice ?? null,
