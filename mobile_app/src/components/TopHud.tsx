@@ -8,6 +8,7 @@ interface TopHudProps {
   targetGoal: number;
   isMuted?: boolean;
   onToggleMute?: () => void;
+  onOpenRulebook?: () => void;
 }
 
 export const TopHud: React.FC<TopHudProps> = ({
@@ -18,6 +19,7 @@ export const TopHud: React.FC<TopHudProps> = ({
   targetGoal,
   isMuted = false,
   onToggleMute,
+  onOpenRulebook,
 }) => {
   const formatMoney = (val: number) => {
     return (val / 1_000_000).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) + 'M ₫';
@@ -79,13 +81,13 @@ export const TopHud: React.FC<TopHudProps> = ({
             </div>
           </div>
 
-          {/* Cụm Phải: Thanh tiến độ & Nút âm thanh */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginLeft: '8px' }}>
-            <div style={{ width: 'clamp(48px, 18vw, 100px)' }}>
+          {/* Cụm Phải: Thanh tiến độ, Nút Sổ tay & Nút âm thanh */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginLeft: '6px', flexShrink: 0 }}>
+            <div style={{ width: 'clamp(36px, 14vw, 75px)' }}>
               <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                fontSize: '11px',
+                fontSize: '10px',
                 fontWeight: 700,
                 marginBottom: '3px',
                 color: '#E0F2FE',
@@ -110,24 +112,53 @@ export const TopHud: React.FC<TopHudProps> = ({
               </div>
             </div>
 
+            {/* Nút Sổ Tay Luật Chơi */}
+            {onOpenRulebook && (
+              <button
+                onClick={onOpenRulebook}
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  background: 'transparent',
+                  border: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '20px',
+                  cursor: 'pointer',
+                  color: '#FFFFFF',
+                  boxShadow: 'none',
+                  transition: 'transform 0.15s ease, opacity 0.15s ease',
+                  flexShrink: 0,
+                  padding: 0,
+                }}
+                aria-label="Sổ tay luật chơi"
+                title="Sổ tay luật chơi"
+              >
+                📖
+              </button>
+            )}
+
             {/* Nút Âm Thanh */}
             {onToggleMute && (
               <button
                 onClick={onToggleMute}
                 style={{
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: '50%',
-                  background: isMuted ? 'rgba(239, 68, 68, 0.35)' : 'rgba(56, 189, 248, 0.25)',
-                  border: isMuted ? '1.5px solid rgba(239, 68, 68, 0.6)' : '1.5px solid rgba(56, 189, 248, 0.55)',
+                  width: '36px',
+                  height: '36px',
+                  background: 'transparent',
+                  border: 'none',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: '15px',
+                  fontSize: '19px',
                   cursor: 'pointer',
                   color: '#FFFFFF',
-                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.25)',
-                  transition: 'all 0.15s ease',
+                  boxShadow: 'none',
+                  transition: 'transform 0.15s ease, opacity 0.15s ease',
+                  flexShrink: 0,
+                  padding: 0,
+                  opacity: isMuted ? 0.65 : 1,
                 }}
                 title={isMuted ? 'Bật âm thanh' : 'Tắt âm thanh'}
               >

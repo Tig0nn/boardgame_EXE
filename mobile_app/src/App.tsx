@@ -16,6 +16,7 @@ import { FloatingMoney } from './components/FloatingMoney'
 import type { MoneyParticle } from './components/FloatingMoney'
 import { GameSetup } from './components/GameSetup'
 import { GamePhase } from './components/GamePhase'
+import { RulebookModal } from './components/RulebookModal'
 import { createMobileGame, createMobileSession, movementPath } from './game/session'
 import type { MobileCommand } from './game/session'
 import { sound } from './utils/audio'
@@ -31,7 +32,7 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
   const game = useSyncExternalStore(session.subscribe, session.getSnapshot)
   const [animation, setAnimation] = useState<'dice' | 'pause' | 'moving' | null>(null)
   const [animatedTile, setAnimatedTile] = useState(0)
-  const [overlay, setOverlay] = useState<'portfolio' | 'log' | null>(null)
+  const [overlay, setOverlay] = useState<'portfolio' | 'log' | 'rulebook' | null>(null)
   const [muted, setMuted] = useState(false)
   const [notice, setNotice] = useState('')
   const [particles, setParticles] = useState<MoneyParticle[]>([])
@@ -94,7 +95,8 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
     <MobileContainer overlay={<>
       <TopHud cash={game.portfolio.cash} debt={game.portfolio.debt} netWorth={totalWorth(game)}
         lawfulProceeds={liquidatableFunds(game)} targetGoal={RULES.goal + RULES.cashGoal} isMuted={muted}
-        onToggleMute={() => { const next = !muted; sound.isMuted = next; setMuted(next); if (next) sound.stopBgm(); else { sound.unlockAudio(); sound.startBgm() } }} />
+        onToggleMute={() => { const next = !muted; sound.isMuted = next; setMuted(next); if (next) sound.stopBgm(); else { sound.unlockAudio(); sound.startBgm() } }}
+        onOpenRulebook={() => { if (!busy.current) setOverlay('rulebook') }} />
       <BottomControls onRollClick={rollDice} disabled={disabled} lastDiceValue={game.dice || undefined}
         onPortfolioClick={() => { if (!busy.current) setOverlay('portfolio') }}
         onLogClick={() => { if (!busy.current) setOverlay('log') }} />
@@ -109,15 +111,24 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
     {!animation && !overlay && <GamePhase game={game} send={send} onRestart={onRestart} />}
     {overlay === 'portfolio' && <PortfolioDrawer game={game} onClose={() => setOverlay(null)} />}
     {overlay === 'log' && <LogDialog game={game} onClose={() => setOverlay(null)} />}
+    {overlay === 'rulebook' && <RulebookModal onClose={() => setOverlay(null)} />}
     {notice && <Modal title="Không thể thực hiện" onClose={() => setNotice('')}><p role="alert">{notice}</p></Modal>}
   </>
 }
 
 export default function App() {
   const [session, setSession] = useState<Session | null>(null)
+  const [showRulebook, setShowRulebook] = useState(false)
+
   if (session) return <GameExperience session={session} onRestart={() => setSession(null)} />
   return <>
-    <MobileContainer><BoardView currentTileIndex={0} tileCoordinates={coordinates} lap={1} totalLaps={4} /></MobileContainer>
-    <GameSetup onStart={(seed, savings, term) => setSession(createMobileSession(createMobileGame(seed, savings, term)))} />
+    <MobileContainer>
+      <BoardView currentTileIndex={0} tileCoordinates={coordinates} lap={1} totalLaps={4} />
+    </MobileContainer>
+    <GameSetup
+      onStart={(seed, savings, term) => setSession(createMobileSession(createMobileGame(seed, savings, term)))}
+      onOpenRulebook={() => setShowRulebook(true)}
+    />
+    {showRulebook && <RulebookModal onClose={() => setShowRulebook(false)} />}
   </>
 }
