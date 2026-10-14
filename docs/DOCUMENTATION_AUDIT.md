@@ -18,6 +18,8 @@ Follow-up sau commit docs `5c91a8c`: PR head đã khớp và working tree sạch
 
 Follow-up 14/10/2026: thêm [report candidate UI tổng hợp](MOBILE_UI_FINAL_REPORT.md), inventory hiện có 27 Markdown (9 CURRENT, 13 HISTORICAL, 5 SUPERSEDED). Các kết quả 26 Markdown/367 links và docs-only diff ở phần audit 13/10 bên dưới vẫn là bằng chứng lịch sử, không phải claim cho candidate code mới. Chỉ cập nhật inventory/checker contract, không chạy lại audit hoặc thay nội dung archives.
 
+Follow-up 15/10/2026: thêm [report Economic News V1](ECONOMIC_NEWS_V1_REPORT.md); inventory mới 28 Markdown (10 CURRENT, 13 HISTORICAL, 5 SUPERSEDED). Giữ nguyên các mốc audit/CI cũ; checker mặc định dùng cho candidate code, không áp dụng guard docs-only.
+
 CURRENT = đang duy trì; HISTORICAL = bản ghi implementation/research/verification ở mốc cũ; SUPERSEDED = spec/prompt/guide/task đã được thay cho việc sử dụng hiện tại, vẫn giữ lịch sử. Một report V2.4 vẫn có thể HISTORICAL vì số test, deployment và phạm vi test chỉ đúng ở thời điểm ghi.
 
 | Tệp Markdown (đường dẫn repository) | Phân loại | Quyết định và phạm vi |
@@ -31,6 +33,7 @@ CURRENT = đang duy trì; HISTORICAL = bản ghi implementation/research/verific
 | [docs/DOCUMENTATION_AUDIT.md](DOCUMENTATION_AUDIT.md) | CURRENT | Inventory, contradiction matrix, validation và preservation |
 | [docs/PR8_FINAL_REVIEW.md](PR8_FINAL_REVIEW.md) | CURRENT | Giữ chronology gốc; follow-up dated cập nhật deployment/CI/limits |
 | [docs/MOBILE_UI_FINAL_REPORT.md](MOBILE_UI_FINAL_REPORT.md) | CURRENT | Candidate tổng hợp UI 14/10, validation local và quyết định chọn visual; không phải deployment |
+| [docs/ECONOMIC_NEWS_V1_REPORT.md](ECONOMIC_NEWS_V1_REPORT.md) | CURRENT | Candidate tin kinh tế 15/10; nguồn forecast, ranh giới giá, cú sốc và bằng chứng local |
 | [docs/XVTL_GAME_SPEC_V2.md](XVTL_GAME_SPEC_V2.md) | SUPERSEDED | Spec V2 10/10/2026; current mode/catalog/AI đã thay đổi |
 | [docs/V2_IMPLEMENTATION_REPORT.md](V2_IMPLEMENTATION_REPORT.md) | HISTORICAL | Triển khai V2 10–11/10/2026, 81 tests và browser ba vòng ở mốc cũ |
 | [docs/V2_BALANCE_REPORT.md](V2_BALANCE_REPORT.md) | HISTORICAL | 55.000 ván heuristic V2, không phải V2.4 production measurement |
@@ -125,7 +128,7 @@ for (const file of files) {
   assert.equal(inventory.get(file), status, `Inventory status mismatch: ${file}`);
   counts[status]++;
 }
-assert.deepEqual(counts, { CURRENT: 9, HISTORICAL: 13, SUPERSEDED: 5 });
+assert.deepEqual(counts, { CURRENT: 10, HISTORICAL: 13, SUPERSEDED: 5 });
 
 function knownTarget(absolute) {
   const relative = path.relative(root, absolute).replaceAll('\\', '/');

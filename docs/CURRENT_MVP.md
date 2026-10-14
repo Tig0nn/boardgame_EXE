@@ -1,6 +1,12 @@
-> **CURRENT** — Nguồn tài liệu chuẩn cho MVP và candidate UI tổng hợp. Cập nhật candidate 14/10/2026; giữ các mốc audit/hosting 13/10 đúng phạm vi, không phải đặc tả luật mới.
+> **CURRENT** — Nguồn tài liệu chuẩn cho MVP và candidate Mobile. Cập nhật Economic News 15/10/2026; giữ các mốc audit/hosting 13/10 đúng phạm vi, không phải đặc tả luật mới.
 
 # MVP hiện tại — Xoay Vòng Tiến Lui V2.4
+
+## Economic News V1 — candidate 15/10/2026
+
+Nhánh `codex/economic-news-v1` từ `codex/mobile-ui-final` tại `b97b16c` thêm Bản tin Kinh tế & Thị trường trong phase forecast, so sánh Dự báo vs. Thực tế tại START và mục mở rộng ở ô Cổ phiếu/Trái phiếu/Vàng. [Báo cáo và bằng chứng](ECONOMIC_NEWS_V1_REPORT.md) ghi 203 product tests, 34 diagnostics và ván browser replay đủ bốn vòng. Đây là validation local, chưa deploy/merge candidate hoặc xác minh Actions mới.
+
+Selector chỉ đọc scenario/snapshot đầu vòng và lịch sử giá đã xảy ra đến cập nhật START của đúng vòng. Tỷ lệ là giá cuối / giá đầu − 1, gồm các cú sốc đã công khai một lần; cổ phiếu dùng bình quân cùng trọng số giữa các mã. Không phải lợi nhuận danh mục, không gồm coupon/phí. Thiếu đầu vòng hoặc chuỗi giá đầy đủ thì hiện “Chưa đủ dữ liệu”. Không thêm RNG, state field, nguồn tin thật hoặc lời khuyên chắc thắng. Business vẫn tách riêng: sở thích khách quyết định thưởng vận hành, thị trường chỉ có thể đổi giá thu hồi; tiết kiệm giữ lãi cố định theo kỳ hạn.
 
 ## Candidate UI tổng hợp — 14/10/2026
 

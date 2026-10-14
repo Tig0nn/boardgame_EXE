@@ -1,6 +1,13 @@
-> **CURRENT** — Roadmap MVP V2.4 và candidate UI tổng hợp; cập nhật 14/10/2026. Nguồn trạng thái sản phẩm: [CURRENT_MVP.md](../docs/CURRENT_MVP.md).
+> **CURRENT** — Roadmap MVP V2.4 và candidate Mobile; cập nhật 15/10/2026. Nguồn trạng thái sản phẩm: [CURRENT_MVP.md](../docs/CURRENT_MVP.md).
 
 # Việc đang hoạt động — Mobile V2.4 và PR #8
+
+## Economic News V1 — 15/10/2026
+
+- [x] Bản tin đầu vòng, Dự báo vs. Thực tế tại START, context mở rộng theo tài sản/mã cổ phiếu; không đưa Business vào bảng thị trường.
+- [x] Selector đọc snapshot/history, giữ dự báo gốc, không đếm lại cú sốc hoặc lộ tương lai; fallback khi thiếu dữ liệu.
+- [x] 203 product tests, 34 diagnostics, lint và cả hai build PASS; browser 320/390/430, log ván thật bốn vòng replay đầy đủ. [Báo cáo](../docs/ECONOMIC_NEWS_V1_REPORT.md).
+- [ ] Owner review `codex/economic-news-v1`; chưa merge/deploy, chưa xác minh CI mới hoặc thiết bị vật lý.
 
 ## Candidate UI tổng hợp — 14/10/2026
 
