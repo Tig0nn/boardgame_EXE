@@ -20,6 +20,7 @@ import { RulebookModal } from './components/RulebookModal'
 import { createMobileGame, createMobileSession, movementPath } from './game/session'
 import type { MobileCommand } from './game/session'
 import { sound } from './utils/audio'
+import { syncGameSnapshot, startNewLiveSession } from './telemetry/liveSync'
 import './engine-ui.css'
 
 // Coordinates are artwork metadata; category/order/labels come from the official C20 board.
@@ -47,6 +48,11 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
     return () => window.removeEventListener('pointerdown', unlock)
   }, [])
 
+  // Tự động đồng bộ trạng thái ván game thời gian thực sang Admin Portal
+  useEffect(() => {
+    syncGameSnapshot(game, totalWorth(game), liquidatableFunds(game))
+  }, [game])
+
   const send = (command: MobileCommand): boolean => {
     if (busy.current || Date.now() < nextActionAt.current) return false
     try {
@@ -55,12 +61,14 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
       nextActionAt.current = Date.now() + 300
       setNotice('')
       sound.playClick()
-      const delta = session.getSnapshot().portfolio.cash - game.portfolio.cash
+      const nextSnapshot = session.getSnapshot()
+      const delta = nextSnapshot.portfolio.cash - game.portfolio.cash
       if (delta) {
         const id = String(++particleId.current)
         setParticles([{ id, text: `${delta > 0 ? '+' : ''}${money(delta)}`, type: delta > 0 ? 'gain' : 'loss', x: 470, y: 1100 }])
         if (delta > 0) sound.playCoin(); else sound.playPay()
       }
+      syncGameSnapshot(nextSnapshot, totalWorth(nextSnapshot), liquidatableFunds(nextSnapshot), `Giao dịch: ${command.type}`, delta)
       return true
     } catch (error) { setNotice(error instanceof Error ? error.message : 'Không thể thực hiện hành động.'); return false }
   }
@@ -89,6 +97,7 @@ export function GameExperience({ session, onRestart }: { session: Session; onRes
     busy.current = false
     setAnimation(null)
     sound.playEventShow()
+    syncGameSnapshot(rolled, totalWorth(rolled), liquidatableFunds(rolled), `Đổ được [${rolled.dice}] tới ô #${rolled.position}`)
   }
   const disabled = !!animation || !!overlay || game.phase !== 'rolling'
   return <>
@@ -126,7 +135,10 @@ export default function App() {
       <BoardView currentTileIndex={0} tileCoordinates={coordinates} lap={1} totalLaps={4} />
     </MobileContainer>
     <GameSetup
-      onStart={(seed, savings, term) => setSession(createMobileSession(createMobileGame(seed, savings, term)))}
+      onStart={(seed, savings, term) => {
+        startNewLiveSession()
+        setSession(createMobileSession(createMobileGame(seed, savings, term)))
+      }}
       onOpenRulebook={() => setShowRulebook(true)}
     />
     {showRulebook && <RulebookModal onClose={() => setShowRulebook(false)} />}
