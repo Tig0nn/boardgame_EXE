@@ -33,6 +33,10 @@ export function validateConfig(c) {
   if (!Number.isInteger(c.economy.rules.laps) || c.economy.rules.laps<1 || c.economy.initialSavings<0 || c.economy.initialSavings>c.economy.rules.startingCapital) throw Error('Invalid allocation/laps')
   const check=v=>{ if(typeof v==='number'&&!Number.isFinite(v)) throw Error('Non-finite parameter'); if(v&&typeof v==='object')Object.values(v).forEach(check) }; check(c)
   if(c.economy.personalActivation<0||c.economy.personalActivation>1)throw Error('Invalid activation')
+  if(![1,2,3].includes(c.economy.initialTerm)||!Number.isSafeInteger(c.economy.initialSavings))throw Error('Invalid initial allocation term')
+  for(const weights of [c.economy.personalWeights,c.economy.macroWeights])if(weights.length!==3||weights.some(w=>w<0)||weights.reduce((a,b)=>a+b,0)<=0)throw Error('Invalid event weights')
+  for(const issuer of c.economy.issuers)for(const key of ['delay','default','cure','recovery'])if(issuer[key]<0||issuer[key]>1)throw Error('Invalid credit probability/recovery')
+  for(const value of [c.economy.livingCost,c.economy.rules.startingCapital,c.economy.rules.recurringIncome,c.economy.rules.courseCost,c.goal.amount,c.goal.reserve])if(!Number.isSafeInteger(value)||value<0)throw Error('Invalid monetary parameter')
   return c
 }
 export function makeLayouts() {

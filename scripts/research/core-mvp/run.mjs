@@ -1,13 +1,14 @@
-import { mkdirSync, readFileSync, writeFileSync, rmSync, existsSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { spawn, execFileSync } from 'node:child_process'
 import { gzipSync } from 'node:zlib'
-import { createAdapter, hash, sourceManifest } from './adapter.mjs'
+import { pathToFileURL } from 'node:url'
+import { createAdapter, sourceManifest, cleanupAdapter } from './adapter.mjs'
 import { baselineConfig, makeLayouts, dicePath, opportunityMetrics, rng, TYPES } from './spec.mjs'
 import { mean, distribution } from './stats.mjs'
 import { POLICIES, BROAD_POLICIES } from './policy.mjs'
 
-export const out=resolve('docs/research/core-mvp')
+export const out=resolve(process.env.CORE_MVP_LAB_OUT??'docs/research/core-mvp')
 mkdirSync(out,{recursive:true})
 export const save=(name,value)=>writeFileSync(join(out,name),JSON.stringify(value,null,2)+'\n')
 export const load=name=>JSON.parse(readFileSync(join(out,name),'utf8'))
@@ -78,7 +79,7 @@ export async function financial(phase,configs,count,policies,concurrency=4){
     try{
       await new Promise((ok,fail)=>{const child=spawn(process.execPath,['--experimental-strip-types',join(dir,'scripts/research/core-mvp/worker.mjs'),join(dir,'config.json'),join(dir,'job.json'),target],{stdio:['ignore','pipe','pipe'],windowsHide:true});let errors='';child.stdout.on('data',x=>process.stdout.write(x));child.stderr.on('data',x=>errors+=x);child.on('error',fail);child.on('exit',code=>code===0?ok():fail(Error(errors)))})
       completed++;console.log(`${phase}: ${completed}/${configs.length}`)
-    }finally{rmSync(dir,{recursive:true,force:true})}
+    }finally{cleanupAdapter(dir)}
   }}
   await Promise.all(Array.from({length:Math.min(concurrency,configs.length)},worker))
   if(JSON.stringify(source)!==JSON.stringify(sourceManifest()))throw Error('Source changed during study')
@@ -86,14 +87,14 @@ export async function financial(phase,configs,count,policies,concurrency=4){
   save(`${phase}-results.json`,{phase,started,finished:new Date().toISOString(),elapsedSeconds:(Date.now()-Date.parse(started))/1000,games:summaries.reduce((n,s)=>n+s.games,0),summaries})
   return summaries
 }
-if(process.argv[1]===new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/,'$1').replaceAll('/','\\')||resolve(process.argv[1]??'')===new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/,'$1').replaceAll('/','\\')){
+if(process.argv[1]&&pathToFileURL(resolve(process.argv[1])).href===import.meta.url){
   const phase=process.argv[2]
   if(phase==='dice')screen(Number(process.argv[3]??10000))
   else if(phase==='benchmark'){const c=baselineConfig();c.economy.initialSavings=0;await financial('benchmark',[c],Number(process.argv[3]??30),POLICIES,1)}
   else if(phase==='broad')await financial('broad',broadCandidates(),Number(process.argv[3]??200),BROAD_POLICIES)
   else if(phase==='shortlist')await financial('shortlist',load('shortlist-configs.json').configs,Number(process.argv[3]??1000),POLICIES)
   else if(phase==='holdout'){
-    if(existsSync(join(out,'holdout-results.json')))throw Error('Holdout already exists; never tune and overwrite it')
+    if(existsSync(join(out,'holdout-manifest.json')))throw Error('Holdout already exists; use a fresh CORE_MVP_LAB_OUT directory to reproduce, never tune and overwrite it')
     await financial('holdout',load('frozen-configs.json').configs,Number(process.argv[3]??5000),POLICIES)
   }else throw Error('Use dice|benchmark|broad|shortlist|holdout')
 }

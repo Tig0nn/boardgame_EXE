@@ -1,10 +1,9 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { validateConfig, baselineConfig, makeLayouts, dicePath, opportunityMetrics } from './spec.mjs'
-import { createAdapter, sourceManifest } from './adapter.mjs'
+import { createAdapter, sourceManifest, cleanupAdapter } from './adapter.mjs'
 import { pathToFileURL } from 'node:url'
 import { join } from 'node:path'
-import { rmSync } from 'node:fs'
 import { createGame } from '../../../src/game/engine.ts'
 
 test('candidate has exactly the approved types and one START', () => {
@@ -47,7 +46,7 @@ test('pristine isolated engine produces the exact production setup, including RN
   try{
     const engine=await import(pathToFileURL(join(dir,'src/game/engine.ts')))
     assert.deepEqual(engine.createGame('CLONE',20e6,3,'experimental-b'),createGame('CLONE',20e6,3,'experimental-b'))
-  }finally{rmSync(dir,{recursive:true,force:true})}
+  }finally{cleanupAdapter(dir)}
 })
 test('modified engine runs all policies, final START count and replay deterministically; production unchanged', async () => {
   const before=sourceManifest(),c=baselineConfig();c.economy.rules.laps=5;c.economy.rules.startingCapital=55e6;c.economy.initialSavings=0
@@ -57,5 +56,10 @@ test('modified engine runs all policies, final START count and replay determinis
     const {replayResearch}=await import(pathToFileURL(join(dir,'scripts/research/core-mvp/replay.mjs')))
     for(const policy of POLICIES){const a=play('ADAPTER-1',policy,c,{trace:true}),b=play('ADAPTER-1',policy,c,{trace:true});assert.deepEqual(a,b);assert.equal(a.state.summaries.length,5);assert.ok(a.row.proceeds>=0);replayResearch(a.state,c)}
     assert.deepEqual(sourceManifest(),before)
-  }finally{rmSync(dir,{recursive:true,force:true})}
+  }finally{cleanupAdapter(dir)}
+})
+test('candidate rejects invalid event probabilities and cleanup targets',()=>{
+  const c=baselineConfig();c.economy.macroWeights=[0,0,0];assert.throws(()=>validateConfig(c),/weights/)
+  const d=baselineConfig();d.economy.issuers[0].recovery=1.1;assert.throws(()=>validateConfig(d),/recovery/)
+  assert.throws(()=>cleanupAdapter(process.cwd()),/Refusing cleanup/)
 })

@@ -4,7 +4,7 @@ import { gunzipSync } from 'node:zlib'
 import { rng } from './research/core-mvp/spec.mjs'
 import { mean, distribution, paired, aggregate } from './research/core-mvp/stats.mjs'
 import { hash } from './research/core-mvp/adapter.mjs'
-const out=resolve('docs/research/core-mvp')
+const out=resolve(process.env.CORE_MVP_LAB_OUT??'docs/research/core-mvp')
 const load=p=>JSON.parse(readFileSync(join(out,p),'utf8'))
 const save=(p,v)=>writeFileSync(join(out,p),JSON.stringify(v,null,2)+'\n')
 const raw=(phase,id)=>JSON.parse(gunzipSync(readFileSync(join(out,phase,`${id}.rows.json.gz`))))
@@ -73,10 +73,19 @@ export function finalize(){
       byPolicy[p]={...s.policies[p],selectionWin:selection.policies[p].won.rate,holdoutMinusSelection:s.policies[p].won.rate-selection.policies[p].won.rate,medianBootstrap:bootstrap(group,'proceeds',sample)}
     }
     const seedClusters=new Map();for(const r of rows){const group=seedClusters.get(r.seed)??[];group.push(r);seedClusters.set(r.seed,group)}
+    const intentional=Object.keys(s.policies).filter(p=>!['cash','novice'].includes(p)),bestShare=Object.fromEntries(intentional.map(p=>[p,0])),headToHead={}
+    for(const group of seedClusters.values()){
+      const active=group.filter(r=>intentional.includes(r.policy)),best=Math.max(...active.map(r=>r.proceeds)),winners=active.filter(r=>r.proceeds===best)
+      for(const r of winners)bestShare[r.policy]+=1/winners.length/seedClusters.size
+    }
+    for(const p of intentional){headToHead[p]={};for(const q of intentional)if(p!==q){
+      const a=rows.filter(r=>r.policy===p),b=rows.filter(r=>r.policy===q),bySeed=new Map(b.map(r=>[r.seed,r]))
+      headToHead[p][q]={pairedProceeds:paired(a,b,'proceeds'),strictlyBetterSeedRate:mean(a.map(r=>r.proceeds>bySeed.get(r.seed).proceeds)),noWorseEverySeed:a.every(r=>r.proceeds>=bySeed.get(r.seed).proceeds)}
+    }}
     const seedMeans=[...seedClusters.values()].map(g=>({won:mean(g.map(r=>Number(r.won))),proceeds:mean(g.map(r=>r.proceeds))}))
     const clusterWin=[];for(let b=0;b<400;b++)clusterWin.push(mean(Array.from({length:seedMeans.length},()=>seedMeans[Math.floor(sample()*seedMeans.length)].won)))
     clusterWin.sort((a,b)=>a-b)
-    comparison.push({id:c.id,config:c,axes:axes(s),policies:byPolicy,pairedAgainstCash:s.pairedAgainstCash,clusterWin95:[clusterWin[10],clusterWin[390]],
+    comparison.push({id:c.id,config:c,axes:axes(s),policies:byPolicy,pairedAgainstCash:s.pairedAgainstCash,bestProceedsSeedShare:bestShare,headToHead,clusterWin95:[clusterWin[10],clusterWin[390]],
       note:c.economy.initialSavings===0?'cash policy is pure cash; all policies start with zero savings':'cash policy is a passive matched-allocation control with inherited setup savings'})
   }
   save('final-comparison.json',{version:'core-mvp-lab-v1',generatedAt:new Date().toISOString(),shortlistParetoFrozen:frozen.configs.map(c=>c.id),holdoutUsedForSelection:false,

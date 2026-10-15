@@ -1,11 +1,16 @@
-import { cpSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync, readdirSync } from 'node:fs'
+import { cpSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync, readdirSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { join, resolve } from 'node:path'
+import { join, resolve, dirname, basename } from 'node:path'
 import { createHash } from 'node:crypto'
 import { validateConfig, LABELS } from './spec.mjs'
 
 export const root=resolve('.')
 export const hash=value=>createHash('sha256').update(value).digest('hex')
+export function cleanupAdapter(dir){
+  const target=resolve(dir)
+  if(dirname(target)!==resolve(tmpdir())||!basename(target).startsWith('core-mvp-lab-'))throw Error('Refusing cleanup outside the exact temporary adapter parent/prefix')
+  rmSync(target,{recursive:true,force:true})
+}
 export function sourceManifest() {
   const paths=[]
   for(const dir of ['src/game','src/data','scripts/research/core-mvp'])for(const file of readdirSync(join(root,dir)))if(/\.(ts|mjs)$/.test(file))paths.push(`${dir}/${file}`)
