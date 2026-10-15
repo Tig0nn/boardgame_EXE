@@ -24,6 +24,8 @@ Follow-up Atomic Investments 15/10/2026: thêm [report policy encounter](ATOMIC_
 
 Follow-up Bond V2.5 15/10/2026: ba tài liệu candidate thử nghiệm mới, inventory32 Markdown (14CURRENT/13HISTORICAL/5SUPERSEDED). Không chạy lại audit lịch sử hoặc 180.000 ván; chỉ chạy checker mặc định cho link/path/classification và command contracts. Mọi con số mới nằm ở các report V2.5 riêng.
 
+Follow-up START UX 15/10/2026: thêm [report trình bày START](BOND_V2_5_START_UX_REPORT.md), inventory33 Markdown (15 CURRENT/13 HISTORICAL/5 SUPERSEDED). Chỉ cập nhật inventory/checker mặc định; không tái audit tài liệu hoặc thay mechanics/evidence cũ.
+
 CURRENT = đang duy trì; HISTORICAL = bản ghi implementation/research/verification ở mốc cũ; SUPERSEDED = spec/prompt/guide/task đã được thay cho việc sử dụng hiện tại, vẫn giữ lịch sử. Một report V2.4 vẫn có thể HISTORICAL vì số test, deployment và phạm vi test chỉ đúng ở thời điểm ghi.
 
 | Tệp Markdown (đường dẫn repository) | Phân loại | Quyết định và phạm vi |
@@ -42,6 +44,7 @@ CURRENT = đang duy trì; HISTORICAL = bản ghi implementation/research/verific
 | [docs/BOND_V2_5_DESIGN_SPEC.md](BOND_V2_5_DESIGN_SPEC.md) | CURRENT | Đặc tả trước engine, policy riêng và calibration thử nghiệm |
 | [docs/BOND_V2_5_IMPLEMENTATION_REPORT.md](BOND_V2_5_IMPLEMENTATION_REPORT.md) | CURRENT | Engine/UI/AI/compatibility, browser và limitations V2.5 |
 | [docs/BOND_V2_5_BALANCE_REPORT.md](BOND_V2_5_BALANCE_REPORT.md) | CURRENT | Kết quả 12.000 ván cùng seed, sáu chiến thuật và uncertainty |
+| [docs/BOND_V2_5_START_UX_REPORT.md](BOND_V2_5_START_UX_REPORT.md) | CURRENT | START presentation-only, cash/claims/losses, responsive và replay |
 | [docs/XVTL_GAME_SPEC_V2.md](XVTL_GAME_SPEC_V2.md) | SUPERSEDED | Spec V2 10/10/2026; current mode/catalog/AI đã thay đổi |
 | [docs/V2_IMPLEMENTATION_REPORT.md](V2_IMPLEMENTATION_REPORT.md) | HISTORICAL | Triển khai V2 10–11/10/2026, 81 tests và browser ba vòng ở mốc cũ |
 | [docs/V2_BALANCE_REPORT.md](V2_BALANCE_REPORT.md) | HISTORICAL | 55.000 ván heuristic V2, không phải V2.4 production measurement |
@@ -136,7 +139,7 @@ for (const file of files) {
   assert.equal(inventory.get(file), status, `Inventory status mismatch: ${file}`);
   counts[status]++;
 }
-assert.deepEqual(counts, { CURRENT: 14, HISTORICAL: 13, SUPERSEDED: 5 });
+assert.deepEqual(counts, { CURRENT: 15, HISTORICAL: 13, SUPERSEDED: 5 });
 
 function knownTarget(absolute) {
   const relative = path.relative(root, absolute).replaceAll('\\', '/');

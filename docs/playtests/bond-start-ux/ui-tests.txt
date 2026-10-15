@@ -1,0 +1,46 @@
+TAP version 13
+# (node:11692) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 10:54:23 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 10:54:25 AM [vite] (client) [optimizer] scanning dependencies...
+# 10:54:26 AM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: START React UI separates received cash, claims and losses with hidden accounting
+    # Subtest: multiple lots yield one default-visible issuer, amounts reconcile and all details start closed
+    ok 1 - multiple lots yield one default-visible issuer, amounts reconcile and all details start closed
+      ---
+      duration_ms: 59.7487
+      ...
+    # Subtest: delayed principal/coupon is amber, zero receipt neutral, no realized loss
+    ok 2 - delayed principal/coupon is amber, zero receipt neutral, no realized loss
+      ---
+      duration_ms: 19.5074
+      ...
+    # Subtest: default recovery claim is separate from permanent write-down and cash
+    ok 3 - default recovery claim is separate from permanent write-down and cash
+      ---
+      duration_ms: 21.0625
+      ...
+    # Subtest: rendering preserves serialized engine log and news/credit calculations
+    ok 4 - rendering preserves serialized engine log and news/credit calculations
+      ---
+      duration_ms: 67.1635
+      ...
+    # Subtest: no holdings and legacy metadata render gracefully, with raw legacy records
+    ok 5 - no holdings and legacy metadata render gracefully, with raw legacy records
+      ---
+      duration_ms: 31.2551
+      ...
+    1..5
+ok 1 - START React UI separates received cash, claims and losses with hidden accounting
+  ---
+  duration_ms: 7478.063
+  ...
+1..1
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8376.9974

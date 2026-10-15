@@ -1,0 +1,63 @@
+(node:31948) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "file": "docs/playtests/v2_2-b-log.json",
+  "schemaVersion": 5,
+  "seed": "XVTL-V2-6",
+  "mode": "experimental-b",
+  "board": "C20",
+  "laps": 4,
+  "profile": {
+    "id": "v2.2-c20",
+    "rates": {
+      "1": 0.04,
+      "2": 0.05,
+      "3": 0.06
+    }
+  },
+  "rolls": 26,
+  "salaries": 4,
+  "settlements": 4,
+  "deposits": [
+    {
+      "id": "deposit-1",
+      "principal": 30000000,
+      "startLap": 1,
+      "maturityLap": 3,
+      "rate": 0.06,
+      "status": "matured",
+      "earnedInterest": 5400000
+    },
+    {
+      "id": "deposit-2",
+      "principal": 5000000,
+      "startLap": 1,
+      "maturityLap": 1,
+      "rate": 0.04,
+      "status": "matured",
+      "earnedInterest": 200000
+    },
+    {
+      "id": "deposit-3",
+      "principal": 5000000,
+      "startLap": 3,
+      "maturityLap": 4,
+      "rate": 0.05,
+      "status": "matured",
+      "earnedInterest": 500000
+    },
+    {
+      "id": "deposit-4",
+      "principal": 5000000,
+      "startLap": 4,
+      "maturityLap": 4,
+      "rate": 0.04,
+      "status": "matured",
+      "earnedInterest": 200000
+    }
+  ],
+  "lawfulProceeds": 102800000,
+  "remainingAfterPurchase": 22800000,
+  "won": true,
+  "fullSnapshotReplay": true
+}
