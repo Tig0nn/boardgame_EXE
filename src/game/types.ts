@@ -1,6 +1,8 @@
 export type Asset = 'stocks' | 'bonds' | 'gold' | 'business'
 export type GameModeId = 'original' | 'experimental-a' | 'experimental-b'
 export type BoardLayoutId = 'A20' | 'C20'
+export type LivingExpenseRulesVersion = 'v2.4-on-landing' | 'v2.6-periodic-start'
+export type BoardRevision = 'c20-v2.6-a'
 export type TradableAsset = Exclude<Asset, 'business'>
 export type FundingSource = 'savings' | TradableAsset | 'debt'
 export type Phase = 'forecast' | 'rolling' | 'event' | 'funding' | 'summary' | 'rebalancing' | 'finished'
@@ -63,6 +65,9 @@ export interface GameEvent {
   id: string; category: Category; title: string; description: string; options: Option[]
 }
 export interface Snapshot {
+  // Missing metadata means the original on-landing policy and original board.
+  livingExpenseRulesVersion?: LivingExpenseRulesVersion
+  boardRevision?: BoardRevision
   // Absence always preserves the single-issuer historical mechanics.
   bondRulesVersion?: BondRulesVersion
   bondCredit?: BondCreditMarket

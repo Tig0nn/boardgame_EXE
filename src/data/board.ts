@@ -1,4 +1,5 @@
-import type { Category, TileType, BoardLayoutId } from '../game/types.ts'
+import type { Category, TileType, BoardLayoutId, BoardRevision, LivingExpenseRulesVersion } from '../game/types.ts'
+import { hasPeriodicLiving, validateLivingBoard } from '../game/living-expenses.ts'
 
 const layout: [TileType, Category, string, string][] = [
   ['start', 'income', 'Xuất phát', 'flag'], ['bank', 'investment', 'Ngân hàng', 'bank'],
@@ -22,6 +23,14 @@ export const BOARD = layout.map(([type, category, label, icon], index) => {
 export const C20_BOARD = BOARD.map(tile => tile.index === 13
   ? { ...tile, type:'business' as const, category:'investment' as const, label:'Kinh doanh', icon:'shop' }
   : { ...tile })
-export function boardFor(game: { boardLayout: BoardLayoutId }) {
+// Separate immutable meaning: legacy C20 is never redefined by a new candidate.
+export const PERIODIC_C20_BOARD = C20_BOARD.map(tile => tile.index === 3
+  ? { ...tile, type: 'stocks' as const, category: 'investment' as const, label: 'Cổ phiếu', icon: 'chart' }
+  : tile.index === 14
+    ? { ...tile, type: 'gold' as const, category: 'investment' as const, label: 'Vàng', icon: 'gold' }
+    : { ...tile })
+export function boardFor(game: { boardLayout: BoardLayoutId; livingExpenseRulesVersion?: LivingExpenseRulesVersion; boardRevision?: BoardRevision }) {
+  validateLivingBoard(game)
+  if (hasPeriodicLiving(game)) return PERIODIC_C20_BOARD
   return game.boardLayout === 'C20' ? C20_BOARD : BOARD
 }
