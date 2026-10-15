@@ -1,6 +1,12 @@
-> **CURRENT** — Nguồn tài liệu chuẩn cho MVP và candidate Mobile. Cập nhật Economic News 15/10/2026; giữ các mốc audit/hosting 13/10 đúng phạm vi, không phải đặc tả luật mới.
+> **CURRENT** — Nguồn tài liệu chuẩn cho MVP và candidate Mobile. Cập nhật Atomic Investments 15/10/2026; giữ các mốc audit/hosting 13/10 đúng phạm vi, tách policy encounter mới khỏi công thức tài chính.
 
 # MVP hiện tại — Xoay Vòng Tiến Lui V2.4
+
+## Atomic Investment Encounters — candidate 15/10/2026
+
+Nhánh `codex/atomic-investment-encounters` từ Economic News `d990244` áp policy đã phê duyệt `v2.4-atomic-investments` cho phiên người chơi mới ở cả hai UI: Stocks/Gold/Bonds chỉ mua một lần mỗi lần ghé; mua thành công tự về bàn, bỏ qua không mua, giao dịch lỗi không mất cơ hội. Engine chặn mua lại cùng turn kể cả mở lại encounter hoặc đổi mã/tài sản. Bank, Business, START, công thức giá/phí/thu nhập, RNG và selector tin tức không đổi. [Báo cáo và bằng chứng](ATOMIC_INVESTMENT_ENCOUNTERS_REPORT.md): 224 tests, 39 diagnostics, hai builds và ván browser bốn vòng replay PASS; chưa merge/deploy hoặc xác minh Actions mới.
+
+Không migrate phiên đang chạy. Player factory truyền version mới; API `createGame` vẫn giữ mặc định `v2.4-business-purchase-complete`. Replay chọn version trong dữ liệu đã lưu; metadata encounter vắng nghĩa là `legacy-multi-action`. Log Gold/Bonds cũ có mua nhiều lần vẫn hợp lệ theo policy cũ, không áp hạn mức mới khi replay.
 
 ## Economic News V1 — candidate 15/10/2026
 
@@ -30,7 +36,7 @@ MVP là game tài chính tiếng Việt một người chơi, React/TypeScript/V
 | Lương cơ bản | **14.000.000 VND mỗi START** |
 | Mục tiêu | Mua món đồ **80.000.000 VND**, còn ít nhất **10.000.000 VND** dự phòng |
 | Setup mặc định hai UI | Gửi 20.000.000 VND kỳ hạn 1 START, cash 30.000.000 VND; người chơi có thể chỉnh |
-| Luật business / encounter | `v2.4-customer-preferences` / `v2.4-business-purchase-complete` |
+| Luật business / encounter mới | `v2.4-customer-preferences` / `v2.4-atomic-investments` |
 | Profile savings / catalog mới | `v2.2-c20` / `vn-v1` |
 
 Nguồn: [config](../src/data/config.ts), [modes](../src/data/modes.ts), [player factory](../src/game/new-game.ts), [Web setup](../src/components/Setup.tsx), [Mobile setup](../mobile_app/src/components/GameSetup.tsx), [Mobile session](../mobile_app/src/game/session.ts). `RULES.laps = 3` là mặc định API/diagnostic lịch sử; entry point người chơi truyền mode B tường minh và nhận `totalLaps = 4`. Original (3/A20) và Experimental A (4/A20) còn trong code để replay/kiểm thử; không phải lựa chọn mode mặc định của UI hiện tại.
@@ -77,7 +83,7 @@ Thắng khi không insolvent, proceeds ≥ 80 triệu và proceeds − 80 triệ
 
 [Transactions](../src/game/transactions.ts) tạo từng lot độc lập, `maturityLap = startLap + term − 1`, lãi cuối kỳ `round(principal × rate × term)`. Maturity trả gốc/lãi một lần, không tự tái tục. Mỗi encounter Ngân hàng được gửi **một lot mới**, rồi tự đóng; gặp Ngân hàng ở lượt khác vẫn được thêm lot dù còn lot active. Đây là Policy A được duyệt. Rút sớm chỉ phục vụ thiếu tiền bắt buộc, phải rút toàn lot, nhận gốc và mất lãi chưa trả. Lot đáo hạn ngoài màn không nhận lãi giả ở cuối ván; gốc active vẫn được xét khi tính mục tiêu.
 
-Mua tự nguyện chỉ ở đúng ô tài sản và đủ cash; START cho bán stocks/bonds/gold và trả nợ chủ động, không mở mua mới. Mua stock qua UI dùng atomic completion, một mã/một lần dừng ô. Gold/bond không bị áp giới hạn một giao dịch của Bank/business. Các phí dưới đây là **phí bán**, không tự gán thêm phí mua:
+Mua tự nguyện chỉ ở đúng ô tài sản và đủ cash; START cho bán stocks/bonds/gold và trả nợ chủ động, không mở mua mới. Phiên mới mua Stocks/Gold/Bonds một lần mỗi lượt ghé, tự kết thúc encounter; lượt ghé sau được mua tiếp. Gold/Bonds trong các policy lịch sử vẫn mua nhiều lần; Stocks lịch sử chỉ atomic khi action yêu cầu completion. Các phí dưới đây là **phí bán**, không tự gán thêm phí mua:
 
 | Tài sản | Cơ chế hiện hành |
 | --- | --- |

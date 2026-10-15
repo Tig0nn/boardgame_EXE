@@ -2,6 +2,8 @@
 
 # Mobile App — bàn giao V2.4
 
+Candidate Atomic Investments ngày 15/10: `codex/atomic-investment-encounters` từ `d990244`. Player factory mới dùng `v2.4-atomic-investments`: một lần mua Stocks/Gold/Bonds mỗi lượt ghé, tự về bàn; handler/session, giá/phí, Bank và Customer Preferences không đổi. Phiên đang chạy và replay giữ version cũ, không migrate tự động. [Bảng policy và verification](docs/ATOMIC_INVESTMENT_ENCOUNTERS_REPORT.md) ghi đầy đủ; chưa deploy/merge candidate. Ván local đủ 4 vòng/23 rolls đã export và replay exact, khác các mốc hosting lịch sử bên dưới.
+
 Candidate mới ngày 14/10: `codex/mobile-ui-final` giữ foundation `13faa21`, thích ứng visual chọn lọc từ `277d2dc`. [Báo cáo tổng hợp](docs/MOBILE_UI_FINAL_REPORT.md) và [roadmap](tasks/current.md) tách kiểm chứng local mới khỏi các mốc hosting/CI lịch sử bên dưới. Chưa deploy candidate.
 
 Nhánh đang làm việc `feat/mobile-v2-4-engine-integration`, [PR #8](https://github.com/Tig0nn/boardgame_EXE/pull/8) chưa merge. URL: https://boardgame-exe-mobile-preview.vercel.app. Đây là ứng dụng trong `mobile_app/`, khác root Web responsive/SVG. Canvas thiết kế 940 × 1672 được co theo viewport; không phải chứng nhận đã thử trên điện thoại thật.

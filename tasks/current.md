@@ -2,6 +2,13 @@
 
 # Việc đang hoạt động — Mobile V2.4 và PR #8
 
+## Atomic Investment Encounters — 15/10/2026
+
+- [x] Policy mới `v2.4-atomic-investments`: engine chặn mua Stocks/Gold/Bonds lần hai cùng turn, tự hoàn tất sau lần mua hợp lệ; skip/invalid/later visit đúng hành vi.
+- [x] Phiên cũ giữ policy cũ; fixture Gold/Bonds multi-purchase tạo từ baseline trước sửa và log V2.3/V2.4 replay exact. Không thay công thức, Bank/Business/START hoặc Economic News.
+- [x] 224 product tests, 39 diagnostics, lint, Web/Mobile builds; browser 320/390/430, 36 ảnh, ván thật 4 vòng/23 rolls export/replay PASS. [Báo cáo](../docs/ATOMIC_INVESTMENT_ENCOUNTERS_REPORT.md).
+- [ ] Owner review nhánh `codex/atomic-investment-encounters`; chưa merge/deploy hoặc xác minh Actions/thiết bị vật lý.
+
 ## Economic News V1 — 15/10/2026
 
 - [x] Bản tin đầu vòng, Dự báo vs. Thực tế tại START, context mở rộng theo tài sản/mã cổ phiếu; không đưa Business vào bảng thị trường.
