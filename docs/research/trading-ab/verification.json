@@ -1,0 +1,34 @@
+{
+  "verifiedAt": "2026-10-15T18:41:58.735Z",
+  "rowsVerified": 31800,
+  "mainRecordedActionReplays": 60,
+  "workerActionReplays": 120,
+  "allOldArtifacts": {
+    "oldArtifactsVerified": 371,
+    "allExistingTrackedFilesUnchanged": true
+  },
+  "historical": [
+    {
+      "file": "docs/playtests/atomic-investments-v24/historical-multi-purchase.json.gz",
+      "seed": "atomic-history-fixture",
+      "sha256": "edc25c255d7220b266175dd8d410c4e6e5d8f434284a0fb3870d3bb8d6f00d16",
+      "entries": 111
+    },
+    {
+      "file": "docs/playtests/business-v2_3/browser-game-log.json.gz",
+      "seed": "XVTL-V2-0",
+      "sha256": "28397880de6b524894daf409607e954f0180b36ea516a3cbb911184742e5aaab",
+      "entries": 103
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/simulation-victory.json.gz",
+      "seed": "BOND-V25-0",
+      "sha256": "97a3cee4fb803fd83494610519ee210ec4e41d7365ffdb686b722fa6fc567ce3",
+      "entries": 92
+    }
+  ],
+  "phaseSeedsDisjoint": true,
+  "pairedPathsAndMarketsMatch": true,
+  "negativeControlIdentical": true,
+  "finalQA": false
+}

@@ -1,0 +1,305 @@
+{
+  "generatedAt": "2026-10-15T18:41:59.111Z",
+  "files": [
+    {
+      "path": "analysis-source.json.gz",
+      "sha256": "1de8c6e1b36328acf96bfd5444f414eb375008a3f1892521d4526f08fce74f46",
+      "normalization": "binary"
+    },
+    {
+      "path": "asset-trades.csv",
+      "sha256": "5bbf10a90fe1a9ca0a303a4a536796d65d2b4a03a8dce58f805bbd5734261ab1",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "comparison.json",
+      "sha256": "fc58f1bc49852f621989b108db3bca60838f4bdffbcd93d10da43b450b39864f",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control/interaction-business-access.new.config.json",
+      "sha256": "378ca6de3d77a9be60c5a632c9df087f4c93ccfd2b1a69c01bbe1912e04420c4",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control/interaction-business-access.new.examples.json.gz",
+      "sha256": "fbf5ffeb0399f3f074a1738e85dffdd494b294d481686348ff09d62b3b6f0102",
+      "normalization": "binary"
+    },
+    {
+      "path": "control/interaction-business-access.new.rows.json.gz",
+      "sha256": "b3630b790a8ca4fe48d619a71dc589be81576ebad5a3ff267375dca409efb466",
+      "normalization": "binary"
+    },
+    {
+      "path": "control/interaction-business-access.new.summary.json",
+      "sha256": "d649b429015af0df41acac5c80745e64ed2fb4133bee33e77432155de1407db2",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control/interaction-business-access.old.config.json",
+      "sha256": "378ca6de3d77a9be60c5a632c9df087f4c93ccfd2b1a69c01bbe1912e04420c4",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control/interaction-business-access.old.examples.json.gz",
+      "sha256": "0d8010de3ce1f167806048c65c460cd662702ba13db366e5be8faa766c02f993",
+      "normalization": "binary"
+    },
+    {
+      "path": "control/interaction-business-access.old.rows.json.gz",
+      "sha256": "05e3ca62479bbd2f6442944749fb1204eeae0a9c50fbc86fac29a95db6f1e961",
+      "normalization": "binary"
+    },
+    {
+      "path": "control/interaction-business-access.old.summary.json",
+      "sha256": "1b2520bedae55086ad0a3db35aa4a32cecfa629ad62aa6a5fdedb9728609bc29",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control/interaction-learning-liquidity.new.config.json",
+      "sha256": "85bf4b4160c978fed8d2de3e590d3cc1e2c5f9a4b9215089b193c791dd3f2d25",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control/interaction-learning-liquidity.new.examples.json.gz",
+      "sha256": "818c1a5c1189d8b457cab2fe72ea81b50b5bfc89edb1b89bc9f05b2f2a916aba",
+      "normalization": "binary"
+    },
+    {
+      "path": "control/interaction-learning-liquidity.new.rows.json.gz",
+      "sha256": "23a4ecddf55c8fd532903c9a60b9d0af3dc7c05020bb0d9f77a3be1cb33a2f4f",
+      "normalization": "binary"
+    },
+    {
+      "path": "control/interaction-learning-liquidity.new.summary.json",
+      "sha256": "15364c87152a7ec3d705a224010c9d068f3681614694b72def5dcaac8885fdc3",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control/interaction-learning-liquidity.old.config.json",
+      "sha256": "85bf4b4160c978fed8d2de3e590d3cc1e2c5f9a4b9215089b193c791dd3f2d25",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control/interaction-learning-liquidity.old.examples.json.gz",
+      "sha256": "55f90301915434d90ff67ab0e8d1554f8bcbada345cac088e095711c0b1ef30e",
+      "normalization": "binary"
+    },
+    {
+      "path": "control/interaction-learning-liquidity.old.rows.json.gz",
+      "sha256": "a0cdde678a53664f54e2a3fe0ef843d4961c1c0bf80e4cae55dd240f2ef91fd4",
+      "normalization": "binary"
+    },
+    {
+      "path": "control/interaction-learning-liquidity.old.summary.json",
+      "sha256": "bdb239c522bdec24222f8ea8c19ed9e774e9f4fbfa9e08ee02a255ca6b2c83c4",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control/n20-h5-learning-p1.new.config.json",
+      "sha256": "2dd91f64bfafce79a7f414bcb659abd746b0842a70748ba70f8ca4e2ccc91f78",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control/n20-h5-learning-p1.new.examples.json.gz",
+      "sha256": "6c58a0b5f8c58538ae29f0cdfad81747fca723a0f03d8bec1742084b32c02330",
+      "normalization": "binary"
+    },
+    {
+      "path": "control/n20-h5-learning-p1.new.rows.json.gz",
+      "sha256": "ecfb587184edc614911dfad4fc56c26af8717da6b3c7186d3b86e1e5572dbac2",
+      "normalization": "binary"
+    },
+    {
+      "path": "control/n20-h5-learning-p1.new.summary.json",
+      "sha256": "2a09f56f7bd67fb324239622b17784599e701efebc031e1d95c86443b1abbea4",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control/n20-h5-learning-p1.old.config.json",
+      "sha256": "2dd91f64bfafce79a7f414bcb659abd746b0842a70748ba70f8ca4e2ccc91f78",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control/n20-h5-learning-p1.old.examples.json.gz",
+      "sha256": "b296d18535573294a754f1d2a43f709a673fa0f3fddef7517f7075ef1d1edcae",
+      "normalization": "binary"
+    },
+    {
+      "path": "control/n20-h5-learning-p1.old.rows.json.gz",
+      "sha256": "b645eee976e41351a4187bff6b0701eaafb422cc598dfef33be5f9382066d0c5",
+      "normalization": "binary"
+    },
+    {
+      "path": "control/n20-h5-learning-p1.old.summary.json",
+      "sha256": "eee438cc76a969a8e31ce8dab7af950f4af56f4a036136b77eca2fce3a0d9da0",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control-manifest.json",
+      "sha256": "4e6a8a8b142c8b0e9e1280606f860c7b01b58db060ee9e1a4f83b2428cab0f67",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control-results.json",
+      "sha256": "3df6ac05131122c708d689bf4a55830e00723b4441d093ba4e684cf12538a787",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "control-source.json.gz",
+      "sha256": "d1dd4c6653ad317aad2c54414121bda4e2984fd84a55853b05dc406e5ad622c9",
+      "normalization": "binary"
+    },
+    {
+      "path": "direct-comparison.csv",
+      "sha256": "a80e04ed654f9547f1e4461093a433a70a28f48dd39db9af098e76a78f517bff",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main/interaction-business-access.new.config.json",
+      "sha256": "378ca6de3d77a9be60c5a632c9df087f4c93ccfd2b1a69c01bbe1912e04420c4",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main/interaction-business-access.new.examples.json.gz",
+      "sha256": "53eb021add8c819cf398fdcb63ce1d55711b20117d5812a61bb3423ebcf4791e",
+      "normalization": "binary"
+    },
+    {
+      "path": "main/interaction-business-access.new.rows.json.gz",
+      "sha256": "01cf16cb1dff783ceb28913d99c6aa47036d308cfbf9d2b1ce13f832599b2d40",
+      "normalization": "binary"
+    },
+    {
+      "path": "main/interaction-business-access.new.summary.json",
+      "sha256": "1681ddfea7be372efbe3a0982fa7b48715551d9dec3eda53834afef5dac54820",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main/interaction-business-access.old.config.json",
+      "sha256": "378ca6de3d77a9be60c5a632c9df087f4c93ccfd2b1a69c01bbe1912e04420c4",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main/interaction-business-access.old.examples.json.gz",
+      "sha256": "9d10d1482bcd06ecff4360fe79b68ef81e171a17ddd1c7dc29f68ada109da441",
+      "normalization": "binary"
+    },
+    {
+      "path": "main/interaction-business-access.old.rows.json.gz",
+      "sha256": "a1f7be198d2bdea8305071f1b6ee6b3237d54c5a437a42c37bc2d0a6b96013b7",
+      "normalization": "binary"
+    },
+    {
+      "path": "main/interaction-business-access.old.summary.json",
+      "sha256": "d275abb161c499e997d1634c6dc86fc5f81188ce10afef43ccb528353c48a0f6",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main/interaction-learning-liquidity.new.config.json",
+      "sha256": "85bf4b4160c978fed8d2de3e590d3cc1e2c5f9a4b9215089b193c791dd3f2d25",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main/interaction-learning-liquidity.new.examples.json.gz",
+      "sha256": "d642554b532a94bfea3923511a56669e94a7bb0581facc47397fac19b71cb3d0",
+      "normalization": "binary"
+    },
+    {
+      "path": "main/interaction-learning-liquidity.new.rows.json.gz",
+      "sha256": "4bc2320a0e560355b5edb89715abcb9c4a7246ca9fee1d8813b1892a48caef54",
+      "normalization": "binary"
+    },
+    {
+      "path": "main/interaction-learning-liquidity.new.summary.json",
+      "sha256": "793989226998a85685c6ebd3a1e8994db783bb9d47dde359cd130b705bded746",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main/interaction-learning-liquidity.old.config.json",
+      "sha256": "85bf4b4160c978fed8d2de3e590d3cc1e2c5f9a4b9215089b193c791dd3f2d25",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main/interaction-learning-liquidity.old.examples.json.gz",
+      "sha256": "549e139aeb49d5aeb998c10700fdf8f7c16640d8f6cbc35ba8c43802e399dcd1",
+      "normalization": "binary"
+    },
+    {
+      "path": "main/interaction-learning-liquidity.old.rows.json.gz",
+      "sha256": "86a673d0f4e7a491aded36d546d1228f01768892ea9485d24b071b543a5ad4de",
+      "normalization": "binary"
+    },
+    {
+      "path": "main/interaction-learning-liquidity.old.summary.json",
+      "sha256": "398543adca5e2b877e456d3b0a183d1e7041f8b7b9c0cc2f8944577e9a980567",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main/n20-h5-learning-p1.new.config.json",
+      "sha256": "2dd91f64bfafce79a7f414bcb659abd746b0842a70748ba70f8ca4e2ccc91f78",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main/n20-h5-learning-p1.new.examples.json.gz",
+      "sha256": "1070cee0bc42ca139326a6fff15f0b0d1f859dbc7c2031bce9c256c5253b809a",
+      "normalization": "binary"
+    },
+    {
+      "path": "main/n20-h5-learning-p1.new.rows.json.gz",
+      "sha256": "5748291fddfee23c602ec17bcc676ec01b4f5b839e2622889cf1335d529b524e",
+      "normalization": "binary"
+    },
+    {
+      "path": "main/n20-h5-learning-p1.new.summary.json",
+      "sha256": "8e1b7093b53116a0c465b289a1ac63ec5f6fba76212db0a0e6e9abb4ffd26954",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main/n20-h5-learning-p1.old.config.json",
+      "sha256": "2dd91f64bfafce79a7f414bcb659abd746b0842a70748ba70f8ca4e2ccc91f78",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main/n20-h5-learning-p1.old.examples.json.gz",
+      "sha256": "09c90cec941164164f4963d0946e94666a84656047acaaa35e124643e57eb955",
+      "normalization": "binary"
+    },
+    {
+      "path": "main/n20-h5-learning-p1.old.rows.json.gz",
+      "sha256": "24c0f35d56db0a03ffe4b666e47f416eb142cb7d53ffd729c94f3a1a7c9e729f",
+      "normalization": "binary"
+    },
+    {
+      "path": "main/n20-h5-learning-p1.old.summary.json",
+      "sha256": "f9d84313ccaa58a0d50f10a4252fbe640f7b7390e72c3c4f4c0f6d583fbe33c2",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main-manifest.json",
+      "sha256": "c340e09da671eed884e6e2208c6c8d5a50edda740cd6553623fe63895b576479",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main-results.json",
+      "sha256": "5b9d3e8e2043b15f2e0f8b9d6006f83966c8e9241c3a8c4289a27ae84dd14610",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "main-source.json.gz",
+      "sha256": "b4296bf5b08179d19ff11f0661d9b28ec19b59b7217644a56c8e00c4254859d3",
+      "normalization": "binary"
+    },
+    {
+      "path": "technical-report.md",
+      "sha256": "74ba315441b1804b51c6eb562ee7795aeb8a72a090f9dec63f8242c6cdf91aa6",
+      "normalization": "UTF-8 LF"
+    },
+    {
+      "path": "verification.json",
+      "sha256": "959fb6b46f422a2466204fb70e1b9337188e8f8e01e8c43302f254c3e77a16c8",
+      "normalization": "UTF-8 LF"
+    }
+  ]
+}
