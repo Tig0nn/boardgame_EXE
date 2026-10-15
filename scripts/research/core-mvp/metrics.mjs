@@ -34,6 +34,8 @@ export function gameMetrics(s,policy,c,decisions){
   const board=boardFor(s),coverage=Object.fromEntries(['bank','stocks','course','macro','bonds','personal','business','gold'].map(t=>[t,encounters.filter(e=>board[e.tileId].type===t).length]))
   const creditLoss=s.bondLots.reduce((n,l)=>n+(l.credit?.principalLost??0)+(l.credit?.couponLost??0),0)
   const creditCoupon=s.bondLots.reduce((n,l)=>n+(l.credit?.history.reduce((a,h)=>a+h.couponPaid,0)??0),0)
+  const savingsInterest=s.deposits.reduce((n,l)=>n+l.earnedInterest,0)
+  const incomeReceived=entries.filter(e=>e.kind==='schedule'&&['Nhận lương','Dòng tiền kinh doanh'].includes(e.title)).reduce((n,e)=>n+Math.max(0,e.cashDelta),0)
   const lockedBond=s.bondLots.filter(l=>l.status==='active'&&l.credit?.paymentStatus==='defaulted').reduce((n,l)=>n+l.principal,0)
   const lockedBusiness=s.business.capital>0?s.portfolio.business:0
   const proceeds=liquidatableFunds(s),goal=c.goal.amount+c.goal.reserve
@@ -46,7 +48,7 @@ export function gameMetrics(s,policy,c,decisions){
     locked:lockedBusiness+lockedBond>0,lockedBusiness,lockedBond,capitalLoss:proceeds<c.economy.rules.startingCapital,drawdown,
     rolls:rolls.length,encounters:encounters.length,...decisions,
     modalsProxy:encounters.length+s.summaries.length*2+s.totalLaps+funding.length,
-    incomeReceived:entries.filter(e=>e.kind==='schedule'&&['Nhận lương','Dòng tiền kinh doanh'].includes(e.title)).reduce((n,e)=>n+Math.max(0,e.cashDelta),0),
+    incomeReceived,savingsInterest,totalIncome:incomeReceived+savingsInterest+creditCoupon,
     courseBought:s.coursePurchased,businessBought:!!businessBuy,businessUpgraded:actions.some(e=>e.action.kind==='upgrade'),businessSold:actions.some(e=>e.action.kind==='sell'&&e.action.asset==='business'),
     anyInvestment:actions.some(e=>['buy','deposit'].includes(e.action.kind)),missedBusinessExit:businessBuy&&afterBuy.length===0?1:0,
     creditLoss,creditCoupon,coverage,diceHash:digest(rolls.map(e=>e.after.dice)),encounterHash:digest(encounters.map(e=>[e.turn,e.tileId,e.eventId]))}

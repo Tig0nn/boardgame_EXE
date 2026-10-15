@@ -1,0 +1,344 @@
+{
+  "version": "core-mvp-lab-v1",
+  "id": "n20-h4-learning-p0--salary12",
+  "researchOnly": true,
+  "board": {
+    "tiles": [
+      "start",
+      "course",
+      "gold",
+      "business",
+      "bank",
+      "business",
+      "course",
+      "business",
+      "stocks",
+      "gold",
+      "stocks",
+      "course",
+      "bonds",
+      "course",
+      "business",
+      "personal",
+      "bonds",
+      "macro",
+      "course",
+      "bank"
+    ],
+    "countProfile": "learning",
+    "permutation": 0
+  },
+  "economy": {
+    "rules": {
+      "laps": 4,
+      "tiles": 20,
+      "startingCapital": 50000000,
+      "recurringIncome": 12000000,
+      "livingCost": 7000000,
+      "goal": 80000000,
+      "cashGoal": 10000000,
+      "savingsRate": 0.06,
+      "debtRate": 0.1,
+      "courseCost": 6000000,
+      "courseBoost": 3000000,
+      "borrowingLimit": 30000000
+    },
+    "economy": {
+      "savingsRates": {
+        "1": 0.06,
+        "2": 0.07,
+        "3": 0.08
+      },
+      "tradeFees": {
+        "stocks": 0.01,
+        "bonds": 0.015,
+        "gold": 0.01
+      },
+      "goldSpread": 0.03,
+      "stockTicket": 10000000,
+      "goldTicket": 6000000,
+      "bondTicket": 8000000,
+      "bond": {
+        "issuer": "Liên hiệp Mây Ngọc (giả lập)",
+        "facePrice": 100000,
+        "coupon": 0.05,
+        "term": 2,
+        "creditRisk": "Giá bán có thể giảm do rủi ro tín dụng; mẫu hiện tại không mô phỏng vỡ nợ ngẫu nhiên."
+      },
+      "market": {
+        "historyPoints": 12,
+        "initialStockPrice": 100000,
+        "initialGoldPrice": 1000000,
+        "sectorVolatility": 0.035,
+        "minimumReturn": -0.8,
+        "historyMarketVolatility": 0.07,
+        "historySectorVolatility": 0.025,
+        "historyGoldVolatility": 0.1,
+        "historyBondVolatility": 0.03
+      },
+      "business": {
+        "cost": 20000000,
+        "baseIncome": 3000000,
+        "upgradeCost": 5000000,
+        "baseUplift": 700000,
+        "matchingBonus": 1000000,
+        "maxUpgrades": 6,
+        "capitalRecovery": 0.7,
+        "upgradeRecovery": 0.5,
+        "depreciation": 0.08,
+        "trendIncome": {
+          "growth": 1.25,
+          "uncertain": 0.75,
+          "recovery": 1.1
+        },
+        "trendWeights": {
+          "growth": 1,
+          "uncertain": 1,
+          "recovery": 1
+        },
+        "minimumEconomicMultiplier": 0.3,
+        "maximumEconomicMultiplier": 1.8,
+        "economicIncomeImpact": 2000000
+      },
+      "personal": {
+        "medical": [
+          5000000,
+          6000000
+        ],
+        "repair": [
+          4000000,
+          1000000,
+          4000000
+        ],
+        "family": [
+          3000000,
+          3500000
+        ]
+      },
+      "obligation": {
+        "bills": [
+          2000000,
+          2500000
+        ],
+        "contract": [
+          1500000,
+          2000000
+        ],
+        "bonus": 2000000
+      }
+    },
+    "scenarios": [
+      {
+        "id": "growth",
+        "label": "Nhịp tăng trưởng",
+        "description": "Tiêu dùng khởi sắc, doanh nghiệp có thêm cơ hội. Thị trường vẫn có thể đi ngược dự báo.",
+        "tendencies": {
+          "stocks": "Xu hướng tăng",
+          "bonds": "Khá ổn định",
+          "gold": "Có thể hạ nhiệt",
+          "business": "Nhu cầu tích cực"
+        },
+        "ranges": {
+          "stocks": [
+            -0.08,
+            0.3
+          ],
+          "bonds": [
+            0.03,
+            0.07
+          ],
+          "gold": [
+            -0.1,
+            0.12
+          ],
+          "business": [
+            0.15,
+            0.5
+          ]
+        }
+      },
+      {
+        "id": "uncertain",
+        "label": "Thị trường thận trọng",
+        "description": "Nhà đầu tư dè dặt hơn. Tài sản phòng thủ được chú ý, nhưng không có kết quả nào được đảm bảo.",
+        "tendencies": {
+          "stocks": "Dễ biến động",
+          "bonds": "Khá ổn định",
+          "gold": "Được quan tâm",
+          "business": "Tiêu dùng chậm lại"
+        },
+        "ranges": {
+          "stocks": [
+            -0.22,
+            0.16
+          ],
+          "bonds": [
+            0.02,
+            0.06
+          ],
+          "gold": [
+            -0.05,
+            0.2
+          ],
+          "business": [
+            -0.08,
+            0.28
+          ]
+        }
+      },
+      {
+        "id": "recovery",
+        "label": "Tín hiệu phục hồi",
+        "description": "Niềm tin đang quay trở lại. Cơ hội xuất hiện cùng những biến động khó đoán.",
+        "tendencies": {
+          "stocks": "Có cơ hội phục hồi",
+          "bonds": "Tăng trưởng nhẹ",
+          "gold": "Đi ngang",
+          "business": "Dần khởi sắc"
+        },
+        "ranges": {
+          "stocks": [
+            -0.12,
+            0.25
+          ],
+          "bonds": [
+            0.03,
+            0.08
+          ],
+          "gold": [
+            -0.08,
+            0.14
+          ],
+          "business": [
+            0.05,
+            0.4
+          ]
+        }
+      }
+    ],
+    "macroEvents": [
+      {
+        "id": "credit-tightening",
+        "label": "Tín dụng thắt chặt",
+        "stocks": {
+          "technology": -0.12,
+          "banking": -0.16,
+          "manufacturing": -0.1
+        },
+        "bonds": -0.06,
+        "gold": 0.08,
+        "business": -0.2
+      },
+      {
+        "id": "demand-boom",
+        "label": "Nhu cầu khởi sắc",
+        "stocks": {
+          "technology": 0.14,
+          "banking": 0.08,
+          "manufacturing": 0.12
+        },
+        "bonds": 0.02,
+        "gold": -0.05,
+        "business": 0.2
+      },
+      {
+        "id": "supply-recovery",
+        "label": "Chuỗi cung ứng phục hồi",
+        "stocks": {
+          "technology": 0.06,
+          "banking": -0.03,
+          "manufacturing": 0.16
+        },
+        "bonds": -0.02,
+        "gold": -0.04,
+        "business": 0.1
+      }
+    ],
+    "issuers": [
+      {
+        "id": "an-tam",
+        "name": "Hợp tác xã An Tâm",
+        "rating": "AA",
+        "riskLabel": "Thận trọng",
+        "coupon": 0.045,
+        "faceValue": 100000,
+        "term": 2,
+        "delay": 0.035,
+        "default": 0.005,
+        "cure": 0.75,
+        "recovery": 0.8,
+        "uncertainPenalty": 0.015,
+        "stressPenalty": 0.01,
+        "volatility": 0.015,
+        "distressedPrice": 0.75,
+        "description": "Coupon thấp hơn, khả năng trả đúng hạn cao hơn. Vẫn có thể chậm trả hoặc mất vốn."
+      },
+      {
+        "id": "but-pha",
+        "name": "Công ty Bứt Phá",
+        "rating": "B",
+        "riskLabel": "Mạo hiểm",
+        "coupon": 0.1,
+        "faceValue": 100000,
+        "term": 2,
+        "delay": 0.1,
+        "default": 0.025,
+        "cure": 0.55,
+        "recovery": 0.5,
+        "uncertainPenalty": 0.04,
+        "stressPenalty": 0.03,
+        "volatility": 0.035,
+        "distressedPrice": 0.55,
+        "description": "Coupon cao hơn, dễ chịu áp lực trả nợ. Có thể chậm trả hoặc chỉ thu hồi một phần gốc."
+      }
+    ],
+    "livingCost": 7000000,
+    "initialSavings": 0,
+    "initialTerm": 3,
+    "savingsRates": {
+      "1": 0.04,
+      "2": 0.05,
+      "3": 0.06
+    },
+    "personalWeights": [
+      1,
+      1,
+      1
+    ],
+    "macroWeights": [
+      1,
+      1,
+      1
+    ],
+    "personalActivation": 1
+  },
+  "goal": {
+    "amount": 80000000,
+    "reserve": 10000000,
+    "deadline": "completed-start",
+    "earlyVictory": false
+  },
+  "policy": {
+    "version": "visible-v1",
+    "reserve": 10000000,
+    "liquidityReserve": 20000000,
+    "ticket": 15000000,
+    "diversifiedTicket": 5000000,
+    "course": "cost-recouped-by-remaining-starts",
+    "business": "buy-with-three-starts-upgrade-with-two-sell-in-last-two-laps",
+    "signal": "current-forecast-sector-tendency-only",
+    "funding": "savings-then-stocks-bonds-gold-then-debt",
+    "novice": "synthetic-uniform-actions-zero-reserve"
+  },
+  "assumptions": {
+    "settlement": "market,salary,business,maturity/coupon,living,debt,obligations",
+    "trading": "engine-enforced-encounters; financial-sales-at-START-or-mandatory-funding; business-sale-at-business-only",
+    "clock": "one economic period per START, not month/year",
+    "mobileDuration": "unmeasured",
+    "macro": "economic-events-only",
+    "credit": "v2.5-credit-risk-educational-candidate",
+    "business": "v2.4-customer-preferences",
+    "encounters": "v2.4-atomic-investments"
+  },
+  "factor": "salary12"
+}

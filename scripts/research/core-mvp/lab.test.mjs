@@ -54,7 +54,8 @@ test('modified engine runs all policies, final START count and replay determinis
   const dir=createAdapter(c)
   try{
     const {play,POLICIES}=await import(pathToFileURL(join(dir,'scripts/research/core-mvp/policy.mjs')))
-    for(const policy of POLICIES){const a=play('ADAPTER-1',policy,c,{trace:true}),b=play('ADAPTER-1',policy,c,{trace:true});assert.deepEqual(a,b);assert.equal(a.state.summaries.length,5);assert.ok(a.row.proceeds>=0)}
+    const {replayResearch}=await import(pathToFileURL(join(dir,'scripts/research/core-mvp/replay.mjs')))
+    for(const policy of POLICIES){const a=play('ADAPTER-1',policy,c,{trace:true}),b=play('ADAPTER-1',policy,c,{trace:true});assert.deepEqual(a,b);assert.equal(a.state.summaries.length,5);assert.ok(a.row.proceeds>=0);replayResearch(a.state,c)}
     assert.deepEqual(sourceManifest(),before)
   }finally{rmSync(dir,{recursive:true,force:true})}
 })

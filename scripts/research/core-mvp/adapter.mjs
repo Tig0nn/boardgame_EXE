@@ -16,7 +16,7 @@ export function createAdapter(config, pristine=false) {
   const dir=mkdtempSync(join(tmpdir(),'core-mvp-lab-'))
   for(const sub of ['game','data'])cpSync(join(root,'src',sub),join(dir,'src',sub),{recursive:true})
   mkdirSync(join(dir,'scripts/research/core-mvp'),{recursive:true})
-  for(const name of ['worker.mjs','policy.mjs','metrics.mjs','stats.mjs'])if(readdirSync(join(root,'scripts/research/core-mvp')).includes(name))cpSync(join(root,'scripts/research/core-mvp',name),join(dir,'scripts/research/core-mvp',name))
+  for(const name of ['worker.mjs','policy.mjs','metrics.mjs','stats.mjs','replay.mjs'])if(readdirSync(join(root,'scripts/research/core-mvp')).includes(name))cpSync(join(root,'scripts/research/core-mvp',name),join(dir,'scripts/research/core-mvp',name))
   writeFileSync(join(dir,'package.json'),'{"type":"module"}')
   writeFileSync(join(dir,'config.json'),JSON.stringify(config,null,2))
   if(pristine)return dir

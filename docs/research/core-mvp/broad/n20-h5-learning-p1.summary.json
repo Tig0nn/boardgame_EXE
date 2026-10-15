@@ -1,0 +1,3350 @@
+{
+  "id": "n20-h5-learning-p1",
+  "version": "core-mvp-lab-v1",
+  "configHash": "6cfda708e20f0e1e9f191ec5108b10541c1bba6b91b5e0764f5d3eb09e49deb3",
+  "job": {
+    "phase": "broad",
+    "policies": [
+      "cash",
+      "savings",
+      "stocks",
+      "gold",
+      "bond-a",
+      "bond-b",
+      "business",
+      "diversified"
+    ],
+    "seeds": [
+      "CORE-MVP-BROAD-0",
+      "CORE-MVP-BROAD-1",
+      "CORE-MVP-BROAD-2",
+      "CORE-MVP-BROAD-3",
+      "CORE-MVP-BROAD-4",
+      "CORE-MVP-BROAD-5",
+      "CORE-MVP-BROAD-6",
+      "CORE-MVP-BROAD-7",
+      "CORE-MVP-BROAD-8",
+      "CORE-MVP-BROAD-9",
+      "CORE-MVP-BROAD-10",
+      "CORE-MVP-BROAD-11",
+      "CORE-MVP-BROAD-12",
+      "CORE-MVP-BROAD-13",
+      "CORE-MVP-BROAD-14",
+      "CORE-MVP-BROAD-15",
+      "CORE-MVP-BROAD-16",
+      "CORE-MVP-BROAD-17",
+      "CORE-MVP-BROAD-18",
+      "CORE-MVP-BROAD-19",
+      "CORE-MVP-BROAD-20",
+      "CORE-MVP-BROAD-21",
+      "CORE-MVP-BROAD-22",
+      "CORE-MVP-BROAD-23",
+      "CORE-MVP-BROAD-24",
+      "CORE-MVP-BROAD-25",
+      "CORE-MVP-BROAD-26",
+      "CORE-MVP-BROAD-27",
+      "CORE-MVP-BROAD-28",
+      "CORE-MVP-BROAD-29",
+      "CORE-MVP-BROAD-30",
+      "CORE-MVP-BROAD-31",
+      "CORE-MVP-BROAD-32",
+      "CORE-MVP-BROAD-33",
+      "CORE-MVP-BROAD-34",
+      "CORE-MVP-BROAD-35",
+      "CORE-MVP-BROAD-36",
+      "CORE-MVP-BROAD-37",
+      "CORE-MVP-BROAD-38",
+      "CORE-MVP-BROAD-39",
+      "CORE-MVP-BROAD-40",
+      "CORE-MVP-BROAD-41",
+      "CORE-MVP-BROAD-42",
+      "CORE-MVP-BROAD-43",
+      "CORE-MVP-BROAD-44",
+      "CORE-MVP-BROAD-45",
+      "CORE-MVP-BROAD-46",
+      "CORE-MVP-BROAD-47",
+      "CORE-MVP-BROAD-48",
+      "CORE-MVP-BROAD-49",
+      "CORE-MVP-BROAD-50",
+      "CORE-MVP-BROAD-51",
+      "CORE-MVP-BROAD-52",
+      "CORE-MVP-BROAD-53",
+      "CORE-MVP-BROAD-54",
+      "CORE-MVP-BROAD-55",
+      "CORE-MVP-BROAD-56",
+      "CORE-MVP-BROAD-57",
+      "CORE-MVP-BROAD-58",
+      "CORE-MVP-BROAD-59",
+      "CORE-MVP-BROAD-60",
+      "CORE-MVP-BROAD-61",
+      "CORE-MVP-BROAD-62",
+      "CORE-MVP-BROAD-63",
+      "CORE-MVP-BROAD-64",
+      "CORE-MVP-BROAD-65",
+      "CORE-MVP-BROAD-66",
+      "CORE-MVP-BROAD-67",
+      "CORE-MVP-BROAD-68",
+      "CORE-MVP-BROAD-69",
+      "CORE-MVP-BROAD-70",
+      "CORE-MVP-BROAD-71",
+      "CORE-MVP-BROAD-72",
+      "CORE-MVP-BROAD-73",
+      "CORE-MVP-BROAD-74",
+      "CORE-MVP-BROAD-75",
+      "CORE-MVP-BROAD-76",
+      "CORE-MVP-BROAD-77",
+      "CORE-MVP-BROAD-78",
+      "CORE-MVP-BROAD-79",
+      "CORE-MVP-BROAD-80",
+      "CORE-MVP-BROAD-81",
+      "CORE-MVP-BROAD-82",
+      "CORE-MVP-BROAD-83",
+      "CORE-MVP-BROAD-84",
+      "CORE-MVP-BROAD-85",
+      "CORE-MVP-BROAD-86",
+      "CORE-MVP-BROAD-87",
+      "CORE-MVP-BROAD-88",
+      "CORE-MVP-BROAD-89",
+      "CORE-MVP-BROAD-90",
+      "CORE-MVP-BROAD-91",
+      "CORE-MVP-BROAD-92",
+      "CORE-MVP-BROAD-93",
+      "CORE-MVP-BROAD-94",
+      "CORE-MVP-BROAD-95",
+      "CORE-MVP-BROAD-96",
+      "CORE-MVP-BROAD-97",
+      "CORE-MVP-BROAD-98",
+      "CORE-MVP-BROAD-99",
+      "CORE-MVP-BROAD-100",
+      "CORE-MVP-BROAD-101",
+      "CORE-MVP-BROAD-102",
+      "CORE-MVP-BROAD-103",
+      "CORE-MVP-BROAD-104",
+      "CORE-MVP-BROAD-105",
+      "CORE-MVP-BROAD-106",
+      "CORE-MVP-BROAD-107",
+      "CORE-MVP-BROAD-108",
+      "CORE-MVP-BROAD-109",
+      "CORE-MVP-BROAD-110",
+      "CORE-MVP-BROAD-111",
+      "CORE-MVP-BROAD-112",
+      "CORE-MVP-BROAD-113",
+      "CORE-MVP-BROAD-114",
+      "CORE-MVP-BROAD-115",
+      "CORE-MVP-BROAD-116",
+      "CORE-MVP-BROAD-117",
+      "CORE-MVP-BROAD-118",
+      "CORE-MVP-BROAD-119",
+      "CORE-MVP-BROAD-120",
+      "CORE-MVP-BROAD-121",
+      "CORE-MVP-BROAD-122",
+      "CORE-MVP-BROAD-123",
+      "CORE-MVP-BROAD-124",
+      "CORE-MVP-BROAD-125",
+      "CORE-MVP-BROAD-126",
+      "CORE-MVP-BROAD-127",
+      "CORE-MVP-BROAD-128",
+      "CORE-MVP-BROAD-129",
+      "CORE-MVP-BROAD-130",
+      "CORE-MVP-BROAD-131",
+      "CORE-MVP-BROAD-132",
+      "CORE-MVP-BROAD-133",
+      "CORE-MVP-BROAD-134",
+      "CORE-MVP-BROAD-135",
+      "CORE-MVP-BROAD-136",
+      "CORE-MVP-BROAD-137",
+      "CORE-MVP-BROAD-138",
+      "CORE-MVP-BROAD-139",
+      "CORE-MVP-BROAD-140",
+      "CORE-MVP-BROAD-141",
+      "CORE-MVP-BROAD-142",
+      "CORE-MVP-BROAD-143",
+      "CORE-MVP-BROAD-144",
+      "CORE-MVP-BROAD-145",
+      "CORE-MVP-BROAD-146",
+      "CORE-MVP-BROAD-147",
+      "CORE-MVP-BROAD-148",
+      "CORE-MVP-BROAD-149",
+      "CORE-MVP-BROAD-150",
+      "CORE-MVP-BROAD-151",
+      "CORE-MVP-BROAD-152",
+      "CORE-MVP-BROAD-153",
+      "CORE-MVP-BROAD-154",
+      "CORE-MVP-BROAD-155",
+      "CORE-MVP-BROAD-156",
+      "CORE-MVP-BROAD-157",
+      "CORE-MVP-BROAD-158",
+      "CORE-MVP-BROAD-159",
+      "CORE-MVP-BROAD-160",
+      "CORE-MVP-BROAD-161",
+      "CORE-MVP-BROAD-162",
+      "CORE-MVP-BROAD-163",
+      "CORE-MVP-BROAD-164",
+      "CORE-MVP-BROAD-165",
+      "CORE-MVP-BROAD-166",
+      "CORE-MVP-BROAD-167",
+      "CORE-MVP-BROAD-168",
+      "CORE-MVP-BROAD-169",
+      "CORE-MVP-BROAD-170",
+      "CORE-MVP-BROAD-171",
+      "CORE-MVP-BROAD-172",
+      "CORE-MVP-BROAD-173",
+      "CORE-MVP-BROAD-174",
+      "CORE-MVP-BROAD-175",
+      "CORE-MVP-BROAD-176",
+      "CORE-MVP-BROAD-177",
+      "CORE-MVP-BROAD-178",
+      "CORE-MVP-BROAD-179",
+      "CORE-MVP-BROAD-180",
+      "CORE-MVP-BROAD-181",
+      "CORE-MVP-BROAD-182",
+      "CORE-MVP-BROAD-183",
+      "CORE-MVP-BROAD-184",
+      "CORE-MVP-BROAD-185",
+      "CORE-MVP-BROAD-186",
+      "CORE-MVP-BROAD-187",
+      "CORE-MVP-BROAD-188",
+      "CORE-MVP-BROAD-189",
+      "CORE-MVP-BROAD-190",
+      "CORE-MVP-BROAD-191",
+      "CORE-MVP-BROAD-192",
+      "CORE-MVP-BROAD-193",
+      "CORE-MVP-BROAD-194",
+      "CORE-MVP-BROAD-195",
+      "CORE-MVP-BROAD-196",
+      "CORE-MVP-BROAD-197",
+      "CORE-MVP-BROAD-198",
+      "CORE-MVP-BROAD-199"
+    ],
+    "count": 200,
+    "seedCoupling": "Common seed, shared engine RNG; same path verified per-policy. Different board sizes/scenario counts are not common exogenous trajectories."
+  },
+  "elapsedSeconds": 38.223136700000005,
+  "games": 1600,
+  "policies": {
+    "cash": {
+      "n": 200,
+      "won": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "insolvent": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "funded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "borrowed": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "locked": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "capitalLoss": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "courseBought": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessBought": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessUpgraded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessSold": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "anyInvestment": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "proceeds": {
+        "mean": 79580000,
+        "median": 80000000,
+        "p10": 74000000,
+        "p90": 85000000,
+        "p01": 69000000,
+        "p99": 85000000,
+        "min": 69000000,
+        "max": 85000000
+      },
+      "cash": {
+        "mean": 79580000,
+        "median": 80000000,
+        "p10": 74000000,
+        "p90": 85000000,
+        "p01": 69000000,
+        "p99": 85000000,
+        "min": 69000000,
+        "max": 85000000
+      },
+      "debt": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "shortfall": {
+        "mean": 10420000,
+        "median": 10000000,
+        "p10": 5000000,
+        "p90": 16000000,
+        "p01": 5000000,
+        "p99": 20000000,
+        "min": 5000000,
+        "max": 21000000
+      },
+      "maxFundingShortfall": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "rolls": {
+        "mean": 29.185,
+        "median": 29,
+        "p10": 26,
+        "p90": 33,
+        "p01": 23,
+        "p99": 36,
+        "min": 22,
+        "max": 38
+      },
+      "encounters": {
+        "mean": 27,
+        "median": 27,
+        "p10": 23,
+        "p90": 31,
+        "p01": 21,
+        "p99": 34,
+        "min": 21,
+        "max": 36
+      },
+      "meaningfulOpportunities": {
+        "mean": 25.5,
+        "median": 25,
+        "p10": 22,
+        "p90": 29,
+        "p01": 20,
+        "p99": 32,
+        "min": 19,
+        "max": 33
+      },
+      "meaningfulDecisions": {
+        "mean": 25.5,
+        "median": 25,
+        "p10": 22,
+        "p90": 29,
+        "p01": 20,
+        "p99": 32,
+        "min": 19,
+        "max": 33
+      },
+      "modalsProxy": {
+        "mean": 42,
+        "median": 42,
+        "p10": 38,
+        "p90": 46,
+        "p01": 36,
+        "p99": 49,
+        "min": 36,
+        "max": 51
+      },
+      "incomeReceived": {
+        "mean": 70000000,
+        "median": 70000000,
+        "p10": 70000000,
+        "p90": 70000000,
+        "p01": 70000000,
+        "p99": 70000000,
+        "min": 70000000,
+        "max": 70000000
+      },
+      "creditLoss": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "creditCoupon": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "drawdown": {
+        "mean": 9960000,
+        "median": 11000000,
+        "p10": 7000000,
+        "p90": 12000000,
+        "p01": 7000000,
+        "p99": 12000000,
+        "min": 7000000,
+        "max": 12000000
+      },
+      "lockedBusiness": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "lockedBond": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "missedBusinessExit": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "expectedShortfall10": 71600000,
+      "opportunities": {
+        "bank": {
+          "mean": 2.855,
+          "never": {
+            "count": 5,
+            "n": 200,
+            "rate": 0.025,
+            "ci95": [
+              0.010724719651761264,
+              0.05717834040664198
+            ]
+          }
+        },
+        "stocks": {
+          "mean": 2.775,
+          "never": {
+            "count": 7,
+            "n": 200,
+            "rate": 0.035,
+            "ci95": [
+              0.017055542008567192,
+              0.07047061152229073
+            ]
+          }
+        },
+        "course": {
+          "mean": 7.105,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "macro": {
+          "mean": 1.485,
+          "never": {
+            "count": 25,
+            "n": 200,
+            "rate": 0.125,
+            "ci95": [
+              0.08611974475712644,
+              0.17801425002582347
+            ]
+          }
+        },
+        "bonds": {
+          "mean": 2.75,
+          "never": {
+            "count": 6,
+            "n": 200,
+            "rate": 0.03,
+            "ci95": [
+              0.013820314340111346,
+              0.06389429245451925
+            ]
+          }
+        },
+        "personal": {
+          "mean": 1.38,
+          "never": {
+            "count": 44,
+            "n": 200,
+            "rate": 0.22,
+            "ci95": [
+              0.16816538358833258,
+              0.28238799918293667
+            ]
+          }
+        },
+        "business": {
+          "mean": 5.825,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "gold": {
+          "mean": 2.825,
+          "never": {
+            "count": 8,
+            "n": 200,
+            "rate": 0.04,
+            "ci95": [
+              0.020405632066152306,
+              0.07693206820093293
+            ]
+          }
+        }
+      }
+    },
+    "savings": {
+      "n": 200,
+      "won": {
+        "count": 180,
+        "n": 200,
+        "rate": 0.9,
+        "ci95": [
+          0.8505941875672826,
+          0.9343295513309041
+        ]
+      },
+      "insolvent": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "funded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "borrowed": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "locked": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "capitalLoss": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "courseBought": {
+        "count": 200,
+        "n": 200,
+        "rate": 1,
+        "ci95": [
+          0.9811546736227335,
+          1
+        ]
+      },
+      "businessBought": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessUpgraded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessSold": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "anyInvestment": {
+        "count": 195,
+        "n": 200,
+        "rate": 0.975,
+        "ci95": [
+          0.942821659593358,
+          0.9892752803482386
+        ]
+      },
+      "proceeds": {
+        "mean": 97532931.245,
+        "median": 97568000,
+        "p10": 88770563,
+        "p90": 104426100,
+        "p01": 79732000,
+        "p99": 108032274,
+        "min": 79000000,
+        "max": 109023661
+      },
+      "cash": {
+        "mean": 97532931.245,
+        "median": 97568000,
+        "p10": 88770563,
+        "p90": 104426100,
+        "p01": 79732000,
+        "p99": 108032274,
+        "min": 79000000,
+        "max": 109023661
+      },
+      "debt": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "shortfall": {
+        "mean": 401472.39,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 7166900,
+        "min": 0,
+        "max": 11000000
+      },
+      "maxFundingShortfall": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "rolls": {
+        "mean": 29.185,
+        "median": 29,
+        "p10": 26,
+        "p90": 33,
+        "p01": 23,
+        "p99": 36,
+        "min": 22,
+        "max": 38
+      },
+      "encounters": {
+        "mean": 27,
+        "median": 27,
+        "p10": 23,
+        "p90": 31,
+        "p01": 21,
+        "p99": 34,
+        "min": 21,
+        "max": 36
+      },
+      "meaningfulOpportunities": {
+        "mean": 16.77,
+        "median": 17,
+        "p10": 14,
+        "p90": 20,
+        "p01": 10,
+        "p99": 22,
+        "min": 9,
+        "max": 27
+      },
+      "meaningfulDecisions": {
+        "mean": 16.77,
+        "median": 17,
+        "p10": 14,
+        "p90": 20,
+        "p01": 10,
+        "p99": 22,
+        "min": 9,
+        "max": 27
+      },
+      "modalsProxy": {
+        "mean": 42,
+        "median": 42,
+        "p10": 38,
+        "p90": 46,
+        "p01": 36,
+        "p99": 49,
+        "min": 36,
+        "max": 51
+      },
+      "incomeReceived": {
+        "mean": 84430000,
+        "median": 85000000,
+        "p10": 82000000,
+        "p90": 85000000,
+        "p01": 79000000,
+        "p99": 85000000,
+        "min": 79000000,
+        "max": 85000000
+      },
+      "creditLoss": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "creditCoupon": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "drawdown": {
+        "mean": 10685000,
+        "median": 11000000,
+        "p10": 7000000,
+        "p90": 13000000,
+        "p01": 7000000,
+        "p99": 18000000,
+        "min": 7000000,
+        "max": 18000000
+      },
+      "lockedBusiness": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "lockedBond": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "missedBusinessExit": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "expectedShortfall10": 85985276.1,
+      "opportunities": {
+        "bank": {
+          "mean": 2.855,
+          "never": {
+            "count": 5,
+            "n": 200,
+            "rate": 0.025,
+            "ci95": [
+              0.010724719651761264,
+              0.05717834040664198
+            ]
+          }
+        },
+        "stocks": {
+          "mean": 2.775,
+          "never": {
+            "count": 7,
+            "n": 200,
+            "rate": 0.035,
+            "ci95": [
+              0.017055542008567192,
+              0.07047061152229073
+            ]
+          }
+        },
+        "course": {
+          "mean": 7.105,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "macro": {
+          "mean": 1.485,
+          "never": {
+            "count": 25,
+            "n": 200,
+            "rate": 0.125,
+            "ci95": [
+              0.08611974475712644,
+              0.17801425002582347
+            ]
+          }
+        },
+        "bonds": {
+          "mean": 2.75,
+          "never": {
+            "count": 6,
+            "n": 200,
+            "rate": 0.03,
+            "ci95": [
+              0.013820314340111346,
+              0.06389429245451925
+            ]
+          }
+        },
+        "personal": {
+          "mean": 1.38,
+          "never": {
+            "count": 44,
+            "n": 200,
+            "rate": 0.22,
+            "ci95": [
+              0.16816538358833258,
+              0.28238799918293667
+            ]
+          }
+        },
+        "business": {
+          "mean": 5.825,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "gold": {
+          "mean": 2.825,
+          "never": {
+            "count": 8,
+            "n": 200,
+            "rate": 0.04,
+            "ci95": [
+              0.020405632066152306,
+              0.07693206820093293
+            ]
+          }
+        }
+      }
+    },
+    "stocks": {
+      "n": 200,
+      "won": {
+        "count": 124,
+        "n": 200,
+        "rate": 0.62,
+        "ci95": [
+          0.5510671801561923,
+          0.6844099415132637
+        ]
+      },
+      "insolvent": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "funded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "borrowed": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "locked": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "capitalLoss": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "courseBought": {
+        "count": 200,
+        "n": 200,
+        "rate": 1,
+        "ci95": [
+          0.9811546736227335,
+          1
+        ]
+      },
+      "businessBought": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessUpgraded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessSold": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "anyInvestment": {
+        "count": 193,
+        "n": 200,
+        "rate": 0.965,
+        "ci95": [
+          0.9295293884777092,
+          0.9829444579914328
+        ]
+      },
+      "proceeds": {
+        "mean": 94278986.785,
+        "median": 92888968,
+        "p10": 79571255,
+        "p90": 110300451,
+        "p01": 71344309,
+        "p99": 129722107,
+        "min": 71317598,
+        "max": 172148684
+      },
+      "cash": {
+        "mean": 48000000,
+        "median": 46000000,
+        "p10": 24000000,
+        "p90": 74000000,
+        "p01": 20000000,
+        "p99": 89000000,
+        "min": 16000000,
+        "max": 94000000
+      },
+      "debt": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "shortfall": {
+        "mean": 2506800.905,
+        "median": 0,
+        "p10": 0,
+        "p90": 10396300,
+        "p01": 0,
+        "p99": 18355560,
+        "min": 0,
+        "max": 18682402
+      },
+      "maxFundingShortfall": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "rolls": {
+        "mean": 29.185,
+        "median": 29,
+        "p10": 26,
+        "p90": 33,
+        "p01": 23,
+        "p99": 36,
+        "min": 22,
+        "max": 38
+      },
+      "encounters": {
+        "mean": 27,
+        "median": 27,
+        "p10": 23,
+        "p90": 31,
+        "p01": 21,
+        "p99": 34,
+        "min": 21,
+        "max": 36
+      },
+      "meaningfulOpportunities": {
+        "mean": 18.78,
+        "median": 19,
+        "p10": 15,
+        "p90": 22,
+        "p01": 12,
+        "p99": 25,
+        "min": 10,
+        "max": 27
+      },
+      "meaningfulDecisions": {
+        "mean": 18.78,
+        "median": 19,
+        "p10": 15,
+        "p90": 22,
+        "p01": 12,
+        "p99": 25,
+        "min": 10,
+        "max": 27
+      },
+      "modalsProxy": {
+        "mean": 42,
+        "median": 42,
+        "p10": 38,
+        "p90": 46,
+        "p01": 36,
+        "p99": 49,
+        "min": 36,
+        "max": 51
+      },
+      "incomeReceived": {
+        "mean": 84430000,
+        "median": 85000000,
+        "p10": 82000000,
+        "p90": 85000000,
+        "p01": 79000000,
+        "p99": 85000000,
+        "min": 79000000,
+        "max": 85000000
+      },
+      "creditLoss": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "creditCoupon": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "drawdown": {
+        "mean": 13037299.18,
+        "median": 12267979,
+        "p10": 9656262,
+        "p90": 17664792,
+        "p01": 7000000,
+        "p99": 23024110,
+        "min": 7000000,
+        "max": 32957236
+      },
+      "lockedBusiness": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "lockedBond": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "missedBusinessExit": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "expectedShortfall10": 76314128.4,
+      "opportunities": {
+        "bank": {
+          "mean": 2.855,
+          "never": {
+            "count": 5,
+            "n": 200,
+            "rate": 0.025,
+            "ci95": [
+              0.010724719651761264,
+              0.05717834040664198
+            ]
+          }
+        },
+        "stocks": {
+          "mean": 2.775,
+          "never": {
+            "count": 7,
+            "n": 200,
+            "rate": 0.035,
+            "ci95": [
+              0.017055542008567192,
+              0.07047061152229073
+            ]
+          }
+        },
+        "course": {
+          "mean": 7.105,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "macro": {
+          "mean": 1.485,
+          "never": {
+            "count": 25,
+            "n": 200,
+            "rate": 0.125,
+            "ci95": [
+              0.08611974475712644,
+              0.17801425002582347
+            ]
+          }
+        },
+        "bonds": {
+          "mean": 2.75,
+          "never": {
+            "count": 6,
+            "n": 200,
+            "rate": 0.03,
+            "ci95": [
+              0.013820314340111346,
+              0.06389429245451925
+            ]
+          }
+        },
+        "personal": {
+          "mean": 1.38,
+          "never": {
+            "count": 44,
+            "n": 200,
+            "rate": 0.22,
+            "ci95": [
+              0.16816538358833258,
+              0.28238799918293667
+            ]
+          }
+        },
+        "business": {
+          "mean": 5.825,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "gold": {
+          "mean": 2.825,
+          "never": {
+            "count": 8,
+            "n": 200,
+            "rate": 0.04,
+            "ci95": [
+              0.020405632066152306,
+              0.07693206820093293
+            ]
+          }
+        }
+      }
+    },
+    "gold": {
+      "n": 200,
+      "won": {
+        "count": 103,
+        "n": 200,
+        "rate": 0.515,
+        "ci95": [
+          0.44610849192745716,
+          0.5833261482812249
+        ]
+      },
+      "insolvent": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "funded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "borrowed": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "locked": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "capitalLoss": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "courseBought": {
+        "count": 200,
+        "n": 200,
+        "rate": 1,
+        "ci95": [
+          0.9811546736227335,
+          1
+        ]
+      },
+      "businessBought": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessUpgraded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessSold": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "anyInvestment": {
+        "count": 192,
+        "n": 200,
+        "rate": 0.96,
+        "ci95": [
+          0.923067931799067,
+          0.9795943679338476
+        ]
+      },
+      "proceeds": {
+        "mean": 91537212.265,
+        "median": 90114814,
+        "p10": 83117270,
+        "p90": 102247277,
+        "p01": 75175374,
+        "p99": 109955632,
+        "min": 67873972,
+        "max": 117659142
+      },
+      "cash": {
+        "mean": 47075000,
+        "median": 45000000,
+        "p10": 23000000,
+        "p90": 70000000,
+        "p01": 17000000,
+        "p99": 89000000,
+        "min": 17000000,
+        "max": 91000000
+      },
+      "debt": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "shortfall": {
+        "mean": 2342787.985,
+        "median": 0,
+        "p10": 0,
+        "p90": 6772188,
+        "p01": 0,
+        "p99": 14127889,
+        "min": 0,
+        "max": 22126028
+      },
+      "maxFundingShortfall": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "rolls": {
+        "mean": 29.185,
+        "median": 29,
+        "p10": 26,
+        "p90": 33,
+        "p01": 23,
+        "p99": 36,
+        "min": 22,
+        "max": 38
+      },
+      "encounters": {
+        "mean": 27,
+        "median": 27,
+        "p10": 23,
+        "p90": 31,
+        "p01": 21,
+        "p99": 34,
+        "min": 21,
+        "max": 36
+      },
+      "meaningfulOpportunities": {
+        "mean": 18.685,
+        "median": 19,
+        "p10": 15,
+        "p90": 23,
+        "p01": 12,
+        "p99": 25,
+        "min": 12,
+        "max": 26
+      },
+      "meaningfulDecisions": {
+        "mean": 18.685,
+        "median": 19,
+        "p10": 15,
+        "p90": 23,
+        "p01": 12,
+        "p99": 25,
+        "min": 12,
+        "max": 26
+      },
+      "modalsProxy": {
+        "mean": 42,
+        "median": 42,
+        "p10": 38,
+        "p90": 46,
+        "p01": 36,
+        "p99": 49,
+        "min": 36,
+        "max": 51
+      },
+      "incomeReceived": {
+        "mean": 84430000,
+        "median": 85000000,
+        "p10": 82000000,
+        "p90": 85000000,
+        "p01": 79000000,
+        "p99": 85000000,
+        "min": 79000000,
+        "max": 85000000
+      },
+      "creditLoss": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "creditCoupon": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "drawdown": {
+        "mean": 11647550.825,
+        "median": 11689533,
+        "p10": 8992129,
+        "p90": 13990258,
+        "p01": 7485976,
+        "p99": 18000000,
+        "min": 7000000,
+        "max": 19015886
+      },
+      "lockedBusiness": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "lockedBond": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "missedBusinessExit": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "expectedShortfall10": 79282439.05,
+      "opportunities": {
+        "bank": {
+          "mean": 2.855,
+          "never": {
+            "count": 5,
+            "n": 200,
+            "rate": 0.025,
+            "ci95": [
+              0.010724719651761264,
+              0.05717834040664198
+            ]
+          }
+        },
+        "stocks": {
+          "mean": 2.775,
+          "never": {
+            "count": 7,
+            "n": 200,
+            "rate": 0.035,
+            "ci95": [
+              0.017055542008567192,
+              0.07047061152229073
+            ]
+          }
+        },
+        "course": {
+          "mean": 7.105,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "macro": {
+          "mean": 1.485,
+          "never": {
+            "count": 25,
+            "n": 200,
+            "rate": 0.125,
+            "ci95": [
+              0.08611974475712644,
+              0.17801425002582347
+            ]
+          }
+        },
+        "bonds": {
+          "mean": 2.75,
+          "never": {
+            "count": 6,
+            "n": 200,
+            "rate": 0.03,
+            "ci95": [
+              0.013820314340111346,
+              0.06389429245451925
+            ]
+          }
+        },
+        "personal": {
+          "mean": 1.38,
+          "never": {
+            "count": 44,
+            "n": 200,
+            "rate": 0.22,
+            "ci95": [
+              0.16816538358833258,
+              0.28238799918293667
+            ]
+          }
+        },
+        "business": {
+          "mean": 5.825,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "gold": {
+          "mean": 2.825,
+          "never": {
+            "count": 8,
+            "n": 200,
+            "rate": 0.04,
+            "ci95": [
+              0.020405632066152306,
+              0.07693206820093293
+            ]
+          }
+        }
+      }
+    },
+    "bond-a": {
+      "n": 200,
+      "won": {
+        "count": 118,
+        "n": 200,
+        "rate": 0.59,
+        "ci95": [
+          0.5207645903369208,
+          0.6558432509151711
+        ]
+      },
+      "insolvent": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "funded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "borrowed": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "locked": {
+        "count": 2,
+        "n": 200,
+        "rate": 0.01,
+        "ci95": [
+          0.0027466581335444384,
+          0.0357217617161768
+        ]
+      },
+      "capitalLoss": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "courseBought": {
+        "count": 200,
+        "n": 200,
+        "rate": 1,
+        "ci95": [
+          0.9811546736227335,
+          1
+        ]
+      },
+      "businessBought": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessUpgraded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessSold": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "anyInvestment": {
+        "count": 188,
+        "n": 200,
+        "rate": 0.94,
+        "ci95": [
+          0.8980683070423372,
+          0.9653478057456681
+        ]
+      },
+      "proceeds": {
+        "mean": 90454225.73,
+        "median": 91212931,
+        "p10": 83350000,
+        "p90": 96706707,
+        "p01": 68389035,
+        "p99": 99951338,
+        "min": 62306187,
+        "max": 101064504
+      },
+      "cash": {
+        "mean": 82221652.145,
+        "median": 83359859,
+        "p10": 65405991,
+        "p90": 95272219,
+        "p01": 53294978,
+        "p99": 99023315,
+        "min": 40231801,
+        "max": 101064504
+      },
+      "debt": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "shortfall": {
+        "mean": 1866438.175,
+        "median": 0,
+        "p10": 0,
+        "p90": 6203729,
+        "p01": 0,
+        "p99": 15960518,
+        "min": 0,
+        "max": 27693813
+      },
+      "maxFundingShortfall": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "rolls": {
+        "mean": 29.185,
+        "median": 29,
+        "p10": 26,
+        "p90": 33,
+        "p01": 23,
+        "p99": 36,
+        "min": 22,
+        "max": 38
+      },
+      "encounters": {
+        "mean": 27,
+        "median": 27,
+        "p10": 23,
+        "p90": 31,
+        "p01": 21,
+        "p99": 34,
+        "min": 21,
+        "max": 36
+      },
+      "meaningfulOpportunities": {
+        "mean": 19.31,
+        "median": 19,
+        "p10": 16,
+        "p90": 23,
+        "p01": 12,
+        "p99": 26,
+        "min": 11,
+        "max": 27
+      },
+      "meaningfulDecisions": {
+        "mean": 19.31,
+        "median": 19,
+        "p10": 16,
+        "p90": 23,
+        "p01": 12,
+        "p99": 26,
+        "min": 11,
+        "max": 27
+      },
+      "modalsProxy": {
+        "mean": 42,
+        "median": 42,
+        "p10": 38,
+        "p90": 46,
+        "p01": 36,
+        "p99": 49,
+        "min": 36,
+        "max": 51
+      },
+      "incomeReceived": {
+        "mean": 84430000,
+        "median": 85000000,
+        "p10": 82000000,
+        "p90": 85000000,
+        "p01": 79000000,
+        "p99": 85000000,
+        "min": 79000000,
+        "max": 85000000
+      },
+      "creditLoss": {
+        "mean": 185164.02,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 7386638,
+        "min": 0,
+        "max": 7475909
+      },
+      "creditCoupon": {
+        "mean": 3003082.055,
+        "median": 2721200,
+        "p10": 681818,
+        "p90": 5437636,
+        "p01": 0,
+        "p99": 6829924,
+        "min": 0,
+        "max": 7434772
+      },
+      "drawdown": {
+        "mean": 11841724.51,
+        "median": 11084000,
+        "p10": 7276408,
+        "p90": 13965400,
+        "p01": 7000000,
+        "p99": 36837727,
+        "min": 7000000,
+        "max": 42794091
+      },
+      "lockedBusiness": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "lockedBond": {
+        "mean": 240017.67,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 24329524
+      },
+      "missedBusinessExit": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "expectedShortfall10": 79441914.85,
+      "opportunities": {
+        "bank": {
+          "mean": 2.855,
+          "never": {
+            "count": 5,
+            "n": 200,
+            "rate": 0.025,
+            "ci95": [
+              0.010724719651761264,
+              0.05717834040664198
+            ]
+          }
+        },
+        "stocks": {
+          "mean": 2.775,
+          "never": {
+            "count": 7,
+            "n": 200,
+            "rate": 0.035,
+            "ci95": [
+              0.017055542008567192,
+              0.07047061152229073
+            ]
+          }
+        },
+        "course": {
+          "mean": 7.105,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "macro": {
+          "mean": 1.485,
+          "never": {
+            "count": 25,
+            "n": 200,
+            "rate": 0.125,
+            "ci95": [
+              0.08611974475712644,
+              0.17801425002582347
+            ]
+          }
+        },
+        "bonds": {
+          "mean": 2.75,
+          "never": {
+            "count": 6,
+            "n": 200,
+            "rate": 0.03,
+            "ci95": [
+              0.013820314340111346,
+              0.06389429245451925
+            ]
+          }
+        },
+        "personal": {
+          "mean": 1.38,
+          "never": {
+            "count": 44,
+            "n": 200,
+            "rate": 0.22,
+            "ci95": [
+              0.16816538358833258,
+              0.28238799918293667
+            ]
+          }
+        },
+        "business": {
+          "mean": 5.825,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "gold": {
+          "mean": 2.825,
+          "never": {
+            "count": 8,
+            "n": 200,
+            "rate": 0.04,
+            "ci95": [
+              0.020405632066152306,
+              0.07693206820093293
+            ]
+          }
+        }
+      }
+    },
+    "bond-b": {
+      "n": 200,
+      "won": {
+        "count": 118,
+        "n": 200,
+        "rate": 0.59,
+        "ci95": [
+          0.5207645903369208,
+          0.6558432509151711
+        ]
+      },
+      "insolvent": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "funded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "borrowed": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "locked": {
+        "count": 11,
+        "n": 200,
+        "rate": 0.055,
+        "ci95": [
+          0.03098534170345884,
+          0.0957869987723084
+        ]
+      },
+      "capitalLoss": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "courseBought": {
+        "count": 200,
+        "n": 200,
+        "rate": 1,
+        "ci95": [
+          0.9811546736227335,
+          1
+        ]
+      },
+      "businessBought": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessUpgraded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "businessSold": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "anyInvestment": {
+        "count": 183,
+        "n": 200,
+        "rate": 0.915,
+        "ci95": [
+          0.8681041292843443,
+          0.9462542498225244
+        ]
+      },
+      "proceeds": {
+        "mean": 90346487.17,
+        "median": 91309719,
+        "p10": 78832396,
+        "p90": 100108476,
+        "p01": 60000000,
+        "p99": 107835056,
+        "min": 51958872,
+        "max": 109751772
+      },
+      "cash": {
+        "mean": 84416705.345,
+        "median": 84467080,
+        "p10": 69640561,
+        "p90": 97439599,
+        "p01": 51958872,
+        "p99": 103894696,
+        "min": 49049060,
+        "max": 108194028
+      },
+      "debt": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "shortfall": {
+        "mean": 3247955.345,
+        "median": 0,
+        "p10": 0,
+        "p90": 11000000,
+        "p01": 0,
+        "p99": 27102889,
+        "min": 0,
+        "max": 38041128
+      },
+      "maxFundingShortfall": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "rolls": {
+        "mean": 29.185,
+        "median": 29,
+        "p10": 26,
+        "p90": 33,
+        "p01": 23,
+        "p99": 36,
+        "min": 22,
+        "max": 38
+      },
+      "encounters": {
+        "mean": 27,
+        "median": 27,
+        "p10": 23,
+        "p90": 31,
+        "p01": 21,
+        "p99": 34,
+        "min": 21,
+        "max": 36
+      },
+      "meaningfulOpportunities": {
+        "mean": 19.34,
+        "median": 19,
+        "p10": 16,
+        "p90": 23,
+        "p01": 12,
+        "p99": 26,
+        "min": 12,
+        "max": 27
+      },
+      "meaningfulDecisions": {
+        "mean": 19.34,
+        "median": 19,
+        "p10": 16,
+        "p90": 23,
+        "p01": 12,
+        "p99": 26,
+        "min": 12,
+        "max": 27
+      },
+      "modalsProxy": {
+        "mean": 42,
+        "median": 42,
+        "p10": 38,
+        "p90": 46,
+        "p01": 36,
+        "p99": 49,
+        "min": 36,
+        "max": 51
+      },
+      "incomeReceived": {
+        "mean": 84430000,
+        "median": 85000000,
+        "p10": 82000000,
+        "p90": 85000000,
+        "p01": 79000000,
+        "p99": 85000000,
+        "min": 79000000,
+        "max": 85000000
+      },
+      "creditLoss": {
+        "mean": 2108255.71,
+        "median": 0,
+        "p10": 0,
+        "p90": 9169545,
+        "p01": 0,
+        "p99": 21000000,
+        "min": 0,
+        "max": 28264162
+      },
+      "creditCoupon": {
+        "mean": 5231323.515,
+        "median": 4701764,
+        "p10": 0,
+        "p90": 10398519,
+        "p01": 0,
+        "p99": 15018080,
+        "min": 0,
+        "max": 16897994
+      },
+      "drawdown": {
+        "mean": 15268727.47,
+        "median": 13000000,
+        "p10": 8589389,
+        "p90": 25000000,
+        "p01": 7000000,
+        "p99": 40321295,
+        "min": 7000000,
+        "max": 42348109
+      },
+      "lockedBusiness": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "lockedBond": {
+        "mean": 646211.965,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 15139894,
+        "min": 0,
+        "max": 22302166
+      },
+      "missedBusinessExit": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "expectedShortfall10": 71113719.35,
+      "opportunities": {
+        "bank": {
+          "mean": 2.855,
+          "never": {
+            "count": 5,
+            "n": 200,
+            "rate": 0.025,
+            "ci95": [
+              0.010724719651761264,
+              0.05717834040664198
+            ]
+          }
+        },
+        "stocks": {
+          "mean": 2.775,
+          "never": {
+            "count": 7,
+            "n": 200,
+            "rate": 0.035,
+            "ci95": [
+              0.017055542008567192,
+              0.07047061152229073
+            ]
+          }
+        },
+        "course": {
+          "mean": 7.105,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "macro": {
+          "mean": 1.485,
+          "never": {
+            "count": 25,
+            "n": 200,
+            "rate": 0.125,
+            "ci95": [
+              0.08611974475712644,
+              0.17801425002582347
+            ]
+          }
+        },
+        "bonds": {
+          "mean": 2.75,
+          "never": {
+            "count": 6,
+            "n": 200,
+            "rate": 0.03,
+            "ci95": [
+              0.013820314340111346,
+              0.06389429245451925
+            ]
+          }
+        },
+        "personal": {
+          "mean": 1.38,
+          "never": {
+            "count": 44,
+            "n": 200,
+            "rate": 0.22,
+            "ci95": [
+              0.16816538358833258,
+              0.28238799918293667
+            ]
+          }
+        },
+        "business": {
+          "mean": 5.825,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "gold": {
+          "mean": 2.825,
+          "never": {
+            "count": 8,
+            "n": 200,
+            "rate": 0.04,
+            "ci95": [
+              0.020405632066152306,
+              0.07693206820093293
+            ]
+          }
+        }
+      }
+    },
+    "business": {
+      "n": 200,
+      "won": {
+        "count": 156,
+        "n": 200,
+        "rate": 0.78,
+        "ci95": [
+          0.7176120008170632,
+          0.8318346164116674
+        ]
+      },
+      "insolvent": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "funded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "borrowed": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "locked": {
+        "count": 16,
+        "n": 200,
+        "rate": 0.08,
+        "ci95": [
+          0.049840585889759974,
+          0.12598948826714396
+        ]
+      },
+      "capitalLoss": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "courseBought": {
+        "count": 200,
+        "n": 200,
+        "rate": 1,
+        "ci95": [
+          0.9811546736227335,
+          1
+        ]
+      },
+      "businessBought": {
+        "count": 198,
+        "n": 200,
+        "rate": 0.99,
+        "ci95": [
+          0.9642782382838231,
+          0.9972533418664555
+        ]
+      },
+      "businessUpgraded": {
+        "count": 186,
+        "n": 200,
+        "rate": 0.93,
+        "ci95": [
+          0.8859451911438936,
+          0.9578478281716571
+        ]
+      },
+      "businessSold": {
+        "count": 182,
+        "n": 200,
+        "rate": 0.91,
+        "ci95": [
+          0.8622342812328346,
+          0.9423125511378069
+        ]
+      },
+      "anyInvestment": {
+        "count": 198,
+        "n": 200,
+        "rate": 0.99,
+        "ci95": [
+          0.9642782382838231,
+          0.9972533418664555
+        ]
+      },
+      "proceeds": {
+        "mean": 98211253.68,
+        "median": 97513361,
+        "p10": 84117475,
+        "p90": 112558324,
+        "p01": 68800000,
+        "p99": 129801676,
+        "min": 66000000,
+        "max": 140066581
+      },
+      "cash": {
+        "mean": 98211253.68,
+        "median": 97513361,
+        "p10": 84117475,
+        "p90": 112558324,
+        "p01": 68800000,
+        "p99": 129801676,
+        "min": 66000000,
+        "max": 140066581
+      },
+      "debt": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "shortfall": {
+        "mean": 1530282.07,
+        "median": 0,
+        "p10": 0,
+        "p90": 5200000,
+        "p01": 0,
+        "p99": 17900000,
+        "min": 0,
+        "max": 24000000
+      },
+      "maxFundingShortfall": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "rolls": {
+        "mean": 29.185,
+        "median": 29,
+        "p10": 26,
+        "p90": 33,
+        "p01": 23,
+        "p99": 36,
+        "min": 22,
+        "max": 38
+      },
+      "encounters": {
+        "mean": 27,
+        "median": 27,
+        "p10": 23,
+        "p90": 31,
+        "p01": 21,
+        "p99": 34,
+        "min": 21,
+        "max": 36
+      },
+      "meaningfulOpportunities": {
+        "mean": 19.395,
+        "median": 19,
+        "p10": 16,
+        "p90": 23,
+        "p01": 12,
+        "p99": 26,
+        "min": 12,
+        "max": 27
+      },
+      "meaningfulDecisions": {
+        "mean": 22.78,
+        "median": 22,
+        "p10": 18,
+        "p90": 28,
+        "p01": 15,
+        "p99": 32,
+        "min": 13,
+        "max": 34
+      },
+      "modalsProxy": {
+        "mean": 42,
+        "median": 42,
+        "p10": 38,
+        "p90": 46,
+        "p01": 36,
+        "p99": 49,
+        "min": 36,
+        "max": 51
+      },
+      "incomeReceived": {
+        "mean": 100179000,
+        "median": 99800000,
+        "p10": 91000000,
+        "p90": 108900000,
+        "p01": 85000000,
+        "p99": 118900000,
+        "min": 82000000,
+        "max": 124900000
+      },
+      "creditLoss": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "creditCoupon": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "drawdown": {
+        "mean": 15961955.23,
+        "median": 15665962,
+        "p10": 12500000,
+        "p90": 19500000,
+        "p01": 12000000,
+        "p99": 22853738,
+        "min": 11000000,
+        "max": 24000000
+      },
+      "lockedBusiness": {
+        "mean": 3016437.895,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 44913957,
+        "min": 0,
+        "max": 70815946
+      },
+      "lockedBond": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "missedBusinessExit": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "expectedShortfall10": 78141388.4,
+      "opportunities": {
+        "bank": {
+          "mean": 2.855,
+          "never": {
+            "count": 5,
+            "n": 200,
+            "rate": 0.025,
+            "ci95": [
+              0.010724719651761264,
+              0.05717834040664198
+            ]
+          }
+        },
+        "stocks": {
+          "mean": 2.775,
+          "never": {
+            "count": 7,
+            "n": 200,
+            "rate": 0.035,
+            "ci95": [
+              0.017055542008567192,
+              0.07047061152229073
+            ]
+          }
+        },
+        "course": {
+          "mean": 7.105,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "macro": {
+          "mean": 1.485,
+          "never": {
+            "count": 25,
+            "n": 200,
+            "rate": 0.125,
+            "ci95": [
+              0.08611974475712644,
+              0.17801425002582347
+            ]
+          }
+        },
+        "bonds": {
+          "mean": 2.75,
+          "never": {
+            "count": 6,
+            "n": 200,
+            "rate": 0.03,
+            "ci95": [
+              0.013820314340111346,
+              0.06389429245451925
+            ]
+          }
+        },
+        "personal": {
+          "mean": 1.38,
+          "never": {
+            "count": 44,
+            "n": 200,
+            "rate": 0.22,
+            "ci95": [
+              0.16816538358833258,
+              0.28238799918293667
+            ]
+          }
+        },
+        "business": {
+          "mean": 5.825,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "gold": {
+          "mean": 2.825,
+          "never": {
+            "count": 8,
+            "n": 200,
+            "rate": 0.04,
+            "ci95": [
+              0.020405632066152306,
+              0.07693206820093293
+            ]
+          }
+        }
+      }
+    },
+    "diversified": {
+      "n": 200,
+      "won": {
+        "count": 165,
+        "n": 200,
+        "rate": 0.825,
+        "ci95": [
+          0.7663556885175099,
+          0.8713948493372666
+        ]
+      },
+      "insolvent": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "funded": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "borrowed": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "locked": {
+        "count": 16,
+        "n": 200,
+        "rate": 0.08,
+        "ci95": [
+          0.049840585889759974,
+          0.12598948826714396
+        ]
+      },
+      "capitalLoss": {
+        "count": 0,
+        "n": 200,
+        "rate": 0,
+        "ci95": [
+          1.734723475976807e-18,
+          0.018845326377266575
+        ]
+      },
+      "courseBought": {
+        "count": 200,
+        "n": 200,
+        "rate": 1,
+        "ci95": [
+          0.9811546736227335,
+          1
+        ]
+      },
+      "businessBought": {
+        "count": 176,
+        "n": 200,
+        "rate": 0.88,
+        "ci95": [
+          0.8276574790170326,
+          0.9180200729362449
+        ]
+      },
+      "businessUpgraded": {
+        "count": 146,
+        "n": 200,
+        "rate": 0.73,
+        "ci95": [
+          0.6645656480133157,
+          0.7867655018531416
+        ]
+      },
+      "businessSold": {
+        "count": 161,
+        "n": 200,
+        "rate": 0.805,
+        "ci95": [
+          0.7445595562538726,
+          0.8539447946559949
+        ]
+      },
+      "anyInvestment": {
+        "count": 200,
+        "n": 200,
+        "rate": 1,
+        "ci95": [
+          0.9811546736227335,
+          1
+        ]
+      },
+      "proceeds": {
+        "mean": 100289727.925,
+        "median": 99961163,
+        "p10": 85208225,
+        "p90": 115775847,
+        "p01": 75065883,
+        "p99": 132607778,
+        "min": 70679915,
+        "max": 140299910
+      },
+      "cash": {
+        "mean": 66765154.03,
+        "median": 65764680,
+        "p10": 45396509,
+        "p90": 86506900,
+        "p01": 36510713,
+        "p99": 100264517,
+        "min": 25960946,
+        "max": 121081442
+      },
+      "debt": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "shortfall": {
+        "mean": 1040083.655,
+        "median": 0,
+        "p10": 0,
+        "p90": 4774589,
+        "p01": 0,
+        "p99": 14692249,
+        "min": 0,
+        "max": 19320085
+      },
+      "maxFundingShortfall": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "rolls": {
+        "mean": 29.185,
+        "median": 29,
+        "p10": 26,
+        "p90": 33,
+        "p01": 23,
+        "p99": 36,
+        "min": 22,
+        "max": 38
+      },
+      "encounters": {
+        "mean": 27,
+        "median": 27,
+        "p10": 23,
+        "p90": 31,
+        "p01": 21,
+        "p99": 34,
+        "min": 21,
+        "max": 36
+      },
+      "meaningfulOpportunities": {
+        "mean": 19.33,
+        "median": 19,
+        "p10": 16,
+        "p90": 23,
+        "p01": 12,
+        "p99": 26,
+        "min": 12,
+        "max": 27
+      },
+      "meaningfulDecisions": {
+        "mean": 21.625,
+        "median": 22,
+        "p10": 18,
+        "p90": 26,
+        "p01": 15,
+        "p99": 30,
+        "min": 13,
+        "max": 32
+      },
+      "modalsProxy": {
+        "mean": 42,
+        "median": 42,
+        "p10": 38,
+        "p90": 46,
+        "p01": 36,
+        "p99": 49,
+        "min": 36,
+        "max": 51
+      },
+      "incomeReceived": {
+        "mean": 96003500,
+        "median": 96400000,
+        "p10": 85000000,
+        "p90": 104600000,
+        "p01": 82000000,
+        "p99": 117400000,
+        "min": 82000000,
+        "max": 118900000
+      },
+      "creditLoss": {
+        "mean": 61721.355,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 2462214,
+        "min": 0,
+        "max": 2491970
+      },
+      "creditCoupon": {
+        "mean": 934914.48,
+        "median": 903478,
+        "p10": 227273,
+        "p90": 1596891,
+        "p01": 0,
+        "p99": 2257102,
+        "min": 0,
+        "max": 2478259
+      },
+      "drawdown": {
+        "mean": 14917562.83,
+        "median": 14500000,
+        "p10": 12000000,
+        "p90": 18315358,
+        "p01": 7000000,
+        "p99": 22000000,
+        "min": 7000000,
+        "max": 22476200
+      },
+      "lockedBusiness": {
+        "mean": 2622761.34,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 41532915,
+        "min": 0,
+        "max": 70815946
+      },
+      "lockedBond": {
+        "mean": 80005.89,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 8109842
+      },
+      "missedBusinessExit": {
+        "mean": 0,
+        "median": 0,
+        "p10": 0,
+        "p90": 0,
+        "p01": 0,
+        "p99": 0,
+        "min": 0,
+        "max": 0
+      },
+      "expectedShortfall10": 81312068.6,
+      "opportunities": {
+        "bank": {
+          "mean": 2.855,
+          "never": {
+            "count": 5,
+            "n": 200,
+            "rate": 0.025,
+            "ci95": [
+              0.010724719651761264,
+              0.05717834040664198
+            ]
+          }
+        },
+        "stocks": {
+          "mean": 2.775,
+          "never": {
+            "count": 7,
+            "n": 200,
+            "rate": 0.035,
+            "ci95": [
+              0.017055542008567192,
+              0.07047061152229073
+            ]
+          }
+        },
+        "course": {
+          "mean": 7.105,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "macro": {
+          "mean": 1.485,
+          "never": {
+            "count": 25,
+            "n": 200,
+            "rate": 0.125,
+            "ci95": [
+              0.08611974475712644,
+              0.17801425002582347
+            ]
+          }
+        },
+        "bonds": {
+          "mean": 2.75,
+          "never": {
+            "count": 6,
+            "n": 200,
+            "rate": 0.03,
+            "ci95": [
+              0.013820314340111346,
+              0.06389429245451925
+            ]
+          }
+        },
+        "personal": {
+          "mean": 1.38,
+          "never": {
+            "count": 44,
+            "n": 200,
+            "rate": 0.22,
+            "ci95": [
+              0.16816538358833258,
+              0.28238799918293667
+            ]
+          }
+        },
+        "business": {
+          "mean": 5.825,
+          "never": {
+            "count": 0,
+            "n": 200,
+            "rate": 0,
+            "ci95": [
+              1.734723475976807e-18,
+              0.018845326377266575
+            ]
+          }
+        },
+        "gold": {
+          "mean": 2.825,
+          "never": {
+            "count": 8,
+            "n": 200,
+            "rate": 0.04,
+            "ci95": [
+              0.020405632066152306,
+              0.07693206820093293
+            ]
+          }
+        }
+      }
+    }
+  },
+  "pairedAgainstCash": {
+    "savings": {
+      "proceeds": {
+        "n": 200,
+        "mean": 17952931.245,
+        "ci95": [
+          17469707.01008371,
+          18436155.479916293
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "won": {
+        "n": 200,
+        "mean": 0.9,
+        "ci95": [
+          0.8583177851455099,
+          0.9416822148544901
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      }
+    },
+    "stocks": {
+      "proceeds": {
+        "n": 200,
+        "mean": 14698986.785,
+        "ci95": [
+          13024499.363411982,
+          16373474.206588019
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "won": {
+        "n": 200,
+        "mean": 0.62,
+        "ci95": [
+          0.5525600598484979,
+          0.6874399401515021
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      }
+    },
+    "gold": {
+      "proceeds": {
+        "n": 200,
+        "mean": 11957212.265,
+        "ci95": [
+          11046796.979229815,
+          12867627.550770186
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "won": {
+        "n": 200,
+        "mean": 0.515,
+        "ci95": [
+          0.44556091060736475,
+          0.5844390893926353
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      }
+    },
+    "bond-a": {
+      "proceeds": {
+        "n": 200,
+        "mean": 10874225.73,
+        "ci95": [
+          10342627.611886172,
+          11405823.84811383
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "won": {
+        "n": 200,
+        "mean": 0.59,
+        "ci95": [
+          0.5216643283482154,
+          0.6583356716517845
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      }
+    },
+    "bond-b": {
+      "proceeds": {
+        "n": 200,
+        "mean": 10766487.17,
+        "ci95": [
+          9575904.85977691,
+          11957069.48022309
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "won": {
+        "n": 200,
+        "mean": 0.59,
+        "ci95": [
+          0.5216643283482154,
+          0.6583356716517845
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      }
+    },
+    "business": {
+      "proceeds": {
+        "n": 200,
+        "mean": 18631253.68,
+        "ci95": [
+          17117365.681608606,
+          20145141.678391393
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "won": {
+        "n": 200,
+        "mean": 0.78,
+        "ci95": [
+          0.72244432190998,
+          0.8375556780900201
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      }
+    },
+    "diversified": {
+      "proceeds": {
+        "n": 200,
+        "mean": 20709727.925,
+        "ci95": [
+          19169438.739028618,
+          22250017.110971384
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "won": {
+        "n": 200,
+        "mean": 0.825,
+        "ci95": [
+          0.772207098467111,
+          0.8777929015328889
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      }
+    }
+  }
+}
