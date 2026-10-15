@@ -68,7 +68,7 @@ for (const asset of ['stocks', 'gold', 'bonds'] as const) {
     assert.throws(() => transact(one, action))
     for (const other of ['stocks', 'gold', 'bonds'] as const) {
       const reopened = encounter(other, JSON.parse(saved))
-      assert.throws(() => transact(reopened, { ...action, asset: other, completeEncounter: false }), /một lần/)
+      assert.throws(() => transact(reopened, { ...action, asset: other, completeEncounter: false, ...(other === 'stocks' ? { symbolId: initial.market.stocks[1].id } : {}) }), /một lần/)
     }
     assert.equal(JSON.stringify(one), saved)
   })
