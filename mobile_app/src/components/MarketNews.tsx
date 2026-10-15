@@ -64,6 +64,19 @@ export function ForecastReality({ game, lap }: { game: GameState; lap: number })
   </section>
 }
 
+export function CompactForecastReality({ game, lap }: { game: GameState; lap: number }) {
+  const review = roundMarketReview(game, lap)
+  return <section className="start-market" aria-label="Thị trường vòng này">
+    <h3>Thị trường vòng này</h3>
+    <ul>{review.assets.map(item => <li key={item.asset}><span>{item.label}</span>
+      <strong className={item.returnRate === null || item.returnRate === 0 ? 'neutral' : item.returnRate > 0 ? 'positive' : 'negative'}>
+        {item.returnRate === null ? 'Chưa đủ dữ liệu' : item.returnRate === -1 && item.asset === 'bonds' ? 'Ngừng giao dịch' : percent(item.returnRate)}
+      </strong></li>)}</ul>
+    <p className="start-caption">Biến động giá; không gồm coupon hay phí.</p>
+    <details><summary>Xem dự báo vs. thực tế</summary><ForecastReality game={game} lap={lap} /></details>
+  </section>
+}
+
 export function MarketSignal({ game, asset, symbolId }: { game: GameState; asset: TradableAsset; symbolId?: string }) {
   const signal = investmentSignal(game, asset, symbolId)
   return <details className="market-signal"><summary>Xem tín hiệu thị trường</summary>
