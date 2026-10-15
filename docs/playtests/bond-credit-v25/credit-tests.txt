@@ -1,0 +1,127 @@
+TAP version 13
+# (node:8668) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: bond version defaults to historical; V2.5 is explicit and has its own deterministic RNG
+ok 1 - bond version defaults to historical; V2.5 is explicit and has its own deterministic RNG
+  ---
+  duration_ms: 6.0018
+  ...
+# Subtest: buy an-tam: one atomic lot, contractual amounts separate, no RNG draw
+ok 2 - buy an-tam: one atomic lot, contractual amounts separate, no RNG draw
+  ---
+  duration_ms: 5.9155
+  ...
+# Subtest: buy but-pha: one atomic lot, contractual amounts separate, no RNG draw
+ok 3 - buy but-pha: one atomic lot, contractual amounts separate, no RNG draw
+  ---
+  duration_ms: 1.0838
+  ...
+# Subtest: invalid issuer, distressed issuer or amount leaves state untouched and opportunity available
+ok 4 - invalid issuer, distressed issuer or amount leaves state untouched and opportunity available
+  ---
+  duration_ms: 3.3081
+  ...
+# Subtest: credit market is independent, idempotent, macro stress public, stock/gold/dice RNG unchanged
+ok 5 - credit market is independent, idempotent, macro stress public, stock/gold/dice RNG unchanged
+  ---
+  duration_ms: 2.1914
+  ...
+# Subtest: performing two-START contract pays coupons and face once; no cash from repeated settlement
+ok 6 - performing two-START contract pays coupons and face once; no cash from repeated settlement
+  ---
+  duration_ms: 1.0279
+  ...
+# Subtest: delayed coupons and principal are claims; cure after maturity pays arrears without extra coupons
+ok 7 - delayed coupons and principal are claims; cure after maturity pays arrears without extra coupons
+  ---
+  duration_ms: 0.809
+  ...
+# Subtest: partial default writes down immediately; recovery next START only, never twice
+ok 8 - partial default writes down immediately; recovery next START only, never twice
+  ---
+  duration_ms: 0.6962
+  ...
+# Subtest: START cursor and lap guards protect coupon, market and salary on reentry
+ok 9 - START cursor and lap guards protect coupon, market and salary on reentry
+  ---
+  duration_ms: 2.7758
+  ...
+# Subtest: partial sale affects only selected issuer/lot and transfers arrears without creating coupon cash
+ok 10 - partial sale affects only selected issuer/lot and transfers arrears without creating coupon cash
+  ---
+  duration_ms: 3.0872
+  ...
+# Subtest: default claims are unavailable for funding and victory; executable sales use per-lot fees
+ok 11 - default claims are unavailable for funding and victory; executable sales use per-lot fees
+  ---
+  duration_ms: 3.991
+  ...
+# Subtest: hundreds of deterministic fractional sales conserve principal and accrued coupon rights
+ok 12 - hundreds of deterministic fractional sales conserve principal and accrued coupon rights
+  ---
+  duration_ms: 67.6368
+  ...
+# Subtest: mandatory living funding composes savings, stocks, gold, partial Bond sale and capped debt
+ok 13 - mandatory living funding composes savings, stocks, gold, partial Bond sale and capped debt
+  ---
+  duration_ms: 3.3197
+  ...
+# Subtest: settlement pause after credit cash cannot duplicate outcomes or payments when debt funding resumes
+ok 14 - settlement pause after credit cash cannot duplicate outcomes or payments when debt funding resumes
+  ---
+  duration_ms: 2.9145
+  ...
+# Subtest: V2.5 four-lap complete state replay: issuer-a
+ok 15 - V2.5 four-lap complete state replay: issuer-a
+  ---
+  duration_ms: 393.1011
+  ...
+# Subtest: V2.5 four-lap complete state replay: issuer-b
+ok 16 - V2.5 four-lap complete state replay: issuer-b
+  ---
+  duration_ms: 328.9656
+  ...
+# Subtest: V2.5 four-lap complete state replay: mixed-bonds
+ok 17 - V2.5 four-lap complete state replay: mixed-bonds
+  ---
+  duration_ms: 307.3041
+  ...
+# Subtest: V2.5 four-lap complete state replay: liquidity
+ok 18 - V2.5 four-lap complete state replay: liquidity
+  ---
+  duration_ms: 302.0337
+  ...
+# Subtest: V2.5 four-lap complete state replay: balanced
+ok 19 - V2.5 four-lap complete state replay: balanced
+  ---
+  duration_ms: 407.9678
+  ...
+# Subtest: historical full-state replay unchanged: encounter-limits-v2_3/browser-game-log.json.gz
+ok 20 - historical full-state replay unchanged: encounter-limits-v2_3/browser-game-log.json.gz
+  ---
+  duration_ms: 505.9176
+  ...
+# Subtest: historical full-state replay unchanged: economic-news-v1/browser-game-log.json.gz
+ok 21 - historical full-state replay unchanged: economic-news-v1/browser-game-log.json.gz
+  ---
+  duration_ms: 457.1684
+  ...
+# Subtest: historical full-state replay unchanged: atomic-investments-v24/historical-multi-purchase.json.gz
+ok 22 - historical full-state replay unchanged: atomic-investments-v24/historical-multi-purchase.json.gz
+  ---
+  duration_ms: 418.029
+  ...
+# Subtest: historical full-state replay unchanged: atomic-investments-v24/browser-game-log.json.gz
+ok 23 - historical full-state replay unchanged: atomic-investments-v24/browser-game-log.json.gz
+  ---
+  duration_ms: 586.7732
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4181.4109

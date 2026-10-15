@@ -6,14 +6,16 @@ import { encounterRulesForGame } from '../../src/game/encounters.ts'
 import { stockCatalog } from '../../src/data/stock-catalog.ts'
 import type { BondRulesVersion, StockCatalogVersion } from '../../src/game/types.ts'
 import { bondRulesForGame } from '../../src/game/bond-credit.ts'
+import { BOND_ISSUERS } from '../../src/data/bond-issuers.ts'
 import type { Asset, BusinessRulesVersion, CustomerPreferenceId, EncounterRulesVersion, FundingSource, GameState, LogEntry, RebalanceAction, SavingsProfile, Term } from '../../src/game/types.ts'
 
-export interface ReplayLog { schemaVersion: number; seed: string; bondRulesVersion?: BondRulesVersion; stockCatalogVersion?: StockCatalogVersion; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
+export interface ReplayLog { schemaVersion: number; seed: string; bondRulesVersion?: BondRulesVersion; bondCreditConfig?: unknown; stockCatalogVersion?: StockCatalogVersion; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
 export function replayGameLog(data: ReplayLog): GameState {
   assert.ok(data.schemaVersion === 4 || data.schemaVersion === 5, 'Only V2.1/schema4 and V2.2/schema5 are supported')
   const historical = data.schemaVersion === 4
   assert.equal(data.bondRulesVersion, data.state.bondRulesVersion, 'Bond rules metadata must agree')
   bondRulesForGame(data.state)
+  if (data.bondRulesVersion === 'v2.5-credit-risk') assert.deepEqual(data.bondCreditConfig, BOND_ISSUERS, 'Bond credit parameters must match the frozen version')
   if (data.customerPreferenceId) assert.equal(data.state.customerPreferenceId, data.customerPreferenceId, 'Customer preference metadata must agree')
   const legacyEncounters = data.encounterRulesVersion === undefined && data.state.encounterRulesVersion === undefined
   const encounterRulesVersion = encounterRulesForGame({ encounterRulesVersion: data.encounterRulesVersion ?? data.state.encounterRulesVersion })

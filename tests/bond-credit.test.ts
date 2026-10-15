@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { createGame, transact } from '../src/game/engine.ts'
-import { fundSource, fundingSources } from '../src/game/transactions.ts'
+import { createGame, decide, fundPayment, transact } from '../src/game/engine.ts'
+import { fundSource, fundingSources, resolveInsolvency } from '../src/game/transactions.ts'
 import { liquidatableFunds, saleQuote } from '../src/game/selectors.ts'
 import { applyMacroShock, updateNormalMarket } from '../src/game/market.ts'
 import { beginSettlement, continueSettlement } from '../src/game/settlement.ts'
@@ -198,10 +198,63 @@ test('hundreds of deterministic fractional sales conserve principal and accrued 
   }
 })
 
+test('mandatory living funding composes savings, stocks, gold, partial Bond sale and capped debt', () => {
+  let s = createGame('combined-credit', 3_000_000, 3, 'experimental-b', undefined, 'v2.4-customer-preferences', 'v2.4-atomic-investments', 'vn-v1', 'v2.5-credit-risk')
+  for (const [asset, position] of [['stocks', 2], ['gold', 9], ['bonds', 6]] as const) s = transact({ ...s, position, eventId: asset, phase: 'event', turn: s.turn + 1 }, { kind: 'buy', asset, amount: 1_000_000, issuerId: 'an-tam' })
+  s = decide({ ...s, phase: 'event', position: 3, eventId: 'living', portfolio: { ...s.portfolio, cash: 2_000_000 } }, 'pay')
+  s = fundPayment(s, 'savings', 3_000_000, 'deposit-1')
+  s = fundPayment(s, 'stocks', 1_000_000)
+  s = fundPayment(s, 'gold', 1_000_000)
+  s = fundPayment(s, 'bonds', 25_000, 'bond-1')
+  assert.equal(s.pendingPayment!.remaining, 25_075)
+  assert.throws(() => fundPayment(s, 'debt', 25_076))
+  s = fundPayment(s, 'debt', 25_075)
+  assert.equal(s.phase, 'rolling')
+  assert.equal(s.portfolio.cash, 0)
+  assert.equal(s.portfolio.debt, 25_075)
+  assert.equal(s.bondLots[0].principal, 975_000)
+})
+test('settlement pause after credit cash cannot duplicate outcomes or payments when debt funding resumes', () => {
+  const initial = holding()
+  initial.portfolio.debt = 60_000_000; initial.portfolio.cash = 0
+  const paused = beginSettlement(initial)
+  assert.equal(paused.phase, 'funding')
+  assert.equal(paused.bondLots[0].credit!.history.length, 1)
+  assert.equal(paused.bondCredit!.processedLaps.length, 1)
+  const coupon = paused.bondLots[0].credit!.history[0].couponPaid
+  let resumed = fundPayment(paused, 'bonds', bondLotQuote(paused, 'bond-1').gross, 'bond-1')
+  if (resumed.phase === 'funding') resumed = fundPayment(resumed, 'debt', Math.min(30_000_000, resumed.pendingPayment!.remaining))
+  assert.equal(resumed.bondLots[0].credit!.history.length, 1)
+  assert.equal(resumed.bondLots[0].credit!.history[0].couponPaid, coupon)
+  assert.equal(resumed.bondCredit!.processedLaps.length, 1)
+  assert.equal(resumed.log.filter(e => e.title === 'Nhận lương').length, 1)
+})
+
+test('unpaid default claims cannot prevent insolvency or be valued as full face at game end', () => {
+  const s = holding('but-pha')
+  s.bondCredit!.issuers[1].status = 'defaulted'; s.bondCredit!.issuers[1].defaultLap = 1
+  settleCreditBonds(s)
+  s.portfolio.cash = 0; s.portfolio.debt = 30_000_000; s.phase = 'funding'
+  s.pendingPayment = { origin: 'settlement', title: 'Nghĩa vụ', total: 1_000_000, remaining: 1_000_000 }
+  assert.equal(resolveInsolvency(s).termination, 'insolvent')
+  assert.equal(liquidatableFunds(s), -31_000_000)
+  const late = transact({ ...current('last-lap'), lap: 4, phase: 'event', position: 6, eventId: 'bonds', turn: 1 }, { kind: 'buy', asset: 'bonds', issuerId: 'an-tam', amount: 10_000_000 })
+  settleCreditBonds(late)
+  assert.equal(late.bondLots[0].maturityLap, 5)
+  assert.equal(late.bondLots[0].principal, 10_000_000)
+  assert.equal(late.bondLots[0].credit!.principalPaid, 0)
+  assert.equal(liquidatableFunds(late), late.portfolio.cash + 9_850_000)
+})
+
 for (const strategy of ['issuer-a', 'issuer-b', 'mixed-bonds', 'liquidity', 'balanced'] as const) test(`V2.5 four-lap complete state replay: ${strategy}`, () => {
   const s = playBondGame('bond-replay-1', strategy)
   assert.equal(s.summaries.length, 4)
   assert.deepEqual(replayGameLog(JSON.parse(serializeLog(s))), s)
+})
+test('V2.5 replay rejects a misdeclared credit configuration instead of silently accepting new rates', () => {
+  const data = JSON.parse(serializeLog(current('config-audit')))
+  data.bondCreditConfig[0].coupon = .9
+  assert.throws(() => replayGameLog(data), /Bond credit parameters/)
 })
 for (const path of [
   'encounter-limits-v2_3/browser-game-log.json.gz', 'economic-news-v1/browser-game-log.json.gz',
