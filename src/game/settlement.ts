@@ -7,6 +7,7 @@ import { businessIncome } from './business.ts'
 import { ECONOMY } from '../data/config.ts'
 import type { Asset, GameState } from './types.ts'
 import { hasBondCredit, settleCreditBonds } from './bond-credit.ts'
+import { hasPeriodicLiving, PERIODIC_LIVING_COST } from './living-expenses.ts'
 
 export function beginSettlement(state: GameState): GameState {
   if (state.termination || state.settlement || state.summaries.some(summary => summary.lap === state.lap)) return state
@@ -20,9 +21,15 @@ export function beginSettlement(state: GameState): GameState {
 export function continueSettlement(state: GameState): GameState {
   if (!state.settlement || state.pendingPayment || state.termination) return state
   let s = copyState(state)
-  while (s.settlement!.step < 6) {
+  const periodic = hasPeriodicLiving(s)
+  const debtStep = periodic ? 5 : 4
+  const scheduleTitles = periodic
+    ? ['Thị trường', 'Nhận lương', 'Dòng tiền kinh doanh', 'Đáo hạn và coupon', 'Chi phí sinh hoạt', 'Nợ đến hạn', 'Nghĩa vụ đến hạn']
+    : ['Thị trường', 'Nhận lương', 'Dòng tiền kinh doanh', 'Đáo hạn và coupon', 'Nợ đến hạn', 'Nghĩa vụ đến hạn']
+  while (s.settlement!.step < scheduleTitles.length) {
     const before = snapshot(s)
     const step = s.settlement!.step++
+    let livingPaid = 0
     if (step === 0) {
       s = updateNormalMarket(s)
       const progress = s.settlement!
@@ -62,7 +69,10 @@ export function continueSettlement(state: GameState): GameState {
       }
       s.savingsMatured = !s.deposits.some(lot => lot.status === 'active')
       syncValuations(s)
-    } else if (step === 4) {
+    } else if (periodic && step === 4) {
+      s.settlement!.lines.push({ label: 'Chi phí sinh hoạt', amount: -PERIODIC_LIVING_COST })
+      livingPaid = collectPayment(s, { origin: 'settlement', title: 'Chi phí sinh hoạt', total: PERIODIC_LIVING_COST })
+    } else if (step === debtStep) {
       const principal = s.settlement!.before.portfolio.debt
       const interest = Math.round(principal * RULES.debtRate)
       s.portfolio.debt -= principal; s.settlement!.debtPrincipalPaid = principal
@@ -74,9 +84,10 @@ export function continueSettlement(state: GameState): GameState {
       s.settlement!.lines.push({ label: 'Nghĩa vụ đã hẹn', amount: -obligations })
       collectPayment(s, { origin: 'settlement', title: 'Nghĩa vụ đã hẹn', total: obligations })
     }
-    if (step > 0) s = record(s, before, { kind: 'schedule', title: ['Thị trường', 'Nhận lương', 'Dòng tiền kinh doanh', 'Đáo hạn và coupon', 'Nợ đến hạn', 'Nghĩa vụ đến hạn'][step],
+    if (step > 0) s = record(s, before, { kind: 'schedule', title: scheduleTitles[step],
       decision: `Bước quyết toán ${step + 1}`, consequence: 'Đã xử lý một lần; snapshot lưu toàn bộ khoản gửi, báo giá, sở hữu và nợ.',
-      debtInterestPaid: step === 4 ? Math.round(s.settlement!.before.portfolio.debt * RULES.debtRate) : 0 })
+      ...(periodic && step === 4 ? { expensePaid: livingPaid } : {}),
+      debtInterestPaid: step === debtStep ? Math.round(s.settlement!.before.portfolio.debt * RULES.debtRate) : 0 })
     if (s.pendingPayment) return resolveInsolvency(s)
   }
   const progress = s.settlement!
@@ -93,6 +104,8 @@ export function continueSettlement(state: GameState): GameState {
     debtPrincipalPaid: progress.debtPrincipalPaid, fundingNotes: progress.fundingNotes }]
   s.settlement = null
   return record(s, finalBefore, { kind: 'settlement', title: `Quyết toán vòng ${s.lap}`, decision: 'Hoàn thành quyết toán', decisionId: 'settle-lap',
-    consequence: 'Thị trường → lương → kinh doanh → đáo hạn/coupon → nợ/nghĩa vụ. Tiếp theo: quyền bán tại START, kể cả vòng cuối.',
+    consequence: periodic
+      ? 'Thị trường → lương → kinh doanh → đáo hạn/coupon → sinh hoạt → nợ/nghĩa vụ. Tiếp theo: quyền bán tại START, kể cả vòng cuối.'
+      : 'Thị trường → lương → kinh doanh → đáo hạn/coupon → nợ/nghĩa vụ. Tiếp theo: quyền bán tại START, kể cả vòng cuối.',
     debtInterestAccrued: terminalInterest })
 }
