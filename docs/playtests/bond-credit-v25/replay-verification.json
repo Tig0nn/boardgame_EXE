@@ -1,0 +1,212 @@
+{
+  "balanceRowsVerified": 12000,
+  "simulations": [
+    {
+      "file": "simulation-coupon-delay.json.gz",
+      "seed": "BOND-V25-0",
+      "sha256": "8f9fb46e0df3b5cae5dcf140c53e0c4f9a9f9b56545207a2d2ffbe8b9d58fb54",
+      "fullStateReplay": true,
+      "coachFactsValid": true,
+      "rolls": 22,
+      "entries": 92,
+      "lawfulProceeds": 95957458,
+      "won": true,
+      "couponDelays": 4,
+      "principalDelays": 2,
+      "losses": 0,
+      "recovered": 0
+    },
+    {
+      "file": "simulation-default-recovery.json.gz",
+      "seed": "BOND-V25-59",
+      "sha256": "ec2b55138e8dedaded8eb6be9da6c4c375b05062174209cc56e34ddf8de9a973",
+      "fullStateReplay": true,
+      "coachFactsValid": true,
+      "rolls": 23,
+      "entries": 99,
+      "lawfulProceeds": 83316939,
+      "won": false,
+      "couponDelays": 0,
+      "principalDelays": 0,
+      "losses": 7393469,
+      "recovered": 24141939
+    },
+    {
+      "file": "simulation-defeat.json.gz",
+      "seed": "BOND-V25-2",
+      "sha256": "28893287ed8e30f8240feb7f1ef313aafb93fa5de52b9a0e34fcafa9cc40dcd9",
+      "fullStateReplay": true,
+      "coachFactsValid": true,
+      "rolls": 22,
+      "entries": 94,
+      "lawfulProceeds": 84949922,
+      "won": false,
+      "couponDelays": 0,
+      "principalDelays": 0,
+      "losses": 0,
+      "recovered": 0
+    },
+    {
+      "file": "simulation-normal-a.json.gz",
+      "seed": "BOND-V25-1",
+      "sha256": "9bc14805ab4951f7b75fc272b30f45901f3ce660dfd184ac9b811b62e58854de",
+      "fullStateReplay": true,
+      "coachFactsValid": true,
+      "rolls": 25,
+      "entries": 103,
+      "lawfulProceeds": 91407512,
+      "won": true,
+      "couponDelays": 0,
+      "principalDelays": 0,
+      "losses": 0,
+      "recovered": 0
+    },
+    {
+      "file": "simulation-normal-b.json.gz",
+      "seed": "BOND-V25-1",
+      "sha256": "70176ddaba76c0f66883f4aef7a2837201edf5559e5d5b4a40a00232faa2e8ea",
+      "fullStateReplay": true,
+      "coachFactsValid": true,
+      "rolls": 25,
+      "entries": 103,
+      "lawfulProceeds": 96112622,
+      "won": true,
+      "couponDelays": 0,
+      "principalDelays": 0,
+      "losses": 0,
+      "recovered": 0
+    },
+    {
+      "file": "simulation-principal-delay.json.gz",
+      "seed": "BOND-V25-0",
+      "sha256": "8f9fb46e0df3b5cae5dcf140c53e0c4f9a9f9b56545207a2d2ffbe8b9d58fb54",
+      "fullStateReplay": true,
+      "coachFactsValid": true,
+      "rolls": 22,
+      "entries": 92,
+      "lawfulProceeds": 95957458,
+      "won": true,
+      "couponDelays": 4,
+      "principalDelays": 2,
+      "losses": 0,
+      "recovered": 0
+    },
+    {
+      "file": "simulation-victory.json.gz",
+      "seed": "BOND-V25-0",
+      "sha256": "8f9fb46e0df3b5cae5dcf140c53e0c4f9a9f9b56545207a2d2ffbe8b9d58fb54",
+      "fullStateReplay": true,
+      "coachFactsValid": true,
+      "rolls": 22,
+      "entries": 92,
+      "lawfulProceeds": 95957458,
+      "won": true,
+      "couponDelays": 4,
+      "principalDelays": 2,
+      "losses": 0,
+      "recovered": 0
+    }
+  ],
+  "browser": [
+    {
+      "file": "browser-default-b.json.gz",
+      "seed": "BOND-V25-10",
+      "sha256": "844183e5d863df7adc69c2646dc6838b04a1a3cbc8376f7de582ae558c611507",
+      "fullStateReplay": true,
+      "coachFactsValid": true,
+      "rolls": 27,
+      "entries": 110,
+      "lawfulProceeds": 72250000,
+      "won": false,
+      "couponDelays": 0,
+      "principalDelays": 0,
+      "losses": 16500000,
+      "recovered": 13750000
+    },
+    {
+      "file": "browser-default-recovery.json.gz",
+      "seed": "BOND-V25-59",
+      "sha256": "248ef7442a4fbfee7cf516f1260083ea8e58b06e146142129587f082f88c2292",
+      "fullStateReplay": true,
+      "coachFactsValid": true,
+      "rolls": 23,
+      "entries": 99,
+      "lawfulProceeds": 83316939,
+      "won": false,
+      "couponDelays": 0,
+      "principalDelays": 0,
+      "losses": 7393469,
+      "recovered": 24141939
+    },
+    {
+      "file": "browser-delayed.json.gz",
+      "seed": "BOND-V25-0",
+      "sha256": "9530fde8384a695dc021b8586e2c85922ba147d211c11850aade6d1d63d35039",
+      "fullStateReplay": true,
+      "coachFactsValid": true,
+      "rolls": 22,
+      "entries": 93,
+      "lawfulProceeds": 95765466,
+      "won": true,
+      "couponDelays": 4,
+      "principalDelays": 2,
+      "losses": 0,
+      "recovered": 0
+    },
+    {
+      "file": "browser-normal-a.json.gz",
+      "seed": "BOND-V25-1",
+      "sha256": "b8cc3a7b291b1d8bf86353c4d2e437f52a893078fe0be1932d67418832f344ab",
+      "fullStateReplay": true,
+      "coachFactsValid": true,
+      "rolls": 25,
+      "entries": 103,
+      "lawfulProceeds": 91407512,
+      "won": true,
+      "couponDelays": 0,
+      "principalDelays": 0,
+      "losses": 0,
+      "recovered": 0
+    },
+    {
+      "file": "browser-normal-b.json.gz",
+      "seed": "BOND-V25-1",
+      "sha256": "e4d80e08d1f5241e4dbf793360ee74213593586aa7fc0ad49b642f5806ee61e3",
+      "fullStateReplay": true,
+      "coachFactsValid": true,
+      "rolls": 25,
+      "entries": 103,
+      "lawfulProceeds": 96112622,
+      "won": true,
+      "couponDelays": 0,
+      "principalDelays": 0,
+      "losses": 0,
+      "recovered": 0
+    }
+  ],
+  "historical": [
+    {
+      "file": "encounter-limits-v2_3/browser-game-log.json.gz",
+      "sha256": "dd1e4e353cf6c82d7fab2a2838590f2498efd7645c69bb707e5457c5779ca336",
+      "fullStateReplay": true
+    },
+    {
+      "file": "economic-news-v1/browser-game-log.json.gz",
+      "sha256": "7feb4de915dcee387f656f5b33bf5cdb6a887754a457a4fd62f4affc05bb181e",
+      "fullStateReplay": true
+    },
+    {
+      "file": "atomic-investments-v24/historical-multi-purchase.json.gz",
+      "sha256": "c57fd98b7f9500129b0a174840c15357eab31372cd0dbfd8802f77a0a4755b59",
+      "fullStateReplay": true
+    },
+    {
+      "file": "atomic-investments-v24/browser-game-log.json.gz",
+      "sha256": "1a6ea906c28908fcf1053aefa088f81236f608d1985a40bdfbf4920c854a85ab",
+      "fullStateReplay": true
+    }
+  ],
+  "screenshots": 93,
+  "layoutsNoOverflow": true,
+  "limitations": "Browser coverage only includes actual exported browser files listed above; Node simulation examples are separate. Funding fixture is not a replayable full game."
+}

@@ -2,6 +2,8 @@
 
 # AI Coach sau ván — tích hợp và giới hạn xác minh
 
+Candidate Bond V2.5 ngày15/10: engine [bondCreditFacts](src/game/bond-credit.ts) cung cấp lựa chọn issuer, warning công khai lúc mua, concentration, coupon/gốc thực nhận, chậm trả, mất vốn và bán ròng theo vòng. [facts](src/ai/facts.ts) tạo evidence `bond-credit`/`bond-choice`; [schema](src/ai/schema.ts) chấp nhận hai kind này, vẫn tối đa8 evidence/500chars mỗi fact/10KB. Historical games không có fields mới giữ evidence cũ. Provider handler, keys server, timeout, fallback và grounding không thay đổi. [Verification](docs/BOND_V2_5_IMPLEMENTATION_REPORT.md) kiểm facts của exported games; không gọi Gemini thật để xác nhận provider.
+
 Coach hỗ trợ giải thích ván game đã kết thúc; số tiền, thắng/thua và ngẫu nhiên vẫn do engine quyết định. [AICoachPanel](src/ai/AICoachPanel.tsx) đang gắn trong [Mobile GameResultModal](mobile_app/src/components/GameResultModal.tsx), chỉ render khi `game.phase === 'finished'` và feature flag bật. Người chơi bấm yêu cầu phân tích; không tự suy kết quả từ AI.
 
 Root Web [GameDialogs](src/components/GameDialogs.tsx) **chưa gắn Coach panel**. Root có backend middleware/Function và [harness preview-ai.html](preview-ai.html). Hướng dẫn “UI owner chỉ cần một dòng” trong [bàn giao trước audit](https://github.com/Tig0nn/boardgame_EXE/blob/13c9c7c5fa932e50a3ba23da4b316e1dff4cdda9/AI_COACH_HANDOFF.md) là lịch sử, không chứng minh Web result đã tích hợp. [PR #8](https://github.com/Tig0nn/boardgame_EXE/pull/8) vẫn chưa merge.

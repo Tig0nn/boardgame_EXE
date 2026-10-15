@@ -10,12 +10,15 @@
 | [MOBILE_UI_FINAL_REPORT.md](MOBILE_UI_FINAL_REPORT.md) | Candidate UI tổng hợp 14/10; ma trận giữ/bỏ/thích ứng, ảnh, model 3D và replay local |
 | [ECONOMIC_NEWS_V1_REPORT.md](ECONOMIC_NEWS_V1_REPORT.md) | Bản tin, giá thực tế theo vòng, cú sốc, ảnh responsive và replay local 15/10 |
 | [ATOMIC_INVESTMENT_ENCOUNTERS_REPORT.md](ATOMIC_INVESTMENT_ENCOUNTERS_REPORT.md) | Policy mua một lần/ghé ô cho phiên mới; compatibility, ảnh và replay local |
+| [BOND_V2_5_DESIGN_SPEC.md](BOND_V2_5_DESIGN_SPEC.md) | Đặc tả tín dụng trước engine; tham số thử nghiệm, lifecycle, accounting và phiên lịch sử |
+| [BOND_V2_5_IMPLEMENTATION_REPORT.md](BOND_V2_5_IMPLEMENTATION_REPORT.md) | Triển khai, năm ván browser, funding fixture, replay và screenshots |
+| [BOND_V2_5_BALANCE_REPORT.md](BOND_V2_5_BALANCE_REPORT.md) | Prototype và 12.000 ván/sáu chiến thuật; uncertainty, tail loss và giới hạn |
 | [README repository](../README.md) | Quick start và điều hướng |
 | [Mobile handoff](../MOBILE_APP_HANDOFF.md) | File thật, shared engine, assets, build/proxy và bằng chứng Mobile |
 | [AI handoff](../AI_COACH_HANDOFF.md) | Mobile integration, backend contract, key server, grounding và giới hạn |
 | [PR8 review](PR8_FINAL_REVIEW.md) | Chronology trước deploy và follow-up 13/10/2026 sau Mobile smoke verification |
 | [tasks/current.md](../tasks/current.md) | Roadmap đang hoạt động và điều kiện xác nhận từng việc |
-| [DOCUMENTATION_AUDIT.md](DOCUMENTATION_AUDIT.md) | Inventory 29 Markdown sau các report Mobile; ma trận audit lịch sử, checker link/path và bảo toàn |
+| [DOCUMENTATION_AUDIT.md](DOCUMENTATION_AUDIT.md) | Inventory 32 Markdown sau Bond V2.5 candidate; ma trận audit lịch sử, checker link/path và bảo toàn |
 
 **CURRENT** là tài liệu được duy trì. **HISTORICAL** ghi lại implementation/experiment/verification theo phiên bản và mốc cũ. **SUPERSEDED** là spec/prompt/guide/plan đã được thay thế cho việc sử dụng hiện tại; vẫn giữ để tra lịch sử. Không lấy một câu “mặc định”, “chưa deploy”, “PASS” hoặc “chờ phê duyệt” trong tài liệu lịch sử làm trạng thái hiện tại.
 

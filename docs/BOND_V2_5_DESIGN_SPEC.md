@@ -1,4 +1,4 @@
-> **CURRENT — EXPERIMENTAL CANDIDATE**, 15/10/2026. V2.5 chỉ trên `codex/bond-credit-v2-5`, từ `f3a03cb`. Chưa được owner phê duyệt cân bằng hoặc phát hành. Luật V2.4 đã duyệt: [CURRENT_MVP.md](CURRENT_MVP.md).
+> **CURRENT** — EXPERIMENTAL CANDIDATE, 15/10/2026. V2.5 chỉ trên `codex/bond-credit-v2-5`, từ `f3a03cb`. Chưa được owner phê duyệt cân bằng hoặc phát hành. Luật V2.4 đã duyệt: [CURRENT_MVP.md](CURRENT_MVP.md).
 
 # Bond Credit Risk V2.5 — đặc tả trước triển khai
 
@@ -78,3 +78,5 @@ Tutorial ngắn nói Bank vs issuer credit, Sổ tay chi tiết delay vs permane
 6. Report implementation/balance/file list/limits, review diff, logical commits, push feature branch. Không merge/deploy. Owner duyệt coupon/probabilities/recovery/terminal illiquidity trước nhập chính thức.
 
 Owner approval chưa có cho các con số; việc triển khai experimental đã được yêu cầu. Không có quyết định bắt buộc phải chờ mới xây được candidate. Nếu full simulations cho thấy candidate không đạt educational tradeoff, cập nhật đặc tả và ghi rõ calibration trước handoff.
+
+Mốc CI đã lưu của V2.4 là **186 product tests + 21 diagnostics**, xem [audit chronology](DOCUMENTATION_AUDIT.md). Không dùng mốc đó làm bằng chứng CI cho V2.5; kết quả mới phải ghi riêng trong implementation report.

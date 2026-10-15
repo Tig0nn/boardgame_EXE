@@ -2,6 +2,13 @@
 
 # Việc đang hoạt động — Mobile V2.4 và PR #8
 
+## Bond Credit V2.5 — experimental candidate 15/10/2026
+
+- [x] Phase0 đặc tả/prototype commit trước engine; hai issuer, RNG riêng, payment claims/loss/recovery, lot-specific sales/funding, terminal executable quotes.
+- [x] Mobile cards/portfolio/news/START/tutorial/Sổ tay và AI evidence có giới hạn; financial core ngoài Bond giữ nguyên. Historical replay exact.
+- [x] 12.000 ván/sáu chiến thuật; năm ván browser đủ bốn vòng, cả default80%/50%, delay, sale, win/loss; 254 tests/44 diagnostics và clean installs/builds. [Báo cáo](../docs/BOND_V2_5_IMPLEMENTATION_REPORT.md).
+- [ ] Owner duyệt coupon4,5%/10%, xác suất, recovery và quyền thanh khoản; chưa phát hành/merge/deploy. Bank-first dẫn đầu benchmark, không kết luận cân bằng cuối.
+
 ## Atomic Investment Encounters — 15/10/2026
 
 - [x] Policy mới `v2.4-atomic-investments`: engine chặn mua Stocks/Gold/Bonds lần hai cùng turn, tự hoàn tất sau lần mua hợp lệ; skip/invalid/later visit đúng hành vi.

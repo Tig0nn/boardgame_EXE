@@ -22,6 +22,8 @@ Follow-up 15/10/2026: thêm [report Economic News V1](ECONOMIC_NEWS_V1_REPORT.md
 
 Follow-up Atomic Investments 15/10/2026: thêm [report policy encounter](ATOMIC_INVESTMENT_ENCOUNTERS_REPORT.md); inventory 29 Markdown (11 CURRENT, 13 HISTORICAL, 5 SUPERSEDED). Policy mới có version riêng; không sửa evidence/simulation lịch sử. Chỉ cập nhật inventory và checker mặc định cho delivery code này.
 
+Follow-up Bond V2.5 15/10/2026: ba tài liệu candidate thử nghiệm mới, inventory32 Markdown (14CURRENT/13HISTORICAL/5SUPERSEDED). Không chạy lại audit lịch sử hoặc 180.000 ván; chỉ chạy checker mặc định cho link/path/classification và command contracts. Mọi con số mới nằm ở các report V2.5 riêng.
+
 CURRENT = đang duy trì; HISTORICAL = bản ghi implementation/research/verification ở mốc cũ; SUPERSEDED = spec/prompt/guide/task đã được thay cho việc sử dụng hiện tại, vẫn giữ lịch sử. Một report V2.4 vẫn có thể HISTORICAL vì số test, deployment và phạm vi test chỉ đúng ở thời điểm ghi.
 
 | Tệp Markdown (đường dẫn repository) | Phân loại | Quyết định và phạm vi |
@@ -37,6 +39,9 @@ CURRENT = đang duy trì; HISTORICAL = bản ghi implementation/research/verific
 | [docs/MOBILE_UI_FINAL_REPORT.md](MOBILE_UI_FINAL_REPORT.md) | CURRENT | Candidate tổng hợp UI 14/10, validation local và quyết định chọn visual; không phải deployment |
 | [docs/ECONOMIC_NEWS_V1_REPORT.md](ECONOMIC_NEWS_V1_REPORT.md) | CURRENT | Candidate tin kinh tế 15/10; nguồn forecast, ranh giới giá, cú sốc và bằng chứng local |
 | [docs/ATOMIC_INVESTMENT_ENCOUNTERS_REPORT.md](ATOMIC_INVESTMENT_ENCOUNTERS_REPORT.md) | CURRENT | Policy mua đầu tư atomic, compatibility và bằng chứng local 15/10 |
+| [docs/BOND_V2_5_DESIGN_SPEC.md](BOND_V2_5_DESIGN_SPEC.md) | CURRENT | Đặc tả trước engine, policy riêng và calibration thử nghiệm |
+| [docs/BOND_V2_5_IMPLEMENTATION_REPORT.md](BOND_V2_5_IMPLEMENTATION_REPORT.md) | CURRENT | Engine/UI/AI/compatibility, browser và limitations V2.5 |
+| [docs/BOND_V2_5_BALANCE_REPORT.md](BOND_V2_5_BALANCE_REPORT.md) | CURRENT | Kết quả 12.000 ván cùng seed, sáu chiến thuật và uncertainty |
 | [docs/XVTL_GAME_SPEC_V2.md](XVTL_GAME_SPEC_V2.md) | SUPERSEDED | Spec V2 10/10/2026; current mode/catalog/AI đã thay đổi |
 | [docs/V2_IMPLEMENTATION_REPORT.md](V2_IMPLEMENTATION_REPORT.md) | HISTORICAL | Triển khai V2 10–11/10/2026, 81 tests và browser ba vòng ở mốc cũ |
 | [docs/V2_BALANCE_REPORT.md](V2_BALANCE_REPORT.md) | HISTORICAL | 55.000 ván heuristic V2, không phải V2.4 production measurement |
@@ -131,7 +136,7 @@ for (const file of files) {
   assert.equal(inventory.get(file), status, `Inventory status mismatch: ${file}`);
   counts[status]++;
 }
-assert.deepEqual(counts, { CURRENT: 11, HISTORICAL: 13, SUPERSEDED: 5 });
+assert.deepEqual(counts, { CURRENT: 14, HISTORICAL: 13, SUPERSEDED: 5 });
 
 function knownTarget(absolute) {
   const relative = path.relative(root, absolute).replaceAll('\\', '/');

@@ -2,6 +2,12 @@
 
 # MVP hiện tại — Xoay Vòng Tiến Lui V2.4
 
+## Bond Credit V2.5 — experimental candidate 15/10/2026
+
+Nhánh `codex/bond-credit-v2-5` từ Atomic `f3a03cb` bổ sung metadata độc lập `bondRulesVersion`. Phiên mới trên nhánh này dùng `v2.5-credit-risk`; metadata vắng/API lịch sử vẫn Bond V2.4, không migrate session/log cũ. Đây **chưa phải luật chính thức đã duyệt**. [Đặc tả](BOND_V2_5_DESIGN_SPEC.md), [triển khai và kiểm chứng](BOND_V2_5_IMPLEMENTATION_REPORT.md), [12.000 ván cân bằng](BOND_V2_5_BALANCE_REPORT.md) ghi đầy đủ giả định và giới hạn. Các mục V2.4/hosting/CI bên dưới giữ phạm vi theo mốc cũ.
+
+V2.5 có An Tâm (AA, coupon 4,5%/START) và Bứt Phá (B, 10%/START), mệnh giá100.000 ₫, hai START. Coupon cao không bảo đảm lợi nhuận: issuer có thể chậm trả hoặc default; thu hồi gốc80%/50% tại START tiếp theo, không trả coupon chưa thu khi default. Giá riêng theo credit/scenario/stress, không cộng dải tăng giá Bond cũ. Credit RNG độc lập; stock/gold/dice và Business V2.4 không đổi. Mua một issuer/ghé, tự về bàn; bán/funding chọn một lot, phí1,5%. Khoản chưa nhận không phải cash; không có executable quote thì không tính vào nguồn tiền về đích. Balance parameters đang chờ owner review.
+
 ## Atomic Investment Encounters — candidate 15/10/2026
 
 Nhánh `codex/atomic-investment-encounters` từ Economic News `d990244` áp policy đã phê duyệt `v2.4-atomic-investments` cho phiên người chơi mới ở cả hai UI: Stocks/Gold/Bonds chỉ mua một lần mỗi lần ghé; mua thành công tự về bàn, bỏ qua không mua, giao dịch lỗi không mất cơ hội. Engine chặn mua lại cùng turn kể cả mở lại encounter hoặc đổi mã/tài sản. Bank, Business, START, công thức giá/phí/thu nhập, RNG và selector tin tức không đổi. [Báo cáo và bằng chứng](ATOMIC_INVESTMENT_ENCOUNTERS_REPORT.md): 224 tests, 39 diagnostics, hai builds và ván browser bốn vòng replay PASS; chưa merge/deploy hoặc xác minh Actions mới.
@@ -37,6 +43,7 @@ MVP là game tài chính tiếng Việt một người chơi, React/TypeScript/V
 | Mục tiêu | Mua món đồ **80.000.000 VND**, còn ít nhất **10.000.000 VND** dự phòng |
 | Setup mặc định hai UI | Gửi 20.000.000 VND kỳ hạn 1 START, cash 30.000.000 VND; người chơi có thể chỉnh |
 | Luật business / encounter mới | `v2.4-customer-preferences` / `v2.4-atomic-investments` |
+| Luật Bond trên nhánh V2.5 thử nghiệm | `v2.5-credit-risk`; phiên lịch sử giữ `v2.4-single-issuer` hoặc metadata vắng |
 | Profile savings / catalog mới | `v2.2-c20` / `vn-v1` |
 
 Nguồn: [config](../src/data/config.ts), [modes](../src/data/modes.ts), [player factory](../src/game/new-game.ts), [Web setup](../src/components/Setup.tsx), [Mobile setup](../mobile_app/src/components/GameSetup.tsx), [Mobile session](../mobile_app/src/game/session.ts). `RULES.laps = 3` là mặc định API/diagnostic lịch sử; entry point người chơi truyền mode B tường minh và nhận `totalLaps = 4`. Original (3/A20) và Experimental A (4/A20) còn trong code để replay/kiểm thử; không phải lựa chọn mode mặc định của UI hiện tại.
@@ -89,9 +96,10 @@ Mua tự nguyện chỉ ở đúng ô tài sản và đủ cash; START cho bán 
 | --- | --- |
 | Stocks | Units = số tiền mua / giá mã hiện tại; phí bán 1% |
 | Gold | Units theo giá giả lập; spread bán 3%, rồi phí 1% trên giá trị sau spread |
-| Bonds | Mệnh giá 100.000 VND; units theo giá mua; principal = units × mệnh giá; coupon 5% principal/START, kỳ hạn 2 START, trả gốc một lần; phí bán sớm 1,5% |
+| Bonds V2.4 lịch sử | Mệnh giá 100.000 VND; units theo giá mua; principal = units × mệnh giá; coupon 5% principal/START, kỳ hạn 2 START, trả gốc một lần; phí bán sớm 1,5% |
+| Bonds V2.5 candidate | Hai issuer, coupon4,5%/10%, giá và credit riêng; cash chỉ tăng khi được trả, bán theo lot; xem đặc tả thử nghiệm ở trên |
 
-Báo giá/holdings/chart cùng đọc simulated market. Bond issuer là giả lập; có biến động giá, chưa mô phỏng random default.
+Báo giá/holdings/chart cùng đọc simulated market. Bond issuer là giả lập; phiên V2.4 có biến động giá nhưng không có random default. V2.5 thêm credit RNG độc lập và không đổi lịch sử.
 
 Khoản phải trả dùng cash trước. Nếu thiếu, người chơi phối hợp rút toàn lot savings, bán tài sản tài chính và vay với trần tổng nợ **30 triệu**; hạn mức còn lại là max(0, 30 triệu − nợ hiện tại), khoản vay funding không vượt shortfall. Tiền dư từ rút lot/bán tài sản vẫn ở cash. Lãi nợ 10% theo START; trả nợ chủ động tại checkpoint trước vòng cuối trả gốc cộng 10% phần gốc trả, còn checkpoint cuối không cộng lãi lần nữa sau bước terminal accrual. Không bán business khi funding hoặc tại START. Không còn nguồn hợp lệ/hạn mức thì kết thúc insolvent rõ ràng, không gieo tiếp hay ghi tiền âm vô cớ. Phí, tiền ròng và lãi bị mất theo selector/engine, không do Mobile tự tính.
 
