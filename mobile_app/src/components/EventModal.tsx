@@ -5,6 +5,7 @@ import type { GameState, RebalanceAction } from '../../../src/game/types'
 import { Modal } from '../../../src/components/Modal'
 import { TradingPanel } from '../../../src/components/TradingPanel'
 import { MarketSignal } from './MarketNews'
+import { investmentPurchasesComplete } from '../../../src/game/encounters'
 
 export function EventModal({ game, onChoose, onTransaction, onHelp }: {
   game: GameState; onChoose: (id: string) => void; onTransaction: (action: RebalanceAction) => boolean | void; onHelp?: () => void
@@ -12,6 +13,7 @@ export function EventModal({ game, onChoose, onTransaction, onHelp }: {
   const event = EVENTS.find(e => e.id === game.eventId)!
   const trading = ['stocks', 'bonds', 'gold', 'bank', 'business'].includes(event.id)
   const traded = game.log.some(entry => entry.turn === game.turn && entry.kind === 'rebalancing')
+  const panelOwnsSkip = event.id === 'stocks' || (['gold', 'bonds'].includes(event.id) && investmentPurchasesComplete(game))
   const title = ({ stocks: 'Cổ phiếu', bonds: 'Trái phiếu', gold: 'Vàng', business: 'Quán của bạn' } as Record<string, string>)[event.id] ?? event.title
   return <Modal title={title} onHelp={onHelp} className="mobile-event">
     <span className="section-kicker">VÒNG {game.lap} · Ô {game.position + 1}</span>
@@ -21,7 +23,7 @@ export function EventModal({ game, onChoose, onTransaction, onHelp }: {
     {trading && <TradingPanel key={`${game.turn}-${game.log.length}`} game={game} compact onTransaction={onTransaction} onSkip={() => onChoose('skip')}
       marketContext={(asset, symbolId) => <MarketSignal game={game} asset={asset} symbolId={symbolId} />} />}
     {event.id === 'course' && !canChoose(game, 'upgrade') && <p className="inline-note">{game.coursePurchased ? 'Bạn đã hoàn thành khóa học này.' : 'Chưa đủ tiền mặt cho khóa học.'}</p>}
-    {event.options.filter(() => event.id !== 'stocks').map(option => <button key={option.id}
+    {event.options.filter(() => !panelOwnsSkip).map(option => <button key={option.id}
       className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}>
       <strong>{option.id === 'acknowledge' ? 'Đi tiếp' : option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : option.label}</strong>
       {option.id !== 'skip' && option.id !== 'acknowledge' && <span>{option.detail}</span>}

@@ -18,7 +18,7 @@ await server?.listen()
 const browser = await chromium.launch({ channel: 'chrome', headless: true })
 const page = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
 const base = process.env.UI_URL || 'http://127.0.0.1:5186'
-const folder = process.env.MVP_EVIDENCE_DIR || 'docs/playtests/mobile-ui-final'
+const folder = process.env.MVP_EVIDENCE_DIR || 'docs/playtests/atomic-investments-v24'
 mkdirSync(folder, { recursive: true })
 const errors = []; const consoleErrors = []; const checkpoints = []; const widths = [320, 390, 430, 1440]
 page.on('pageerror', e => errors.push(e.message))
@@ -206,13 +206,18 @@ assert.equal(deposited.deposits.filter(l => l.status === 'active').length, 2)
 assert.equal(deposited.phase, 'rolling')
 assert.equal(deposited.deposits[0].principal, 3e6)
 assert.equal(deposited.deposits[1].principal, 10e6)
-await page.goto(`${base}/integration-harness.html?fixture=gold`)
-await page.getByRole('button', { name: /^Mua / }).click()
-await page.getByRole('button', { name: /^Mua / }).click()
-assert.equal((await page.evaluate(() => window.mobileHarness.getState())).goldUnits, 6)
-await page.waitForTimeout(310)
-await page.getByRole('button', { name: /^Mua / }).click()
-assert.equal((await page.evaluate(() => window.mobileHarness.getState())).goldUnits, 12, 'rejected fast tap must not permanently lock trading')
+for (const asset of ['stocks', 'gold', 'bonds']) {
+  await page.goto(`${base}/integration-harness.html?fixture=${asset}`)
+  const beforePurchase = await page.evaluate(() => window.mobileHarness.getState())
+  const cost = asset === 'stocks' ? 10e6 : asset === 'gold' ? 6e6 : 8e6
+  await page.getByRole('button', { name: /^Mua / }).dblclick()
+  const purchased = await page.evaluate(() => window.mobileHarness.getState())
+  assert.equal(purchased.portfolio.cash, beforePurchase.portfolio.cash - cost)
+  assert.equal(purchased.phase, 'rolling')
+  assert.equal(purchased.eventId, null)
+  assert.equal(purchased.log.filter(e => e.decisionId === `buy-${asset}-complete`).length, 1)
+  assert.equal(await page.getByRole('dialog').count(), 0)
+}
 await page.goto(`${base}/integration-harness.html?fixture=rebalancing`)
 await page.getByRole('dialog', { name: 'Ghé ví tại START' }).waitFor()
 assert.deepEqual(await page.locator('#sell-asset option').evaluateAll(options => options.map(option => option.value)), ['stocks', 'bonds', 'gold'])
@@ -239,7 +244,7 @@ const result = { widths, moves, bankDeposits, stockBuys, businessPurchases, upgr
   lawfulProceeds: liquidatableFunds(web), pageErrors: errors, consoleErrors,
   keyboardStart: true, freshPlayerSeeds: randomSeeds, aiFailureNonBlocking: true, fundingDoubleTapGuard: true,
   combinedFunding: { savings: 3e6, goldGross: 2e6, goldNet: 1_920_600, debt: 79_400 },
-  businessUpgradeOnce: true, matchingIncome: businessIncome(upgraded), multipleSavingsLots: true, tradingUnlockAfterRejectedTap: true, startSaleStateParity: true,
+  businessUpgradeOnce: true, matchingIncome: businessIncome(upgraded), multipleSavingsLots: true, atomicInvestmentPurchases: true, startSaleStateParity: true,
   animations: 'real 800ms dice + 400ms pause + 280ms per hop',
   realPhone: 'not available' }
 writeFileSync(`${folder}/browser-verification.json`, JSON.stringify(result, null, 2))

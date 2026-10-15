@@ -12,6 +12,7 @@ import { RebalanceDialog } from './RebalanceDialog'
 import { GoalChecks } from './GoalChecks'
 import { TradingPanel } from './TradingPanel'
 import { MarketDetails } from './MarketDetails'
+import { investmentPurchasesComplete } from '../game/encounters'
 
 export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, onFund, onTransaction }: { game: GameState; onAdvance: () => void; onChoose: (id: string) => void; onRestart: () => void; onExport: () => void; onFund: (source: FundingSource, amount: number, lotId?: string) => void; onTransaction: (action: RebalanceAction) => void }) {
   if (game.phase === 'funding') return <FundingDialog key={`${game.pendingPayment!.title}-${game.pendingPayment!.remaining}`} game={game} onFund={onFund} />
@@ -24,6 +25,7 @@ export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, on
     const event = EVENTS.find(e => e.id === game.eventId)!
     const category = CATEGORIES[event.category]
     const traded = game.log.some(entry => entry.turn === game.turn && entry.kind === 'rebalancing')
+    const panelOwnsSkip = event.id === 'stocks' || (['gold', 'bonds'].includes(event.id) && investmentPurchasesComplete(game))
     return <Modal key={`event-${game.turn}`} title={event.title} className={event.id === 'stocks' ? 'stock-modal' : event.id === 'business' && game.businessRulesVersion === 'v2.4-customer-preferences' ? 'business-modal' : ''}>
       <div className={`event-category ${event.category}`}><Icon name={category.icon} size={24} /><span>{category.label}</span></div>
       <span className="event-location">Vòng {game.lap} · Ô {game.position + 1} · Lượt {game.turn}</span>
@@ -31,7 +33,7 @@ export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, on
       <div className="event-cash"><span>Tiền mặt hiện có</span><strong>{money(game.portfolio.cash)}</strong></div>
       {['stocks', 'bonds', 'gold', 'business', 'bank'].includes(event.id) && <TradingPanel key={`${game.turn}-${game.log.length}`} game={game} onTransaction={onTransaction} onSkip={() => onChoose('skip')} />}
       {game.market.appliedShocks.includes(`${game.turn}:${event.id}`) && <details className="trade-details"><summary>Báo giá sau cú sốc</summary><MarketDetails game={game} asset="stocks" /><MarketDetails game={game} asset="gold" /><MarketDetails game={game} asset="bonds" /></details>}
-      <div className="event-options">{event.options.filter(() => event.id !== 'stocks').map(option => {
+      <div className="event-options">{event.options.filter(() => !panelOwnsSkip).map(option => {
         const shortfall = Math.max(0, (option.cost ?? 0) - game.portfolio.cash)
         return <button key={option.id} className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}><div><strong>{option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : option.label}</strong><span>{option.id === 'skip' && traded ? 'Giữ các giao dịch đã thực hiện và tiếp tục gieo xúc xắc.' : option.detail}</span>
           <span>Tiền khả dụng: {money(game.portfolio.cash)} → {money(Math.max(0, game.portfolio.cash - (option.cost ?? 0)) + (option.income ?? 0))}</span>

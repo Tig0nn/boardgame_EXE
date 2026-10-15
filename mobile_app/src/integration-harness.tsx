@@ -18,12 +18,12 @@ if (fixture === 'funding') {
   game = { ...game, phase: 'event', position: 13, eventId: 'business', turn: 2 }
 } else if (fixture === 'bank') {
   game = { ...game, phase: 'event', position: 1, eventId: 'bank', turn: 2 }
-} else if (fixture === 'gold') {
-  game = { ...game, phase: 'event', position: 9, eventId: 'gold', turn: 2 }
+} else if (fixture === 'gold' || fixture === 'stocks' || fixture === 'bonds') {
+  game = { ...game, phase: 'event', position: { gold: 9, stocks: 2, bonds: 6 }[fixture], eventId: fixture, turn: 2 }
 } else if (fixture === 'rebalancing') {
   game = transact({ ...game, phase: 'event', position: 8, eventId: 'business' }, { kind: 'buy', asset: 'business', amount: 20e6 })
   for (const [asset, position] of [['stocks', 2], ['bonds', 6], ['gold', 9]] as const)
-    game = transact({ ...game, phase: 'event', eventId: asset, position }, { kind: 'buy', asset, amount: 6e6 })
+    game = transact({ ...game, phase: 'event', eventId: asset, position, turn: game.turn + 1 }, { kind: 'buy', asset, amount: 6e6 })
   game = { ...game, phase: 'rebalancing', lap: 4, eventId: null }
 }
 const session = createMobileSession(game)

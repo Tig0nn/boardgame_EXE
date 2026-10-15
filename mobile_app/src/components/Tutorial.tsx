@@ -14,7 +14,7 @@ const steps = [
     detail: 'Qua START nhận lương và các khoản đến hạn. Ô Kinh doanh cho mua, nâng cấp hoặc bán quán. Ô thị trường cho mua đúng loại tài sản. Biến cố có thể đổi giá thị trường hoặc tạo khoản cần thanh toán.' },
   { title: 'Chạm xúc xắc, lên đường!', tag: 'MỘT LƯỢT CHƠI',
     text: 'Gieo xúc xắc, theo chân nhân vật và chọn cách đi tiếp của bạn.',
-    detail: 'Chỉ quyết định khi nhân vật dừng. Các nút đã xác nhận sẽ xử lý một lần. Mua cổ phiếu, mở quán hoặc gửi một khoản tiết kiệm xong là quay lại bàn cờ. Vàng và trái phiếu có thể mua nhiều lần trong một lần ghé ô.' },
+    detail: 'Chỉ quyết định khi nhân vật dừng. Mỗi lần ghé ô Cổ phiếu, Vàng hoặc Trái phiếu chỉ mua một lần; mua xong là quay lại bàn cờ. Bạn có thể bỏ qua hoặc mua tiếp khi gặp lại ô ở lượt sau. Mở quán và gửi một khoản tiết kiệm xong cũng trở về bàn cờ.' },
   { title: 'Để đồng tiền cùng bạn lớn lên', tag: 'CHỌN CÁCH KIẾM TIỀN',
     text: 'Giữ chút tiền mặt, phần còn lại hãy chọn cơ hội phù hợp.',
     detail: 'Ngân hàng: một khoản gửi mới mỗi lần ghé, kỳ hạn 1/2/3 lần qua START với lãi 4/5/6% mỗi kỳ, lãi đơn nhận cuối hạn; các khoản độc lập, không tự tái tục. Cổ phiếu, vàng, trái phiếu được bán tại START. Quán chỉ được nâng cấp hoặc bán từ lần ghé ô Kinh doanh sau lượt mua; mỗi lần ghé nâng tối đa một tầng. Quán nhận 3 triệu + 700 nghìn mỗi tầng + 1 triệu mỗi tầng hợp sở thích khách tại START; giá bán chịu thị trường và khấu hao. Giá tài sản có thể giảm. Các mức giá trong trò chơi là mô phỏng, không phải dữ liệu giao dịch thực tế.' },
