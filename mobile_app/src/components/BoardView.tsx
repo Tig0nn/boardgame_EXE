@@ -10,6 +10,7 @@ interface BoardViewProps {
   isDancing?: boolean;
   shakeScreen?: boolean;
   children?: React.ReactNode;
+  replacementTiles?: number[];
 }
 
 export const BoardView: React.FC<BoardViewProps> = ({
@@ -21,6 +22,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
   isDancing = false,
   shakeScreen = false,
   children,
+  replacementTiles = [],
 }) => {
   const currentCoord = tileCoordinates[currentTileIndex] || { x: 470, y: 1120 };
   const currentTile = tileCoordinates[currentTileIndex];
@@ -80,6 +82,14 @@ export const BoardView: React.FC<BoardViewProps> = ({
         }}
       />
 
+      {/* Temporary rule markers cover obsolete faces without modifying approved art. */}
+      {replacementTiles.map(index => {
+        const tile = tileCoordinates[index];
+        return <div key={index} className={`board-rule-marker marker-${index}`} style={{ left: tile.x, top: tile.y }}
+          aria-label={`Ô ${index + 1}: ${tile.label}`}>
+          <span aria-hidden="true">{index === 3 ? '↗' : '◆'}</span><b>{index + 1} · {tile.label}</b>
+        </div>;
+      })}
       {/* Vòng Hào Quang Tỏa Sáng Tại Tâm Ô Đang Dừng (Pulse Glow Ring) */}
       <div style={{
         position: 'absolute',

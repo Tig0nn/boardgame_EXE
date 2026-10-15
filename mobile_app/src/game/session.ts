@@ -1,7 +1,7 @@
 import { advance, decide, fundPayment, roll, transact } from '../../../src/game/engine.ts'
 import { createPlayerGame } from '../../../src/game/new-game.ts'
 import { boardFor } from '../../../src/data/board.ts'
-import type { BondRulesVersion, FundingSource, GameState, Phase, RebalanceAction, Term } from '../../../src/game/types.ts'
+import type { BondRulesVersion, FundingSource, GameState, LivingExpenseRulesVersion, Phase, RebalanceAction, Term } from '../../../src/game/types.ts'
 
 // Presentation mapping only. Every transition and financial value belongs to src/game.
 export const PHASE_UI: Record<Phase, string> = {
@@ -12,8 +12,8 @@ export type MobileCommand = { type: 'advance' | 'roll' } | { type: 'choose'; id:
   | { type: 'trade'; action: RebalanceAction }
   | { type: 'fund'; source: FundingSource; amount: number; lotId?: string }
 
-export function createMobileGame(seed?: string, savings = 20_000_000, term: Term = 1, bondRulesVersion: BondRulesVersion = 'v2.5-credit-risk') {
-  return createPlayerGame(seed, savings, term, 'experimental-b', bondRulesVersion)
+export function createMobileGame(seed?: string, savings = 20_000_000, term: Term = 1, bondRulesVersion: BondRulesVersion = 'v2.5-credit-risk', livingExpenseRulesVersion: LivingExpenseRulesVersion = 'v2.6-periodic-start') {
+  return createPlayerGame(seed, savings, term, 'experimental-b', bondRulesVersion, livingExpenseRulesVersion)
 }
 
 export function createMobileSession(initial: GameState) {

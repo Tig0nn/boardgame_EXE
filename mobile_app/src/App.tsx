@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import tilesData from './data/tiles.json'
-import { C20_BOARD } from '../../src/data/board'
+import { boardFor, PERIODIC_C20_BOARD } from '../../src/data/board'
+import { hasPeriodicLiving } from '../../src/game/living-expenses'
 import { RULES } from '../../src/data/config'
 import { liquidatableFunds } from '../../src/game/selectors'
 import { money } from '../../src/game/format'
@@ -24,13 +25,15 @@ import { hasSeenTutorial, rememberTutorial } from './game/onboarding'
 import './engine-ui.css'
 
 // Coordinates are artwork metadata; category/order/labels come from the official C20 board.
-const coordinates = C20_BOARD.map((tile, i) => ({ ...tilesData[i], ...tile }))
+const coordinatesFor = (board: ReturnType<typeof boardFor>) => board.map((tile, i) => ({ ...tilesData[i], ...tile }))
+const candidateCoordinates = coordinatesFor(PERIODIC_C20_BOARD)
 const delay = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms))
 type Session = ReturnType<typeof createMobileSession>
 
 export function GameExperience({ session, onRestart, onHelp, helpOpen = false }: { session: Session; onRestart: () => void; onHelp?: () => void; helpOpen?: boolean }) {
   // React subscribes to immutable engine snapshots: https://react.dev/reference/react/useSyncExternalStore
   const game = useSyncExternalStore(session.subscribe, session.getSnapshot)
+  const coordinates = coordinatesFor(boardFor(game))
   const [animation, setAnimation] = useState<'dice' | 'pause' | 'moving' | null>(null)
   const [animatedTile, setAnimatedTile] = useState(0)
   const [overlay, setOverlay] = useState<'portfolio' | 'log' | null>(null)
@@ -103,6 +106,7 @@ export function GameExperience({ session, onRestart, onHelp, helpOpen = false }:
         onLogClick={() => { if (!busy.current) setOverlay('log') }} />
     </>}>
       <BoardView currentTileIndex={animation ? animatedTile : game.position} tileCoordinates={coordinates}
+        replacementTiles={hasPeriodicLiving(game) ? [3, 14] : []}
         lap={game.lap} totalLaps={game.totalLaps} isPawnMoving={animation === 'moving'} isDancing={!animation && game.phase === 'summary'}>
         <Dice3D value={game.dice || 1} isRolling={animation === 'dice'} isPawnMoving={animation === 'moving'}
           onRollClick={rollDice} disabled={disabled} isUpOnLawn={!!animation || (game.dice > 0 && game.phase !== 'rolling')} />
@@ -123,9 +127,9 @@ export default function App() {
   const closeTutorial = () => { if (tutorial === 'first') rememberTutorial(); setTutorial(null) }
   return <>
     {session ? <GameExperience session={session} onRestart={() => setSession(null)} onHelp={openHelp} helpOpen={!!tutorial} /> : <>
-      <MobileContainer><BoardView currentTileIndex={0} tileCoordinates={coordinates} lap={1} totalLaps={4} /></MobileContainer>
+      <MobileContainer><BoardView currentTileIndex={0} tileCoordinates={candidateCoordinates} replacementTiles={[3, 14]} lap={1} totalLaps={4} /></MobileContainer>
       {tutorial !== 'first' && <GameSetup onHelp={openHelp} onStart={(seed, savings, term) => setSession(createMobileSession(createMobileGame(seed, savings, term)))} />}
     </>}
-    {tutorial && <Tutorial firstTime={tutorial === 'first'} onClose={closeTutorial} />}
+    {tutorial && <Tutorial firstTime={tutorial === 'first'} onClose={closeTutorial} game={session?.getSnapshot()} />}
   </>
 }

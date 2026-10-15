@@ -184,3 +184,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 }
 @media (max-width: 350px) { .setup-goal-card strong { font-size: 16px; white-space: nowrap; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+.board-rule-marker { position: absolute; z-index: 21; transform: translate(-50%, -50%); width: 106px; height: 76px; border: 3px solid #fff3ba; border-radius: 24px; background: #7044bc; color: white; box-shadow: 0 5px 0 #412b75, 0 7px 12px #0005; text-align: center; display: flex; align-items: center; justify-content: center; flex-direction: column; pointer-events: none; }
+.board-rule-marker.marker-14 { background: #ffce43; color: #553306; box-shadow: 0 5px 0 #aa720c, 0 7px 12px #0005; }
+.board-rule-marker span { font: 900 38px/1 sans-serif; }
+.board-rule-marker b { font: 800 16px/1.25 sans-serif; white-space: nowrap; }

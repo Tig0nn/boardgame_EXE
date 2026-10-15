@@ -3,7 +3,9 @@ import { Modal } from '../../../src/components/Modal'
 import { RULES, ECONOMY } from '../../../src/data/config'
 import { money } from '../../../src/game/format'
 import { Icon } from '../../../src/components/Icon'
-import { C20_BOARD } from '../../../src/data/board'
+import { boardFor, PERIODIC_C20_BOARD } from '../../../src/data/board'
+import type { GameState } from '../../../src/game/types'
+import { livingPresentation } from '../game/living-presentation'
 
 const steps = [
   { title: 'Từ vốn nhỏ, tới ước mơ lớn', tag: 'ĐÍCH ĐẾN CỦA BẠN',
@@ -26,14 +28,17 @@ const steps = [
     detail: 'Mua món đồ 80 triệu và giữ ít nhất 10 triệu dự phòng: cần tổng 90 triệu nguồn tiền hợp lệ sau phí, nợ và nghĩa vụ. Nếu chưa đủ hoặc hết khả năng thanh toán, hãy thử một hành trình mới. Sổ tay luôn ở ngay trên màn hình để bạn xem lại bất cứ lúc nào.' },
 ]
 
-export function BoardGuide() {
-  return <ol className="rulebook-board">{C20_BOARD.map(tile => <li key={tile.index} value={tile.index + 1}><Icon name={tile.icon} size={16} /> {tile.label}</li>)}</ol>
+export function BoardGuide({ game }: { game?: GameState }) {
+  const board = game ? boardFor(game) : PERIODIC_C20_BOARD
+  return <ol className="rulebook-board">{board.map(tile => <li key={tile.index} value={tile.index + 1}><Icon name={tile.icon} size={16} /> {tile.label}</li>)}</ol>
 }
 
-export function Tutorial({ firstTime, onClose }: { firstTime: boolean; onClose: () => void }) {
+export function Tutorial({ firstTime, onClose, game }: { firstTime: boolean; onClose: () => void; game?: GameState }) {
   const [index, setIndex] = useState(0)
   const heading = useRef<HTMLHeadingElement>(null)
-  const step = steps[index]
+  const living = livingPresentation(game)
+  const step = index === 4 ? { ...steps[index], title: 'Chủ động cho mỗi vòng mới', text: living.text,
+    detail: `${living.detail} ${steps[index].detail}` } : steps[index]
   const navigate = (next: number) => { setIndex(next); heading.current?.focus({ preventScroll: true }) }
   return <Modal title={firstTime ? 'Hướng dẫn chơi' : 'Sổ tay hành trình'} className="tutorial" onClose={firstTime ? undefined : onClose}>
     <div className="tutorial-topline"><span className="section-kicker">{firstTime ? 'CHÀO MỪNG TÂN BINH' : 'SỔ TAY HÀNH TRÌNH'}</span>
@@ -45,13 +50,13 @@ export function Tutorial({ firstTime, onClose }: { firstTime: boolean; onClose: 
       <span className="section-kicker">{index + 1} / {steps.length} · {step.tag}</span>
       <h2 ref={heading} tabIndex={-1}>{step.title}</h2><p>{step.text}</p>
       {index === 0 && <div className="tutorial-goal"><div><small>Vốn ban đầu</small><strong>50 triệu</strong></div><span aria-hidden="true">→</span><div><small>Mục tiêu sau 4 vòng</small><strong>90 triệu</strong></div></div>}
-      {index === 1 && <div className="tutorial-tiles">{[['🏦', 'Ngân hàng', 'Gửi tiết kiệm'], ['📈', 'Thị trường', 'Mua tài sản'], ['🧋', 'Kinh doanh', 'Mở & nâng quán'], ['📚', 'Khóa học', 'Tăng lương'], ['🧾', 'Sinh hoạt', 'Trả chi phí'], ['⚡', 'Biến cố', 'Đón bất ngờ']].map(([icon, title, text]) => <div key={title}><span aria-hidden="true">{icon}</span><strong>{title}</strong><small>{text}</small></div>)}</div>}
+      {index === 1 && <div className="tutorial-tiles">{[['🏦', 'Ngân hàng', 'Gửi tiết kiệm'], ['📈', 'Thị trường', 'Mua tài sản'], ['🧋', 'Kinh doanh', 'Mở & nâng quán'], ['📚', 'Khóa học', 'Tăng lương'], ['🧾', living.periodic ? 'START' : 'Sinh hoạt', living.periodic ? 'Lương & sinh hoạt' : 'Trả chi phí'], ['⚡', 'Biến cố', 'Đón bất ngờ']].map(([icon, title, text]) => <div key={title}><span aria-hidden="true">{icon}</span><strong>{title}</strong><small>{text}</small></div>)}</div>}
       {index === 2 && <ol className="tutorial-turn">{['Gieo xúc xắc', 'Nhân vật di chuyển', 'Khám phá ô dừng', 'Chọn hành động'].map((title, i) => <li key={title}><b>{i + 1}</b>{title}</li>)}</ol>}
       {index === 3 && <ul className="tutorial-earn"><li><span>🏦 Tiết kiệm</span><b>Nhận gốc + lãi khi đến hạn</b></li><li><span>🧾 Trái phiếu</span><b>Chọn issuer · Theo dõi khả năng trả nợ</b></li><li><span>📈 Cổ phiếu</span><b>Mua ở ô · Bán tại START</b></li><li><span>🧋 Mở quán</span><b>+{money(ECONOMY.business.baseIncome)} / START</b></li><li><span>📚 Khóa học</span><b>Lương +{money(RULES.courseBoost)} / vòng</b></li></ul>}
-      {index === 4 && <><div className="tutorial-bill"><span>Sinh hoạt khi dừng đúng ô</span><strong>{money(RULES.livingCost)}</strong></div><p className="tutorial-tip">Tiền mặt → Rút tiết kiệm / Bán tài sản / Vay</p></>}
+      {index === 4 && <><div className="tutorial-bill"><span>{living.label}</span><strong>{money(living.amount)}</strong></div><p className="tutorial-tip">Chừa tiền sinh hoạt · Dự phòng biến cố cá nhân</p></>}
       {index === 5 && <div className="tutorial-goal"><div><small>Món đồ mơ ước</small><strong>80 triệu</strong></div><span aria-hidden="true">+</span><div><small>Tiền dự phòng</small><strong>10 triệu</strong></div></div>}
       <details key={index}><summary>Luật chi tiết</summary><p>{step.detail}</p>
-        {index === 1 && <BoardGuide />}
+        {index === 1 && <><p>{living.text}</p><BoardGuide game={game} /></>}
         {index === 3 && <p>Kỳ hạn 1 / 2 / 3 START: lãi đơn cuối kỳ lần lượt 4% / 10% / 18% tiền gốc. Giá thị trường là dữ liệu hư cấu trong game; không phải giá giao dịch thực tế.</p>}
         {index === 3 && <p>Đầu vòng đọc Bản tin thị trường; tại ô mua mở “Xem tín hiệu thị trường”. Cuối vòng, “Dự báo vs. Thực tế” cho biết giá đã đổi ra sao, không phải lãi đầu tư của bạn. Quán vẫn dùng sở thích khách, không dùng bảng dự báo này.</p>}
         {index === 3 && <p>Bond V2.5 thử nghiệm: An Tâm hạng AA, coupon 4,5%; Bứt Phá hạng B, coupon 10% mỗi START; hai START tới hạn. Ratings chỉ có trong game. Giá mua khác mệnh giá; coupon tính trên mệnh giá còn giữ. Chậm trả là khoản chờ nhận, chưa vào ví; mất vốn là phần không thu hồi. Nếu vỡ nợ, coupon chưa trả mất toàn bộ, gốc chỉ thu hồi 80% / 50% ở START tiếp theo. Bán từng khoản chịu phí 1,5%; issuer vỡ nợ không có giá bán. Cuối vòng 4 chỉ tính tiền đã nhận và giá bán khả dụng, không hứa trả sớm hoặc thu hồi sau ván. Phiên V2.4 đã lưu giữ Bond cũ: coupon 5%, không có default ngẫu nhiên.</p>}

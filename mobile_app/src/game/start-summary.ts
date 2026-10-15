@@ -1,6 +1,7 @@
 import { BOND_ISSUERS } from '../../../src/data/bond-issuers.ts'
 import { RULES } from '../../../src/data/config.ts'
 import type { BondPayment, GameState } from '../../../src/game/types.ts'
+import { hasPeriodicLiving } from '../../../src/game/living-expenses.ts'
 
 export const cashTone = (amount: number) => amount > 0 ? 'positive' : amount < 0 ? 'negative' : 'neutral'
 
@@ -48,10 +49,12 @@ export type BondStartSummary = ReturnType<typeof buildBondStartSummary>[number]
 export function buildStartOverview(game: GameState, lap: number) {
   const endIndex = game.log.findLastIndex(entry => entry.kind === 'settlement' && entry.decisionId === 'settle-lap' && entry.after.lap === lap)
   if (endIndex < 0) return null
-  // The unchanged engine records five ordered financial schedules after market
-  // updating. Funding records can appear between them; exclude wallet/turn trades.
-  const schedules = game.log.slice(0, endIndex).filter(entry => entry.kind === 'schedule' && entry.after.lap === lap).slice(-5)
-  if (schedules.length !== 5) return null
+  // Versioned count: five legacy schedules, six with periodic living. Funding
+  // records can occur between schedules; wallet/turn trades are outside this span.
+  const periodic = hasPeriodicLiving(game.log[endIndex].after)
+  const count = periodic ? 6 : 5
+  const schedules = game.log.slice(0, endIndex).filter(entry => entry.kind === 'schedule' && entry.after.lap === lap).slice(-count)
+  if (schedules.length !== count) return null
   const startIndex = game.log.indexOf(schedules[0])
   const records = game.log.slice(startIndex, endIndex + 1)
   const end = game.log[endIndex].after, before = schedules[0].before
@@ -70,9 +73,11 @@ export function buildStartOverview(game: GameState, lap: number) {
     : maturity.cashDelta - savingsReceived
   const businessFunding = records.slice(records.indexOf(schedules[1]), records.indexOf(maturity))
     .filter(entry => entry.kind === 'funding').reduce((total, entry) => total + entry.expensePaid, 0)
+  const livingPaid = periodic ? -schedules[3].cashDelta + records.slice(records.indexOf(schedules[3]) + 1, records.indexOf(schedules[4]))
+    .filter(entry => entry.kind === 'funding').reduce((sum, entry) => sum + entry.expensePaid, 0) : null
   return { salary: Math.min(schedules[0].cashDelta, RULES.recurringIncome),
     courseIncrease: Math.max(0, schedules[0].cashDelta - RULES.recurringIncome),
     businessCash: schedules[1].cashDelta - businessFunding, businessRelevant: before.business.capital > 0,
-    savingsReceived, bondReceived, fundingReceived, received, paid,
+    savingsReceived, bondReceived, fundingReceived, received, paid, livingPaid,
     cashBefore: before.portfolio.cash, cashAfter: end.portfolio.cash, debtAfter: end.portfolio.debt }
 }

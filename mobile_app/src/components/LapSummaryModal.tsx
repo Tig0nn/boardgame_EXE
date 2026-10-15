@@ -23,6 +23,7 @@ export function LapSummaryModal({ game, onContinue, onHelp }: { game: GameState;
           {(overview.businessRelevant || overview.businessCash !== 0) && <div><dt>Kinh doanh · dòng tiền</dt><dd className={cashTone(overview.businessCash)}>{signedMoney(overview.businessCash)}</dd></div>}
           {overview.savingsReceived > 0 && <div><dt>Tiết kiệm đáo hạn · gốc + lãi</dt><dd className="positive">{signedMoney(overview.savingsReceived)}</dd></div>}
           {overview.bondReceived > 0 && <div><dt>Trái phiếu · đã nhận</dt><dd className="positive">{signedMoney(overview.bondReceived)}</dd></div>}
+          {overview.livingPaid !== null && <div><dt>Chi phí sinh hoạt</dt><dd className={cashTone(-overview.livingPaid)}>{signedMoney(-overview.livingPaid)}</dd></div>}
           {overview.fundingReceived > 0 && <div><dt>Tiền huy động · gồm cả vay nếu có</dt><dd className="positive">{signedMoney(overview.fundingReceived)}</dd></div>}
         </dl>
         <p className="start-cash-balance">Tiền mặt hiện có <strong>{money(overview.cashAfter)}</strong></p>
