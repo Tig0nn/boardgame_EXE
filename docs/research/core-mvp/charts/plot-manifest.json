@@ -1,0 +1,19 @@
+{
+  "matplotlib": "3.11.2",
+  "numpy": "2.5.4",
+  "input": "final-comparison.json + sensitivity.json",
+  "charts": [
+    "accessibility.png",
+    "accessibility.svg",
+    "board-orders.png",
+    "board-orders.svg",
+    "proceeds.png",
+    "proceeds.svg",
+    "rolls-decisions.png",
+    "rolls-decisions.svg",
+    "sensitivity.png",
+    "sensitivity.svg",
+    "win-tail-risk.png",
+    "win-tail-risk.svg"
+  ]
+}

@@ -1,0 +1,2231 @@
+{
+  "generatedAt": "2026-10-15T18:01:31.720Z",
+  "files": [
+    {
+      "path": "baseline-audit.json",
+      "sha256": "d1d96f5e43f9afaba287a6005d63d18e43995825abfa7b37c184e422e864277c",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 5635
+    },
+    {
+      "path": "benchmark/nine-type-baseline.config.json",
+      "sha256": "d2523ae1801c8f5650c87ada989309e323a0b6aa55572b53af9eafbeebf548cf",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8672
+    },
+    {
+      "path": "benchmark/nine-type-baseline.examples.json.gz",
+      "sha256": "3cd76c5c2b3e47a9e44ab1fb99344374f9a53095a036ba090cf2e09af6d40818",
+      "hashNormalization": "binary",
+      "bytes": 496978
+    },
+    {
+      "path": "benchmark/nine-type-baseline.rows.json.gz",
+      "sha256": "2c4c3fa181dc709b49eb81615aa2f8055f95ddd25bcc5c7161078792715f970b",
+      "hashNormalization": "binary",
+      "bytes": 8286
+    },
+    {
+      "path": "benchmark/nine-type-baseline.summary.json",
+      "sha256": "befc8de70faa9bc8bd9894321b8917da5043c17b97747c18590ba0871e405022",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 78775
+    },
+    {
+      "path": "benchmark-manifest.json",
+      "sha256": "36aa8e9bf721b7b8c07084dce86530e78a59be9360340320b1c6759deee7249d",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 4747
+    },
+    {
+      "path": "benchmark-results.json",
+      "sha256": "ba965279bbc4242e3b474332fb3ae7ea6a6b3d150c6708b1a8c212b89110dba8",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 94782
+    },
+    {
+      "path": "benchmark-source.json.gz",
+      "sha256": "8928579893ce3321ad6866c7dbc0d1d98c6154ab33a9e89e1e1060378026ec45",
+      "hashNormalization": "binary",
+      "bytes": 39329
+    },
+    {
+      "path": "board-orders.csv",
+      "sha256": "daeb33453a7910731c577343bcadddab80792e4a169b3cdeb9ccbc0be9510f67",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 4288
+    },
+    {
+      "path": "broad/n16-h3-business-p2.config.json",
+      "sha256": "311b5bf1524ad18c81789a096116ce91d965537febe46d43a028568deef4f200",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8639
+    },
+    {
+      "path": "broad/n16-h3-business-p2.examples.json.gz",
+      "sha256": "758f8d888e260ba97d0dc5ddbb1e88418062b47e8253b01c9e4b74bd93a8dd26",
+      "hashNormalization": "binary",
+      "bytes": 277463
+    },
+    {
+      "path": "broad/n16-h3-business-p2.rows.json.gz",
+      "sha256": "b99b673f859f9662b5fa7b1a2fb0c91b4064cb8f58cc61e12dcbb08b1b41f3c4",
+      "hashNormalization": "binary",
+      "bytes": 102524
+    },
+    {
+      "path": "broad/n16-h3-business-p2.summary.json",
+      "sha256": "ac934dda3a8a1250961f8eaf977cb46f0de4391b14c3cf4f2533de4254b73141",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70213
+    },
+    {
+      "path": "broad/n16-h4-business-p2.config.json",
+      "sha256": "3eb8f21f6cbbd00a1db70a02847ecb8ca98c8bab4f000f34b545da9ec69b8bdd",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8639
+    },
+    {
+      "path": "broad/n16-h4-business-p2.examples.json.gz",
+      "sha256": "aa604bc16e4f5173fad6d30c46c2cf06e6ce6a9cca4e81031371dd683f1d2fc9",
+      "hashNormalization": "binary",
+      "bytes": 440255
+    },
+    {
+      "path": "broad/n16-h4-business-p2.rows.json.gz",
+      "sha256": "cf417315d113fcb1f0028026e4b2159d14aad26f65f31d8f1bea60564df5be82",
+      "hashNormalization": "binary",
+      "bytes": 107931
+    },
+    {
+      "path": "broad/n16-h4-business-p2.summary.json",
+      "sha256": "471948c3ad9686831ed03eba7847d8a97671ed6b8fc353f78d09dd3f417a3ada",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70402
+    },
+    {
+      "path": "broad/n16-h5-business-p2.config.json",
+      "sha256": "06fa388b7237404fe29257c9d46835a5a8cf739990dd633e8fd6b524fc2bd4d3",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8639
+    },
+    {
+      "path": "broad/n16-h5-business-p2.examples.json.gz",
+      "sha256": "24d54867e54fef41334e79c7ab42da9df165abffc1a86470a6a4b11d7565fbae",
+      "hashNormalization": "binary",
+      "bytes": 577123
+    },
+    {
+      "path": "broad/n16-h5-business-p2.rows.json.gz",
+      "sha256": "55f3ef19be111ab3ae5825105088553645f8b8df6fe95e6a5a3ae706a603eb0f",
+      "hashNormalization": "binary",
+      "bytes": 107638
+    },
+    {
+      "path": "broad/n16-h5-business-p2.summary.json",
+      "sha256": "4af61748c990993207024086f71e707ed0d96af5bfe51cd30176e40a4ab62823",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70392
+    },
+    {
+      "path": "broad/n16-h6-learning-p2.config.json",
+      "sha256": "87a7dc2439ee888bd4764e1ed189cfc603062b332eccac1240ba9287babd4030",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8633
+    },
+    {
+      "path": "broad/n16-h6-learning-p2.examples.json.gz",
+      "sha256": "be762d155e05128c3f5f4a2d2255bfc5d1263c559bdc1ef4276ac14fab6e5aee",
+      "hashNormalization": "binary",
+      "bytes": 731461
+    },
+    {
+      "path": "broad/n16-h6-learning-p2.rows.json.gz",
+      "sha256": "83771b1066abd331f93365622387a99bbe8b74d444f37776ce8b518e3e0fc2cb",
+      "hashNormalization": "binary",
+      "bytes": 107466
+    },
+    {
+      "path": "broad/n16-h6-learning-p2.summary.json",
+      "sha256": "3336c7a194214d32c032b5fafaf0cfbfcc90739f60d50d12069d9770107f1766",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70449
+    },
+    {
+      "path": "broad/n18-h3-learning-p2.config.json",
+      "sha256": "46864d7d0452c6e45358743665616a338818c728b97e9c65a771d1fc046bc59c",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8667
+    },
+    {
+      "path": "broad/n18-h3-learning-p2.examples.json.gz",
+      "sha256": "c779627041eddfd81c1c986b1ba262a53a34b509270f1abdb615b75521bb9638",
+      "hashNormalization": "binary",
+      "bytes": 267311
+    },
+    {
+      "path": "broad/n18-h3-learning-p2.rows.json.gz",
+      "sha256": "2d0d5e6e5097a61057e11d0a8c38ec78adfbfe72aa2002d9f975f1678144871c",
+      "hashNormalization": "binary",
+      "bytes": 103522
+    },
+    {
+      "path": "broad/n18-h3-learning-p2.summary.json",
+      "sha256": "2cb8f1b430ae95783507022d7d600ba86daa6be03504391f6632e089a03b8c2b",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70225
+    },
+    {
+      "path": "broad/n18-h4-learning-p2.config.json",
+      "sha256": "8fbcbfe55f9d7e8ee1660fd77fefa9c0f84b3f8ec2605fc4663a5e9724c3507b",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8667
+    },
+    {
+      "path": "broad/n18-h4-learning-p2.examples.json.gz",
+      "sha256": "7c9800e833a09322165dc35045e86f1e840867d08e3d8af49b1e1656a7efd5d9",
+      "hashNormalization": "binary",
+      "bytes": 435004
+    },
+    {
+      "path": "broad/n18-h4-learning-p2.rows.json.gz",
+      "sha256": "f66376829fcc9328030a17c571c70d39c8e56840d5031564f47c07bc728b728b",
+      "hashNormalization": "binary",
+      "bytes": 108481
+    },
+    {
+      "path": "broad/n18-h4-learning-p2.summary.json",
+      "sha256": "83fd7e57db7bc32e1deab8c02f53fbc57411000fdbb67cd806d6c097ed813484",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70395
+    },
+    {
+      "path": "broad/n18-h5-learning-p0.config.json",
+      "sha256": "d29c2645c9037e479955c44a9354c990b2ee58e3e6cc1b5919397a6b38dfea69",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8667
+    },
+    {
+      "path": "broad/n18-h5-learning-p0.examples.json.gz",
+      "sha256": "e7e4a1710e09149eb75dbb144c82b1bd98128ea1e99258f43d760d8c3ba6dc32",
+      "hashNormalization": "binary",
+      "bytes": 628978
+    },
+    {
+      "path": "broad/n18-h5-learning-p0.rows.json.gz",
+      "sha256": "f60f89c678057be924bd19af63b6a22ccded75fb4be13fa8888ac1b414d6e759",
+      "hashNormalization": "binary",
+      "bytes": 108303
+    },
+    {
+      "path": "broad/n18-h5-learning-p0.summary.json",
+      "sha256": "862db8bc9a95afefc6a4337a493796c24d793445fd1d7d5fc807a8bf43bc3381",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70419
+    },
+    {
+      "path": "broad/n18-h6-learning-p0.config.json",
+      "sha256": "929dc75f8bed44a15f17c118d266168c03c412d4d4a0f9269789a5611434534d",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8667
+    },
+    {
+      "path": "broad/n18-h6-learning-p0.examples.json.gz",
+      "sha256": "1c03e80c4ae3cd6816e473d50cea1249c4409ba50aca812d51384dec00a336e1",
+      "hashNormalization": "binary",
+      "bytes": 769830
+    },
+    {
+      "path": "broad/n18-h6-learning-p0.rows.json.gz",
+      "sha256": "3326bd1ab0d4a7307486ed1d72d5335a640a506093fb23d4a0d88b809bfc4f35",
+      "hashNormalization": "binary",
+      "bytes": 108150
+    },
+    {
+      "path": "broad/n18-h6-learning-p0.summary.json",
+      "sha256": "24a324ba38887f4cdacd5aaf7e93852aa2e063e63202e1ac929acaba52609e89",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70265
+    },
+    {
+      "path": "broad/n20-h3-learning-p1.config.json",
+      "sha256": "f957880f30d79c7c67f09a84c3ecacc0e3c533e9df4e0af5ebbfc8955f67ff8d",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8701
+    },
+    {
+      "path": "broad/n20-h3-learning-p1.examples.json.gz",
+      "sha256": "6d59b4d01bef85ee136411bb0a2c7f5a3f77654be77e3de32a7230acbad2507b",
+      "hashNormalization": "binary",
+      "bytes": 267692
+    },
+    {
+      "path": "broad/n20-h3-learning-p1.rows.json.gz",
+      "sha256": "326e3f37642e009629e8dcc3754a066f4c59cb3476e4da5b890d8f119bf546dc",
+      "hashNormalization": "binary",
+      "bytes": 103851
+    },
+    {
+      "path": "broad/n20-h3-learning-p1.summary.json",
+      "sha256": "d2d3e165a83d721487f3c4ec37969b6d0170d8334dc86565d47efcaa93f48d3c",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70218
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--allocation20.config.json",
+      "sha256": "79d24e159d3701fbcf0e8ccd7078176f7004f85e94a8c067be96defa391e36a2",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8724
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--allocation20.examples.json.gz",
+      "sha256": "d5e989354dd4a79f202413bf28f3232b12a93d8e3efbe091254f7124a54863dc",
+      "hashNormalization": "binary",
+      "bytes": 508548
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--allocation20.rows.json.gz",
+      "sha256": "864da5b8eeaaee5c45c10209da9f42d3c7374d513a5c6acf1a4e02d1de4044c7",
+      "hashNormalization": "binary",
+      "bytes": 106852
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--allocation20.summary.json",
+      "sha256": "d16adaf0a2048e310bd2465ae54cf1cad367d8eff435c347406f4317a7f519fe",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70334
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--allocation30.config.json",
+      "sha256": "1152fc8f9983527bfb8a97775bfb92f92fe35471dd4976b7762ec2285cd36cde",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8724
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--allocation30.examples.json.gz",
+      "sha256": "6fcae5fa0d257fe6f98e5927c5bc799ece0b8fd389c3c47b03d810c872e7e6cc",
+      "hashNormalization": "binary",
+      "bytes": 503907
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--allocation30.rows.json.gz",
+      "sha256": "f40714ff2870038038e0aa99771987fb2e1e1b7ef31565ed2f50d635bf8908b3",
+      "hashNormalization": "binary",
+      "bytes": 103082
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--allocation30.summary.json",
+      "sha256": "7fe60d1b19521113be2e6673143b0231b576e2764179dfddd2602ef66f635d53",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70242
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-cost15.config.json",
+      "sha256": "c43d639ddc594a8ce4363af96e636135c1e983eab27a845228ee4d196b13c7c2",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8723
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-cost15.examples.json.gz",
+      "sha256": "3a2f6887fcd321a8cd0cb930a2b1187eab50b3f3178e89fed005757e4cd1af18",
+      "hashNormalization": "binary",
+      "bytes": 508952
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-cost15.rows.json.gz",
+      "sha256": "a395d983171bdd7ba3aa3f47b3336f55a9daf5c7fc5e6eb9c112635f26488c83",
+      "hashNormalization": "binary",
+      "bytes": 108327
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-cost15.summary.json",
+      "sha256": "68f76c32d83c72ddbc57b5ff9de7e74d471a6c32c1727b51990b3fdee83ecf20",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70394
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-cost25.config.json",
+      "sha256": "7b812c784a15f7f30f94fc73900f604e03e33c957e340fc24375739f447e2096",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8723
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-cost25.examples.json.gz",
+      "sha256": "b4d62ba24de5ae3017b4ba4d5a15c4c97fd7eb2bde83920d34ee1e8e627f557f",
+      "hashNormalization": "binary",
+      "bytes": 508943
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-cost25.rows.json.gz",
+      "sha256": "9d1d4987befb564509e8e0fcef2a862de1a0806636cad02f269c67827d8af887",
+      "hashNormalization": "binary",
+      "bytes": 108229
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-cost25.summary.json",
+      "sha256": "d4c94e4553cced4db112f6919ceaaed3d3f1a9f69993c2472183c2c64103a6fd",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70375
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-income2.config.json",
+      "sha256": "ddbc616950f9d15e67360d2907ada0f63e54d4ea4f5679f8accf74485961ea73",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8725
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-income2.examples.json.gz",
+      "sha256": "85260af2f5f62947493b1413c165f1a1707218402e73db2b8f1127b460c640a6",
+      "hashNormalization": "binary",
+      "bytes": 508963
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-income2.rows.json.gz",
+      "sha256": "26c79fd7fb78b8bdd64ad2b1666ae2c6e98e81ff985ff01bcd0ac8347b2f891e",
+      "hashNormalization": "binary",
+      "bytes": 108432
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-income2.summary.json",
+      "sha256": "6d5b29c261c9957b1b359e5edc63114347c113a9e3e0bce3e92095b2010d58f0",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70383
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-income4.config.json",
+      "sha256": "2174be4049b9b5f2cc9254fff720a4a704764134e3c94f996034ba0467f1fd75",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8725
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-income4.examples.json.gz",
+      "sha256": "bcd499b475efe887d9d3e310bb67ef46a3b147fdfab66a7f59ee38e2f15442db",
+      "hashNormalization": "binary",
+      "bytes": 508934
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-income4.rows.json.gz",
+      "sha256": "325270f15dcc03ffcd6baf42d78fc141ff42280ebda421ac83821c1f1707272f",
+      "hashNormalization": "binary",
+      "bytes": 108137
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--business-income4.summary.json",
+      "sha256": "cf1e26a8be98d53ffb3714e108d6404f487593a4a006060ae80dc91dc0dad605",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70384
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--capital40.config.json",
+      "sha256": "865e0b4383d11915aad1628979bc187ade2a7e6e435945f2468099a6ecb84aab",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8711
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--capital40.examples.json.gz",
+      "sha256": "3f755f861a4f77b2a928f22be06edf88b5052964cfa63accf15ad30196455e26",
+      "hashNormalization": "binary",
+      "bytes": 508094
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--capital40.rows.json.gz",
+      "sha256": "c8a903af2937113a9c934d813ecb92cd65f9f564437e3f59eb084f26fd3a3c44",
+      "hashNormalization": "binary",
+      "bytes": 108981
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--capital40.summary.json",
+      "sha256": "749ae0bd04105014a11ee199865c09fc19aeeeea556d9a03cc67768e41730fed",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70328
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--capital60.config.json",
+      "sha256": "c89042feb0fc22bb612bcc74af8d3164e656177b850bc9c022791e272021da11",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8711
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--capital60.examples.json.gz",
+      "sha256": "231adde025219fe827acc3c614bd3581798826b50502c10d7f32b526f8d25b86",
+      "hashNormalization": "binary",
+      "bytes": 509653
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--capital60.rows.json.gz",
+      "sha256": "ac012e6bad40caefcf9ba317e571df9b4db383bb37c22ebde0b94174b4871da5",
+      "hashNormalization": "binary",
+      "bytes": 104661
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--capital60.summary.json",
+      "sha256": "e35791593ba8adcf85ca1af53250d3dee056d999f0e3aace141d66af05a2a08d",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70291
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--coupon-high.config.json",
+      "sha256": "30edde0e83a2586ceaa3718a0c68ae7ea20aeadb341f29a6fad26af5b75f1702",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8715
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--coupon-high.examples.json.gz",
+      "sha256": "0e14373d849717eaac6fc14f75a0ef0b18b1c8ca21e68c4e50bb6fb1b77b7a9f",
+      "hashNormalization": "binary",
+      "bytes": 508974
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--coupon-high.rows.json.gz",
+      "sha256": "30badc9007a0855a66e74294e43f4cb7883318f80de31abed0305cb552c4d86a",
+      "hashNormalization": "binary",
+      "bytes": 108341
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--coupon-high.summary.json",
+      "sha256": "f49e26b02fed10a25810b0fccb185df3fb8d7c858abdcfd6c7790af51b0560bd",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70372
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--coupon-low.config.json",
+      "sha256": "c5be3e3cef5abe7e55b81ca9b53ed3cab6d6c226a0e5d168405cbbbfbd92ef30",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8713
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--coupon-low.examples.json.gz",
+      "sha256": "628ae1f4c856c836201f97c853da6ddf4781b9cc502fc8b9000e3a080fe30b25",
+      "hashNormalization": "binary",
+      "bytes": 508964
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--coupon-low.rows.json.gz",
+      "sha256": "135638352529e16be886f2969c61c2199773ed2643321cca8e722b57138a3b53",
+      "hashNormalization": "binary",
+      "bytes": 108367
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--coupon-low.summary.json",
+      "sha256": "9a4aef908118fdf69468100b45c04fb576dbc25cc83e4739d6e2497607770c1b",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70360
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-boost2.config.json",
+      "sha256": "01dbfeef3af831216f732af289bc9ee09342f54b5025ca1702b56d9353f30ca7",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8719
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-boost2.examples.json.gz",
+      "sha256": "71d5cf8b144e09dc99c033fc6be96048b7677c462d081d89b70eeb26e495a9a0",
+      "hashNormalization": "binary",
+      "bytes": 508949
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-boost2.rows.json.gz",
+      "sha256": "d0f04750f3255b81f7f13d567504cb850e8826e0da02e7451bf0b0b8ff660a49",
+      "hashNormalization": "binary",
+      "bytes": 108986
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-boost2.summary.json",
+      "sha256": "6cac55ce2ba67eaff214789b43b6b8ad4b081ad25b4fc58e87f20eb0ca7be606",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70377
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-boost4.config.json",
+      "sha256": "c41a0bd9044ce575959f2881948faf2fc0704ca51609e5bc164346c339fec080",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8719
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-boost4.examples.json.gz",
+      "sha256": "5c31e97c076a7c78ed6102f306471c04ed7eb8040adbe954e1825b23875aeece",
+      "hashNormalization": "binary",
+      "bytes": 508926
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-boost4.rows.json.gz",
+      "sha256": "754656f90ed9ee6cb975570681722a81b6b49d372475648dd9fe0b412f00c876",
+      "hashNormalization": "binary",
+      "bytes": 107228
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-boost4.summary.json",
+      "sha256": "de48ef87e5850924bf40095697bd9cbf299baf5dadb5974ac65fd00ce96f884c",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70364
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-cost4.config.json",
+      "sha256": "f2102661d085e5765149042b27f7fa85495fb1a0727d8618f535fd859bdb9417",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8717
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-cost4.examples.json.gz",
+      "sha256": "5a5c010706e98e5d10adea79ce407d3dbe7be490cd3d2e1ff32dfaf639101208",
+      "hashNormalization": "binary",
+      "bytes": 508874
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-cost4.rows.json.gz",
+      "sha256": "b5bf3f608cd026d3ad23d3e118f95af03b894d5361b5f0280aabce9e844401b5",
+      "hashNormalization": "binary",
+      "bytes": 107731
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-cost4.summary.json",
+      "sha256": "eb9bbd0241d73aaf624548778dbd4c251c1aaf00ecbdc00fe18e77929938511a",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70368
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-cost8.config.json",
+      "sha256": "39bb1be9d202fac77aba821fea7508654fda847667ba1124d8a0273e88a609e3",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8717
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-cost8.examples.json.gz",
+      "sha256": "11564b8b2ff34d4c32a524eb74250599d451392dc3e0829b7302415abe3685f2",
+      "hashNormalization": "binary",
+      "bytes": 508964
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-cost8.rows.json.gz",
+      "sha256": "a7343284a31d8f675e3019019a8af7b89b94e057b64dd451f76f1478f116634e",
+      "hashNormalization": "binary",
+      "bytes": 108529
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--course-cost8.summary.json",
+      "sha256": "701be68ffddacc7301b59733d1b259649147409bce2c2f629b2d72405a9ae318",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70366
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--credit-high.config.json",
+      "sha256": "da3916b3163a976fd78131a3b5de5ce8efba02ded681937401c2535e30f1cc70",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8765
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--credit-high.examples.json.gz",
+      "sha256": "d4ce54509d2048fdf65bf79bd842a2faccbe6e2ee450988e96006d474f2a93cd",
+      "hashNormalization": "binary",
+      "bytes": 508963
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--credit-high.rows.json.gz",
+      "sha256": "39b0306800a3a09ccaf38c05194338658aebab987fa25c5a25b0c9b61eb73012",
+      "hashNormalization": "binary",
+      "bytes": 108021
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--credit-high.summary.json",
+      "sha256": "67af8b6aff1e81c98af141d0b8b8529960292959083b85c9601b672a553953ce",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70409
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--credit-low.config.json",
+      "sha256": "52bf7e7250353752b64686701d5b2cf81838f4a1284be26f37d5ba45d84afbaa",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8720
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--credit-low.examples.json.gz",
+      "sha256": "0db573b5b3a84f16bb6e19a69b576953f714fa2be18b098cb18459745d9918d0",
+      "hashNormalization": "binary",
+      "bytes": 508949
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--credit-low.rows.json.gz",
+      "sha256": "352e734a4be29240448025b521831a0b636f881dad3c26d8c7b63d43acbd7db5",
+      "hashNormalization": "binary",
+      "bytes": 108321
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--credit-low.summary.json",
+      "sha256": "3476dcd7b998f55cb562660e46c00cad11a808fb6a897d27176cafca6020f73b",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70348
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--fees-high.config.json",
+      "sha256": "0b9e1729525ed4ade22d69bb38c127ad5940d65d02091e7f241457682f7d59c2",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8710
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--fees-high.examples.json.gz",
+      "sha256": "0932580f60770d1b7f5aeb1642fd737cc4e8f496102c9b3215ab3b2829939968",
+      "hashNormalization": "binary",
+      "bytes": 508948
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--fees-high.rows.json.gz",
+      "sha256": "ef5e7a17b1b27cd6ec00bc9784fdfef8ca0a8f695e4b26d295809bfd82e4a19b",
+      "hashNormalization": "binary",
+      "bytes": 108308
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--fees-high.summary.json",
+      "sha256": "69bb9b01699b8b168eddfbf667ea42eca738015f3c0556ffa42f1112949e09d1",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70357
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--fees-low.config.json",
+      "sha256": "ee29e98d4e9f5137d4807198a6c23f5a854d906313b5d616c6f2919e1aba7ba8",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8712
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--fees-low.examples.json.gz",
+      "sha256": "4087f57df877fbaa9fd74318a1bd8f0bd065c5b4520aad78955421c808b2cbd8",
+      "hashNormalization": "binary",
+      "bytes": 508951
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--fees-low.rows.json.gz",
+      "sha256": "0f019035b877abea09e9f4395ff410a3672c27f67cb7f2a6bd10f2622aed423f",
+      "hashNormalization": "binary",
+      "bytes": 108293
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--fees-low.summary.json",
+      "sha256": "e0862a1b67d81c4c2b95110896b422ec2521f4a24dcd4ac4e1fa05a285cf6432",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70384
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal-reserve15.config.json",
+      "sha256": "285067335cd2eb097ead6dde14baf0553ad044e3b4d09c91f2b2894d22b5cf3c",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8721
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal-reserve15.examples.json.gz",
+      "sha256": "1282277d624748223a2587623401f297fc415206ddc3f501c01a09fa01f23112",
+      "hashNormalization": "binary",
+      "bytes": 508973
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal-reserve15.rows.json.gz",
+      "sha256": "fabcbb4ab3a1de34e61c97b056265da00b19c64df0af873647c3079def4e0883",
+      "hashNormalization": "binary",
+      "bytes": 108932
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal-reserve15.summary.json",
+      "sha256": "055d99ccbb9a6f5de100f89a2e0374e00a43ff44df8f25b3ae4d10a2d47d8201",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70370
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal-reserve5.config.json",
+      "sha256": "3433dc3434b0e823358b25f1f5ca2f1a4a68ff42ae39a7fe23f33963aa637a22",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8718
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal-reserve5.examples.json.gz",
+      "sha256": "c29f07b62d322a3b7c05992a40010458a3c0ccd63b5dbdbada6b65523e83a22b",
+      "hashNormalization": "binary",
+      "bytes": 508934
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal-reserve5.rows.json.gz",
+      "sha256": "4e4c764cce47a27b28f778ae107fe0abc8f4bbb8ead7d0cd6054f304c1736565",
+      "hashNormalization": "binary",
+      "bytes": 106793
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal-reserve5.summary.json",
+      "sha256": "06611c35560b6ca99cb6596709f64933ea12d174e5612e23121d079bf5687f89",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70345
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal70.config.json",
+      "sha256": "263be56b9b8e368613ae8816e50fd1bc95c3c46c0557c6a5dd57cddfcc8e10f7",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8705
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal70.examples.json.gz",
+      "sha256": "056870a428d1d710cccb325587b67cd5a43c5bae4c09f84781ce2fc85551df0b",
+      "hashNormalization": "binary",
+      "bytes": 508921
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal70.rows.json.gz",
+      "sha256": "b7893cab232d0605fc7500591b31fdad0a7a8e47c9d6407d0f9a1edfa086d766",
+      "hashNormalization": "binary",
+      "bytes": 104434
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal70.summary.json",
+      "sha256": "d613ff6439b67231b2854f4b50ed00011d314a8ee2569f93e622bdfece984cef",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70279
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal90.config.json",
+      "sha256": "17baaaff47e77402731800c7edc5301f3bc6cd5a073bae1acf300846964dd224",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8705
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal90.examples.json.gz",
+      "sha256": "ac25b1e8894e8d6b63bff98f1a3a1afb19f16ae240377bc66057329948641bbb",
+      "hashNormalization": "binary",
+      "bytes": 508974
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal90.rows.json.gz",
+      "sha256": "4014d8724b3237918548988ab2e88f67214c92a2e3826044747b242790fa050c",
+      "hashNormalization": "binary",
+      "bytes": 109129
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--goal90.summary.json",
+      "sha256": "206d52d1f66f0e7768f92aa8f6e4cd5ff996221044e8818aaa7d3f853b428169",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70317
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--gold-high.config.json",
+      "sha256": "dbdcd7a890d5a3e7a2c59f1dff3e4c8e56202f5f4d75c4bc7c83a67561fe6df5",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8745
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--gold-high.examples.json.gz",
+      "sha256": "5daf9c3750d20ed1804f21a543a48de56bc60e671688b0b5b9d2455daafa1dc0",
+      "hashNormalization": "binary",
+      "bytes": 508906
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--gold-high.rows.json.gz",
+      "sha256": "db9796fc1dea2a49849af2529c6283fe2cb5df0d970fe120e575616128a2efa8",
+      "hashNormalization": "binary",
+      "bytes": 108193
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--gold-high.summary.json",
+      "sha256": "a0bbcf3d2ded15f05402a72216468129639f0914e4707c8cc61ffbb1ce04d9c7",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70366
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--gold-low.config.json",
+      "sha256": "0d93d233d860ec3e8aae400cb5dd85a8060649847efe4329bf5fb9d7ecd292a8",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8789
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--gold-low.examples.json.gz",
+      "sha256": "bc6ce698ee50f81e05d3938908f13646ef91c5effd8867c4dca1cc8291023797",
+      "hashNormalization": "binary",
+      "bytes": 508910
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--gold-low.rows.json.gz",
+      "sha256": "8f08f078edad43c09a338445427e49211b6ae571eb530a6343b427f3fc7d0ddf",
+      "hashNormalization": "binary",
+      "bytes": 108275
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--gold-low.summary.json",
+      "sha256": "d36476fe2b823783e259a19373f2938f548d80f30d758b9cec90d8273414dcd9",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70372
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--living5.config.json",
+      "sha256": "ced1a35e619166caa712dd3bf19ac5893d24280d43a5cb204ee146ddeb615936",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8707
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--living5.examples.json.gz",
+      "sha256": "72962da963ca25decd27d24976054518efcefafb5d2c679586e5d0dfbbcb79f4",
+      "hashNormalization": "binary",
+      "bytes": 508875
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--living5.rows.json.gz",
+      "sha256": "d2ed70d67a24d5c79046bf46785628ff3b0bce6bc0ea2e4df3c1f96f3c577b43",
+      "hashNormalization": "binary",
+      "bytes": 105197
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--living5.summary.json",
+      "sha256": "910d80dd48af661a1520b32dd040acff6c4ba96937e3a5343575522570958f8e",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70312
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--living9.config.json",
+      "sha256": "98c1719aae40f219110446269ebc7d0d43b37934cec9525126d88c606fedb9c3",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8707
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--living9.examples.json.gz",
+      "sha256": "bee352bf21a695e2e966ea0a0aea09977099cd8af399e65900b3924820308761",
+      "hashNormalization": "binary",
+      "bytes": 508839
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--living9.rows.json.gz",
+      "sha256": "ab2d704ca8ceef846610d422cb4912a84dd71288442c003ec48555e42c40ba4a",
+      "hashNormalization": "binary",
+      "bytes": 109031
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--living9.summary.json",
+      "sha256": "7befffbf89c38a02b2728bc9b842d4286a6fb64798b7cf8fe1993f91ac55cc26",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70376
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--macro-growth.config.json",
+      "sha256": "d17b030f9f3db3486c8edd06c3d481fcf74c8d1e5f27a8dcd1b6eada05f5bd03",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8717
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--macro-growth.examples.json.gz",
+      "sha256": "3fc19ff87a75cc9fb0df94c87ce0a765c09b37e480b97fa812a2dd808437ad53",
+      "hashNormalization": "binary",
+      "bytes": 503463
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--macro-growth.rows.json.gz",
+      "sha256": "a0dc2f52a2f2cbb021426213d5d5d2338e0b73935f5595f9abf7fa30d5cf75ac",
+      "hashNormalization": "binary",
+      "bytes": 108146
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--macro-growth.summary.json",
+      "sha256": "abc35ce304939daeed8c106298c490cb6d7e20511300b2171d663f95ad37e828",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70392
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--macro-stress.config.json",
+      "sha256": "eb1f52ea73cc6b8255de0e7a3f60f9d684575105526a6422851af46374c0eb5d",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8717
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--macro-stress.examples.json.gz",
+      "sha256": "cc7be47f8a8deb7e9d78de2542bb138030cde117b977a7d8dc8ffecc4f7916e0",
+      "hashNormalization": "binary",
+      "bytes": 503380
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--macro-stress.rows.json.gz",
+      "sha256": "5446040e9beb40cd99531a63402a449ce178d4c78a35df976757d77c788ac913",
+      "hashNormalization": "binary",
+      "bytes": 108535
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--macro-stress.summary.json",
+      "sha256": "6d7e0bafbfa0a1e671682ebd40a844b937ee9fbd1eb398a0704cdf9631ff39a4",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70389
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--personal-high.config.json",
+      "sha256": "8b286f61c0c279f3bb33d56eb8e0a812401b1ca5b19d544e64a9a85dbeb612e6",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8719
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--personal-high.examples.json.gz",
+      "sha256": "a9970a29c092843b3ad0a572a2cfe003b809955b155b2f0691f56a4cd2001256",
+      "hashNormalization": "binary",
+      "bytes": 508949
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--personal-high.rows.json.gz",
+      "sha256": "ad15ce31b3c78bd398a3747a2a039904b78fa159cc92b3bf8dc791fbd05ef109",
+      "hashNormalization": "binary",
+      "bytes": 108302
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--personal-high.summary.json",
+      "sha256": "6a7590ba72b358993f1807534c46feb0060394b0f7e4b2e32647646bdfcafa3b",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70388
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--personal70.config.json",
+      "sha256": "c2adccf00164bab9570139c3f52efb5e678df961669b622f6009d6401209cf3b",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8715
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--personal70.examples.json.gz",
+      "sha256": "e82d3a42ed43b6d2af31591718b8d3bc9733006bf3e49341cf530e3591791eaa",
+      "hashNormalization": "binary",
+      "bytes": 508946
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--personal70.rows.json.gz",
+      "sha256": "c2948cbd598f0ac820aabe1fbd2c50d30d7eb92e3df7ff828e0c81d632fcef6e",
+      "hashNormalization": "binary",
+      "bytes": 107613
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--personal70.summary.json",
+      "sha256": "944e6b73ce6c1a2bde324b07d44d278d3eaddbdeea55b08d4c2e7f90dceefc33",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70358
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--recovery-high.config.json",
+      "sha256": "57bcfe39b561614f1d47c4fa2608a32d488267ca5d3ec1fda7b2d93ab9135aa9",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8719
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--recovery-high.examples.json.gz",
+      "sha256": "ed5a980df7233ecbcc2d6186c82f10bae4e1e68d401007685dbbb41c1f105a1e",
+      "hashNormalization": "binary",
+      "bytes": 508952
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--recovery-high.rows.json.gz",
+      "sha256": "2d75894dac84d5a1a7e3c3cc27761f8345264b183824d0ecc71eeeace921cbf8",
+      "hashNormalization": "binary",
+      "bytes": 108215
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--recovery-high.summary.json",
+      "sha256": "585765fa5fd0e5f58e9cb5ae8199b96f9df672eab6c0c610bb408b65f8186b2b",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70385
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--recovery-low.config.json",
+      "sha256": "dfd907d44c1364e659413e6379c3aa0251c0affedbdef6f47dfbe41deae9f9c8",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8732
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--recovery-low.examples.json.gz",
+      "sha256": "38dbe9010c5da9a6b1768fc404b05620c4885958b1c7d4bb6e991bc0a8f5d50a",
+      "hashNormalization": "binary",
+      "bytes": 508955
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--recovery-low.rows.json.gz",
+      "sha256": "08ebfe0fa72b55572be808e91a1cc85f25b798af6757a3c57e6fecc1ad23a5a2",
+      "hashNormalization": "binary",
+      "bytes": 108250
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--recovery-low.summary.json",
+      "sha256": "f0004f2bd73aabef40f7996fbe72fa39942d86ac8bf8d85ae14edab331a87e1e",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70379
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--salary12.config.json",
+      "sha256": "fc83c808965a7f395bf72669f5674ffee2656a39d8bbee7766a3acea9c918f6b",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8709
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--salary12.examples.json.gz",
+      "sha256": "ace675e93bf0cb3a347a82ad7118576897469d461cc612f4015835c353600eb5",
+      "hashNormalization": "binary",
+      "bytes": 508796
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--salary12.rows.json.gz",
+      "sha256": "630fd17708ecbf5d16ccf9eff328b4d04278dde0add809a558198bc0e00f933e",
+      "hashNormalization": "binary",
+      "bytes": 108920
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--salary12.summary.json",
+      "sha256": "4a4f0d3497f3ec9b672565a2fad489d82c6fdfeaaa49338451d06d6df70e58c3",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70380
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--salary16.config.json",
+      "sha256": "2d74da5ee085bddc660e815df030544fffd9e3c1406bb7b6876c88c3a3b01d58",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8709
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--salary16.examples.json.gz",
+      "sha256": "e57d1d0f24cff0829401679f6bbaaaa3dead354dd1fd50d04a261d6a14b920ea",
+      "hashNormalization": "binary",
+      "bytes": 508883
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--salary16.rows.json.gz",
+      "sha256": "2622b0fe108cf1a7372b389d2f17ddbc89e167dfa9468ea6bcd535bc66b8883d",
+      "hashNormalization": "binary",
+      "bytes": 105422
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--salary16.summary.json",
+      "sha256": "d1e5f9148dc1facbd95947a2f368be0daf26a1ff94c8f2840b8ee2d9300c2e91",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70318
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--savings-high.config.json",
+      "sha256": "46893ed763371b1fb80a5472ec9d6b01ac5b44a91a61afcfdf03b3f115505644",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8720
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--savings-high.examples.json.gz",
+      "sha256": "714024f30bb744fed6824806e81cb3e3e1bb44c18002fb2ebefa3ca2adf47730",
+      "hashNormalization": "binary",
+      "bytes": 509659
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--savings-high.rows.json.gz",
+      "sha256": "52de4876b2dd95e8f006815c4e304c22624ce537bf8239915be41e93464b678f",
+      "hashNormalization": "binary",
+      "bytes": 108116
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--savings-high.summary.json",
+      "sha256": "5b71ccd25f69bf685b93c626872b5524f130177ce0221acd252bf8310d76e80f",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70374
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--savings-low.config.json",
+      "sha256": "6ddacede29b655d7c0768e166f156723813c6f991b0729a8367f62f985fb6d42",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8732
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--savings-low.examples.json.gz",
+      "sha256": "aabecca05cfcb7ef4f597e5fa00a8a04738b36ec194767c5b1404a9efd4de156",
+      "hashNormalization": "binary",
+      "bytes": 508863
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--savings-low.rows.json.gz",
+      "sha256": "eb359bc7d6cae584f8553049effe7ce8f33a6bb839b9abc5ccd51e61b218d3f3",
+      "hashNormalization": "binary",
+      "bytes": 108398
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--savings-low.summary.json",
+      "sha256": "8f55c67459e4b254d25f1d15d16ced0f27e1b93aad0fb35302c021d69a613fca",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70372
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--spread1.config.json",
+      "sha256": "02de629dedb7f1267debdd3eb89e0f854ca9975e2f703186e217e9cb01bf9a37",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8707
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--spread1.examples.json.gz",
+      "sha256": "3e733c0e0f19caafda19f37d9bd841b5ce371be28d7a4885589a1d8d0ee3e912",
+      "hashNormalization": "binary",
+      "bytes": 508945
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--spread1.rows.json.gz",
+      "sha256": "93e61d847f791aa144965879b6b2645bda72a903c5e3b5089e933d19bd7a315e",
+      "hashNormalization": "binary",
+      "bytes": 108227
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--spread1.summary.json",
+      "sha256": "239530d090a3d7326c6b0a6982c75647cd6ed0eb9b63bf0bcc5b9142bdf48240",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70369
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--spread5.config.json",
+      "sha256": "74117c0e91a4d54fcd8f489d25c03b6b2f311270df62aa1d62d63ac1840f775f",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8707
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--spread5.examples.json.gz",
+      "sha256": "d360e0a0dae499173c2b3d3fce02dc1b4014f406910abcdf09a7b75e02125ca2",
+      "hashNormalization": "binary",
+      "bytes": 508948
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--spread5.rows.json.gz",
+      "sha256": "30a70ede329ed508d03bb5ad58353cb03eb27ff1502e29fafbd63c3bca00d10b",
+      "hashNormalization": "binary",
+      "bytes": 108276
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--spread5.summary.json",
+      "sha256": "957eec08b12e6d72efb0297ee1445b6abbe6dce93a3797a613841adecc23863f",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70383
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--stock-high.config.json",
+      "sha256": "db606f2824c2c4cd1b5b2015e9f96cabcdf447f3490bca3b108d438a891383e0",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8761
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--stock-high.examples.json.gz",
+      "sha256": "fedeb68022d3f9804c49e938cb668a9b9a7be8ab270e5a525070d99fcfee87d6",
+      "hashNormalization": "binary",
+      "bytes": 511708
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--stock-high.rows.json.gz",
+      "sha256": "79b9e91fad8dd29a54cf64be6084bf7083acede378270f857d2a6924818d0ece",
+      "hashNormalization": "binary",
+      "bytes": 108220
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--stock-high.summary.json",
+      "sha256": "032fa17791e1df3f66b9d1b675bb7d18e79b912b8001f36aba77f09243267ea3",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70375
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--stock-low.config.json",
+      "sha256": "6f108ba98c12a5c02ad1971360a742ab0d3beae57cfeb917575ce405ac345119",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8760
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--stock-low.examples.json.gz",
+      "sha256": "08a388606bd959169cd2bdd12708337ddd2549c335f2b6ba8d6b1f3ca5058440",
+      "hashNormalization": "binary",
+      "bytes": 508870
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--stock-low.rows.json.gz",
+      "sha256": "03c517c6023f036940ae65475caf14083a06ba1db21d176d43212b7892aa347a",
+      "hashNormalization": "binary",
+      "bytes": 108332
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--stock-low.summary.json",
+      "sha256": "4bb56b9ca4f92241d6c4ce1e8597b8580ef40e3eeb2629ce6e249084d425dd95",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70377
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--upgrade-cost3.config.json",
+      "sha256": "6fc98b7cc8d878ee790d01c673cb4934fe1e363cd76c8e02e98cca91b770debd",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8719
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--upgrade-cost3.examples.json.gz",
+      "sha256": "a167948842f086e72d55ad2818b78fd794ba3e23435fcac76c2e2abb0dc102df",
+      "hashNormalization": "binary",
+      "bytes": 508944
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--upgrade-cost3.rows.json.gz",
+      "sha256": "47bc5cab09d5edfc6ea361fccd4a9f5054a88a0619120081e4d27e054e1a255e",
+      "hashNormalization": "binary",
+      "bytes": 108226
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--upgrade-cost3.summary.json",
+      "sha256": "4daff53b6de832900be1a6d4b713be7452c62f64b4d582c9b549e8a36f3c36e7",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70384
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--upgrade-cost7.config.json",
+      "sha256": "ee36b778cc0fa8d431eacf2b8a32bc15efb18b6fe45799779c1632d99aa06219",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8719
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--upgrade-cost7.examples.json.gz",
+      "sha256": "d366550efa4b96ff54439e842a07d7b14365e6b57439a2956db7734dec116689",
+      "hashNormalization": "binary",
+      "bytes": 508949
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--upgrade-cost7.rows.json.gz",
+      "sha256": "0da7bd25c41e4cdd31de5da1169702de5dc9f4438684b11d5f480454e60cad24",
+      "hashNormalization": "binary",
+      "bytes": 108306
+    },
+    {
+      "path": "broad/n20-h4-learning-p0--upgrade-cost7.summary.json",
+      "sha256": "9ffad7f56f9d36a279413f9520e8850c35f7d6a5a7e41714b75f3aecc4f40d0e",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70383
+    },
+    {
+      "path": "broad/n20-h4-learning-p0.config.json",
+      "sha256": "46499dfd26f7cc3e6802e1a216b0e34a44f594c8c4fb5e30ca4f0f1c00686f5d",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8701
+    },
+    {
+      "path": "broad/n20-h4-learning-p0.examples.json.gz",
+      "sha256": "75906f9cfb13c0032dde241796eff4ac125070b896aade87fd68df43a0bebf08",
+      "hashNormalization": "binary",
+      "bytes": 508939
+    },
+    {
+      "path": "broad/n20-h4-learning-p0.rows.json.gz",
+      "sha256": "f8cc87fbdca3e60686b6038000dbac8a6e1c190e2e3ccc34b9f252fe6b59b6b3",
+      "hashNormalization": "binary",
+      "bytes": 108233
+    },
+    {
+      "path": "broad/n20-h4-learning-p0.summary.json",
+      "sha256": "31c71dd0451260c36519cfbaef96166bf44d27d9efbf0c0bf6c2406ecd8face3",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70366
+    },
+    {
+      "path": "broad/n20-h5-learning-p1.config.json",
+      "sha256": "2dd91f64bfafce79a7f414bcb659abd746b0842a70748ba70f8ca4e2ccc91f78",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8701
+    },
+    {
+      "path": "broad/n20-h5-learning-p1.examples.json.gz",
+      "sha256": "4f0cd6feccdbd761ef02a4df209d36e0c38c941e7088fb356336795bdd0bb056",
+      "hashNormalization": "binary",
+      "bytes": 567747
+    },
+    {
+      "path": "broad/n20-h5-learning-p1.rows.json.gz",
+      "sha256": "5af89b0c038362d0c61149ac7640a1b3023c4e3597f3608a955b8f207ed2a0d8",
+      "hashNormalization": "binary",
+      "bytes": 108729
+    },
+    {
+      "path": "broad/n20-h5-learning-p1.summary.json",
+      "sha256": "0d9ea28a208d424c19f46ca9a5cad5ffb01544676494ba1832749c8a3747eb05",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70214
+    },
+    {
+      "path": "broad/n20-h6-learning-p1.config.json",
+      "sha256": "11ff03c15f7b7f12ee2844a45593c06a4916b41e7b60ab09fcad50adc075235d",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8701
+    },
+    {
+      "path": "broad/n20-h6-learning-p1.examples.json.gz",
+      "sha256": "b7dad2ed8412a58b3d90e5510ca7070cc9270c115829ce46999c525e5754004d",
+      "hashNormalization": "binary",
+      "bytes": 719222
+    },
+    {
+      "path": "broad/n20-h6-learning-p1.rows.json.gz",
+      "sha256": "056d61073629129bbdc1ef3db064b5f72f3d51ce638d0e5b01d18c7a7cb02f8c",
+      "hashNormalization": "binary",
+      "bytes": 108310
+    },
+    {
+      "path": "broad/n20-h6-learning-p1.summary.json",
+      "sha256": "6d1890678a99634da52c3076ce0cd0197f204513339f55e2cd7dbef2e063a7ea",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70224
+    },
+    {
+      "path": "broad/n22-h3-learning-p3.config.json",
+      "sha256": "60b521f1005d2bd2645199c514254fb2a41abb4ba29a14d2d2c022bba8a024de",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8731
+    },
+    {
+      "path": "broad/n22-h3-learning-p3.examples.json.gz",
+      "sha256": "f459baadc036bda5fbaffd9618f0b00d4c250b6cee3ade297943f8137e9b53dd",
+      "hashNormalization": "binary",
+      "bytes": 363956
+    },
+    {
+      "path": "broad/n22-h3-learning-p3.rows.json.gz",
+      "sha256": "7b345c4e119de8f6bd59de6bd6403b2865be024b297d4635dba84ec4ec95d268",
+      "hashNormalization": "binary",
+      "bytes": 104736
+    },
+    {
+      "path": "broad/n22-h3-learning-p3.summary.json",
+      "sha256": "89c5d6ba05fce03f5c02d45e1d767e456c472f21d613c63b841d18339fb355dc",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70312
+    },
+    {
+      "path": "broad/n22-h4-learning-p3.config.json",
+      "sha256": "8e63fff2cabdb81c9d44899171f668fa0a014f527b0b3d851b9e3719b60cd461",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8731
+    },
+    {
+      "path": "broad/n22-h4-learning-p3.examples.json.gz",
+      "sha256": "0f1dd7637233a43438e4f0404ef7a5b01985cfbb48861effeb2c867184ab2561",
+      "hashNormalization": "binary",
+      "bytes": 556092
+    },
+    {
+      "path": "broad/n22-h4-learning-p3.rows.json.gz",
+      "sha256": "2e557b2a538aebfa8f1ba767561c881feab08b9d72f0b669f3c93b0803dcfff8",
+      "hashNormalization": "binary",
+      "bytes": 109589
+    },
+    {
+      "path": "broad/n22-h4-learning-p3.summary.json",
+      "sha256": "a4bbf429b47972353c25afc985dcea15cbb688e2e13a0d16701186971ada3fe0",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70421
+    },
+    {
+      "path": "broad/n22-h5-learning-p3.config.json",
+      "sha256": "de31faa892f36d585eb7943fc5726de5cd872a54bcdccb713840d75957b21fa4",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8731
+    },
+    {
+      "path": "broad/n22-h5-learning-p3.examples.json.gz",
+      "sha256": "f1868ff763afcd3a813de86790162d9ad277f641203c61187a1f3b4c47cbb357",
+      "hashNormalization": "binary",
+      "bytes": 702092
+    },
+    {
+      "path": "broad/n22-h5-learning-p3.rows.json.gz",
+      "sha256": "e967f87220c3057117d899bf99280e7b571cf93ef649aed2ab4e2f3fefe4cf44",
+      "hashNormalization": "binary",
+      "bytes": 108625
+    },
+    {
+      "path": "broad/n22-h5-learning-p3.summary.json",
+      "sha256": "3239ce84ed415c512f098630d4a47c913e54d0ddef2ce37c112685bb55131bf6",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70157
+    },
+    {
+      "path": "broad/n22-h6-learning-p2.config.json",
+      "sha256": "874c9a6c906894c56df31800a8594b3b0a45953900ba179cea761bffd0345a84",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8731
+    },
+    {
+      "path": "broad/n22-h6-learning-p2.examples.json.gz",
+      "sha256": "310aefffefcddd83c6a0bc3542f26dcd1c1bb9c3277621804ed7489b117bbf3a",
+      "hashNormalization": "binary",
+      "bytes": 847056
+    },
+    {
+      "path": "broad/n22-h6-learning-p2.rows.json.gz",
+      "sha256": "2fd69f9dc21b40654b30c00d9958486ed9ae2880af0ccdb1c709fb5ce645817a",
+      "hashNormalization": "binary",
+      "bytes": 108120
+    },
+    {
+      "path": "broad/n22-h6-learning-p2.summary.json",
+      "sha256": "f3bd7dfbec93805acb35ac78863a7eb1cedd11b38fa2f1bea7c729ec1da05f74",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70165
+    },
+    {
+      "path": "broad/n24-h3-learning-p0.config.json",
+      "sha256": "bc8793ee0598a7d7b98276bd8ef2cfe512a12b6501bb910e3d5da7c74fce9380",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8760
+    },
+    {
+      "path": "broad/n24-h3-learning-p0.examples.json.gz",
+      "sha256": "c213615e6cca1c95292e3f7f95f48598f1b7f3bcc781c8d90852b555e9d8094a",
+      "hashNormalization": "binary",
+      "bytes": 333035
+    },
+    {
+      "path": "broad/n24-h3-learning-p0.rows.json.gz",
+      "sha256": "c29347260ac90000f710748a64c0ed3bb380f56f81c5bd2b6326093f59e6f7f6",
+      "hashNormalization": "binary",
+      "bytes": 108430
+    },
+    {
+      "path": "broad/n24-h3-learning-p0.summary.json",
+      "sha256": "b3a6ff62d1a33d5085445fd995885a4dbd4b3522afc76dd32831e609c9671579",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70319
+    },
+    {
+      "path": "broad/n24-h4-learning-p0.config.json",
+      "sha256": "39d291146d4fa0f1ab44428f676b695a4636131bd439f2d902ce5ea6f4b2328a",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8760
+    },
+    {
+      "path": "broad/n24-h4-learning-p0.examples.json.gz",
+      "sha256": "3a914225bcc1f63019a9804d1b6538c8be321f9d4f07cc1e5bfaf05ff5d347da",
+      "hashNormalization": "binary",
+      "bytes": 529461
+    },
+    {
+      "path": "broad/n24-h4-learning-p0.rows.json.gz",
+      "sha256": "baf7104e5103556f3d1619c214a15c1e6eb55fdd6a45dd3c2d005208e69f199b",
+      "hashNormalization": "binary",
+      "bytes": 111232
+    },
+    {
+      "path": "broad/n24-h4-learning-p0.summary.json",
+      "sha256": "e1b17d4c85e776d3ba5857356c45532a98dea1833c5ee541136e0b5f03fa0842",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70392
+    },
+    {
+      "path": "broad/n24-h5-learning-p2.config.json",
+      "sha256": "1c5e7c766c276265b76071e74e994389159341767927bbf04dceb32d129b920e",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8760
+    },
+    {
+      "path": "broad/n24-h5-learning-p2.examples.json.gz",
+      "sha256": "3cb846b50b6ce94c9630b578d7188e4895732450229febf0cb3c085f6f56bff1",
+      "hashNormalization": "binary",
+      "bytes": 745700
+    },
+    {
+      "path": "broad/n24-h5-learning-p2.rows.json.gz",
+      "sha256": "a526e9a4bee10cdc2ad330c21a2a2309e324336bd10f7ab45c6757990a3236cf",
+      "hashNormalization": "binary",
+      "bytes": 109841
+    },
+    {
+      "path": "broad/n24-h5-learning-p2.summary.json",
+      "sha256": "6021633ded7ce904614b6c7ab6f1fbfc7faf64659f9842cca36f581b2a167e33",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70237
+    },
+    {
+      "path": "broad/nine-type-baseline.config.json",
+      "sha256": "0c7ea44af51bb21f3c893a4e40a0f7f768c18882bbe93a71091d6cfca973eff2",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8726
+    },
+    {
+      "path": "broad/nine-type-baseline.examples.json.gz",
+      "sha256": "099d0dc462725810bead660c88c535914dbaa0e8107e314458a3fc0b08e45095",
+      "hashNormalization": "binary",
+      "bytes": 457009
+    },
+    {
+      "path": "broad/nine-type-baseline.rows.json.gz",
+      "sha256": "a770529c79e01d8757e9a65a220156137e1f2f112c24dce762f97c09dd57c89b",
+      "hashNormalization": "binary",
+      "bytes": 109457
+    },
+    {
+      "path": "broad/nine-type-baseline.summary.json",
+      "sha256": "6760ea073346459fcf63cb7d500f0209a53bd8d20290d8ee405c3b75f05fb489",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70511
+    },
+    {
+      "path": "broad/nine-type-reference-cash-allocation.config.json",
+      "sha256": "48fcfddea39d2a68be8c5eba4b656eff846a245172febaedd7745febbbfc965a",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8737
+    },
+    {
+      "path": "broad/nine-type-reference-cash-allocation.examples.json.gz",
+      "sha256": "22b11c569e8d1147f5b93484d7e36404ef5ddb3a81643e5361ba580bac1a7ee8",
+      "hashNormalization": "binary",
+      "bytes": 435227
+    },
+    {
+      "path": "broad/nine-type-reference-cash-allocation.rows.json.gz",
+      "sha256": "fe4a5737a4b1497be617f00c1d713b6c4bf0858b663e7202d032cfec4188e181",
+      "hashNormalization": "binary",
+      "bytes": 111545
+    },
+    {
+      "path": "broad/nine-type-reference-cash-allocation.summary.json",
+      "sha256": "b2beca1753f47d86182c60c5abf8cb22862548678d23120e55675c41c0c727c4",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70521
+    },
+    {
+      "path": "broad-configs.json",
+      "sha256": "6101d4ad25aa31f52934d38df2aacee1b22c655c9f7a1f4759938b04ec43ef6c",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 636011
+    },
+    {
+      "path": "broad-manifest.json",
+      "sha256": "bdc4503eec9872238a389f51abaa2fbba08f8ed5262e428adaac55d70bc2df7f",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 11751
+    },
+    {
+      "path": "broad-results.json",
+      "sha256": "d77c3e2611513da7153e32581dc309c36ddf5c7c71e61273db1c2ebff6492157",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 5276434
+    },
+    {
+      "path": "broad-source.json.gz",
+      "sha256": "8928579893ce3321ad6866c7dbc0d1d98c6154ab33a9e89e1e1060378026ec45",
+      "hashNormalization": "binary",
+      "bytes": 39329
+    },
+    {
+      "path": "charts/accessibility.png",
+      "sha256": "deb4f1f315df135e4330434f9625f06d4c507748066956efa3d2180b22aac26d",
+      "hashNormalization": "binary",
+      "bytes": 89173
+    },
+    {
+      "path": "charts/accessibility.svg",
+      "sha256": "985e269d1b382c0e2a296e2262f9fd94d191534ccde7589bf40e41c0750730ab",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 79019
+    },
+    {
+      "path": "charts/board-orders.png",
+      "sha256": "b7dbf76bc54468f1463f19eeb6d42c0a2c975df4784cb7884753e68a2b7edfcc",
+      "hashNormalization": "binary",
+      "bytes": 144121
+    },
+    {
+      "path": "charts/board-orders.svg",
+      "sha256": "2301203869530ff10595dec24048f82aec3edf3d34819e6a7788ca171c467574",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 137082
+    },
+    {
+      "path": "charts/plot-manifest.json",
+      "sha256": "26b6b563e83b2ac0f0ee59c95299e0f60b7e3b0a735d13bf91d334c5861ce944",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 427
+    },
+    {
+      "path": "charts/proceeds.png",
+      "sha256": "6cc27d3c0b3ef68d41407778771969595f84e8c04734efadfc71cb2291b6b2aa",
+      "hashNormalization": "binary",
+      "bytes": 116511
+    },
+    {
+      "path": "charts/proceeds.svg",
+      "sha256": "e96161515d74c8e2d58431733408489dc47c038d07c7d66681281443a04160df",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 110507
+    },
+    {
+      "path": "charts/rolls-decisions.png",
+      "sha256": "576f280d89b52f35bcd5bbe422b86c16fda8617363c36fd2f13b42c9ba3350e9",
+      "hashNormalization": "binary",
+      "bytes": 77150
+    },
+    {
+      "path": "charts/rolls-decisions.svg",
+      "sha256": "9ba1da383998204fb4a61177f4e4764fbca2371c4d6893165ab0789899f54139",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 106712
+    },
+    {
+      "path": "charts/sensitivity.png",
+      "sha256": "09fc84194f82364297f0ff9df6f7dee8de3a5966f7191423d31f089bc99fc89a",
+      "hashNormalization": "binary",
+      "bytes": 60263
+    },
+    {
+      "path": "charts/sensitivity.svg",
+      "sha256": "1efd1e0ce28da29b707d2026b8c35ccc363b1325ff6467cd0c907964411b0c6e",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 70198
+    },
+    {
+      "path": "charts/win-tail-risk.png",
+      "sha256": "fd1d722eabaec247a76ea5c443c7049744f7e239af5f8006cbfe1633a8c8921b",
+      "hashNormalization": "binary",
+      "bytes": 152950
+    },
+    {
+      "path": "charts/win-tail-risk.svg",
+      "sha256": "39ceeca6eae8c5fcb5434017722b0c16376790687cc8057dc6c60aeb82a5f0b8",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 117454
+    },
+    {
+      "path": "dice-n16-h3.json.gz",
+      "sha256": "99a11bcbe1714941b4bb369afb289343cbdafb3ceb16944fb99e2b0cf911dbac",
+      "hashNormalization": "binary",
+      "bytes": 233862
+    },
+    {
+      "path": "dice-n16-h4.json.gz",
+      "sha256": "4a052caa925ab48a8a436f37af5c22dd55c90bf68b5f0a94310a340de1dc341b",
+      "hashNormalization": "binary",
+      "bytes": 345718
+    },
+    {
+      "path": "dice-n16-h5.json.gz",
+      "sha256": "38da2c1e77668a56e969e8d39bf0358b2e49d42640907110e52e5453a328cd55",
+      "hashNormalization": "binary",
+      "bytes": 466470
+    },
+    {
+      "path": "dice-n16-h6.json.gz",
+      "sha256": "1a91ec00bdea5888f0a1d58d36b5e0b022f62d6143fa19ea9f0cdff97b779186",
+      "hashNormalization": "binary",
+      "bytes": 593647
+    },
+    {
+      "path": "dice-n18-h3.json.gz",
+      "sha256": "4b79a17f70776bb565aaececbe1ddc8017f3af25a0a7202aae32fb9b82f71b21",
+      "hashNormalization": "binary",
+      "bytes": 274968
+    },
+    {
+      "path": "dice-n18-h4.json.gz",
+      "sha256": "7d206bc2baa63140fbc37892d14c8a5b68920794c22dd63cdc8c60dfe2778bf1",
+      "hashNormalization": "binary",
+      "bytes": 403651
+    },
+    {
+      "path": "dice-n18-h5.json.gz",
+      "sha256": "c96d241f4a519d0cf79aa2c2fe0043d6d22bcd8b8820e7918d42040e3f1e6893",
+      "hashNormalization": "binary",
+      "bytes": 540567
+    },
+    {
+      "path": "dice-n18-h6.json.gz",
+      "sha256": "c98b44f1ff58900a17a3bf64e903f74cfbacad0cc7219446c9cc68f3233b3739",
+      "hashNormalization": "binary",
+      "bytes": 693599
+    },
+    {
+      "path": "dice-n20-h3.json.gz",
+      "sha256": "aa1d85af8caf94c956a3c74cec25a8294026fb1071c1839c4357aa8897396308",
+      "hashNormalization": "binary",
+      "bytes": 315802
+    },
+    {
+      "path": "dice-n20-h4.json.gz",
+      "sha256": "71760ff7fb861797941ae64cc95431778f653a1aea4b76d2b8e151e88a0dcb5b",
+      "hashNormalization": "binary",
+      "bytes": 462486
+    },
+    {
+      "path": "dice-n20-h5.json.gz",
+      "sha256": "3ec66227cfee19aa06a0424cb2eb1e6cdd034436c065bc59104bc02076a71cf7",
+      "hashNormalization": "binary",
+      "bytes": 621101
+    },
+    {
+      "path": "dice-n20-h6.json.gz",
+      "sha256": "6a38a45d2e55c5a57c1fb4afd33318600fecea60e2099e134c08a3f171e4f5a0",
+      "hashNormalization": "binary",
+      "bytes": 793520
+    },
+    {
+      "path": "dice-n22-h3.json.gz",
+      "sha256": "ae5c92f5e660b8cec8d56704c308f812f27d86241ca1a50dce757658cc6167a6",
+      "hashNormalization": "binary",
+      "bytes": 358097
+    },
+    {
+      "path": "dice-n22-h4.json.gz",
+      "sha256": "a3a40398786b96e947d8ba029aac378ea7bdc97aaa5ed119d83793b5bca7735a",
+      "hashNormalization": "binary",
+      "bytes": 526749
+    },
+    {
+      "path": "dice-n22-h5.json.gz",
+      "sha256": "ef1ce8fd5d26db7fb559ea637fc74cbd2be134f49846dbf9ea5cfe4d0c93136d",
+      "hashNormalization": "binary",
+      "bytes": 711829
+    },
+    {
+      "path": "dice-n22-h6.json.gz",
+      "sha256": "4277d1009745297cd8191527dd571562449abc59a436895b881d6874a7883c21",
+      "hashNormalization": "binary",
+      "bytes": 906376
+    },
+    {
+      "path": "dice-n24-h3.json.gz",
+      "sha256": "c9be29121acbe86626e48bbcb2890b58afff362f3f713f854fc64935e436f108",
+      "hashNormalization": "binary",
+      "bytes": 403811
+    },
+    {
+      "path": "dice-n24-h4.json.gz",
+      "sha256": "5ab6acca5aec7fe4d00eb09f49bd13f70cc762b30b0ea110e07448b0b387f5bb",
+      "hashNormalization": "binary",
+      "bytes": 591661
+    },
+    {
+      "path": "dice-n24-h5.json.gz",
+      "sha256": "f04cfe733e9fefeecfb38a3232f04eee33b1c6145b317496ad21bc92f725cad6",
+      "hashNormalization": "binary",
+      "bytes": 801230
+    },
+    {
+      "path": "dice-n24-h6.json.gz",
+      "sha256": "6318aa9d21fefad344af38b110edab028a3e820780a4fcbd82b1ab1cc34fa5d9",
+      "hashNormalization": "binary",
+      "bytes": 1022137
+    },
+    {
+      "path": "dice-screen.csv",
+      "sha256": "418573fae2cedad9ca80c02409e6e788a59fa4c38ea6d7fdc47a97ea826b5a63",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 24142
+    },
+    {
+      "path": "dice-screen.json",
+      "sha256": "80336cff0300b2668ee116ffa97f91192bf223724021554bb6dc96e287df9825",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 831341
+    },
+    {
+      "path": "economy-parameters.csv",
+      "sha256": "6749afb5bbead345fe9803f505f1e394e936b0fbbde6153857e1da32bf28e084",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 19103
+    },
+    {
+      "path": "final-comparison.json",
+      "sha256": "224a40bc3d4cb318ef8581327093688e3e56b228db3926a64f94d05ffc50044a",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 557194
+    },
+    {
+      "path": "frozen-configs.json",
+      "sha256": "c7dbb9c8cc223c1fb8a0ceee02a824c000b6794c72d26609f9a1307c884ed760",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 51791
+    },
+    {
+      "path": "holdout/interaction-business-access.config.json",
+      "sha256": "378ca6de3d77a9be60c5a632c9df087f4c93ccfd2b1a69c01bbe1912e04420c4",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8768
+    },
+    {
+      "path": "holdout/interaction-business-access.examples.json.gz",
+      "sha256": "5117c80c998a7e55396c10caa001112b56fa39742399e3c38800c356fb3c4ece",
+      "hashNormalization": "binary",
+      "bytes": 498135
+    },
+    {
+      "path": "holdout/interaction-business-access.rows.json.gz",
+      "sha256": "7353ab58d32067f35bac309c956878e76d0ab584b5a96010056593c975f7b9c3",
+      "hashNormalization": "binary",
+      "bytes": 3736496
+    },
+    {
+      "path": "holdout/interaction-business-access.summary.json",
+      "sha256": "7158baab15eb82061da3ed9b8b396252109a95942de17b926992a8526a3d8ee8",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 238865
+    },
+    {
+      "path": "holdout/interaction-learning-liquidity.config.json",
+      "sha256": "85bf4b4160c978fed8d2de3e590d3cc1e2c5f9a4b9215089b193c791dd3f2d25",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8716
+    },
+    {
+      "path": "holdout/interaction-learning-liquidity.examples.json.gz",
+      "sha256": "9456d4654ca3cdbc7a285b22c4a1f31de37315a8e60242f8fd89e932e2419668",
+      "hashNormalization": "binary",
+      "bytes": 536465
+    },
+    {
+      "path": "holdout/interaction-learning-liquidity.rows.json.gz",
+      "sha256": "a032470d3fae6e7a65ff2beb437f8e5d119a7451907804a187a8524134bdcff3",
+      "hashNormalization": "binary",
+      "bytes": 3561769
+    },
+    {
+      "path": "holdout/interaction-learning-liquidity.summary.json",
+      "sha256": "f2f623e295dccb64b23aa00b2091f21fbebbe04b75ec112699403d99a068ae4a",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 238960
+    },
+    {
+      "path": "holdout/n16-h3-business-p2.config.json",
+      "sha256": "311b5bf1524ad18c81789a096116ce91d965537febe46d43a028568deef4f200",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8639
+    },
+    {
+      "path": "holdout/n16-h3-business-p2.examples.json.gz",
+      "sha256": "d93701b52084fb39ba96f8809bf78383d02d36a4dead6209f4a8cac2182c7e63",
+      "hashNormalization": "binary",
+      "bytes": 368154
+    },
+    {
+      "path": "holdout/n16-h3-business-p2.rows.json.gz",
+      "sha256": "e5759b06e6af30d5864134275b5492686f7dd6ecf9bb0fe8bb33f457e4ca8a05",
+      "hashNormalization": "binary",
+      "bytes": 3475031
+    },
+    {
+      "path": "holdout/n16-h3-business-p2.summary.json",
+      "sha256": "8df3ba7122786c47d94f84862561c91ce8a35cb87ac916d54fdd8716360094a4",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 238969
+    },
+    {
+      "path": "holdout/n20-h5-learning-p1.config.json",
+      "sha256": "2dd91f64bfafce79a7f414bcb659abd746b0842a70748ba70f8ca4e2ccc91f78",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8701
+    },
+    {
+      "path": "holdout/n20-h5-learning-p1.examples.json.gz",
+      "sha256": "07ba590c557f609b5136a45e3ac11248b2076b3c34a9c64393780db5ecfc0bf9",
+      "hashNormalization": "binary",
+      "bytes": 882353
+    },
+    {
+      "path": "holdout/n20-h5-learning-p1.rows.json.gz",
+      "sha256": "b3ed17eb43240bb1452824e0052c16f13633343653970660d35c5df37df01eb5",
+      "hashNormalization": "binary",
+      "bytes": 3693432
+    },
+    {
+      "path": "holdout/n20-h5-learning-p1.summary.json",
+      "sha256": "0cce235c3918a822d2ca1992662c08c3be443c8083100fe19785644e4b6471fe",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 239154
+    },
+    {
+      "path": "holdout-manifest.json",
+      "sha256": "4db5ad2702363ffb69ed643691d160df337fe3768f84a37b78ff75a2c27a781a",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 158236
+    },
+    {
+      "path": "holdout-results.json",
+      "sha256": "ccd9461f785ded2c9d1500bcecc44c31e3adba3ff8927bffc9764014d87bdc3e",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 1102338
+    },
+    {
+      "path": "holdout-source.json.gz",
+      "sha256": "afbbb6360744a67f3c3cff56c4d4160029f5a55f303c46b08a4636a68aa0a8d8",
+      "hashNormalization": "binary",
+      "bytes": 40390
+    },
+    {
+      "path": "layout-configs.json",
+      "sha256": "213b9554b8e1d34a17a163f881441d96c02cc7928db9e59f7c9e9c2454eba295",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 2248179
+    },
+    {
+      "path": "README.md",
+      "sha256": "0faf3e44c80e611aaeb4070fc5f1d79ad933a5c8af29ebd17f25142174e18429",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 5402
+    },
+    {
+      "path": "sensitivity.json",
+      "sha256": "737c0f8ecdb27e16e3d16058e8e3df73941a6f45939b19938eda1517c5657856",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 200491
+    },
+    {
+      "path": "shortlist/interaction-business-access.config.json",
+      "sha256": "378ca6de3d77a9be60c5a632c9df087f4c93ccfd2b1a69c01bbe1912e04420c4",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8768
+    },
+    {
+      "path": "shortlist/interaction-business-access.examples.json.gz",
+      "sha256": "fac84445aa35ae2a42733b187cdffc837cff3e9590ad62bf778320127cd3d2c0",
+      "hashNormalization": "binary",
+      "bytes": 492899
+    },
+    {
+      "path": "shortlist/interaction-business-access.rows.json.gz",
+      "sha256": "e7e6b9f12a8c5d9923bb7bf455d2dd101f5880c48408329ffd3001ae0a761ebc",
+      "hashNormalization": "binary",
+      "bytes": 746179
+    },
+    {
+      "path": "shortlist/interaction-business-access.summary.json",
+      "sha256": "2cb2240253b04e1cfda864eb07115056d3a957d61558026e456150d54b8d1347",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 117990
+    },
+    {
+      "path": "shortlist/interaction-learning-liquidity.config.json",
+      "sha256": "85bf4b4160c978fed8d2de3e590d3cc1e2c5f9a4b9215089b193c791dd3f2d25",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8716
+    },
+    {
+      "path": "shortlist/interaction-learning-liquidity.examples.json.gz",
+      "sha256": "5fd4373dececd9618798542dfb4760de0bdae03b3aac6f0f35e8bc1439a11e07",
+      "hashNormalization": "binary",
+      "bytes": 529673
+    },
+    {
+      "path": "shortlist/interaction-learning-liquidity.rows.json.gz",
+      "sha256": "83ebb9593f57ae02694c67160968cb84cf86255468092d598237241af5575d7a",
+      "hashNormalization": "binary",
+      "bytes": 712977
+    },
+    {
+      "path": "shortlist/interaction-learning-liquidity.summary.json",
+      "sha256": "474648c4c1110caf323078ea9ac37ef96bf77eeef14216177f648a09f08a03c2",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 117866
+    },
+    {
+      "path": "shortlist/n16-h3-business-p2.config.json",
+      "sha256": "311b5bf1524ad18c81789a096116ce91d965537febe46d43a028568deef4f200",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8639
+    },
+    {
+      "path": "shortlist/n16-h3-business-p2.examples.json.gz",
+      "sha256": "9ac04d23eee7260a8251876a762474ef114128ad39ccea2759ecf402160874c0",
+      "hashNormalization": "binary",
+      "bytes": 364148
+    },
+    {
+      "path": "shortlist/n16-h3-business-p2.rows.json.gz",
+      "sha256": "4078b550a3e71e2923f94c6d4ad474f547f0ed7253da124bc9c188db0dc1be44",
+      "hashNormalization": "binary",
+      "bytes": 695187
+    },
+    {
+      "path": "shortlist/n16-h3-business-p2.summary.json",
+      "sha256": "aaf1b34f12119f65674531d8bcd104d6b37011504583520931f6277053e4215b",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 117876
+    },
+    {
+      "path": "shortlist/n16-h4-business-p2.config.json",
+      "sha256": "3eb8f21f6cbbd00a1db70a02847ecb8ca98c8bab4f000f34b545da9ec69b8bdd",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8639
+    },
+    {
+      "path": "shortlist/n16-h4-business-p2.examples.json.gz",
+      "sha256": "e73804468495e9cb3abe010214c06d9ed4df8c8049a457c3343c4075c22b8f93",
+      "hashNormalization": "binary",
+      "bytes": 582233
+    },
+    {
+      "path": "shortlist/n16-h4-business-p2.rows.json.gz",
+      "sha256": "ef20399e9e408d43c13f68a556e74e85f412d1c8754288afba23d7316712c836",
+      "hashNormalization": "binary",
+      "bytes": 736571
+    },
+    {
+      "path": "shortlist/n16-h4-business-p2.summary.json",
+      "sha256": "ea729ce4a919a6fa04a0f4c3884a95ce82a69615890fe08b75ffe3768332917e",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 117993
+    },
+    {
+      "path": "shortlist/n18-h4-learning-p2.config.json",
+      "sha256": "8fbcbfe55f9d7e8ee1660fd77fefa9c0f84b3f8ec2605fc4663a5e9724c3507b",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8667
+    },
+    {
+      "path": "shortlist/n18-h4-learning-p2.examples.json.gz",
+      "sha256": "2cc3f5c894110338923ee9e7701f0a5325a59e26d7356eefbf1489e6a2fdc1cd",
+      "hashNormalization": "binary",
+      "bytes": 529664
+    },
+    {
+      "path": "shortlist/n18-h4-learning-p2.rows.json.gz",
+      "sha256": "755683e2fd23cbb9e3f32ef084b935eb25708a7bbb0508e3b1372f727248b568",
+      "hashNormalization": "binary",
+      "bytes": 735818
+    },
+    {
+      "path": "shortlist/n18-h4-learning-p2.summary.json",
+      "sha256": "18277c7843658ab88775592d530f893b04c9dd4b47e910cde760c52f7295eb81",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 117927
+    },
+    {
+      "path": "shortlist/n20-h4-business-p1.config.json",
+      "sha256": "0802eb3b894284117bb9f3ab4225205577af3aba6bf83338e2532d405b824a29",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8732
+    },
+    {
+      "path": "shortlist/n20-h4-business-p1.examples.json.gz",
+      "sha256": "c76f10b4f1fe19cd21406319f045efc1c8d774675d94fd42326775c444c63b49",
+      "hashNormalization": "binary",
+      "bytes": 492575
+    },
+    {
+      "path": "shortlist/n20-h4-business-p1.rows.json.gz",
+      "sha256": "a85f56120c660ff7c43759472419ada73ea13da8c83d9a91b2318cc456ade735",
+      "hashNormalization": "binary",
+      "bytes": 747329
+    },
+    {
+      "path": "shortlist/n20-h4-business-p1.summary.json",
+      "sha256": "32114aed3d4e1625e0209c51413ae1532538c4b07ca81a11adbf7ad9d21600e5",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 117982
+    },
+    {
+      "path": "shortlist/n20-h4-learning-p0.config.json",
+      "sha256": "46499dfd26f7cc3e6802e1a216b0e34a44f594c8c4fb5e30ca4f0f1c00686f5d",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8701
+    },
+    {
+      "path": "shortlist/n20-h4-learning-p0.examples.json.gz",
+      "sha256": "3253aaa9a42b90ee81419eccb3b9c27d11fc8235f53a6f12daee90a9dc0e4bfa",
+      "hashNormalization": "binary",
+      "bytes": 484377
+    },
+    {
+      "path": "shortlist/n20-h4-learning-p0.rows.json.gz",
+      "sha256": "1e7ec078942af7999d5a8570ac414f2716bd882e004078437a0f640b22fc4b60",
+      "hashNormalization": "binary",
+      "bytes": 737919
+    },
+    {
+      "path": "shortlist/n20-h4-learning-p0.summary.json",
+      "sha256": "b8d073cd17a31352d013ae6830d94d7fc6385931768da0525e167315d61f8c30",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 118029
+    },
+    {
+      "path": "shortlist/n20-h5-learning-p1.config.json",
+      "sha256": "2dd91f64bfafce79a7f414bcb659abd746b0842a70748ba70f8ca4e2ccc91f78",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8701
+    },
+    {
+      "path": "shortlist/n20-h5-learning-p1.examples.json.gz",
+      "sha256": "c08867e9a289e1ab8f8e4948366f90c38c1a6a2fa3180f6c6eb3f6a550b8e238",
+      "hashNormalization": "binary",
+      "bytes": 793217
+    },
+    {
+      "path": "shortlist/n20-h5-learning-p1.rows.json.gz",
+      "sha256": "051ffdfecfd9ea7ac4237fe7102f1acd5163489313f2a780ed135ef51adfe36f",
+      "hashNormalization": "binary",
+      "bytes": 741091
+    },
+    {
+      "path": "shortlist/n20-h5-learning-p1.summary.json",
+      "sha256": "6bce4b220573f68d1099320f0119ff3ca188e67eee70f8e9f064e8397bb8d087",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 117983
+    },
+    {
+      "path": "shortlist/n24-h4-learning-p0.config.json",
+      "sha256": "39d291146d4fa0f1ab44428f676b695a4636131bd439f2d902ce5ea6f4b2328a",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8760
+    },
+    {
+      "path": "shortlist/n24-h4-learning-p0.examples.json.gz",
+      "sha256": "3bb241c29893f8d0f517304101e60b5bd6c919d9a661f60e8c7271f5b8ba66d2",
+      "hashNormalization": "binary",
+      "bytes": 628397
+    },
+    {
+      "path": "shortlist/n24-h4-learning-p0.rows.json.gz",
+      "sha256": "1ebb4333ba32843efc3536dfa6c822664925cd26a226e8c2c196ad38ebfaaefa",
+      "hashNormalization": "binary",
+      "bytes": 758146
+    },
+    {
+      "path": "shortlist/n24-h4-learning-p0.summary.json",
+      "sha256": "6d0ca0d24cbc81276dcf8575c2db0df5252fe0c011ecb9fbe1628439135773ab",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 118050
+    },
+    {
+      "path": "shortlist/nine-type-reference-cash-allocation.config.json",
+      "sha256": "48fcfddea39d2a68be8c5eba4b656eff846a245172febaedd7745febbbfc965a",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 8737
+    },
+    {
+      "path": "shortlist/nine-type-reference-cash-allocation.examples.json.gz",
+      "sha256": "70468faa8d786a0dca1d12c5e8acf6d7cbc1db0668ed19a15faf598eb3e8d548",
+      "hashNormalization": "binary",
+      "bytes": 595907
+    },
+    {
+      "path": "shortlist/nine-type-reference-cash-allocation.rows.json.gz",
+      "sha256": "c6c4c59220cb0536898b2cfc6a16b04ab3533c69cf33965d396a1335cd2abd73",
+      "hashNormalization": "binary",
+      "bytes": 756486
+    },
+    {
+      "path": "shortlist/nine-type-reference-cash-allocation.summary.json",
+      "sha256": "f8cde6660a711485d4769fcd26aa0a03288d2e9c1818870d863c636187ca6924",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 118090
+    },
+    {
+      "path": "shortlist-configs.json",
+      "sha256": "8e71162693369d931ac82d304969246a4879739ae79586ba7e2b518e10bb5c74",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 137623
+    },
+    {
+      "path": "shortlist-manifest.json",
+      "sha256": "222492b3b9ff90718172b4e9e8bbf36ae0c21a3fee586dab2e9efad93ce36924",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 36413
+    },
+    {
+      "path": "shortlist-results.json",
+      "sha256": "fd41210ec27db8aeb51f4f547856afdcb6d09d933d4af837d1ce123cc5f00188",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 1385495
+    },
+    {
+      "path": "shortlist-source.json.gz",
+      "sha256": "4b152d65c4a53dcf3c49a072ff4ea2d5ba3e6b93726a539450fcaf94994e1b32",
+      "hashNormalization": "binary",
+      "bytes": 39976
+    },
+    {
+      "path": "strategy-results.csv",
+      "sha256": "c82903d4993e9c50fa28a2d14700045def3b4e873057b05d4a754d1e81cb9ce4",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 6654
+    },
+    {
+      "path": "technical-report.md",
+      "sha256": "dbeb2126c20dafc864de2dabed36e9b62192d3fc3267f57754eaaa927c8d9a42",
+      "hashNormalization": "UTF-8 LF",
+      "bytes": 24445
+    }
+  ]
+}

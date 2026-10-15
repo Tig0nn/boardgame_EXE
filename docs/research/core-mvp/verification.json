@@ -1,0 +1,24 @@
+{
+  "verifiedAt": "2026-10-15T18:01:52.672Z",
+  "artifactHashesVerified": 371,
+  "rowsVerified": 400800,
+  "counts": {
+    "broad": 100800,
+    "shortlist": 100000,
+    "holdout": 200000
+  },
+  "examplesReplayed": 40,
+  "phaseSeedsDisjoint": true,
+  "frozenBeforeHoldout": true,
+  "productionUnchanged": true,
+  "diceProcessedFrequencies": [
+    864666,
+    854707,
+    844142,
+    834209,
+    824493,
+    816866
+  ],
+  "processedDiceChiSquareDescriptiveOnly": 1965.7244464915543,
+  "caveat": "Terminal roll omitted from stored landing paths, so processed-only D6 frequencies have stopping-time selection. Uniformity is tested separately on the PRNG, not these frequencies."
+}

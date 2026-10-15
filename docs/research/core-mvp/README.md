@@ -18,6 +18,8 @@ Each financial phase stores:
 
 `broad-configs.json` records the fixed anchor and OFAT factors. `shortlist-configs.json` was selected before shortlist runs. `frozen-configs.json` records the exact Pareto criteria and candidates selected *before* holdout. Holdout is never used to tune or replace them.
 
+`artifact-manifest.json` hashes text as UTF-8 with LF line endings (survives Windows Git CRLF conversion) and compressed/image artifacts as binary. The manifest and the subsequent `verification.json` are excluded to avoid self-referential hashes. Use `node --experimental-strip-types scripts/verify-core-mvp.mjs` to verify saved artifacts. Set `CORE_MVP_LAB_OUT` to a fresh directory for simulation reproduction; the holdout runner refuses to overwrite an existing holdout manifest.
+
 Metric definitions:
 
 - `proceeds`: engine `liquidatableFunds`, after fees/spread and liabilities; active savings principal counts, unsold Business does not, defaulted bond claims without quotes do not.
