@@ -1,6 +1,8 @@
 // Development-only fixture page; excluded from both production entry points.
 import { createRoot } from 'react-dom/client'
+import { useState } from 'react'
 import { GameExperience } from './App'
+import { Tutorial } from './components/Tutorial'
 import { createMobileGame as createCandidateMobileGame, createMobileSession } from './game/session'
 import { decide, transact } from '../../src/game/engine'
 import { currentCustomerPreference } from '../../src/game/customer-preferences'
@@ -15,7 +17,14 @@ const createMobileGame = (...args: Parameters<typeof createCandidateMobileGame>)
 if (!import.meta.env.DEV) throw new Error('Development fixtures are disabled in production')
 const fixture = new URLSearchParams(location.search).get('fixture')
 let game = createMobileGame('mobile-fixture', 3e6, 3)
-if (fixture === 'funding') {
+if (fixture?.startsWith('preference-')) {
+  game = createCandidateMobileGame('preferences', 0)
+  if (fixture !== 'preference-forecast') game = { ...game, phase: 'event', position: 8, eventId: 'business', turn: 1 }
+  if (fixture === 'preference-owned') {
+    game = transact(game, { kind: 'buy', asset: 'business', amount: 20e6 })
+    game = { ...game, phase: 'event', position: 13, eventId: 'business', turn: 2 }
+  }
+} else if (fixture === 'funding') {
   game = transact({ ...game, phase: 'event', position: 9, eventId: 'gold' }, { kind: 'buy', asset: 'gold', amount: 2e6 })
   game = decide({ ...game, phase: 'event', position: 3, eventId: 'living', portfolio: { ...game.portfolio, cash: 2e6 } }, 'pay')
 } else if (fixture === 'business') {
@@ -44,5 +53,10 @@ if (fixture === 'funding') {
 }
 const session = createMobileSession(game)
 Object.assign(window, { mobileHarness: { getState: session.getSnapshot, preference: currentCustomerPreference(game) } })
-createRoot(document.getElementById('root')!).render(<GameExperience session={session} onRestart={() => location.reload()} />)
+export function IntegrationHarness() {
+  const [help, setHelp] = useState(false)
+  return <><GameExperience session={session} onRestart={() => location.reload()} onHelp={() => setHelp(true)} helpOpen={help} />
+    {help && <Tutorial game={session.getSnapshot()} firstTime={false} onClose={() => setHelp(false)} />}</>
+}
+createRoot(document.getElementById('root')!).render(<IntegrationHarness />)
 declare global { interface Window { mobileHarness: { getState: () => GameState; preference: ReturnType<typeof currentCustomerPreference> } } }

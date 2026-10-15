@@ -6,6 +6,8 @@ import { Icon } from '../../../src/components/Icon'
 import { boardFor, PERIODIC_C20_BOARD } from '../../../src/data/board'
 import type { GameState } from '../../../src/game/types'
 import { livingPresentation } from '../game/living-presentation'
+import { businessRulesForGame } from '../../../src/game/business'
+import { CustomerPreferenceCard } from '../../../src/components/CustomerPreferenceCard'
 
 const steps = [
   { title: 'Từ vốn nhỏ, tới ước mơ lớn', tag: 'ĐÍCH ĐẾN CỦA BẠN',
@@ -43,6 +45,9 @@ export function Tutorial({ firstTime, onClose, game }: { firstTime: boolean; onC
   return <Modal title={firstTime ? 'Hướng dẫn chơi' : 'Sổ tay hành trình'} className="tutorial" onClose={firstTime ? undefined : onClose}>
     <div className="tutorial-topline"><span className="section-kicker">{firstTime ? 'CHÀO MỪNG TÂN BINH' : 'SỔ TAY HÀNH TRÌNH'}</span>
       {firstTime && <button className="text-button" onClick={onClose}>Bỏ qua hướng dẫn</button>}</div>
+    {game && businessRulesForGame(game) === 'v2.4-customer-preferences' && <details className="tutorial-preference">
+      <summary>Thị hiếu vòng hiện tại</summary><CustomerPreferenceCard game={game} showUpgrades />
+    </details>}
     <div className="tutorial-progress" role="progressbar" aria-label="Tiến độ hướng dẫn" aria-valuemin={1} aria-valuemax={steps.length} aria-valuenow={index + 1}>
       {steps.map((item, i) => <span key={item.title} className={i <= index ? 'visited' : ''} data-current={i === index} />)}</div>
     <div className={`tutorial-scene scene-${index}`} aria-hidden="true"><span><Icon name={['flag', 'bank', 'bolt', 'leaf', 'wallet', 'check'][index]} size={40} /></span><b>XOAY VÒNG TIẾN LUI</b></div>

@@ -8,6 +8,7 @@ import { money } from '../game/format'
 import { businessOverview, purchasePreview } from '../game/selectors'
 import type { CustomerPreferenceId, GameState, RebalanceAction } from '../game/types'
 import { Icon } from './Icon'
+import { CustomerPreferenceCard } from './CustomerPreferenceCard'
 
 export function BusinessPanel({ game, onTransaction, feedback, compact = false }: {
   game: GameState; onTransaction: (action: RebalanceAction) => void; feedback: ReactNode; compact?: boolean
@@ -24,6 +25,7 @@ export function BusinessPanel({ game, onTransaction, feedback, compact = false }
     : view.levels >= config.maxUpgrades ? `Đã đạt tối đa ${config.maxUpgrades} tầng nâng cấp.`
     : game.portfolio.cash < config.upgradeCost ? 'Chưa đủ tiền mặt để nâng cấp.' : ''
   return <section className="trading-panel business-panel">{feedback}
+    <CustomerPreferenceCard game={game} />
     {!owned ? <>
       <div className="business-intro"><Icon name="shop" size={28} /><div><span>{compact ? 'CƠ HỘI MỚI' : 'QUÁN ĐỒ UỐNG GIẢ LẬP'}</span><h3>Mở quán của bạn</h3></div></div>
       <dl className="business-purchase-facts">
@@ -36,10 +38,6 @@ export function BusinessPanel({ game, onTransaction, feedback, compact = false }
       <button className="button primary full-button" disabled={!purchase.valid} onClick={() => onTransaction({ kind: 'buy', asset: 'business', amount: config.cost })}>{compact ? 'Mở quán' : 'Đầu tư cơ sở'} {money(config.cost)}</button>
       {!purchase.valid && <p className="input-error" role="status">Chưa đủ tiền mặt để mở quán.</p>}
     </> : <>
-      <div className="customer-preference" data-current-preference={preference.id}>
-        <span>KHÁCH HÀNG VÒNG {game.lap} ĐANG ƯA CHUỘNG</span><strong>{preference.label}</strong>
-        {!compact && <p>Giữ nguyên trong vòng này; có thể đổi ở vòng sau.</p>}
-      </div>
       <div className="trade-facts business-facts">
         <div><span>Thu nhập mỗi START hiện tại</span><strong>{money(view.income)}</strong></div>
         <div><span>Bán toàn quán lúc này</span><strong>{money(view.sale)}</strong></div>
@@ -47,10 +45,10 @@ export function BusinessPanel({ game, onTransaction, feedback, compact = false }
       <fieldset className="business-specializations"><legend>Chọn hướng phát triển · {view.levels}/{config.maxUpgrades} tầng</legend>
         {CUSTOMER_PREFERENCES.map(p => <label key={p.id} className={`specialization ${selected === p.id ? 'selected' : ''}`}>
           <input type="radio" name="business-preference" value={p.id} checked={selected === p.id} onChange={() => setSelected(p.id)} />
-          <span><strong>{p.label}</strong>{!compact && <small>{p.example}</small>}<small>Đã có {game.business.upgrades[p.id] ?? 0} tầng{p.id === preference.id ? ' · Khách đang thích' : ''}</small></span>
+          <span><strong>{p.label}</strong>{!compact && <small>{p.example}</small>}<small>Đã có {game.business.upgrades[p.id] ?? 0} tầng{p.id === preference.id ? ' · Phù hợp vòng này' : ''}</small></span>
         </label>)}
       </fieldset>
-      {compact ? <p className="upgrade-benefits" aria-live="polite">Nâng cấp +<strong>{money(view.incrementalIncome)}/START</strong> với sở thích hiện tại.</p> : <div className="upgrade-benefits" aria-live="polite">
+      {compact ? <p className="upgrade-benefits" aria-live="polite">Nâng cấp +<strong>{money(view.incrementalIncome)}/START</strong> với thị hiếu hiện tại. Thưởng có thể đổi ở vòng sau.</p> : <div className="upgrade-benefits" aria-live="polite">
         <span>Chi phí một tầng <b>{money(config.upgradeCost)}</b></span>
         <span>Tăng vĩnh viễn <b>+{money(config.baseUplift)}/START</b></span>
         <span>Thưởng khi trùng sở thích <b>+{money(config.matchingBonus)}/START</b></span>

@@ -64,6 +64,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .customer-preference { padding-block: 12px; border-block: 1px solid #456275; }
 .customer-preference > span { font-size: 12px; }
 .customer-preference > strong { display: block; color: #fde68a; }
+.preference-summary { padding: 10px 12px; background: #304443; border: 1px solid #687850; border-radius: 12px; }
+.customer-preference.preference-summary > span { font-size: 10px; color: #cbd5e1; }
+.tutorial-preference { margin-block: 12px; font-size: 13px; }
 .modal details { margin-top: 16px; border-top: 1px solid #456275; }
 .modal summary { min-height: 44px; padding-block: 12px; }
 .price-chart svg { width: 100%; max-height: 150px; color: #7dd3fc; }

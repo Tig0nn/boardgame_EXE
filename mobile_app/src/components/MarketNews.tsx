@@ -5,6 +5,7 @@ import { Icon } from '../../../src/components/Icon'
 import { creditRoundReview, investmentSignal, marketBulletin, roundMarketReview } from '../game/market-news'
 import { hasBondCredit } from '../../../src/game/bond-credit'
 import '../market-news.css'
+import { CustomerPreferenceCard } from '../../../src/components/CustomerPreferenceCard'
 
 const policyContext: Record<string, string> = {
   'credit-tightening': 'Cổ phiếu và giá trái phiếu giảm; vàng tăng.',
@@ -20,6 +21,7 @@ export function EconomicBulletin({ game }: { game: GameState }) {
     <div className="news-assets">{news.assets.map(item => <article key={item.asset}>
       <Icon name={item.icon} size={22} /><div><h3>{item.label}</h3><strong>{item.forecast}</strong><small>{item.characteristic}</small></div>
     </article>)}</div>
+    <CustomerPreferenceCard game={game} />
     <p className="news-reminder">Chừa tiền cho sinh hoạt và khoản đến hạn. Cân nhắc phí bán, khả năng xoay tiền và {game.totalLaps - game.lap + 1} lần qua START còn lại.</p>
     <details><summary>Chi tiết · Đọc tín hiệu thế nào?</summary>
       {news.assets.map(item => <p key={item.asset}><b>{item.label}:</b> {item.lesson}</p>)}
