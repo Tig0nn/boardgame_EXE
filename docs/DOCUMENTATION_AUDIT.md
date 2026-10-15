@@ -30,6 +30,8 @@ Follow-up Economic Event UX 15/10/2026: thêm [report popup kinh tế](ECONOMIC_
 
 CURRENT = đang duy trì; HISTORICAL = bản ghi implementation/research/verification ở mốc cũ; SUPERSEDED = spec/prompt/guide/task đã được thay cho việc sử dụng hiện tại, vẫn giữ lịch sử. Một report V2.4 vẫn có thể HISTORICAL vì số test, deployment và phạm vi test chỉ đúng ở thời điểm ghi.
 
+Follow-up Periodic Living 15/10/2026: thêm ba tài liệu candidate, inventory37 Markdown (19 CURRENT/13 HISTORICAL/5 SUPERSEDED). Chỉ cập nhật inventory/checker mặc định; không chạy lại audit lịch sử hoặc ghi lại archives/study cũ.
+
 | Tệp Markdown (đường dẫn repository) | Phân loại | Quyết định và phạm vi |
 | --- | --- | --- |
 | [README.md](../README.md) | CURRENT | Quick start hai app, status code/CI/deploy đúng phạm vi, trỏ canonical |
@@ -48,6 +50,9 @@ CURRENT = đang duy trì; HISTORICAL = bản ghi implementation/research/verific
 | [docs/BOND_V2_5_BALANCE_REPORT.md](BOND_V2_5_BALANCE_REPORT.md) | CURRENT | Kết quả 12.000 ván cùng seed, sáu chiến thuật và uncertainty |
 | [docs/BOND_V2_5_START_UX_REPORT.md](BOND_V2_5_START_UX_REPORT.md) | CURRENT | START presentation-only, cash/claims/losses, responsive và replay |
 | [docs/ECONOMIC_EVENT_UX_V1_REPORT.md](ECONOMIC_EVENT_UX_V1_REPORT.md) | CURRENT | Biến cố kinh tế theo snapshot, portfolio detail, rapid input và full-state replay |
+| [docs/PERIODIC_LIVING_EXPENSES_DESIGN.md](PERIODIC_LIVING_EXPENSES_DESIGN.md) | CURRENT | Sinh hoạt/board versioned, kế toán START, handoff designer và giới hạn |
+| [docs/PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md](PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md) | CURRENT | Bàn giao candidate7M/A, tests/replays/browser/evidence local |
+| [docs/PERIODIC_LIVING_EXPENSES_BALANCE_REPORT.md](PERIODIC_LIVING_EXPENSES_BALANCE_REPORT.md) | CURRENT | Study mới18.000 ván, CI/metrics, biến thể nghiên cứu và owner decision |
 | [docs/XVTL_GAME_SPEC_V2.md](XVTL_GAME_SPEC_V2.md) | SUPERSEDED | Spec V2 10/10/2026; current mode/catalog/AI đã thay đổi |
 | [docs/V2_IMPLEMENTATION_REPORT.md](V2_IMPLEMENTATION_REPORT.md) | HISTORICAL | Triển khai V2 10–11/10/2026, 81 tests và browser ba vòng ở mốc cũ |
 | [docs/V2_BALANCE_REPORT.md](V2_BALANCE_REPORT.md) | HISTORICAL | 55.000 ván heuristic V2, không phải V2.4 production measurement |
@@ -142,7 +147,7 @@ for (const file of files) {
   assert.equal(inventory.get(file), status, `Inventory status mismatch: ${file}`);
   counts[status]++;
 }
-assert.deepEqual(counts, { CURRENT: 16, HISTORICAL: 13, SUPERSEDED: 5 });
+assert.deepEqual(counts, { CURRENT: 19, HISTORICAL: 13, SUPERSEDED: 5 });
 
 function knownTarget(absolute) {
   const relative = path.relative(root, absolute).replaceAll('\\', '/');

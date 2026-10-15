@@ -2,6 +2,16 @@
 
 # Việc đang hoạt động — Mobile V2.4 và PR #8
 
+## Periodic Living / C20 — 15/10/2026
+
+- [x] Nhánh `codex/periodic-living-expenses` từ đúng `34f91ea`; policy/board riêng, legacy absence giữ nguyên.
+- [x] START 7M đúng một lần/vòng, không setup; debt/personal/Bond/Business giữ nguyên; Mobile sáu bước/Sổ tay/bàn active, nhãn art tạm.
+- [x] 304 product tests/57 diagnostics, lint/hai builds; verifiers lịch sử; hai browser game thật 4 vòng, 43 ảnh và replay exact. [Báo cáo](../docs/PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md).
+- [x] 18.000 ván/sáu cấu hình × sáu heuristic × 500 seed. [Bảng owner decision](../docs/PERIODIC_LIVING_EXPENSES_BALANCE_REPORT.md): không tự đổi 7M/A, nghiên cứu cũ giữ nguyên.
+- [ ] Owner duyệt độ khó (7M/A pool thắng5,40%), mức tiền/layout và artwork cuối; chưa release/merge.
+- [ ] Acceptance tự nhiên “funding sinh hoạt”: bất khả thi với lương ≥14M trước phí7M; đã test phòng vệ salary0 có nhãn, chưa tuyên bố ván thật insolvent. Owner cần xác nhận cách nghiệm thu này.
+- [ ] Chưa xác minh Actions HEAD, điện thoại thật, provider AI hoặc deployment candidate; không tự deploy/merge/Vercel.
+
 ## Bond Credit V2.5 — experimental candidate 15/10/2026
 
 - [x] Phase0 đặc tả/prototype commit trước engine; hai issuer, RNG riêng, payment claims/loss/recovery, lot-specific sales/funding, terminal executable quotes.

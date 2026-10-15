@@ -1,0 +1,420 @@
+{
+  "games": [
+    {
+      "file": "browser-win-full.json.gz",
+      "sha256": "6b2bc97ae3317f59219861ee8393910243fb2f2d664d9eeb136af9c4020f37f2",
+      "seed": "PERIODIC-V26-39",
+      "rolls": 23,
+      "exactFullStateReplay": true,
+      "lawfulProceeds": 94759500,
+      "module": "/assets/index-CxPvW0KK.js",
+      "reconciliation": [
+        {
+          "lap": 1,
+          "salary": 14000000,
+          "courseIncrease": 3000000,
+          "businessCash": 0,
+          "businessRelevant": false,
+          "savingsReceived": 0,
+          "bondReceived": 0,
+          "fundingReceived": 0,
+          "received": 17000000,
+          "paid": 7000000,
+          "livingPaid": 7000000,
+          "cashBefore": 26000000,
+          "cashAfter": 36000000,
+          "debtAfter": 0
+        },
+        {
+          "lap": 2,
+          "salary": 14000000,
+          "courseIncrease": 3000000,
+          "businessCash": 0,
+          "businessRelevant": false,
+          "savingsReceived": 0,
+          "bondReceived": 0,
+          "fundingReceived": 0,
+          "received": 17000000,
+          "paid": 7000000,
+          "livingPaid": 7000000,
+          "cashBefore": 13900000,
+          "cashAfter": 23900000,
+          "debtAfter": 0
+        },
+        {
+          "lap": 3,
+          "salary": 14000000,
+          "courseIncrease": 3000000,
+          "businessCash": 0,
+          "businessRelevant": false,
+          "savingsReceived": 23600000,
+          "bondReceived": 0,
+          "fundingReceived": 0,
+          "received": 40600000,
+          "paid": 7000000,
+          "livingPaid": 7000000,
+          "cashBefore": 12085000,
+          "cashAfter": 45685000,
+          "debtAfter": 0
+        },
+        {
+          "lap": 4,
+          "salary": 14000000,
+          "courseIncrease": 3000000,
+          "businessCash": 0,
+          "businessRelevant": false,
+          "savingsReceived": 39074500,
+          "bondReceived": 0,
+          "fundingReceived": 0,
+          "received": 56074500,
+          "paid": 7000000,
+          "livingPaid": 7000000,
+          "cashBefore": 45685000,
+          "cashAfter": 94759500,
+          "debtAfter": 0
+        }
+      ]
+    },
+    {
+      "file": "browser-defeat-full.json.gz",
+      "sha256": "b49fa1b5a42536f66ff3b9883925e828915ccea563660fc8212be491cb5ffb27",
+      "seed": "BOND-V25-59",
+      "rolls": 23,
+      "exactFullStateReplay": true,
+      "lawfulProceeds": 63272313,
+      "module": "/assets/index-CxPvW0KK.js",
+      "reconciliation": [
+        {
+          "lap": 1,
+          "salary": 14000000,
+          "courseIncrease": 3000000,
+          "businessCash": 0,
+          "businessRelevant": false,
+          "savingsReceived": 0,
+          "bondReceived": 225000,
+          "fundingReceived": 0,
+          "received": 17225000,
+          "paid": 13000000,
+          "livingPaid": 7000000,
+          "cashBefore": 37000000,
+          "cashAfter": 41225000,
+          "debtAfter": 0
+        },
+        {
+          "lap": 2,
+          "salary": 14000000,
+          "courseIncrease": 3000000,
+          "businessCash": 0,
+          "businessRelevant": false,
+          "savingsReceived": 0,
+          "bondReceived": 0,
+          "fundingReceived": 0,
+          "received": 17000000,
+          "paid": 7000000,
+          "livingPaid": 7000000,
+          "cashBefore": 36225000,
+          "cashAfter": 46225000,
+          "debtAfter": 0
+        },
+        {
+          "lap": 3,
+          "salary": 14000000,
+          "courseIncrease": 3000000,
+          "businessCash": 0,
+          "businessRelevant": false,
+          "savingsReceived": 0,
+          "bondReceived": 8047313,
+          "fundingReceived": 0,
+          "received": 25047313,
+          "paid": 13000000,
+          "livingPaid": 7000000,
+          "cashBefore": 46225000,
+          "cashAfter": 58272313,
+          "debtAfter": 0
+        },
+        {
+          "lap": 4,
+          "salary": 14000000,
+          "courseIncrease": 3000000,
+          "businessCash": 0,
+          "businessRelevant": false,
+          "savingsReceived": 0,
+          "bondReceived": 0,
+          "fundingReceived": 0,
+          "received": 17000000,
+          "paid": 10500000,
+          "livingPaid": 7000000,
+          "cashBefore": 56772313,
+          "cashAfter": 63272313,
+          "debtAfter": 0
+        }
+      ]
+    }
+  ],
+  "researchGames": 18000,
+  "sourceHashPolicy": "UTF-8/LF normalized",
+  "replaySpotChecks": 12,
+  "layouts": 44,
+  "screenshots": [
+    {
+      "file": "320-board.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "0c6c80ca78430b649f424b7a71ace556df78ced31c6c8ded48b4ab726e813be6"
+    },
+    {
+      "file": "320-bond-delay.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "6fd00daf5d296bf0e43c8f521824cb66193a9ffc4160fd7478a2b9968f4e9d0e"
+    },
+    {
+      "file": "320-deferred.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "266a1a1ac4944fca387cd49f82ed9c6ecf1c2bcd4c75069d60e39a067c3629b3"
+    },
+    {
+      "file": "320-funding.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "42a22f895b30378f23804e0961b0b275449d34d73953f9d11e2ec9128fe721fb"
+    },
+    {
+      "file": "320-help-living.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "756a2b71f248e9ef7794b7fcaf8924de5535df92acbcb35e01864a984ba05d8b"
+    },
+    {
+      "file": "320-insolvent.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "71d0f7c6d3ad4f16128bcf4bea9abbf5bd21374be52a60b5da34489caaf3abeb"
+    },
+    {
+      "file": "320-personal-12.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "d3fd35f181c329201cb23ebadc9b7c71cd24c9c9c3e6adeed196b2ab160978a8"
+    },
+    {
+      "file": "320-personal-21.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "56ed99e08a0d863f15315f253ff5ee371d92c5f15628e70da678fde436658447"
+    },
+    {
+      "file": "320-personal-4.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "99446a9b509fa51f4c8521b1191e090a8289b78908d3dcc2806ae3a080b94a54"
+    },
+    {
+      "file": "320-production-defeat.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "9bf4e930fb94af6a87b8dccce96fcda7f71fceeb01b3b17631e7dbb4d050e351"
+    },
+    {
+      "file": "320-summary.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "2a3feb8e8514b24fad40fad6ce8c3f05ac88a6946ca33bf5ee2a0a58b2a40de6"
+    },
+    {
+      "file": "390-board.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "c22966384ee354067128f8b6eaa417dbd49efdc87644922c3207d1f9df8aa988"
+    },
+    {
+      "file": "390-bond-delay.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "feb7fb87f6eb22bc14515c411fb66a076fcb5c7b64761b024c0312e68891fad3"
+    },
+    {
+      "file": "390-deferred.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "47ac7486ed5da382d2499fcb25f976b5cff18cb89b99b9347c439d22e7f4e6a5"
+    },
+    {
+      "file": "390-first-tutorial-living.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "4aeb4f52d696a2e2a48d153b9c93ceb8896bc4484d0911539f00ead11645ec68"
+    },
+    {
+      "file": "390-first-tutorial.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "118428974ab394c1e77c7dcb08bdf92fc21cb898fea6313a3b8a1998212a9000"
+    },
+    {
+      "file": "390-funded-summary.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "6d9a565b844c7c213421ec81dc1b56344f2f0ba825d94dae12bf5b9d2142836d"
+    },
+    {
+      "file": "390-funding-before.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "ed448c9e1f8e953bec0e95dae844829a7d9346fbf682086ee34829048825bb7a"
+    },
+    {
+      "file": "390-funding.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "d194fc05e18a47e8fbeff796c0456bf7a6ba89872548e1019ea64fbc16b045e0"
+    },
+    {
+      "file": "390-help-living.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "78386361d500609ad6bdfa348b9779f87f4314508c0943346c660c8c5486f926"
+    },
+    {
+      "file": "390-insolvent.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "ea5e970783686805bc048f970455604ddfa689eb316e4bfbce168b3e5ff79044"
+    },
+    {
+      "file": "390-legacy-help.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "7f1060b7ca67add82e871452c09292c887b43fca92068cb47ea16de5106e7d73"
+    },
+    {
+      "file": "390-next-forecast.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "3ac885954551f4c7f196c064d31b6c6bdab790a039dfd3d72a369ff4fe54704e"
+    },
+    {
+      "file": "390-production-board.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "64ccea519047f9caec802b54650153cc26be570ab59571b65b6b9361798a4f30"
+    },
+    {
+      "file": "390-production-tile15.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "bcced9369ada2f245229eaeba84365ec132a0b146dd8f7ecc0e22457eae3ff33"
+    },
+    {
+      "file": "390-production-win.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "45c1d553bb0cc03ae43f80d71c305303eb56e78e054d1f8a2c6268c69bce35a2"
+    },
+    {
+      "file": "390-summary.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "92515429e918f62de891fa3b24a866befaf0f4153fd31d0097588409e9da07ce"
+    },
+    {
+      "file": "430-board.jpg",
+      "width": 430,
+      "height": 932,
+      "sha256": "b9d4b868aba6bedacad1d3bc68ab851f76d0cf47f7b1cf4130ee0f5bfe6f8f1b"
+    },
+    {
+      "file": "430-bond-delay.jpg",
+      "width": 430,
+      "height": 932,
+      "sha256": "ee45236792bb8289e436c01063dbeb78cd53b9ca54062112edad54138ccbcb24"
+    },
+    {
+      "file": "430-deferred.jpg",
+      "width": 430,
+      "height": 932,
+      "sha256": "fea0c890fa2f22fb289f8d38d7f22ac2b801918b1a9f5600adc42e04290f579a"
+    },
+    {
+      "file": "430-funding.jpg",
+      "width": 430,
+      "height": 932,
+      "sha256": "bfa74dc1c4146a18b93bd0f866121247565bb7a9623998c8238df976e83b0fea"
+    },
+    {
+      "file": "430-help-living.jpg",
+      "width": 430,
+      "height": 932,
+      "sha256": "b53d78e732218d4c8f4f4e0c5c2d023ce56ad753ecd9db3495b3b589df9d5687"
+    },
+    {
+      "file": "430-insolvent.jpg",
+      "width": 430,
+      "height": 932,
+      "sha256": "59e5600298bea2f7fb3352c8a2cc327985387dddc55937386519f610d9dba983"
+    },
+    {
+      "file": "430-rulebook-board.jpg",
+      "width": 430,
+      "height": 932,
+      "sha256": "05079c09dc2b835ce5cb58be5914e97bc41210cfdef8da0d1788a711dcacf457"
+    },
+    {
+      "file": "430-summary.jpg",
+      "width": 430,
+      "height": 932,
+      "sha256": "fd9bbe888cb3ce116ad4efde2e7456e804730ca7d0f326628c94f8570d9d163a"
+    },
+    {
+      "file": "defeat-start-1.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "6a4cf7321488cc8fdc26f16acb6176f79ae09967c17a2f818c1b76a859bf0a51"
+    },
+    {
+      "file": "defeat-start-2.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "20ad24862957928648656eaf695fd071a94f87e32735e94df9998abe1e9e9ee1"
+    },
+    {
+      "file": "defeat-start-3.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "b7ee89ce70186ec18ed8bec234f09beccfb42b6077ef6fba25dcb56458ed3e88"
+    },
+    {
+      "file": "defeat-start-4.jpg",
+      "width": 320,
+      "height": 640,
+      "sha256": "408fa8e301ff140e3807b641a777dc51d7c9b24e283845d32cf3bf9ee4706759"
+    },
+    {
+      "file": "win-start-1.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "9a694ebb35bf53114202bdb7a50b12b72060d866ffa6f927620bbd1ac057cfd9"
+    },
+    {
+      "file": "win-start-2.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "40ceec238851159c6f83d3c762eabb89a6bf339f7f0b0513c24e6a71833d9a4e"
+    },
+    {
+      "file": "win-start-3.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "381b51688d2cc116b1b19011275303dcc8da97ee33e20e56b9a7111c151d09f7"
+    },
+    {
+      "file": "win-start-4.jpg",
+      "width": 390,
+      "height": 844,
+      "sha256": "68526d58c81611b61690df146ac08029bce9434fbcbb12592c60546e78bfd557"
+    }
+  ],
+  "livingFunding": "Defensive salary=0 fixture only; unreachable naturally with >=14M salary before 7M payment",
+  "consoleErrors": 0
+}

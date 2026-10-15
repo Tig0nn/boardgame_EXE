@@ -24,6 +24,12 @@ const all: Record<string, Row[]> = {}
 const sourceHash = (path: string) => createHash('sha256').update(readFileSync(path)).digest('hex')
 const sourceFiles = ['src/game/living-expenses.ts', 'src/data/board.ts', 'src/data/bond-issuers.ts', 'scripts/diagnostics/periodic-living-model.ts']
 const hashes = Object.fromEntries(sourceFiles.map(path => [path, sourceHash(path)]))
+const normalizedSourceHashes = Object.fromEntries(sourceFiles.map(path => [path,
+  createHash('sha256').update(readFileSync(path, 'utf8').replace(/\r\n/g, '\n')).digest('hex')]))
+const prior = process.argv.includes('--aggregate-only') ? JSON.parse(readFileSync(join(out, 'balance-results.json'), 'utf8')) : null
+if (prior) for (const path of sourceFiles) {
+  if (prior.normalizedSourceHashes[path] !== normalizedSourceHashes[path]) throw new Error(`Saved research source differs: ${path}`)
+}
 for (const config of configs) {
   const target = join(out, `balance-${config.id}.json.gz`)
   if (process.argv.includes('--aggregate-only')) {
@@ -77,7 +83,7 @@ const aggregate = (rows: Row[]) => {
     opportunities: Object.fromEntries(Object.keys(rows[0].opportunities).map(key => [key, mean(rows.map(r => r.opportunities[key]))])),
     lateOpportunities: Object.fromEntries(Object.keys(rows[0].lateOpportunities).map(key => [key, mean(rows.map(r => r.lateOpportunities[key]))])) }
 }
-const results = { seedsPerStrategy: count, games: configs.length * count * LIVING_STRATEGIES.length, sourceHashes: hashes, conditions: { initialSavings: 20e6, term: 3, capital: 50e6, goal: 90e6, laps: 4, bond: 'v2.5-credit-risk', seedPrefix: 'PERIODIC-V26-' },
+const results = { seedsPerStrategy: count, games: configs.length * count * LIVING_STRATEGIES.length, sourceHashes: prior?.sourceHashes ?? hashes, normalizedSourceHashes, conditions: { initialSavings: 20e6, term: 3, capital: 50e6, goal: 90e6, laps: 4, bond: 'v2.5-credit-risk', seedPrefix: 'PERIODIC-V26-' },
   configs: configs.map(config => ({ ...config, researchOnly: config.id !== 'legacy' && config.id !== '7m-a',
     aggregate: aggregate(all[config.id]), strategies: Object.fromEntries(LIVING_STRATEGIES.map(strategy => [strategy, aggregate(all[config.id].filter(r => r.strategy === strategy))])),
     sameDicePathAsLegacy: all[config.id].filter((r, i) => r.dicePath === all.legacy[i].dicePath).length,

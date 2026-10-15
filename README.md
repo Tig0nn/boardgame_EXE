@@ -2,6 +2,8 @@
 
 # Xoay Vòng Tiến Lui
 
+Candidate Mobile hiện tại: [Periodic Living V2.6](docs/PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md), nhánh `codex/periodic-living-expenses`. Ván mới thu 7M tại mỗi START hoàn tất (không thu setup), ô4 Stocks/15 Gold; root Web và phiên lịch sử giữ on-landing. [Balance18.000 ván](docs/PERIODIC_LIVING_EXPENSES_BALANCE_REPORT.md) và [designer handoff](docs/PERIODIC_LIVING_EXPENSES_DESIGN.md) đang chờ owner quyết mức tiền/layout/artwork cuối; candidate chưa merge/deploy.
+
 Game tài chính tiếng Việt một người chơi, React/TypeScript/Vite. Hai ứng dụng **root Web** và **illustrated Mobile** dùng chung engine V2.4; state ở bộ nhớ trình duyệt, chưa có autosave/import UI/multiplayer. AI Coach là backend tùy chọn sau ván, không quyết định tài chính.
 
 ## Bắt đầu

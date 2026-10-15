@@ -2,6 +2,12 @@
 
 # MVP hiện tại — Xoay Vòng Tiến Lui V2.4
 
+## Periodic Living V2.6 — candidate 15/10/2026
+
+Nhánh hiện tại `codex/periodic-living-expenses` từ Economic Event UX `34f91ea`: ván Mobile mới chọn `livingExpenseRulesVersion=v2.6-periodic-start` và `boardRevision=c20-v2.6-a`. Thu cố định 7M sau salary/Business/maturity và trước nợ/nghĩa vụ ở mỗi START hoàn tất, gồm vòng 4; không thu setup. Ô 4 Stocks, ô 15 Gold; personal 8/18 giữ nguyên. Hướng recurring đã duyệt, còn 7M/layout A là thử nghiệm, chưa merge/phát hành. Root Web và metadata vắng vẫn on-landing lịch sử, không migrate saved game.
+
+[Thiết kế và handoff designer](PERIODIC_LIVING_EXPENSES_DESIGN.md), [implementation/evidence](PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md), [18.000 ván cân bằng](PERIODIC_LIVING_EXPENSES_BALANCE_REPORT.md): 304 tests/57 diagnostics, hai builds, hai browser four-lap replays exact. Pool 7M/A thắng 5,40% so legacy 50,33%; không tự đổi sang 5M/6M. Lương ≥14M nhận trước phí 7M nên funding sinh hoạt không tự nhiên phát sinh; chỉ test nhánh đó bằng fixture có nhãn. Artwork gốc giữ nguyên, hai marker tạm diễn đạt đúng ô mới. Chưa xác minh Actions/deployment của candidate.
+
 ## Bond Credit V2.5 — experimental candidate 15/10/2026
 
 Nhánh `codex/bond-credit-v2-5` từ Atomic `f3a03cb` bổ sung metadata độc lập `bondRulesVersion`. Phiên mới trên nhánh này dùng `v2.5-credit-risk`; metadata vắng/API lịch sử vẫn Bond V2.4, không migrate session/log cũ. Đây **chưa phải luật chính thức đã duyệt**. [Đặc tả](BOND_V2_5_DESIGN_SPEC.md), [triển khai và kiểm chứng](BOND_V2_5_IMPLEMENTATION_REPORT.md), [12.000 ván cân bằng](BOND_V2_5_BALANCE_REPORT.md) ghi đầy đủ giả định và giới hạn. Các mục V2.4/hosting/CI bên dưới giữ phạm vi theo mốc cũ.
@@ -44,11 +50,12 @@ MVP là game tài chính tiếng Việt một người chơi, React/TypeScript/V
 | Setup mặc định hai UI | Gửi 20.000.000 VND kỳ hạn 1 START, cash 30.000.000 VND; người chơi có thể chỉnh |
 | Luật business / encounter mới | `v2.4-customer-preferences` / `v2.4-atomic-investments` |
 | Luật Bond trên nhánh V2.5 thử nghiệm | `v2.5-credit-risk`; phiên lịch sử giữ `v2.4-single-issuer` hoặc metadata vắng |
+| Sinh hoạt Mobile candidate / Web và historical | START 7M + C20 A có version / on-landing 4/15 |
 | Profile savings / catalog mới | `v2.2-c20` / `vn-v1` |
 
 Nguồn: [config](../src/data/config.ts), [modes](../src/data/modes.ts), [player factory](../src/game/new-game.ts), [Web setup](../src/components/Setup.tsx), [Mobile setup](../mobile_app/src/components/GameSetup.tsx), [Mobile session](../mobile_app/src/game/session.ts). `RULES.laps = 3` là mặc định API/diagnostic lịch sử; entry point người chơi truyền mode B tường minh và nhận `totalLaps = 4`. Original (3/A20) và Experimental A (4/A20) còn trong code để replay/kiểm thử; không phải lựa chọn mode mặc định của UI hiện tại.
 
-Thứ tự C20 dưới đây là **1-based**, từ [board.ts](../src/data/board.ts):
+Thứ tự **C20 lịch sử** dưới đây là **1-based**, từ [board.ts](../src/data/board.ts):
 
 | Ô | Loại |
 | --- | --- |
@@ -64,13 +71,13 @@ Thứ tự C20 dưới đây là **1-based**, từ [board.ts](../src/data/board.
 | 10, 19 | Vàng |
 | 11 | Dòng tiền/nghĩa vụ |
 
-C20 khác A20 tại ô 14 (index 13): macro → business. D6 và sự kiện lấy từ RNG seeded; chi phí sinh hoạt 7 triệu kích hoạt khi dừng đúng ô, không khi đi ngang. Nội dung/lựa chọn chi phí khác nằm trong [events.ts](../src/data/events.ts).
+C20 lịch sử khác A20 tại ô 14 (index 13): macro → business. Candidate V2.6 chỉ thay ô 4 → Stocks, 15 → Gold trong boardRevision mới; gọi boardFor(active session) để chọn bàn. D6 và sự kiện vẫn lấy từ RNG seeded. On-landing lịch sử trả 7 triệu khi dừng đúng ô; periodic Mobile trả 7 triệu tại START, không thu trên ô thay thế. Nội dung/lựa chọn chi phí khác nằm trong [events.ts](../src/data/events.ts).
 
 ## Lượt chơi, START và điều kiện thắng
 
 [Engine](../src/game/engine.ts) điều khiển forecast → rolling → event/funding, và khi qua START: summary → rebalancing → forecast kế tiếp hoặc finished. Khi vượt START, quyết toán xảy ra trước ô đích; ô đích chờ được xử lý sau forecast vòng mới. Ở vòng cuối, ô đích vượt START bị bỏ, nhưng vẫn có checkpoint bán trước kết quả.
 
-[Settlement](../src/game/settlement.ts) chạy đúng một lần theo thứ tự: thị trường normal → lương/khóa học → thu nhập business → đáo hạn savings/coupon và gốc bond → gốc/lãi nợ đến hạn → nghĩa vụ đã hẹn. Funding có thể tạm dừng và tiếp tục bằng cursor, không trả thu nhập hai lần. Khoản vay mới tại START cuối có lãi 10% được cộng vào nợ để trừ khỏi nguồn huy động; không biến thành tiền thắng miễn phí.
+[Settlement](../src/game/settlement.ts) chạy đúng một lần. Candidate periodic chèn sinh hoạt 7M sau maturity/coupon và trước nợ; legacy không có bước đó. Thứ tự legacy: thị trường normal → lương/khóa học → thu nhập business → đáo hạn savings/coupon và gốc bond → gốc/lãi nợ đến hạn → nghĩa vụ đã hẹn. Funding có thể tạm dừng và tiếp tục bằng cursor, không trả thu nhập hai lần. Khoản vay mới tại START cuối có lãi 10% được cộng vào nợ để trừ khỏi nguồn huy động; không biến thành tiền thắng miễn phí.
 
 Khóa học tự nguyện giá 6 triệu, chỉ mua một lần và bằng cash đủ; tăng lương 3 triệu từ START kế tiếp. Một vòng/START là đơn vị game, không phải năm hoặc tháng ngoài đời.
 

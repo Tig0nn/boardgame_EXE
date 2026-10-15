@@ -2,13 +2,17 @@
 
 # Mobile App — bàn giao V2.4
 
+## Candidate sinh hoạt tại START — 15/10/2026
+
+Nhánh đang bàn giao: `codex/periodic-living-expenses` từ `34f91ea`. Mobile mới chọn policy periodic 7M/START và boardRevision C20 A (ô4 Stocks/15 Gold), không thu setup; phiên cũ thiếu metadata vẫn on-landing. [Báo cáo](docs/PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md) có 304 tests/57 diagnostics, hai ván browser bốn vòng replay exact và ảnh320/390/430. [Thiết kế](docs/PERIODIC_LIVING_EXPENSES_DESIGN.md) ghi handoff designer, marker tạm và giới hạn funding sinh hoạt. Artwork/character/dice/audio và AI giữ nguyên. 7M/A cần owner duyệt cân bằng; chưa merge/deploy candidate. Các URL/CI/nhánh trong phần mốc cũ bên dưới không chứng minh candidate đã online.
+
 Candidate Bond V2.5 ngày15/10: `codex/bond-credit-v2-5` từ `f3a03cb`. Player factory trên nhánh mới chọn `v2.5-credit-risk`, hai issuer và credit RNG riêng; saved sessions không migrate. UI vẫn dùng root engine, thêm cards/lot sales/funding/payment-status và news; assets/3D/dice/audio/dependency fixes giữ nguyên. [Báo cáo](docs/BOND_V2_5_IMPLEMENTATION_REPORT.md) và [cân bằng](docs/BOND_V2_5_BALANCE_REPORT.md) tách local verification khỏi hosting lịch sử; tham số mới đang chờ owner approval, chưa deploy/merge.
 
 Candidate Atomic Investments ngày 15/10: `codex/atomic-investment-encounters` từ `d990244`. Player factory mới dùng `v2.4-atomic-investments`: một lần mua Stocks/Gold/Bonds mỗi lượt ghé, tự về bàn; handler/session, giá/phí, Bank và Customer Preferences không đổi. Phiên đang chạy và replay giữ version cũ, không migrate tự động. [Bảng policy và verification](docs/ATOMIC_INVESTMENT_ENCOUNTERS_REPORT.md) ghi đầy đủ; chưa deploy/merge candidate. Ván local đủ 4 vòng/23 rolls đã export và replay exact, khác các mốc hosting lịch sử bên dưới.
 
 Candidate mới ngày 14/10: `codex/mobile-ui-final` giữ foundation `13faa21`, thích ứng visual chọn lọc từ `277d2dc`. [Báo cáo tổng hợp](docs/MOBILE_UI_FINAL_REPORT.md) và [roadmap](tasks/current.md) tách kiểm chứng local mới khỏi các mốc hosting/CI lịch sử bên dưới. Chưa deploy candidate.
 
-Nhánh đang làm việc `feat/mobile-v2-4-engine-integration`, [PR #8](https://github.com/Tig0nn/boardgame_EXE/pull/8) chưa merge. URL: https://boardgame-exe-mobile-preview.vercel.app. Đây là ứng dụng trong `mobile_app/`, khác root Web responsive/SVG. Canvas thiết kế 940 × 1672 được co theo viewport; không phải chứng nhận đã thử trên điện thoại thật.
+Mốc bàn giao hosting 13/10/2026 dùng nhánh `feat/mobile-v2-4-engine-integration`, [PR #8](https://github.com/Tig0nn/boardgame_EXE/pull/8) chưa merge. URL: https://boardgame-exe-mobile-preview.vercel.app. Đây là ứng dụng trong `mobile_app/`, khác root Web responsive/SVG. Canvas thiết kế 940 × 1672 được co theo viewport; không phải chứng nhận đã thử trên điện thoại thật.
 
 ## Kiến trúc và các file có thật
 
@@ -21,7 +25,7 @@ Nhánh đang làm việc `feat/mobile-v2-4-engine-integration`, [PR #8](https://
 | [mobile_app/src/components/BoardView.tsx](mobile_app/src/components/BoardView.tsx), [Character3D.tsx](mobile_app/src/components/Character3D.tsx), [Dice3D.tsx](mobile_app/src/components/Dice3D.tsx) | Bàn minh họa, model/animation, xúc xắc hiển thị giá trị engine |
 | [BottomControls.tsx](mobile_app/src/components/BottomControls.tsx), [TopHud.tsx](mobile_app/src/components/TopHud.tsx), [PortfolioDrawer.tsx](mobile_app/src/components/PortfolioDrawer.tsx) | Điều khiển; HUD cash, debt khi có, tiến độ lawful proceeds; net worth ở Ví |
 | [GameResultModal.tsx](mobile_app/src/components/GameResultModal.tsx) | Result theo selector, export/restart, gắn shared AI Coach |
-| [mobile_app/src/data/tiles.json](mobile_app/src/data/tiles.json) | Tọa độ artwork; loại/nhãn/thứ tự dùng C20 chính thức từ root |
+| [mobile_app/src/data/tiles.json](mobile_app/src/data/tiles.json) | Tọa độ artwork; loại/nhãn/thứ tự dùng boardFor của phiên active từ root |
 | [mobile_app/src/utils/audio.ts](mobile_app/src/utils/audio.ts) | Procedural audio/BGM; khả năng unlock/WebGL/touch cần test thiết bị thật |
 
 Financial panels tái dùng code `src/components/` và selectors/transactions root. Không còn economy/events JSON riêng của Mobile. Các tên `BottomBar`, `PortfolioModal`, `HistoryModal`, `Toast` trong bàn giao ban đầu không phải file implementation hiện tại. Lịch sử bản cũ vẫn ở [Git trước audit](https://github.com/Tig0nn/boardgame_EXE/blob/13c9c7c5fa932e50a3ba23da4b316e1dff4cdda9/MOBILE_APP_HANDOFF.md).

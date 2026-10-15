@@ -6,6 +6,9 @@
 
 | Tài liệu | Vai trò |
 | --- | --- |
+| [PERIODIC_LIVING_EXPENSES_DESIGN.md](PERIODIC_LIVING_EXPENSES_DESIGN.md) | Policy/bàn versioned, thứ tự START và designer handoff |
+| [PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md](PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md) | Candidate7M/A, tests/replays, hai browser game và ảnh responsive |
+| [PERIODIC_LIVING_EXPENSES_BALANCE_REPORT.md](PERIODIC_LIVING_EXPENSES_BALANCE_REPORT.md) | 18.000 ván, CI/metrics và owner decision matrix; biến thể nghiên cứu riêng |
 | [CURRENT_MVP.md](CURRENT_MVP.md) | Cơ chế V2.4 từ code, hai UI, AI, CI, deployment và giới hạn hiện tại |
 | [MOBILE_UI_FINAL_REPORT.md](MOBILE_UI_FINAL_REPORT.md) | Candidate UI tổng hợp 14/10; ma trận giữ/bỏ/thích ứng, ảnh, model 3D và replay local |
 | [ECONOMIC_NEWS_V1_REPORT.md](ECONOMIC_NEWS_V1_REPORT.md) | Bản tin, giá thực tế theo vòng, cú sốc, ảnh responsive và replay local 15/10 |
@@ -20,7 +23,7 @@
 | [AI handoff](../AI_COACH_HANDOFF.md) | Mobile integration, backend contract, key server, grounding và giới hạn |
 | [PR8 review](PR8_FINAL_REVIEW.md) | Chronology trước deploy và follow-up 13/10/2026 sau Mobile smoke verification |
 | [tasks/current.md](../tasks/current.md) | Roadmap đang hoạt động và điều kiện xác nhận từng việc |
-| [DOCUMENTATION_AUDIT.md](DOCUMENTATION_AUDIT.md) | Inventory 34 Markdown sau Economic Event UX candidate; ma trận audit lịch sử, checker link/path và bảo toàn |
+| [DOCUMENTATION_AUDIT.md](DOCUMENTATION_AUDIT.md) | Inventory 37 Markdown sau Periodic Living candidate; ma trận audit lịch sử, checker link/path và bảo toàn |
 
 **CURRENT** là tài liệu được duy trì. **HISTORICAL** ghi lại implementation/experiment/verification theo phiên bản và mốc cũ. **SUPERSEDED** là spec/prompt/guide/plan đã được thay thế cho việc sử dụng hiện tại; vẫn giữ để tra lịch sử. Không lấy một câu “mặc định”, “chưa deploy”, “PASS” hoặc “chờ phê duyệt” trong tài liệu lịch sử làm trạng thái hiện tại.
 

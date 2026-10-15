@@ -1,0 +1,209 @@
+{
+  "seed": "BOND-V25-59",
+  "strategy": "bond-personal-deferred",
+  "rolls": 23,
+  "bondBuys": 2,
+  "trace": [
+    {
+      "kind": "roll",
+      "number": 1,
+      "screen": "Khóa học chuyên môn"
+    },
+    {
+      "kind": "course"
+    },
+    {
+      "kind": "roll",
+      "number": 2,
+      "screen": "Đến kỳ thanh toán"
+    },
+    {
+      "kind": "roll",
+      "number": 3,
+      "screen": "Ngân hàng"
+    },
+    {
+      "kind": "roll",
+      "number": 4,
+      "screen": "Một hóa đơn bất ngờ"
+    },
+    {
+      "kind": "deferred-personal",
+      "title": "Một hóa đơn bất ngờ"
+    },
+    {
+      "kind": "roll",
+      "number": 5,
+      "screen": "Trái phiếu"
+    },
+    {
+      "kind": "bond-buy",
+      "issuer": "an-tam",
+      "amount": 5000000
+    },
+    {
+      "kind": "roll",
+      "number": 6,
+      "screen": "Khép lại vòng 1"
+    },
+    {
+      "kind": "summary",
+      "screen": "Khép lại vòng 1",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- generic: 🎲 6 Bước\n- generic: \"-5.000.000 ₫\"\n- img \"3D Young Student Mascot. Use mouse, touch or arrow keys to move.\"\n- region \"Live announcements\":\n  - status\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 41.225.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 46,2 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- generic: \"🎲 Vừa Gieo: 6\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 1\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 1/4\n  - heading \"Khép lại vòng 1\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +17.225.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-13.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Tăng lương từ khóa học\n    - definition: +3.000.000 ₫\n    - term: Trái phiếu · đã nhận\n    - definition: +225.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 41.225.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - article \"Trái phiếu · Hợp tác xã An Tâm\":\n    - heading \"Trái phiếu Hợp tác xã An Tâm\" [level=3]:\n      - generic: Trái phiếu\n      - text: Hợp tác xã An Tâm\n    - paragraph: Đã thanh toán đúng hạn\n    - term: Coupon đã nhận\n    - definition: +225.000 ₫\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +0,95%\n      - generic: Trái phiếu\n      - strong: +1,17%\n      - generic: Vàng\n      - strong: \"-5,74%\"\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết các khoản trái phiếu\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\""
+    },
+    {
+      "kind": "macro",
+      "title": "Tín dụng thắt chặt"
+    },
+    {
+      "kind": "roll",
+      "number": 7,
+      "screen": "Vàng"
+    },
+    {
+      "kind": "roll",
+      "number": 8,
+      "screen": "Vàng"
+    },
+    {
+      "kind": "roll",
+      "number": 9,
+      "screen": "Vàng"
+    },
+    {
+      "kind": "roll",
+      "number": 10,
+      "screen": "Trái phiếu"
+    },
+    {
+      "kind": "bond-buy",
+      "issuer": "an-tam",
+      "amount": 5000000
+    },
+    {
+      "kind": "roll",
+      "number": 11,
+      "screen": "Khép lại vòng 2"
+    },
+    {
+      "kind": "summary",
+      "screen": "Khép lại vòng 2",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 02 / 04\n- generic: 🎲 6 Bước\n- generic: \"-5.000.000 ₫\"\n- img \"3D Young Student Mascot. Use mouse, touch or arrow keys to move.\"\n- region \"Live announcements\":\n  - status\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 46.225.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 46,2 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- generic: \"🎲 Vừa Gieo: 6\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 2\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 2/4\n  - heading \"Khép lại vòng 2\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +17.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-7.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Tăng lương từ khóa học\n    - definition: +3.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 46.225.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - article \"Trái phiếu · Hợp tác xã An Tâm\":\n    - heading \"Trái phiếu Hợp tác xã An Tâm\" [level=3]:\n      - generic: Trái phiếu\n      - text: Hợp tác xã An Tâm\n    - paragraph: Không trả đủ theo hợp đồng\n    - paragraph: Chưa nhận tiền tại START này · 0 ₫\n    - generic: Khoản còn chờ\n    - strong: 8.047.313 ₫\n    - paragraph: Khoản chờ thu hồi chưa được cộng vào tiền mặt.\n    - generic: Khoản không thu hồi được\n    - strong: 2.464.489 ₫\n    - generic: Đã xác nhận mất; không phải tiền chi thêm.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: \"-20,88%\"\n      - generic: Trái phiếu\n      - strong: \"-53,92%\"\n      - generic: Vàng\n      - strong: +11,9%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết các khoản trái phiếu\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\""
+    },
+    {
+      "kind": "macro",
+      "title": "Chuỗi cung ứng phục hồi"
+    },
+    {
+      "kind": "roll",
+      "number": 12,
+      "screen": "Một hóa đơn bất ngờ"
+    },
+    {
+      "kind": "deferred-personal",
+      "title": "Một hóa đơn bất ngờ"
+    },
+    {
+      "kind": "roll",
+      "number": 13,
+      "screen": "Cổ phiếu"
+    },
+    {
+      "kind": "roll",
+      "number": 14,
+      "screen": "Quán của bạn"
+    },
+    {
+      "kind": "roll",
+      "number": 15,
+      "screen": "Khép lại vòng 3"
+    },
+    {
+      "kind": "summary",
+      "screen": "Khép lại vòng 3",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 03 / 04\n- generic: 🎲 6 Bước\n- generic: \"-5.000.000 ₫\"\n- img \"3D Young Student Mascot. Use mouse, touch or arrow keys to move.\"\n- region \"Live announcements\":\n  - status\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 58.272.313 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 58,3 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- generic: \"🎲 Vừa Gieo: 6\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 3\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 3/4\n  - heading \"Khép lại vòng 3\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +25.047.313 ₫\n    - generic: Tiền đã chi\n    - strong: \"-13.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Tăng lương từ khóa học\n    - definition: +3.000.000 ₫\n    - term: Trái phiếu · đã nhận\n    - definition: +8.047.313 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 58.272.313 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - article \"Trái phiếu · Hợp tác xã An Tâm\":\n    - heading \"Trái phiếu Hợp tác xã An Tâm\" [level=3]:\n      - generic: Trái phiếu\n      - text: Hợp tác xã An Tâm\n    - paragraph: Không trả đủ theo hợp đồng\n    - term: Gốc đã thu hồi\n    - definition: +8.047.313 ₫\n    - generic: Khoản không thu hồi được\n    - strong: 2.464.489 ₫\n    - generic: Đã xác nhận mất từ START trước; không phải tiền chi thêm.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +36,82%\n      - generic: Trái phiếu\n      - strong: Chưa đủ dữ liệu\n      - generic: Vàng\n      - strong: \"-13,44%\"\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết các khoản trái phiếu\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\""
+    },
+    {
+      "kind": "roll",
+      "number": 16,
+      "screen": "Cổ phiếu"
+    },
+    {
+      "kind": "roll",
+      "number": 17,
+      "screen": "Khóa học chuyên môn"
+    },
+    {
+      "kind": "roll",
+      "number": 18,
+      "screen": "Nhu cầu khởi sắc"
+    },
+    {
+      "kind": "macro",
+      "title": "Nhu cầu khởi sắc"
+    },
+    {
+      "kind": "roll",
+      "number": 19,
+      "screen": "Khoản phí hợp đồng"
+    },
+    {
+      "kind": "roll",
+      "number": 20,
+      "screen": "Quán của bạn"
+    },
+    {
+      "kind": "roll",
+      "number": 21,
+      "screen": "Gia đình cần hỗ trợ"
+    },
+    {
+      "kind": "deferred-personal",
+      "title": "Gia đình cần hỗ trợ"
+    },
+    {
+      "kind": "roll",
+      "number": 22,
+      "screen": "Trái phiếu"
+    },
+    {
+      "kind": "roll",
+      "number": 23,
+      "screen": "Khép lại vòng 4"
+    },
+    {
+      "kind": "summary",
+      "screen": "Khép lại vòng 4",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 04 / 04\n- generic: 🎲 4 Bước\n- generic: \"-1.500.000 ₫\"\n- img \"3D Young Student Mascot. Use mouse, touch or arrow keys to move.\"\n- region \"Live announcements\":\n  - status\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 63.272.313 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 63,3 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- generic: \"🎲 Vừa Gieo: 4\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 4\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 4/4\n  - heading \"Khép lại vòng 4\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +17.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-10.500.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Tăng lương từ khóa học\n    - definition: +3.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 63.272.313 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +24,29%\n      - generic: Trái phiếu\n      - strong: Chưa đủ dữ liệu\n      - generic: Vàng\n      - strong: \"-8,54%\"\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\""
+    }
+  ],
+  "module": "/assets/index-CxPvW0KK.js",
+  "console": [],
+  "assets": {
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/main-background.png"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/playboard.PNG"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/sectionplay.PNG"
+      }
+    ],
+    "model": {
+      "srcAttribute": null,
+      "sourcePath": "/assets/character.glb",
+      "sourceOfPath": "unchanged Character3D.tsx",
+      "status": "ready",
+      "loaded": "true"
+    }
+  },
+  "modelEvidence": {
+    "status": "ready",
+    "loaded": "true"
+  }
+}
