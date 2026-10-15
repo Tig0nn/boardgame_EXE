@@ -24,7 +24,9 @@ names = {c['id']: f"{chr(65+i)}: {len(c['config']['board']['tiles'])} ô / {c['c
 
 def save(fig, name):
     fig.savefig(CHARTS / (name+'.png'),bbox_inches='tight')
-    fig.savefig(CHARTS / (name+'.svg'),bbox_inches='tight')
+    svg=CHARTS / (name+'.svg')
+    fig.savefig(svg,bbox_inches='tight')
+    svg.write_text('\n'.join(line.rstrip() for line in svg.read_text(encoding='utf-8').splitlines())+'\n',encoding='utf-8',newline='\n')
     plt.close(fig)
 
 fig, axes = plt.subplots(2,1,figsize=(13,9),sharex=True,layout='constrained')

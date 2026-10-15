@@ -9,6 +9,7 @@ import { createAdapter, hash, cleanupAdapter } from './research/core-mvp/adapter
 const out=resolve(process.env.CORE_MVP_LAB_OUT??'docs/research/core-mvp'),load=p=>JSON.parse(readFileSync(join(out,p),'utf8'))
 const artifacts=load('artifact-manifest.json')
 for(const f of artifacts.files){const bytes=readFileSync(join(out,f.path));assert.equal(hash(f.hashNormalization==='UTF-8 LF'?bytes.toString('utf8').replace(/\r\n/g,'\n'):bytes),f.sha256,f.path)}
+if(process.argv.includes('--hashes-only')){console.log(JSON.stringify({artifactHashesVerified:artifacts.files.length}));process.exit(0)}
 const frozen=load('frozen-configs.json'),holdout=load('holdout-manifest.json')
 assert.ok(Date.parse(frozen.frozenAt)<Date.parse(holdout.started),'Must freeze before holdout')
 const seedSets={},counts={};let examplesReplayed=0,rowsVerified=0
