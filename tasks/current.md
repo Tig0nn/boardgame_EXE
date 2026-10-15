@@ -2,6 +2,12 @@
 
 # Việc đang hoạt động — Mobile V2.4 và PR #8
 
+## Business preference UX final — 15/10/2026
+
+- [x] Thị hiếu đầu vòng, trước mở quán và xem lại trong Sổ tay; dùng state/selector cũ, không đổi engine/tài chính/RNG/replay.
+- [x] 304 tests/62 diagnostics, lint/hai builds; smoke390/320, bốn ảnh. [Bàn giao ngắn](../docs/BUSINESS_PREFERENCE_UX_FINAL_REPORT.md).
+- [ ] Core Game Freeze & Final QA theo yêu cầu tiếp theo của owner; không tự thêm gameplay feature.
+
 ## Periodic Living / C20 — 15/10/2026
 
 - [x] Nhánh `codex/periodic-living-expenses` từ đúng `34f91ea`; policy/board riêng, legacy absence giữ nguyên.

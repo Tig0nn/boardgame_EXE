@@ -6,6 +6,7 @@
 
 | Tài liệu | Vai trò |
 | --- | --- |
+| [BUSINESS_PREFERENCE_UX_FINAL_REPORT.md](BUSINESS_PREFERENCE_UX_FINAL_REPORT.md) | Polish thị hiếu tại Bản tin/Kinh doanh/Sổ tay; kiểm chứng gọn, không đổi gameplay |
 | [PERIODIC_LIVING_EXPENSES_DESIGN.md](PERIODIC_LIVING_EXPENSES_DESIGN.md) | Policy/bàn versioned, thứ tự START và designer handoff |
 | [PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md](PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md) | Candidate7M/A, tests/replays, hai browser game và ảnh responsive |
 | [PERIODIC_LIVING_EXPENSES_BALANCE_REPORT.md](PERIODIC_LIVING_EXPENSES_BALANCE_REPORT.md) | 18.000 ván, CI/metrics và owner decision matrix; biến thể nghiên cứu riêng |
@@ -23,7 +24,7 @@
 | [AI handoff](../AI_COACH_HANDOFF.md) | Mobile integration, backend contract, key server, grounding và giới hạn |
 | [PR8 review](PR8_FINAL_REVIEW.md) | Chronology trước deploy và follow-up 13/10/2026 sau Mobile smoke verification |
 | [tasks/current.md](../tasks/current.md) | Roadmap đang hoạt động và điều kiện xác nhận từng việc |
-| [DOCUMENTATION_AUDIT.md](DOCUMENTATION_AUDIT.md) | Inventory 37 Markdown sau Periodic Living candidate; ma trận audit lịch sử, checker link/path và bảo toàn |
+| [DOCUMENTATION_AUDIT.md](DOCUMENTATION_AUDIT.md) | Inventory 38 Markdown sau Business preference UX; ma trận audit lịch sử, checker link/path và bảo toàn |
 
 **CURRENT** là tài liệu được duy trì. **HISTORICAL** ghi lại implementation/experiment/verification theo phiên bản và mốc cũ. **SUPERSEDED** là spec/prompt/guide/plan đã được thay thế cho việc sử dụng hiện tại; vẫn giữ để tra lịch sử. Không lấy một câu “mặc định”, “chưa deploy”, “PASS” hoặc “chờ phê duyệt” trong tài liệu lịch sử làm trạng thái hiện tại.
 

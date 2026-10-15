@@ -1,0 +1,146 @@
+{
+  "layouts": [
+    {
+      "label": "390-bulletin",
+      "dialogs": [
+        {
+          "clientHeight": 810,
+          "height": 812,
+          "scrollHeight": 899,
+          "width": 354
+        }
+      ],
+      "height": 844,
+      "preference": "taste",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "320-bulletin",
+      "dialogs": [
+        {
+          "clientHeight": 606,
+          "height": 608,
+          "scrollHeight": 878,
+          "width": 286
+        }
+      ],
+      "height": 640,
+      "preference": "taste",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "label": "390-unopened-shop",
+      "dialogs": [
+        {
+          "clientHeight": 810,
+          "height": 812,
+          "scrollHeight": 821,
+          "width": 354
+        }
+      ],
+      "height": 844,
+      "preference": "taste",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "320-upgraded-shop",
+      "dialogs": [
+        {
+          "clientHeight": 606,
+          "height": 608,
+          "scrollHeight": 1283,
+          "width": 286
+        }
+      ],
+      "height": 640,
+      "preference": "taste",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "label": "320-rulebook",
+      "dialogs": [
+        {
+          "clientHeight": 606,
+          "height": 608,
+          "scrollHeight": 1283,
+          "width": 286
+        },
+        {
+          "clientHeight": 606,
+          "height": 608,
+          "scrollHeight": 956,
+          "width": 286
+        }
+      ],
+      "height": 640,
+      "preference": "taste",
+      "scrollWidth": 320,
+      "width": 320
+    }
+  ],
+  "actions": [
+    {
+      "action": "double tap open shop",
+      "snapshot": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- generic: \"-20.000.000 ₫\"\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 30.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 30 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\"\n- button \"📜\""
+    },
+    {
+      "action": "choose nonmatching upgrade",
+      "snapshot": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 30.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 30 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Quán của bạn\":\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: VÒNG 1 · Ô 14\n  - heading \"Quán của bạn\" [level=2]\n  - paragraph:\n    - text: \"Tiền mặt:\"\n    - strong: 30.000.000 ₫\n  - region \"Thị hiếu khách hàng vòng 1\":\n    - generic: THỊ HIẾU KHÁCH HÀNG · VÒNG 1\n    - strong: Chất lượng đồ uống\n    - paragraph: Nâng công thức, nguyên liệu và chất lượng từng ly.\n    - paragraph:\n      - text: Nâng cấp phù hợp được thưởng thêm\n      - generic: 1.000.000 ₫/tầng tại START\n      - text: .\n  - generic: Thu nhập mỗi START hiện tại\n  - strong: 3.000.000 ₫\n  - generic: Bán toàn quán lúc này\n  - strong: 14.000.000 ₫\n  - group \"Chọn hướng phát triển · 0/6 tầng\":\n    - generic: Chọn hướng phát triển · 0/6 tầng\n    - radio \"Không gian check-in Đã có 0 tầng\"\n    - strong: Không gian check-in\n    - generic: Đã có 0 tầng\n    - radio \"Giá cả hợp lý Đã có 0 tầng\" [checked] [active]\n    - strong: Giá cả hợp lý\n    - generic: Đã có 0 tầng\n    - radio \"Chất lượng đồ uống Đã có 0 tầng · Phù hợp vòng này\"\n    - strong: Chất lượng đồ uống\n    - generic: Đã có 0 tầng · Phù hợp vòng này\n  - paragraph:\n    - text: Nâng cấp +\n    - strong: 700.000 ₫/START\n    - text: với thị hiếu hiện tại. Thưởng có thể đổi ở vòng sau.\n  - button \"Nâng cấp Giá cả hợp lý · 5.000.000 ₫\"\n  - button \"Bán toàn cơ sở · Nhận 14.000.000 ₫\"\n  - generic \"Vốn, thu nhập và rủi ro\"\n  - button \"Bỏ qua cơ hội\":\n    - strong: Bỏ qua cơ hội"
+    },
+    {
+      "action": "double tap matching upgrade",
+      "snapshot": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- generic: \"-5.000.000 ₫\"\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 25.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 25 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Quán của bạn\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: VÒNG 1 · Ô 14\n  - heading \"Quán của bạn\" [level=2]\n  - paragraph:\n    - text: \"Tiền mặt:\"\n    - strong: 25.000.000 ₫\n  - status: \"Đã thực hiện: Nâng cấp Chất lượng đồ uống: 5.000.000 ₫. Tiền mặt còn 25.000.000 ₫.\"\n  - region \"Thị hiếu khách hàng vòng 1\":\n    - generic: THỊ HIẾU KHÁCH HÀNG · VÒNG 1\n    - strong: Chất lượng đồ uống\n    - paragraph: Nâng công thức, nguyên liệu và chất lượng từng ly.\n    - paragraph:\n      - text: Nâng cấp phù hợp được thưởng thêm\n      - generic: 1.000.000 ₫/tầng tại START\n      - text: .\n  - generic: Thu nhập mỗi START hiện tại\n  - strong: 4.700.000 ₫\n  - generic: Bán toàn quán lúc này\n  - strong: 16.500.000 ₫\n  - group \"Chọn hướng phát triển · 1/6 tầng\":\n    - generic: Chọn hướng phát triển · 1/6 tầng\n    - radio \"Không gian check-in Đã có 0 tầng\"\n    - strong: Không gian check-in\n    - generic: Đã có 0 tầng\n    - radio \"Giá cả hợp lý Đã có 0 tầng\"\n    - strong: Giá cả hợp lý\n    - generic: Đã có 0 tầng\n    - radio \"Chất lượng đồ uống Đã có 1 tầng · Phù hợp vòng này\" [checked]\n    - strong: Chất lượng đồ uống\n    - generic: Đã có 1 tầng · Phù hợp vòng này\n  - paragraph:\n    - text: Nâng cấp +\n    - strong: 1.700.000 ₫/START\n    - text: với thị hiếu hiện tại. Thưởng có thể đổi ở vòng sau.\n  - status: Đã nâng cấp một lần tại ô này. Gặp ô Kinh doanh ở lượt sau để nâng tiếp.\n  - button \"Nâng cấp Chất lượng đồ uống · 5.000.000 ₫\" [disabled]\n  - button \"Bán toàn cơ sở · Nhận 16.500.000 ₫\"\n  - generic \"Vốn, thu nhập và rủi ro\"\n  - button \"Hoàn tất · Về bàn chơi\":\n    - strong: Hoàn tất · Về bàn chơi"
+    },
+    {
+      "action": "rulebook after upgrade",
+      "snapshot": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- generic: \"-5.000.000 ₫\"\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 25.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 25 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Quán của bạn\":\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: VÒNG 1 · Ô 14\n  - heading \"Quán của bạn\" [level=2]\n  - paragraph:\n    - text: \"Tiền mặt:\"\n    - strong: 25.000.000 ₫\n  - status: \"Đã thực hiện: Nâng cấp Chất lượng đồ uống: 5.000.000 ₫. Tiền mặt còn 25.000.000 ₫.\"\n  - region \"Thị hiếu khách hàng vòng 1\":\n    - generic: THỊ HIẾU KHÁCH HÀNG · VÒNG 1\n    - strong: Chất lượng đồ uống\n    - paragraph: Nâng công thức, nguyên liệu và chất lượng từng ly.\n    - paragraph:\n      - text: Nâng cấp phù hợp được thưởng thêm\n      - generic: 1.000.000 ₫/tầng tại START\n      - text: .\n  - generic: Thu nhập mỗi START hiện tại\n  - strong: 4.700.000 ₫\n  - generic: Bán toàn quán lúc này\n  - strong: 16.500.000 ₫\n  - group \"Chọn hướng phát triển · 1/6 tầng\":\n    - generic: Chọn hướng phát triển · 1/6 tầng\n    - radio \"Không gian check-in Đã có 0 tầng\"\n    - strong: Không gian check-in\n    - generic: Đã có 0 tầng\n    - radio \"Giá cả hợp lý Đã có 0 tầng\"\n    - strong: Giá cả hợp lý\n    - generic: Đã có 0 tầng\n    - radio \"Chất lượng đồ uống Đã có 1 tầng · Phù hợp vòng này\" [checked]\n    - strong: Chất lượng đồ uống\n    - generic: Đã có 1 tầng · Phù hợp vòng này\n  - paragraph:\n    - text: Nâng cấp +\n    - strong: 1.700.000 ₫/START\n    - text: với thị hiếu hiện tại. Thưởng có thể đổi ở vòng sau.\n  - status: Đã nâng cấp một lần tại ô này. Gặp ô Kinh doanh ở lượt sau để nâng tiếp.\n  - button \"Nâng cấp Chất lượng đồ uống · 5.000.000 ₫\" [disabled]\n  - button \"Bán toàn cơ sở · Nhận 16.500.000 ₫\"\n  - generic \"Vốn, thu nhập và rủi ro\"\n  - button \"Hoàn tất · Về bàn chơi\":\n    - strong: Hoàn tất · Về bàn chơi\n- dialog \"Sổ tay hành trình\":\n  - button \"Đóng\":\n  - generic: SỔ TAY HÀNH TRÌNH\n  - generic \"Thị hiếu vòng hiện tại\" [active]\n  - region \"Thị hiếu khách hàng vòng 1\":\n    - generic: THỊ HIẾU KHÁCH HÀNG · VÒNG 1\n    - strong: Chất lượng đồ uống\n    - paragraph: Nâng công thức, nguyên liệu và chất lượng từng ly.\n    - paragraph:\n      - text: Nâng cấp phù hợp được thưởng thêm\n      - generic: 1.000.000 ₫/tầng tại START\n      - text: .\n    - list:\n      - listitem: Không gian check-in · 0 tầng\n      - listitem: Giá cả hợp lý · 0 tầng\n      - listitem: Chất lượng đồ uống · 1 tầng · Phù hợp vòng này\n  - progressbar \"Tiến độ hướng dẫn\"\n  - generic: XOAY VÒNG TIẾN LUI\n  - generic: 1 / 6 · ĐÍCH ĐẾN CỦA BẠN\n  - heading \"Từ vốn nhỏ, tới ước mơ lớn\" [level=2]\n  - paragraph: Đi một vòng phố, nắm lấy cơ hội. Bạn có 4 vòng để chạm đích!\n  - generic: Vốn ban đầu\n  - strong: 50 triệu\n  - generic: →\n  - generic: Mục tiêu sau 4 vòng\n  - strong: 90 triệu\n  - generic \"Luật chi tiết\"\n  - contentinfo:\n    - button \"Quay lại\" [disabled]\n    - button \"Tiếp theo →\""
+    }
+  ],
+  "fixture": true,
+  "console": [],
+  "screenshots": [
+    {
+      "file": "320-rulebook.jpg",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "320-upgraded-shop.jpg",
+      "width": 320,
+      "height": 640
+    },
+    {
+      "file": "390-bulletin.jpg",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "390-unopened-shop.jpg",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "checks": {
+    "productTests": 304,
+    "diagnostics": 62,
+    "focusedDiagnostics": 5,
+    "lint": "PASS",
+    "mobileBuild": "PASS",
+    "webBuild": "PASS",
+    "replayFixtures": 2,
+    "engineFinancialRngAndReplayDiff": "none from 820459d",
+    "simulationsRerun": false,
+    "documentation": {
+      "markdownFiles": 38,
+      "brokenLinks": 0,
+      "auditScope": false
+    },
+    "historicalDocumentsUnchanged": 18
+  },
+  "base": "820459d8e33fbf7b6bf1e1b3d7de3ce82e02632f",
+  "implementationCommit": "4bf8718f62107f5a13311f65237364562573ed99"
+}

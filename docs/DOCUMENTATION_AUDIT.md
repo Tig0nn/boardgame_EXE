@@ -32,6 +32,8 @@ CURRENT = đang duy trì; HISTORICAL = bản ghi implementation/research/verific
 
 Follow-up Periodic Living 15/10/2026: thêm ba tài liệu candidate, inventory37 Markdown (19 CURRENT/13 HISTORICAL/5 SUPERSEDED). Chỉ cập nhật inventory/checker mặc định; không chạy lại audit lịch sử hoặc ghi lại archives/study cũ.
 
+Follow-up Business preference UX 15/10/2026: thêm một báo cáo ngắn, inventory38 Markdown (20 CURRENT/13 HISTORICAL/5 SUPERSEDED); chỉ đồng bộ inventory/checker, không tái audit.
+
 | Tệp Markdown (đường dẫn repository) | Phân loại | Quyết định và phạm vi |
 | --- | --- | --- |
 | [README.md](../README.md) | CURRENT | Quick start hai app, status code/CI/deploy đúng phạm vi, trỏ canonical |
@@ -53,6 +55,7 @@ Follow-up Periodic Living 15/10/2026: thêm ba tài liệu candidate, inventory3
 | [docs/PERIODIC_LIVING_EXPENSES_DESIGN.md](PERIODIC_LIVING_EXPENSES_DESIGN.md) | CURRENT | Sinh hoạt/board versioned, kế toán START, handoff designer và giới hạn |
 | [docs/PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md](PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md) | CURRENT | Bàn giao candidate7M/A, tests/replays/browser/evidence local |
 | [docs/PERIODIC_LIVING_EXPENSES_BALANCE_REPORT.md](PERIODIC_LIVING_EXPENSES_BALANCE_REPORT.md) | CURRENT | Study mới18.000 ván, CI/metrics, biến thể nghiên cứu và owner decision |
+| [docs/BUSINESS_PREFERENCE_UX_FINAL_REPORT.md](BUSINESS_PREFERENCE_UX_FINAL_REPORT.md) | CURRENT | Polish trình bày thị hiếu hiện tại; không thay engine, tài chính hoặc replay |
 | [docs/XVTL_GAME_SPEC_V2.md](XVTL_GAME_SPEC_V2.md) | SUPERSEDED | Spec V2 10/10/2026; current mode/catalog/AI đã thay đổi |
 | [docs/V2_IMPLEMENTATION_REPORT.md](V2_IMPLEMENTATION_REPORT.md) | HISTORICAL | Triển khai V2 10–11/10/2026, 81 tests và browser ba vòng ở mốc cũ |
 | [docs/V2_BALANCE_REPORT.md](V2_BALANCE_REPORT.md) | HISTORICAL | 55.000 ván heuristic V2, không phải V2.4 production measurement |
@@ -147,7 +150,7 @@ for (const file of files) {
   assert.equal(inventory.get(file), status, `Inventory status mismatch: ${file}`);
   counts[status]++;
 }
-assert.deepEqual(counts, { CURRENT: 19, HISTORICAL: 13, SUPERSEDED: 5 });
+assert.deepEqual(counts, { CURRENT: 20, HISTORICAL: 13, SUPERSEDED: 5 });
 
 function knownTarget(absolute) {
   const relative = path.relative(root, absolute).replaceAll('\\', '/');

@@ -2,6 +2,8 @@
 
 # MVP hiện tại — Xoay Vòng Tiến Lui V2.4
 
+Business UX final 15/10/2026: Bản tin đầu vòng và ô Kinh doanh (kể cả chưa mở quán) hiển thị thị hiếu hiện tại; Sổ tay có mục thu gọn “Thị hiếu vòng hiện tại” cùng các tầng đã nâng. Các vị trí đọc cùng GameState/selector, tách khỏi dự báo kinh tế; thưởng trùng 1 triệu/tầng tại START và công thức giữ nguyên. [Bàn giao UI](BUSINESS_PREFERENCE_UX_FINAL_REPORT.md): 304 tests/62 diagnostics, hai builds; không thêm gameplay và chưa tự thực hiện đợt Core Freeze/Final QA.
+
 ## Periodic Living V2.6 — candidate 15/10/2026
 
 Nhánh hiện tại `codex/periodic-living-expenses` từ Economic Event UX `34f91ea`: ván Mobile mới chọn `livingExpenseRulesVersion=v2.6-periodic-start` và `boardRevision=c20-v2.6-a`. Thu cố định 7M sau salary/Business/maturity và trước nợ/nghĩa vụ ở mỗi START hoàn tất, gồm vòng 4; không thu setup. Ô 4 Stocks, ô 15 Gold; personal 8/18 giữ nguyên. Hướng recurring đã duyệt, còn 7M/layout A là thử nghiệm, chưa merge/phát hành. Root Web và metadata vắng vẫn on-landing lịch sử, không migrate saved game.
