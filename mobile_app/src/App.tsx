@@ -67,7 +67,7 @@ export function GameExperience({ session, onRestart, onHelp, helpOpen = false }:
   }
 
   const rollDice = async () => {
-    if (helpOpen || busy.current || overlay || game.phase !== 'rolling') return
+    if (helpOpen || busy.current || Date.now() < nextActionAt.current || overlay || game.phase !== 'rolling') return
     busy.current = true
     const token = ++generation.current
     setAnimatedTile(game.position)

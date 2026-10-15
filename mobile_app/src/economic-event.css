@@ -1,0 +1,38 @@
+.modal.economic-event { padding: 0; overflow: hidden; }
+.modal.economic-event[open] { display: flex; flex-direction: column; }
+.economic-event .sheet-help { position: absolute; top: 0; right: 8px; z-index: 1; }
+.economic-event-scroll { overflow-y: auto; min-height: 0; padding: 20px 16px 12px; overscroll-behavior: contain; }
+.economic-event .section-kicker { font-size: 10px; padding-right: 68px; }
+.economic-event h2 { display: flex; align-items: baseline; gap: 4px; margin: 8px 0; font-size: 25px; line-height: 1.2; }
+.economic-event h2 svg { flex-shrink: 0; }
+.economic-event .event-context { margin: 8px 0 12px; font-size: 13px; line-height: 1.5; color: #cbd5e1; }
+.economic-event h3 { margin: 8px 0; font: 800 15px/1.4 'Nunito', sans-serif; color: #fde68a; }
+.event-market { display: grid; gap: 6px; }
+.event-market h3 { margin: 0; }
+.event-asset { border: 1px solid #456275; border-radius: 12px; padding: 8px 12px; background: #162e4480; }
+.event-asset-heading, .event-issuers > div > div, .event-sector, .event-instrument > div { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 8px; }
+.event-asset-heading > span { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 14px; }
+.economic-event .event-movement { font-size: 14px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.event-movement.up { color: #6ee7b7; }
+.event-movement.down { color: #fda4af; }
+.event-movement.flat, .event-movement.unavailable { color: #cbd5e1; }
+.economic-event small, .economic-event .event-caption { color: #cbd5e1; font-size: 11px; line-height: 1.5; }
+.economic-event .event-caption { margin: 4px 0; }
+.event-issuers { display: grid; gap: 6px; margin-top: 4px; font-size: 13px; }
+.event-credit, .event-credit > span, .event-instrument > small { display: block; }
+.event-lesson { border-left: 3px solid #fbbf24; padding-left: 12px; margin-top: 12px; }
+.event-lesson h3 { margin: 0 0 4px; }
+.event-lesson p { margin: 0; font-size: 12px; line-height: 1.5; }
+.economic-event details { margin-top: 12px; }
+.economic-event summary { font-size: 12px; line-height: 1.5; padding-block: 12px; }
+.event-sector { font-size: 13px; padding-block: 4px; }
+.event-instrument { padding-block: 8px; border-bottom: 1px solid #456275; }
+.event-instrument > div { font-size: 13px; }
+.event-instrument > div > strong:first-child { overflow-wrap: anywhere; }
+.economic-event-actions { flex-shrink: 0; padding: 8px 16px max(12px, env(safe-area-inset-bottom)); border-top: 1px solid #456275; background: #0f172a; }
+.economic-event-actions .full-button { margin: 0; }
+@media (max-width: 360px) {
+  .economic-event-scroll { padding: 16px 12px 8px; }
+  .economic-event h2 { font-size: 23px; }
+  .event-asset { padding: 6px 10px; }
+}
