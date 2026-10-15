@@ -1,0 +1,39 @@
+(node:4688) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "seed": "economic-news-browser-v1",
+  "laps": 4,
+  "diceRolls": 21,
+  "entries": 92,
+  "lawfulProceeds": 96480028,
+  "victory": {
+    "wealth": true,
+    "liquidity": true,
+    "won": true
+  },
+  "fullStateReplay": true,
+  "selectorsReadOnly": true,
+  "browserRoundComparisonsMatch": true,
+  "reviews": [
+    {
+      "lap": 1,
+      "forecastId": "recovery",
+      "shocks": 0
+    },
+    {
+      "lap": 2,
+      "forecastId": "growth",
+      "shocks": 0
+    },
+    {
+      "lap": 3,
+      "forecastId": "uncertain",
+      "shocks": 1
+    },
+    {
+      "lap": 4,
+      "forecastId": "recovery",
+      "shocks": 1
+    }
+  ]
+}

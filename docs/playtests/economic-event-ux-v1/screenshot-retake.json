@@ -1,0 +1,7 @@
+{
+  "replacedCapture": "390-production-credit-tightening.jpg",
+  "reason": "Browser compositor returned 390x219 immediately after viewport change, despite DOM 390x844.",
+  "replacement": "390-archived-credit-tightening.jpg",
+  "source": "browser-full-game.json.gz, market record credit-tightening at turn 6",
+  "method": "Re-rendered unchanged recorded checkpoint in DEV harness and captured UI at 390x844; no image editing or production state injection."
+}

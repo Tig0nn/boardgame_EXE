@@ -14,12 +14,13 @@
 | [BOND_V2_5_IMPLEMENTATION_REPORT.md](BOND_V2_5_IMPLEMENTATION_REPORT.md) | Triển khai, năm ván browser, funding fixture, replay và screenshots |
 | [BOND_V2_5_BALANCE_REPORT.md](BOND_V2_5_BALANCE_REPORT.md) | Prototype và 12.000 ván/sáu chiến thuật; uncertainty, tail loss và giới hạn |
 | [BOND_V2_5_START_UX_REPORT.md](BOND_V2_5_START_UX_REPORT.md) | START gọn theo issuer, tiền thực nhận/khoản chờ/mất vốn, ảnh trước/sau và replay |
+| [ECONOMIC_EVENT_UX_V1_REPORT.md](ECONOMIC_EVENT_UX_V1_REPORT.md) | Popup biến cố đã xảy ra, tác động theo snapshot, danh mục tùy chọn và ván browser/replay |
 | [README repository](../README.md) | Quick start và điều hướng |
 | [Mobile handoff](../MOBILE_APP_HANDOFF.md) | File thật, shared engine, assets, build/proxy và bằng chứng Mobile |
 | [AI handoff](../AI_COACH_HANDOFF.md) | Mobile integration, backend contract, key server, grounding và giới hạn |
 | [PR8 review](PR8_FINAL_REVIEW.md) | Chronology trước deploy và follow-up 13/10/2026 sau Mobile smoke verification |
 | [tasks/current.md](../tasks/current.md) | Roadmap đang hoạt động và điều kiện xác nhận từng việc |
-| [DOCUMENTATION_AUDIT.md](DOCUMENTATION_AUDIT.md) | Inventory 33 Markdown sau START UX candidate; ma trận audit lịch sử, checker link/path và bảo toàn |
+| [DOCUMENTATION_AUDIT.md](DOCUMENTATION_AUDIT.md) | Inventory 34 Markdown sau Economic Event UX candidate; ma trận audit lịch sử, checker link/path và bảo toàn |
 
 **CURRENT** là tài liệu được duy trì. **HISTORICAL** ghi lại implementation/experiment/verification theo phiên bản và mốc cũ. **SUPERSEDED** là spec/prompt/guide/plan đã được thay thế cho việc sử dụng hiện tại; vẫn giữ để tra lịch sử. Không lấy một câu “mặc định”, “chưa deploy”, “PASS” hoặc “chờ phê duyệt” trong tài liệu lịch sử làm trạng thái hiện tại.
 

@@ -1,0 +1,604 @@
+{
+  "fullStateReplay": true,
+  "seed": "BOND-V25-59",
+  "exportSha256": "35f1995c8f0e06436e937bea48740157c214b4acaa388e8ff1e722bf46043520",
+  "rolls": 23,
+  "laps": 4,
+  "lawfulProceeds": 86772313,
+  "won": false,
+  "impacts": [
+    {
+      "id": "credit-tightening",
+      "turn": 6,
+      "lap": 2,
+      "groups": [
+        {
+          "asset": "stocks",
+          "label": "Cổ phiếu",
+          "icon": "chart",
+          "items": [
+            {
+              "id": "FPT",
+              "label": "FPT",
+              "priceBefore": 100963,
+              "priceAfter": 88847,
+              "returnRate": -0.12000435803215037,
+              "credit": null,
+              "sector": "technology"
+            },
+            {
+              "id": "CMG",
+              "label": "CMG",
+              "priceBefore": 99053,
+              "priceAfter": 87167,
+              "returnRate": -0.11999636558206217,
+              "credit": null,
+              "sector": "technology"
+            },
+            {
+              "id": "VCB",
+              "label": "VCB",
+              "priceBefore": 107593,
+              "priceAfter": 90378,
+              "returnRate": -0.16000111531419325,
+              "credit": null,
+              "sector": "banking"
+            },
+            {
+              "id": "TCB",
+              "label": "TCB",
+              "priceBefore": 104818,
+              "priceAfter": 88047,
+              "returnRate": -0.16000114484153483,
+              "credit": null,
+              "sector": "banking"
+            },
+            {
+              "id": "HPG",
+              "label": "HPG",
+              "priceBefore": 96593,
+              "priceAfter": 86934,
+              "returnRate": -0.09999689418487878,
+              "credit": null,
+              "sector": "manufacturing"
+            },
+            {
+              "id": "BMP",
+              "label": "BMP",
+              "priceBefore": 96691,
+              "priceAfter": 87022,
+              "returnRate": -0.09999896577758016,
+              "credit": null,
+              "sector": "manufacturing"
+            }
+          ],
+          "returnRate": -0.12666647395539993
+        },
+        {
+          "asset": "bonds",
+          "label": "Trái phiếu",
+          "icon": "receipt",
+          "items": [
+            {
+              "id": "an-tam",
+              "label": "Hợp tác xã An Tâm",
+              "priceBefore": 100831,
+              "priceAfter": 98831,
+              "returnRate": -0.019835169739465086,
+              "credit": {
+                "stressBefore": 0,
+                "stressAfter": 1,
+                "ratingBefore": "AA",
+                "ratingAfter": "AA",
+                "statusBefore": "performing",
+                "statusAfter": "performing"
+              }
+            },
+            {
+              "id": "but-pha",
+              "label": "Công ty Bứt Phá",
+              "priceBefore": 101499,
+              "priceAfter": 95499,
+              "returnRate": -0.059113882895397984,
+              "credit": {
+                "stressBefore": 0,
+                "stressAfter": 1,
+                "ratingBefore": "B",
+                "ratingAfter": "B",
+                "statusBefore": "performing",
+                "statusAfter": "performing"
+              }
+            }
+          ],
+          "returnRate": null
+        },
+        {
+          "asset": "gold",
+          "label": "Vàng",
+          "icon": "gold",
+          "items": [
+            {
+              "id": "gold",
+              "label": "Vàng",
+              "priceBefore": 942586,
+              "priceAfter": 1017993,
+              "returnRate": 0.08000012730933825,
+              "credit": null
+            }
+          ],
+          "returnRate": 0.08000012730933825
+        }
+      ],
+      "portfolio": [
+        {
+          "asset": "bonds",
+          "label": "Trái phiếu",
+          "before": 5041550,
+          "after": 4941550,
+          "delta": -100000
+        }
+      ],
+      "singleShock": true,
+      "acknowledgementNoPriceCreditCashOrRngChange": true
+    },
+    {
+      "id": "supply-recovery",
+      "turn": 11,
+      "lap": 3,
+      "groups": [
+        {
+          "asset": "stocks",
+          "label": "Cổ phiếu",
+          "icon": "chart",
+          "items": [
+            {
+              "id": "FPT",
+              "label": "FPT",
+              "priceBefore": 85759,
+              "priceAfter": 90905,
+              "returnRate": 0.06000536386851518,
+              "credit": null,
+              "sector": "technology"
+            },
+            {
+              "id": "CMG",
+              "label": "CMG",
+              "priceBefore": 79202,
+              "priceAfter": 83954,
+              "returnRate": 0.059998484886745196,
+              "credit": null,
+              "sector": "technology"
+            },
+            {
+              "id": "VCB",
+              "label": "VCB",
+              "priceBefore": 79701,
+              "priceAfter": 77310,
+              "returnRate": -0.029999623593179536,
+              "credit": null,
+              "sector": "banking"
+            },
+            {
+              "id": "TCB",
+              "label": "TCB",
+              "priceBefore": 80200,
+              "priceAfter": 77794,
+              "returnRate": -0.030000000000000027,
+              "credit": null,
+              "sector": "banking"
+            },
+            {
+              "id": "HPG",
+              "label": "HPG",
+              "priceBefore": 74385,
+              "priceAfter": 86287,
+              "returnRate": 0.16000537742824483,
+              "credit": null,
+              "sector": "manufacturing"
+            },
+            {
+              "id": "BMP",
+              "label": "BMP",
+              "priceBefore": 79493,
+              "priceAfter": 92212,
+              "returnRate": 0.16000150956688008,
+              "credit": null,
+              "sector": "manufacturing"
+            }
+          ],
+          "returnRate": 0.0633351853595343
+        },
+        {
+          "asset": "bonds",
+          "label": "Trái phiếu",
+          "icon": "receipt",
+          "items": [
+            {
+              "id": "an-tam",
+              "label": "Hợp tác xã An Tâm",
+              "priceBefore": null,
+              "priceAfter": null,
+              "returnRate": null,
+              "credit": {
+                "stressBefore": 1,
+                "stressAfter": 0,
+                "ratingBefore": "D",
+                "ratingAfter": "D",
+                "statusBefore": "defaulted",
+                "statusAfter": "defaulted"
+              }
+            },
+            {
+              "id": "but-pha",
+              "label": "Công ty Bứt Phá",
+              "priceBefore": 93538,
+              "priceAfter": 99538,
+              "returnRate": 0.0641450533473027,
+              "credit": {
+                "stressBefore": 1,
+                "stressAfter": 0,
+                "ratingBefore": "B",
+                "ratingAfter": "B",
+                "statusBefore": "performing",
+                "statusAfter": "performing"
+              }
+            }
+          ],
+          "returnRate": null
+        },
+        {
+          "asset": "gold",
+          "label": "Vàng",
+          "icon": "gold",
+          "items": [
+            {
+              "id": "gold",
+              "label": "Vàng",
+              "priceBefore": 1054767,
+              "priceAfter": 1012576,
+              "returnRate": -0.04000030338453897,
+              "credit": null
+            }
+          ],
+          "returnRate": -0.04000030338453897
+        }
+      ],
+      "portfolio": [],
+      "singleShock": true,
+      "acknowledgementNoPriceCreditCashOrRngChange": true
+    },
+    {
+      "id": "demand-boom",
+      "turn": 18,
+      "lap": 4,
+      "groups": [
+        {
+          "asset": "stocks",
+          "label": "Cổ phiếu",
+          "icon": "chart",
+          "items": [
+            {
+              "id": "FPT",
+              "label": "FPT",
+              "priceBefore": 114911,
+              "priceAfter": 130999,
+              "returnRate": 0.14000400309804983,
+              "credit": null,
+              "sector": "technology"
+            },
+            {
+              "id": "CMG",
+              "label": "CMG",
+              "priceBefore": 112201,
+              "priceAfter": 127909,
+              "returnRate": 0.13999875223928493,
+              "credit": null,
+              "sector": "technology"
+            },
+            {
+              "id": "VCB",
+              "label": "VCB",
+              "priceBefore": 97356,
+              "priceAfter": 105144,
+              "returnRate": 0.07999506964131631,
+              "credit": null,
+              "sector": "banking"
+            },
+            {
+              "id": "TCB",
+              "label": "TCB",
+              "priceBefore": 93702,
+              "priceAfter": 101198,
+              "returnRate": 0.0799982924590723,
+              "credit": null,
+              "sector": "banking"
+            },
+            {
+              "id": "HPG",
+              "label": "HPG",
+              "priceBefore": 112803,
+              "priceAfter": 126339,
+              "returnRate": 0.11999680859551609,
+              "credit": null,
+              "sector": "manufacturing"
+            },
+            {
+              "id": "BMP",
+              "label": "BMP",
+              "priceBefore": 122911,
+              "priceAfter": 137660,
+              "returnRate": 0.1199973964901433,
+              "credit": null,
+              "sector": "manufacturing"
+            }
+          ],
+          "returnRate": 0.11333172042056379
+        },
+        {
+          "asset": "bonds",
+          "label": "Trái phiếu",
+          "icon": "receipt",
+          "items": [
+            {
+              "id": "an-tam",
+              "label": "Hợp tác xã An Tâm",
+              "priceBefore": null,
+              "priceAfter": null,
+              "returnRate": null,
+              "credit": {
+                "stressBefore": 0,
+                "stressAfter": 0,
+                "ratingBefore": "D",
+                "ratingAfter": "D",
+                "statusBefore": "resolved",
+                "statusAfter": "resolved"
+              }
+            },
+            {
+              "id": "but-pha",
+              "label": "Công ty Bứt Phá",
+              "priceBefore": 97137,
+              "priceAfter": 97137,
+              "returnRate": 0,
+              "credit": {
+                "stressBefore": 0,
+                "stressAfter": 0,
+                "ratingBefore": "B",
+                "ratingAfter": "B",
+                "statusBefore": "performing",
+                "statusAfter": "performing"
+              }
+            }
+          ],
+          "returnRate": null
+        },
+        {
+          "asset": "gold",
+          "label": "Vàng",
+          "icon": "gold",
+          "items": [
+            {
+              "id": "gold",
+              "label": "Vàng",
+              "priceBefore": 913003,
+              "priceAfter": 867353,
+              "returnRate": -0.04999983570700206,
+              "credit": null
+            }
+          ],
+          "returnRate": -0.04999983570700206
+        }
+      ],
+      "portfolio": [],
+      "singleShock": true,
+      "acknowledgementNoPriceCreditCashOrRngChange": true
+    }
+  ],
+  "investmentPanelsVerified": 7,
+  "roundReviewsNoDoubleCounting": true,
+  "coachFactsValid": true,
+  "layouts": 28,
+  "screenshots": [
+    {
+      "file": "1280-investment-5-bonds.jpg",
+      "height": 720,
+      "width": 1280
+    },
+    {
+      "file": "320-credit-tightening-details.jpg",
+      "height": 640,
+      "width": 320
+    },
+    {
+      "file": "320-credit-tightening.jpg",
+      "height": 640,
+      "width": 320
+    },
+    {
+      "file": "320-demand-boom-details.jpg",
+      "height": 640,
+      "width": 320
+    },
+    {
+      "file": "320-demand-boom.jpg",
+      "height": 640,
+      "width": 320
+    },
+    {
+      "file": "320-portfolio-details.jpg",
+      "height": 640,
+      "width": 320
+    },
+    {
+      "file": "320-return-board.jpg",
+      "height": 640,
+      "width": 320
+    },
+    {
+      "file": "320-supply-recovery-details.jpg",
+      "height": 640,
+      "width": 320
+    },
+    {
+      "file": "320-supply-recovery.jpg",
+      "height": 640,
+      "width": 320
+    },
+    {
+      "file": "390-archived-credit-tightening.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-credit-tightening-details.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-credit-tightening.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-demand-boom-details.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-demand-boom.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-full-game-result.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-investment-10-bonds.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-investment-13-stocks.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-investment-16-stocks.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-investment-22-bonds.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-investment-7-gold.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-investment-9-gold.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-legacy.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-missing.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-portfolio-details.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-production-credit-tightening-details.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-production-demand-boom-details.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-production-demand-boom.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-production-supply-recovery-details.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-production-supply-recovery.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-return-board.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-supply-recovery-details.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "390-supply-recovery.jpg",
+      "height": 844,
+      "width": 390
+    },
+    {
+      "file": "430-credit-tightening-details.jpg",
+      "height": 932,
+      "width": 430
+    },
+    {
+      "file": "430-credit-tightening.jpg",
+      "height": 932,
+      "width": 430
+    },
+    {
+      "file": "430-demand-boom-details.jpg",
+      "height": 932,
+      "width": 430
+    },
+    {
+      "file": "430-demand-boom.jpg",
+      "height": 932,
+      "width": 430
+    },
+    {
+      "file": "430-portfolio-details.jpg",
+      "height": 932,
+      "width": 430
+    },
+    {
+      "file": "430-return-board.jpg",
+      "height": 932,
+      "width": 430
+    },
+    {
+      "file": "430-supply-recovery-details.jpg",
+      "height": 932,
+      "width": 430
+    },
+    {
+      "file": "430-supply-recovery.jpg",
+      "height": 932,
+      "width": 430
+    }
+  ],
+  "limitations": "Three-event responsive fixtures are injected DEV-only states. The exported four-lap production game uses normal UI/dice/animations. Initial setup and first purchase at 1280x720; all macro events onward at 390x844. No balance study, live provider or physical device test."
+}
