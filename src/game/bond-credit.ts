@@ -151,3 +151,28 @@ export function settleCreditBonds(s: GameState): SummaryLine[] {
   }
   return lines
 }
+
+export function bondCreditFacts(s: GameState) {
+  if (!hasBondCredit(s)) return []
+  const purchases = s.log.filter(entry => entry.action?.kind === 'buy' && entry.action.asset === 'bonds')
+  const totalBought = purchases.reduce((n, entry) => n + entry.action!.amount, 0)
+  return BOND_ISSUERS.flatMap(issuer => {
+    const lots = s.bondLots.filter(lot => lot.credit?.issuerId === issuer.id)
+    if (!lots.length) return []
+    const histories = lots.flatMap(lot => lot.credit!.history)
+    const bought = purchases.filter(entry => entry.action!.issuerId === issuer.id).reduce((n, entry) => n + entry.action!.amount, 0)
+    const sales = s.log.filter(entry => (entry.action?.kind === 'sell' && entry.action.asset === 'bonds' && lots.some(lot => lot.id === entry.action!.lotId))
+      || (entry.kind === 'funding' && lots.some(lot => lot.id === entry.fundingLotId)))
+    return [{ id: issuer.id, name: issuer.name, bought, concentration: totalBought > 0 ? Math.round(bought / totalBought * 100) : 0,
+      warning: lots[0].credit!.purchaseWarning, firstPurchaseLap: lots[0].startLap,
+      couponPaid: histories.reduce((n, h) => n + h.couponPaid, 0),
+      principalPaid: lots.reduce((n, lot) => n + lot.credit!.principalPaid, 0),
+      couponDelayed: histories.filter(h => h.status === 'delayed' && h.couponDue > h.couponPaid).length,
+      principalDelayed: histories.filter(h => h.status === 'delayed' && h.principalDue > h.principalPaid).length,
+      outstandingCoupon: lots.reduce((n, lot) => n + lot.credit!.outstandingCoupon, 0),
+      outstandingPrincipal: lots.reduce((n, lot) => n + lot.credit!.outstandingPrincipal, 0),
+      principalLost: lots.reduce((n, lot) => n + lot.credit!.principalLost, 0),
+      couponLost: lots.reduce((n, lot) => n + lot.credit!.couponLost, 0),
+      netSold: sales.reduce((n, entry) => n + entry.cashProceeds, 0), saleLaps: [...new Set(sales.map(entry => entry.lap))] }]
+  })
+}

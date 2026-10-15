@@ -23,7 +23,7 @@ test('atomic investment UI preserves prices/news and follows the saved encounter
   })
   try {
     const { render } = await server.ssrLoadModule('virtual:atomic-ui')
-    const base = createMobileGame('atomic-ui', 0)
+    const base = createMobileGame('atomic-ui', 0, 1, 'v2.4-single-issuer')
     const props = { onChoose: () => {}, onTransaction: () => true, send: () => true, onRestart: () => {}, onExport: () => {}, onFund: () => {}, onAdvance: () => {} }
     await t.test('new Mobile and Web panels offer one buy and one skip, keeping fees and market context', () => {
       for (const [asset, position] of [['stocks', 2], ['gold', 9], ['bonds', 6]] as const) {

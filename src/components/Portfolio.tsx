@@ -5,6 +5,8 @@ import { money } from '../game/format'
 import type { GameState } from '../game/types'
 import { Icon } from './Icon'
 import { GoalChecks } from './GoalChecks'
+import { hasBondCredit } from '../game/bond-credit'
+import { BondHoldings } from './BondHoldings'
 
 export function Portfolio({ game, compact = false }: { game: GameState; compact?: boolean }) {
   const worth = totalWorth(game)
@@ -19,6 +21,7 @@ export function Portfolio({ game, compact = false }: { game: GameState; compact?
       const locked = key !== 'cash' && key !== 'savings' && amount === 0 && !game.unlockedAssets.includes(key as 'stocks' | 'bonds' | 'gold' | 'business')
       return <div key={key} className={`asset-row ${locked ? 'unowned' : ''}`}><span className={`asset-icon ${key}`}><Icon name={asset.icon} size={18} /></span><div><span>{asset.label}</span>{key === 'cash' && <small>Thanh khoản tức thì</small>}{key === 'savings' && <small>{game.deposits.filter(lot => lot.status === 'active').length} khoản chưa đáo hạn</small>}{key === 'business' && amount > 0 && <small>Chỉ bán tại ô Kinh doanh</small>}{locked && <small>Chờ cơ hội trên bàn cờ</small>}</div><strong>{locked ? '—' : money(amount)}</strong></div>
     })}</div>
+    {hasBondCredit(game) && game.bondLots.length > 0 && <details><summary>Trái phiếu theo tổ chức phát hành</summary><BondHoldings game={game} /></details>}
     <div className="deposit-list">{game.deposits.filter(lot => lot.status === 'active').map(lot => <p key={lot.id}>{lot.id}: {money(lot.principal)} · {Math.round(lot.rate * 100)}% lãi game/vòng · đáo hạn START {lot.maturityLap}</p>)}</div>
     {!compact && <p className="portfolio-checkpoint">Mua đúng ô, bán tài sản tài chính tại START. Khi thiếu tiền bắt buộc, bạn chọn nguồn thanh toán.</p>}
     <div className="debt-box"><span>Nợ vay <strong>{money(game.portfolio.debt)}</strong></span><span>Nghĩa vụ cuối vòng <strong>{money(game.obligations)}</strong></span>{game.pendingPayment && <span>Khoản đang thiếu <strong>{money(game.pendingPayment.remaining)}</strong></span>}<small>Các khoản phải trả đã được trừ khỏi tài sản ròng.</small></div>

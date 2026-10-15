@@ -11,6 +11,8 @@ import { savingsProfileForGame } from '../game/savings'
 import { encounterActionUsed, investmentPurchaseUsed, investmentPurchasesComplete, singleActionEncounters } from '../game/encounters'
 import { BusinessPanel } from './BusinessPanel'
 import { SavingsTerms } from './SavingsTerms'
+import { hasBondCredit } from '../game/bond-credit'
+import { BondCreditPanel } from './BondCreditPanel'
 
 export function TradingPanel({ game, onTransaction, onSkip, compact = false, marketContext }: { game: GameState; onTransaction: (action: RebalanceAction) => boolean | void; onSkip: () => void; compact?: boolean; marketContext?: (asset: TradableAsset, symbolId: string) => ReactNode }) {
   const tile = game.eventId as Asset | 'bank'
@@ -42,6 +44,7 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
   if (atomicInvestment && investmentPurchaseUsed(game)) return <section>
     <p>Đã mua trong lượt này.</p><button className="button secondary full-button" onClick={onSkip}>Về bàn chơi</button>
   </section>
+  if (tile === 'bonds' && hasBondCredit(game)) return <BondCreditPanel game={game} onTransaction={submit} onSkip={onSkip} marketContext={marketContext} />
   if (tile === 'business' && businessRulesForGame(game) === 'v2.4-customer-preferences') {
     return <BusinessPanel game={game} onTransaction={submit} feedback={feedback} compact={compact} />
   }

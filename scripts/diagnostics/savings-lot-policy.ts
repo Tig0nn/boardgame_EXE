@@ -69,7 +69,8 @@ export function researchStep(s: GameState, strategy: Strategy, policy: LotPolicy
 }
 
 export function playSavingsPolicy(seed: string, strategy: Strategy, policy: LotPolicy, initialSavings: number, compact = true) {
-  let s = createPlayerGame(seed, initialSavings, 3)
+  // Freeze the V2.4 study contract even when new player sessions opt into V2.5.
+  let s = createPlayerGame(seed, initialSavings, 3, 'experimental-b', 'v2.4-single-issuer')
   let earlyWithdrawals = 0; let interestForfeited = 0; let cashSamples = 0; let cashTotal = 0
   let bankEncounters = 0; let bankDeposits = 0; let choices = 0; let depositOpportunities = 0
   let path = ''; let steps = 0

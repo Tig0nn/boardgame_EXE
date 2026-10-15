@@ -1,4 +1,6 @@
 export type CoachEvidenceKind =
+  | 'bond-credit'
+  | 'bond-choice'
   | 'goal-result'
   | 'liquidity-gap'
   | 'business-locked'

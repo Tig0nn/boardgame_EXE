@@ -1,6 +1,8 @@
 import type { CoachEvidence, CoachEvidenceKind, CoachFacts, CoachOutput } from './types.ts'
 
 const VALID_EVIDENCE_KINDS: Set<CoachEvidenceKind> = new Set([
+  'bond-credit',
+  'bond-choice',
   'goal-result',
   'liquidity-gap',
   'business-locked',

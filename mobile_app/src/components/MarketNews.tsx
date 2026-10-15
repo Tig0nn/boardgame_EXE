@@ -2,7 +2,8 @@ import { MACRO_EVENTS } from '../../../src/data/config'
 import { money, percent } from '../../../src/game/format'
 import type { GameState, TradableAsset } from '../../../src/game/types'
 import { Icon } from '../../../src/components/Icon'
-import { investmentSignal, marketBulletin, roundMarketReview } from '../game/market-news'
+import { creditRoundReview, investmentSignal, marketBulletin, roundMarketReview } from '../game/market-news'
+import { hasBondCredit } from '../../../src/game/bond-credit'
 import '../market-news.css'
 
 const policyContext: Record<string, string> = {
@@ -23,7 +24,7 @@ export function EconomicBulletin({ game }: { game: GameState }) {
     <details><summary>Chi tiết · Đọc tín hiệu thế nào?</summary>
       {news.assets.map(item => <p key={item.asset}><b>{item.label}:</b> {item.lesson}</p>)}
       <p>Dự báo không bảo đảm giá tăng. Giá đổi tại START và khi gặp sự kiện kinh tế. Những tình huống dưới đây có thể xuất hiện trong game, chưa phải sự kiện sắp xảy ra:</p>
-      <ul>{MACRO_EVENTS.map(event => <li key={event.id}><b>{event.label}:</b> {policyContext[event.id]}</li>)}</ul>
+      <ul>{MACRO_EVENTS.map(event => <li key={event.id}><b>{event.label}:</b> {hasBondCredit(game) ? event.id === 'credit-tightening' ? 'Áp lực tín dụng tăng; giá và khả năng trả nợ khác nhau giữa issuer.' : 'Áp lực tín dụng giảm; không đảm bảo issuer trả đúng hạn.' : policyContext[event.id]}</li>)}</ul>
       <p>Giá và tin tức là nội dung trong game, không phải bản tin hay giá giao dịch thực tế. Tiết kiệm giữ lãi suất cố định theo kỳ hạn; quán dùng sở thích khách trong màn Kinh doanh.</p>
     </details>
   </section>
@@ -40,6 +41,15 @@ export function ForecastReality({ game, lap }: { game: GameState; lap: number })
       <small>Dự báo: {item.forecast}</small>
     </article>)}</div>
     <p className="news-caption">Biến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.</p>
+    {hasBondCredit(game) && <details className="credit-reality"><summary>Tín dụng & tiền thực nhận</summary>{creditRoundReview(game, lap).map(issuer => <article key={issuer.id}>
+      <strong>{issuer.name}</strong>{!issuer.available ? <p>Chưa đủ dữ liệu</p> : <><small>{issuer.forecast}</small>
+        <p>Hạng {issuer.ratingBefore} → {issuer.ratingAfter} · {issuer.status === 'performing' ? 'Trả đúng hạn' : issuer.status === 'delayed' ? 'Chậm trả' : issuer.status === 'defaulted' ? 'Đang thu hồi vốn' : 'Đã xử lý thu hồi'}</p>
+        <dl><dt>Biến động giá</dt><dd>{issuer.returnRate === null ? 'Chưa đủ dữ liệu' : issuer.returnRate === -1 ? 'Tạm ngừng giao dịch' : percent(issuer.returnRate)}</dd>
+          <dt>Coupon đến hạn / nhận</dt><dd>{money(issuer.couponDue)} / {money(issuer.couponPaid)}</dd>
+          <dt>Gốc đến hạn / nhận, thu hồi</dt><dd>{money(issuer.principalDue)} / {money(issuer.principalPaid)}</dd>
+          <dt>Chưa nhận coupon / gốc</dt><dd>{money(issuer.outstandingCoupon)} / {money(issuer.outstandingPrincipal)}</dd>
+          <dt>Mất gốc / coupon</dt><dd>{money(issuer.principalLost)} / {money(issuer.couponLost)}</dd></dl></>}
+    </article>)}</details>}
     <p className="news-caption">{review.shocks.length > 0 ? `${review.shocks.length} sự kiện kinh tế đã tác động; xem bên dưới.` : 'Chưa ghi nhận cú sốc kinh tế trong dữ liệu vòng này.'}</p>
     <details><summary>Điều bạn học được</summary>
       {review.shocks.length > 0 ? <><p>Sự kiện đã tác động trong vòng; mức biến động trên đã gồm tác động này:</p>

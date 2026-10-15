@@ -4,6 +4,7 @@ import { liquidatableFunds, totalWorth, victory } from '../../../src/game/select
 import { money } from '../../../src/game/format'
 import { RULES } from '../../../src/data/config'
 import type { GameState } from '../../../src/game/types'
+import { hasBondCredit } from '../../../src/game/bond-credit'
 
 export function GameResultModal({ game, onRestart, onExport, onHelp }: {
   game: GameState; onRestart: () => void; onExport: () => void; onHelp?: () => void
@@ -28,6 +29,7 @@ export function GameResultModal({ game, onRestart, onExport, onHelp }: {
       <p>Món đồ {money(RULES.goal)} · Dự phòng {money(RULES.cashGoal)}</p>
       <p>Tài sản ròng: {money(totalWorth(game))} · Tiền mặt: {money(game.portfolio.cash)}</p>
       <p>Vốn kinh doanh chưa bán và lãi tiết kiệm chưa trả không tính vào nguồn tiền về đích.</p>
+      {hasBondCredit(game) && <p>Coupon và gốc đang chờ trả không được cộng thêm. Trái phiếu chỉ tính giá bán khả dụng sau phí; khoản vỡ nợ không có giá bán.</p>}
       <button className="button secondary full-button" onClick={onExport}>Lưu nhật ký hành trình</button>
     </details>
   </Modal>

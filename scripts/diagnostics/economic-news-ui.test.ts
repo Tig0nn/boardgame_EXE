@@ -55,7 +55,8 @@ test('Mobile economic news renders through real phase and transaction components
       assert.match(html, /Tín dụng thắt chặt/)
       assert.match(html, /không phải lãi của bạn/)
       assert.match(html, /Ghé ví tại START/)
-      assert.equal((html.match(/<article>/g) ?? []).length, 3)
+      assert.equal((html.match(/<article>/g) ?? []).length, 5)
+      assert.match(html, /Tín dụng &amp; tiền thực nhận/)
       assert.doesNotMatch(html, /Dự báo:.*Nhu cầu tích cực/)
     })
     await t.test('missing observations show unavailable; gold fees and quote remain explicit', () => {

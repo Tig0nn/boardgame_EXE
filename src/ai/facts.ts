@@ -2,6 +2,7 @@ import { RULES } from '../data/config.ts'
 import { liquidatableFunds, totalWorth, victory } from '../game/selectors.ts'
 import type { GameState } from '../game/types.ts'
 import type { CoachEvidence, CoachFacts } from './types.ts'
+import { bondCreditFacts } from '../game/bond-credit.ts'
 
 function formatVnd(amount: number): string {
   return `${amount.toLocaleString('vi-VN')} VND`
@@ -28,6 +29,12 @@ export function buildCoachFacts(game: GameState): CoachFacts {
   const businessLockedQuote = game.portfolio.business
 
   const candidateEvidences: Array<{ priority: number; evidence: CoachEvidence }> = []
+  for (const issuer of bondCreditFacts(game)) {
+    candidateEvidences.push({ priority: 2, evidence: { id: `ev:bond-${issuer.id}-cash`, kind: 'bond-credit',
+      fact: `${issuer.name}: coupon thực nhận ${formatVnd(issuer.couponPaid)}, gốc đã nhận/thu hồi ${formatVnd(issuer.principalPaid)}. Chậm coupon ${issuer.couponDelayed} kỳ, chậm gốc ${issuer.principalDelayed} kỳ. Còn chờ coupon ${formatVnd(issuer.outstandingCoupon)}, gốc ${formatVnd(issuer.outstandingPrincipal)}. Mất gốc ${formatVnd(issuer.principalLost)}, coupon ${formatVnd(issuer.couponLost)}.` } },
+    { priority: 2.5, evidence: { id: `ev:bond-${issuer.id}-choice`, kind: 'bond-choice', lap: issuer.firstPurchaseLap,
+      fact: `${issuer.name}: đã mua ${formatVnd(issuer.bought)}, ${issuer.concentration}% tiền mua Bond. Tín hiệu lúc mua đầu tiên: ${issuer.warning} Bán ở vòng ${issuer.saleLaps.join(', ') || 'chưa bán'}, thực nhận ${formatVnd(issuer.netSold)}.` } })
+  }
 
   // 1. Kết quả chung & vỡ nợ (Priority 1)
   if (insolvent) {

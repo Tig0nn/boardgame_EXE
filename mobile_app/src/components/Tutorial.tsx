@@ -16,7 +16,7 @@ const steps = [
     text: 'Gieo xúc xắc, theo chân nhân vật và chọn cách đi tiếp của bạn.',
     detail: 'Chỉ quyết định khi nhân vật dừng. Mỗi lần ghé ô Cổ phiếu, Vàng hoặc Trái phiếu chỉ mua một lần; mua xong là quay lại bàn cờ. Bạn có thể bỏ qua hoặc mua tiếp khi gặp lại ô ở lượt sau. Mở quán và gửi một khoản tiết kiệm xong cũng trở về bàn cờ.' },
   { title: 'Để đồng tiền cùng bạn lớn lên', tag: 'CHỌN CÁCH KIẾM TIỀN',
-    text: 'Giữ chút tiền mặt, phần còn lại hãy chọn cơ hội phù hợp.',
+    text: 'Tiết kiệm có lãi cố định. Trái phiếu cho issuer vay: coupon cao hơn đi cùng rủi ro chậm trả hoặc mất vốn.',
     detail: 'Ngân hàng: một khoản gửi mới mỗi lần ghé, kỳ hạn 1/2/3 lần qua START với lãi 4/5/6% mỗi kỳ, lãi đơn nhận cuối hạn; các khoản độc lập, không tự tái tục. Cổ phiếu, vàng, trái phiếu được bán tại START. Quán chỉ được nâng cấp hoặc bán từ lần ghé ô Kinh doanh sau lượt mua; mỗi lần ghé nâng tối đa một tầng. Quán nhận 3 triệu + 700 nghìn mỗi tầng + 1 triệu mỗi tầng hợp sở thích khách tại START; giá bán chịu thị trường và khấu hao. Giá tài sản có thể giảm. Các mức giá trong trò chơi là mô phỏng, không phải dữ liệu giao dịch thực tế.' },
   { title: 'Luôn chừa tiền cho bất ngờ', tag: 'KHI CẦN THANH TOÁN',
     text: 'Dừng ở ô Sinh hoạt cần trả tiền. Thiếu tiền mặt? Bạn vẫn có thể xoay xở.',
@@ -47,13 +47,14 @@ export function Tutorial({ firstTime, onClose }: { firstTime: boolean; onClose: 
       {index === 0 && <div className="tutorial-goal"><div><small>Vốn ban đầu</small><strong>50 triệu</strong></div><span aria-hidden="true">→</span><div><small>Mục tiêu sau 4 vòng</small><strong>90 triệu</strong></div></div>}
       {index === 1 && <div className="tutorial-tiles">{[['🏦', 'Ngân hàng', 'Gửi tiết kiệm'], ['📈', 'Thị trường', 'Mua tài sản'], ['🧋', 'Kinh doanh', 'Mở & nâng quán'], ['📚', 'Khóa học', 'Tăng lương'], ['🧾', 'Sinh hoạt', 'Trả chi phí'], ['⚡', 'Biến cố', 'Đón bất ngờ']].map(([icon, title, text]) => <div key={title}><span aria-hidden="true">{icon}</span><strong>{title}</strong><small>{text}</small></div>)}</div>}
       {index === 2 && <ol className="tutorial-turn">{['Gieo xúc xắc', 'Nhân vật di chuyển', 'Khám phá ô dừng', 'Chọn hành động'].map((title, i) => <li key={title}><b>{i + 1}</b>{title}</li>)}</ol>}
-      {index === 3 && <ul className="tutorial-earn"><li><span>🏦 Tiết kiệm</span><b>Nhận gốc + lãi khi đến hạn</b></li><li><span>📈 Cổ phiếu</span><b>Mua ở ô · Bán tại START</b></li><li><span>🧋 Mở quán</span><b>+{money(ECONOMY.business.baseIncome)} / START</b></li><li><span>📚 Khóa học</span><b>Lương +{money(RULES.courseBoost)} / vòng</b></li></ul>}
+      {index === 3 && <ul className="tutorial-earn"><li><span>🏦 Tiết kiệm</span><b>Nhận gốc + lãi khi đến hạn</b></li><li><span>🧾 Trái phiếu</span><b>Chọn issuer · Theo dõi khả năng trả nợ</b></li><li><span>📈 Cổ phiếu</span><b>Mua ở ô · Bán tại START</b></li><li><span>🧋 Mở quán</span><b>+{money(ECONOMY.business.baseIncome)} / START</b></li><li><span>📚 Khóa học</span><b>Lương +{money(RULES.courseBoost)} / vòng</b></li></ul>}
       {index === 4 && <><div className="tutorial-bill"><span>Sinh hoạt khi dừng đúng ô</span><strong>{money(RULES.livingCost)}</strong></div><p className="tutorial-tip">Tiền mặt → Rút tiết kiệm / Bán tài sản / Vay</p></>}
       {index === 5 && <div className="tutorial-goal"><div><small>Món đồ mơ ước</small><strong>80 triệu</strong></div><span aria-hidden="true">+</span><div><small>Tiền dự phòng</small><strong>10 triệu</strong></div></div>}
       <details key={index}><summary>Luật chi tiết</summary><p>{step.detail}</p>
         {index === 1 && <BoardGuide />}
         {index === 3 && <p>Kỳ hạn 1 / 2 / 3 START: lãi đơn cuối kỳ lần lượt 4% / 10% / 18% tiền gốc. Giá thị trường là dữ liệu hư cấu trong game; không phải giá giao dịch thực tế.</p>}
         {index === 3 && <p>Đầu vòng đọc Bản tin thị trường; tại ô mua mở “Xem tín hiệu thị trường”. Cuối vòng, “Dự báo vs. Thực tế” cho biết giá đã đổi ra sao, không phải lãi đầu tư của bạn. Quán vẫn dùng sở thích khách, không dùng bảng dự báo này.</p>}
+        {index === 3 && <p>Bond V2.5 thử nghiệm: An Tâm hạng AA, coupon 4,5%; Bứt Phá hạng B, coupon 10% mỗi START; hai START tới hạn. Ratings chỉ có trong game. Giá mua khác mệnh giá; coupon tính trên mệnh giá còn giữ. Chậm trả là khoản chờ nhận, chưa vào ví; mất vốn là phần không thu hồi. Nếu vỡ nợ, coupon chưa trả mất toàn bộ, gốc chỉ thu hồi 80% / 50% ở START tiếp theo. Bán từng khoản chịu phí 1,5%; issuer vỡ nợ không có giá bán. Cuối vòng 4 chỉ tính tiền đã nhận và giá bán khả dụng, không hứa trả sớm hoặc thu hồi sau ván. Phiên V2.4 đã lưu giữ Bond cũ: coupon 5%, không có default ngẫu nhiên.</p>}
         {index === 5 && <><p>Game tính nguồn tiền có thể huy động theo báo giá hợp lệ, không tự tạo giao dịch thanh lý toàn bộ tài sản.</p><p>AI Coach là gợi ý tùy chọn, có thể không sẵn sàng hoặc nhận xét sai. Hãy đối chiếu với nhật ký ván chơi.</p></>}
       </details>
     </section>

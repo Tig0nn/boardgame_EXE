@@ -51,7 +51,7 @@ test('Mobile final UI contracts use the official engine, board and financial pre
     })
     await t.test('purchase tiles never offer voluntary selling even when holdings exist', () => {
       for (const [asset, position] of [['stocks', 2], ['bonds', 6], ['gold', 9]] as const) {
-        const owned = transact({ ...base, phase: 'event', eventId: asset, position }, { kind: 'buy', asset, amount: 1_000_000, symbolId: base.market.stocks[0].id, completeEncounter: asset === 'stocks' ? true : undefined })
+        const owned = transact({ ...base, phase: 'event', eventId: asset, position }, { kind: 'buy', asset, amount: 1_000_000, issuerId: asset === 'bonds' ? 'an-tam' : undefined, symbolId: base.market.stocks[0].id, completeEncounter: asset === 'stocks' ? true : undefined })
         const game = { ...owned, phase: 'event', turn: owned.turn + 1, eventId: asset, position }
         const before = JSON.stringify(game)
         const html = render('EventModal', { game, onChoose: noop, onTransaction: noop })

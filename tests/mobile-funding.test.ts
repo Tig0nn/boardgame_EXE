@@ -65,11 +65,11 @@ test('whole-lot withdrawal keeps surplus cash and leaves other savings lots inde
 for (const asset of ['stocks', 'bonds'] as const) test(`mobile ${asset} funding uses official net fees`, () => {
   const s = createMobileGame(`fees-${asset}`, 0)
   const bought = transact({ ...s, phase: 'event', position: asset === 'stocks' ? 2 : 6, eventId: asset },
-    { kind: 'buy', asset, amount: 6_000_000, completeEncounter: asset === 'stocks' })
+    { kind: 'buy', asset, amount: 6_000_000, issuerId: asset === 'bonds' ? 'an-tam' : undefined, completeEncounter: asset === 'stocks' })
   const session = createMobileSession(living(bought))
   session.dispatch({ type: 'choose', id: 'pay' }, session.getSnapshot())
   const quote = saleQuote(session.getSnapshot(), asset, 6_000_000)
-  session.dispatch({ type: 'fund', source: asset, amount: 6_000_000 }, session.getSnapshot())
+  session.dispatch({ type: 'fund', source: asset, amount: 6_000_000, lotId: asset === 'bonds' ? bought.bondLots[0].id : undefined }, session.getSnapshot())
   assert.equal(session.getSnapshot().portfolio.cash, quote.net - 5_000_000)
   assert.equal(session.getSnapshot().phase, 'rolling')
 })

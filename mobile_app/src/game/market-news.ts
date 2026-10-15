@@ -1,5 +1,8 @@
 import { ASSETS, ECONOMY, MACRO_EVENTS, SCENARIOS } from '../../../src/data/config.ts'
 import type { GameState, MarketInstrument, PricePoint, Snapshot, TradableAsset } from '../../../src/game/types.ts'
+import { hasBondCredit } from '../../../src/game/bond-credit.ts'
+import { bondIssuer } from '../../../src/data/bond-issuers.ts'
+import type { BondIssuerId } from '../../../src/game/types.ts'
 
 const assets: TradableAsset[] = ['stocks', 'bonds', 'gold']
 const education: Record<TradableAsset, { characteristic: string; lesson: string }> = {
@@ -30,7 +33,13 @@ export function marketBulletin(game: GameState, lap = game.lap) {
     headline: source?.scenario.label ?? 'Chưa đủ dữ liệu',
     context: source?.scenario.description ?? 'Chưa tìm thấy bản tin đầu vòng này.',
     assets: assets.map(asset => ({ asset, ...ASSETS[asset], ...education[asset],
-      forecast: source?.scenario.tendencies[asset] ?? 'Chưa đủ dữ liệu' })),
+      ...(asset === 'bonds' && hasBondCredit(game) ? {
+        characteristic: 'Coupon tùy issuer · Có thể chậm trả hoặc mất vốn',
+        lesson: 'Coupon cao đi cùng rủi ro tín dụng. Xem hạng, áp lực trả nợ và tiền thực nhận của từng issuer.',
+      } : {}),
+      forecast: asset === 'bonds' && hasBondCredit(game) && source ? source.scenario.id === 'uncertain'
+        ? 'Tín dụng thận trọng · Issuer yếu chịu áp lực hơn' : 'Điều kiện tín dụng phân hóa theo issuer'
+        : source?.scenario.tendencies[asset] ?? 'Chưa đủ dữ liệu' })),
   }
 }
 
@@ -39,7 +48,7 @@ function observations(instrument: MarketInstrument | undefined, lap: number, sta
   const points = instrument.priceHistory.filter(point => point.kind !== 'history' && point.lap === lap
     && point.timestamp >= startTurn && point.timestamp <= endTurn)
   if (!points.length || (openingPrice !== undefined && points[0].priceBefore !== openingPrice) || points.some((point, index) => !Number.isFinite(point.priceBefore) || !Number.isFinite(point.priceAfter)
-    || point.priceBefore <= 0 || point.priceAfter <= 0
+    || point.priceBefore <= 0 || point.priceAfter < 0
     || (index > 0 && (point.timestamp < points[index - 1].timestamp || point.priceBefore !== points[index - 1].priceAfter)))) return null
   return points
 }
@@ -50,7 +59,8 @@ function observedReturn(points: PricePoint[] | null, requireNormal: boolean) {
 }
 
 function instruments(snapshot: Snapshot, asset: TradableAsset) {
-  return asset === 'stocks' ? snapshot.market.stocks : [asset === 'bonds' ? snapshot.market.bond : snapshot.market.gold]
+  return asset === 'stocks' ? snapshot.market.stocks : asset === 'bonds' && hasBondCredit(snapshot)
+    ? snapshot.bondCredit?.issuers ?? [] : [asset === 'bonds' ? snapshot.market.bond : snapshot.market.gold]
 }
 
 export function roundMarketReview(game: GameState, lap = game.lap) {
@@ -85,13 +95,38 @@ export function roundMarketReview(game: GameState, lap = game.lap) {
 
 export function investmentSignal(game: GameState, asset: TradableAsset, symbolId?: string) {
   const source = roundSource(game, game.lap)
+  const issuerId = symbolId === 'but-pha' ? 'but-pha' : 'an-tam'
   const instrument = asset === 'stocks' ? game.market.stocks.find(stock => stock.id === (symbolId ?? game.market.stocks[0]?.id))
-    : asset === 'bonds' ? game.market.bond : game.market.gold
-  const initial = source ? instruments(source.start, asset).find(value => asset !== 'stocks' || ('id' in value && value.id === (symbolId ?? game.market.stocks[0]?.id))) : undefined
+    : asset === 'bonds' && hasBondCredit(game) ? game.bondCredit?.issuers.find(item => item.id === issuerId)
+      : asset === 'bonds' ? game.market.bond : game.market.gold
+  const initial = source ? instruments(source.start, asset).find(value => !instrument || !('id' in instrument) || ('id' in value && value.id === instrument.id)) : undefined
   const points = source && initial ? observations(instrument, game.lap, source.start.turn, game.turn, initial.currentPrice) : null
   return { ...marketBulletin(game).assets.find(item => item.asset === asset)!,
-    label: asset === 'stocks' && instrument && 'id' in instrument ? String(instrument.id) : ASSETS[asset].label,
+    label: asset === 'stocks' && instrument && 'id' in instrument ? String(instrument.id)
+      : asset === 'bonds' && hasBondCredit(game) ? bondIssuer(issuerId).name : ASSETS[asset].label,
     price: points?.at(-1)?.priceAfter ?? initial?.currentPrice ?? null,
     returnRate: observedReturn(points, false), remainingStarts: Math.max(0, game.totalLaps - game.lap + 1),
     saleFee: ECONOMY.tradeFees[asset], spread: asset === 'gold' ? ECONOMY.goldSpread : 0 }
+}
+
+export function creditRoundReview(game: GameState, lap: number) {
+  if (!hasBondCredit(game)) return []
+  const source = roundSource(game, lap)
+  const end = game.log.findLast(entry => entry.kind === 'settlement' && entry.after.lap === lap)?.after
+  return (game.bondCredit?.issuers ?? []).map(current => {
+    const id = current.id as BondIssuerId
+    const issuer = end?.bondCredit?.issuers.find(item => item.id === id)
+    const opening = source?.start.bondCredit?.issuers.find(item => item.id === id)
+    const quotes = source && issuer && opening ? observations(issuer, lap, source.start.turn, source.endTurn, opening.currentPrice) : null
+    const lots = end?.bondLots.filter(lot => lot.credit?.issuerId === id) ?? []
+    const payments = lots.flatMap(lot => lot.credit!.history.filter(payment => payment.lap === lap))
+    const sum = (key: 'couponDue' | 'couponPaid' | 'principalDue' | 'principalPaid' | 'couponLost' | 'principalLost') => payments.reduce((n, h) => n + h[key], 0)
+    return { id, name: bondIssuer(id).name, available: !!source && !!end, forecast: marketBulletin(game, lap).assets[1].forecast,
+      ratingBefore: opening?.rating ?? null, ratingAfter: issuer?.rating ?? null, status: issuer?.status ?? null,
+      returnRate: observedReturn(quotes, true), couponDue: sum('couponDue'), couponPaid: sum('couponPaid'),
+      principalDue: sum('principalDue'), principalPaid: sum('principalPaid'),
+      outstandingCoupon: lots.reduce((n, lot) => n + lot.credit!.outstandingCoupon, 0),
+      outstandingPrincipal: lots.reduce((n, lot) => n + lot.credit!.outstandingPrincipal, 0),
+      couponLost: sum('couponLost'), principalLost: sum('principalLost') }
+  })
 }

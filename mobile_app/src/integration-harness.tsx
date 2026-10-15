@@ -6,6 +6,8 @@ import { decide, transact } from '../../src/game/engine'
 import { currentCustomerPreference } from '../../src/game/customer-preferences'
 import './index.css'
 import type { GameState } from '../../src/game/types'
+import { settleCreditBonds } from '../../src/game/bond-credit'
+import { syncValuations } from '../../src/game/market'
 
 if (!import.meta.env.DEV) throw new Error('Development fixtures are disabled in production')
 const fixture = new URLSearchParams(location.search).get('fixture')
@@ -23,8 +25,19 @@ if (fixture === 'funding') {
 } else if (fixture === 'rebalancing') {
   game = transact({ ...game, phase: 'event', position: 8, eventId: 'business' }, { kind: 'buy', asset: 'business', amount: 20e6 })
   for (const [asset, position] of [['stocks', 2], ['bonds', 6], ['gold', 9]] as const)
-    game = transact({ ...game, phase: 'event', eventId: asset, position, turn: game.turn + 1 }, { kind: 'buy', asset, amount: 6e6 })
+    game = transact({ ...game, phase: 'event', eventId: asset, position, turn: game.turn + 1 }, { kind: 'buy', asset, issuerId: asset === 'bonds' ? 'an-tam' : undefined, amount: 6e6 })
   game = { ...game, phase: 'rebalancing', lap: 4, eventId: null }
+} else if (fixture === 'bond-credit-funding' || fixture === 'bond-credit-sale') {
+  // Explicit deterministic UI fixtures; not recorded as complete browser games.
+  game = transact({ ...game, phase: 'event', eventId: 'bonds', position: 6, turn: 1 }, { kind: 'buy', asset: 'bonds', issuerId: 'an-tam', amount: 2e6 })
+  game = transact({ ...game, phase: 'event', eventId: 'bonds', position: 6, turn: 2 }, { kind: 'buy', asset: 'bonds', issuerId: 'but-pha', amount: 3e6 })
+  game.bondCredit!.issuers[1].status = 'delayed'; game.bondCredit!.issuers[1].rating = 'CCC'; game.bondCredit!.issuers[1].currentPrice = 55_000
+  if (fixture === 'bond-credit-funding') {
+    game.bondCredit!.issuers[0].status = 'defaulted'; game.bondCredit!.issuers[0].rating = 'D'; game.bondCredit!.issuers[0].defaultLap = 1
+  }
+  settleCreditBonds(game); syncValuations(game)
+  game = fixture === 'bond-credit-sale' ? { ...game, phase: 'rebalancing', eventId: null }
+    : decide({ ...game, phase: 'event', position: 3, eventId: 'living', portfolio: { ...game.portfolio, cash: 2e6 } }, 'pay')
 }
 const session = createMobileSession(game)
 Object.assign(window, { mobileHarness: { getState: session.getSnapshot, preference: currentCustomerPreference(game) } })
