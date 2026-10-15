@@ -6,6 +6,7 @@ import { syncValuations, updateNormalMarket } from './market.ts'
 import { businessIncome } from './business.ts'
 import { ECONOMY } from '../data/config.ts'
 import type { Asset, GameState } from './types.ts'
+import { hasBondCredit, settleCreditBonds } from './bond-credit.ts'
 
 export function beginSettlement(state: GameState): GameState {
   if (state.termination || state.settlement || state.summaries.some(summary => summary.lap === state.lap)) return state
@@ -45,7 +46,8 @@ export function continueSettlement(state: GameState): GameState {
         lot.status = 'matured'; s.portfolio.cash += lot.principal + lot.earnedInterest
         s.settlement!.lines.push({ label: `Đáo hạn ${lot.id} (gốc + lãi)`, amount: lot.principal + lot.earnedInterest })
       }
-      for (const lot of s.bondLots) {
+      if (hasBondCredit(s)) s.settlement!.lines.push(...settleCreditBonds(s))
+      else for (const lot of s.bondLots) {
         if (lot.status !== 'active') continue
         if (lot.lastCouponLap < s.lap) {
           const coupon = Math.round(lot.principal * ECONOMY.bond.coupon)

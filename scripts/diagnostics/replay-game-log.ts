@@ -4,13 +4,16 @@ import { createSavingsProfile } from '../../src/game/savings.ts'
 import { businessRulesForGame } from '../../src/game/business.ts'
 import { encounterRulesForGame } from '../../src/game/encounters.ts'
 import { stockCatalog } from '../../src/data/stock-catalog.ts'
-import type { StockCatalogVersion } from '../../src/game/types.ts'
+import type { BondRulesVersion, StockCatalogVersion } from '../../src/game/types.ts'
+import { bondRulesForGame } from '../../src/game/bond-credit.ts'
 import type { Asset, BusinessRulesVersion, CustomerPreferenceId, EncounterRulesVersion, FundingSource, GameState, LogEntry, RebalanceAction, SavingsProfile, Term } from '../../src/game/types.ts'
 
-export interface ReplayLog { schemaVersion: number; seed: string; stockCatalogVersion?: StockCatalogVersion; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
+export interface ReplayLog { schemaVersion: number; seed: string; bondRulesVersion?: BondRulesVersion; stockCatalogVersion?: StockCatalogVersion; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
 export function replayGameLog(data: ReplayLog): GameState {
   assert.ok(data.schemaVersion === 4 || data.schemaVersion === 5, 'Only V2.1/schema4 and V2.2/schema5 are supported')
   const historical = data.schemaVersion === 4
+  assert.equal(data.bondRulesVersion, data.state.bondRulesVersion, 'Bond rules metadata must agree')
+  bondRulesForGame(data.state)
   if (data.customerPreferenceId) assert.equal(data.state.customerPreferenceId, data.customerPreferenceId, 'Customer preference metadata must agree')
   const legacyEncounters = data.encounterRulesVersion === undefined && data.state.encounterRulesVersion === undefined
   const encounterRulesVersion = encounterRulesForGame({ encounterRulesVersion: data.encounterRulesVersion ?? data.state.encounterRulesVersion })
@@ -29,7 +32,7 @@ export function replayGameLog(data: ReplayLog): GameState {
   assert.equal(data.stockCatalogVersion, data.state.market.catalogVersion, 'Catalog metadata must agree')
   assert.equal(catalogVersion, data.state.market.catalogVersion, 'Catalog cannot change during a game')
   const term = initial.deposits[0] ? initial.deposits[0].maturityLap - initial.deposits[0].startLap + 1 : 1
-  let s = createGame(data.seed, initial.portfolio.savings, term as Term, data.state.gameMode, profile.id, businessRulesVersion, encounterRulesVersion, catalogVersion)
+  let s = createGame(data.seed, initial.portfolio.savings, term as Term, data.state.gameMode, profile.id, businessRulesVersion, encounterRulesVersion, catalogVersion, data.bondRulesVersion)
   for (const entry of data.entries) {
     if (!['roll', 'decision', 'rebalancing', 'funding'].includes(entry.kind)) continue
     for (let i = 0; i < 4 && (s.phase !== entry.before.phase || s.lap !== entry.before.lap); i++) s = advance(s)
@@ -39,8 +42,13 @@ export function replayGameLog(data: ReplayLog): GameState {
     else if (entry.kind === 'funding') {
       const source = entry.decisionId!.slice(5) as FundingSource
       const lot = entry.before.deposits.find(lot => lot.status === 'active' && entry.after.deposits.find(after => after.id === lot.id)?.status === 'withdrawn')
-      s = fundPayment(s, source, source === 'debt' ? entry.after.portfolio.debt - entry.before.portfolio.debt : source === 'savings' ? lot!.principal : entry.forcedAssetSaleAmount, lot?.id)
+      s = fundPayment(s, source, source === 'debt' ? entry.after.portfolio.debt - entry.before.portfolio.debt : source === 'savings' ? lot!.principal : entry.forcedAssetSaleAmount, source === 'bonds' ? entry.fundingLotId : lot?.id)
     } else {
+      if (data.bondRulesVersion === 'v2.5-credit-risk') {
+        assert.ok(entry.action, `V2.5 action metadata required at ${entry.sequence}`)
+        s = transact(s, entry.action)
+        continue
+      }
       const [kind, asset, completion] = entry.decisionId!.split('-')
       const after = entry.after; const before = entry.before
       const action: RebalanceAction = { kind: kind as RebalanceAction['kind'], asset: asset === 'bank' ? undefined : asset as Asset,

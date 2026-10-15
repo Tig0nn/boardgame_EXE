@@ -8,6 +8,7 @@ import { CUSTOMER_PREFERENCES } from '../data/customer-preferences.ts'
 import { currentCustomerPreference } from './customer-preferences.ts'
 import { businessPurchaseCompletes, encounterActionUsed, investmentPurchaseUsed, investmentPurchasesComplete, singleActionEncounters } from './encounters.ts'
 import { money } from './format.ts'
+import { createCreditBondLot, hasBondCredit, sellCreditBond } from './bond-credit.ts'
 import { savingsProfileForGame } from './savings.ts'
 import type { FundingSource, GameState, PendingPayment, RebalanceAction, Term, TradableAsset } from './types.ts'
 
@@ -54,8 +55,13 @@ function redeemDeposit(s: GameState, lotId: string | undefined, amount: number) 
   syncValuations(s)
   return lost
 }
-function sellAsset(s: GameState, asset: TradableAsset, amount: number, symbolId?: string) {
+function sellAsset(s: GameState, asset: TradableAsset, amount: number, symbolId?: string, lotId?: string) {
   validateAmount(amount, s.portfolio[asset])
+  if (asset === 'bonds' && hasBondCredit(s)) {
+    const quote = sellCreditBond(s, lotId, amount)
+    s.portfolio.cash += quote.net; syncValuations(s)
+    return quote
+  }
   const quote = saleQuote(s, asset, amount)
   if (asset === 'stocks') {
     const targets = symbolId ? s.market.stocks.filter(stock => stock.id === symbolId) : s.market.stocks
@@ -92,7 +98,7 @@ export function fundSource(state: GameState, source: FundingSource, amount: numb
     validateAmount(amount, Math.min(payment.remaining, borrowingAvailable(s)))
     s.portfolio.debt += amount; s.portfolio.cash += amount
   } else {
-    const quote = sellAsset(s, source, amount); net = quote.net; fee = quote.fee + quote.spread
+    const quote = sellAsset(s, source, amount, undefined, lotId); net = quote.net; fee = quote.fee + quote.spread
   }
   const used = Math.min(payment.remaining, s.portfolio.cash)
   s.portfolio.cash -= used; payment.remaining -= used; s.pendingCost = payment.remaining
@@ -101,6 +107,7 @@ export function fundSource(state: GameState, source: FundingSource, amount: numb
   if (s.settlement) s.settlement.fundingNotes.push(consequence)
   return resolveInsolvency(record(s, snapshot(state), { kind: 'funding', title: payment.title, eventId: payment.eventId,
     decisionId: `fund-${source}`, decision: label, consequence,
+    ...(source === 'bonds' && hasBondCredit(s) ? { fundingLotId: lotId } : {}),
     forcedWithdrawalAmount: source === 'savings' ? amount : 0, lostSavingsInterest: lostInterest,
     forcedAssetSaleAmount: ['stocks', 'bonds', 'gold'].includes(source) ? amount : 0,
     assetSaleAmounts: { stocks: source === 'stocks' ? amount : 0, bonds: source === 'bonds' ? amount : 0, gold: source === 'gold' ? amount : 0 },
@@ -138,7 +145,8 @@ export function transact(state: GameState, action: RebalanceAction): GameState {
     } else if (asset === 'gold') {
       s.goldUnits += amount / s.market.gold.currentPrice; s.goldCostBasis += amount
     } else if (asset === 'bonds') {
-      s.bondLots.push({ id: `bond-${s.bondLots.length + 1}`, units: amount / s.market.bond.currentPrice,
+      if (hasBondCredit(s)) s.bondLots.push(createCreditBondLot(s, action.issuerId, amount))
+      else s.bondLots.push({ id: `bond-${s.bondLots.length + 1}`, units: amount / s.market.bond.currentPrice,
         principal: amount / s.market.bond.currentPrice * ECONOMY.bond.facePrice, startLap: s.lap,
         maturityLap: s.lap + ECONOMY.bond.term - 1, lastCouponLap: s.lap - 1, status: 'active' })
     } else if (asset === 'business') {
@@ -157,7 +165,7 @@ export function transact(state: GameState, action: RebalanceAction): GameState {
       s.businessPurchaseTurn = null
     } else {
       if (!checkpoint || !asset || !['stocks', 'bonds', 'gold'].includes(asset)) throw new Error('Chỉ bán tài sản tài chính tại START hoặc khi thiếu tiền bắt buộc.')
-      const quote = sellAsset(s, asset, amount, symbolId); net = quote.net; fee = quote.fee + quote.spread; label = `Bán ${ASSETS[asset].label.toLowerCase()}`
+      const quote = sellAsset(s, asset, amount, symbolId, action.lotId); net = quote.net; fee = quote.fee + quote.spread; label = `Bán ${ASSETS[asset].label.toLowerCase()}`
     }
   } else if (kind === 'upgrade') {
     if (encounterActionUsed(s, 'upgrade')) throw new Error('Mỗi lần gặp ô Kinh doanh chỉ được nâng cấp một lần. Hãy quay lại ở lượt sau.')
@@ -184,6 +192,7 @@ export function transact(state: GameState, action: RebalanceAction): GameState {
   if (completeEncounter || (kind === 'deposit' && singleActionEncounters(s)) ||
     (kind === 'buy' && asset === 'business' && businessPurchaseCompletes(s))) { s.phase = 'rolling'; s.eventId = null }
   return record(s, snapshot(state), { kind: 'rebalancing', title: label, decisionId: `${kind}-${asset ?? tile}${completeEncounter ? '-complete' : ''}`,
+    ...(hasBondCredit(s) ? { action: { ...action } } : {}),
     decision: `${label}: ${money(amount)}`, consequence: `${label}. Nhận ${money(net)}, phí/spread ${money(fee)}, mất lãi ${money(lost)}.${kind === 'deposit' && s.deposits.at(-1)!.maturityLap > s.totalLaps ? ' Khoản này chưa đáo hạn trong màn; chỉ rút sớm hợp lệ khi thiếu tiền hoặc xét mục tiêu cuối màn.' : ''}`,
     debtInterestPaid: interest, cashProceeds: net, lostSavingsInterest: lost,
     assetSaleAmounts: { stocks: kind === 'sell' && asset === 'stocks' ? amount : 0, bonds: kind === 'sell' && asset === 'bonds' ? amount : 0, gold: kind === 'sell' && asset === 'gold' ? amount : 0 } })

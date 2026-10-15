@@ -11,6 +11,8 @@ import { createSavingsProfile, savingsProfileForMode } from './savings.ts'
 import { businessRulesForGame } from './business.ts'
 import { encounterRulesForGame } from './encounters.ts'
 import { customerPreferenceForLap } from './customer-preferences.ts'
+import { bondRulesForGame, initializeBondCredit } from './bond-credit.ts'
+import type { BondRulesVersion } from './types.ts'
 import type { BusinessRulesVersion, EncounterRulesVersion, FundingSource, GameModeId, GameState, Option, Term, SavingsProfileId, StockCatalogVersion } from './types.ts'
 export { snapshot } from './state.ts'
 export { netWorth, totalWorth, victory } from './selectors.ts'
@@ -27,10 +29,13 @@ function forecast(s: GameState): GameState {
   }
   return next
 }
-export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId, replayProfile?: SavingsProfileId, businessRulesVersion: BusinessRulesVersion = 'v2.4-customer-preferences', encounterRulesVersion: EncounterRulesVersion = 'v2.4-business-purchase-complete', stockCatalogVersion?: StockCatalogVersion): GameState {
+export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId, replayProfile?: SavingsProfileId, businessRulesVersion: BusinessRulesVersion = 'v2.4-customer-preferences', encounterRulesVersion: EncounterRulesVersion = 'v2.4-business-purchase-complete', stockCatalogVersion?: StockCatalogVersion, bondRulesVersion?: BondRulesVersion): GameState {
   if (!Number.isFinite(savings) || !Number.isInteger(savings) || savings < 0 || savings > RULES.startingCapital) throw new Error('Phân bổ tiết kiệm không hợp lệ.')
   const selected = gameMode(mode ?? 'original')
+  bondRulesForGame({ bondRulesVersion })
   const state: GameState = {
+    ...(bondRulesVersion ? { bondRulesVersion } : {}),
+    ...(bondRulesVersion === 'v2.5-credit-risk' ? { bondCredit: initializeBondCredit(seed.trim() || 'xoay-vong') } : {}),
     encounterRulesVersion: encounterRulesForGame({ encounterRulesVersion }),
     businessRulesVersion: businessRulesForGame({ businessRulesVersion }),
     ...(businessRulesVersion === 'v2.4-customer-preferences' ? { customerPreferenceId: customerPreferenceForLap(seed.trim() || 'xoay-vong', 1) } : {}),

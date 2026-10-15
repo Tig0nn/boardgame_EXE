@@ -5,6 +5,7 @@ import { liquidatableFunds, victory } from './selectors.ts'
 import { savingsProfileForGame } from './savings.ts'
 import { businessRulesForGame } from './business.ts'
 import { encounterRulesForGame } from './encounters.ts'
+import { BOND_ISSUERS } from '../data/bond-issuers.ts'
 
 export function serializeLog(game: GameState): string {
   const actions = game.log.filter(entry=>entry.kind==='rebalancing')
@@ -19,6 +20,8 @@ export function serializeLog(game: GameState): string {
   const entries = game.log.map(entry => ({ ...entry, before: withProfile(entry.before), after: withProfile(entry.after) }))
   const settlement = game.settlement ? { ...game.settlement, before: withProfile(game.settlement.before) } : null
   return JSON.stringify({ schemaVersion: 5, seed: game.seed, rulesVersion: businessRulesVersion === 'v2.4-customer-preferences' ? 'gameplay-v2.4-customer-preferences' : businessRulesVersion === 'v2.3-fixed-income' ? 'gameplay-v2.3-fixed-income' : 'gameplay-v2.2-savings-2026-10-11', savingsProfile, businessRulesVersion, encounterRulesVersion,
+    ...(game.bondRulesVersion ? { bondRulesVersion: game.bondRulesVersion } : {}),
+    ...(game.bondRulesVersion === 'v2.5-credit-risk' ? { bondCreditConfig: BOND_ISSUERS } : {}),
     ...(game.customerPreferenceId ? { customerPreferenceId: game.customerPreferenceId } : {}),
     ...(game.market.catalogVersion ? { stockCatalogVersion: game.market.catalogVersion } : {}),
     mode:{id:game.gameMode,boardLayout:game.boardLayout,totalLaps:game.totalLaps},

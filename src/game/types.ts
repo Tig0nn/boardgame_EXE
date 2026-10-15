@@ -11,6 +11,24 @@ export type SavingsProfileId = 'v2.1-standard' | 'v2.2-c20'
 export type StockCatalogVersion = 'fictional-v1' | 'vn-v1'
 export type BusinessRulesVersion = 'v2.2-trend-shock' | 'v2.3-fixed-income' | 'v2.4-customer-preferences'
 export type CustomerPreferenceId = 'checkin' | 'budget' | 'taste'
+export type BondRulesVersion = 'v2.4-single-issuer' | 'v2.5-credit-risk'
+export type BondIssuerId = 'an-tam' | 'but-pha'
+export type CreditStatus = 'performing' | 'delayed' | 'defaulted' | 'resolved'
+export interface BondIssuerState extends MarketInstrument {
+  id: BondIssuerId; status: CreditStatus; rating: string; stress: number; jitter: number
+  defaultLap: number | null; events: Array<{ lap: number; turn: number; from: CreditStatus; to: CreditStatus; rating: string; stress: number }>
+}
+export interface BondCreditMarket { rng: number; processedLaps: number[]; issuers: BondIssuerState[] }
+export interface BondPayment {
+  lap: number; couponDue: number; couponPaid: number; principalDue: number; principalPaid: number
+  couponLost: number; principalLost: number; status: CreditStatus
+}
+export interface BondContract {
+  issuerId: BondIssuerId; purchasePrice: number; costBasis: number; originalFace: number; couponRate: number
+  paymentStatus: CreditStatus; outstandingCoupon: number; outstandingPrincipal: number
+  principalPaid: number; principalLost: number; couponLost: number; soldPrincipal: number; transferredCoupon: number
+  lastProcessedLap: number; history: BondPayment[]; purchaseWarning: string
+}
 export type EncounterRulesVersion = 'legacy-multi-action' | 'v2.3-single-action' | 'v2.4-business-purchase-complete' | 'v2.4-atomic-investments'
 export interface SavingsProfile { id: SavingsProfileId; rates: Record<Term, number> }
 export interface DepositLot {
@@ -33,6 +51,7 @@ export interface Holding { units: number; costBasis: number }
 export interface BondLot {
   id: string; units: number; principal: number; startLap: number; maturityLap: number
   lastCouponLap: number; status: 'active' | 'matured' | 'sold'
+  credit?: BondContract
 }
 export interface BusinessState { capital: number; recoverableCapital: number; upgrades: Record<string, number>; economicMultiplier: number }
 export type Portfolio = Record<Asset | 'cash' | 'savings' | 'debt', number>
@@ -44,6 +63,9 @@ export interface GameEvent {
   id: string; category: Category; title: string; description: string; options: Option[]
 }
 export interface Snapshot {
+  // Absence always preserves the single-issuer historical mechanics.
+  bondRulesVersion?: BondRulesVersion
+  bondCredit?: BondCreditMarket
   // Missing in historical logs, including V2.3 games before encounter limits.
   encounterRulesVersion?: EncounterRulesVersion
   // Missing metadata retains the V2.1/V2.2 income formula.
@@ -70,6 +92,8 @@ export interface FinancialEffects {
   cashProceeds: number; expensePaid: number; debtInterestPaid: number; debtInterestAccrued: number
 }
 export interface LogEntry extends FinancialEffects {
+  action?: RebalanceAction
+  fundingLotId?: string
   sequence: number; kind: 'setup' | 'roll' | 'encounter' | 'decision' | 'event_resolution' | 'funding' | 'rebalancing' | 'settlement' | 'market' | 'schedule' | 'insolvency'
   lap: number; turn: number; tileId: number; category?: Category
   eventId?: string; decisionId?: string; title: string; decision: string; consequence: string
@@ -92,6 +116,7 @@ export interface SettlementProgress {
 export interface RebalanceAction {
   kind: 'deposit' | 'withdraw' | 'buy' | 'sell' | 'repay' | 'upgrade'; amount: number; asset?: Asset
   symbolId?: string; lotId?: string; term?: Term; trend?: string
+  issuerId?: BondIssuerId
   customerPreferenceId?: CustomerPreferenceId
   /** Stock-only for historical policies; new atomic-investments policy completes all financial buys even when omitted. */
   completeEncounter?: boolean

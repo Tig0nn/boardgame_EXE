@@ -5,6 +5,8 @@ import { savingsProfileForGame } from './savings.ts'
 
 export function snapshot(s: GameState): Snapshot {
   return { gameMode:s.gameMode, boardLayout:s.boardLayout, totalLaps:s.totalLaps, businessPurchaseTurn:s.businessPurchaseTurn,
+    ...(s.bondRulesVersion ? { bondRulesVersion: s.bondRulesVersion } : {}),
+    ...(s.bondCredit ? { bondCredit: structuredClone(s.bondCredit) } : {}),
     ...(s.encounterRulesVersion ? { encounterRulesVersion: s.encounterRulesVersion } : {}),
     ...(s.businessRulesVersion ? { businessRulesVersion: s.businessRulesVersion } : {}),
     ...(s.customerPreferenceId ? { customerPreferenceId: s.customerPreferenceId } : {}),
@@ -16,7 +18,7 @@ export function snapshot(s: GameState): Snapshot {
     pendingCost: s.pendingPayment?.remaining ?? 0,
     deposits: s.deposits.map(lot => ({ ...lot })), market: s.market,
     stockHoldings: Object.fromEntries(Object.entries(s.stockHoldings).map(([id, holding]) => [id, { ...holding }])),
-    goldUnits: s.goldUnits, goldCostBasis: s.goldCostBasis, bondLots: s.bondLots.map(lot => ({ ...lot })),
+    goldUnits: s.goldUnits, goldCostBasis: s.goldCostBasis, bondLots: s.bondLots.map(lot => ({ ...lot, ...(lot.credit ? { credit: structuredClone(lot.credit) } : {}) })),
     business: { ...s.business, upgrades: { ...s.business.upgrades } }, coursePurchased: s.coursePurchased,
     borrowingLimit: s.borrowingLimit, termination: s.termination }
 }
@@ -48,10 +50,11 @@ export function record(s: GameState, before: Snapshot, entry: Entry): GameState 
 
 export function copyState(s: GameState): GameState {
   return { ...s, portfolio: { ...s.portfolio }, unlockedAssets: [...s.unlockedAssets],
+    ...(s.bondCredit ? { bondCredit: structuredClone(s.bondCredit) } : {}),
     ...(s.savingsProfile ? { savingsProfile: savingsProfileForGame(s) } : {}),
     deposits: s.deposits.map(lot => ({ ...lot })),
     stockHoldings: Object.fromEntries(Object.entries(s.stockHoldings).map(([id, holding]) => [id, { ...holding }])),
-    bondLots: s.bondLots.map(lot => ({ ...lot })), business: { ...s.business, upgrades: { ...s.business.upgrades } },
+    bondLots: s.bondLots.map(lot => ({ ...lot, ...(lot.credit ? { credit: structuredClone(lot.credit) } : {}) })), business: { ...s.business, upgrades: { ...s.business.upgrades } },
     market: { ...s.market, stocks: s.market.stocks.map(stock => ({ ...stock })), gold: { ...s.market.gold }, bond: { ...s.market.bond } },
     pendingPayment: s.pendingPayment ? { ...s.pendingPayment } : null,
     settlement: s.settlement ? { ...s.settlement, lines: [...s.settlement.lines],
