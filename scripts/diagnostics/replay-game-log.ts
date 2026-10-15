@@ -48,7 +48,7 @@ export function replayGameLog(data: ReplayLog): GameState {
       if (kind === 'deposit') action.term = (after.deposits.at(-1)!.maturityLap - after.lap + 1) as Term
       if (kind === 'buy' && asset === 'stocks') action.symbolId = Object.keys(after.stockHoldings).find(id => after.stockHoldings[id].units > (before.stockHoldings[id]?.units ?? 0))
       if (completion === 'complete') {
-        assert.equal(entry.decisionId, 'buy-stocks-complete', 'Only stock purchases support atomic completion')
+        assert.ok(kind === 'buy' && ['stocks', 'gold', 'bonds'].includes(asset) && entry.decisionId === `buy-${asset}-complete`, 'Only financial asset purchases support atomic completion')
         action.completeEncounter = true
       }
       if (kind === 'upgrade') {

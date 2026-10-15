@@ -30,7 +30,7 @@ export function serializeLog(game: GameState): string {
       lockedBusinessCapital:game.business.capital,lockedBusinessQuote:game.portfolio.business,
       courseInvestment:game.coursePurchased ? RULES.courseCost : 0,macroEvents:game.market.appliedShocks,
       savingsDeposits:game.deposits,savingsWithdrawals:funding.filter(entry=>entry.decisionId==='fund-savings').length,
-      financialPurchases:Object.fromEntries(['stocks','bonds','gold'].map(asset=>[asset,count(`buy-${asset}`)+(asset==='stocks'?count('buy-stocks-complete'):0)])),
+      financialPurchases:Object.fromEntries(['stocks','bonds','gold'].map(asset=>[asset,count(`buy-${asset}`)+count(`buy-${asset}-complete`)])),
       financialSales:Object.fromEntries(['stocks','bonds','gold'].map(asset=>[asset,count(`sell-${asset}`)+funding.filter(entry=>entry.decisionId===`fund-${asset}`).length])),
       fundingDecisions:funding.length},
     finalResult:{status:game.phase!=='finished'?'in-progress':game.termination==='insolvent'?'insolvent':result.won?'victory':'defeat',
