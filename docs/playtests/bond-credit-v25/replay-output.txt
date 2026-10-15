@@ -1,4 +1,4 @@
-(node:13124) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(node:23360) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 ┌─────────┬───────────────────────────────────────┬───────────────┬────────────────────────────────────────────────────────────────────┬─────────────────┬─────────────────┬───────┬─────────┬────────────────┬───────┬──────────────┬─────────────────┬──────────┬───────────┐
 │ (index) │ file                                  │ seed          │ sha256                                                             │ fullStateReplay │ coachFactsValid │ rolls │ entries │ lawfulProceeds │ won   │ couponDelays │ principalDelays │ losses   │ recovered │
@@ -16,4 +16,4 @@
 │ 10      │ 'simulation-principal-delay.json.gz'  │ 'BOND-V25-0'  │ '8f9fb46e0df3b5cae5dcf140c53e0c4f9a9f9b56545207a2d2ffbe8b9d58fb54' │ true            │ true            │ 22    │ 92      │ 95957458       │ true  │ 4            │ 2               │ 0        │ 0         │
 │ 11      │ 'simulation-victory.json.gz'          │ 'BOND-V25-0'  │ '8f9fb46e0df3b5cae5dcf140c53e0c4f9a9f9b56545207a2d2ffbe8b9d58fb54' │ true            │ true            │ 22    │ 92      │ 95957458       │ true  │ 4            │ 2               │ 0        │ 0         │
 └─────────┴───────────────────────────────────────┴───────────────┴────────────────────────────────────────────────────────────────────┴─────────────────┴─────────────────┴───────┴─────────┴────────────────┴───────┴──────────────┴─────────────────┴──────────┴───────────┘
-PASS: 12000 balance rows, 12 V2.5 full-state replays, 4 historical replays
+PASS: 12000 balance rows, 12 V2.5 full-state replays, 13 historical replays

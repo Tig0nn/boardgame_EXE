@@ -38,13 +38,13 @@ AI facts lấy từ engine, evidence `bond-credit`/`bond-choice`: issuer và war
 | Web production build | PASS — [log](playtests/bond-credit-v25/web-build.txt) |
 | Mobile production build | PASS — [log](playtests/bond-credit-v25/mobile-build.txt) |
 | Documentation checker mặc định | PASS — [log](playtests/bond-credit-v25/documentation-check.txt) |
-| Balance/replay verifier | PASS:12.000 rows,12 V2.5 replay cases,4 historical — [log](playtests/bond-credit-v25/replay-output.txt), [JSON/SHA256](playtests/bond-credit-v25/replay-verification.json) |
+| Balance/replay verifier | PASS:12.000 rows,12 V2.5 replay cases,13 historical — [log](playtests/bond-credit-v25/replay-output.txt), [JSON/SHA256](playtests/bond-credit-v25/replay-verification.json) |
 | Browser/fixture console |0 errors — [log](playtests/bond-credit-v25/browser-console.json) |
 | Responsive |320×640/390×844/430×932;93 JPG dimensions verified, no horizontal overflow — [dimensions](playtests/bond-credit-v25/screenshot-dimensions.json) |
 
 Mobile clean install ban đầu gặp native rolldown binding bị preview Atomic cũ khóa; đã xác minh/dừng riêng preview PID35084 rồi npm ci thành công. Không đổi dependencies/lockfiles hoặc sửa lại dependency fixes cũ. [TDD red checkpoint](playtests/bond-credit-v25/presentation-red.txt) là output trước khi bật factory/evidence mới, không phải kết quả cuối.
 
-[Product regressions](../tests/bond-credit.test.ts) và [presentation tests](../tests/bond-credit-presentation.test.ts) bao phủ A/B, atomic/invalid/reopen, price/RNG isolation, coupons/delays/default/recovery, partial sales, mandatory combinations, terminal liquidity, settlement pause/duplicate prevention, no future leaks và AI constraints.200 fractional sale cases kiểm face/coupon conservation;12.000 ván kiểm final invariants. [UI diagnostics](../scripts/diagnostics/bond-credit-ui.test.ts) dùng real React SSR. Replay kiểm version/config catalog frozen, từng before-action và complete state; metadata khai sai coupon bị reject. Saved V2.3/Economic News, V2.4 multi-purchase fixture và Atomic browser game đều replay exact; các suite V2.1/V2.2 hiện có vẫn PASS.
+[Product regressions](../tests/bond-credit.test.ts) và [presentation tests](../tests/bond-credit-presentation.test.ts) bao phủ A/B, atomic/invalid/reopen, price/RNG isolation, coupons/delays/default/recovery, partial sales, mandatory combinations, terminal liquidity, settlement pause/duplicate prevention, no future leaks và AI constraints.200 fractional sale cases kiểm face/coupon conservation;12.000 ván kiểm final invariants. [UI diagnostics](../scripts/diagnostics/bond-credit-ui.test.ts) dùng real React SSR. Replay kiểm version/config catalog frozen, từng before-action và complete state; metadata khai sai coupon bị reject. Verifier đọc toàn bộ12 archived gzip game logs hiện có ngoài V2.5 và fixture multi-purchase trước thay đổi: **13 historical replay PASS**, gồm Business Customer Preferences V2.4, Business V2.3, GD/Web, transaction UX, Mobile MVP/onboarding/final/integration, Economic News, encounter V2.3 và Atomic. Các suite V2.1/V2.2 hiện có vẫn PASS; không sửa các file lịch sử.
 
 ## Năm ván Mobile production qua UI
 
@@ -83,7 +83,7 @@ Toàn bộ93 ảnh trong dimensions manifest:84 production/tutorial và9 fixture
 
 [Danh sách đầy đủ files thay đổi](playtests/bond-credit-v25/changed-files.txt) gồm engine/catalog/types/replay, shared financial UI, Mobile news/tutorial/result/session/fixtures, AI facts/types/schema, tests/research version pin, runner/verifier, docs và evidence mới. Không sửa approved non-Bond config, C20, Business/savings engine, stock/gold formulas, artwork/GLB/dice/audio/animation, AI provider handler, package/lockfiles, Vercel/CI settings hoặc evidence lịch sử.
 
-Commits: design trước engine `ed3be4d`; engine/version/settlement/replay `e396ba7`; UI/AI `7e94728`; regressions/replay config `92693ba`; chuẩn hóa EOL riêng `ad6e948`; balance `1c1197b`. Commit docs/browser delivery tách sau cùng; SHA cuối và trạng thái push ghi trong handoff của chat, tránh tự tham chiếu hash của chính report. EOL correction giữ nguyên code/kết quả và không viết lại lịch sử. Không merge hoặc deploy.
+Commits: design trước engine `ed3be4d`; engine/version/settlement/replay `e396ba7`; UI/AI `7e94728`; regressions/replay config `92693ba`; chuẩn hóa EOL riêng `ad6e948`; balance `1c1197b`; docs/browser `46f07dd`. Follow-up kiểm toàn bộ13 archived logs tách sau cùng; SHA cuối và trạng thái push ghi trong handoff của chat, tránh tự tham chiếu hash của chính report. EOL correction giữ nguyên code/kết quả và không viết lại lịch sử. Không merge hoặc deploy.
 
 Chạy app từ root: `npm ci`, `npm ci --prefix mobile_app`, `npm run dev --prefix mobile_app`, mở `http://localhost:5174/`. Recheck artifact: `node --experimental-strip-types scripts/verify-bond-credit.ts`. Không cần rerun12.000 hoặc180.000 ván chỉ để replay.
 

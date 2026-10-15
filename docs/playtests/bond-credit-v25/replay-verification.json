@@ -186,13 +186,8 @@
   ],
   "historical": [
     {
-      "file": "encounter-limits-v2_3/browser-game-log.json.gz",
-      "sha256": "dd1e4e353cf6c82d7fab2a2838590f2498efd7645c69bb707e5457c5779ca336",
-      "fullStateReplay": true
-    },
-    {
-      "file": "economic-news-v1/browser-game-log.json.gz",
-      "sha256": "7feb4de915dcee387f656f5b33bf5cdb6a887754a457a4fd62f4affc05bb181e",
+      "file": "atomic-investments-v24/browser-game-log.json.gz",
+      "sha256": "1a6ea906c28908fcf1053aefa088f81236f608d1985a40bdfbf4920c854a85ab",
       "fullStateReplay": true
     },
     {
@@ -201,8 +196,58 @@
       "fullStateReplay": true
     },
     {
-      "file": "atomic-investments-v24/browser-game-log.json.gz",
-      "sha256": "1a6ea906c28908fcf1053aefa088f81236f608d1985a40bdfbf4920c854a85ab",
+      "file": "business-v2_3/browser-game-log.json.gz",
+      "sha256": "d2f09deb3e9e4505428a655314a979dd90a767dd6bf65ad42695496172a7a25e",
+      "fullStateReplay": true
+    },
+    {
+      "file": "business-v2_4/preferences/browser-game-log.json.gz",
+      "sha256": "ab95d60235e0a8987afdc0cd324c5dc4085229e38d0c2f87b938b19c9c36b6d4",
+      "fullStateReplay": true
+    },
+    {
+      "file": "economic-news-v1/browser-game-log.json.gz",
+      "sha256": "7feb4de915dcee387f656f5b33bf5cdb6a887754a457a4fd62f4affc05bb181e",
+      "fullStateReplay": true
+    },
+    {
+      "file": "encounter-limits-v2_3/browser-game-log.json.gz",
+      "sha256": "dd1e4e353cf6c82d7fab2a2838590f2498efd7645c69bb707e5457c5779ca336",
+      "fullStateReplay": true
+    },
+    {
+      "file": "gd-artwork/bank-stock-game-log.json.gz",
+      "sha256": "f6530fdf0fdd3779d09a4dc6cc4728d541d0a897e8f51171c680a080dc9ae0d2",
+      "fullStateReplay": true
+    },
+    {
+      "file": "gd-artwork/business-v2_4-game-log.json.gz",
+      "sha256": "ab95d60235e0a8987afdc0cd324c5dc4085229e38d0c2f87b938b19c9c36b6d4",
+      "fullStateReplay": true
+    },
+    {
+      "file": "mobile-mvp/browser-game-log.json.gz",
+      "sha256": "def4500c782dd0f7cf175f396e7d7d2f3e4fa9ecaf044d740cffae56bda586fe",
+      "fullStateReplay": true
+    },
+    {
+      "file": "mobile-onboarding/browser-game-log.json.gz",
+      "sha256": "db6c259e97785c3804ab1d996c1c2110c2eecf4b922a718d825886959818a655",
+      "fullStateReplay": true
+    },
+    {
+      "file": "mobile-ui-final/browser-game-log.json.gz",
+      "sha256": "db6c259e97785c3804ab1d996c1c2110c2eecf4b922a718d825886959818a655",
+      "fullStateReplay": true
+    },
+    {
+      "file": "mobile-v2-4/browser-game-log.json.gz",
+      "sha256": "fe70f33fe5590ef41de0164d17337cc57b6398409fb4f9a9e0084dc8b0f62218",
+      "fullStateReplay": true
+    },
+    {
+      "file": "transaction-ux/browser-game-log.json.gz",
+      "sha256": "c22a776591015561c5ba5621e7b398faf04034ce2d62565e240241fe85851ef2",
       "fullStateReplay": true
     }
   ],

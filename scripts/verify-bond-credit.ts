@@ -49,8 +49,11 @@ const verified = files.map(file => {
     losses: state.bondLots.reduce((n, lot) => n + lot.credit!.principalLost + lot.credit!.couponLost, 0),
     recovered: state.bondLots.filter(lot => lot.credit!.principalLost > 0).reduce((n, lot) => n + lot.credit!.principalPaid, 0) }
 })
-const historicalFiles = ['encounter-limits-v2_3/browser-game-log.json.gz', 'economic-news-v1/browser-game-log.json.gz',
-  'atomic-investments-v24/historical-multi-purchase.json.gz', 'atomic-investments-v24/browser-game-log.json.gz']
+const historicalFiles = [...new Set([
+  ...readdirSync('docs/playtests', { recursive: true }).map(file => String(file).replaceAll('\\', '/'))
+    .filter(file => !file.startsWith('bond-credit-v25/') && /game-log\.json\.gz$/.test(file)),
+  'atomic-investments-v24/historical-multi-purchase.json.gz',
+])].sort()
 const historical = historicalFiles.map(file => {
   const raw = gunzipSync(readFileSync(`docs/playtests/${file}`)), state = replayGameLog(JSON.parse(raw.toString()))
   assert.equal(state.bondRulesVersion, undefined)
