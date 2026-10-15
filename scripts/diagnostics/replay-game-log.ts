@@ -4,15 +4,28 @@ import { createSavingsProfile } from '../../src/game/savings.ts'
 import { businessRulesForGame } from '../../src/game/business.ts'
 import { encounterRulesForGame } from '../../src/game/encounters.ts'
 import { stockCatalog } from '../../src/data/stock-catalog.ts'
-import type { BondRulesVersion, StockCatalogVersion } from '../../src/game/types.ts'
+import type { BondRulesVersion, BoardRevision, LivingExpenseRulesVersion, StockCatalogVersion } from '../../src/game/types.ts'
+import { boardFor } from '../../src/data/board.ts'
+import { hasPeriodicLiving, PERIODIC_LIVING_COST, validateLivingBoard } from '../../src/game/living-expenses.ts'
 import { bondRulesForGame } from '../../src/game/bond-credit.ts'
 import { BOND_ISSUERS } from '../../src/data/bond-issuers.ts'
 import type { Asset, BusinessRulesVersion, CustomerPreferenceId, EncounterRulesVersion, FundingSource, GameState, LogEntry, RebalanceAction, SavingsProfile, Term } from '../../src/game/types.ts'
 
-export interface ReplayLog { schemaVersion: number; seed: string; bondRulesVersion?: BondRulesVersion; bondCreditConfig?: unknown; stockCatalogVersion?: StockCatalogVersion; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
+export interface ReplayLog { schemaVersion: number; seed: string; livingExpenseRulesVersion?: LivingExpenseRulesVersion; boardRevision?: BoardRevision; livingExpenseConfig?: unknown; board?: unknown; bondRulesVersion?: BondRulesVersion; bondCreditConfig?: unknown; stockCatalogVersion?: StockCatalogVersion; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
 export function replayGameLog(data: ReplayLog): GameState {
   assert.ok(data.schemaVersion === 4 || data.schemaVersion === 5, 'Only V2.1/schema4 and V2.2/schema5 are supported')
   const historical = data.schemaVersion === 4
+  assert.equal(data.livingExpenseRulesVersion, data.state.livingExpenseRulesVersion, 'Living rules metadata must agree')
+  assert.equal(data.boardRevision, data.state.boardRevision, 'Board revision metadata must agree')
+  validateLivingBoard(data.state)
+  if (hasPeriodicLiving(data.state)) {
+    assert.deepEqual(data.livingExpenseConfig, { amount: PERIODIC_LIVING_COST, timing: 'completed-start' }, 'Living parameters must match the frozen candidate')
+    assert.deepEqual(data.board, boardFor(data.state), 'Versioned board must match candidate')
+  }
+  for (const snapshot of data.entries.flatMap(entry => [entry.before, entry.after])) {
+    assert.equal(snapshot.livingExpenseRulesVersion, data.livingExpenseRulesVersion, 'Living policy cannot change mid-game')
+    assert.equal(snapshot.boardRevision, data.boardRevision, 'Board revision cannot change mid-game')
+  }
   assert.equal(data.bondRulesVersion, data.state.bondRulesVersion, 'Bond rules metadata must agree')
   bondRulesForGame(data.state)
   if (data.bondRulesVersion === 'v2.5-credit-risk') assert.deepEqual(data.bondCreditConfig, BOND_ISSUERS, 'Bond credit parameters must match the frozen version')
@@ -34,7 +47,7 @@ export function replayGameLog(data: ReplayLog): GameState {
   assert.equal(data.stockCatalogVersion, data.state.market.catalogVersion, 'Catalog metadata must agree')
   assert.equal(catalogVersion, data.state.market.catalogVersion, 'Catalog cannot change during a game')
   const term = initial.deposits[0] ? initial.deposits[0].maturityLap - initial.deposits[0].startLap + 1 : 1
-  let s = createGame(data.seed, initial.portfolio.savings, term as Term, data.state.gameMode, profile.id, businessRulesVersion, encounterRulesVersion, catalogVersion, data.bondRulesVersion)
+  let s = createGame(data.seed, initial.portfolio.savings, term as Term, data.state.gameMode, profile.id, businessRulesVersion, encounterRulesVersion, catalogVersion, data.bondRulesVersion, data.livingExpenseRulesVersion)
   for (const entry of data.entries) {
     if (!['roll', 'decision', 'rebalancing', 'funding'].includes(entry.kind)) continue
     for (let i = 0; i < 4 && (s.phase !== entry.before.phase || s.lap !== entry.before.lap); i++) s = advance(s)

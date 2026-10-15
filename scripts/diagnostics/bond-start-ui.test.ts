@@ -20,6 +20,15 @@ test('START React UI separates received cash, claims and losses with hidden acco
       ` } }], resolve: { dedupe: ['react', 'react-dom'] }, server: { middlewareMode: true }, appType: 'custom' })
   try {
     const { render } = await server.ssrLoadModule('virtual:start-ui')
+    await t.test('periodic living is a signed outgoing row, legacy START has no periodic row', () => {
+      const candidate = beginSettlement(createMobileGame('living-ui', 0))
+      const before = serializeLog(candidate), html = render(candidate)
+      assert.match(html, /<dt>Chi phí sinh hoạt<\/dt><dd class="negative">-7\.000\.000/)
+      assert.match(html, /Tiền đã chi[\s\S]*?-7\.000\.000/)
+      assert.equal(serializeLog(candidate), before)
+      const legacy = beginSettlement(createMobileGame('legacy-living-ui', 0, 1, 'v2.5-credit-risk', 'v2.4-on-landing'))
+      assert.doesNotMatch(render(legacy), /Chi phí sinh hoạt/)
+    })
     function holding() {
       let game = createMobileGame('start-ui', 0)
       for (let turn = 1; turn <= 3; turn++) game = transact({ ...game, phase: 'event', eventId: 'bonds', position: 6, turn },

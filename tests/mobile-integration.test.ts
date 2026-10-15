@@ -22,7 +22,7 @@ function webStep(s: GameState, command: MobileCommand): GameState {
 
 for (const seed of ['mobile-parity-1', 'mobile-parity-2', 'mobile-parity-3']) {
   test(`mobile controller matches web after every decision and replays four laps: ${seed}`, () => {
-    let web = createPlayerGame(seed, 10_000_000, 2, 'experimental-b')
+    let web = createPlayerGame(seed, 10_000_000, 2, 'experimental-b', 'v2.5-credit-risk', 'v2.6-periodic-start')
     const session = createMobileSession(createMobileGame(seed, 10_000_000, 2))
     assert.deepEqual(session.getSnapshot(), web)
     assert.equal(web.boardLayout, 'C20')

@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { createMobileGame, createMobileSession } from '../mobile_app/src/game/session.ts'
+import { createMobileSession } from '../mobile_app/src/game/session.ts'
+import { createMobileGame } from './helpers/historical-living-mobile.ts'
 import { beginSettlement } from '../src/game/settlement.ts'
 import { transact, fundingSources } from '../src/game/transactions.ts'
 import { saleQuote } from '../src/game/selectors.ts'

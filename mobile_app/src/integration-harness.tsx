@@ -1,13 +1,16 @@
 // Development-only fixture page; excluded from both production entry points.
 import { createRoot } from 'react-dom/client'
 import { GameExperience } from './App'
-import { createMobileGame, createMobileSession } from './game/session'
+import { createMobileGame as createCandidateMobileGame, createMobileSession } from './game/session'
 import { decide, transact } from '../../src/game/engine'
 import { currentCustomerPreference } from '../../src/game/customer-preferences'
 import './index.css'
 import type { GameState } from '../../src/game/types'
 import { settleCreditBonds } from '../../src/game/bond-credit'
 import { syncValuations } from '../../src/game/market'
+
+const createMobileGame = (...args: Parameters<typeof createCandidateMobileGame>) => createCandidateMobileGame(args[0], args[1], args[2], args[3], 'v2.4-on-landing')
+
 
 if (!import.meta.env.DEV) throw new Error('Development fixtures are disabled in production')
 const fixture = new URLSearchParams(location.search).get('fixture')

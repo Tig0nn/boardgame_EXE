@@ -1,13 +1,16 @@
 // Explicit development-only fixtures, separate from the four-lap production game.
 import { createRoot } from 'react-dom/client'
 import { GameExperience } from './App'
-import { createMobileGame, createMobileSession } from './game/session'
+import { createMobileGame as createCandidateMobileGame, createMobileSession } from './game/session'
 import { transact } from '../../src/game/engine'
 import { applyMacroShock } from '../../src/game/market'
 import { MACRO_EVENTS } from '../../src/data/config'
 import type { GameState, LogEntry } from '../../src/game/types'
 import archivedUrl from '../../docs/playtests/economic-event-ux-v1/browser-full-game.json.gz?url'
 import './index.css'
+
+const createMobileGame = (...args: Parameters<typeof createCandidateMobileGame>) => createCandidateMobileGame(args[0], args[1], args[2], args[3], 'v2.4-on-landing')
+
 
 if (!import.meta.env.DEV) throw new Error('Economic event fixtures are disabled in production')
 const params = new URLSearchParams(location.search), id = params.get('event') ?? 'credit-tightening'

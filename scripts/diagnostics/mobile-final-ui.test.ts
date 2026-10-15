@@ -5,7 +5,7 @@ import { createServer } from '../../mobile_app/node_modules/vite/dist/node/index
 import react from '@vitejs/plugin-react'
 import { createMobileGame, createMobileSession } from '../../mobile_app/src/game/session.ts'
 import { transact } from '../../src/game/engine.ts'
-import { C20_BOARD } from '../../src/data/board.ts'
+import { C20_BOARD, PERIODIC_C20_BOARD } from '../../src/data/board.ts'
 import { liquidatableFunds } from '../../src/game/selectors.ts'
 import { money } from '../../src/game/format.ts'
 
@@ -73,10 +73,13 @@ test('Mobile final UI contracts use the official engine, board and financial pre
     await t.test('tutorial keeps six steps and rulebook displays every official C20 tile', () => {
       const html = render('Tutorial', { firstTime: true, onClose: noop })
       assert.match(html, /aria-valuemax="6"/)
-      const board = render('BoardGuide', {})
+      const board = render('BoardGuide', { game: createMobileGame('legacy-guide', 0, 1, 'v2.4-single-issuer', 'v2.4-on-landing') })
       assert.equal((board.match(/<li /g) ?? []).length, 20)
       for (const tile of C20_BOARD) assert.match(board, new RegExp(`<li value="${tile.index + 1}">[\\s\\S]*?</svg> ${tile.label}</li>`))
       assert.deepEqual(C20_BOARD.filter(tile => tile.type === 'bank').map(tile => tile.index + 1), [2, 13])
+      const candidate = render('BoardGuide', {})
+      for (const tile of PERIODIC_C20_BOARD) assert.match(candidate, new RegExp(`<li value="${tile.index + 1}">[\\s\\S]*?</svg> ${tile.label}</li>`))
+      assert.doesNotMatch(candidate, /Sinh hoạt/)
     })
     await t.test('stock completion and Bank lots remain atomic through the Mobile controller', () => {
       const stockGame = { ...base, phase: 'event' as const, eventId: 'stocks', position: 2 }

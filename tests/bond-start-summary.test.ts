@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { createMobileGame } from '../mobile_app/src/game/session.ts'
+import { createMobileGame as createCandidateMobileGame } from '../mobile_app/src/game/session.ts'
 import { buildBondStartSummary, buildStartOverview, cashTone } from '../mobile_app/src/game/start-summary.ts'
 import { transact, fundPayment } from '../src/game/engine.ts'
 import { settleCreditBonds, bondLotQuote } from '../src/game/bond-credit.ts'
@@ -8,6 +8,8 @@ import { beginSettlement } from '../src/game/settlement.ts'
 import { syncValuations } from '../src/game/market.ts'
 import { serializeLog } from '../src/game/log.ts'
 import type { BondIssuerId, GameState } from '../src/game/types.ts'
+
+const createMobileGame = (...args: Parameters<typeof createCandidateMobileGame>) => createCandidateMobileGame(args[0], args[1], args[2], args[3], 'v2.4-on-landing')
 
 function buy(game = createMobileGame('start-ux', 0), issuerId: BondIssuerId = 'an-tam', amount = 10e6) {
   return transact({ ...game, phase: 'event', eventId: 'bonds', position: 6, turn: game.turn + 1 }, { kind: 'buy', asset: 'bonds', issuerId, amount })

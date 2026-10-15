@@ -11,7 +11,7 @@ test('every player game gets fresh cryptographic entropy, including mobile resta
   assert.notEqual(createMobileGame().seed, createMobileGame().seed)
 })
 test('explicit developer seeds preserve full web/mobile deterministic state', () => {
-  const web = createPlayerGame('developer-fixed', 20_000_000, 3)
+  const web = createPlayerGame('developer-fixed', 20_000_000, 3, 'experimental-b', 'v2.5-credit-risk', 'v2.6-periodic-start')
   const mobile = createMobileGame('developer-fixed', 20_000_000, 3)
   assert.deepEqual(mobile, web)
   assert.deepEqual(roll(advance(mobile)), roll(advance(web)))

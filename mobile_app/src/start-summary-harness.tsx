@@ -1,7 +1,7 @@
 // Development-only archived START checkpoints, never included in production.
 import { createRoot } from 'react-dom/client'
 import { GameExperience } from './App'
-import { createMobileGame, createMobileSession } from './game/session'
+import { createMobileGame as createCandidateMobileGame, createMobileSession } from './game/session'
 import { beginSettlement } from '../../src/game/settlement'
 import { transact } from '../../src/game/engine'
 import type { GameState, LogEntry, LapSummary } from '../../src/game/types'
@@ -10,6 +10,9 @@ import delayedUrl from '../../docs/playtests/bond-credit-v25/browser-delayed.jso
 import defaultUrl from '../../docs/playtests/bond-credit-v25/browser-default-recovery.json.gz?url'
 import defaultBUrl from '../../docs/playtests/bond-credit-v25/browser-default-b.json.gz?url'
 import './index.css'
+
+const createMobileGame = (...args: Parameters<typeof createCandidateMobileGame>) => createCandidateMobileGame(args[0], args[1], args[2], args[3], 'v2.4-on-landing')
+
 
 if (!import.meta.env.DEV) throw new Error('Development checkpoints are disabled in production')
 const cases: Record<string, { url: string; lap: number }> = {
