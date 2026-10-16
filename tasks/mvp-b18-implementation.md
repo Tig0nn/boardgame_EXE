@@ -20,7 +20,7 @@ Owner approved candidate implementation only; no merge/deploy/production-ready c
 
 ## Slices
 
-- [ ] Versioned rules/board/events/goals/trading + boundary, settlement, historical replay tests.
-- [ ] Shared buy/sell views, single-goal desktop/mobile, course completion, setup/onboarding/rulebook, B18 rendering.
-- [ ] Save/load, deterministic production vs frozen B parity on a small fixed sample, end-to-end browser games/screenshots320/390.
-- [ ] Tests/lint/build/review/handoff with differences and remaining release risks. Commit candidate; no merge/deploy.
+- [x] Versioned rules/board/events/goals/trading + boundary, settlement, historical replay tests.
+- [x] Shared buy/sell views, single-goal desktop/mobile, course completion, setup/onboarding/rulebook, B18 rendering.
+- [x] Save/load, deterministic production vs frozen B parity on a small fixed sample, end-to-end browser games/screenshots320/390.
+- [x] Tests/lint/build/review/handoff with differences and remaining release risks. Commit candidate; no merge/deploy.

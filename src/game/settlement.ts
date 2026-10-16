@@ -1,4 +1,3 @@
-import { RULES } from '../data/config.ts'
 import { collectPayment, resolveInsolvency } from './transactions.ts'
 import { copyState, record, snapshot } from './state.ts'
 import { totalWorth } from './selectors.ts'
@@ -40,8 +39,8 @@ export function continueSettlement(state: GameState): GameState {
       }
     } else if (step === 1) {
       s.portfolio.cash += s.recurringIncome
-      s.settlement!.lines.push({ label: 'Lương cơ bản tại START', amount: RULES.recurringIncome },
-        { label: 'Tăng lương từ khóa học', amount: s.recurringIncome - RULES.recurringIncome })
+      s.settlement!.lines.push({ label: 'Lương cơ bản tại START', amount: rulesForGame(s).recurringIncome },
+        { label: 'Tăng lương từ khóa học', amount: s.recurringIncome - rulesForGame(s).recurringIncome })
     } else if (step === 2) {
       const income = businessIncome(s)
       s.settlement!.lines.push({ label: 'Dòng tiền kinh doanh', amount: income })
@@ -88,12 +87,12 @@ export function continueSettlement(state: GameState): GameState {
     if (step > 0) s = record(s, before, { kind: 'schedule', title: scheduleTitles[step],
       decision: `Bước quyết toán ${step + 1}`, consequence: 'Đã xử lý một lần; snapshot lưu toàn bộ khoản gửi, báo giá, sở hữu và nợ.',
       ...(periodic && step === 4 ? { expensePaid: livingPaid } : {}),
-      debtInterestPaid: step === debtStep ? Math.round(s.settlement!.before.portfolio.debt * RULES.debtRate) : 0 })
+      debtInterestPaid: step === debtStep ? Math.round(s.settlement!.before.portfolio.debt * rulesForGame(s).debtRate) : 0 })
     if (s.pendingPayment) return resolveInsolvency(s)
   }
   const progress = s.settlement!
   const finalBefore = snapshot(s)
-  const terminalInterest = s.lap === s.totalLaps ? Math.round(s.portfolio.debt * RULES.debtRate) : 0
+  const terminalInterest = s.lap === s.totalLaps ? Math.round(s.portfolio.debt * rulesForGame(s).debtRate) : 0
   if (terminalInterest > 0) {
     s.portfolio.debt += terminalInterest
     progress.lines.push({ label: 'Lãi khoản vay mới tại START cuối', amount: -terminalInterest })

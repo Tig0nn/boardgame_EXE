@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "source": "savings",
+      "seed": "B18-FUND-11",
+      "partialFlow": true,
+      "portfolio": {
+        "cash": 45000000,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "lostInterest": 9000000
+    },
+    {
+      "width": 390,
+      "source": "debt",
+      "seed": "B18-FUND-11",
+      "partialFlow": true,
+      "portfolio": {
+        "cash": 0,
+        "savings": 50000000,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 5000000
+      },
+      "lostInterest": 0
+    }
+  ],
+  "layout": [
+    {
+      "label": "320-funding-savings",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "390-funding-debt",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "actualUiActions": true,
+  "forcedStates": false,
+  "partialFlows": true
+}

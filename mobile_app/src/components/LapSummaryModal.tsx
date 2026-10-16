@@ -31,7 +31,7 @@ export function LapSummaryModal({ game, onContinue, onHelp }: { game: GameState;
         <p className="start-caption">Đã xử lý các khoản chi tại START.{overview.debtAfter > 0 ? ` Còn nợ ${money(overview.debtAfter)}.` : ''}</p>
       </section> : <p className="start-caption">Chưa đủ dữ liệu dòng tiền. Xem chi tiết giao dịch bên dưới.</p>}
       <BondStartCards issuers={issuers} />
-      <details><summary>Tiến độ tới90 triệu</summary><GoalChecks game={game}/></details>
+      <details><summary>Tiến độ tới 90 triệu</summary><GoalChecks game={game}/></details>
       <CompactForecastReality game={game} lap={summary.lap} />
       <BondStartDetails issuers={issuers} />
       <details className="start-details start-raw"><summary>Chi tiết giao dịch</summary>

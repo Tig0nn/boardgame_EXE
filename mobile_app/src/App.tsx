@@ -48,7 +48,12 @@ export function GameExperience({ session, onRestart, onHelp, helpOpen = false }:
   const particleId = useRef(0)
   const nextActionAt = useRef(0)
   useEffect(() => () => { generation.current++ }, [])
-  useEffect(()=>{saveGameLocally(game)},[game])
+  useEffect(()=>{
+    const timer=window.setTimeout(()=>{
+      if(!saveGameLocally(game))setNotice('Không lưu tự động được trên trình duyệt này. Hãy xuất nhật ký trong Ví để giữ ván. Khi đóng hoặc tải lại trang, các lượt chưa lưu có thể mất.')
+    },0)
+    return ()=>window.clearTimeout(timer)
+  },[game])
   useEffect(() => {
     const unlock = () => { sound.unlockAudio(); if (!sound.isMuted) sound.startBgm() }
     window.addEventListener('pointerdown', unlock, { once: true })

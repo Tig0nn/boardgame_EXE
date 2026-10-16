@@ -2,7 +2,9 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { gunzipSync } from 'node:zlib'
-import { advance, decide, roll, transact } from '../src/game/engine.ts'
+import { advance, decide, roll, transact, fundPayment } from '../src/game/engine.ts'
+import { beginSettlement } from '../src/game/settlement.ts'
+import { saleQuote } from '../src/game/selectors.ts'
 import { createCoreMvpGame } from '../src/game/new-game.ts'
 import { boardFor } from '../src/data/board.ts'
 import { rulesForGame } from '../src/game/rules-profile.ts'
@@ -72,4 +74,40 @@ test('archived C20 and older logs retain complete state and RNG',()=>{
     const d=JSON.parse(gunzipSync(readFileSync(p)).toString('utf8')),s=replayGameLog(d)
     assert.equal(s.boardLayout,'C20');assert.equal(s.gameplayProfile,undefined)
   }
+})
+test('course pays4M at the next START and gold net fee/spread is exact',()=>{
+  const learned=decide(event(createCoreMvpGame('COURSE-START',0),'course'),'upgrade')
+  const settled=beginSettlement(learned)
+  assert.equal(settled.summaries[0].incomeTotal,18e6)
+  assert.ok(settled.summaries[0].lines.some(l=>l.label==='Tăng lương từ khóa học'&&l.amount===4e6))
+  let gold=transact(event(createCoreMvpGame('GOLD-FEE',0),'gold'),{kind:'buy',asset:'gold',amount:10e6})
+  gold=event({...gold,turn:2},'gold')
+  assert.deepEqual(saleQuote(gold,'gold'),{gross:10e6,spread:300000,fee:97000,net:9603000})
+  const sold=transact(gold,{kind:'sell',asset:'gold',amount:10e6})
+  assert.equal(sold.portfolio.cash,49603000)
+})
+test('B18 retains START financial sales, Business tile-only exits and mandatory funding',()=>{
+  let s=transact(event(createCoreMvpGame('BIZ-FUND',0),'business'),{kind:'buy',asset:'business',amount:20e6})
+  assert.throws(()=>transact({...s,phase:'rebalancing'},{kind:'sell',asset:'business',amount:s.portfolio.business}))
+  s=decide({...s,phase:'event',eventId:'medical',position:3,portfolio:{...s.portfolio,cash:0}},'pay')
+  assert.equal(s.phase,'funding');assert.throws(()=>fundPayment(s,'business' as never,5e6))
+  const borrowed=fundPayment(s,'debt',5e6);assert.equal(borrowed.portfolio.debt,5e6)
+  let gold=transact(event(createCoreMvpGame('START-FIN',0),'gold'),{kind:'buy',asset:'gold',amount:10e6})
+  gold=transact({...gold,phase:'rebalancing'},{kind:'sell',asset:'gold',amount:5e6})
+  assert.equal(gold.phase,'rebalancing');assert.ok(gold.portfolio.gold>0)
+})
+test('Business, unrealized credit claims and new borrowing cannot create a fake90M win',()=>{
+  const s=finish();s.portfolio.cash=89_999_999;s.portfolio.business=100e6
+  assert.equal(victory(s).won,false)
+  assert.equal(victory({...s,portfolio:{...s.portfolio,cash:s.portfolio.cash+10e6,debt:10e6}}).won,false)
+  const credit=transact(event(createCoreMvpGame('CLAIM',0),'bonds'),{kind:'buy',asset:'bonds',issuerId:'an-tam',amount:10e6})
+  credit.bondCredit!.issuers[0].status='defaulted';credit.bondCredit!.issuers[0].currentPrice=0
+  credit.bondLots[0].credit!.outstandingCoupon=100e6;credit.bondLots[0].credit!.outstandingPrincipal=100e6
+  const claim={...s,bondCredit:credit.bondCredit,bondLots:credit.bondLots,portfolio:{...s.portfolio,bonds:10e6}}
+  assert.equal(liquidatableFunds(claim),89_999_999);assert.equal(victory(claim).won,false)
+})
+for(const id of ['medical','repair','family'])test(`B18 personal ${id} retains both payment options`,()=>{
+  const base=createCoreMvpGame('PERSONAL',0),eventData=eventsForGame(base).find(e=>e.id===id)!
+  assert.equal(eventData.options.length,2)
+  for(const option of eventData.options){const next=decide({...base,phase:'event',position:3,eventId:id},option.id);assert.equal(next.portfolio.cash,50e6-(option.cost??0));assert.equal(next.obligations,option.obligation??0);assert.equal(next.rng,base.rng)}
 })

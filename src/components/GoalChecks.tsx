@@ -1,11 +1,11 @@
-import { goalForGame } from '../game/rules-profile'
+import { goalForGame, CORE_MVP_RULES } from '../game/rules-profile'
 import { goalProgress } from '../game/selectors'
 import { money } from '../game/format'
 import type { GameState } from '../game/types'
 import { Icon } from './Icon'
 
 export function GoalChecks({ game }: { game?: GameState }) {
-  const target=game?goalForGame(game).target:90_000_000,progress=game?goalProgress(game):null
+  const target=game?goalForGame(game).target:CORE_MVP_RULES.goal,progress=game?goalProgress(game):null
   return <div className="goal-conditions" aria-label="Mục tiêu tích lũy 90 triệu">
     <div className={progress&&progress.funds>=target?'met':''}><Icon name="flag" size={16}/><span>Tích lũy đủ <strong>{money(target)}</strong> sau {game?.totalLaps??4} vòng.</span></div>
     <p>Giá trị huy động hợp lệ sau phí, nợ và nghĩa vụ. Không cần toàn bộ là tiền mặt; không tính quán chưa bán, lãi hay coupon chưa nhận. Không tự thanh lý tài sản.</p>

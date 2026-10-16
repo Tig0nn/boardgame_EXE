@@ -5,7 +5,7 @@ import type { GameplayProfile } from '../../../src/game/types.ts'
 import { isCoreMvp } from '../../../src/game/rules-profile.ts'
 
 export function livingPresentation(game?: { livingExpenseRulesVersion?: LivingExpenseRulesVersion; gameplayProfile?: GameplayProfile }) {
-  if(game===undefined||isCoreMvp(game))return {periodic:true,amount:5e6,label:'Sinh hoạt mỗi START',text:'Mỗi khi hoàn thành một vòng qua START, nhận lương rồi thanh toán5 triệu sinh hoạt.',detail:'Thu cả START vòng 4; không thu lúc bắt đầu ván. Biến cố cá nhân tại ô 4 là chi phí bất ngờ riêng. Bạn tự chọn mức dự phòng phù hợp.'}
+  if(game===undefined||isCoreMvp(game))return {periodic:true,amount:5e6,label:'Sinh hoạt mỗi START',text:'Mỗi khi hoàn thành một vòng qua START, nhận lương rồi thanh toán 5 triệu sinh hoạt.',detail:'Thu cả START vòng 4; không thu lúc bắt đầu ván. Biến cố cá nhân tại ô 4 là chi phí bất ngờ riêng. Bạn tự chọn mức dự phòng phù hợp.'}
   const periodic = game === undefined || hasPeriodicLiving(game)
   return periodic ? {
     periodic, amount: PERIODIC_LIVING_COST, label: 'Sinh hoạt mỗi START',

@@ -35,7 +35,8 @@ function forecast(s: GameState): GameState {
 export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId, replayProfile?: SavingsProfileId, businessRulesVersion: BusinessRulesVersion = 'v2.4-customer-preferences', encounterRulesVersion: EncounterRulesVersion = 'v2.4-business-purchase-complete', stockCatalogVersion?: StockCatalogVersion, bondRulesVersion?: BondRulesVersion, livingExpenseRulesVersion?: LivingExpenseRulesVersion, gameplayProfile?: GameplayProfile): GameState {
   const mvp = isCoreMvp({ gameplayProfile }), rules = rulesForGame({ gameplayProfile })
   if (mvp && (encounterRulesVersion !== 'b18-tile-trading-v1' || bondRulesVersion !== 'v2.5-credit-risk' || businessRulesVersion !== 'v2.4-customer-preferences' || stockCatalogVersion !== 'vn-v1' || livingExpenseRulesVersion !== 'b18-periodic-start-v1' || mode !== 'experimental-b' || replayProfile && replayProfile !== 'v2.2-c20')) throw new Error('Metadata tạo ván B18 không hợp lệ.')
-  if (!Number.isFinite(savings) || !Number.isInteger(savings) || savings < 0 || savings > RULES.startingCapital) throw new Error('Phân bổ tiết kiệm không hợp lệ.')
+  if (!mvp && encounterRulesVersion === 'b18-tile-trading-v1') throw new Error('Thiếu profile giao dịch B18.')
+  if (!Number.isFinite(savings) || !Number.isInteger(savings) || savings < 0 || savings > rules.startingCapital) throw new Error('Phân bổ tiết kiệm không hợp lệ.')
   const selected = gameMode(mode ?? 'original')
   bondRulesForGame({ bondRulesVersion })
   const livingMetadata = mvp ? { gameplayProfile, goalRulesVersion:'single-90m-v1' as const, livingExpenseRulesVersion, boardRevision:'b18-core-v1' as const } : { ...(livingExpenseRulesVersion ? { livingExpenseRulesVersion } : {}),
@@ -56,13 +57,13 @@ export function createGame(seed: string, savings: number, term: Term = 1, mode?:
     totalLaps:mvp ? rules.laps : mode ? selected.totalLaps : RULES.laps, businessPurchaseTurn:null,
     seed: seed.trim() || 'xoay-vong', rng: hashSeed(seed.trim() || 'xoay-vong'), lap: 1,
     position: 0, turn: 0, phase: 'forecast', scenarioId: '', dice: 0, eventId: null,
-    savingsEligible: true, savingsMatured: false, recurringIncome: RULES.recurringIncome,
+    savingsEligible: true, savingsMatured: false, recurringIncome: rules.recurringIncome,
     unlockedAssets: [], pendingCost: 0, pendingPayment: null, settlement: null,
     obligations: 0, pendingLanding: false, summaries: [], log: [],
     deposits: [], market: initializeMarket(seed.trim() || 'xoay-vong', stockCatalogVersion), stockHoldings: {}, goldUnits: 0, goldCostBasis: 0, bondLots: [],
     business: { capital: 0, recoverableCapital: 0, upgrades: {}, economicMultiplier: 1 },
-    coursePurchased: false, borrowingLimit: RULES.borrowingLimit, termination: null,
-    portfolio: { cash: RULES.startingCapital, savings: 0, stocks: 0, bonds: 0, gold: 0, business: 0, debt: 0 },
+    coursePurchased: false, borrowingLimit: rules.borrowingLimit, termination: null,
+    portfolio: { cash: rules.startingCapital, savings: 0, stocks: 0, bonds: 0, gold: 0, business: 0, debt: 0 },
   }
   const initial = snapshot(state)
   if (![1, 2, 3].includes(term)) throw new Error('Kỳ hạn không hợp lệ.')

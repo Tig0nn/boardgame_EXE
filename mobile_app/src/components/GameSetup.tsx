@@ -3,6 +3,7 @@ import { Modal } from '../../../src/components/Modal'
 import { MoneyInput } from '../../../src/components/MoneyInput'
 import { money } from '../../../src/game/format'
 import { RULES } from '../../../src/data/config'
+import { CORE_MVP_RULES } from '../../../src/game/rules-profile'
 import { savingsProfileForMode } from '../../../src/game/savings'
 import type { Term } from '../../../src/game/types'
 import { SavingsTerms } from '../../../src/components/SavingsTerms'
@@ -17,10 +18,10 @@ export function GameSetup({ onStart, onHelp, onRestore, saved }: { onStart: (see
   const valid = Number.isSafeInteger(savings) && savings >= 0 && savings <= RULES.startingCapital
   const rates = savingsProfileForMode('experimental-b').rates
   return <Modal title="Bắt đầu hành trình" onHelp={onHelp} className="game-setup">
-    <span className="section-kicker">18 Ô · 4 VÒNG · MỘT MỤC TIÊU90 TRIỆU</span>
+    <span className="section-kicker">18 Ô · 4 VÒNG · MỘT MỤC TIÊU 90 TRIỆU</span>
     <h2>Sẵn sàng dạo phố?</h2>
     {saved&&onRestore&&<button className="button secondary full-button" onClick={()=>onRestore(saved)}>Tiếp tục ván {saved.boardLayout} · Vòng {saved.lap}/{saved.totalLaps}</button>}
-    <div className="setup-goal-card"><div><small>Vốn khởi đầu</small><strong>{money(RULES.startingCapital)}</strong></div><span aria-hidden="true">→</span><div><small>Mục tiêu về đích</small><strong>{money(RULES.goal + RULES.cashGoal)}</strong></div></div>
+    <div className="setup-goal-card"><div><small>Vốn khởi đầu</small><strong>{money(RULES.startingCapital)}</strong></div><span aria-hidden="true">→</span><div><small>Mục tiêu về đích</small><strong>{money(CORE_MVP_RULES.goal)}</strong></div></div>
     <p>Tự phân bổ 50 triệu. Không bắt buộc gửi tiết kiệm, giữ một mức dự phòng hay dùng đủ các phương pháp đầu tư.</p>
     <label htmlFor="initial-savings">Bạn muốn gửi tiết kiệm bao nhiêu?</label>
     <MoneyInput id="initial-savings" amount={savings} onChange={setSavings} invalid={!valid} />
