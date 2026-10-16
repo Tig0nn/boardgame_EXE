@@ -4,16 +4,17 @@ import { encounterRulesForGame } from './encounters.ts'
 import { businessRulesForGame } from './business.ts'
 import { bondRulesForGame } from './bond-credit.ts'
 import { createSavingsProfile } from './savings.ts'
-import { isCoreMvp, goalForGame } from './rules-profile.ts'
+import { isCoreMvp, isMultiCourse, goalForGame } from './rules-profile.ts'
+import { validateCourseState } from './courses.ts'
 import { serializeLog } from './log.ts'
 import type { GameState, Snapshot } from './types.ts'
 import { stockCatalog } from '../data/stock-catalog.ts'
 import { eventsForGame } from '../data/events.ts'
 
 export const GAME_SAVE_KEY='xvtl:mobile:game:v1'
-const metadata=['gameplayProfile','goalRulesVersion','livingExpenseRulesVersion','boardRevision','encounterRulesVersion','businessRulesVersion','bondRulesVersion','boardLayout','totalLaps'] as const
+const metadata=['gameplayProfile','courseRulesVersion','goalRulesVersion','livingExpenseRulesVersion','boardRevision','encounterRulesVersion','businessRulesVersion','bondRulesVersion','boardLayout','totalLaps'] as const
 function validateSnapshot(s:Snapshot){
-  validateLivingBoard(s);goalForGame(s);encounterRulesForGame(s);businessRulesForGame(s);bondRulesForGame(s)
+  validateCourseState(s);validateLivingBoard(s);goalForGame(s);encounterRulesForGame(s);businessRulesForGame(s);bondRulesForGame(s)
   if(!['A20','C20','B18'].includes(s.boardLayout)||!['original','experimental-a','experimental-b'].includes(s.gameMode)||!['forecast','rolling','event','funding','summary','rebalancing','finished'].includes(s.phase))throw Error('Trạng thái ván không hợp lệ.')
   const board=boardFor(s)
   if(!Number.isInteger(s.position)||s.position<0||s.position>=board.length||!Number.isInteger(s.totalLaps)||s.totalLaps<1||s.totalLaps>12||!Number.isInteger(s.lap)||s.lap<1||s.lap>s.totalLaps)throw Error('Vị trí/vòng chơi không hợp lệ.')
@@ -47,11 +48,11 @@ export function restoreSavedGame(text:string):GameState{
     for(const e of data.state.log){unpack(e.before);unpack(e.after)}
     if(data.state.settlement)unpack(data.state.settlement.before)
   }
-  if(![4,5,6].includes(data?.schemaVersion)||!data.state||!Array.isArray(data.state.log)||data.state.log.length>5000)throw Error('Không hỗ trợ định dạng ván này.')
+  if(![4,5,6,7].includes(data?.schemaVersion)||!data.state||!Array.isArray(data.state.log)||data.state.log.length>5000)throw Error('Không hỗ trợ định dạng ván này.')
   const s=data.state as GameState
   validateSnapshot(s)
   if(typeof s.seed!=='string'||!s.seed.length||s.seed.length>128||!Array.isArray(s.summaries)||!Number.isInteger(s.turn)||s.turn<0)throw Error('Thiếu thông tin ván chơi.')
-  if(isCoreMvp(s)!==(data.schemaVersion===6))throw Error('Schema và profile không khớp.')
+  if(isCoreMvp(s)!==([6,7].includes(data.schemaVersion))||isMultiCourse(s)!==(data.schemaVersion===7))throw Error('Schema và profile không khớp.')
   for(const key of metadata)if(data[key]!==undefined&&data[key]!==s[key])throw Error('Metadata nhật ký và ván không khớp.')
   for(const e of s.log){validateSnapshot(e.before);validateSnapshot(e.after);for(const key of metadata)if(e.before[key]!==s[key]||e.after[key]!==s[key])throw Error('Phiên bản thay đổi giữa ván.')}
   if(s.phase==='event'&&!eventsForGame(s).some(event=>event.id===s.eventId)||s.phase==='funding'&&!(s.pendingPayment&&Number.isSafeInteger(s.pendingPayment.remaining)&&s.pendingPayment.remaining>0))throw Error('Thiếu encounter hoặc funding đang chờ.')

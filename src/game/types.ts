@@ -1,10 +1,12 @@
 export type Asset = 'stocks' | 'bonds' | 'gold' | 'business'
 export type GameModeId = 'original' | 'experimental-a' | 'experimental-b'
 export type BoardLayoutId = 'A20' | 'C20' | 'B18'
-export type GameplayProfile = 'core-mvp-b18-v1'
+export type GameplayProfile = 'core-mvp-b18-v1' | 'core-mvp-b18-multi-course-v1'
+export type CourseId = 'basic' | 'advanced'
+export type CourseRulesVersion = 'b18-i2-choice-v1'
 export type GoalRulesVersion = 'single-90m-v1'
 export type LivingExpenseRulesVersion = 'v2.4-on-landing' | 'v2.6-periodic-start' | 'b18-periodic-start-v1'
-export type BoardRevision = 'c20-v2.6-a' | 'b18-core-v1'
+export type BoardRevision = 'c20-v2.6-a' | 'b18-core-v1' | 'b18-l3-bonds-v1'
 export type TradableAsset = Exclude<Asset, 'business'>
 export type FundingSource = 'savings' | TradableAsset | 'debt'
 export type Phase = 'forecast' | 'rolling' | 'event' | 'funding' | 'summary' | 'rebalancing' | 'finished'
@@ -69,6 +71,8 @@ export interface GameEvent {
 export interface Snapshot {
   // Absence always retains the historical config/goal. Never infer from gameMode.
   gameplayProfile?: GameplayProfile
+  courseRulesVersion?: CourseRulesVersion
+  ownedCourses?: CourseId[]
   goalRulesVersion?: GoalRulesVersion
   // Missing metadata means the original on-landing policy and original board.
   livingExpenseRulesVersion?: LivingExpenseRulesVersion

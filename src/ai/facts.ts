@@ -1,4 +1,5 @@
-import { goalForGame } from '../game/rules-profile.ts'
+import { goalForGame, isMultiCourse } from '../game/rules-profile.ts'
+import { MULTI_COURSES } from '../data/courses.ts'
 import { liquidatableFunds, totalWorth, victory } from '../game/selectors.ts'
 import type { GameState } from '../game/types.ts'
 import type { CoachEvidence, CoachFacts } from './types.ts'
@@ -135,7 +136,14 @@ export function buildCoachFacts(game: GameState): CoachFacts {
   }
 
   // 5. Khóa học nâng cao năng lực bản thân (Priority 5)
-  if (game.coursePurchased) {
+  if (isMultiCourse(game) && game.coursePurchased) {
+    for (const course of MULTI_COURSES.filter(c => game.ownedCourses!.includes(c.id))) {
+      const entry = game.log.find(e => e.decisionId === `course-${course.id}`)
+      const starts = entry ? game.log.filter(e => e.title === 'Nhận lương' && e.sequence > entry.sequence).length : 0
+      candidateEvidences.push({ priority: 5, evidence: { id: `ev:course-${course.id}`, kind: 'course', lap: entry?.lap,
+        fact: `${course.name}: học phí ${formatVnd(course.cost)}, lương thêm ${formatVnd(course.boost)}/START từ lần qua START tiếp theo; đã nhận ${starts} START, tổng ${formatVnd(starts * course.boost)}. Học phí không hoàn lại.` } })
+    }
+  } else if (game.coursePurchased) {
     const courseEntry = game.log.find(e => e.kind === 'decision' && e.consequence?.includes('tăng lương'))
     const lapBought = courseEntry?.lap ?? 1
     candidateEvidences.push({

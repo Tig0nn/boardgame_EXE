@@ -7,19 +7,25 @@ import { stockCatalog } from '../../src/data/stock-catalog.ts'
 import type { BondRulesVersion, BoardRevision, LivingExpenseRulesVersion, StockCatalogVersion } from '../../src/game/types.ts'
 import { boardFor } from '../../src/data/board.ts'
 import { hasPeriodicLiving, livingCostForGame, validateLivingBoard } from '../../src/game/living-expenses.ts'
-import { isCoreMvp, rulesForGame } from '../../src/game/rules-profile.ts'
+import { isCoreMvp, isMultiCourse, rulesForGame } from '../../src/game/rules-profile.ts'
 import type { GameplayProfile, GoalRulesVersion } from '../../src/game/types.ts'
+import { validateCourseState } from '../../src/game/courses.ts'
+import { MULTI_COURSES } from '../../src/data/courses.ts'
 import { bondRulesForGame } from '../../src/game/bond-credit.ts'
 import { BOND_ISSUERS } from '../../src/data/bond-issuers.ts'
 import type { Asset, BusinessRulesVersion, CustomerPreferenceId, EncounterRulesVersion, FundingSource, GameState, LogEntry, RebalanceAction, SavingsProfile, Term } from '../../src/game/types.ts'
 
-export interface ReplayLog { schemaVersion: number; seed: string; gameplayProfile?: GameplayProfile; goalRulesVersion?: GoalRulesVersion; financialConfig?: {RULES:unknown}; livingExpenseRulesVersion?: LivingExpenseRulesVersion; boardRevision?: BoardRevision; livingExpenseConfig?: unknown; board?: unknown; bondRulesVersion?: BondRulesVersion; bondCreditConfig?: unknown; stockCatalogVersion?: StockCatalogVersion; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
+export interface ReplayLog { schemaVersion: number; courseRulesVersion?: GameState['courseRulesVersion']; courseConfig?: unknown; seed: string; gameplayProfile?: GameplayProfile; goalRulesVersion?: GoalRulesVersion; financialConfig?: {RULES:unknown}; livingExpenseRulesVersion?: LivingExpenseRulesVersion; boardRevision?: BoardRevision; livingExpenseConfig?: unknown; board?: unknown; bondRulesVersion?: BondRulesVersion; bondCreditConfig?: unknown; stockCatalogVersion?: StockCatalogVersion; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
 export function replayGameLog(data: ReplayLog): GameState {
-  assert.ok([4,5,6].includes(data.schemaVersion), 'Unsupported replay schema')
+  assert.ok([4,5,6,7].includes(data.schemaVersion), 'Unsupported replay schema')
   assert.equal(data.gameplayProfile,data.state.gameplayProfile,'Gameplay profile metadata must agree')
   assert.equal(data.goalRulesVersion,data.state.goalRulesVersion,'Goal metadata must agree')
-  assert.equal(data.schemaVersion === 6,isCoreMvp(data.state),'Schema6 is reserved for the B18 profile')
-  if (isCoreMvp(data.state)) assert.deepEqual(data.financialConfig?.RULES,rulesForGame(data.state),'B18 rules must match frozen profile')
+  assert.equal([6,7].includes(data.schemaVersion),isCoreMvp(data.state),'B18 schema requires an explicit B18 profile')
+  assert.equal(data.schemaVersion === 7,isMultiCourse(data.state),'Schema7 is reserved for multi-course B18')
+  assert.equal(data.courseRulesVersion,data.state.courseRulesVersion)
+  validateCourseState(data.state)
+  if(isMultiCourse(data.state)) assert.deepEqual(data.courseConfig,MULTI_COURSES)
+  if (isCoreMvp(data.state)) assert.deepEqual(data.financialConfig?.RULES,JSON.parse(JSON.stringify(rulesForGame(data.state))),'B18 rules must match frozen profile')
   const historical = data.schemaVersion === 4
   assert.equal(data.livingExpenseRulesVersion, data.state.livingExpenseRulesVersion, 'Living rules metadata must agree')
   assert.equal(data.boardRevision, data.state.boardRevision, 'Board revision metadata must agree')
@@ -29,6 +35,8 @@ export function replayGameLog(data: ReplayLog): GameState {
     assert.deepEqual(data.board, boardFor(data.state), 'Versioned board must match candidate')
   }
   for (const snapshot of data.entries.flatMap(entry => [entry.before, entry.after])) {
+    validateCourseState(snapshot)
+    assert.equal(snapshot.courseRulesVersion,data.courseRulesVersion)
     assert.equal(snapshot.gameplayProfile,data.gameplayProfile,'Gameplay profile cannot change mid-game')
     assert.equal(snapshot.goalRulesVersion,data.goalRulesVersion,'Goal version cannot change mid-game')
     assert.equal(snapshot.livingExpenseRulesVersion, data.livingExpenseRulesVersion, 'Living policy cannot change mid-game')

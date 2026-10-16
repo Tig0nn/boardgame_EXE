@@ -1,6 +1,7 @@
 import type { Category, TileType, BoardLayoutId, BoardRevision, LivingExpenseRulesVersion } from '../game/types.ts'
 import { hasPeriodicLiving, validateLivingBoard } from '../game/living-expenses.ts'
 import type { GameplayProfile, GoalRulesVersion } from '../game/types.ts'
+import { isMultiCourse } from '../game/rules-profile.ts'
 
 const layout: [TileType, Category, string, string][] = [
   ['start', 'income', 'Xuất phát', 'flag'], ['bank', 'investment', 'Ngân hàng', 'bank'],
@@ -39,9 +40,12 @@ export const B18_BOARD = B18_TYPES.map((type, index) => {
     : index < 15 ? [5,15-index] : [19-index,1]
   return { ...original, index, row, col, label: type === 'macro' ? 'Sự kiện' : original.label }
 })
+export const MULTI_COURSE_B18_BOARD = B18_BOARD.map(tile => tile.index === 15
+  ? { ...tile, type: 'bonds' as const, category: 'investment' as const, label: 'Trái phiếu', icon: 'receipt' }
+  : { ...tile })
 export function boardFor(game: { boardLayout: BoardLayoutId; livingExpenseRulesVersion?: LivingExpenseRulesVersion; boardRevision?: BoardRevision; gameplayProfile?: GameplayProfile; goalRulesVersion?: GoalRulesVersion }) {
   validateLivingBoard(game)
-  if (game.boardLayout === 'B18') return B18_BOARD
+  if (game.boardLayout === 'B18') return isMultiCourse(game) ? MULTI_COURSE_B18_BOARD : B18_BOARD
   if (hasPeriodicLiving(game)) return PERIODIC_C20_BOARD
   return game.boardLayout === 'C20' ? C20_BOARD : BOARD
 }

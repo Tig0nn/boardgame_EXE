@@ -1,5 +1,5 @@
 import type { BoardLayoutId, BoardRevision, LivingExpenseRulesVersion, GameplayProfile, GoalRulesVersion } from './types.ts'
-import { isCoreMvp, rulesForGame, goalForGame } from './rules-profile.ts'
+import { isCoreMvp, isMultiCourse, rulesForGame, goalForGame } from './rules-profile.ts'
 
 // Candidate parameter, frozen for this explicit version. Research copies may vary
 // this constant in isolation; the playable candidate never reads research settings.
@@ -20,7 +20,7 @@ export function livingCostForGame(game: { gameplayProfile?: GameplayProfile; liv
 export function validateLivingBoard(game: { livingExpenseRulesVersion?: LivingExpenseRulesVersion; boardRevision?: BoardRevision; boardLayout: BoardLayoutId; gameplayProfile?: GameplayProfile; goalRulesVersion?: GoalRulesVersion }) {
   if (isCoreMvp(game)) {
     goalForGame(game)
-    if (game.boardLayout !== 'B18' || game.boardRevision !== 'b18-core-v1' || game.livingExpenseRulesVersion !== 'b18-periodic-start-v1') throw new Error('Bàn cờ không khớp phiên bản B18.')
+    if (game.boardLayout !== 'B18' || game.boardRevision !== (isMultiCourse(game) ? 'b18-l3-bonds-v1' : 'b18-core-v1') || game.livingExpenseRulesVersion !== 'b18-periodic-start-v1') throw new Error('Bàn cờ không khớp phiên bản B18.')
     return
   }
   if (game.boardLayout === 'B18' || game.goalRulesVersion !== undefined || game.livingExpenseRulesVersion === 'b18-periodic-start-v1') throw new Error('Thiếu metadata của B18.')

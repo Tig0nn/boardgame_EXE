@@ -6,6 +6,8 @@ import { savingsProfileForGame } from './savings.ts'
 export function snapshot(s: GameState): Snapshot {
   return { gameMode:s.gameMode, boardLayout:s.boardLayout, totalLaps:s.totalLaps, businessPurchaseTurn:s.businessPurchaseTurn,
     ...(s.gameplayProfile ? { gameplayProfile:s.gameplayProfile } : {}),
+    ...(s.courseRulesVersion ? { courseRulesVersion:s.courseRulesVersion } : {}),
+    ...(s.ownedCourses ? { ownedCourses:[...s.ownedCourses] } : {}),
     ...(s.goalRulesVersion ? { goalRulesVersion:s.goalRulesVersion } : {}),
     ...(s.livingExpenseRulesVersion ? { livingExpenseRulesVersion: s.livingExpenseRulesVersion } : {}),
     ...(s.boardRevision ? { boardRevision: s.boardRevision } : {}),
@@ -54,6 +56,7 @@ export function record(s: GameState, before: Snapshot, entry: Entry): GameState 
 
 export function copyState(s: GameState): GameState {
   return { ...s, portfolio: { ...s.portfolio }, unlockedAssets: [...s.unlockedAssets],
+    ...(s.ownedCourses ? { ownedCourses:[...s.ownedCourses] } : {}),
     ...(s.bondCredit ? { bondCredit: structuredClone(s.bondCredit) } : {}),
     ...(s.savingsProfile ? { savingsProfile: savingsProfileForGame(s) } : {}),
     deposits: s.deposits.map(lot => ({ ...lot })),

@@ -11,3 +11,7 @@ export function createPlayerGame(seed: string | undefined, savings: number, term
 export function createCoreMvpGame(seed?: string, savings = 0, term: Term = 1) {
   return createGame(seed?.trim() || generateGameSeed(),savings,term,'experimental-b','v2.2-c20','v2.4-customer-preferences','b18-tile-trading-v1','vn-v1','v2.5-credit-risk','b18-periodic-start-v1','core-mvp-b18-v1')
 }
+// New player candidate. The single-course factory remains frozen for saves/replays.
+export function createMultiCourseGame(seed?: string, savings = 0, term: Term = 1) {
+  return createGame(seed?.trim() || generateGameSeed(),savings,term,'experimental-b','v2.2-c20','v2.4-customer-preferences','b18-tile-trading-v1','vn-v1','v2.5-credit-risk','b18-periodic-start-v1','core-mvp-b18-multi-course-v1')
+}

@@ -2,7 +2,9 @@ import { ECONOMY, MACRO_EVENTS, RULES, SCENARIOS } from '../data/config.ts'
 import { boardFor } from '../data/board.ts'
 import { gameMode } from '../data/modes.ts'
 import { eventsForGame } from '../data/events.ts'
-import { isCoreMvp, rulesForGame } from './rules-profile.ts'
+import { isCoreMvp, isMultiCourse, rulesForGame } from './rules-profile.ts'
+import { canBuyCourse } from './courses.ts'
+import { MULTI_COURSES } from '../data/courses.ts'
 import { hashSeed } from './random.ts'
 import { copyState, draw, record, snapshot } from './state.ts'
 import { collectPayment, fundSource, openDeposit, resolveInsolvency } from './transactions.ts'
@@ -39,12 +41,14 @@ export function createGame(seed: string, savings: number, term: Term = 1, mode?:
   if (!Number.isFinite(savings) || !Number.isInteger(savings) || savings < 0 || savings > rules.startingCapital) throw new Error('Phân bổ tiết kiệm không hợp lệ.')
   const selected = gameMode(mode ?? 'original')
   bondRulesForGame({ bondRulesVersion })
-  const livingMetadata = mvp ? { gameplayProfile, goalRulesVersion:'single-90m-v1' as const, livingExpenseRulesVersion, boardRevision:'b18-core-v1' as const } : { ...(livingExpenseRulesVersion ? { livingExpenseRulesVersion } : {}),
+  const multi = isMultiCourse({ gameplayProfile })
+  const livingMetadata = mvp ? { gameplayProfile, goalRulesVersion:'single-90m-v1' as const, livingExpenseRulesVersion, boardRevision:multi ? 'b18-l3-bonds-v1' as const : 'b18-core-v1' as const } : { ...(livingExpenseRulesVersion ? { livingExpenseRulesVersion } : {}),
     ...(hasPeriodicLiving({ livingExpenseRulesVersion }) ? { boardRevision: PERIODIC_BOARD_REVISION } : {}) }
   const boardLayout = mvp ? 'B18' as const : selected.boardLayout
   validateLivingBoard({ ...livingMetadata, boardLayout })
   const state: GameState = {
     ...livingMetadata,
+    ...(multi ? { courseRulesVersion: 'b18-i2-choice-v1' as const, ownedCourses: [] } : {}),
     ...(bondRulesVersion ? { bondRulesVersion } : {}),
     ...(bondRulesVersion === 'v2.5-credit-risk' ? { bondCredit: initializeBondCredit(seed.trim() || 'xoay-vong') } : {}),
     encounterRulesVersion: encounterRulesForGame({ encounterRulesVersion }),
@@ -111,9 +115,10 @@ export function advance(state: GameState): GameState {
   return state
 }
 export function canChoose(state: GameState, optionId: string): boolean {
+  if (state.eventId === 'course' && isMultiCourse(state) && optionId !== 'skip') return canBuyCourse(state,optionId)
   const event = eventsForGame(state).find(e => e.id === state.eventId)
   const option = event?.options.find(o => o.id === optionId)
-  return state.phase === 'event' && !!option && !(event!.id === 'course' && option.id === 'upgrade' && (state.coursePurchased || state.portfolio.cash < rulesForGame(state).courseCost))
+  return state.phase === 'event' && !!option && !(event!.id === 'course' && option.id === 'upgrade' && (state.coursePurchased || state.portfolio.cash < rulesForGame(state).courseCost!))
 }
 function applyOption(s: GameState, option: Option): GameState {
   s.portfolio.cash += option.income ?? 0
@@ -124,6 +129,10 @@ function applyOption(s: GameState, option: Option): GameState {
   s.obligations += option.obligation ?? 0
   s.recurringIncome += option.recurringIncomeIncrease ?? 0
   if (option.recurringIncomeIncrease) s.coursePurchased = true
+  if (isMultiCourse(s) && option.id.startsWith('course-')) {
+    const course = MULTI_COURSES.find(c => option.id === `course-${c.id}`)!
+    s.ownedCourses = [...s.ownedCourses!,course.id]
+  }
   s.eventId = null
   s.phase = 'rolling'
   return s
