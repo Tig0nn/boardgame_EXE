@@ -3,15 +3,26 @@ import type { GameState, Portfolio, Snapshot, TradableAsset } from './types.ts'
 import { businessIncome, businessMatchingKey, businessSaleQuote } from './business.ts'
 import { savingsProfileForGame } from './savings.ts'
 import type { Term } from './types.ts'
+import { goalForGame, isCoreMvp } from './rules-profile.ts'
 import { bondLotQuote, creditBondLots, hasBondCredit } from './bond-credit.ts'
 
 export const netWorth = (p: Portfolio) => p.cash + p.savings + p.stocks + p.bonds + p.gold + p.business - p.debt
 export const totalWorth = (s: GameState | Snapshot) => netWorth(s.portfolio) - s.obligations - (('pendingPayment' in s ? s.pendingPayment?.remaining : s.pendingCost) ?? 0)
 export function victory(s: GameState) {
   const funds = liquidatableFunds(s)
+  if (isCoreMvp(s)) {
+    const wealth = funds >= goalForGame(s).target
+    const completed = s.phase === 'finished' && s.termination === 'completed' && s.totalLaps === 4 && s.summaries.length === 4
+      && [1,2,3,4].every(lap => s.summaries.some(summary => summary.lap === lap))
+    return { wealth, liquidity:wealth, won:completed && wealth }
+  }
   const wealth = funds >= RULES.goal
   const liquidity = funds - RULES.goal >= RULES.cashGoal
   return { wealth, liquidity, won: s.termination !== 'insolvent' && wealth && liquidity }
+}
+export function goalProgress(s: GameState) {
+  const funds=liquidatableFunds(s),target=goalForGame(s).target
+  return { funds,target,percent:Math.max(0,Math.min(100,funds/target*100)),remaining:Math.max(0,target-funds) }
 }
 export function saleQuote(s: GameState, asset: TradableAsset, amount = s.portfolio[asset], lotId?: string) {
   if (asset === 'bonds' && hasBondCredit(s)) {

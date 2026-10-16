@@ -1,6 +1,8 @@
 import type { GameEvent } from '../game/types.ts'
 import { ECONOMY, RULES, MACRO_EVENTS } from './config.ts'
 import { money } from '../game/format.ts'
+import { isCoreMvp, rulesForGame } from '../game/rules-profile.ts'
+import type { GameplayProfile } from '../game/types.ts'
 
 const skip = { id: 'skip', label: 'Bỏ qua cơ hội', detail: 'Giữ tiền mặt, không thay đổi danh mục.' }
 const payment = (cost: number) => ({ id: 'pay', label: `Thanh toán ${money(cost)}`, detail: 'Nếu thiếu tiền, bạn chọn nguồn thanh toán.', cost })
@@ -26,3 +28,11 @@ export const EVENTS: GameEvent[] = [
     description: 'Cú sốc đã cập nhật ngay toàn thị trường và trạng thái kinh doanh, kể cả tài sản bạn chưa sở hữu. Không lặp tại START.',
     options: [{ id: 'acknowledge', label: 'Đã xem tác động', detail: 'Tiếp tục từ giá sau cú sốc.' }] })),
 ]
+
+export function eventsForGame(game: { gameplayProfile?: GameplayProfile }): GameEvent[] {
+  if (!isCoreMvp(game)) return EVENTS
+  const rules = rulesForGame(game)
+  return EVENTS.map(event => event.id !== 'course' ? event : { ...event, options: [
+    { id:'upgrade',label:`Tham gia khóa học ${money(rules.courseCost)}`,detail:`Lương +${money(rules.courseBoost)}/vòng từ START kế tiếp.`,cost:rules.courseCost,recurringIncomeIncrease:rules.courseBoost },skip,
+  ] })
+}

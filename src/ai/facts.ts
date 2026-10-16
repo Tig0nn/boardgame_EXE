@@ -1,4 +1,4 @@
-import { RULES } from '../data/config.ts'
+import { goalForGame } from '../game/rules-profile.ts'
 import { liquidatableFunds, totalWorth, victory } from '../game/selectors.ts'
 import type { GameState } from '../game/types.ts'
 import type { CoachEvidence, CoachFacts } from './types.ts'
@@ -23,8 +23,8 @@ export function buildCoachFacts(game: GameState): CoachFacts {
   const insolvent = game.termination === 'insolvent'
   const lawfulProceeds = liquidatableFunds(game)
   const netWorth = totalWorth(game)
-  const goalCost = RULES.goal
-  const requiredReserve = RULES.cashGoal
+  const goalCost = goalForGame(game).amount
+  const requiredReserve = goalForGame(game).reserve
   const targetProceeds = goalCost + requiredReserve
   const businessLockedQuote = game.portfolio.business
 

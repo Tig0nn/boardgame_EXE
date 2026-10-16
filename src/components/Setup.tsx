@@ -12,20 +12,20 @@ export function Setup({ onStart }: { onStart: (seed: string, savings: number, te
   const mode: GameModeId = 'experimental-b'
   const selected = gameMode(mode)
   const rates = savingsProfileForMode(mode).rates
-  const [savings, setSavings] = useState(20_000_000)
+  const [savings, setSavings] = useState(0)
   const [seed, setSeed] = useState('')
-  const [term, setTerm] = useState<Term>(1)
+  const [term, setTerm] = useState<Term>(3)
   return <main className="setup-page">
     <section className="setup-story">
       <span className="eyebrow"><span className="status-dot" /> CHƠI ĐỂ HIỂU TÀI CHÍNH</span>
       <h1>Phố nhỏ.<br /><em>Ước mơ lớn.</em></h1>
       <p className="setup-description">50 triệu khởi đầu. 4 vòng khám phá.<br />Huy động đủ 90 triệu để chạm đích cùng bạn.</p>
       <div className="setup-illustration"><City /><span className="illustration-caption">Một hành trình nhỏ. Những lựa chọn lớn.</span></div>
-      <div className="game-facts"><span><strong>01</strong> người chơi</span><span><strong>{String(selected.totalLaps).padStart(2,'0')}</strong> vòng chơi</span><span><strong>20</strong> ô bàn cờ</span></div>
+      <div className="game-facts"><span><strong>01</strong> người chơi</span><span><strong>{String(selected.totalLaps).padStart(2,'0')}</strong> vòng chơi</span><span><strong>18</strong> ô bàn cờ</span></div>
     </section>
     <section className="setup-card">
       <div className="section-kicker"><Icon name="flag" size={18} /> VẠCH XUẤT PHÁT</div>
-      <h2>Sẵn sàng dạo phố?</h2><p>Một người chơi · 4 vòng · Bàn C20</p>
+      <h2>Sẵn sàng dạo phố?</h2><p>Một người chơi · 4 vòng · Bàn B18</p>
       <div className="initial-capital"><span>Vốn ban đầu</span><strong>{money(RULES.startingCapital)}</strong></div>
       <div className="setup-defaults"><span><Icon name="wallet" size={18} /> Tiền mặt <b>{money(RULES.startingCapital - savings)}</b></span><span><Icon name="bank" size={18} /> Tiết kiệm <b>{money(savings)}</b></span></div>
       <button className="button primary start-button" onClick={() => onStart(seed, savings, term, mode)}>Bắt đầu hành trình <Icon name="arrow" /></button>
@@ -43,7 +43,7 @@ export function Setup({ onStart }: { onStart: (seed: string, savings: number, te
       <input id="seed" className="text-input" value={seed} maxLength={64} onChange={e => setSeed(e.target.value)} placeholder="Để trống: ván ngẫu nhiên mới" />
       </details>
       <GoalChecks />
-      <p className="setup-footnote">Sau {selected.totalLaps} vòng, cần đạt cả hai điều kiện để chiến thắng.</p>
+      <p className="setup-footnote">Sau {selected.totalLaps} vòng, cần tích lũy đủ 90 triệu huy động hợp lệ để chiến thắng.</p>
     </section>
     <div className="how-it-works"><span className="eyebrow">NHỊP CHƠI</span><div><span>Đọc dự báo</span><Icon name="arrow" size={15} /><span>Gieo xúc xắc</span><Icon name="arrow" size={15} /><span>Ra quyết định</span><Icon name="arrow" size={15} /><span>Quyết toán vòng</span></div></div>
   </main>

@@ -6,20 +6,25 @@ import { RULES } from '../../../src/data/config'
 import { savingsProfileForMode } from '../../../src/game/savings'
 import type { Term } from '../../../src/game/types'
 import { SavingsTerms } from '../../../src/components/SavingsTerms'
+import type { GameState } from '../../../src/game/types'
+import { restoreSavedGame } from '../../../src/game/saved-game'
 
-export function GameSetup({ onStart, onHelp }: { onStart: (seed: string, savings: number, term: Term) => void; onHelp: () => void }) {
-  const [savings, setSavings] = useState(20_000_000)
-  const [term, setTerm] = useState<Term>(1)
+export function GameSetup({ onStart, onHelp, onRestore, saved }: { onStart: (seed: string, savings: number, term: Term) => void; onHelp: () => void;onRestore?:(game:GameState)=>void;saved?:GameState|null }) {
+  const [savings, setSavings] = useState(0)
+  const [term, setTerm] = useState<Term>(3)
   const [seed, setSeed] = useState('')
+  const [error,setError]=useState('')
   const valid = Number.isSafeInteger(savings) && savings >= 0 && savings <= RULES.startingCapital
   const rates = savingsProfileForMode('experimental-b').rates
   return <Modal title="Bắt đầu hành trình" onHelp={onHelp} className="game-setup">
-    <span className="section-kicker">HÀNH TRÌNH TÀI CHÍNH · 4 VÒNG</span>
+    <span className="section-kicker">18 Ô · 4 VÒNG · MỘT MỤC TIÊU90 TRIỆU</span>
     <h2>Sẵn sàng dạo phố?</h2>
+    {saved&&onRestore&&<button className="button secondary full-button" onClick={()=>onRestore(saved)}>Tiếp tục ván {saved.boardLayout} · Vòng {saved.lap}/{saved.totalLaps}</button>}
     <div className="setup-goal-card"><div><small>Vốn khởi đầu</small><strong>{money(RULES.startingCapital)}</strong></div><span aria-hidden="true">→</span><div><small>Mục tiêu về đích</small><strong>{money(RULES.goal + RULES.cashGoal)}</strong></div></div>
-    <label htmlFor="initial-savings">Tiết kiệm ban đầu</label>
+    <p>Tự phân bổ 50 triệu. Không bắt buộc gửi tiết kiệm, giữ một mức dự phòng hay dùng đủ các phương pháp đầu tư.</p>
+    <label htmlFor="initial-savings">Bạn muốn gửi tiết kiệm bao nhiêu?</label>
     <MoneyInput id="initial-savings" amount={savings} onChange={setSavings} invalid={!valid} />
-    <div className="amount-presets" aria-label="Gửi tiết kiệm nhanh">{[10_000_000, 20_000_000, 30_000_000].map(value => <button type="button" key={value} aria-pressed={savings === value} onClick={() => setSavings(value)}>{value / 1_000_000} triệu</button>)}</div>
+    <div className="amount-presets" aria-label="Gửi tiết kiệm nhanh">{[0,10_000_000,20_000_000,50_000_000].map(value => <button type="button" key={value} aria-pressed={savings === value} onClick={() => setSavings(value)}>{value / 1_000_000} triệu</button>)}</div>
     <SavingsTerms name="initial-term" term={term} rates={rates} onChange={setTerm} />
     <div className="sheet-actions setup-start"><div className="setup-cash"><span>Tiền mặt khởi đầu</span><strong>{valid ? money(RULES.startingCapital - savings) : 'Số tiền không hợp lệ'}</strong></div>
       <button className="button primary full-button" disabled={!valid} onClick={() => onStart(seed, savings, term)}>Bắt đầu hành trình <span aria-hidden="true">→</span></button></div>
@@ -27,5 +32,6 @@ export function GameSetup({ onStart, onHelp }: { onStart: (seed: string, savings
       <input id="mobile-seed" value={seed} placeholder="Để trống để khám phá ván mới" maxLength={128} onChange={e => setSeed(e.target.value)} />
       <p>Cùng mã và lựa chọn ban đầu sẽ có cùng hành trình.</p>
     </details>
+    {onRestore&&<details><summary>Mở ván đã lưu</summary><label htmlFor="saved-game-file">Nhật ký JSON · Giữ nguyên phiên bản của ván</label><input id="saved-game-file" type="file" accept=".json,application/json" onChange={async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>20_000_000)throw Error('File quá lớn.');onRestore(restoreSavedGame(await file.text()))}catch(err){setError(err instanceof Error?err.message:'Không mở được ván.')}}}/>{error&&<p role="alert">{error}</p>}</details>}
   </Modal>
 }

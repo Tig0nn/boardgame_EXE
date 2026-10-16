@@ -27,7 +27,7 @@ export interface CoachEvidence {
 export interface CoachFacts {
   version: 1
   mode: 'original' | 'experimental-a' | 'experimental-b'
-  board: 'A20' | 'C20'
+  board: 'A20' | 'C20' | 'B18'
   totalLaps: number
   completed: true
   won: boolean

@@ -1,0 +1,12 @@
+.core-mvp-board{position:absolute;inset:0;width:940px;height:1672px;overflow:hidden}
+.core-mvp-board>svg{width:100%;height:100%}
+.core-mvp-board [role=button]{cursor:pointer;outline:none}
+.core-mvp-board [role=button]:focus-visible rect{stroke:#fff;stroke-width:9px}
+.b18-location{position:absolute;top:1390px;width:100%;text-align:center;font-size:36px;font-weight:800;color:#173d2b;pointer-events:none}
+.investment-actions{display:flex;gap:8px;margin-bottom:12px}.investment-actions button{flex:1}.investment-actions [aria-pressed=true]{border:2px solid #e0b64d;background:#624e22;color:#fff}
+.investment-encounter select{width:100%;min-width:0;padding:10px;background:#182c3b;color:#f1f5f9;border:1px solid #718699;border-radius:8px}
+.goal-conditions p{font-size:13px;line-height:1.55;overflow-wrap:anywhere}
+.rulebook-tabs{display:flex;gap:8px;overflow:auto;margin:10px 0 20px;padding-bottom:8px}.rulebook-tabs button{min-width:76px;min-height:44px;padding:8px;border:1px solid #718699;border-radius:10px;background:#213749;color:#f8fafc;cursor:pointer}.rulebook-tabs [aria-selected=true]{background:#755b29;border-color:#e0b64d}
+.rulebook-board{columns:2;padding-left:26px}.rulebook-board li{break-inside:avoid;margin-bottom:8px;font-size:13px}
+.mobile-hud .hud-round{font-size:12px;color:#bfd6cf}.hud-goal-note{font-size:11px;color:#cbd5e1}
+@media(max-width:350px){.rulebook-board{columns:1}.mobile-hud{padding-inline:10px}.mobile-hud .hud-goal strong{font-size:13px}}

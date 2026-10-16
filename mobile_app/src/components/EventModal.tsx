@@ -1,4 +1,4 @@
-import { EVENTS } from '../../../src/data/events'
+import { eventsForGame } from '../../../src/data/events'
 import { canChoose } from '../../../src/game/engine'
 import { money } from '../../../src/game/format'
 import type { GameState, RebalanceAction } from '../../../src/game/types'
@@ -13,7 +13,7 @@ export function EventModal({ game, onChoose, onTransaction, onHelp }: {
   game: GameState; onChoose: (id: string) => void; onTransaction: (action: RebalanceAction) => boolean | void; onHelp?: () => void
 }) {
   if (MACRO_EVENTS.some(event => event.id === game.eventId)) return <EconomicEventModal game={game} onChoose={onChoose} onHelp={onHelp} />
-  const event = EVENTS.find(e => e.id === game.eventId)!
+  const event = eventsForGame(game).find(e => e.id === game.eventId)!
   const trading = ['stocks', 'bonds', 'gold', 'bank', 'business'].includes(event.id)
   const traded = game.log.some(entry => entry.turn === game.turn && entry.kind === 'rebalancing')
   const panelOwnsSkip = event.id === 'stocks' || (['gold', 'bonds'].includes(event.id) && investmentPurchasesComplete(game))
@@ -26,9 +26,9 @@ export function EventModal({ game, onChoose, onTransaction, onHelp }: {
     {trading && <TradingPanel key={`${game.turn}-${game.log.length}`} game={game} compact onTransaction={onTransaction} onSkip={() => onChoose('skip')}
       marketContext={(asset, symbolId) => <MarketSignal game={game} asset={asset} symbolId={symbolId} />} />}
     {event.id === 'course' && !canChoose(game, 'upgrade') && <p className="inline-note">{game.coursePurchased ? 'Bạn đã hoàn thành khóa học này.' : 'Chưa đủ tiền mặt cho khóa học.'}</p>}
-    {event.options.filter(() => !panelOwnsSkip).map(option => <button key={option.id}
+    {event.options.filter(option => !panelOwnsSkip&&!(event.id==='course'&&game.coursePurchased&&option.id==='upgrade')).map(option => <button key={option.id}
       className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}>
-      <strong>{option.id === 'acknowledge' ? 'Đi tiếp' : option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : option.label}</strong>
+      <strong>{option.id === 'acknowledge'||event.id==='course'&&game.coursePurchased ? 'Tiếp tục' : option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : option.label}</strong>
       {option.id !== 'skip' && option.id !== 'acknowledge' && <span>{option.detail}</span>}
       {(option.cost ?? 0) > game.portfolio.cash && <span>Thiếu {money(option.cost! - game.portfolio.cash)} · Chọn nguồn tiền tiếp theo</span>}
     </button>)}

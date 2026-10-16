@@ -1,8 +1,10 @@
 export type Asset = 'stocks' | 'bonds' | 'gold' | 'business'
 export type GameModeId = 'original' | 'experimental-a' | 'experimental-b'
-export type BoardLayoutId = 'A20' | 'C20'
-export type LivingExpenseRulesVersion = 'v2.4-on-landing' | 'v2.6-periodic-start'
-export type BoardRevision = 'c20-v2.6-a'
+export type BoardLayoutId = 'A20' | 'C20' | 'B18'
+export type GameplayProfile = 'core-mvp-b18-v1'
+export type GoalRulesVersion = 'single-90m-v1'
+export type LivingExpenseRulesVersion = 'v2.4-on-landing' | 'v2.6-periodic-start' | 'b18-periodic-start-v1'
+export type BoardRevision = 'c20-v2.6-a' | 'b18-core-v1'
 export type TradableAsset = Exclude<Asset, 'business'>
 export type FundingSource = 'savings' | TradableAsset | 'debt'
 export type Phase = 'forecast' | 'rolling' | 'event' | 'funding' | 'summary' | 'rebalancing' | 'finished'
@@ -31,7 +33,7 @@ export interface BondContract {
   principalPaid: number; principalLost: number; couponLost: number; soldPrincipal: number; transferredCoupon: number
   lastProcessedLap: number; history: BondPayment[]; purchaseWarning: string
 }
-export type EncounterRulesVersion = 'legacy-multi-action' | 'v2.3-single-action' | 'v2.4-business-purchase-complete' | 'v2.4-atomic-investments'
+export type EncounterRulesVersion = 'legacy-multi-action' | 'v2.3-single-action' | 'v2.4-business-purchase-complete' | 'v2.4-atomic-investments' | 'b18-tile-trading-v1'
 export interface SavingsProfile { id: SavingsProfileId; rates: Record<Term, number> }
 export interface DepositLot {
   id: string; principal: number; startLap: number; maturityLap: number; rate: number
@@ -65,6 +67,9 @@ export interface GameEvent {
   id: string; category: Category; title: string; description: string; options: Option[]
 }
 export interface Snapshot {
+  // Absence always retains the historical config/goal. Never infer from gameMode.
+  gameplayProfile?: GameplayProfile
+  goalRulesVersion?: GoalRulesVersion
   // Missing metadata means the original on-landing policy and original board.
   livingExpenseRulesVersion?: LivingExpenseRulesVersion
   boardRevision?: BoardRevision

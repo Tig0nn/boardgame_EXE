@@ -1,8 +1,7 @@
 import { Modal } from '../../../src/components/Modal'
 import { AICoachPanel } from '../../../src/ai/AICoachPanel'
-import { liquidatableFunds, totalWorth, victory } from '../../../src/game/selectors'
+import { goalProgress, totalWorth, victory } from '../../../src/game/selectors'
 import { money } from '../../../src/game/format'
-import { RULES } from '../../../src/data/config'
 import type { GameState } from '../../../src/game/types'
 import { hasBondCredit } from '../../../src/game/bond-credit'
 
@@ -10,9 +9,7 @@ export function GameResultModal({ game, onRestart, onExport, onHelp }: {
   game: GameState; onRestart: () => void; onExport: () => void; onHelp?: () => void
 }) {
   const won = victory(game).won
-  const funds = liquidatableFunds(game)
-  const target = RULES.goal + RULES.cashGoal
-  const progress = Math.max(0, Math.min(100, funds / target * 100))
+  const {funds,target,percent:progress}=goalProgress(game)
   return <Modal title="Kết quả hành trình" onHelp={onHelp} className="game-result">
     <span className="section-kicker">Vòng {game.lap}/{game.totalLaps}</span>
     <div className="result-medal" aria-hidden="true">{won ? '🏆' : '🌱'}</div>
@@ -22,11 +19,11 @@ export function GameResultModal({ game, onRestart, onExport, onHelp }: {
       <progress max="100" value={progress} aria-label="Tiến độ nguồn tiền về đích" />
       <div className="result-progress-labels"><span>{Math.round(progress)}% mục tiêu</span><span>{money(target)}</span></div>
     </div>
-    <p>{won ? 'Đủ cho ước mơ và một khoản dự phòng!' : game.termination === 'insolvent' ? 'Hành trình dừng vì không còn nguồn thanh toán.' : `Còn ${money(Math.max(0, target - funds))} để chạm đích. Thử một chiến lược mới nhé!`}</p>
+    <p>{won ? 'Bạn đã hoàn thành đủ vòng và tích lũy đủ 90 triệu huy động hợp lệ!' : game.termination === 'insolvent' ? 'Hành trình dừng vì không còn nguồn thanh toán.' : `Còn ${money(Math.max(0, target - funds))} để chạm đích. Thử một chiến lược mới nhé!`}</p>
     <button className="button primary full-button" onClick={onRestart}>Chơi hành trình mới</button>
     <details><summary>Nhìn lại hành trình</summary><AICoachPanel game={game} /></details>
     <details><summary>Chi tiết kết quả & nhật ký</summary>
-      <p>Món đồ {money(RULES.goal)} · Dự phòng {money(RULES.cashGoal)}</p>
+      <p>Mục tiêu duy nhất: {money(target)}. Tài sản và tiền mặt dùng ngay là hai khái niệm khác nhau.</p>
       <p>Tài sản ròng: {money(totalWorth(game))} · Tiền mặt: {money(game.portfolio.cash)}</p>
       <p>Vốn kinh doanh chưa bán và lãi tiết kiệm chưa trả không tính vào nguồn tiền về đích.</p>
       {hasBondCredit(game) && <p>Coupon và gốc đang chờ trả không được cộng thêm. Trái phiếu chỉ tính giá bán khả dụng sau phí; khoản vỡ nợ không có giá bán.</p>}

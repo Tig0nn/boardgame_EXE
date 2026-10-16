@@ -1,13 +1,14 @@
-import { RULES } from '../data/config'
-import { victory } from '../game/engine'
+import { goalForGame } from '../game/rules-profile'
+import { goalProgress } from '../game/selectors'
 import { money } from '../game/format'
 import type { GameState } from '../game/types'
 import { Icon } from './Icon'
 
 export function GoalChecks({ game }: { game?: GameState }) {
-  const result = game ? victory(game) : null
-  return <div className="goal-conditions" aria-label="Hai điều kiện chiến thắng">
-    <div className={result?.wealth ? 'met' : ''}><Icon name={result ? result.wealth ? 'check' : 'close' : 'flag'} size={16} />{result && <span className="sr-only">{result.wealth ? 'Đạt' : 'Chưa đạt'}.</span>}<span>Đủ nguồn hợp lệ mua món đồ: <strong>{money(RULES.goal)}</strong></span></div>
-    <div className={result?.liquidity ? 'met' : ''}><Icon name={result ? result.liquidity ? 'check' : 'close' : 'wallet'} size={16} />{result && <span className="sr-only">{result.liquidity ? 'Đạt' : 'Chưa đạt'}.</span>}<span>Còn sau mua: <strong>ít nhất {money(RULES.cashGoal)}</strong> · Cần huy động tổng {money(RULES.goal + RULES.cashGoal)}</span></div>
+  const target=game?goalForGame(game).target:90_000_000,progress=game?goalProgress(game):null
+  return <div className="goal-conditions" aria-label="Mục tiêu tích lũy 90 triệu">
+    <div className={progress&&progress.funds>=target?'met':''}><Icon name="flag" size={16}/><span>Tích lũy đủ <strong>{money(target)}</strong> sau {game?.totalLaps??4} vòng.</span></div>
+    <p>Giá trị huy động hợp lệ sau phí, nợ và nghĩa vụ. Không cần toàn bộ là tiền mặt; không tính quán chưa bán, lãi hay coupon chưa nhận. Không tự thanh lý tài sản.</p>
+    {progress&&<p>Hiện có thể huy động <strong>{money(progress.funds)}</strong> · {progress.remaining>0?`Còn ${money(progress.remaining)} để đạt mục tiêu.`:'Đã đạt ngưỡng tài chính; cần hoàn thành đủ vòng và còn khả năng thanh toán.'}</p>}
   </div>
 }

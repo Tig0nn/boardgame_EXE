@@ -6,7 +6,7 @@ import { syncValuations } from './market.ts'
 import { businessRulesForGame, businessSaleQuote, businessUpgradeUnlocked } from './business.ts'
 import { CUSTOMER_PREFERENCES } from '../data/customer-preferences.ts'
 import { currentCustomerPreference } from './customer-preferences.ts'
-import { businessPurchaseCompletes, encounterActionUsed, investmentPurchaseUsed, investmentPurchasesComplete, singleActionEncounters } from './encounters.ts'
+import { businessPurchaseCompletes, encounterActionUsed, investmentPurchaseUsed, investmentPurchasesComplete, singleActionEncounters, tileTradingEnabled, investmentTradeUsed } from './encounters.ts'
 import { money } from './format.ts'
 import { createCreditBondLot, hasBondCredit, sellCreditBond } from './bond-credit.ts'
 import { savingsProfileForGame } from './savings.ts'
@@ -118,10 +118,13 @@ export function transact(state: GameState, action: RebalanceAction): GameState {
   const tile = boardFor(state)[state.position].type
   const checkpoint = state.phase === 'rebalancing'
   const tileAccess = state.phase === 'event' && state.eventId === tile
+  const financial = !!action.asset && ['stocks','bonds','gold'].includes(action.asset) && ['buy','sell'].includes(action.kind)
+  if (tileAccess && financial && investmentTradeUsed(state)) throw new Error('Mỗi lần ghé chỉ được một giao dịch thành công. Hãy quay lại ở lượt sau.')
+  const tileSale = tileTradingEnabled(state) && tileAccess && action.kind === 'sell' && action.asset === tile && financial
   const atomicInvestment = investmentPurchasesComplete(state) && action.kind === 'buy' && !!action.asset
     && ['stocks', 'bonds', 'gold'].includes(action.asset)
   if (!checkpoint && !tileAccess) throw new Error('Không có quyền giao dịch tại thời điểm này.')
-  if (action.completeEncounter && !(tileAccess && action.kind === 'buy' && action.asset === tile && (tile === 'stocks' || atomicInvestment))) {
+  if (action.completeEncounter && !tileSale && !(tileAccess && action.kind === 'buy' && action.asset === tile && (tile === 'stocks' || atomicInvestment))) {
     throw new Error('Chỉ hoàn tất sự kiện cùng một giao dịch mua tài sản hợp lệ.')
   }
   const s = copyState(state)
@@ -164,7 +167,7 @@ export function transact(state: GameState, action: RebalanceAction): GameState {
       s.business = { ...s.business, capital: 0, recoverableCapital: 0, upgrades: {} }; label = 'Bán cơ sở kinh doanh'
       s.businessPurchaseTurn = null
     } else {
-      if (!checkpoint || !asset || !['stocks', 'bonds', 'gold'].includes(asset)) throw new Error('Chỉ bán tài sản tài chính tại START hoặc khi thiếu tiền bắt buộc.')
+      if ((!checkpoint && !tileSale) || !asset || !['stocks', 'bonds', 'gold'].includes(asset)) throw new Error('Chỉ bán tài sản tài chính tại ô hợp lệ, START hoặc khi thiếu tiền bắt buộc.')
       const quote = sellAsset(s, asset, amount, symbolId, action.lotId); net = quote.net; fee = quote.fee + quote.spread; label = `Bán ${ASSETS[asset].label.toLowerCase()}`
     }
   } else if (kind === 'upgrade') {
@@ -188,7 +191,7 @@ export function transact(state: GameState, action: RebalanceAction): GameState {
     s.portfolio.debt -= amount; s.portfolio.cash -= amount + interest; label = 'Trả gốc nợ và lãi'
   } else throw new Error('Giao dịch không hợp lệ.')
   syncValuations(s)
-  const completeEncounter = action.completeEncounter || atomicInvestment
+  const completeEncounter = action.completeEncounter || atomicInvestment || tileSale
   if (completeEncounter || (kind === 'deposit' && singleActionEncounters(s)) ||
     (kind === 'buy' && asset === 'business' && businessPurchaseCompletes(s))) { s.phase = 'rolling'; s.eventId = null }
   return record(s, snapshot(state), { kind: 'rebalancing', title: label, decisionId: `${kind}-${asset ?? tile}${completeEncounter ? '-complete' : ''}`,

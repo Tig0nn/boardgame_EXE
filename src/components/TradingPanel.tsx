@@ -13,8 +13,10 @@ import { BusinessPanel } from './BusinessPanel'
 import { SavingsTerms } from './SavingsTerms'
 import { hasBondCredit } from '../game/bond-credit'
 import { BondCreditPanel } from './BondCreditPanel'
+import { tileTradingEnabled } from '../game/encounters'
+import { InvestmentEncounter } from './InvestmentEncounter'
 
-export function TradingPanel({ game, onTransaction, onSkip, compact = false, marketContext }: { game: GameState; onTransaction: (action: RebalanceAction) => boolean | void; onSkip: () => void; compact?: boolean; marketContext?: (asset: TradableAsset, symbolId: string) => ReactNode }) {
+export function TradingPanel({ game, onTransaction, onSkip, compact = false, marketContext, buyOnly=false }: { game: GameState; onTransaction: (action: RebalanceAction) => boolean | void; onSkip: () => void; compact?: boolean; buyOnly?: boolean; marketContext?: (asset: TradableAsset, symbolId: string) => ReactNode }) {
   const tile = game.eventId as Asset | 'bank'
   const [amount, setAmount] = useState(tile === 'bonds' ? ECONOMY.bondTicket : tile === 'gold' ? ECONOMY.goldTicket : ECONOMY.stockTicket)
   const [symbolId, setSymbolId] = useState(game.market.stocks[0].id)
@@ -39,6 +41,7 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
   const last = game.log.at(-1)
   const financialTile = tile === 'stocks' || tile === 'gold' || tile === 'bonds'
   const atomicInvestment = financialTile && investmentPurchasesComplete(game)
+  if(financialTile&&tileTradingEnabled(game)&&!buyOnly)return <InvestmentEncounter game={game} onTransaction={onTransaction} onSkip={onSkip} buyPanel={<TradingPanel game={game} onTransaction={onTransaction} onSkip={onSkip} compact={compact} marketContext={marketContext} buyOnly/>}/>
   const feedback = last?.kind === 'rebalancing' && last.turn === game.turn
     ? <p className="transaction-feedback" role="status">Đã thực hiện: {last.decision}. Tiền mặt còn {money(game.portfolio.cash)}.</p> : null
   if (atomicInvestment && investmentPurchaseUsed(game)) return <section>

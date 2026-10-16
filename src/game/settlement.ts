@@ -7,7 +7,8 @@ import { businessIncome } from './business.ts'
 import { ECONOMY } from '../data/config.ts'
 import type { Asset, GameState } from './types.ts'
 import { hasBondCredit, settleCreditBonds } from './bond-credit.ts'
-import { hasPeriodicLiving, PERIODIC_LIVING_COST } from './living-expenses.ts'
+import { hasPeriodicLiving, livingCostForGame } from './living-expenses.ts'
+import { rulesForGame } from './rules-profile.ts'
 
 export function beginSettlement(state: GameState): GameState {
   if (state.termination || state.settlement || state.summaries.some(summary => summary.lap === state.lap)) return state
@@ -70,11 +71,11 @@ export function continueSettlement(state: GameState): GameState {
       s.savingsMatured = !s.deposits.some(lot => lot.status === 'active')
       syncValuations(s)
     } else if (periodic && step === 4) {
-      s.settlement!.lines.push({ label: 'Chi phí sinh hoạt', amount: -PERIODIC_LIVING_COST })
-      livingPaid = collectPayment(s, { origin: 'settlement', title: 'Chi phí sinh hoạt', total: PERIODIC_LIVING_COST })
+      s.settlement!.lines.push({ label: 'Chi phí sinh hoạt', amount: -livingCostForGame(s) })
+      livingPaid = collectPayment(s, { origin: 'settlement', title: 'Chi phí sinh hoạt', total: livingCostForGame(s) })
     } else if (step === debtStep) {
       const principal = s.settlement!.before.portfolio.debt
-      const interest = Math.round(principal * RULES.debtRate)
+      const interest = Math.round(principal * rulesForGame(s).debtRate)
       s.portfolio.debt -= principal; s.settlement!.debtPrincipalPaid = principal
       s.settlement!.lines.push({ label: 'Gốc nợ và lãi đến hạn', amount: -(principal + interest) })
       collectPayment(s, { origin: 'settlement', title: 'Gốc nợ và lãi vay', total: principal + interest })
