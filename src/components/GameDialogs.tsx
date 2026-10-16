@@ -14,6 +14,8 @@ import { GoalChecks } from './GoalChecks'
 import { TradingPanel } from './TradingPanel'
 import { MarketDetails } from './MarketDetails'
 import { investmentPurchasesComplete } from '../game/encounters'
+import { isMultiCourse } from '../game/rules-profile'
+import { CourseChoices } from './CourseChoices'
 
 export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, onFund, onTransaction }: { game: GameState; onAdvance: () => void; onChoose: (id: string) => void; onRestart: () => void; onExport: () => void; onFund: (source: FundingSource, amount: number, lotId?: string) => void; onTransaction: (action: RebalanceAction) => void }) {
   if (game.phase === 'funding') return <FundingDialog key={`${game.pendingPayment!.title}-${game.pendingPayment!.remaining}`} game={game} onFund={onFund} />
@@ -24,6 +26,7 @@ export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, on
   </Modal>
   if (game.phase === 'event') {
     const event = eventsForGame(game).find(e => e.id === game.eventId)!
+    if (event.id === 'course' && isMultiCourse(game)) return <Modal key={`course-${game.turn}`} title="Đầu tư bản thân" wide><CourseChoices game={game} onChoose={onChoose} /></Modal>
     const category = CATEGORIES[event.category]
     const traded = game.log.some(entry => entry.turn === game.turn && entry.kind === 'rebalancing')
     const panelOwnsSkip = event.id === 'stocks' || (['gold', 'bonds'].includes(event.id) && investmentPurchasesComplete(game))
@@ -45,7 +48,7 @@ export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, on
           {option.asset === 'business' && <small className="business-lock">Chỉ bán cơ sở tại ô Kinh doanh; vốn chưa bán không tính vào mục tiêu.</small>}
         </div><Icon name="arrow" size={18} /></button>
       })}</div>
-      {event.id === 'course' && <p className="inline-note">{game.coursePurchased ? 'Bạn đã học khóa này; không mua lại. Chọn bỏ qua để tiếp tục.' : game.portfolio.cash < rulesForGame(game).courseCost ? 'Chưa đủ tiền mặt trả học phí; có thể bỏ qua. Học phí không hoàn lại.' : 'Học tự nguyện, chỉ mua một lần. Lương tăng từ START kế tiếp; học phí không hoàn lại.'}</p>}
+      {event.id === 'course' && <p className="inline-note">{game.coursePurchased ? 'Bạn đã học khóa này; không mua lại. Chọn bỏ qua để tiếp tục.' : game.portfolio.cash < rulesForGame(game).courseCost! ? 'Chưa đủ tiền mặt trả học phí; có thể bỏ qua. Học phí không hoàn lại.' : 'Học tự nguyện, chỉ mua một lần. Lương tăng từ START kế tiếp; học phí không hoàn lại.'}</p>}
       {['living', 'medical', 'repair', 'family', 'bills', 'contract'].includes(event.id) && <p className="inline-note">Khoản phải trả bắt buộc. {event.options.length > 1 ? 'Bạn chọn thời điểm thanh toán; hoãn sẽ tạo nghĩa vụ tại START. ' : ''}Thiếu tiền mặt sẽ mở bước chọn nguồn thanh toán.</p>}
     </Modal>
   }

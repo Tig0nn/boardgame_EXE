@@ -116,7 +116,7 @@ export function GameExperience({ session, onRestart, onHelp, helpOpen = false }:
         onPortfolioClick={() => { if (!busy.current) setOverlay('portfolio') }}
         onLogClick={() => { if (!busy.current) setOverlay('log') }} />
     </>}>
-      {isCoreMvp(game)?<CoreMvpBoard position={animation?animatedTile:game.position} lap={game.lap} totalLaps={game.totalLaps} moving={animation==='moving'} dancing={!animation&&game.phase==='summary'}>{pieces}</CoreMvpBoard>:<BoardView currentTileIndex={animation ? animatedTile : game.position} tileCoordinates={coordinates}
+      {isCoreMvp(game)?<CoreMvpBoard game={game} position={animation?animatedTile:game.position} lap={game.lap} totalLaps={game.totalLaps} moving={animation==='moving'} dancing={!animation&&game.phase==='summary'}>{pieces}</CoreMvpBoard>:<BoardView currentTileIndex={animation ? animatedTile : game.position} tileCoordinates={coordinates}
         replacementTiles={hasPeriodicLiving(game) ? [3, 14] : []}
         lap={game.lap} totalLaps={game.totalLaps} isPawnMoving={animation === 'moving'} isDancing={!animation && game.phase === 'summary'}>
         <Dice3D value={game.dice || 1} isRolling={animation === 'dice'} isPawnMoving={animation === 'moving'}

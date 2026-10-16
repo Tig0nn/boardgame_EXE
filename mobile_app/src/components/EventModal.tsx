@@ -8,12 +8,15 @@ import { MarketSignal } from './MarketNews'
 import { investmentPurchasesComplete } from '../../../src/game/encounters'
 import { MACRO_EVENTS } from '../../../src/data/config'
 import { EconomicEventModal } from './EconomicEventModal'
+import { isMultiCourse } from '../../../src/game/rules-profile'
+import { CourseChoices } from '../../../src/components/CourseChoices'
 
 export function EventModal({ game, onChoose, onTransaction, onHelp }: {
   game: GameState; onChoose: (id: string) => void; onTransaction: (action: RebalanceAction) => boolean | void; onHelp?: () => void
 }) {
   if (MACRO_EVENTS.some(event => event.id === game.eventId)) return <EconomicEventModal game={game} onChoose={onChoose} onHelp={onHelp} />
   const event = eventsForGame(game).find(e => e.id === game.eventId)!
+  if (event.id === 'course' && isMultiCourse(game)) return <Modal title="Đầu tư bản thân" onHelp={onHelp} className="mobile-event"><CourseChoices game={game} onChoose={onChoose} /></Modal>
   const trading = ['stocks', 'bonds', 'gold', 'bank', 'business'].includes(event.id)
   const traded = game.log.some(entry => entry.turn === game.turn && entry.kind === 'rebalancing')
   const panelOwnsSkip = event.id === 'stocks' || (['gold', 'bonds'].includes(event.id) && investmentPurchasesComplete(game))

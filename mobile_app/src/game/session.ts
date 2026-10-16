@@ -1,5 +1,5 @@
 import { advance, decide, fundPayment, roll, transact } from '../../../src/game/engine.ts'
-import { createPlayerGame, createCoreMvpGame } from '../../../src/game/new-game.ts'
+import { createPlayerGame, createMultiCourseGame } from '../../../src/game/new-game.ts'
 import { boardFor } from '../../../src/data/board.ts'
 import type { BondRulesVersion, FundingSource, GameState, LivingExpenseRulesVersion, Phase, RebalanceAction, Term } from '../../../src/game/types.ts'
 
@@ -15,7 +15,7 @@ export type MobileCommand = { type: 'advance' | 'roll' } | { type: 'choose'; id:
 export function createMobileGame(seed?: string, savings = 20_000_000, term: Term = 1, bondRulesVersion: BondRulesVersion = 'v2.5-credit-risk', livingExpenseRulesVersion: LivingExpenseRulesVersion = 'v2.6-periodic-start') {
   return createPlayerGame(seed, savings, term, 'experimental-b', bondRulesVersion, livingExpenseRulesVersion)
 }
-export const createMvpMobileGame = createCoreMvpGame
+export const createMvpMobileGame = createMultiCourseGame
 
 export function createMobileSession(initial: GameState) {
   let game = initial

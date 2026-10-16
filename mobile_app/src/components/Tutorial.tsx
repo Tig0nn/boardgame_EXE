@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react'
 import { Modal } from '../../../src/components/Modal'
 import { ECONOMY } from '../../../src/data/config'
-import { rulesForGame, CORE_MVP_RULES } from '../../../src/game/rules-profile'
+import { rulesForGame, MULTI_COURSE_RULES, isMultiCourse } from '../../../src/game/rules-profile'
 import { money } from '../../../src/game/format'
 import { Icon } from '../../../src/components/Icon'
-import { boardFor, B18_BOARD } from '../../../src/data/board'
+import { boardFor, MULTI_COURSE_B18_BOARD } from '../../../src/data/board'
 import type { GameState } from '../../../src/game/types'
 import { livingPresentation } from '../game/living-presentation'
 import { businessRulesForGame } from '../../../src/game/business'
@@ -32,7 +32,7 @@ const steps = [
 ]
 
 export function BoardGuide({ game }: { game?: GameState }) {
-  const board = game ? boardFor(game) : B18_BOARD
+  const board = game ? boardFor(game) : MULTI_COURSE_B18_BOARD
   return <ol className="rulebook-board">{board.map(tile => <li key={tile.index} value={tile.index + 1}><Icon name={tile.icon} size={16} /> {tile.label}</li>)}</ol>
 }
 
@@ -40,7 +40,7 @@ export function Tutorial({ firstTime, onClose, game }: { firstTime: boolean; onC
   const [index, setIndex] = useState(0)
   const heading = useRef<HTMLHeadingElement>(null)
   const living = livingPresentation(game)
-  const rules=game?rulesForGame(game):CORE_MVP_RULES
+  const rules=game?rulesForGame(game):MULTI_COURSE_RULES
   const step = index === 4 ? { ...steps[index], title: 'Chủ động cho mỗi vòng mới', text: living.text,
     detail: `${living.detail} ${steps[index].detail}` } : steps[index]
   const navigate = (next: number) => { setIndex(next); heading.current?.focus({ preventScroll: true }) }
@@ -59,7 +59,7 @@ export function Tutorial({ firstTime, onClose, game }: { firstTime: boolean; onC
       {index === 0 && <div className="tutorial-goal"><div><small>Vốn ban đầu</small><strong>50 triệu</strong></div><span aria-hidden="true">→</span><div><small>Mục tiêu sau 4 vòng</small><strong>90 triệu</strong></div></div>}
       {index === 1 && <div className="tutorial-tiles">{[['🏦', 'Ngân hàng', 'Gửi tiết kiệm'], ['📈', 'Thị trường', 'Mua tài sản'], ['🧋', 'Kinh doanh', 'Mở & nâng quán'], ['📚', 'Khóa học', 'Tăng lương'], ['🧾', living.periodic ? 'START' : 'Sinh hoạt', living.periodic ? 'Lương & sinh hoạt' : 'Trả chi phí'], ['⚡', 'Biến cố', 'Đón bất ngờ']].map(([icon, title, text]) => <div key={title}><span aria-hidden="true">{icon}</span><strong>{title}</strong><small>{text}</small></div>)}</div>}
       {index === 2 && <ol className="tutorial-turn">{['Gieo xúc xắc', 'Nhân vật di chuyển', 'Khám phá ô dừng', 'Chọn hành động'].map((title, i) => <li key={title}><b>{i + 1}</b>{title}</li>)}</ol>}
-      {index === 3 && <ul className="tutorial-earn"><li><span>🏦 Tiết kiệm</span><b>Nhận gốc + lãi khi đến hạn</b></li><li><span>🧾 Trái phiếu</span><b>Chọn issuer · Theo dõi khả năng trả nợ</b></li><li><span>📈 Cổ phiếu</span><b>Mua/Bán ở ô · Vẫn bán START</b></li><li><span>🧋 Mở quán</span><b>+{money(ECONOMY.business.baseIncome)} / START</b></li><li><span>📚 Khóa học</span><b>Lương +{money(rules.courseBoost)} / vòng</b></li></ul>}
+      {index === 3 && <ul className="tutorial-earn"><li><span>🏦 Tiết kiệm</span><b>Nhận gốc + lãi khi đến hạn</b></li><li><span>🧾 Trái phiếu</span><b>Chọn issuer · Theo dõi khả năng trả nợ</b></li><li><span>📈 Cổ phiếu</span><b>Mua/Bán ở ô · Vẫn bán START</b></li><li><span>🧋 Mở quán</span><b>+{money(ECONOMY.business.baseIncome)} / START</b></li><li><span>📚 Khóa học</span><b>{!game||isMultiCourse(game)?'6M / +2M · 10M / +4M mỗi START':`Lương +${money(rules.courseBoost!)} / vòng`}</b></li></ul>}
       {index === 4 && <><div className="tutorial-bill"><span>{living.label}</span><strong>{money(living.amount)}</strong></div><p className="tutorial-tip">Chừa tiền sinh hoạt · Dự phòng biến cố cá nhân</p></>}
       {index === 5 && <div className="tutorial-goal"><div><small>Một mục tiêu</small><strong>90 triệu</strong></div><div><small>Thời hạn</small><strong>4 vòng</strong></div></div>}
       <details key={index}><summary>Luật chi tiết</summary><p>{step.detail}</p>
