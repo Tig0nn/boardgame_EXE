@@ -1,0 +1,50 @@
+{
+  "main": {
+    "id": "I2-choice__L3-bonds",
+    "costs": [
+      6000000,
+      10000000
+    ],
+    "boosts": [
+      2000000,
+      4000000
+    ],
+    "unlock": "independent",
+    "courseTiles1Based": [
+      5,
+      8,
+      13
+    ],
+    "replace": {
+      "tile16": "bonds"
+    }
+  },
+  "backup": {
+    "id": "S3-flat__L4-original",
+    "costs": [
+      8000000,
+      8000000,
+      8000000
+    ],
+    "boosts": [
+      3000000,
+      3000000,
+      3000000
+    ],
+    "unlock": "sequential",
+    "courseTiles1Based": [
+      5,
+      8,
+      13,
+      16
+    ]
+  },
+  "rejectedHoldout": "S2-rich__L2-spaced",
+  "conditional": true,
+  "unresolved": [
+    "Savings+Course dominance within tested heuristics",
+    "Insufficient observed liquidity pressure to validate reserve education"
+  ],
+  "implemented": false,
+  "productionChanges": false
+}

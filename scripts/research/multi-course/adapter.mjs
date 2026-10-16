@@ -12,10 +12,18 @@ export function sources(){
   for(const p of upstreamPaths)files[`upstream/${p}`]=execFileSync('git',['show',`${UPSTREAM_SHA}:scripts/research/${p}`],{encoding:'utf8'}).replaceAll('\r\n','\n')
   return {base:BASE_SHA,upstream:UPSTREAM_SHA,files,hashes:Object.fromEntries(Object.entries(files).map(([p,v])=>[p,hash(v)]))}
 }
-export function createAdapter(c){
+export function createAdapter(c,bundle){
   const dir=mkdtempSync(join(tmpdir(),'b18-course-lab-'))
-  for(const sub of ['src/game','src/data','scripts/research/multi-course'])cpSync(sub,join(dir,sub),{recursive:true})
-  for(const p of upstreamPaths){const target=join(dir,'scripts/research',p);mkdirSync(dirname(target),{recursive:true});writeFileSync(target,execFileSync('git',['show',`${UPSTREAM_SHA}:scripts/research/${p}`]))}
+  if(bundle){
+    for(const [p,text]of Object.entries(bundle.files)){
+      if(!/^(src\/(game|data)\/[^/]+\.ts|scripts\/research\/multi-course\/[^/]+\.mjs|upstream\/(core-mvp|trading-ab|risk-allocation)\/[^/]+\.mjs)$/.test(p)||hash(text)!==bundle.hashes[p])throw Error('Invalid frozen source path/hash')
+      const target=join(dir,p.startsWith('upstream/')?p.replace('upstream/','scripts/research/'):p)
+      mkdirSync(dirname(target),{recursive:true});writeFileSync(target,text)
+    }
+  }else{
+    for(const sub of ['src/game','src/data','scripts/research/multi-course'])cpSync(sub,join(dir,sub),{recursive:true})
+    for(const p of upstreamPaths){const target=join(dir,'scripts/research',p);mkdirSync(dirname(target),{recursive:true});writeFileSync(target,execFileSync('git',['show',`${UPSTREAM_SHA}:scripts/research/${p}`]))}
+  }
   writeFileSync(join(dir,'package.json'),'{"type":"module"}')
   writeFileSync(join(dir,'config.json'),JSON.stringify(c,null,2))
   const path=join(dir,'src/data/board.ts'),text=readFileSync(path,'utf8')

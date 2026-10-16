@@ -1,0 +1,53 @@
+{
+  "researchOnly": true,
+  "noProductionDiff": true,
+  "base": "00e77a19691c109e8cb7079b83591463c3eb6136",
+  "reusedPolicies": "d04b8adf8f5173a3a0c21fa0106afba7f6bd3f53",
+  "holdoutPreregistrationCommit": "ce24f64",
+  "holdoutLockSha256": "c1522d537f9bfdeecffb37ddc626346173129f235b759ed9f71be9452f502372",
+  "games": 167972,
+  "phases": [
+    {
+      "phase": "screen",
+      "games": 43904,
+      "arms": 98,
+      "sourceBundleSha256": "9dde893f404610c941049a2afef6a8e06dada8ba765537e7645d4078291b04f6"
+    },
+    {
+      "phase": "screen-control",
+      "games": 9408,
+      "arms": 21,
+      "sourceBundleSha256": "f05a5a9a21284c0d3e868e57903c58292255d59e89ca45ee5171d7f5d33713b7"
+    },
+    {
+      "phase": "shortlist",
+      "games": 34020,
+      "arms": 9,
+      "sourceBundleSha256": "f05a5a9a21284c0d3e868e57903c58292255d59e89ca45ee5171d7f5d33713b7"
+    },
+    {
+      "phase": "shortlist-control",
+      "games": 16128,
+      "arms": 6,
+      "sourceBundleSha256": "3471a652d00bafcf28aeee077de6c43a019027f9d2057248792abf62519e2de4"
+    },
+    {
+      "phase": "holdout",
+      "games": 64512,
+      "arms": 6,
+      "sourceBundleSha256": "042794c408f81707acda46d713de148e7f4235f6eafc2538f7c737472ef75801"
+    }
+  ],
+  "disjointPhaseSeeds": true,
+  "uniqueSeeds": {
+    "screen": 32,
+    "shortlist": 180,
+    "holdout": 448
+  },
+  "savedFullStateReplays": 245,
+  "deterministicMetrics": true,
+  "researchUnitTests": 6,
+  "foundationResearchReplays": 48,
+  "foundationProductionBaselineReplays": 12,
+  "noFinalQA": true
+}

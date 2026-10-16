@@ -1,7 +1,7 @@
 import {mkdirSync,readFileSync,writeFileSync,existsSync} from 'node:fs'
 import {join,resolve} from 'node:path'
 import {spawn,execFileSync} from 'node:child_process'
-import {gzipSync} from 'node:zlib'
+import {gzipSync,gunzipSync} from 'node:zlib'
 import {createAdapter,cleanup,sources,hash} from './adapter.mjs'
 import {config,systems,layouts,policies,screenPolicies,BASE_SHA} from './spec.mjs'
 const phase=process.argv[2],root=resolve(process.env.MULTI_COURSE_OUTPUT??'docs/research/multi-course')
@@ -14,13 +14,13 @@ const n=lock.configs.length*lock.seeds*lock.policies.length
 let completedGames=0
 for(const p of ['screen','screen-control','shortlist','shortlist-control','holdout'])if(existsSync(join(root,`${p}-manifest.json`)))completedGames+=JSON.parse(readFileSync(join(root,`${p}-manifest.json`))).games
 if(completedGames+n>170000)throw Error('Study budget cap170000 exceeded')
-const bundle=sources(),configs=lock.configs.map(x=>x.format?x:config(x.system,x.layout)),started=performance.now(),results=[],seedPhase=phase==='screen-control'?'screen':phase==='shortlist-control'?'shortlist':phase
+const bundle=process.env.MULTI_COURSE_REPLAY_FROZEN==='1'?JSON.parse(gunzipSync(readFileSync(`docs/research/multi-course/${phase}-source.json.gz`))):sources(),configs=lock.configs.map(x=>x.format?x:config(x.system,x.layout)),started=performance.now(),results=[],seedPhase=phase==='screen-control'?'screen':phase==='shortlist-control'?'shortlist':phase
 writeFileSync(join(root,`${phase}-source.json.gz`),gzipSync(JSON.stringify(bundle)))
 writeFileSync(join(root,`${phase}-protocol.json`),JSON.stringify({phase,lock,games:n,sourceHashes:bundle.hashes,preregisteredBeforeRunning:true,base:BASE_SHA,initialSavings:0,initialTerm:3,seedPrefix:`B18-MULTICOURSE-${seedPhase.toUpperCase()}-`,ci:'Wilson for win/funding; normal paired mean CI; tail bootstrap on holdout; pooled policies cluster by seed.',selection:'Exposure, ROI timing, tail/liquidity, dominance and simplicity; never highest win alone.'},null,2)+'\n')
 let cursor=0,failed=false
 async function pool(){
   while(cursor<configs.length&&!failed){
-    const c=configs[cursor++],dir=createAdapter(c),target=join(stage,c.id)
+    const c=configs[cursor++],dir=createAdapter(c,bundle),target=join(stage,c.id)
     const examplePolicies=phase.startsWith('screen')?['cash-roi']:['cash-roi','savings-all','diversified-roi','business-roi','risk-aware-roi','novice'].filter(p=>lock.policies.includes(p))
     writeFileSync(`${target}.config.json`,JSON.stringify(c,null,2)+'\n')
     writeFileSync(join(dir,'job.json'),JSON.stringify({phase:seedPhase,seeds:lock.seeds,policies:lock.policies,examplePolicies}))

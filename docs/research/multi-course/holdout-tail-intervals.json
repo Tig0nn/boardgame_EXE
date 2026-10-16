@@ -1,0 +1,1874 @@
+[
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-none",
+    "repetitions": 400,
+    "p10CI95": [
+      76000000,
+      77000000
+    ],
+    "worstDecileCI95": [
+      74000000,
+      75477272.72727273
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-early",
+    "repetitions": 400,
+    "p10CI95": [
+      78000000,
+      79000000
+    ],
+    "worstDecileCI95": [
+      74818181.81818181,
+      76863636.36363636
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      78000000,
+      81000000
+    ],
+    "worstDecileCI95": [
+      76181818.18181819,
+      78068181.81818181
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-all",
+    "repetitions": 400,
+    "p10CI95": [
+      78000000,
+      79000000
+    ],
+    "worstDecileCI95": [
+      74818181.81818181,
+      76863636.36363636
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-reserve5",
+    "repetitions": 400,
+    "p10CI95": [
+      78000000,
+      81000000
+    ],
+    "worstDecileCI95": [
+      76181818.18181819,
+      78068181.81818181
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-reserve10",
+    "repetitions": 400,
+    "p10CI95": [
+      78000000,
+      81000000
+    ],
+    "worstDecileCI95": [
+      76181818.18181819,
+      78068181.81818181
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-reserve15",
+    "repetitions": 400,
+    "p10CI95": [
+      78000000,
+      81000000
+    ],
+    "worstDecileCI95": [
+      76181818.18181819,
+      78068181.81818181
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-none",
+    "repetitions": 400,
+    "p10CI95": [
+      83151780,
+      85003168
+    ],
+    "worstDecileCI95": [
+      80695911.68181819,
+      82514213.13636364
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      86225800,
+      87167235
+    ],
+    "worstDecileCI95": [
+      83291884.29545455,
+      85310370.11363636
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-all",
+    "repetitions": 400,
+    "p10CI95": [
+      85497000,
+      87167235
+    ],
+    "worstDecileCI95": [
+      82513468.18181819,
+      84779425.38636364
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "stocks-none",
+    "repetitions": 400,
+    "p10CI95": [
+      75106148,
+      77211831
+    ],
+    "worstDecileCI95": [
+      72848864.06818181,
+      74499032.43181819
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "stocks-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      78559856,
+      81215447
+    ],
+    "worstDecileCI95": [
+      75474791.22727273,
+      77784038.6590909
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "gold-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      78356051,
+      80376207
+    ],
+    "worstDecileCI95": [
+      76311243.88636364,
+      77984993.6590909
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "bond-a-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      79130844,
+      80959138
+    ],
+    "worstDecileCI95": [
+      74518359.20454545,
+      77903331.36363636
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "bond-b-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      73268753,
+      76762575
+    ],
+    "worstDecileCI95": [
+      68412727.70454545,
+      71919962.9090909
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "business-none",
+    "repetitions": 400,
+    "p10CI95": [
+      72100000,
+      74590328
+    ],
+    "worstDecileCI95": [
+      68695286.61363636,
+      71089945.29545455
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "business-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      76100000,
+      79000000
+    ],
+    "worstDecileCI95": [
+      71594731.75,
+      74648046.43181819
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "diversified-none",
+    "repetitions": 400,
+    "p10CI95": [
+      74267785,
+      77516777
+    ],
+    "worstDecileCI95": [
+      70296984.61363636,
+      73375735.6590909
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "diversified-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      77919332,
+      80712069
+    ],
+    "worstDecileCI95": [
+      72967522.75,
+      76556273.3409091
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "risk-aware-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      78048206,
+      80898921
+    ],
+    "worstDecileCI95": [
+      73186692.45454545,
+      76577627.11363636
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "novice",
+    "repetitions": 400,
+    "p10CI95": [
+      60524334,
+      64993528
+    ],
+    "worstDecileCI95": [
+      52993029.34090909,
+      58112364.29545455
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "repetitions": 400,
+    "p10CI95": [
+      86511464,
+      88059580
+    ],
+    "worstDecileCI95": [
+      83877085.86363636,
+      85730270.75
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "repetitions": 400,
+    "p10CI95": [
+      86408625,
+      87852715
+    ],
+    "worstDecileCI95": [
+      83644914.22727273,
+      85635331.13636364
+    ]
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "repetitions": 400,
+    "p10CI95": [
+      85497000,
+      87108000
+    ],
+    "worstDecileCI95": [
+      83047689.93181819,
+      85002311.54545455
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-none",
+    "repetitions": 400,
+    "p10CI95": [
+      76000000,
+      77000000
+    ],
+    "worstDecileCI95": [
+      74000000,
+      75477272.72727273
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-early",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      76477272.72727273,
+      78795454.54545455
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      80000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77409090.9090909,
+      79340909.0909091
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-all",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      76477272.72727273,
+      78795454.54545455
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-reserve5",
+    "repetitions": 400,
+    "p10CI95": [
+      80000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77409090.9090909,
+      79340909.0909091
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-reserve10",
+    "repetitions": 400,
+    "p10CI95": [
+      80000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77409090.9090909,
+      79340909.0909091
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-reserve15",
+    "repetitions": 400,
+    "p10CI95": [
+      80000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77409090.9090909,
+      79340909.0909091
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-none",
+    "repetitions": 400,
+    "p10CI95": [
+      80834000,
+      82887500
+    ],
+    "worstDecileCI95": [
+      78162965.4090909,
+      79957040.43181819
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      85000000,
+      86711200
+    ],
+    "worstDecileCI95": [
+      81918912.81818181,
+      84123931.5
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-all",
+    "repetitions": 400,
+    "p10CI95": [
+      85040000,
+      87035400
+    ],
+    "worstDecileCI95": [
+      81397301.0909091,
+      84156481.45454545
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "stocks-none",
+    "repetitions": 400,
+    "p10CI95": [
+      75106148,
+      77211831
+    ],
+    "worstDecileCI95": [
+      72848864.06818181,
+      74499032.43181819
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "stocks-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      79749751,
+      82156756
+    ],
+    "worstDecileCI95": [
+      76941727.68181819,
+      79169410.8409091
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "gold-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      80107735,
+      81978504
+    ],
+    "worstDecileCI95": [
+      77480405.75,
+      79276579.31818181
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "bond-a-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      80610638,
+      82743313
+    ],
+    "worstDecileCI95": [
+      75230965.61363636,
+      79067093.5909091
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "bond-b-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      74234256,
+      77836556
+    ],
+    "worstDecileCI95": [
+      68131545.27272727,
+      72676368.13636364
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "business-none",
+    "repetitions": 400,
+    "p10CI95": [
+      72100000,
+      74590328
+    ],
+    "worstDecileCI95": [
+      68695286.61363636,
+      71089945.29545455
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "business-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      77578928,
+      81000000
+    ],
+    "worstDecileCI95": [
+      72935377.38636364,
+      76196744.54545455
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "diversified-none",
+    "repetitions": 400,
+    "p10CI95": [
+      74255134,
+      76718107
+    ],
+    "worstDecileCI95": [
+      70335434.43181819,
+      73173697.8409091
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "diversified-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      80106970,
+      82842674
+    ],
+    "worstDecileCI95": [
+      74577983.72727273,
+      78285436.52272727
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "risk-aware-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      79846905,
+      82428513
+    ],
+    "worstDecileCI95": [
+      75113047.27272727,
+      78432900.8409091
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "novice",
+    "repetitions": 400,
+    "p10CI95": [
+      61295323,
+      64885097
+    ],
+    "worstDecileCI95": [
+      53173105.72727273,
+      58145724.95454545
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "repetitions": 400,
+    "p10CI95": [
+      85339112,
+      87071945
+    ],
+    "worstDecileCI95": [
+      82232304.25,
+      84598490.27272727
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "repetitions": 400,
+    "p10CI95": [
+      85120000,
+      87035400
+    ],
+    "worstDecileCI95": [
+      82030817.31818181,
+      84420916.68181819
+    ]
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "repetitions": 400,
+    "p10CI95": [
+      84686900,
+      86368250
+    ],
+    "worstDecileCI95": [
+      81402756.97727273,
+      83733667.20454545
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-none",
+    "repetitions": 400,
+    "p10CI95": [
+      76000000,
+      77000000
+    ],
+    "worstDecileCI95": [
+      74000000,
+      75477272.72727273
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-early",
+    "repetitions": 400,
+    "p10CI95": [
+      82000000,
+      84000000
+    ],
+    "worstDecileCI95": [
+      79500000,
+      81090909.0909091
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      82000000,
+      84000000
+    ],
+    "worstDecileCI95": [
+      79590909.0909091,
+      81181818.18181819
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-all",
+    "repetitions": 400,
+    "p10CI95": [
+      82000000,
+      84000000
+    ],
+    "worstDecileCI95": [
+      79500000,
+      81090909.0909091
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-reserve5",
+    "repetitions": 400,
+    "p10CI95": [
+      82000000,
+      84000000
+    ],
+    "worstDecileCI95": [
+      79590909.0909091,
+      81181818.18181819
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-reserve10",
+    "repetitions": 400,
+    "p10CI95": [
+      82000000,
+      84000000
+    ],
+    "worstDecileCI95": [
+      79590909.0909091,
+      81181818.18181819
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-reserve15",
+    "repetitions": 400,
+    "p10CI95": [
+      82000000,
+      84000000
+    ],
+    "worstDecileCI95": [
+      79590909.0909091,
+      81181818.18181819
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-none",
+    "repetitions": 400,
+    "p10CI95": [
+      80834000,
+      82887500
+    ],
+    "worstDecileCI95": [
+      78162965.4090909,
+      79957040.43181819
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      86219882,
+      87463686
+    ],
+    "worstDecileCI95": [
+      83789638.6590909,
+      85512485.5909091
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-all",
+    "repetitions": 400,
+    "p10CI95": [
+      86946250,
+      88641500
+    ],
+    "worstDecileCI95": [
+      84157059.0909091,
+      86140620.18181819
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "stocks-none",
+    "repetitions": 400,
+    "p10CI95": [
+      75106148,
+      77211831
+    ],
+    "worstDecileCI95": [
+      72848864.06818181,
+      74499032.43181819
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "stocks-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      81760072,
+      83426746
+    ],
+    "worstDecileCI95": [
+      78544209.25,
+      80684466.81818181
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "gold-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      81322422,
+      83555447
+    ],
+    "worstDecileCI95": [
+      79572742.25,
+      80997617.25
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "bond-a-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      82285890,
+      84050062
+    ],
+    "worstDecileCI95": [
+      78292346.77272727,
+      81050630.93181819
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "bond-b-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      78197506,
+      81000000
+    ],
+    "worstDecileCI95": [
+      74346042.52272727,
+      77324044.75
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "business-none",
+    "repetitions": 400,
+    "p10CI95": [
+      72100000,
+      74590328
+    ],
+    "worstDecileCI95": [
+      68695286.61363636,
+      71089945.29545455
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "business-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      78200000,
+      81800000
+    ],
+    "worstDecileCI95": [
+      74623201.18181819,
+      77544812.36363636
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "diversified-none",
+    "repetitions": 400,
+    "p10CI95": [
+      73975665,
+      76797469
+    ],
+    "worstDecileCI95": [
+      70297641.93181819,
+      72882457.38636364
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "diversified-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      80669620,
+      82875143
+    ],
+    "worstDecileCI95": [
+      76231087.6590909,
+      79289085.18181819
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "risk-aware-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      80665887,
+      83506336
+    ],
+    "worstDecileCI95": [
+      76343393.86363636,
+      79355286.86363636
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "novice",
+    "repetitions": 400,
+    "p10CI95": [
+      61713535,
+      66303361
+    ],
+    "worstDecileCI95": [
+      54369593.59090909,
+      59527238.25
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve0",
+    "repetitions": 400,
+    "p10CI95": [
+      86946250,
+      88896000
+    ],
+    "worstDecileCI95": [
+      84277582.95454545,
+      86194148.22727273
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve5",
+    "repetitions": 400,
+    "p10CI95": [
+      86895150,
+      88415000
+    ],
+    "worstDecileCI95": [
+      83985994.13636364,
+      86014763.22727273
+    ]
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve15",
+    "repetitions": 400,
+    "p10CI95": [
+      85000000,
+      86943200
+    ],
+    "worstDecileCI95": [
+      82776534.68181819,
+      84826597.6590909
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-none",
+    "repetitions": 400,
+    "p10CI95": [
+      76000000,
+      77000000
+    ],
+    "worstDecileCI95": [
+      74000000,
+      75477272.72727273
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-early",
+    "repetitions": 400,
+    "p10CI95": [
+      74000000,
+      76000000
+    ],
+    "worstDecileCI95": [
+      70727272.72727273,
+      73136363.63636364
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      80000000
+    ],
+    "worstDecileCI95": [
+      76636363.63636364,
+      78340909.0909091
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-all",
+    "repetitions": 400,
+    "p10CI95": [
+      74000000,
+      76000000
+    ],
+    "worstDecileCI95": [
+      70727272.72727273,
+      73136363.63636364
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve5",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      80000000
+    ],
+    "worstDecileCI95": [
+      76636363.63636364,
+      78340909.0909091
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve10",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      80000000
+    ],
+    "worstDecileCI95": [
+      76636363.63636364,
+      78340909.0909091
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve15",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      80000000
+    ],
+    "worstDecileCI95": [
+      76636363.63636364,
+      78340909.0909091
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-none",
+    "repetitions": 400,
+    "p10CI95": [
+      80834000,
+      82887500
+    ],
+    "worstDecileCI95": [
+      78162965.4090909,
+      79957040.43181819
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      84130080,
+      85820000
+    ],
+    "worstDecileCI95": [
+      81188952.36363636,
+      83260893.63636364
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-all",
+    "repetitions": 400,
+    "p10CI95": [
+      79375000,
+      82056835
+    ],
+    "worstDecileCI95": [
+      75757375.79545455,
+      78436920.3409091
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "stocks-none",
+    "repetitions": 400,
+    "p10CI95": [
+      75106148,
+      77211831
+    ],
+    "worstDecileCI95": [
+      72848864.06818181,
+      74499032.43181819
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "stocks-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      80540483
+    ],
+    "worstDecileCI95": [
+      75977063.13636364,
+      78028982.18181819
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "gold-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      78720250,
+      80687012
+    ],
+    "worstDecileCI95": [
+      76565045.18181819,
+      78203272.3409091
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "bond-a-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      79054324,
+      82000000
+    ],
+    "worstDecileCI95": [
+      74315517.45454545,
+      78041736.06818181
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "bond-b-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      73013153,
+      76211778
+    ],
+    "worstDecileCI95": [
+      67351655,
+      71608225.79545455
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "business-none",
+    "repetitions": 400,
+    "p10CI95": [
+      72100000,
+      74590328
+    ],
+    "worstDecileCI95": [
+      68695286.61363636,
+      71089945.29545455
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "business-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      76100000,
+      79100000
+    ],
+    "worstDecileCI95": [
+      71879651.97727273,
+      74948779.20454545
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "diversified-none",
+    "repetitions": 400,
+    "p10CI95": [
+      74255134,
+      76718107
+    ],
+    "worstDecileCI95": [
+      70335434.43181819,
+      73173697.8409091
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "diversified-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      78758457,
+      81502341
+    ],
+    "worstDecileCI95": [
+      73858364.18181819,
+      77102124.06818181
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "risk-aware-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      78632870,
+      81300840
+    ],
+    "worstDecileCI95": [
+      74036393.81818181,
+      77205034
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "novice",
+    "repetitions": 400,
+    "p10CI95": [
+      58277170,
+      62620372
+    ],
+    "worstDecileCI95": [
+      51652086.02272727,
+      56302053.04545455
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "repetitions": 400,
+    "p10CI95": [
+      84228700,
+      85978000
+    ],
+    "worstDecileCI95": [
+      81349801.36363636,
+      83437647.79545455
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "repetitions": 400,
+    "p10CI95": [
+      84194000,
+      85910000
+    ],
+    "worstDecileCI95": [
+      81287838.31818181,
+      83334813.52272727
+    ]
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "repetitions": 400,
+    "p10CI95": [
+      84120000,
+      85342063
+    ],
+    "worstDecileCI95": [
+      80855058.79545455,
+      83058089.6590909
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-none",
+    "repetitions": 400,
+    "p10CI95": [
+      76000000,
+      77000000
+    ],
+    "worstDecileCI95": [
+      74000000,
+      75477272.72727273
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-early",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      81000000
+    ],
+    "worstDecileCI95": [
+      75750000,
+      78000000
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77227272.72727273,
+      79181818.18181819
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-all",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      81000000
+    ],
+    "worstDecileCI95": [
+      75750000,
+      78000000
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve5",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77227272.72727273,
+      79181818.18181819
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve10",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77227272.72727273,
+      79181818.18181819
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve15",
+    "repetitions": 400,
+    "p10CI95": [
+      79000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77227272.72727273,
+      79181818.18181819
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-none",
+    "repetitions": 400,
+    "p10CI95": [
+      83151780,
+      85003168
+    ],
+    "worstDecileCI95": [
+      80695911.68181819,
+      82514213.13636364
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      87386404,
+      89038000
+    ],
+    "worstDecileCI95": [
+      84344207.31818181,
+      86487134.79545455
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-all",
+    "repetitions": 400,
+    "p10CI95": [
+      87497000,
+      88980088
+    ],
+    "worstDecileCI95": [
+      83433033.8409091,
+      86087987.11363636
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "stocks-none",
+    "repetitions": 400,
+    "p10CI95": [
+      75106148,
+      77211831
+    ],
+    "worstDecileCI95": [
+      72848864.06818181,
+      74499032.43181819
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "stocks-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      80020050,
+      83000000
+    ],
+    "worstDecileCI95": [
+      76606555.70454545,
+      79201993.4090909
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "gold-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      79866960,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77400230.20454545,
+      79150385.93181819
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "bond-a-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      79837640,
+      82563915
+    ],
+    "worstDecileCI95": [
+      75778723.54545455,
+      79027820.20454545
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "bond-b-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      75013409,
+      78004883
+    ],
+    "worstDecileCI95": [
+      69735443.97727273,
+      73429665.36363636
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "business-none",
+    "repetitions": 400,
+    "p10CI95": [
+      72100000,
+      74590328
+    ],
+    "worstDecileCI95": [
+      68695286.61363636,
+      71089945.29545455
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "business-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      77867537,
+      81119610
+    ],
+    "worstDecileCI95": [
+      73240877.77272727,
+      76638547.8409091
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "diversified-none",
+    "repetitions": 400,
+    "p10CI95": [
+      74267785,
+      77516777
+    ],
+    "worstDecileCI95": [
+      70296984.61363636,
+      73375735.6590909
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "diversified-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      79747222,
+      83629496
+    ],
+    "worstDecileCI95": [
+      74606065.43181819,
+      78251764.38636364
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "risk-aware-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      79368717,
+      83502578
+    ],
+    "worstDecileCI95": [
+      74736198.8409091,
+      78295904.9090909
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "novice",
+    "repetitions": 400,
+    "p10CI95": [
+      61576579,
+      65018632
+    ],
+    "worstDecileCI95": [
+      54109950.25,
+      59189732.45454545
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "repetitions": 400,
+    "p10CI95": [
+      87894782,
+      90032497
+    ],
+    "worstDecileCI95": [
+      85059420.56818181,
+      87244689.93181819
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "repetitions": 400,
+    "p10CI95": [
+      87894782,
+      89843385
+    ],
+    "worstDecileCI95": [
+      84972718.97727273,
+      87164237.6590909
+    ]
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "repetitions": 400,
+    "p10CI95": [
+      86541080,
+      88429160
+    ],
+    "worstDecileCI95": [
+      83626911.6590909,
+      85703384.63636364
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-none",
+    "repetitions": 400,
+    "p10CI95": [
+      76000000,
+      77000000
+    ],
+    "worstDecileCI95": [
+      74000000,
+      75477272.72727273
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-early",
+    "repetitions": 400,
+    "p10CI95": [
+      75000000,
+      77000000
+    ],
+    "worstDecileCI95": [
+      71568181.81818181,
+      74272727.27272727
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      80000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77204545.45454545,
+      79136363.63636364
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-all",
+    "repetitions": 400,
+    "p10CI95": [
+      75000000,
+      77000000
+    ],
+    "worstDecileCI95": [
+      71568181.81818181,
+      74272727.27272727
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve5",
+    "repetitions": 400,
+    "p10CI95": [
+      80000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77204545.45454545,
+      79136363.63636364
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve10",
+    "repetitions": 400,
+    "p10CI95": [
+      80000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77204545.45454545,
+      79136363.63636364
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve15",
+    "repetitions": 400,
+    "p10CI95": [
+      80000000,
+      82000000
+    ],
+    "worstDecileCI95": [
+      77204545.45454545,
+      79136363.63636364
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-none",
+    "repetitions": 400,
+    "p10CI95": [
+      80834000,
+      82887500
+    ],
+    "worstDecileCI95": [
+      78162965.4090909,
+      79957040.43181819
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      84000000,
+      86221073
+    ],
+    "worstDecileCI95": [
+      81724954.5,
+      83438282.20454545
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-all",
+    "repetitions": 400,
+    "p10CI95": [
+      80001400,
+      83158895
+    ],
+    "worstDecileCI95": [
+      76150152.04545455,
+      79137203.47727273
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "stocks-none",
+    "repetitions": 400,
+    "p10CI95": [
+      75106148,
+      77211831
+    ],
+    "worstDecileCI95": [
+      72848864.06818181,
+      74499032.43181819
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "stocks-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      79409913,
+      81548571
+    ],
+    "worstDecileCI95": [
+      76299211.68181819,
+      78693610.8409091
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "gold-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      78781721,
+      81384990
+    ],
+    "worstDecileCI95": [
+      77366989.11363636,
+      78830594.22727273
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "bond-a-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      80102623,
+      82063293
+    ],
+    "worstDecileCI95": [
+      76165448.43181819,
+      79066830.72727273
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "bond-b-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      77007195,
+      79000000
+    ],
+    "worstDecileCI95": [
+      72326410.25,
+      75423337.43181819
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "business-none",
+    "repetitions": 400,
+    "p10CI95": [
+      72100000,
+      74590328
+    ],
+    "worstDecileCI95": [
+      68695286.61363636,
+      71089945.29545455
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "business-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      76867537,
+      79800000
+    ],
+    "worstDecileCI95": [
+      72380262.20454545,
+      75396182.4090909
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "diversified-none",
+    "repetitions": 400,
+    "p10CI95": [
+      73975665,
+      76797469
+    ],
+    "worstDecileCI95": [
+      70297641.93181819,
+      72882457.38636364
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "diversified-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      78411756,
+      81422716
+    ],
+    "worstDecileCI95": [
+      73906424.36363636,
+      77028780.47727273
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "risk-aware-roi",
+    "repetitions": 400,
+    "p10CI95": [
+      78582704,
+      81821741
+    ],
+    "worstDecileCI95": [
+      73941197.02272727,
+      77336177.72727273
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "novice",
+    "repetitions": 400,
+    "p10CI95": [
+      57364912,
+      62346587
+    ],
+    "worstDecileCI95": [
+      50260206.13636363,
+      55147575.79545455
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve0",
+    "repetitions": 400,
+    "p10CI95": [
+      84186700,
+      87000000
+    ],
+    "worstDecileCI95": [
+      81982136.72727273,
+      83967834.93181819
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve5",
+    "repetitions": 400,
+    "p10CI95": [
+      84186700,
+      86960038
+    ],
+    "worstDecileCI95": [
+      81926719.77272727,
+      83861844.43181819
+    ]
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve15",
+    "repetitions": 400,
+    "p10CI95": [
+      84000000,
+      85740224
+    ],
+    "worstDecileCI95": [
+      81536307.52272727,
+      83328080.8409091
+    ]
+  }
+]

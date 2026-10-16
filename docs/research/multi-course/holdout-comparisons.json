@@ -1,0 +1,6818 @@
+[
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-roi",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4723214.285714285,
+    "ci95": [
+      4408663.742584178,
+      5037764.828844393
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-roi",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3236607142857143,
+    "ci95": [
+      0.28028670070004064,
+      0.36703472787138797
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-all",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4491071.428571428,
+    "ci95": [
+      4137086.148003068,
+      4845056.7091397885
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-all",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3236607142857143,
+    "ci95": [
+      0.28028670070004064,
+      0.36703472787138797
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-reserve5",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4723214.285714285,
+    "ci95": [
+      4408663.742584178,
+      5037764.828844393
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-reserve5",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3236607142857143,
+    "ci95": [
+      0.28028670070004064,
+      0.36703472787138797
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-reserve10",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4723214.285714285,
+    "ci95": [
+      4408663.742584178,
+      5037764.828844393
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-reserve10",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3236607142857143,
+    "ci95": [
+      0.28028670070004064,
+      0.36703472787138797
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-reserve15",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4723214.285714285,
+    "ci95": [
+      4408663.742584178,
+      5037764.828844393
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "cash-reserve15",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3236607142857143,
+    "ci95": [
+      0.28028670070004064,
+      0.36703472787138797
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-roi",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 3400681.8370535714,
+    "ci95": [
+      3085906.2799881543,
+      3715457.3941189884
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-roi",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.171875,
+    "ci95": [
+      0.13581979021050902,
+      0.20793020978949098
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-all",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4088081.5647321427,
+    "ci95": [
+      3741367.3979831366,
+      4434795.731481149
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-all",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.19866071428571427,
+    "ci95": [
+      0.15635015189430937,
+      0.24097127667711918
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "stocks-roi",
+    "control": "stocks-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4723214.285714285,
+    "ci95": [
+      4408663.742584178,
+      5037764.828844393
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "stocks-roi",
+    "control": "stocks-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.29464285714285715,
+    "ci95": [
+      0.252380394225842,
+      0.3369053200598723
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "business-roi",
+    "control": "business-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4723214.285714285,
+    "ci95": [
+      4408663.742584178,
+      5037764.828844393
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "business-roi",
+    "control": "business-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.203125,
+    "ci95": [
+      0.1658275534705464,
+      0.2404224465294536
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "diversified-roi",
+    "control": "diversified-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4138114.6495535714,
+    "ci95": [
+      3807353.1702571646,
+      4468876.128849979
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "diversified-roi",
+    "control": "diversified-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.17857142857142858,
+    "ci95": [
+      0.1425298790959883,
+      0.21461297804686885
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4326004.904017857,
+    "ci95": [
+      4018409.844678477,
+      4633599.963357237
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.22098214285714285,
+    "ci95": [
+      0.1820225833052052,
+      0.2599417024090805
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4254154.602678572,
+    "ci95": [
+      3941743.932860395,
+      4566565.272496749
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.21875,
+    "ci95": [
+      0.17992862170463705,
+      0.2575713782953629
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 3173845.125,
+    "ci95": [
+      2850514.6033931174,
+      3497175.6466068826
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.16294642857142858,
+    "ci95": [
+      0.1276061330676054,
+      0.19828672407525175
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 925323.0669642857,
+    "ci95": [
+      712294.851407768,
+      1138351.2825208034
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.049107142857142856,
+    "ci95": [
+      0.02907439910728043,
+      0.06913988660700529
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": 937500,
+    "ci95": [
+      724084.2209612201,
+      1150915.77903878
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": 153135.375,
+    "ci95": [
+      1642.378290403547,
+      304628.3717095965
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 853472.765625,
+    "ci95": [
+      643583.0504815436,
+      1063362.4807684564
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.046875,
+    "ci95": [
+      0.027279882109713445,
+      0.06647011789028656
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": 857142.8571428572,
+    "ci95": [
+      647325.6361641224,
+      1066960.078121592
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": 242251.96651785713,
+    "ci95": [
+      101840.97823556693,
+      382662.95480014733
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -226836.71205357142,
+    "ci95": [
+      -313402.10431533435,
+      -140271.3197918085
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.008928571428571428,
+    "ci95": [
+      -0.01764915958064699,
+      -0.00020798327649586626
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": -303571.4285714286,
+    "ci95": [
+      -401774.2388484704,
+      -205368.61829438678
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": 324718.04241071426,
+    "ci95": [
+      196114.5911153478,
+      453321.4937060807
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-roi",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6053571.428571428,
+    "ci95": [
+      5792583.0516541675,
+      6314559.805488689
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-roi",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.4263392857142857,
+    "ci95": [
+      0.3804926427159483,
+      0.4721859287126231
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-all",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5955357.142857143,
+    "ci95": [
+      5669651.674492877,
+      6241062.6112214085
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-all",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.4263392857142857,
+    "ci95": [
+      0.3804926427159483,
+      0.4721859287126231
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-reserve5",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6053571.428571428,
+    "ci95": [
+      5792583.0516541675,
+      6314559.805488689
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-reserve5",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.4263392857142857,
+    "ci95": [
+      0.3804926427159483,
+      0.4721859287126231
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-reserve10",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6053571.428571428,
+    "ci95": [
+      5792583.0516541675,
+      6314559.805488689
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-reserve10",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.4263392857142857,
+    "ci95": [
+      0.3804926427159483,
+      0.4721859287126231
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-reserve15",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6053571.428571428,
+    "ci95": [
+      5792583.0516541675,
+      6314559.805488689
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "cash-reserve15",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.4263392857142857,
+    "ci95": [
+      0.3804926427159483,
+      0.4721859287126231
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-roi",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4538956.200892857,
+    "ci95": [
+      4242063.896501847,
+      4835848.505283868
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-roi",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.2611607142857143,
+    "ci95": [
+      0.2199701280483841,
+      0.3023513005230445
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-all",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5631406.185267857,
+    "ci95": [
+      5347864.350433914,
+      5914948.020101801
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-all",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.32142857142857145,
+    "ci95": [
+      0.2776922760358931,
+      0.3651648668212498
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "stocks-roi",
+    "control": "stocks-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6053571.428571428,
+    "ci95": [
+      5792583.0516541675,
+      6314559.805488689
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "stocks-roi",
+    "control": "stocks-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.39732142857142855,
+    "ci95": [
+      0.3519569232955392,
+      0.4426859338473179
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "business-roi",
+    "control": "business-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6053571.428571428,
+    "ci95": [
+      5792583.0516541675,
+      6314559.805488689
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "business-roi",
+    "control": "business-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.2767857142857143,
+    "ci95": [
+      0.2353086849835628,
+      0.3182627435878658
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "diversified-roi",
+    "control": "diversified-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5574161.988839285,
+    "ci95": [
+      5277638.766851823,
+      5870685.210826748
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "diversified-roi",
+    "control": "diversified-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.23660714285714285,
+    "ci95": [
+      0.19672375754524424,
+      0.27649052816904146
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5730834.756696428,
+    "ci95": [
+      5471558.375028484,
+      5990111.138364373
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3236607142857143,
+    "ci95": [
+      0.28028670070004064,
+      0.36703472787138797
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5668618.410714285,
+    "ci95": [
+      5401536.373473476,
+      5935700.447955095
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.32142857142857145,
+    "ci95": [
+      0.2781331138805179,
+      0.364724028976625
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4219764.131696428,
+    "ci95": [
+      3899957.2023838805,
+      4539571.061008976
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.24330357142857142,
+    "ci95": [
+      0.20257296098338995,
+      0.2840341818737529
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 1191878.5558035714,
+    "ci95": [
+      962011.5275682169,
+      1421745.5840389258
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.0625,
+    "ci95": [
+      0.04005973627067608,
+      0.08494026372932392
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": 1178571.4285714286,
+    "ci95": [
+      950744.9118965163,
+      1406397.945246341
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": 349837.734375,
+    "ci95": [
+      181808.18162604218,
+      517867.2871239578
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 1129662.2098214286,
+    "ci95": [
+      901631.0994666375,
+      1357693.3201762198
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.060267857142857144,
+    "ci95": [
+      0.03820573799010872,
+      0.08232997629560557
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": 1116071.4285714286,
+    "ci95": [
+      890264.1829117867,
+      1341878.6742310706
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": 358628.80803571426,
+    "ci95": [
+      192360.29980958966,
+      524897.3162618389
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -319192.0691964286,
+    "ci95": [
+      -418513.1994649767,
+      -219870.9389278805
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.017857142857142856,
+    "ci95": [
+      -0.030134238171232015,
+      -0.005580047543053697
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": -366071.4285714286,
+    "ci95": [
+      -472994.9910368214,
+      -259147.86610603577
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": 196776.89732142858,
+    "ci95": [
+      76293.9961535914,
+      317259.7984892657
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-roi",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6875000,
+    "ci95": [
+      6676353.714466764,
+      7073646.285533236
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-roi",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.46875,
+    "ci95": [
+      0.42248821118864033,
+      0.5150117888113597
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-all",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6848214.285714285,
+    "ci95": [
+      6639551.2691678135,
+      7056877.302260757
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-all",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.46875,
+    "ci95": [
+      0.42248821118864033,
+      0.5150117888113597
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-reserve5",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6875000,
+    "ci95": [
+      6676353.714466764,
+      7073646.285533236
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-reserve5",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.46875,
+    "ci95": [
+      0.42248821118864033,
+      0.5150117888113597
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-reserve10",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6875000,
+    "ci95": [
+      6676353.714466764,
+      7073646.285533236
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-reserve10",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.46875,
+    "ci95": [
+      0.42248821118864033,
+      0.5150117888113597
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-reserve15",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6875000,
+    "ci95": [
+      6676353.714466764,
+      7073646.285533236
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "cash-reserve15",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.46875,
+    "ci95": [
+      0.42248821118864033,
+      0.5150117888113597
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-roi",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5137168.993303572,
+    "ci95": [
+      4860382.461770904,
+      5413955.524836239
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-roi",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.30357142857142855,
+    "ci95": [
+      0.2604980818346687,
+      0.3466447753081884
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-all",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6535848.299107143,
+    "ci95": [
+      6326451.775772941,
+      6745244.822441344
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-all",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3861607142857143,
+    "ci95": [
+      0.3410256885662111,
+      0.4312957400052175
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "stocks-roi",
+    "control": "stocks-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6875000,
+    "ci95": [
+      6676353.714466764,
+      7073646.285533236
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "stocks-roi",
+    "control": "stocks-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.43973214285714285,
+    "ci95": [
+      0.3937176892292514,
+      0.4857465964850343
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "business-roi",
+    "control": "business-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6875000,
+    "ci95": [
+      6676353.714466764,
+      7073646.285533236
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "business-roi",
+    "control": "business-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3080357142857143,
+    "ci95": [
+      0.26523562392483613,
+      0.3508358046465925
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "diversified-roi",
+    "control": "diversified-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6258485.850446428,
+    "ci95": [
+      5996447.659753852,
+      6520524.041139005
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "diversified-roi",
+    "control": "diversified-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.2767857142857143,
+    "ci95": [
+      0.23484872762582365,
+      0.31872270094560495
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6563241.15625,
+    "ci95": [
+      6363743.891871479,
+      6762738.420628521
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3861607142857143,
+    "ci95": [
+      0.3410256885662111,
+      0.4312957400052175
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6482210.09375,
+    "ci95": [
+      6266942.778218721,
+      6697477.409281279
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3794642857142857,
+    "ci95": [
+      0.33447893046615096,
+      0.42444964096242044
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4756954.558035715,
+    "ci95": [
+      4445063.022311625,
+      5068846.093759804
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.27901785714285715,
+    "ci95": [
+      0.23652551714688452,
+      0.3215101971388298
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 1426072.1629464286,
+    "ci95": [
+      1193486.5487963753,
+      1658657.777096482
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.08258928571428571,
+    "ci95": [
+      0.05707131887303024,
+      0.10810725255554118
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": 1401785.7142857143,
+    "ci95": [
+      1170700.1342466013,
+      1632871.2943248274
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": 489467.00223214284,
+    "ci95": [
+      321301.1416934386,
+      657632.862770847
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 1345041.1004464286,
+    "ci95": [
+      1114032.3315370332,
+      1576049.869355824
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.07589285714285714,
+    "ci95": [
+      0.05134215457359667,
+      0.1004435597121176
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": 1321428.5714285714,
+    "ci95": [
+      1092258.7829609183,
+      1550598.3598962245
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": 478053.3348214286,
+    "ci95": [
+      309982.53233599826,
+      646124.1373068589
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -380214.43526785716,
+    "ci95": [
+      -487423.18256502016,
+      -273005.68797069415
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.024553571428571428,
+    "ci95": [
+      -0.03890057996982404,
+      -0.010206562887318818
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": -428571.4285714286,
+    "ci95": [
+      -543263.8974440941,
+      -313878.95969876304
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": 180972.20982142858,
+    "ci95": [
+      57238.58095688639,
+      304705.83868597075
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "A-baseline__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-roi",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4683035.714285715,
+    "ci95": [
+      4432385.336833371,
+      4933686.091738058
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-roi",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.23214285714285715,
+    "ci95": [
+      0.19300291433448677,
+      0.2712827999512275
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-all",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 1794642.857142857,
+    "ci95": [
+      1380306.391965293,
+      2208979.322320421
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-all",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.19866071428571427,
+    "ci95": [
+      0.16167223100113606,
+      0.23564919757029248
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve5",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4683035.714285715,
+    "ci95": [
+      4432385.336833371,
+      4933686.091738058
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve5",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.23214285714285715,
+    "ci95": [
+      0.19300291433448677,
+      0.2712827999512275
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve10",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4683035.714285715,
+    "ci95": [
+      4432385.336833371,
+      4933686.091738058
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve10",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.23214285714285715,
+    "ci95": [
+      0.19300291433448677,
+      0.2712827999512275
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve15",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4683035.714285715,
+    "ci95": [
+      4432385.336833371,
+      4933686.091738058
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve15",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.23214285714285715,
+    "ci95": [
+      0.19300291433448677,
+      0.2712827999512275
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-roi",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 3232719.7008928573,
+    "ci95": [
+      2996919.443026166,
+      3468519.9587595486
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-roi",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.20535714285714285,
+    "ci95": [
+      0.16790788561472283,
+      0.24280640009956286
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-all",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 990789.7053571428,
+    "ci95": [
+      593442.6186632604,
+      1388136.7920510252
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-all",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.06473214285714286,
+    "ci95": [
+      0.02385042515836914,
+      0.1056138605559166
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "stocks-roi",
+    "control": "stocks-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4683035.714285715,
+    "ci95": [
+      4432385.336833371,
+      4933686.091738058
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "stocks-roi",
+    "control": "stocks-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.30357142857142855,
+    "ci95": [
+      0.26094577539491026,
+      0.34619708174794683
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "business-roi",
+    "control": "business-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4639445.28125,
+    "ci95": [
+      4392355.243120982,
+      4886535.319379018
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "business-roi",
+    "control": "business-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.19866071428571427,
+    "ci95": [
+      0.16167223100113606,
+      0.23564919757029248
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "diversified-roi",
+    "control": "diversified-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4028218.7522321427,
+    "ci95": [
+      3713040.953701841,
+      4343396.550762444
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "diversified-roi",
+    "control": "diversified-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.18080357142857142,
+    "ci95": [
+      0.14406599429635084,
+      0.217541148560792
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 3965945.5758928573,
+    "ci95": [
+      3734172.219472746,
+      4197718.932312968
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.25223214285714285,
+    "ci95": [
+      0.21197101646482644,
+      0.2924932692494593
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 3899986.1852678573,
+    "ci95": [
+      3666979.780301941,
+      4132992.5902337735
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.24776785714285715,
+    "ci95": [
+      0.20774567762714466,
+      0.28779003665856967
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2869501.5870535714,
+    "ci95": [
+      2609609.7035588296,
+      3129393.470548313
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.18080357142857142,
+    "ci95": [
+      0.14459193402889636,
+      0.2170152088282465
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 733225.875,
+    "ci95": [
+      602190.7273731574,
+      864261.0226268426
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.046875,
+    "ci95": [
+      0.027279882109713445,
+      0.06647011789028656
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": 776785.7142857143,
+    "ci95": [
+      639835.9304648166,
+      913735.498106612
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": -147135.671875,
+    "ci95": [
+      -264730.8917158091,
+      -29540.45203419085
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 667266.484375,
+    "ci95": [
+      543753.501635363,
+      790779.467114637
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.04241071428571429,
+    "ci95": [
+      0.023728440067449518,
+      0.061092988503979054
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": 705357.1428571428,
+    "ci95": [
+      575938.4308401621,
+      834775.8548741236
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": -100924.984375,
+    "ci95": [
+      -203698.15516399572,
+      1848.1864139957179
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -363218.11383928574,
+    "ci95": [
+      -436118.28529572685,
+      -290317.94238284463
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.024553571428571428,
+    "ci95": [
+      -0.038900579969824066,
+      -0.010206562887318789
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": -464285.71428571426,
+    "ci95": [
+      -549150.391406521,
+      -379421.03716490755
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": 530823.7165178572,
+    "ci95": [
+      395243.83011875587,
+      666403.6029169585
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-roi",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 7553571.428571428,
+    "ci95": [
+      7091317.26148495,
+      8015825.5956579065
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-roi",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.46875,
+    "ci95": [
+      0.42248821118864033,
+      0.5150117888113597
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-all",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6975446.428571428,
+    "ci95": [
+      6468310.0875137,
+      7482582.769629156
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-all",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.4375,
+    "ci95": [
+      0.39151114447809376,
+      0.48348885552190624
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve5",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 7553571.428571428,
+    "ci95": [
+      7091317.26148495,
+      8015825.5956579065
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve5",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.46875,
+    "ci95": [
+      0.42248821118864033,
+      0.5150117888113597
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve10",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 7553571.428571428,
+    "ci95": [
+      7091317.26148495,
+      8015825.5956579065
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve10",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.46875,
+    "ci95": [
+      0.42248821118864033,
+      0.5150117888113597
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve15",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 7553571.428571428,
+    "ci95": [
+      7091317.26148495,
+      8015825.5956579065
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve15",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.46875,
+    "ci95": [
+      0.42248821118864033,
+      0.5150117888113597
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-roi",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6695977.017857143,
+    "ci95": [
+      6232448.139929424,
+      7159505.895784861
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-roi",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.27455357142857145,
+    "ci95": [
+      0.2331804267389291,
+      0.31592671611821377
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-all",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 6600508.859375,
+    "ci95": [
+      6101150.940095075,
+      7099866.778654925
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-all",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.2700892857142857,
+    "ci95": [
+      0.22450490935868228,
+      0.3156736620698891
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "stocks-roi",
+    "control": "stocks-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 7553571.428571428,
+    "ci95": [
+      7091317.26148495,
+      8015825.5956579065
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "stocks-roi",
+    "control": "stocks-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.4575892857142857,
+    "ci95": [
+      0.4114039225279794,
+      0.503774648900592
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "business-roi",
+    "control": "business-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 7553571.428571428,
+    "ci95": [
+      7091317.26148495,
+      8015825.5956579065
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "business-roi",
+    "control": "business-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.32589285714285715,
+    "ci95": [
+      0.28244141499895603,
+      0.36934429928675827
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "diversified-roi",
+    "control": "diversified-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 7090220.053571428,
+    "ci95": [
+      6620088.06493602,
+      7560352.042206836
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "diversified-roi",
+    "control": "diversified-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.31919642857142855,
+    "ci95": [
+      0.27598066068885946,
+      0.36241219645399764
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 7200325.354910715,
+    "ci95": [
+      6747567.02421375,
+      7653083.685607679
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3125,
+    "ci95": [
+      0.2695301664006879,
+      0.3554698335993121
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 7174943.089285715,
+    "ci95": [
+      6720560.210814846,
+      7629325.967756583
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3080357142857143,
+    "ci95": [
+      0.26523562392483613,
+      0.3508358046465925
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5293600.444196428,
+    "ci95": [
+      4813929.519461342,
+      5773271.368931514
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.24330357142857142,
+    "ci95": [
+      0.2035260797218725,
+      0.2830810631352703
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 504348.3370535714,
+    "ci95": [
+      356106.1812271712,
+      652590.4928799716
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.03794642857142857,
+    "ci95": [
+      0.020233621530267427,
+      0.05565923561258971
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": 526785.7142857143,
+    "ci95": [
+      374451.205481219,
+      679120.2230902096
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": -95100.90625,
+    "ci95": [
+      -176930.65818424488,
+      -13271.154315755106
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 478966.0714285714,
+    "ci95": [
+      331758.9634145911,
+      626173.1794425517
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.033482142857142856,
+    "ci95": [
+      0.01680529857930909,
+      0.05015898713497662
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": 500000,
+    "ci95": [
+      348782.71703714994,
+      651217.2829628501
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": -78371.27455357143,
+    "ci95": [
+      -158108.07582489244,
+      1365.5267177495552
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1402376.5736607143,
+    "ci95": [
+      -1675256.4037706736,
+      -1129496.743550755
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.03125,
+    "ci95": [
+      -0.04737995583972563,
+      -0.01512004416027437
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": -1473214.2857142857,
+    "ci95": [
+      -1753242.4232825977,
+      -1193186.1481459737
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": 19379.334821428572,
+    "ci95": [
+      -129766.07031611318,
+      168524.73995897034
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-roi",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5515625,
+    "ci95": [
+      5221490.269615626,
+      5809759.730384374
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-roi",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3236607142857143,
+    "ci95": [
+      0.2802867007000406,
+      0.367034727871388
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-all",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 3439732.1428571427,
+    "ci95": [
+      2958016.351137699,
+      3921447.9345765864
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-all",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.22544642857142858,
+    "ci95": [
+      0.18670731133292734,
+      0.2641855458099298
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve5",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5515625,
+    "ci95": [
+      5221490.269615626,
+      5809759.730384374
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve5",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3236607142857143,
+    "ci95": [
+      0.2802867007000406,
+      0.367034727871388
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve10",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5515625,
+    "ci95": [
+      5221490.269615626,
+      5809759.730384374
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve10",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3236607142857143,
+    "ci95": [
+      0.2802867007000406,
+      0.367034727871388
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve15",
+    "control": "cash-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5515625,
+    "ci95": [
+      5221490.269615626,
+      5809759.730384374
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve15",
+    "control": "cash-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3236607142857143,
+    "ci95": [
+      0.2802867007000406,
+      0.367034727871388
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-roi",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 3198268.1808035714,
+    "ci95": [
+      2898777.3997515733,
+      3497758.9618555694
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-roi",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.20758928571428573,
+    "ci95": [
+      0.1699899695234275,
+      0.24518860190514397
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-all",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2156010.7879464286,
+    "ci95": [
+      1688831.3520437195,
+      2623190.223849138
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-all",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.14732142857142858,
+    "ci95": [
+      0.10009231312727088,
+      0.19455054401558627
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "stocks-roi",
+    "control": "stocks-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5495535.714285715,
+    "ci95": [
+      5202967.156238685,
+      5788104.272332744
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "stocks-roi",
+    "control": "stocks-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.3392857142857143,
+    "ci95": [
+      0.295393049801478,
+      0.3831783787699506
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "business-roi",
+    "control": "business-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 5304964.435267857,
+    "ci95": [
+      5031004.007752588,
+      5578924.8627831265
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "business-roi",
+    "control": "business-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.22991071428571427,
+    "ci95": [
+      0.1909028246066408,
+      0.26891860396478773
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "diversified-roi",
+    "control": "diversified-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4380217.243303572,
+    "ci95": [
+      4008418.667585702,
+      4752015.819021442
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "diversified-roi",
+    "control": "diversified-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.18526785714285715,
+    "ci95": [
+      0.14820073638126016,
+      0.22233497790445414
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4514309.091517857,
+    "ci95": [
+      4244808.353784075,
+      4783809.82925164
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.28348214285714285,
+    "ci95": [
+      0.24170115804210907,
+      0.32526312767217663
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 4223101.71875,
+    "ci95": [
+      3958645.3278821213,
+      4487558.109617879
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.26785714285714285,
+    "ci95": [
+      0.22680348669153727,
+      0.30891079902274843
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-none",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 3122271.589285714,
+    "ci95": [
+      2819521.8259738386,
+      3425021.3525975896
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-none",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.20089285714285715,
+    "ci95": [
+      0.16374899456980677,
+      0.23803671971590754
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 1316040.9107142857,
+    "ci95": [
+      1123086.770545267,
+      1508995.0508833043
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.07589285714285714,
+    "ci95": [
+      0.05134215457359666,
+      0.10044355971211762
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": 1506696.4285714286,
+    "ci95": [
+      1294013.1467256804,
+      1719379.7104171768
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": -1036166.0513392857,
+    "ci95": [
+      -1228641.1151709892,
+      -843690.9875075822
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 1024833.5379464285,
+    "ci95": [
+      880647.9600361089,
+      1169019.1158567483
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.060267857142857144,
+    "ci95": [
+      0.03820573799010867,
+      0.08232997629560562
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": 1169642.857142857,
+    "ci95": [
+      1010326.3377366618,
+      1328959.3765490523
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": -713235.4129464285,
+    "ci95": [
+      -862436.8079537416,
+      -564034.0179391154
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -75996.59151785714,
+    "ci95": [
+      -98803.95538309707,
+      -53189.22765261722
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.006696428571428571,
+    "ci95": [
+      -0.014257179450743437,
+      0.0008643223078862953
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "courseNet",
+    "n": 448,
+    "mean": -158482.14285714287,
+    "ci95": [
+      -192337.24631174345,
+      -124627.03940254229
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "investmentSpend",
+    "n": 448,
+    "mean": 457529.90625,
+    "ci95": [
+      337845.71367883624,
+      577214.0988211638
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "personalShortfalls",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "withdrawals",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "savings-roi-course-reserve10",
+    "metric": "borrowAmount",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-none",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-none",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-early",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2484375,
+    "ci95": [
+      2256625.274193654,
+      2712124.725806346
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-early",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.11383928571428571,
+    "ci95": [
+      0.07902143966483172,
+      0.1486571317637397
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2830357.1428571427,
+    "ci95": [
+      2635311.437492456,
+      3025402.8482218296
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.14508928571428573,
+    "ci95": [
+      0.11243949805879637,
+      0.17773907336977507
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-all",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2484375,
+    "ci95": [
+      2256625.274193654,
+      2712124.725806346
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-all",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.11383928571428571,
+    "ci95": [
+      0.07902143966483172,
+      0.1486571317637397
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve5",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2830357.1428571427,
+    "ci95": [
+      2635311.437492456,
+      3025402.8482218296
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve5",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.14508928571428573,
+    "ci95": [
+      0.11243949805879637,
+      0.17773907336977507
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve10",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2830357.1428571427,
+    "ci95": [
+      2635311.437492456,
+      3025402.8482218296
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve10",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.14508928571428573,
+    "ci95": [
+      0.11243949805879637,
+      0.17773907336977507
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve15",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2830357.1428571427,
+    "ci95": [
+      2635311.437492456,
+      3025402.8482218296
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "cash-reserve15",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.14508928571428573,
+    "ci95": [
+      0.11243949805879637,
+      0.17773907336977507
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-none",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-none",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 3295295.1808035714,
+    "ci95": [
+      3016752.573586832,
+      3573837.788020311
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.10267857142857142,
+    "ci95": [
+      0.07453908038171987,
+      0.130818062475423
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-all",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2512427.2946428573,
+    "ci95": [
+      2287295.0626451583,
+      2737559.5266405563
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-all",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.07142857142857142,
+    "ci95": [
+      0.04525371627127234,
+      0.09760342658587051
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "stocks-none",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "stocks-none",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "stocks-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2830357.1428571427,
+    "ci95": [
+      2635311.437492456,
+      3025402.8482218296
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "stocks-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.16294642857142858,
+    "ci95": [
+      0.1287089826162041,
+      0.19718387452665306
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "gold-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2830357.1428571427,
+    "ci95": [
+      2635311.437492456,
+      3025402.8482218296
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "gold-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.15178571428571427,
+    "ci95": [
+      0.1185220146471212,
+      0.18504941392430735
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "bond-a-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2822620.1116071427,
+    "ci95": [
+      2627724.607402727,
+      3017515.6158115584
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "bond-a-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.15848214285714285,
+    "ci95": [
+      0.12462703940254227,
+      0.19233724631174343
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "bond-b-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2821934.7522321427,
+    "ci95": [
+      2626995.673344849,
+      3016873.8311194363
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "bond-b-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.15848214285714285,
+    "ci95": [
+      0.12462703940254224,
+      0.19233724631174345
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "business-none",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "business-none",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "business-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2830357.1428571427,
+    "ci95": [
+      2635311.437492456,
+      3025402.8482218296
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "business-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.12276785714285714,
+    "ci95": [
+      0.09234486566872871,
+      0.15319084861698556
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "diversified-none",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "diversified-none",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "diversified-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2952105.4040178573,
+    "ci95": [
+      2715581.411057338,
+      3188629.3969783764
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "diversified-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.140625,
+    "ci95": [
+      0.10780776972947541,
+      0.17344223027052458
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "risk-aware-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2951261.25,
+    "ci95": [
+      2719857.469980467,
+      3182665.030019533
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "risk-aware-roi",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.125,
+    "ci95": [
+      0.09372132188378181,
+      0.1562786781162182
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "novice",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 1365587.5066964286,
+    "ci95": [
+      1143752.5941465523,
+      1587422.419246305
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "novice",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.03125,
+    "ci95": [
+      0.012894911981901985,
+      0.049605088018098015
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2874320.4508928573,
+    "ci95": [
+      2681293.682364345,
+      3067347.2194213695
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve0",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.09151785714285714,
+    "ci95": [
+      0.06478696652650873,
+      0.11824874775920555
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2920788.4866071427,
+    "ci95": [
+      2723534.0434802445,
+      3118042.929734041
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve5",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.08928571428571429,
+    "ci95": [
+      0.06285040639350858,
+      0.11572102217791999
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "A-baseline__L2-spaced",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 2119755.3191964286,
+    "ci95": [
+      1922392.325616864,
+      2317118.3127759933
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S2-rich__L2-spaced",
+    "policy": "savings-course-reserve15",
+    "control": "A-baseline__L2-spaced",
+    "metric": "won",
+    "n": 448,
+    "mean": 0.08035714285714286,
+    "ci95": [
+      0.05515577264830935,
+      0.10555851306597638
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-none",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-none",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-early",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -4160714.285714286,
+    "ci95": [
+      -4447402.444993913,
+      -3874026.1264346587
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-early",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.22767857142857142,
+    "ci95": [
+      -0.26655285793014877,
+      -0.1888042849269941
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1370535.7142857143,
+    "ci95": [
+      -1456641.6390832267,
+      -1284429.789488202
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.19419642857142858,
+    "ci95": [
+      -0.23086867573803008,
+      -0.15752418140482707
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-all",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -4160714.285714286,
+    "ci95": [
+      -4447402.444993913,
+      -3874026.1264346587
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-all",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.22767857142857142,
+    "ci95": [
+      -0.26655285793014877,
+      -0.1888042849269941
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve5",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1370535.7142857143,
+    "ci95": [
+      -1456641.6390832267,
+      -1284429.789488202
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve5",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.19419642857142858,
+    "ci95": [
+      -0.23086867573803008,
+      -0.15752418140482707
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve10",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1370535.7142857143,
+    "ci95": [
+      -1456641.6390832267,
+      -1284429.789488202
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve10",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.19419642857142858,
+    "ci95": [
+      -0.23086867573803008,
+      -0.15752418140482707
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve15",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1370535.7142857143,
+    "ci95": [
+      -1456641.6390832267,
+      -1284429.789488202
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "cash-reserve15",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.19419642857142858,
+    "ci95": [
+      -0.23086867573803008,
+      -0.15752418140482707
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-none",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-none",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1306236.5,
+    "ci95": [
+      -1437868.4683327111,
+      -1174604.5316672889
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.05580357142857143,
+    "ci95": [
+      -0.08193831560539318,
+      -0.02966882725174969
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-all",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -4640616.479910715,
+    "ci95": [
+      -4924107.417748146,
+      -4357125.542073283
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-all",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.25669642857142855,
+    "ci95": [
+      -0.29719086253520893,
+      -0.21620199460764813
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "stocks-none",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "stocks-none",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "stocks-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1370535.7142857143,
+    "ci95": [
+      -1456641.6390832267,
+      -1284429.789488202
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "stocks-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.09375,
+    "ci95": [
+      -0.12077165580696964,
+      -0.06672834419303036
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "gold-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1369883.919642857,
+    "ci95": [
+      -1456008.8891409182,
+      -1283758.950144796
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "gold-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.10714285714285714,
+    "ci95": [
+      -0.13581597436102352,
+      -0.07846973992469077
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "bond-a-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1370820.5870535714,
+    "ci95": [
+      -1456722.3545758917,
+      -1284918.819531251
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "bond-a-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.12276785714285714,
+    "ci95": [
+      -0.15319084861698556,
+      -0.09234486566872871
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "bond-b-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1355987.484375,
+    "ci95": [
+      -1445065.074020682,
+      -1266909.894729318
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "bond-b-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.11160714285714286,
+    "ci95": [
+      -0.14079826794879233,
+      -0.0824160177654934
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "business-none",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "business-none",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "business-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1414126.1473214286,
+    "ci95": [
+      -1498390.3978545375,
+      -1329861.8967883198
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "business-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.078125,
+    "ci95": [
+      -0.10300402427173636,
+      -0.05324597572826365
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "diversified-none",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "diversified-none",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "diversified-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1545943.236607143,
+    "ci95": [
+      -1727418.5931385432,
+      -1364467.8800757427
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "diversified-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.05580357142857143,
+    "ci95": [
+      -0.07881568327574144,
+      -0.03279145958140142
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "risk-aware-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1586697.6808035714,
+    "ci95": [
+      -1750641.5280776718,
+      -1422753.833529471
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "risk-aware-roi",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.06919642857142858,
+    "ci95": [
+      -0.09430161486659451,
+      -0.04409124227626264
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "novice",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -2345148.8258928573,
+    "ci95": [
+      -2662231.158175871,
+      -2028066.493609844
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "novice",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.0625,
+    "ci95": [
+      -0.08958812984544134,
+      -0.035411870154558656
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1764889.1808035714,
+    "ci95": [
+      -1860883.908735031,
+      -1668894.4528721117
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve0",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.07142857142857142,
+    "ci95": [
+      -0.09530371271327695,
+      -0.047553430143865906
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1768632.2254464286,
+    "ci95": [
+      -1866973.4712257336,
+      -1670290.9796671236
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve5",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.07366071428571429,
+    "ci95": [
+      -0.0978768763308161,
+      -0.04944455224061248
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "A-baseline__L3-bonds",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1350262.544642857,
+    "ci95": [
+      -1463599.9762331783,
+      -1236925.1130525358
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "I2-choice__L3-bonds",
+    "policy": "savings-course-reserve15",
+    "control": "A-baseline__L3-bonds",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.0625,
+    "ci95": [
+      -0.08658940051147469,
+      -0.03841059948852531
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-none",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-none",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-early",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -3408482.1428571427,
+    "ci95": [
+      -3773888.124697338,
+      -3043076.1610169476
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-early",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.24330357142857142,
+    "ci95": [
+      -0.2893403535902395,
+      -0.19726678926690333
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1359375,
+    "ci95": [
+      -1555599.0356547183,
+      -1163150.9643452817
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.14508928571428573,
+    "ci95": [
+      -0.18512858015453443,
+      -0.10504999127403702
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-all",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -3408482.1428571427,
+    "ci95": [
+      -3773888.124697338,
+      -3043076.1610169476
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-all",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.24330357142857142,
+    "ci95": [
+      -0.2893403535902395,
+      -0.19726678926690333
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve5",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1359375,
+    "ci95": [
+      -1555599.0356547183,
+      -1163150.9643452817
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve5",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.14508928571428573,
+    "ci95": [
+      -0.18512858015453443,
+      -0.10504999127403702
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve10",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1359375,
+    "ci95": [
+      -1555599.0356547183,
+      -1163150.9643452817
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve10",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.14508928571428573,
+    "ci95": [
+      -0.18512858015453443,
+      -0.10504999127403702
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve15",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1359375,
+    "ci95": [
+      -1555599.0356547183,
+      -1163150.9643452817
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "cash-reserve15",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.14508928571428573,
+    "ci95": [
+      -0.18512858015453443,
+      -0.10504999127403702
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-none",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-none",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1938900.8125,
+    "ci95": [
+      -2125121.4222634174,
+      -1752680.2027365824
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.09598214285714286,
+    "ci95": [
+      -0.1259684926366413,
+      -0.06599579307764442
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-all",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -4379837.511160715,
+    "ci95": [
+      -4733334.464034771,
+      -4026340.558286658
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-all",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.23883928571428573,
+    "ci95": [
+      -0.2802620794366448,
+      -0.19741649199192668
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "stocks-none",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "stocks-none",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "stocks-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1379464.2857142857,
+    "ci95": [
+      -1574332.0831389867,
+      -1184596.4882895846
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "stocks-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.10044642857142858,
+    "ci95": [
+      -0.13561668351866624,
+      -0.06527617362419091
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "gold-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1359085.8058035714,
+    "ci95": [
+      -1555838.7085260407,
+      -1162332.903081102
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "gold-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.11607142857142858,
+    "ci95": [
+      -0.14998781971740524,
+      -0.08215503742545191
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "bond-a-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1363839.2857142857,
+    "ci95": [
+      -1560383.4086152874,
+      -1167295.162813284
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "bond-a-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.11830357142857142,
+    "ci95": [
+      -0.15666949428510016,
+      -0.07993764857204269
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "bond-b-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1361607.142857143,
+    "ci95": [
+      -1557942.5486880173,
+      -1165271.7370262686
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "bond-b-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.09598214285714286,
+    "ci95": [
+      -0.1307113279345519,
+      -0.06125295777973384
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "business-none",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "business-none",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "business-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1570035.564732143,
+    "ci95": [
+      -1746434.185347865,
+      -1393636.9441164208
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "business-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.078125,
+    "ci95": [
+      -0.10917766272216387,
+      -0.047072337277836135
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "diversified-none",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "diversified-none",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": 0,
+    "ci95": [
+      0,
+      0
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "diversified-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1878268.607142857,
+    "ci95": [
+      -2151482.78876486,
+      -1605054.425520854
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "diversified-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.09151785714285714,
+    "ci95": [
+      -0.12465709999700696,
+      -0.05837861428870732
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "risk-aware-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1877945.5357142857,
+    "ci95": [
+      -2144370.8069530344,
+      -1611520.264475537
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "risk-aware-roi",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.09598214285714286,
+    "ci95": [
+      -0.13015449141208738,
+      -0.06180979430219835
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "novice",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -4221702.428571428,
+    "ci95": [
+      -4602827.63237785,
+      -3840577.224765007
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "novice",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.09375,
+    "ci95": [
+      -0.12215604976604388,
+      -0.06534395023395612
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -2048932.064732143,
+    "ci95": [
+      -2231324.101742629,
+      -1866540.027721657
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve0",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.10267857142857142,
+    "ci95": [
+      -0.1334242787370249,
+      -0.07193286412011796
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -2259108.375,
+    "ci95": [
+      -2446184.4485318763,
+      -2072032.3014681237
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve5",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.11160714285714286,
+    "ci95": [
+      -0.1433181716269191,
+      -0.07989611408736663
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "A-baseline__L4-original",
+    "metric": "proceeds",
+    "n": 448,
+    "mean": -1634682.96875,
+    "ci95": [
+      -1826458.3706729275,
+      -1442907.5668270725
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  },
+  {
+    "config": "S3-flat__L4-original",
+    "policy": "savings-course-reserve15",
+    "control": "A-baseline__L4-original",
+    "metric": "won",
+    "n": 448,
+    "mean": -0.078125,
+    "ci95": [
+      -0.1065995553190074,
+      -0.0496504446809926
+    ],
+    "sameDiceRate": 1,
+    "sameEncounterRate": 1,
+    "sameRngRate": 1,
+    "sameMarketRate": 1
+  }
+]

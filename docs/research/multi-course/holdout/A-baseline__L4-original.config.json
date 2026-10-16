@@ -1,0 +1,59 @@
+{
+  "format": "b18-multi-course-v1",
+  "id": "A-baseline__L4-original",
+  "course": {
+    "id": "A-baseline",
+    "unlock": "sequential",
+    "courses": [
+      {
+        "id": "c1",
+        "cost": 8000000,
+        "boost": 4000000
+      }
+    ],
+    "rationale": "Production B18 comparator, unchanged."
+  },
+  "board": {
+    "id": "L4-original",
+    "tiles": [
+      "start",
+      "macro",
+      "bonds",
+      "personal",
+      "course",
+      "gold",
+      "bank",
+      "course",
+      "business",
+      "bonds",
+      "stocks",
+      "business",
+      "course",
+      "stocks",
+      "business",
+      "course",
+      "gold",
+      "bank"
+    ],
+    "changes": {},
+    "rationale": "Original B18: course indices4/7/12/15."
+  },
+  "economy": {
+    "initialSavings": 0,
+    "initialTerm": 3,
+    "rules": {
+      "laps": 4,
+      "startingCapital": 50000000
+    }
+  },
+  "goal": {
+    "amount": 90000000,
+    "reserve": 0
+  },
+  "policy": {
+    "reserve": 10000000,
+    "liquidityReserve": 15000000,
+    "ticket": 10000000,
+    "diversifiedTicket": 5000000
+  }
+}

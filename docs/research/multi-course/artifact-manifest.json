@@ -1,0 +1,3207 @@
+{
+  "format": "b18-multi-course-artifact-manifest-v1",
+  "protectedRefs": {
+    "codex/mvp-b18-implementation": "00e77a19691c109e8cb7079b83591463c3eb6136",
+    "codex/core-mvp-balance-lab": "45b0c4dd03ce2b8fa198891968f4016f4982298a",
+    "codex/core-mvp-trading-ab": "33de1229e36fb5fb8a0df63cf4cf6899720cd3f4",
+    "codex/core-mvp-risk-allocation": "d04b8adf8f5173a3a0c21fa0106afba7f6bd3f53"
+  },
+  "baselinePushed": true,
+  "holdoutLockCommit": "ce24f6481037dd954a004707b07bdf8b8da0a0f8",
+  "holdoutLockSha256": "c1522d537f9bfdeecffb37ddc626346173129f235b759ed9f71be9452f502372",
+  "productionUnchanged": true,
+  "researchOnly": true,
+  "mainGames": 167972,
+  "mainGamesExcludeVerificationReruns": true,
+  "frozenReproduction": {
+    "config": "I2-choice__L3-bonds",
+    "games": 448,
+    "originalPhaseSource": true,
+    "byteIdenticalCompressedRows": true,
+    "byteIdenticalResearchReplay": true,
+    "rowsHash": "7ef31b895adf778ef8cbf363878d1399c08a73ce385c0172fc9ad1ca25059bc4",
+    "replayHash": "74ed3b73ef0420ccbddb9f36a3a121e79ea5298a4fe070a07e2629f62a601cf9"
+  },
+  "artifacts": [
+    {
+      "path": "docs/CORE_MVP_MULTI_COURSE_RESEARCH.md",
+      "bytes": 22575,
+      "sha256": "c499198c005c065ee8f7d8269133e327fa45a8fa84cc0333970c6fca4f7e97d9"
+    },
+    {
+      "path": "docs/research/multi-course/ALL_ARMS.md",
+      "bytes": 8164,
+      "sha256": "ed6c9994c65cf9cc6d3fbffd86da6bce7d804441865eeff14a90de0609a6afa6"
+    },
+    {
+      "path": "docs/research/multi-course/README.md",
+      "bytes": 9749,
+      "sha256": "47fbb7b20334c5881ec5e4bd3359b333c1d5a75bb35c5a779a14f16b43d02ccb"
+    },
+    {
+      "path": "docs/research/multi-course/foundation-replay-check.txt",
+      "bytes": 1290,
+      "sha256": "65455e1a3f218e95c195b9f8141edbac1b1d64a9d6ef71a4819c5465f4b8a3cb"
+    },
+    {
+      "path": "docs/research/multi-course/foundation-verification.json",
+      "bytes": 488,
+      "sha256": "75048ce1f852554d5406bdc6d9ce85786f04102e62f11f726468db2625649d5c"
+    },
+    {
+      "path": "docs/research/multi-course/frozen-reproduction.json",
+      "bytes": 329,
+      "sha256": "cac8895afc8ed9a8be387aa70267766e086194f0f76702f0bd6099ee9def1960"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-analysis.json",
+      "bytes": 195453,
+      "sha256": "95000acbeb521791b7422186e24706611c46eca3d729c7b648d38f730cfbdbed"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-arm-overview.csv",
+      "bytes": 2426,
+      "sha256": "de6b9b9b4756fd1d992510d3f84a5ab0e618ae87bd3cd21f289ac91a85fe8d60"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-comparisons.json",
+      "bytes": 148681,
+      "sha256": "1664239c1510ee33fc69cfedbe86c061e050ff9179c9efb10d86133046b32888"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-contrasts.csv",
+      "bytes": 101979,
+      "sha256": "af3924cbc69b6a9777dbfdf50f0e71e944330e48c1689a2d087de945b863f5fc"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-contrasts.json",
+      "bytes": 292392,
+      "sha256": "0c0daae95d9a633990c1c3c303a7500990850c3419c5a8124bc88617218d8b1b"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-course-roi.csv",
+      "bytes": 8021515,
+      "sha256": "eaab4afed94701935a852f8cacd584b9b95bae8f8b1585b9ec42434f25068995"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-lock.json",
+      "bytes": 2790,
+      "sha256": "c1522d537f9bfdeecffb37ddc626346173129f235b759ed9f71be9452f502372"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-manifest.json",
+      "bytes": 6489,
+      "sha256": "8b1a86f5cd1aff6d049e6a963b6d5a3e05c33b71dee0083e91769901070191fd"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-paired.csv",
+      "bytes": 62725,
+      "sha256": "67e62f3b25e6f1620484186e1de1dc9e1d5f47e121d48f01a2000d8a56896019"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-policy-results.csv",
+      "bytes": 83972,
+      "sha256": "0833d8516df268e768c0da42542d3a9b91e10b80682eb923da251fdcc543a97a"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-protocol.json",
+      "bytes": 8512,
+      "sha256": "2656c71a5368809b63489072b42dfcad7fe76ae3a024d18c2f5fb1127f954d17"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-source.json.gz",
+      "bytes": 53664,
+      "sha256": "042794c408f81707acda46d713de148e7f4235f6eafc2538f7c737472ef75801"
+    },
+    {
+      "path": "docs/research/multi-course/holdout-tail-intervals.json",
+      "bytes": 33849,
+      "sha256": "15a4dd1cc43d7d233028a054ac7e2332111e9e78960801372f75c9a19f146885"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/A-baseline__L2-spaced.config.json",
+      "bytes": 1132,
+      "sha256": "4fc82811e3f971e7c97a701f2f77919a2cd1e86fd0f59ed1b8155461a2069474"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/A-baseline__L2-spaced.replays.json.gz",
+      "bytes": 378351,
+      "sha256": "7441734373a91691499c5a510da0db45203f9d0a0e5e38871871d75474d7b6dd"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/A-baseline__L2-spaced.rows.json.gz",
+      "bytes": 2027767,
+      "sha256": "15af0644dfb344d7ee456ed603a3b5515c41bd4e8c13b36bcba119fc586bc5d9"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/A-baseline__L2-spaced.summary.json",
+      "bytes": 360580,
+      "sha256": "335e2b17d2bc7df01369198268f5d38e0c86f50684c97d54c0c20993068b2948"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/A-baseline__L3-bonds.config.json",
+      "bytes": 1106,
+      "sha256": "6ecf481d23639a6e50b1c94dfce79820253a4a3b63199ebb3e8f7e2750cce8d7"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/A-baseline__L3-bonds.replays.json.gz",
+      "bytes": 375802,
+      "sha256": "eb1d4b58406f7b686597e9b4053cc8076ff90bb384469990e020ba0392ffd400"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/A-baseline__L3-bonds.rows.json.gz",
+      "bytes": 2064846,
+      "sha256": "04714eba264a33a1bdcca9fd5313e17dfa98077023dde82f1de32418b1ac100a"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/A-baseline__L3-bonds.summary.json",
+      "bytes": 361379,
+      "sha256": "5f5a523cf6dd12603853a8969be77bc9e9d52f72a27094ec46f8bc6c60640952"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/A-baseline__L4-original.config.json",
+      "bytes": 1068,
+      "sha256": "2e4c721bd2dbbb4992a77acdb1db60d959ecb38540f989e76bf13967f0c104b2"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/A-baseline__L4-original.replays.json.gz",
+      "bytes": 374261,
+      "sha256": "57ed7f4eea72e4ad6ed11781d6acf6395ec553acbcb857053c78f87a77fddda4"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/A-baseline__L4-original.rows.json.gz",
+      "bytes": 2089557,
+      "sha256": "ecaeadccbf4675ddd87c352270d9145fde1b071e24b9f50e80f50fb83e79ef7a"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/A-baseline__L4-original.summary.json",
+      "bytes": 362490,
+      "sha256": "777c9a00e32448eb09f499d98d4d7969989b3f295dbc63ea50951ddf8daf2c82"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/I2-choice__L3-bonds.config.json",
+      "bytes": 1209,
+      "sha256": "3789e38738fd77fe8d0166cb2c5af80f0ce832560c18fe5d6d3f44ea48e16b75"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/I2-choice__L3-bonds.replays.json.gz",
+      "bytes": 373250,
+      "sha256": "4feffea7f702a6ba92947d8575bb3a35fa543f609e0477259acd7426e606f604"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/I2-choice__L3-bonds.rows.json.gz",
+      "bytes": 2180058,
+      "sha256": "0a65d1561c0a0c9dde19f4d33b4e16668db9d0ae8523f22562300477863559be"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/I2-choice__L3-bonds.summary.json",
+      "bytes": 368258,
+      "sha256": "d008b442832a52e83e5691e469cb619de75da57576cb3e185988e1b314094775"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/S2-rich__L2-spaced.config.json",
+      "bytes": 1226,
+      "sha256": "3b0cb92ca0d0ce18d060522ba1d40783fc1442f8bb5b4b9efe7a8a3120274417"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/S2-rich__L2-spaced.replays.json.gz",
+      "bytes": 378800,
+      "sha256": "32255d74481785ef84c3ba275f35cb3fd65a3fc35945c282ddb6cad0bf535088"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/S2-rich__L2-spaced.rows.json.gz",
+      "bytes": 2140977,
+      "sha256": "787fd3387b89be1e4ba4b7c60d57487f437a6743e375de6fc4e40c911f00fbdc"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/S2-rich__L2-spaced.summary.json",
+      "bytes": 368754,
+      "sha256": "65fb862feb8378e96ce44e6cf42c5792315983d52e4500e28bf5316bce896362"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/S3-flat__L4-original.config.json",
+      "bytes": 1243,
+      "sha256": "b30f3a2e4fc35edd5fc4c12ec39518df21ea252b7d8c66d503aabb37984e8bf9"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/S3-flat__L4-original.replays.json.gz",
+      "bytes": 371928,
+      "sha256": "c16f89a8a77aa96a8e351668339f16a0f780fefd8150f7e77824b39a5b921e2c"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/S3-flat__L4-original.rows.json.gz",
+      "bytes": 2297898,
+      "sha256": "c92191cdb5fc23df601e6e158ad3f8950612216c30c3d449d122902f827f904f"
+    },
+    {
+      "path": "docs/research/multi-course/holdout/S3-flat__L4-original.summary.json",
+      "bytes": 375722,
+      "sha256": "23d5a3dc1feaa61279e24162aec219cd30d60e63e14fcf2f0d6bd46b60b3b051"
+    },
+    {
+      "path": "docs/research/multi-course/recommendations.json",
+      "bytes": 855,
+      "sha256": "6d84cea34c2a0e9d6289d9e3ffb63ef5f3c2805097327fc3f3055442f3b56c5e"
+    },
+    {
+      "path": "docs/research/multi-course/research-tests.tap",
+      "bytes": 1582,
+      "sha256": "8a4b281ef1c7804c685f08cd96aefadcc045013b0dc99a5215a2fc2548e621ab"
+    },
+    {
+      "path": "docs/research/multi-course/screen-all-contrasts.csv",
+      "bytes": 2700210,
+      "sha256": "7aa2c3d720b05b5ae12832fea20a572a72d66387763b8f9a095961e9cdd1ccbd"
+    },
+    {
+      "path": "docs/research/multi-course/screen-all-contrasts.json",
+      "bytes": 8105455,
+      "sha256": "80220173fbe93068a425d2346a003e361a1649f5b9d75bc860d760555f3489ba"
+    },
+    {
+      "path": "docs/research/multi-course/screen-analysis.json",
+      "bytes": 1712167,
+      "sha256": "311bf250475cb083900ef97ce228b2fe5997755baba638919372145b7ed0cbe7"
+    },
+    {
+      "path": "docs/research/multi-course/screen-arm-overview.csv",
+      "bytes": 25949,
+      "sha256": "f5a262012a73063d16a19db4e26a5f1ad289645a98599331727cc8ae37f6c0cb"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control-analysis.json",
+      "bytes": 374662,
+      "sha256": "8d90e26d44f48168613515526d4148fb3cf987d11e1c70f01b53fda4f7516091"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control-arm-overview.csv",
+      "bytes": 5857,
+      "sha256": "e86a6b4b3abf3d1f643d856de598a773d330cc69143411a7ec6c7092b72e6037"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control-lock.json",
+      "bytes": 36530,
+      "sha256": "8b0c785705e5823997c302994109b13a5eff6b1a2c698213c7770dc143968e09"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control-manifest.json",
+      "bytes": 7572,
+      "sha256": "3c69632326bd159a879a1e8ee4f3ed62c5e6ce3f946922f0fdaebd4f814ca901"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control-policy-results.csv",
+      "bytes": 142623,
+      "sha256": "a1c702914330419d83c1ae8b6ffd13ed72130e15c71dc2cd414bd96d8b26e287"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control-protocol.json",
+      "bytes": 44970,
+      "sha256": "fe03a63f8b4a54448cc9a11bab3a55e4179af45033527d4d2a7bf76b30123cfa"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control-source.json.gz",
+      "bytes": 52635,
+      "sha256": "f05a5a9a21284c0d3e868e57903c58292255d59e89ca45ee5171d7f5d33713b7"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L2-bond-bank.config.json",
+      "bytes": 1359,
+      "sha256": "b7a4f9afcd56985f7250ff6593274dd7b6b56be602f4412839b1f877fc776874"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L2-bond-bank.replays.json.gz",
+      "bytes": 44674,
+      "sha256": "249b290ba8bf49b9168bf60a2bbb51de41cbcf75edbfe6581b0158a04fffc7bb"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L2-bond-bank.rows.json.gz",
+      "bytes": 92718,
+      "sha256": "43674463377f84878d567a5f2fefe62815f493224cb230b8c2722b8283a083bb"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L2-bond-bank.summary.json",
+      "bytes": 206121,
+      "sha256": "2d3565a43d2949f061b3fb779f841160099c1a558cf46fe1b102655c63848fb8"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L2-spaced.config.json",
+      "bytes": 1351,
+      "sha256": "e205d3e56ce74a9ddd4b32d0aa6bcd7d18c06166a23e5ba010368073f369c310"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L2-spaced.replays.json.gz",
+      "bytes": 44681,
+      "sha256": "a21b8b059131dd1d9c78bff6214b3676e4ce831c4c39bbd35cf806fcc14d2caf"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L2-spaced.rows.json.gz",
+      "bytes": 92856,
+      "sha256": "59096f64056579f5a3de926f977a0ae6dcfbd948584f4e4f410b15bd5803fbd6"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L2-spaced.summary.json",
+      "bytes": 206355,
+      "sha256": "dfff292c5b489ee77961a5fd3a30f8409e250371f397de7026675c463602acdb"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L2-stock-bank.config.json",
+      "bytes": 1371,
+      "sha256": "665ce65e48ef1e62ef2a126999078e087b51ab8bf3773b90a92114e6d6604fd7"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L2-stock-bank.replays.json.gz",
+      "bytes": 44686,
+      "sha256": "d2a031ec9921911ae92c7df4cbbc748e3775b6fda0b967f179b6b1e862987645"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L2-stock-bank.rows.json.gz",
+      "bytes": 92457,
+      "sha256": "6ceceb13735b0fc922eb2e027fac6fabacfdc3b05e51a8057b3f5eb483b349d2"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L2-stock-bank.summary.json",
+      "bytes": 205969,
+      "sha256": "fedf1ce081beeb00a446cd6e3c0366fcd44f92cf9bfff96829435c9f228413bb"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L3-bank.config.json",
+      "bytes": 1316,
+      "sha256": "ab61cb3e7392e111e6af0762b960e8abd04204a60f8255e35ba11981935ce30a"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L3-bank.replays.json.gz",
+      "bytes": 44706,
+      "sha256": "ea4ee8442ee77c253a34d267df5ce6df944c7cef289946c574f62e6923e109dd"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L3-bank.rows.json.gz",
+      "bytes": 96307,
+      "sha256": "975b869326dc60a06549a0233728c93ccdfc7e7b1aa8613549a9f932c587bbb9"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L3-bank.summary.json",
+      "bytes": 206101,
+      "sha256": "a12ab3b53d0f3bb8df2743bb47f26bc4c3c3b92b6e362001e98cb6bc5cdd3cdc"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L3-bonds.config.json",
+      "bytes": 1325,
+      "sha256": "df6148bcc750cf08b3c8cefa1b4b72c988e2db61b79c2db7d52580901fcf7964"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L3-bonds.replays.json.gz",
+      "bytes": 44705,
+      "sha256": "0088d8cafc65544499ad28b8562163bd74d41abec56aa25bef67f391d40dc80f"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L3-bonds.rows.json.gz",
+      "bytes": 96678,
+      "sha256": "d35aa98904418c2150b00b30c149d574ee6b7023ca4bbeb5880ec8c72d17a617"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L3-bonds.summary.json",
+      "bytes": 206065,
+      "sha256": "4eee860c953444c7a76e37a84edf949b024d8564574a7cc5dea9f525eee6a226"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L3-personal.config.json",
+      "bytes": 1338,
+      "sha256": "a8ffa0b9d5eade225b7d85e9201e6c0fc76f1a00ce3cb18bbf5e1adf8e96f69f"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L3-personal.replays.json.gz",
+      "bytes": 44706,
+      "sha256": "7a414dd7a2c40740c3a3acfe126387a559379896ad6f6450ac7e1faaee51db81"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L3-personal.rows.json.gz",
+      "bytes": 97528,
+      "sha256": "fe9b89665829c405b7a745486e82f6c07fbe93c3885014611f519f0461e41994"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L3-personal.summary.json",
+      "bytes": 207529,
+      "sha256": "0fd61fad9252aad138587a6bfc281182f7ab8a0c4905fe4f39880359e36064d6"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L4-original.config.json",
+      "bytes": 1287,
+      "sha256": "13cf99a63416be03ecddacc7853d32193164cb834e0510237947edf4681c0762"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L4-original.replays.json.gz",
+      "bytes": 44694,
+      "sha256": "c088fa2750e670f431fd1f0703ff16b05c9b7f4bb494e910e5488679ad3d7c8f"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L4-original.rows.json.gz",
+      "bytes": 98944,
+      "sha256": "5b5cea0c3ae55fc228dd2e3ea6b46f17c1a49da479cf2a551fa3155570636e86"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M2-total24__L4-original.summary.json",
+      "bytes": 207614,
+      "sha256": "56a7a0a628e193b4d524be350bb564cf4d0f23e413b96a279ced6df06f778aa5"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L2-bond-bank.config.json",
+      "bytes": 1445,
+      "sha256": "c008d352173f49ea83869f8505d288612340ada6df70ea65c0b823ae334e9cfb"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L2-bond-bank.replays.json.gz",
+      "bytes": 44676,
+      "sha256": "81a9a452586b1a8517caee9a7c2eb10762b8bd49421d634f71252dfc0822fd54"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L2-bond-bank.rows.json.gz",
+      "bytes": 95631,
+      "sha256": "7b1dfc65e831ef34a64a7f6d29d4d7e8529c2af0508291034396514090cc63f4"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L2-bond-bank.summary.json",
+      "bytes": 210579,
+      "sha256": "28f3d214154fd65bb4074c4f1e5a6f86b408e90aba9c641846d1ca3b9d29de59"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L2-spaced.config.json",
+      "bytes": 1437,
+      "sha256": "a4ef822153ab918b07780b3320ad16deb3ff62780a8077b6f4baee131c5db16a"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L2-spaced.replays.json.gz",
+      "bytes": 44707,
+      "sha256": "6c76a45ed224274c067c2815b4c52833aea582da775951cb5003a8854f7b4ed8"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L2-spaced.rows.json.gz",
+      "bytes": 95311,
+      "sha256": "ac182dee02443fa8428931e66ae8480bd2b64450e616a60e9acd0f54dfd69b19"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L2-spaced.summary.json",
+      "bytes": 209688,
+      "sha256": "f1233655b506b74c3bd3104a92cbefa642119e7bf11a5b4b9e1085e54644b9e9"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L2-stock-bank.config.json",
+      "bytes": 1457,
+      "sha256": "dbfabe6ca1b55076b3a5b21cf0ad332fcb7f9f184e42cc2eade530d0ac3d9632"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L2-stock-bank.replays.json.gz",
+      "bytes": 44690,
+      "sha256": "c5b7c79634eb43376e5c32be6b6346eb8e37a0b43c44a2fb180c78217d032ccf"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L2-stock-bank.rows.json.gz",
+      "bytes": 95307,
+      "sha256": "35e40bf9877fd51030d26d85188718d275877d85b8100f83f5ad3c75b5efecb1"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L2-stock-bank.summary.json",
+      "bytes": 210513,
+      "sha256": "0a154387fdcb02b1926764e1da1eddb8c5902f2c1bcdcdbb0e30e08fa79282b1"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L3-bank.config.json",
+      "bytes": 1402,
+      "sha256": "6e5035582af13f97ed475785b222b4986ad62af4330141a9f2fffb26fc8e3d77"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L3-bank.replays.json.gz",
+      "bytes": 44845,
+      "sha256": "99c70d1a61e387cdc99f12c11d93ae9c1e1dfda1c4b2242501b043594f11011f"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L3-bank.rows.json.gz",
+      "bytes": 101494,
+      "sha256": "e8fcb786a2b7ea9f9ea7a03ed683b8786287323a00de2369ff533fe2f74f24d0"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L3-bank.summary.json",
+      "bytes": 211211,
+      "sha256": "10e872e9653002d720861c7a546d68f27957c02f628c3ea9a2b4f37e0717ae2d"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L3-bonds.config.json",
+      "bytes": 1411,
+      "sha256": "d9dbfc684a7ab9c32a7b8cf34b7e1dc3c66a9ca3da71881adf7af06b92ca15c7"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L3-bonds.replays.json.gz",
+      "bytes": 44844,
+      "sha256": "25d62ec326fb6f30f1365d09fbe4f287e3268d50e72a208438c100286dc88683"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L3-bonds.rows.json.gz",
+      "bytes": 102121,
+      "sha256": "f45afa05ddb8bfad5bece9d09b531644435e37d2d58b2aaf212099bbf79b407e"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L3-bonds.summary.json",
+      "bytes": 211277,
+      "sha256": "9a46af9603f6d79bd2a9b217bb72788e91779eefaa9d789c6ab34ad5dadcd683"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L3-personal.config.json",
+      "bytes": 1424,
+      "sha256": "3872bc0d47b18bde6fb4b7d6ee91c758553e5c4fe2d648dcf0a9dce8744932f5"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L3-personal.replays.json.gz",
+      "bytes": 44847,
+      "sha256": "f4200cd7bdef14ff23f24006763236707a9d1908ab64f6af42d50718d3bf1778"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L3-personal.rows.json.gz",
+      "bytes": 102395,
+      "sha256": "2db1d605a223d3e4d5bc3c0fd509bc25aa4dff291b4be9101ef8a38036c1f387"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L3-personal.summary.json",
+      "bytes": 212375,
+      "sha256": "9c79f2487fbb95cea064f3f5ca6962f886cf18757d645ef2714018bdf059c58c"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L4-original.config.json",
+      "bytes": 1373,
+      "sha256": "1ea940437158aadb1f6899b8a040a84e6c01819484921ed305d4db796afd3f51"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L4-original.replays.json.gz",
+      "bytes": 44829,
+      "sha256": "197a0dd3fd9b56d9fc34bccf4bfb15e0c8a506939faa60c8eec75a8c8ad98f76"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L4-original.rows.json.gz",
+      "bytes": 104669,
+      "sha256": "6559bdb7c1b683ec725a8aea8e69d17326e39c7557096a1c55258c565fd134ba"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M3-total24__L4-original.summary.json",
+      "bytes": 212790,
+      "sha256": "8b9aa4db79120e741726cfea3797be96da15b2e6f9dc13bd436453d992b70f91"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L2-bond-bank.config.json",
+      "bytes": 1531,
+      "sha256": "411b2bb4201e2ecf5c6e938549d9d20d5cbe8762fcf0af888fb2897f02a83d99"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L2-bond-bank.replays.json.gz",
+      "bytes": 44686,
+      "sha256": "18527e40dc689c4d6a4275264e04fb5c330eef4c29381bf34559c184a8c4b764"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L2-bond-bank.rows.json.gz",
+      "bytes": 95213,
+      "sha256": "0772add27ba309898527f4b372779591656806b2a83d00c46a02414e78531407"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L2-bond-bank.summary.json",
+      "bytes": 210470,
+      "sha256": "62510174545b8d6d4af3c528e134cad9d54b9147e404ebb665db7a97e318db50"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L2-spaced.config.json",
+      "bytes": 1523,
+      "sha256": "f2e0287d5bdcc15945d761a1d4d050c0dfaf9f414f8673c5b6fce0259b0de078"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L2-spaced.replays.json.gz",
+      "bytes": 44709,
+      "sha256": "86157af116b76ea9bbb7afffc1ca59a9af2fd38f5f18223cf5c090b220875afe"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L2-spaced.rows.json.gz",
+      "bytes": 94850,
+      "sha256": "0e571b8575fc636da9380b5c1fc9507b2839c2af3cbfcc876eb0d4c4dea8e53a"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L2-spaced.summary.json",
+      "bytes": 207907,
+      "sha256": "1fd6521bbd20c904e9b1558e574d4d6431c9688aaf08d0ea571ef496184dda4d"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L2-stock-bank.config.json",
+      "bytes": 1543,
+      "sha256": "32b89d605528f1eac090aed7dd95167332dda6fc4be553e72b2f2f427916cdc0"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L2-stock-bank.replays.json.gz",
+      "bytes": 44700,
+      "sha256": "e5200af9ad09c037aebadeb7a8cc38cddee23626efa9213bea1a867a48b397a8"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L2-stock-bank.rows.json.gz",
+      "bytes": 94806,
+      "sha256": "a21cb92517730e9d26246dc1727d69da6ba88125ced542642324f5b5492917b0"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L2-stock-bank.summary.json",
+      "bytes": 210509,
+      "sha256": "b1a54670a6021ab1980b66d73cd8001683bb2b50fd3747dac222dd9a78952818"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L3-bank.config.json",
+      "bytes": 1488,
+      "sha256": "37fd65bc33cd3f75ae30ede79f1adff5af372375a7c0fcfd7fbc3e742176ffa3"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L3-bank.replays.json.gz",
+      "bytes": 44822,
+      "sha256": "c1fc5afbff358d14675207a34927d4c6ec7e7f42bee91368736f0b52ab7c52d8"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L3-bank.rows.json.gz",
+      "bytes": 102234,
+      "sha256": "ab1917e8fbf3e0a17bd513806904f4d11a78ba9a3d87a5524e5780af810391e2"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L3-bank.summary.json",
+      "bytes": 214968,
+      "sha256": "a93d139d47de3ea07be0700b05ee3aa15ef9fb864297d0b4e7cf272e53c11603"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L3-bonds.config.json",
+      "bytes": 1497,
+      "sha256": "dfd4931012500fe5e9cf8f53c50c3f57d23ab0a5a232a6bbd9950018ea26502f"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L3-bonds.replays.json.gz",
+      "bytes": 44820,
+      "sha256": "24f31a17cb472267d0b1dfc622189fa3f536c7122b136f3e903ff51fc22e4899"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L3-bonds.rows.json.gz",
+      "bytes": 102683,
+      "sha256": "c5fed75ea58eae9f583d504f9d2b380bed704c0daf845d4f824e1aab1ae19fc6"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L3-bonds.summary.json",
+      "bytes": 215083,
+      "sha256": "860a0a2bbcdb2faa95a1d65c7942b0a7a28748cce9fcc60a56aabbaee9b4000a"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L3-personal.config.json",
+      "bytes": 1510,
+      "sha256": "ccae3854b7c9654acdb0bbb18cc7c6361e70889e5652ce7a16143afc2d71f817"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L3-personal.replays.json.gz",
+      "bytes": 44825,
+      "sha256": "09307cc42b4115643692a9736c61e7bf4997d3f18359e766c3d15e2cad4d053a"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L3-personal.rows.json.gz",
+      "bytes": 103107,
+      "sha256": "b55fe1f2d7296fa2c903be8b510ee66d11e0e2f0fe5f8d05d3681f1ed67df629"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L3-personal.summary.json",
+      "bytes": 216155,
+      "sha256": "426dddadc3bf404d6c9736ad3fefae52700ebdaab255321c2f2cc41bbfbc5fcb"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L4-original.config.json",
+      "bytes": 1459,
+      "sha256": "dc8845b9f587b6eccaedc70b19728b6d9003bcf444ffa250028da91fab8512e6"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L4-original.replays.json.gz",
+      "bytes": 44805,
+      "sha256": "654e007640e74e342e60fd67f52540fa756eec135b39327e85b2dd31eec34c06"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L4-original.rows.json.gz",
+      "bytes": 106102,
+      "sha256": "27827de1bf7b7521973f4adb08bef0d419b402e68feaffd5f9555aefe8e49bba"
+    },
+    {
+      "path": "docs/research/multi-course/screen-control/M4-total24__L4-original.summary.json",
+      "bytes": 216501,
+      "sha256": "d6052565a553938b8f4dc62bcd4ed95379b42e397d6794b64bda9d7245ff22b1"
+    },
+    {
+      "path": "docs/research/multi-course/screen-manifest.json",
+      "bytes": 14786,
+      "sha256": "ef9d515b1652eefa0093fc6daef2258b7ccdbbecd5af7cc174d8859557d7f0a6"
+    },
+    {
+      "path": "docs/research/multi-course/screen-policy-results.csv",
+      "bytes": 629060,
+      "sha256": "9f78dc7c4771612f750518cdaeb8a2213a713bcd3ed6ec0cadb82d0856d8f0dc"
+    },
+    {
+      "path": "docs/research/multi-course/screen-protocol.json",
+      "bytes": 13363,
+      "sha256": "ebf6fff3235650708ff7d66efcc7a6c369ba02840b2bd77ee5dd09e357e40a31"
+    },
+    {
+      "path": "docs/research/multi-course/screen-source.json.gz",
+      "bytes": 51023,
+      "sha256": "9dde893f404610c941049a2afef6a8e06dada8ba765537e7645d4078291b04f6"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L2-bond-bank.config.json",
+      "bytes": 1140,
+      "sha256": "7150275426f6686197fc1a48a07e3d7a639a07f740e82ef4a0a2d40df81ef492"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L2-bond-bank.replays.json.gz",
+      "bytes": 44441,
+      "sha256": "8c6d95244ab9eaffe4cc541b57a26ac520940b19f41a3b5699052fb7c72be777"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L2-bond-bank.rows.json.gz",
+      "bytes": 89036,
+      "sha256": "6056062b412a30ad5fb1cebe418cfb230b6fe235893bbf79df7cbe9697ccb4e5"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L2-bond-bank.summary.json",
+      "bytes": 201543,
+      "sha256": "3b71b3107bdb122c36eca0b082a3dd8ca311983cb7e2c47c8b3946cfe2b9cc82"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L2-spaced.config.json",
+      "bytes": 1132,
+      "sha256": "4fc82811e3f971e7c97a701f2f77919a2cd1e86fd0f59ed1b8155461a2069474"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L2-spaced.replays.json.gz",
+      "bytes": 44436,
+      "sha256": "4a8b8ffffd5ff447410c47b47f5e4d6f1437001643685ff0ea6ed492d7a8421a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L2-spaced.rows.json.gz",
+      "bytes": 89054,
+      "sha256": "ceeaba867f31f585485319985af0b0b914570ed46d9d271073e0c1ed16ea2350"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L2-spaced.summary.json",
+      "bytes": 201457,
+      "sha256": "7596ccda3bf890645bca18a6415276cb1b2be07ad439dd943088db1fa349d289"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L2-stock-bank.config.json",
+      "bytes": 1152,
+      "sha256": "67bf4257559e6eb70d280a3317bff377e9355ca758451ef5eb9ae08ea2974135"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L2-stock-bank.replays.json.gz",
+      "bytes": 44454,
+      "sha256": "5ea2a0bc593d14acf0cc0f244e8e9e4c5225601732728065e19a7b65be991eae"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L2-stock-bank.rows.json.gz",
+      "bytes": 88585,
+      "sha256": "ab2369b3997d605fa15d750f538ad6aa9cad68bb720b7d013262c4819bba8670"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L2-stock-bank.summary.json",
+      "bytes": 201510,
+      "sha256": "0dd2049dffc30477338438fbdd925cdcf21dda8a600ca4831e6156326819cdcb"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L3-bank.config.json",
+      "bytes": 1097,
+      "sha256": "c04545a84556ee3a4b12de8d7857f359208baf25ec85a9587313eff44d1e2976"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L3-bank.replays.json.gz",
+      "bytes": 44475,
+      "sha256": "02495cb7eab621519c63610fb3fa604685240a2453c603ed3af6be038c9f6919"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L3-bank.rows.json.gz",
+      "bytes": 90436,
+      "sha256": "26468b2087e77a3b1415f46933ea355017ac3f22c2db88d4485990cad4a821a1"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L3-bank.summary.json",
+      "bytes": 201063,
+      "sha256": "3fcefa963a1bd7e8cefdba4b8bc2acc0fd2e110687b25ee5d600e91eaabb91f7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L3-bonds.config.json",
+      "bytes": 1106,
+      "sha256": "6ecf481d23639a6e50b1c94dfce79820253a4a3b63199ebb3e8f7e2750cce8d7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L3-bonds.replays.json.gz",
+      "bytes": 44471,
+      "sha256": "0615e58bc8cef2eaf5601d981ace7bafe602c980ebdc6d3c58f3a0ae54827dee"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L3-bonds.rows.json.gz",
+      "bytes": 90823,
+      "sha256": "7a6b228be69fc945d5d370f14dbe14d3e222af7975a072bde17a3bc0a78a1b89"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L3-bonds.summary.json",
+      "bytes": 200946,
+      "sha256": "9b61bb7c5fb389a88db4affc0af3bb921bb9c0d50870ee1300576ea57fbec3d8"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L3-personal.config.json",
+      "bytes": 1119,
+      "sha256": "5b1c5ae23dfeb2a8c6b5d34721dd2207db2750b765b8a1aeacc7ccbb0bdc9314"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L3-personal.replays.json.gz",
+      "bytes": 44473,
+      "sha256": "aaef4fab17597b023c1c66759e36e8ec0b55838c672a1d78ed9e0b2950bc9448"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L3-personal.rows.json.gz",
+      "bytes": 91323,
+      "sha256": "63461ebcae20043984fb1cdb192b2d44fc52730fa57c59e4221ef41ee2ced7e0"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L3-personal.summary.json",
+      "bytes": 202063,
+      "sha256": "3f9243fb5db655b7b9b0195ae92f5ddd5f264d3e513018aca273cb4c836c2268"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L4-original.config.json",
+      "bytes": 1068,
+      "sha256": "2e4c721bd2dbbb4992a77acdb1db60d959ecb38540f989e76bf13967f0c104b2"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L4-original.replays.json.gz",
+      "bytes": 44455,
+      "sha256": "28698ce95d86513ba698a0c6fa78ee93efb10b477740de9219710bbb01739b91"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L4-original.rows.json.gz",
+      "bytes": 92145,
+      "sha256": "23be2a2059e035f17deb8450c5221ad150fee77d8161118b591767dee5ccfedf"
+    },
+    {
+      "path": "docs/research/multi-course/screen/A-baseline__L4-original.summary.json",
+      "bytes": 201282,
+      "sha256": "827e8982de38b69db66a2f13aa3cf47dfded4dcdab64d7b0903b1a41439bbf63"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L2-bond-bank.config.json",
+      "bytes": 1243,
+      "sha256": "4f583f520274a6e40ccce498b63669c889e33c2def32cccfc14a39fdc5adfaf8"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L2-bond-bank.replays.json.gz",
+      "bytes": 44625,
+      "sha256": "2d253ce192bd40624f3f2df11fbc197f476c6ccc92a78eb2741552c24d58a584"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L2-bond-bank.rows.json.gz",
+      "bytes": 93882,
+      "sha256": "1ab486760eefeaec3150310ac0343eb165aa6556c70a0d293b2da59a538253d3"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L2-bond-bank.summary.json",
+      "bytes": 206597,
+      "sha256": "4afc5628c3f6150ac4fab0cc938658b13d3cc1395d44b99f1b879b5423824331"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L2-spaced.config.json",
+      "bytes": 1235,
+      "sha256": "515ee6811e93729f2a06f737a33f1bb691dc3680f6ff543c5218f3b5c44222c4"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L2-spaced.replays.json.gz",
+      "bytes": 44614,
+      "sha256": "ce8407956f5bbf0ae26b80f894d19fd8b1f243860ebac1b5d49e21c5b6431bfa"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L2-spaced.rows.json.gz",
+      "bytes": 94214,
+      "sha256": "e661d47f7916509388429ad6197dc41556383a8c07e03ae800acedf7ffd7605c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L2-spaced.summary.json",
+      "bytes": 206914,
+      "sha256": "b30daa9c74931bbff648e3fda87a83cd7f363d83274e694b9e20410a4faaf8ec"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L2-stock-bank.config.json",
+      "bytes": 1255,
+      "sha256": "05c1de6919c26728e5217c3a36ce823573dbbaf1662066e0e2eb03e70936d6ab"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L2-stock-bank.replays.json.gz",
+      "bytes": 44641,
+      "sha256": "1134ea352faf4a222530e38fcaa0208a64c9ffd745cf4f977beafaaf675e9e8c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L2-stock-bank.rows.json.gz",
+      "bytes": 93586,
+      "sha256": "89f88ab9805c49ceb0e86fc3b5885b6906746f165299366f63caff0052cb845c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L2-stock-bank.summary.json",
+      "bytes": 206498,
+      "sha256": "05ae04c6ef61dedcc8ba8178280cc874d041c97c7141df69165a4f619f947afd"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L3-bank.config.json",
+      "bytes": 1200,
+      "sha256": "9e655b721e389350efe9fb7d622db96ae8981e79a47eb158f0b42c37911e643a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L3-bank.replays.json.gz",
+      "bytes": 44662,
+      "sha256": "f61f159d9b728e5eb062e3d80ceefadeaaf26e702c2069a867e9a06de7183d03"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L3-bank.rows.json.gz",
+      "bytes": 97506,
+      "sha256": "86a79eaa224c5c8809d27c0b991c2c722195f1ca4611acede3eec05520568927"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L3-bank.summary.json",
+      "bytes": 206521,
+      "sha256": "83604542289aeb3599146f08c2b94e4aca758d1efb4a7873caab499704c8716e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L3-bonds.config.json",
+      "bytes": 1209,
+      "sha256": "3789e38738fd77fe8d0166cb2c5af80f0ce832560c18fe5d6d3f44ea48e16b75"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L3-bonds.replays.json.gz",
+      "bytes": 44658,
+      "sha256": "74ed3b73ef0420ccbddb9f36a3a121e79ea5298a4fe070a07e2629f62a601cf9"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L3-bonds.rows.json.gz",
+      "bytes": 97969,
+      "sha256": "7ef31b895adf778ef8cbf363878d1399c08a73ce385c0172fc9ad1ca25059bc4"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L3-bonds.summary.json",
+      "bytes": 206601,
+      "sha256": "ca94ed2994a1c3b30de1e4c0568f64f512c99ea69b8303bd3e4fb71dce850cb1"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L3-personal.config.json",
+      "bytes": 1222,
+      "sha256": "44d5e3c1c328b4e5641eac57dcdec4d316b44ff255da7a5247843ec9ca0b54f4"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L3-personal.replays.json.gz",
+      "bytes": 44662,
+      "sha256": "a21c458f4c8553aff6b09ad84ad124ca3ef69a8e8393cb6aba3a7e7d2b50fe0a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L3-personal.rows.json.gz",
+      "bytes": 98617,
+      "sha256": "3b12339c0868a08b3debd688813c356388eb8ff34dd2cbd5b202b5ff2b6c9757"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L3-personal.summary.json",
+      "bytes": 207859,
+      "sha256": "5a32af6a4a3cbed34657efc42645d9690a1ec8320d7fca5e2cf007e305e48e6a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L4-original.config.json",
+      "bytes": 1171,
+      "sha256": "12917c172a0515bf30ec35fc3c60862431c95e6cb41510eac2b36f390b6dc706"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L4-original.replays.json.gz",
+      "bytes": 44640,
+      "sha256": "c04cc4f9883c3cacb5dbfd53a6b48c7a944df1505d532985af1d13d6b35e6528"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L4-original.rows.json.gz",
+      "bytes": 100016,
+      "sha256": "74d28a07a9adaae2490bba612126521179f04629d76f3705b688fd99a1526f2a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-choice__L4-original.summary.json",
+      "bytes": 208738,
+      "sha256": "101e2759bad5709a8121ae00f6c6c2d46e75854154047f8bf408edb1e4a88314"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L2-bond-bank.config.json",
+      "bytes": 1244,
+      "sha256": "d89ae21c3087d98cd44dee8d1533fb78fcd46dde1bac0ea359cf887a143afba2"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L2-bond-bank.replays.json.gz",
+      "bytes": 44576,
+      "sha256": "50b9fefb352c0f0ac085309aad6708afafe994aacdbe5cd4bf174fa71f2a3324"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L2-bond-bank.rows.json.gz",
+      "bytes": 92815,
+      "sha256": "294ba4fc1bf11a107f7fe38b5f94698c7ad94eca95d9af7dffa267fd9cb068aa"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L2-bond-bank.summary.json",
+      "bytes": 206247,
+      "sha256": "b204eb34bb849fc9563549dad06660f16abef521ab4db9ef7251a222ce887885"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L2-spaced.config.json",
+      "bytes": 1236,
+      "sha256": "e05bf972cbd4fc1521da42b93878e7fd537ddce37db05328bc1ec4ae2dbe2bc7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L2-spaced.replays.json.gz",
+      "bytes": 44480,
+      "sha256": "4b217ed0995d3d8f57b72235df6648a1da29d687cd9cbcf9941763cdc02ee0e5"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L2-spaced.rows.json.gz",
+      "bytes": 92357,
+      "sha256": "9ddd902adf36dbb65dd8a004b627939d8d6ee4a777f3814e3030c4009ffd4450"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L2-spaced.summary.json",
+      "bytes": 205711,
+      "sha256": "b89ac638fde96ca1ac1eb55877511178d3063a7b9402f744a5246a6a5965f050"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L2-stock-bank.config.json",
+      "bytes": 1256,
+      "sha256": "843763b093ef763947bea08cc1f5773ec2df49824949a467d449792b01a08ebc"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L2-stock-bank.replays.json.gz",
+      "bytes": 44591,
+      "sha256": "0c900d0e3002c1b13e0ac8860f1c4354cf8b89abdbfb0612b94d1d2df8026890"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L2-stock-bank.rows.json.gz",
+      "bytes": 92355,
+      "sha256": "0d960725091e450769d814a29dcd564ea0f99e3d2bae180fbf47e3d773fde530"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L2-stock-bank.summary.json",
+      "bytes": 206236,
+      "sha256": "c19fb36f4a0f8a9a1e1dd59ace40a501711c2d26f034a14c5e702df772af79c4"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L3-bank.config.json",
+      "bytes": 1201,
+      "sha256": "5b5ded01d9e8d98ae2dcb8d33a85a8ea822eb7086656b2bb894508e72d547cc2"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L3-bank.replays.json.gz",
+      "bytes": 44611,
+      "sha256": "c52b4ad1be6486cf00e24776d9c2cc6a6b846965413750806024ecd88156e676"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L3-bank.rows.json.gz",
+      "bytes": 96139,
+      "sha256": "8ac7db4e1ce52f23ad0c47c845b06a0d5e369ea40c0042274bf921028c6e6da8"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L3-bank.summary.json",
+      "bytes": 206875,
+      "sha256": "368bf7a75ca086d66c7cb215bf9ec989e0877d2ba3020e6490c61bcaba404624"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L3-bonds.config.json",
+      "bytes": 1210,
+      "sha256": "c715c903f3a8b6891d16199efcc02f57ef192c44e2ede2d3ff6bb65019f2d23b"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L3-bonds.replays.json.gz",
+      "bytes": 44609,
+      "sha256": "c2020f26ad55f1136ec8bd0d8a483fe8aa49b2c299d5da01c8a7fbd263ca40c4"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L3-bonds.rows.json.gz",
+      "bytes": 96591,
+      "sha256": "af23fbefa7699b4d8eb70609e1d5e8774b5fb9767ec05f670a6b40677b117924"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L3-bonds.summary.json",
+      "bytes": 206859,
+      "sha256": "1e5fcb4f1ceb049ea743abe8793aa6b286e6c98a3d1cb7f8b2313ac1a08a33bf"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L3-personal.config.json",
+      "bytes": 1223,
+      "sha256": "c1e472e51e43aba946aec287373f09518b2efb9957582193fbb5bc9a83ae76a9"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L3-personal.replays.json.gz",
+      "bytes": 44616,
+      "sha256": "565fe522c14e089239397724cc948a904bf312ec172b5fcb0cfa98923ea21697"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L3-personal.rows.json.gz",
+      "bytes": 97239,
+      "sha256": "81635eea4317f2ecd45e91e71ef151c87a5f47a08a18e3460471dca0020b5a0e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L3-personal.summary.json",
+      "bytes": 207931,
+      "sha256": "caef8c98619f88a2833e3f0eb5b7b766c7a4c3bac2f1701549be8cb75bf1df45"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L4-original.config.json",
+      "bytes": 1172,
+      "sha256": "1bd2617b21db53270a5a4844448a82cd507a09a3b0b8dc6d8bad57b908b2254a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L4-original.replays.json.gz",
+      "bytes": 44592,
+      "sha256": "60ede163c04377c5e10c3953c964f0e52ed9a397965f363bcfd62a4cde5220c9"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L4-original.rows.json.gz",
+      "bytes": 98462,
+      "sha256": "1a6228ac801ef291bd57f9712182dce2b9ce37347bfcfa53ec7d18e162c41eb5"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I2-moderate__L4-original.summary.json",
+      "bytes": 207925,
+      "sha256": "b418709460ed0c0b0883ee1d47622d29302b5252c5a894a21d613af798bcad82"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L2-bond-bank.config.json",
+      "bytes": 1317,
+      "sha256": "b7e097fdc8aa927ba581b2f0adbe29812c47b9788de912266ad811dffa3f924e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L2-bond-bank.replays.json.gz",
+      "bytes": 44622,
+      "sha256": "688fabe87fe69241d9b69179330ba3a6c2fd87d3f77cad02adc3591bd7d27344"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L2-bond-bank.rows.json.gz",
+      "bytes": 94598,
+      "sha256": "693523640674aeb0451a40b272dd311ca98c24bd1e99a1daa76d28c8875cde98"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L2-bond-bank.summary.json",
+      "bytes": 207069,
+      "sha256": "663d1acec2e72d01ff1953f0b1e9802b27ec71a84f86f89dfdd70c84f4d79c7e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L2-spaced.config.json",
+      "bytes": 1309,
+      "sha256": "51a2767437a2ad9aac6f62663decd74b0d7ad59984aa07335da30fcd4c94ee33"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L2-spaced.replays.json.gz",
+      "bytes": 44498,
+      "sha256": "20290326d0df291e46d80188d6255aa50348e52e169cbdf3139b672c1aa2ed2f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L2-spaced.rows.json.gz",
+      "bytes": 93956,
+      "sha256": "c48f5ff982deb1f82822b79a9130aa0febd770e8ff32bad2199013835855b164"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L2-spaced.summary.json",
+      "bytes": 207264,
+      "sha256": "fc8e75cc732da521856c3cff6669075cf2502b7de2b64db341ec3df3bdf3a2f2"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L2-stock-bank.config.json",
+      "bytes": 1329,
+      "sha256": "fe31f612249b679064ac47c49233c4f963479db6b8f69c7c447e4e5657203fa7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L2-stock-bank.replays.json.gz",
+      "bytes": 44634,
+      "sha256": "6d39aa8719bfa7adc8b88ed0cd61f55fffcc30e959729ef71fe28f206a95fe04"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L2-stock-bank.rows.json.gz",
+      "bytes": 94282,
+      "sha256": "66c14965f54dcd751589005d0d1b2c5f565557feda05af49aadaac50b5acb51d"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L2-stock-bank.summary.json",
+      "bytes": 206969,
+      "sha256": "e027b2cb50cb79bb3ba2db9b1ac069037dc4809c2a13099fd4a25bcac3a41b56"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L3-bank.config.json",
+      "bytes": 1274,
+      "sha256": "d4a6edd4b1490bb05edf472b3f273bef83e95ce2bdd24fd7b26478f06b2eacfb"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L3-bank.replays.json.gz",
+      "bytes": 44656,
+      "sha256": "3933519d02901801a250351072580cb82024cb3bd43c57068ffc4ab99d7e215c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L3-bank.rows.json.gz",
+      "bytes": 98100,
+      "sha256": "b5976857dfbf44bce78245c9a9ee551f96da53edc124005d8508aea34bd1aee3"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L3-bank.summary.json",
+      "bytes": 207380,
+      "sha256": "6bba4df219455c1b4680c88e257c8ec1c407fd26772a238dd63f561c2c4a0806"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L3-bonds.config.json",
+      "bytes": 1283,
+      "sha256": "8af4d1797dbf45048430eab2ec1194af3eaa8b31cefc68df5ad70769feff17eb"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L3-bonds.replays.json.gz",
+      "bytes": 44652,
+      "sha256": "25366172ccb588a0800b3b3aeda279c802a87cab1fd0122618f687bbaa89e212"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L3-bonds.rows.json.gz",
+      "bytes": 98508,
+      "sha256": "815c4efc3353f90c424dcb2f34f68282535f4f6311be78b115836b0540abd0e9"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L3-bonds.summary.json",
+      "bytes": 207462,
+      "sha256": "f46d479ac051e35b9435f7a77ff0d6b4d171eca130636acc1cc8a27e0b21ba67"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L3-personal.config.json",
+      "bytes": 1296,
+      "sha256": "4ee50a7db850506b781eb1c99e21b2d2892e5a1beea18ad7f5c0174c5c8b26cf"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L3-personal.replays.json.gz",
+      "bytes": 44658,
+      "sha256": "997915c08ef98d6ed735a511bd11ee4a7d5aedbfcce7615a8b50a824a73e7691"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L3-personal.rows.json.gz",
+      "bytes": 98896,
+      "sha256": "a082071fbbc5811335144439c80db6bc2a941c588035f718b92bdbde0cdcb901"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L3-personal.summary.json",
+      "bytes": 208631,
+      "sha256": "274a86464e3cdb1b0bd9acb923ae32d2fa49e928c12b24b67347dda1654f1183"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L4-original.config.json",
+      "bytes": 1245,
+      "sha256": "d9f8da177206d6fdca3b58a3c7a5dfcf7f58aeb1c70426a610840d827c778b9c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L4-original.replays.json.gz",
+      "bytes": 44636,
+      "sha256": "5ecc700fbbe0828074b47f400676f40ffc2bde8ef2ccd3c06caad8af31425d57"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L4-original.rows.json.gz",
+      "bytes": 100864,
+      "sha256": "a9bc6ca56a527beaa38b8ee53fb08eb911ca01375337279b9c458da60d3e3974"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-choice__L4-original.summary.json",
+      "bytes": 209013,
+      "sha256": "6d1606d226db35dd64d45bbd93a4f5dd6bb4cebb25db14647bb9534dcbffdbd0"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L2-bond-bank.config.json",
+      "bytes": 1338,
+      "sha256": "36e9f53809b35f7b663bd9276931fdc2e1a718a55f2ba2658f37f7953a2d6930"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L2-bond-bank.replays.json.gz",
+      "bytes": 44641,
+      "sha256": "f444ef9171e15e7cd619dcf8bba8f01899e954907a94b73381ab0ab8eafbb2ff"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L2-bond-bank.rows.json.gz",
+      "bytes": 95788,
+      "sha256": "7aae64d0fd61bf2327d2be53f1189a767011a4526aead6ca37841819cb81140f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L2-bond-bank.summary.json",
+      "bytes": 207504,
+      "sha256": "05b1d53365859500810c951b6576c4da935539ff36fc9dee1b33e2ea54066bc3"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L2-spaced.config.json",
+      "bytes": 1330,
+      "sha256": "9b65bd19aeb8164e8b81e230de4099cab15a78500ca0e1d7b0b296b3a27c510d"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L2-spaced.replays.json.gz",
+      "bytes": 44602,
+      "sha256": "274d627dc3848272fce932d2482c9597fe780367274148bfc2a537d9a3cad89c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L2-spaced.rows.json.gz",
+      "bytes": 96121,
+      "sha256": "d53f1079b7911ff6b1105a6dd1f48b9f8662879bd2c1d885f7d6db43cf89872f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L2-spaced.summary.json",
+      "bytes": 207320,
+      "sha256": "d29f20c77d56b320ab16130a8d0e86cede2961da4feaecb497812b8a7098d822"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L2-stock-bank.config.json",
+      "bytes": 1350,
+      "sha256": "3a2f572942d8ab81194976363522759bfefbc4d39148f1dc2130aeee32d850f9"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L2-stock-bank.replays.json.gz",
+      "bytes": 44655,
+      "sha256": "37c4d6a7aa9f646092a082b619566f7bc54f05f2d2ea866dca991ad462d63752"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L2-stock-bank.rows.json.gz",
+      "bytes": 95427,
+      "sha256": "116a48acc7a7001dc3d5a6dbfdf985e7fb150c9b61b795ddb55fe527f7d9d9dd"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L2-stock-bank.summary.json",
+      "bytes": 207538,
+      "sha256": "4da24c76b3dd38def8d7a369fe884e71655a288c8eeb554fa38b9b34dcbe2654"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L3-bank.config.json",
+      "bytes": 1295,
+      "sha256": "791240311bbd4978f7fbcf4dd3ef3f4656c30e5f2a0cddd1cd32666661f75235"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L3-bank.replays.json.gz",
+      "bytes": 44672,
+      "sha256": "82a513006b960650de8475ffef198a42faa2c2968b5a65400b70cc47a668020f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L3-bank.rows.json.gz",
+      "bytes": 99848,
+      "sha256": "8a94e89043e37fb982c622d8d4f420202fc5dcc9779b3f93639a3adf8ab96070"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L3-bank.summary.json",
+      "bytes": 207063,
+      "sha256": "02a8874451cb62210633c60b33cd3fde200b4d64de4b48ad19deff9f583dd0bc"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L3-bonds.config.json",
+      "bytes": 1304,
+      "sha256": "ca987dbead784c3cbef3b0353289925715ce642962b47f604ab1e2791887f810"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L3-bonds.replays.json.gz",
+      "bytes": 44671,
+      "sha256": "7b9fb00ffceb29a4d0fff49999a1d3992b870f408a1bc7135e0fa2cd774dd40d"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L3-bonds.rows.json.gz",
+      "bytes": 100316,
+      "sha256": "c715c0f7523242c11de2a970fb85489ee404aebc57a2f9b6466c3370d094661e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L3-bonds.summary.json",
+      "bytes": 207188,
+      "sha256": "dc948e103790e54757f2762b582e0b31e9b45676ec1952f5f8dea81fb9c40d06"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L3-personal.config.json",
+      "bytes": 1317,
+      "sha256": "45cbc771cf733beb8bf4a6d3f07c9124175d152217ec45403517543e7708757b"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L3-personal.replays.json.gz",
+      "bytes": 44676,
+      "sha256": "d42548e9aa7e33d1ef932a7b0202db17f93d8b8665c51804e7d5d5a68e40fc88"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L3-personal.rows.json.gz",
+      "bytes": 100939,
+      "sha256": "eb00795aa1605adee108cc1ee6d5cdf0c2f1501996667578921bf4ad736c5ad7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L3-personal.summary.json",
+      "bytes": 208229,
+      "sha256": "c500e125913ee41538612c61e60e128bbb6a12150da14727072cb82642dce989"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L4-original.config.json",
+      "bytes": 1266,
+      "sha256": "adf8eb63ef6b1a912cadc772c98d3c6bba94d50bcfd60971529346661b46d894"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L4-original.replays.json.gz",
+      "bytes": 44652,
+      "sha256": "331a5c7a7f39044b7b75e7c92a68f32d0bc4df1c4cec845eda31f0f82a8fa17f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L4-original.rows.json.gz",
+      "bytes": 103548,
+      "sha256": "2d528ff1e9e5440ea1c3950b35b14006033e7730f02a75b527cb4cb295179408"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I3-moderate__L4-original.summary.json",
+      "bytes": 212077,
+      "sha256": "ce11bb853730031afd2ddf915f23ab46b245eb0859a775ff85b36b5084cb544d"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L2-bond-bank.config.json",
+      "bytes": 1420,
+      "sha256": "6d69f773a1445802779f360e657458ceb6de5c60ba18b12326dcb65903a4e49a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L2-bond-bank.replays.json.gz",
+      "bytes": 44586,
+      "sha256": "79a4ecce985ee1288bcb5c1a8d4f2c5e345feabd784a8c6524c8c280d56515ca"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L2-bond-bank.rows.json.gz",
+      "bytes": 91603,
+      "sha256": "d070cb80b72048757fa767b9489ee091c101fbf8ddf1acf0a144723fedcfb3bb"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L2-bond-bank.summary.json",
+      "bytes": 205125,
+      "sha256": "49d7ba57ec5a5d0cba32f7fa0928471a1a51bfa71da07dba84da10b2ba8df931"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L2-spaced.config.json",
+      "bytes": 1412,
+      "sha256": "744864c1a1a981d0e2899e7e6163236cae9aa411485fc8185bb36f9c93cf7741"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L2-spaced.replays.json.gz",
+      "bytes": 44525,
+      "sha256": "83f492488b52b062abe5a04f53261e6d02e0b0f8714e09348ac7fbe9fb69dc28"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L2-spaced.rows.json.gz",
+      "bytes": 91212,
+      "sha256": "df16c153a04d800806796b61871bb5257ee385a88545c9ce8d2f90bfe72c462f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L2-spaced.summary.json",
+      "bytes": 205412,
+      "sha256": "1b6c0502e59c395436953e52775a48e2d3983f6e207a9f7c0a9da3fa0dba0e4f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L2-stock-bank.config.json",
+      "bytes": 1432,
+      "sha256": "416dadf42c73e814fc3ddb97e97a2b91665d8484c442673af9385f5ba9026b50"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L2-stock-bank.replays.json.gz",
+      "bytes": 44605,
+      "sha256": "c51b0425dd043aaf779362a4a5592092e0bb196eede7ee89b59913f4f5a5bfa3"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L2-stock-bank.rows.json.gz",
+      "bytes": 91266,
+      "sha256": "28b245c3bbc9bd008ae1a97c402bdd32752aa2a58f4e97b4f2bd97e18fa3897e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L2-stock-bank.summary.json",
+      "bytes": 205033,
+      "sha256": "4d08820c94d07ffff515be6fe1369deaba51a7b42cb5ffc1a0eb84cba977d164"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L3-bank.config.json",
+      "bytes": 1377,
+      "sha256": "4540ebb38c873d49f02b684f99a29862ce7a3157b1ce36024e451bf3ff93b093"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L3-bank.replays.json.gz",
+      "bytes": 44627,
+      "sha256": "4a814397b759844138c062771d9be5c146b201f4221185ae5a19076a57092ac3"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L3-bank.rows.json.gz",
+      "bytes": 95834,
+      "sha256": "3ea0763a46117f939bd75b7dfaa695fe0478df0a204b6db08f053e190018d821"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L3-bank.summary.json",
+      "bytes": 206021,
+      "sha256": "003140ac2f56aea48d792957b1bee560047542e609eac48d28975bb41a946c69"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L3-bonds.config.json",
+      "bytes": 1386,
+      "sha256": "101c3aa6d14d49d60c555214aac1ade6737d1fe6a1aa01a6d82bb4d8056eac04"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L3-bonds.replays.json.gz",
+      "bytes": 44620,
+      "sha256": "61241c8d91fb54e754f1da38a410383eef527f8047089bd657fff2c40578f8ff"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L3-bonds.rows.json.gz",
+      "bytes": 96192,
+      "sha256": "ffaa5322c1ba5331dca71f10f681241bf8901f1ee47907af1332b55d9c20b5af"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L3-bonds.summary.json",
+      "bytes": 205901,
+      "sha256": "e319c40fc7d562aa002474235342b33f045ef01ee192496819210b1b34288e14"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L3-personal.config.json",
+      "bytes": 1399,
+      "sha256": "ae858677fecbfb29fc7dbeb23461ab556ea679bb4db210dda623626f5d635259"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L3-personal.replays.json.gz",
+      "bytes": 44620,
+      "sha256": "7a9e343af181bbcc71c22a0f9f125f89178a85e447dc613e9cd096ac11cda8eb"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L3-personal.rows.json.gz",
+      "bytes": 96475,
+      "sha256": "883befd955e797b9001846c34cf22c481db868c4e63eb91b875f09df2c6e64c6"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L3-personal.summary.json",
+      "bytes": 207050,
+      "sha256": "67e40baae5a9870147d99aa8ffbc57f948ab996dc55c7403c273efefdcbd8827"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L4-original.config.json",
+      "bytes": 1348,
+      "sha256": "7fb050ab966bdd4340b729ec75ee840707976a5e029a8a6a36014ee64a6b7abd"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L4-original.replays.json.gz",
+      "bytes": 44607,
+      "sha256": "75d3777445dcfa6d835c30d9aa3ec4e71057a10eeec18c5d8ede816c6d52bc55"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L4-original.rows.json.gz",
+      "bytes": 100093,
+      "sha256": "082406da31fd6e0023d15a046d13ba8f3013907cac0d68ab78d32262d26f2913"
+    },
+    {
+      "path": "docs/research/multi-course/screen/I4-even__L4-original.summary.json",
+      "bytes": 209542,
+      "sha256": "e9728e07d00ac4df2c076dcb4c7cb52181df60ef1e51dbb8c4277cfa833e4897"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L2-bond-bank.config.json",
+      "bytes": 1222,
+      "sha256": "485cd5f2f3bf81e0347af3947c099627c24121863bb430537700dd91bcfb577e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L2-bond-bank.replays.json.gz",
+      "bytes": 44480,
+      "sha256": "331efeebe6545f0a4f66535769627f939ea80f5617968adfc1936ad70cf69fb4"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L2-bond-bank.rows.json.gz",
+      "bytes": 88926,
+      "sha256": "41013ed0f87e450e9d1b81b621ddb37a6a750c51c53eb94171afb155afb658e8"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L2-bond-bank.summary.json",
+      "bytes": 201471,
+      "sha256": "829bab505a92c1b3d1f29ffb9a7287b4d8158276650161fabc9db2f59a425956"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L2-spaced.config.json",
+      "bytes": 1214,
+      "sha256": "9afc6b6ac03dffbe746377bcb2f77b1a299d77dd3a0326a4145175fa8157bb9d"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L2-spaced.replays.json.gz",
+      "bytes": 44476,
+      "sha256": "7023e3134e1bc93db3c2e5902cf715841f66d8f1d0d3dd23092026a273d7f62a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L2-spaced.rows.json.gz",
+      "bytes": 89890,
+      "sha256": "c213d80457386f486a6939cda50c0077428defa6528820622746e4eeeab7d108"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L2-spaced.summary.json",
+      "bytes": 201868,
+      "sha256": "424e43fcd58d841a5c3abd8b0f96c9b83e825180589b1e0c025f96e27ff8c860"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L2-stock-bank.config.json",
+      "bytes": 1234,
+      "sha256": "4b64e4201fb89ae7638b26b4fb05790b83e5db30776413ad39b61c82eecafdcf"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L2-stock-bank.replays.json.gz",
+      "bytes": 44494,
+      "sha256": "2ca3d3fc9bbc2af855d3a646181f945d25dfca856f32c3b5a612138f4c442442"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L2-stock-bank.rows.json.gz",
+      "bytes": 88639,
+      "sha256": "d628e758470818bf68270dd50fd493e0b80d833f0251cf3aa05d38e44b8723d0"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L2-stock-bank.summary.json",
+      "bytes": 201419,
+      "sha256": "a58997d1602ad05178783ff68a789d64a4c40d1bece19667c70e7f429984fc44"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L3-bank.config.json",
+      "bytes": 1179,
+      "sha256": "3248766d906c9d8e5d444eb343a388c4ad124c9d44d879fd5bad7ed688c83a59"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L3-bank.replays.json.gz",
+      "bytes": 44512,
+      "sha256": "7cbf0bef408caabb6e16d9dd313d4460f95cfb6f0a86ba9e255f54b96f0abec0"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L3-bank.rows.json.gz",
+      "bytes": 91942,
+      "sha256": "d27f5d1cb02953fe4abb0840e48a80b48056c951f9ad187f86c3a8a6cf61f2b8"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L3-bank.summary.json",
+      "bytes": 201727,
+      "sha256": "94380d800e66b1a8d4e6e0352bb340a2d7f28b57c8b4933d48e81e71387b4367"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L3-bonds.config.json",
+      "bytes": 1188,
+      "sha256": "23a4cc001cf7951b68bb3005114b8d4751c5268bf46552a90361d5289d326a42"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L3-bonds.replays.json.gz",
+      "bytes": 44509,
+      "sha256": "71f0fb954e79500daf8c28c334c9ccb166af717645e0daf3d32861977c3fd9d0"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L3-bonds.rows.json.gz",
+      "bytes": 92224,
+      "sha256": "2adcd4347516a1fb455c1c8dbf4018860cd9136de6cb7b0a4f07f1b9421d7f76"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L3-bonds.summary.json",
+      "bytes": 201739,
+      "sha256": "3ebcbf04fefd98a775c711ca21c1a58d52ca9edd03ff1b6cad2f3ecd7739d5b7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L3-personal.config.json",
+      "bytes": 1201,
+      "sha256": "048e1af1d369863064965d19eae1ba042003df46932fcf8881bfd8b76c96b8b9"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L3-personal.replays.json.gz",
+      "bytes": 44506,
+      "sha256": "e1dce6a535d8fdd631da0685fae051f55829d538e4e531c6c1b9be4846c1f8ae"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L3-personal.rows.json.gz",
+      "bytes": 92855,
+      "sha256": "2bdb9be0350ce41e2f1e55fe801fc954368b82a821ecebd76cd83798f39d2132"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L3-personal.summary.json",
+      "bytes": 203029,
+      "sha256": "b5aa903e16703d32d1e6b3c18dac3e05c69accfee65a81c12852c72af566b7d9"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L4-original.config.json",
+      "bytes": 1150,
+      "sha256": "7ee9916553c425728192fc854f2eafdf1cdb996ac8d7914d79231496922076bb"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L4-original.replays.json.gz",
+      "bytes": 44495,
+      "sha256": "9548449b6222a5d4eea2a82f87e306644823f898a233e9e5dad4cf874e8ab16a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L4-original.rows.json.gz",
+      "bytes": 94595,
+      "sha256": "7379a52d31e52846f8e4b893e6eb6dc429f1c0b914f75aecacfa33d16e74144f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-costly__L4-original.summary.json",
+      "bytes": 202851,
+      "sha256": "5732f425315371577a2f145a09772c72e057c39675bbceaa187fa24bd268c9f4"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L2-bond-bank.config.json",
+      "bytes": 1227,
+      "sha256": "67bf8027f8b8f404ba847e4b1663734119967f7abf9a64a316632f6a68b6a187"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L2-bond-bank.replays.json.gz",
+      "bytes": 44574,
+      "sha256": "ea52b01877ec8778b229bc74c78350461034f398bcd62b2471c20369a218ffaa"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L2-bond-bank.rows.json.gz",
+      "bytes": 92232,
+      "sha256": "8bcd1719a81e17ec373f017efef289fad4ef2fe2bd905037077b437dfadea6c3"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L2-bond-bank.summary.json",
+      "bytes": 206239,
+      "sha256": "5f13521c0eca171f379eb7e1ae72e10e4e48a744bd9f4ac385aea60cbe9105a4"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L2-spaced.config.json",
+      "bytes": 1219,
+      "sha256": "1b472d2ad936d0c851e69dac8931312f580b471d260d631b8595bea7c57d3f82"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L2-spaced.replays.json.gz",
+      "bytes": 44458,
+      "sha256": "8cd8df522a5844b425a74e0ad663e0057700d667907dc902da4b8a3fb55c9238"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L2-spaced.rows.json.gz",
+      "bytes": 91661,
+      "sha256": "b16e37e0889126a98ccdd73aaeeba5d81d70aaa97747254c4e9217097be6d724"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L2-spaced.summary.json",
+      "bytes": 205782,
+      "sha256": "0c6a89a35f3f3ed042fbc2fa4450e62222e431f98bbd9052ccea9d62e142ee15"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L2-stock-bank.config.json",
+      "bytes": 1239,
+      "sha256": "59af7a154b99139082b149ff6d5d6500486fd7b6a93bac9ca4704055a80e864c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L2-stock-bank.replays.json.gz",
+      "bytes": 44588,
+      "sha256": "d8f4511f7e9398f84337e052cf873c2d03b95cc795a3dc5dc4956b7c02021a9b"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L2-stock-bank.rows.json.gz",
+      "bytes": 91816,
+      "sha256": "1a7838f3b5d11a338b83c2754ae03b14c234479370881b724ce2e23a4425cb5a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L2-stock-bank.summary.json",
+      "bytes": 206219,
+      "sha256": "6cf9d3c3181f543ec00b35f68a07e276c04ce53da234aed9d37923caa8a2c25c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L3-bank.config.json",
+      "bytes": 1184,
+      "sha256": "31ec92b351a6c776bffd63c8bf291128d4d7a13228b2f767b7dd2ec4936c074a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L3-bank.replays.json.gz",
+      "bytes": 44611,
+      "sha256": "e0e89d2940b4e1b72cd031fcc87d68ca67842c0b002f7bed873ed7c4bf16f6eb"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L3-bank.rows.json.gz",
+      "bytes": 95522,
+      "sha256": "d2f5846f7b1fe8bd42bda12748f9648733cde8739171191013dcd45c58dc4f9a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L3-bank.summary.json",
+      "bytes": 206626,
+      "sha256": "d5a08493dbd98d9dc53b4b1b9d6a23a6f9f82d3471c4a58a2e39fa0567ee6e8b"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L3-bonds.config.json",
+      "bytes": 1193,
+      "sha256": "831123f0b75bd20b4c423d36f2b8ab63010743d9c33adf398ff5bd55cd755671"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L3-bonds.replays.json.gz",
+      "bytes": 44604,
+      "sha256": "e3282259a672514bd7c91f29e9cb4d0f62cd7e13f94f8857c9e8febc0bbd1366"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L3-bonds.rows.json.gz",
+      "bytes": 96058,
+      "sha256": "3cee282b039625ed422d03419ad6ba0170d6e0c9c13b66aa5371c7d62065d279"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L3-bonds.summary.json",
+      "bytes": 206704,
+      "sha256": "45c4a6ae7c9738e47ba181b71471a9f53eb359006a0e8468f847ef4890fa2a9f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L3-personal.config.json",
+      "bytes": 1206,
+      "sha256": "c38592463c776169d6e1f1a06353b84054238e08538496ab0ade7369dffbb5e6"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L3-personal.replays.json.gz",
+      "bytes": 44611,
+      "sha256": "bb7b98ff02c2164f277651df518345645ab40a424e3c85235b93a3ef77694794"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L3-personal.rows.json.gz",
+      "bytes": 96503,
+      "sha256": "3f245ac1570ec0bc071f070c25aeff7bbfc531e4b075596124198f54d36d1e68"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L3-personal.summary.json",
+      "bytes": 207878,
+      "sha256": "ee6af1ffc9121383f5e85938bdd9cf3c5398f4fd2a5fb519574bb3094616a8ae"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L4-original.config.json",
+      "bytes": 1155,
+      "sha256": "8af1a613ef1517dedfff9415b78fd84dc1c9348434944c3bc7e58b101e6cf703"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L4-original.replays.json.gz",
+      "bytes": 44586,
+      "sha256": "893a20e14f21d7ac3794557d33d0ed60e308ffaf8602cf23327b4f200815ea2e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L4-original.rows.json.gz",
+      "bytes": 97865,
+      "sha256": "d5e4abe0625261577d85fcfb66d69c4c5ef7e9340a1ce04400a64956dd51bce1"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-even__L4-original.summary.json",
+      "bytes": 208224,
+      "sha256": "b6f69f4b599c3cae512ede15d172dcdda2041d1a69475d4b692f89569c872c17"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L2-bond-bank.config.json",
+      "bytes": 1246,
+      "sha256": "f548bb15156b529d52978dacfa7e2ef825cf1979b9ab6236e54a00667c058017"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L2-bond-bank.replays.json.gz",
+      "bytes": 44477,
+      "sha256": "62dacb07c9001777f978fa89247a1b5275febef319d5e53c1604d5ae769754c2"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L2-bond-bank.rows.json.gz",
+      "bytes": 91287,
+      "sha256": "09c966712f72d13bb6a6edafddcad43ac3d41a92da2186d4b5a5958835471035"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L2-bond-bank.summary.json",
+      "bytes": 202515,
+      "sha256": "4df595d7bdc890ed2ad8ba4fe4154652ddac7cde45416c62d7d81f981912e6a0"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L2-spaced.config.json",
+      "bytes": 1238,
+      "sha256": "ce771a9f5d4016a611e1051551ab4766cbdb0495c48bcbb8997fc6f477b24e07"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L2-spaced.replays.json.gz",
+      "bytes": 44477,
+      "sha256": "4dca27b21c8739977a426863a64606ce7909366fb9c094f036f76be53dc40154"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L2-spaced.rows.json.gz",
+      "bytes": 91581,
+      "sha256": "c5b88e9149453c5896ac9d893dcfbff34fe758c55a2b483821965e8eee9369c4"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L2-spaced.summary.json",
+      "bytes": 203942,
+      "sha256": "b6b85df7d8f3288c1943f75b8c19f1dc925a420d1b1b60f8715f845dd223a538"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L2-stock-bank.config.json",
+      "bytes": 1258,
+      "sha256": "e698d1d22ab7a601c2f73ead4f05573b19b3aba8a4104ba0a566cad37e9dd88c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L2-stock-bank.replays.json.gz",
+      "bytes": 44494,
+      "sha256": "8882f556d75163198d54fe002eac51708a1e1851500e43fcc551ca697e109b2c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L2-stock-bank.rows.json.gz",
+      "bytes": 90882,
+      "sha256": "33f0143461b0b29fe1319aec4af9a5e8c78c70078d71256bd485b82c283aacd2"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L2-stock-bank.summary.json",
+      "bytes": 202464,
+      "sha256": "10e74b095105ab257e7275f7ed95d9824b69284b5d65e8d76a8f6787cdcf1a89"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L3-bank.config.json",
+      "bytes": 1203,
+      "sha256": "245a7a43484e27a897cdb051b3f43652bdf8b70164b1cf7edecd853335b07680"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L3-bank.replays.json.gz",
+      "bytes": 44511,
+      "sha256": "cff7d95d59bac92ff0999d6143f0af68c19368eb64ef1393c557bbbe6b1ce18e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L3-bank.rows.json.gz",
+      "bytes": 93359,
+      "sha256": "52acf1624028378f7ad267d7a26894ac89b26aefe126cc9a1dc1fbbebdeb703e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L3-bank.summary.json",
+      "bytes": 203377,
+      "sha256": "1e297404c0b48dae0b2183e197488b0ae309787ab0980b17747769df54cf2cba"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L3-bonds.config.json",
+      "bytes": 1212,
+      "sha256": "8e1c6b8d5f2771baf996a329fd533c7512244681601d816344a7b54f5cebf518"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L3-bonds.replays.json.gz",
+      "bytes": 44510,
+      "sha256": "e728d07a52ad395e9222d86a5542816064eed7b05958ecc3db4471c8d9042f96"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L3-bonds.rows.json.gz",
+      "bytes": 93848,
+      "sha256": "b9b3142632b058f70d2dc9484fa3b3db873bac714f1d095a2f5531b4fd423b1b"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L3-bonds.summary.json",
+      "bytes": 203423,
+      "sha256": "1a701b68dcca789dc9561be5baf8abf0afe613501a6ba926cdf2675df84b8631"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L3-personal.config.json",
+      "bytes": 1225,
+      "sha256": "ec37ad964e81ba5f9780880f484e774e5929c2cf19b32c29de42b031582df219"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L3-personal.replays.json.gz",
+      "bytes": 44512,
+      "sha256": "f115c25dc56564684b504f72571c30453049e0077a1a446b1c40c22f6932e677"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L3-personal.rows.json.gz",
+      "bytes": 94547,
+      "sha256": "10a075bd883f21e4f476857979203c238f6881593f16db3c766f8b38651e8fcc"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L3-personal.summary.json",
+      "bytes": 204592,
+      "sha256": "d40acd22c64e40a4be5fe4a6e5e3c2a2a198a22aad3e798f135c1d6aff3f1129"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L4-original.config.json",
+      "bytes": 1174,
+      "sha256": "bc5349b3d345586ab2a6cf256e1f264138a8f383be9a9bfff8d6cfd40743b37a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L4-original.replays.json.gz",
+      "bytes": 44493,
+      "sha256": "cef1355d5181eb18291cb96ce6de58336178e8f6a62a4f90a553a0131767dbfd"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L4-original.rows.json.gz",
+      "bytes": 95962,
+      "sha256": "a194363b9b399607a1fd3134663af1a607ba785f8942509465d9c0fc68dee82f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-extension__L4-original.summary.json",
+      "bytes": 204413,
+      "sha256": "61c6aee4755a816570c116eb33a47611589380628bd00d7015ef80a026d8a8ca"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L2-bond-bank.config.json",
+      "bytes": 1234,
+      "sha256": "0ef1381b4ccd7eb5a4cf10fffedd01f4c49558e9c854a9ab17d4eb542ccff3eb"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L2-bond-bank.replays.json.gz",
+      "bytes": 44588,
+      "sha256": "6d8666d8eeb6515573337198a7bd1e73ef5169d3944f9395c6d7866e76e4652e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L2-bond-bank.rows.json.gz",
+      "bytes": 94288,
+      "sha256": "686718cbd092bcd1973dea9a045cca347856317d7606e37072f772e2f5fd8ec7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L2-bond-bank.summary.json",
+      "bytes": 206428,
+      "sha256": "121bb14a4b48a7a5d8562e611a9483b0d295944a04cca93bf313a49adfed2504"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L2-spaced.config.json",
+      "bytes": 1226,
+      "sha256": "3b0cb92ca0d0ce18d060522ba1d40783fc1442f8bb5b4b9efe7a8a3120274417"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L2-spaced.replays.json.gz",
+      "bytes": 44598,
+      "sha256": "de9823e606b8b7153c403e93504b7ec18a3bd750e1b81a484dc866005153d380"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L2-spaced.rows.json.gz",
+      "bytes": 95341,
+      "sha256": "989cf9ff7d401569d90543d4594cbf20abb7ff2e5d0a566912f07870339716c4"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L2-spaced.summary.json",
+      "bytes": 208282,
+      "sha256": "bb90e0a1e24c1710a94b98b64c0cefb91d7a83fc4f0e361b0a57611f36c8ea6a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L2-stock-bank.config.json",
+      "bytes": 1246,
+      "sha256": "5a1bd4d89e4205e7f873f5e58487092664175e9b8b69bc27d55db9463e167694"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L2-stock-bank.replays.json.gz",
+      "bytes": 44609,
+      "sha256": "2221889f06936212f64614dcd460a06149a2144b73a4824a826833902c05eac3"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L2-stock-bank.rows.json.gz",
+      "bytes": 94048,
+      "sha256": "4b150d20a6ea43bc6b6dc76d62d1457de958d1139f40fde135e98a3884fd7fa7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L2-stock-bank.summary.json",
+      "bytes": 206403,
+      "sha256": "08154e7947eb4f60b89dc2b3eca7f5aa03b0483ada8192d530863228b0cbb3a7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L3-bank.config.json",
+      "bytes": 1191,
+      "sha256": "b9a42909af6cd778f57f431e391236c4d7ebe6b6200e5bd37485aeeb1424350b"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L3-bank.replays.json.gz",
+      "bytes": 44630,
+      "sha256": "18373b52c56245afced1c3cabdf820a543d84ace7602643f0ae3055816ec1776"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L3-bank.rows.json.gz",
+      "bytes": 98161,
+      "sha256": "cf24f067e0707982dc004a52d8f841190a336dd94f9b4bc8fb650a0e55323973"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L3-bank.summary.json",
+      "bytes": 208356,
+      "sha256": "c3ce5288a0bf5a5ee6abbc37a701eff0b8ec06896e60e7775f96bdb3f47a3786"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L3-bonds.config.json",
+      "bytes": 1200,
+      "sha256": "41a9ae75cdecd2b0e6bbcec86a9875afcefb6e1483ab249669ae0fecc096889e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L3-bonds.replays.json.gz",
+      "bytes": 44627,
+      "sha256": "411ca82e89d054e0d207f1745e8dd0af59ba3939813a6f3bc2eee591f0661c77"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L3-bonds.rows.json.gz",
+      "bytes": 98797,
+      "sha256": "093e570336e22fa2737f69c10ab9564d5ba7925f8903bd4938a080cac9eff861"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L3-bonds.summary.json",
+      "bytes": 208282,
+      "sha256": "a991d9dbcd20899f2e7bc400183f7039f9275cadb8ff818dcd8214ffb9d6da2c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L3-personal.config.json",
+      "bytes": 1213,
+      "sha256": "dbddd0cbd470d20eb96643315d1cc7bd23c76c89e3087c8639e5780c4a4aa066"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L3-personal.replays.json.gz",
+      "bytes": 44626,
+      "sha256": "ce2ba2528f0d916e9bb420ee36d7a96043570766caa8a91b76aba67b2a145b1d"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L3-personal.rows.json.gz",
+      "bytes": 99627,
+      "sha256": "05ccf66c8f01b20b2873df45dbc959721939b637f164195c33226e9dd9c6ccd5"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L3-personal.summary.json",
+      "bytes": 209783,
+      "sha256": "1e3b186daed70913ca1d74268ce34d6b59c3653df66bc1477520a465625cd18c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L4-original.config.json",
+      "bytes": 1162,
+      "sha256": "27948af7bedb74898576a41475350f9f9de9ff32ad5a761f9ba0a781c0ff7743"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L4-original.replays.json.gz",
+      "bytes": 44608,
+      "sha256": "1874f63458c8c48a7a82183e8ee4534fa58c97a03439734bfcf7c9fdf3a60260"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L4-original.rows.json.gz",
+      "bytes": 100140,
+      "sha256": "b647c2e113adbc822df1d8389573db6c9c72e74b0bf496f87e9b4916dd5e9b90"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S2-rich__L4-original.summary.json",
+      "bytes": 208413,
+      "sha256": "1b82c85c20ea9c96001445bf13a72f43dfce063d1c22f8f8c1608e044b67e219"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L2-bond-bank.config.json",
+      "bytes": 1321,
+      "sha256": "48cbe3afc56ba2f95d443436e8966f4f6983da359ce377bf64fdbe5285692448"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L2-bond-bank.replays.json.gz",
+      "bytes": 44596,
+      "sha256": "5e8d1d9d4ba205385ff2d5cdbcdaf5ea71d3298e90767ecb11949e79b9d0e36e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L2-bond-bank.rows.json.gz",
+      "bytes": 94200,
+      "sha256": "8dc619b69341ba60e0db7dd0d04623281903bd9dc6c4c2be64b5207ca0386c1c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L2-bond-bank.summary.json",
+      "bytes": 206852,
+      "sha256": "34613822f11b36c028770d193066660acddcd17f8b636dff2ab84f10089cc4e8"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L2-spaced.config.json",
+      "bytes": 1313,
+      "sha256": "d5e6ba4370cf17659e266707ae39d753660349c146412919bb257942f95a4dec"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L2-spaced.replays.json.gz",
+      "bytes": 44490,
+      "sha256": "e02d2fbeb0487c32cecf4e1c1a6e25841cb6165d74cecd9e88644f1717cd1331"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L2-spaced.rows.json.gz",
+      "bytes": 93347,
+      "sha256": "84216343e4619180ac0bdc4f1716d6291930d85ff8fdaebfaa68eae7460cad9a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L2-spaced.summary.json",
+      "bytes": 207738,
+      "sha256": "12ac6060435ee29e324223adfa5bd4ff38c179cfabdcc5c6edc60b804c6a4f57"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L2-stock-bank.config.json",
+      "bytes": 1333,
+      "sha256": "80e15d871f472c049885fedf31a4c7d1c1a956a9a5fbbe07b9ca088a4a5c6156"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L2-stock-bank.replays.json.gz",
+      "bytes": 44609,
+      "sha256": "a264734cb2c3fc64accaeac475a73de9aa817bb6b02da33bf9a35f41dcc495ab"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L2-stock-bank.rows.json.gz",
+      "bytes": 93773,
+      "sha256": "8f3fba3229438e4017edfd2d9db45bf3c95dbde5eb6614f1cd49dfb0a742db91"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L2-stock-bank.summary.json",
+      "bytes": 206938,
+      "sha256": "85ed62422464b3353e0e862f8f760a49b60cf3848f8ff0b237e7863f18debb48"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L3-bank.config.json",
+      "bytes": 1278,
+      "sha256": "d123aededbfd13d40ba00c988bd12acb546aa697fbc58d60218f784f1c6caf0c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L3-bank.replays.json.gz",
+      "bytes": 44630,
+      "sha256": "0aa36b568fa4f1db17ca5ab4bb000d828588e92a5fc1b2bde9194b21777831e9"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L3-bank.rows.json.gz",
+      "bytes": 96888,
+      "sha256": "ca621c25416271db2d76414f4c87cec46b882aa17695724058edfabace8d59f8"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L3-bank.summary.json",
+      "bytes": 207498,
+      "sha256": "952edeeb033e0f78c41548acbbaac98bd9feb1e1d669e3a788c0bf444cb645ff"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L3-bonds.config.json",
+      "bytes": 1287,
+      "sha256": "c378a95953e8e83d993ec979b1bd35a6bf1963e41b38c4f7d2ef528493146e53"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L3-bonds.replays.json.gz",
+      "bytes": 44624,
+      "sha256": "561524882f3420b038d2258f312b01d66db569b661189ac2f47204937f7eb612"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L3-bonds.rows.json.gz",
+      "bytes": 97351,
+      "sha256": "54913348c5c918a25ed1d75d1da8559e919099c3cf6fd1cadacc0ab2742179a3"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L3-bonds.summary.json",
+      "bytes": 207642,
+      "sha256": "02f14ed249d4e0f5be7392438e04d7257e4775afd9eeb069f8bd4a9e18a20268"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L3-personal.config.json",
+      "bytes": 1300,
+      "sha256": "8b355ddd1aa0bca894eead4a75887b8e5a7a9c1147ea01df88dccd667764d6b6"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L3-personal.replays.json.gz",
+      "bytes": 44630,
+      "sha256": "e32e97984680900f188180a13a998535941ba3770a0be6db5406e206131cd88e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L3-personal.rows.json.gz",
+      "bytes": 98205,
+      "sha256": "7c69800e0232349a1bbfde9d4fd0b59ffaef367018422148a8e4fae0d3e675b3"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L3-personal.summary.json",
+      "bytes": 208763,
+      "sha256": "ceeb33d1c88b0c42fc0ed6281005dff732c801f3cec695b6bfc18aef056c9d7a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L4-original.config.json",
+      "bytes": 1249,
+      "sha256": "ff467039a12e88144973f42b38b19cfa59e88b289394d435559a3d604f27049a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L4-original.replays.json.gz",
+      "bytes": 44605,
+      "sha256": "34dac18a47d1ff7688fb15adebf5f138330fc4a8c006b1214ddd5f56b83d3453"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L4-original.rows.json.gz",
+      "bytes": 99610,
+      "sha256": "15e887883f9569ca5b4f1dbb58e4f0f5ed6a7b1dedba23c2efa43183ac759146"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-decay__L4-original.summary.json",
+      "bytes": 209618,
+      "sha256": "8e7b31b43de22612fca3f85fdde17397816e98a3443ca88987cf48b3561da742"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L2-bond-bank.config.json",
+      "bytes": 1315,
+      "sha256": "7829b499839984b5fc768e8d168afec0fa3ed8107ba404ff2cea2705065d30bd"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L2-bond-bank.replays.json.gz",
+      "bytes": 44570,
+      "sha256": "a11e7241611b3b95f07593cfdcd9d23c23a3d55f325ed3b2c5b059ee009b2c25"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L2-bond-bank.rows.json.gz",
+      "bytes": 94764,
+      "sha256": "8d30d7326a022321d83c9f346caf190806db424f3fe290aeef96b925ce8f3464"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L2-bond-bank.summary.json",
+      "bytes": 210145,
+      "sha256": "d932356aeea2d9311801a941b8f23196cdbaf63cb940633fea0f52ba4aefba07"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L2-spaced.config.json",
+      "bytes": 1307,
+      "sha256": "2c7070291bcb6858fbcb93a0fe1c28f52d2b295f647f35b1e062765ec664af77"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L2-spaced.replays.json.gz",
+      "bytes": 44564,
+      "sha256": "f0bd2a35db3b62eab477649dd83af03afaa56d35bcf7fcc721c6bcd8313c7d28"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L2-spaced.rows.json.gz",
+      "bytes": 94206,
+      "sha256": "987a857da39325d4844969cd283ccf3e7bbd2906dea93991cd269f2cf0134899"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L2-spaced.summary.json",
+      "bytes": 206682,
+      "sha256": "3573bf855b1e92789776d590178d38820a4b64abc43f251f33914c8e9ccaf170"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L2-stock-bank.config.json",
+      "bytes": 1327,
+      "sha256": "b7317830e7f69b8c897980127a45a0a2b7eb465a66ef68576b48a2497f81ea2d"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L2-stock-bank.replays.json.gz",
+      "bytes": 44583,
+      "sha256": "44a44ffa6566363ef3e86e008ed7206c76e0e945465b3e6e7a3f01a312720f99"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L2-stock-bank.rows.json.gz",
+      "bytes": 94571,
+      "sha256": "6a021268cf7ead26cf5e375cd2b06a862dab38d149bbbb511aa4dd71e28efc19"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L2-stock-bank.summary.json",
+      "bytes": 210221,
+      "sha256": "9d3207162c148c5745b113c1da0bf010e22392108b08a5d997cda05fe63c8e42"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L3-bank.config.json",
+      "bytes": 1272,
+      "sha256": "a94e657279e3d1aed46e71ce34f244bf60dbb7ce41e2d999bd7dbd139321112e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L3-bank.replays.json.gz",
+      "bytes": 44734,
+      "sha256": "a0171953cd30b9b5e64372d7cd9af55996dc9ed35b3edf8ab87c6d47d68f4098"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L3-bank.rows.json.gz",
+      "bytes": 100089,
+      "sha256": "43883111139cac2c2b37a6c6b5112e6d32842771a9124601a98f1a2322c5266b"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L3-bank.summary.json",
+      "bytes": 210872,
+      "sha256": "74633fd21e4a7d2c5e9edaabcb3b3111dc57ffd958868a97adb79c906803f7b9"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L3-bonds.config.json",
+      "bytes": 1281,
+      "sha256": "9bfca9d73616458b543693bc9065c84d1dcd96515b5b803da09a6aec6a2fc1a7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L3-bonds.replays.json.gz",
+      "bytes": 44734,
+      "sha256": "e6899a812815754cceea9ff588110b357135f6ff059bad401f59aab5b042c5bf"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L3-bonds.rows.json.gz",
+      "bytes": 100497,
+      "sha256": "416ea3fd4cd5a453720d23ca250d547a8293e256c6e6670498b28a2717543158"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L3-bonds.summary.json",
+      "bytes": 210858,
+      "sha256": "dbb6089159898b9dbe00eae908f8d3dfd297a052598719a56d0ac74cd5b0bba2"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L3-personal.config.json",
+      "bytes": 1294,
+      "sha256": "159b45ecbde7b3491d52f82e226b8a1a00a1eea445e3578e43492ae09b7daea7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L3-personal.replays.json.gz",
+      "bytes": 44735,
+      "sha256": "fb6e055a76fa98051c8a757b501bc17b532409bcb964fae6fa257bba5ac672b8"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L3-personal.rows.json.gz",
+      "bytes": 100938,
+      "sha256": "17aa060efcf24f97f57fd29948070a748099cb9989de5a6b8162fc24eba84c5f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L3-personal.summary.json",
+      "bytes": 212111,
+      "sha256": "2ff150bd38ea1093dbdb2ca400dff51369c942e3dafe4e96cea20b952e04b33a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L4-original.config.json",
+      "bytes": 1243,
+      "sha256": "b30f3a2e4fc35edd5fc4c12ec39518df21ea252b7d8c66d503aabb37984e8bf9"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L4-original.replays.json.gz",
+      "bytes": 44719,
+      "sha256": "28f4a0d2b6ab68e71385f1376b11bfed68220a6afea9dcd8c44697ca01cb4add"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L4-original.rows.json.gz",
+      "bytes": 103072,
+      "sha256": "38ee3073d338f0f34f31b9a75dc8f2ae7b46d322acbf3b38d8fcb39cd07dd0e8"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-flat__L4-original.summary.json",
+      "bytes": 212681,
+      "sha256": "a0f44ddd44265588095039b684d797680d88d4867ee2343fe4744f5682beb760"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L2-bond-bank.config.json",
+      "bytes": 1318,
+      "sha256": "d6dc73b9645f2ee38029896ffaaf8788a85f3c05bc63f6019773ce5d0383842a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L2-bond-bank.replays.json.gz",
+      "bytes": 44593,
+      "sha256": "aaabc1920f4d658808d1e855c927bdf0acaec3dc9c76775f13d12dbec5bf077b"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L2-bond-bank.rows.json.gz",
+      "bytes": 94721,
+      "sha256": "636c4221bac8726f2db8f332dd90907a504a918c34a0f9aa48caad0c087ac2a2"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L2-bond-bank.summary.json",
+      "bytes": 207580,
+      "sha256": "11e4626366829a3812e487a929a8884faae2d4268268234e0b16bc27a82a1644"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L2-spaced.config.json",
+      "bytes": 1310,
+      "sha256": "9273a020e31006f7bf74aec7f39a9ba5e24d28d056b6bed526bc5d30f85d2433"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L2-spaced.replays.json.gz",
+      "bytes": 44585,
+      "sha256": "7f34dbc54ea567c91a0dc94ad889b41205e4c054398e4f2d1518add81a165994"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L2-spaced.rows.json.gz",
+      "bytes": 95353,
+      "sha256": "4fbb78f82d07e0ffeaba5e21a3bd818b824becb812e902b24da2d229beecd23c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L2-spaced.summary.json",
+      "bytes": 208845,
+      "sha256": "ea854ce69dbea4807f4f035670063d92ec288dce7804953ea83b1a26a25ac595"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L2-stock-bank.config.json",
+      "bytes": 1330,
+      "sha256": "b05d5ec8f41a8172b7fd3d8575e708f9610da641bd7efae82fee9a5e23910a81"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L2-stock-bank.replays.json.gz",
+      "bytes": 44605,
+      "sha256": "c68c52767d92fdf1209c3214cf140d620673e63853daa8f71a0d14625ccb605c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L2-stock-bank.rows.json.gz",
+      "bytes": 94382,
+      "sha256": "1d824f438029cec80c7de6ba68e3adc4dec477ee80649eed5886ae4e98803bf4"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L2-stock-bank.summary.json",
+      "bytes": 207598,
+      "sha256": "97518205d799edc9bfe20a7be73bb77d0d35088aaf06a74d9044d156a7f19452"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L3-bank.config.json",
+      "bytes": 1275,
+      "sha256": "cdbb29e38e4dc81b07c55fa8673deac97a9d558a0f335ccc1358a034280be8b0"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L3-bank.replays.json.gz",
+      "bytes": 44627,
+      "sha256": "2b22ab72d1e829c337b5147a69ab791034c346742481843e7156b1a106a5668a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L3-bank.rows.json.gz",
+      "bytes": 98513,
+      "sha256": "e9c899613ffc81d0058cb7c821daccaebb9026a3304758da3c678d0d389b4b89"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L3-bank.summary.json",
+      "bytes": 208888,
+      "sha256": "ff7d4e4e5d71f000733ad8c437d438f10eee155579272bc6852bd0a5d14f9e57"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L3-bonds.config.json",
+      "bytes": 1284,
+      "sha256": "283de7fc8fefb0e147d96d34de498ebb43fbec71eda53b9ce5db18ec0fa2a7b5"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L3-bonds.replays.json.gz",
+      "bytes": 44622,
+      "sha256": "bb6f11afe153d2d3a8b4fca7a38c8ffb51d5561a67ac88cbb578e6e2573f3f77"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L3-bonds.rows.json.gz",
+      "bytes": 99003,
+      "sha256": "938112278780d37c66db1ea255ef3380af491026980f31c85520330a9d5a0376"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L3-bonds.summary.json",
+      "bytes": 208907,
+      "sha256": "68e8263ef1a6dadfc45b0d835892274ac460a421f8eef969fd3134c1ac55a69d"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L3-personal.config.json",
+      "bytes": 1297,
+      "sha256": "e7be7c16eb236d53f0f9d0f3446a51b0fd23e406caae35f412e5ead1ea1e7915"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L3-personal.replays.json.gz",
+      "bytes": 44628,
+      "sha256": "d252d8249a36bb3331400a275f3e8ef28718d189882a083cc35f1a0691707c5f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L3-personal.rows.json.gz",
+      "bytes": 99811,
+      "sha256": "3f5a2c2d6555b09246fffe76db91d0cc2e36fc70cf2e9de1a932f259fc334eb7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L3-personal.summary.json",
+      "bytes": 210305,
+      "sha256": "197c6d961df4859e63675b9240bc37ebbd1698ae1e1050f6b167ca6e9a8ff371"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L4-original.config.json",
+      "bytes": 1246,
+      "sha256": "8287b8abf8da8aacafef9e6158e3fbb1136ff5d63141723ca6d87ec03343fee3"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L4-original.replays.json.gz",
+      "bytes": 44602,
+      "sha256": "88fb5c939ab070bb32de6dd2a440d2d5967301e8a369a357f0d8f4262cb3a0a6"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L4-original.rows.json.gz",
+      "bytes": 101284,
+      "sha256": "3dc8a0d956319a87cb5a81b0a86f82eb4d5976290f37a7e1716592427ce6eb6a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S3-rich__L4-original.summary.json",
+      "bytes": 210302,
+      "sha256": "7beb7519c5359c5a193c09a144907586614a6f561b65631e23798188c40f58a0"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L2-bond-bank.config.json",
+      "bytes": 1422,
+      "sha256": "4639066b1ebda80bc597174af126b357b053332db02e6e2eec68bcae9dd70201"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L2-bond-bank.replays.json.gz",
+      "bytes": 44615,
+      "sha256": "08a7191531d511a85a759c8bba21c0c56f0afcfbe233ce7ea7525c60b73aaab4"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L2-bond-bank.rows.json.gz",
+      "bytes": 95285,
+      "sha256": "ae7ffbce55f3ecbe66f33386848582f166308a743c776d491578c667437686b1"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L2-bond-bank.summary.json",
+      "bytes": 208387,
+      "sha256": "2a658933429609b8b62a255ad63e0fe1995ff534259ab8f1c8001ab9a8f4163a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L2-spaced.config.json",
+      "bytes": 1414,
+      "sha256": "c459034f0e7b009b1ade30c35b69d90ec042b47bf6aac01a97a49751dbb9d627"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L2-spaced.replays.json.gz",
+      "bytes": 44611,
+      "sha256": "500573275b17678179368b61d9f021075ea8a4320c7f0a5eb3ff52f64294d428"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L2-spaced.rows.json.gz",
+      "bytes": 95896,
+      "sha256": "1ad726b60d51deb38888a2a6378ca213d9e8f59038c854344e67bf337206e39a"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L2-spaced.summary.json",
+      "bytes": 209859,
+      "sha256": "dcc72649b7a380a9ecd68ab0c39626692c8b4f62add783fde0b9cc1a00b4a0d7"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L2-stock-bank.config.json",
+      "bytes": 1434,
+      "sha256": "5653a0e2a8b68054194fe80c63a8825b45fac32c6958489cb889c0add7d1e212"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L2-stock-bank.replays.json.gz",
+      "bytes": 44630,
+      "sha256": "0505d9780e498762ce0c8283e456f86a697ef76807c78ae6660174153334e35f"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L2-stock-bank.rows.json.gz",
+      "bytes": 94959,
+      "sha256": "9703c8e728460c8c7dce0b81a543c28da9f194bea2b3a9774aa1140b5923b76b"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L2-stock-bank.summary.json",
+      "bytes": 208405,
+      "sha256": "7ebfbeca64d241fd2918be5e2f230b804be72d51c7af2e92ad0cd690c34853d8"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L3-bank.config.json",
+      "bytes": 1379,
+      "sha256": "739409eac37625d31ef66862d1841977e55092f7ff504ad39b4afaf898f69bbd"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L3-bank.replays.json.gz",
+      "bytes": 44650,
+      "sha256": "ca97c2f417cc0cde7bbf8dba4d78e22a5e679f6c31dfab3ec5f3f90993f5c434"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L3-bank.rows.json.gz",
+      "bytes": 99393,
+      "sha256": "92db754c0fdb95ea41a5ef14ce3b576a45485ce06661d16b6e15279b4519af12"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L3-bank.summary.json",
+      "bytes": 210279,
+      "sha256": "b7ff885a608c9d1562bb58e9950b4b5203f5cadd4da2df61e49911caedb3e076"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L3-bonds.config.json",
+      "bytes": 1388,
+      "sha256": "4645cacbe2b5846140d72ca43c54d81c803e89b1279325a06ec949375b3cb05c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L3-bonds.replays.json.gz",
+      "bytes": 44647,
+      "sha256": "dac73d64243eb317070b7fb0bee21d216226f887dc92654d86150ebec3666c99"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L3-bonds.rows.json.gz",
+      "bytes": 99900,
+      "sha256": "8b9b222bb0f587a72292d59698037f7b283e8296a3e1c4763319f6ad84533f1b"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L3-bonds.summary.json",
+      "bytes": 210259,
+      "sha256": "279ac167f6943a324d2e286dd7a9ab7eb7083f01fdfe3e4a36924863e6f6c562"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L3-personal.config.json",
+      "bytes": 1401,
+      "sha256": "241a765bccc983e779648c62059e44a8936eb43f0f69d39bd1289380f48c2b56"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L3-personal.replays.json.gz",
+      "bytes": 44645,
+      "sha256": "2db7c43e597fc9029f5c57afe5c6b878cedb8d1f3e7563dcf89c5ca42ed4208c"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L3-personal.rows.json.gz",
+      "bytes": 100739,
+      "sha256": "e0ab90ba9d279767884e821db78dc7a59e8650c7be020baae39d94b9e4e6508e"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L3-personal.summary.json",
+      "bytes": 211802,
+      "sha256": "92b3f476f0d67d7d6046eaf234c6e239a8e76c650351cf3a8507deb4ad1eb0bb"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L4-original.config.json",
+      "bytes": 1350,
+      "sha256": "4e950f6649c13c730378f06fbf4d48879bceba0b45e8d63fb4169320b9111fdf"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L4-original.replays.json.gz",
+      "bytes": 44626,
+      "sha256": "ca2d36c89aee66f59ee51a54c6e56e066e4b5a051af408fcc73edfbacc483209"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L4-original.rows.json.gz",
+      "bytes": 102815,
+      "sha256": "39b3e82910835f71aba3dd23572a6c8a4c55a63675fc215b649a4e3c0414bc07"
+    },
+    {
+      "path": "docs/research/multi-course/screen/S4-decay__L4-original.summary.json",
+      "bytes": 211560,
+      "sha256": "aa117db1c61a437690fa850b1f653a80b0d08f471e7bfe34d7c92e2538d38688"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-all-contrasts.csv",
+      "bytes": 379052,
+      "sha256": "a7e566bb9e50d9dc714b05a9e53ac8b718ba70db50750e5eeeff04897a93200e"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-all-contrasts.json",
+      "bytes": 1112653,
+      "sha256": "f5174b49476eeff47b1db511a3859a50b43e515cc1f661bc152e63afa80d69c6"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-analysis.json",
+      "bytes": 257649,
+      "sha256": "8ac87562051b522402a1ade5251293c5a49eadcd6a2c5e04c71ab325e3c4ba23"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-arm-overview.csv",
+      "bytes": 3719,
+      "sha256": "8b0bfb158e672845197f3964de2a606a77d3a0f7351739b09956216e677ccfb0"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-contrasts.csv",
+      "bytes": 157361,
+      "sha256": "f46e7b1b8cf7e663b8cc68d4f23a4b56c217548fde32b542de4f7d5aa74dbb9f"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-contrasts.json",
+      "bytes": 458080,
+      "sha256": "c7085a05b961a7e7da57581bef8a15be129f5c33acb4a6f1fd767c0bd72dcb97"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control-analysis.json",
+      "bytes": 160251,
+      "sha256": "8dbc428c3fc40001450efe43b9a5d1bedcde4e84d5081f0b8135c2638b4d38a0"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control-arm-overview.csv",
+      "bytes": 1993,
+      "sha256": "31529ab5d69db02687ab17ecaefd7841a61276fb679377d4d6613b9937c803ff"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control-lock.json",
+      "bytes": 10886,
+      "sha256": "aec55d19204238d414b18a3f40fa66cce24ee3cc6f434d6743f7ff03f68b1f8f"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control-manifest.json",
+      "bytes": 6396,
+      "sha256": "a5cec00335f2886f25a3338aaf8c39fcdf6b1d6048c7ece708b4bdf5911b6dff"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control-policy-results.csv",
+      "bytes": 62549,
+      "sha256": "dfd242093c751c82778e060ff00ae66bd7eaac0df423307bed3152b223bb9ac5"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control-protocol.json",
+      "bytes": 17322,
+      "sha256": "ff4a40524d192ab2764f7ef1759fcf7476e2bcd14dd18d9296100d2af0258105"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control-source.json.gz",
+      "bytes": 53475,
+      "sha256": "3471a652d00bafcf28aeee077de6c43a019027f9d2057248792abf62519e2de4"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M2-total24__L2-spaced.config.json",
+      "bytes": 1351,
+      "sha256": "e205d3e56ce74a9ddd4b32d0aa6bcd7d18c06166a23e5ba010368073f369c310"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M2-total24__L2-spaced.replays.json.gz",
+      "bytes": 311186,
+      "sha256": "62eace94e73e1c231c9da3dfaedd3915bf607dcb371ce3afe8a3dc3c03e9659b"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M2-total24__L2-spaced.rows.json.gz",
+      "bytes": 521106,
+      "sha256": "2407b98b10d45dd22786327ca0675b4a5cc2c1f2fa55279906a6d663165bb596"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M2-total24__L2-spaced.summary.json",
+      "bytes": 310088,
+      "sha256": "1bebde23d39d169db219cd5103cebe8e4b35824e8303ad6f43f129326fc7c6c7"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M2-total24__L4-original.config.json",
+      "bytes": 1287,
+      "sha256": "13cf99a63416be03ecddacc7853d32193164cb834e0510237947edf4681c0762"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M2-total24__L4-original.replays.json.gz",
+      "bytes": 307747,
+      "sha256": "1ecbd130852c0f3a788a3954f5e5331eeaa5630efa24f9b1b575b3738db9e672"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M2-total24__L4-original.rows.json.gz",
+      "bytes": 558221,
+      "sha256": "7c056cc2c61ccac17dcb3e042fcdf5df00c6309d4bac6756773e8d277ca1416b"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M2-total24__L4-original.summary.json",
+      "bytes": 310141,
+      "sha256": "0c26d6b89c6b7ed554cfe368b5e8cbd58314f0ff6c8a38e603122dcd410ba63a"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M3-total24__L2-spaced.config.json",
+      "bytes": 1437,
+      "sha256": "a4ef822153ab918b07780b3320ad16deb3ff62780a8077b6f4baee131c5db16a"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M3-total24__L2-spaced.replays.json.gz",
+      "bytes": 311210,
+      "sha256": "864ded3f523321041d1e10c5e0af446c7b8f03e5823bcb158068e104fdca46e7"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M3-total24__L2-spaced.rows.json.gz",
+      "bytes": 531202,
+      "sha256": "1d741707fe43d9c071bd0f9f3cf0bee80980823d4a162ba2fdc0c6f24e25f777"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M3-total24__L2-spaced.summary.json",
+      "bytes": 315817,
+      "sha256": "2179541e6b5872564fea1c3759b320c40613eb87d96d5d9af151b4fb492ef0ca"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M3-total24__L4-original.config.json",
+      "bytes": 1373,
+      "sha256": "1ea940437158aadb1f6899b8a040a84e6c01819484921ed305d4db796afd3f51"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M3-total24__L4-original.replays.json.gz",
+      "bytes": 308313,
+      "sha256": "8b1d6db2943140cd51de5215cf821af2e81a2aa18067aecd4fc2561b057b3827"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M3-total24__L4-original.rows.json.gz",
+      "bytes": 579686,
+      "sha256": "7cbe745917bbcd96072c57449b87182816ac214ace9e2154fc0947304f065fc6"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M3-total24__L4-original.summary.json",
+      "bytes": 317013,
+      "sha256": "67a1de928b0ae605a2dc1b7efccc47e0f989752a7702fb78aa69dd0c33ef3921"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M4-total24__L2-spaced.config.json",
+      "bytes": 1523,
+      "sha256": "f2e0287d5bdcc15945d761a1d4d050c0dfaf9f414f8673c5b6fce0259b0de078"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M4-total24__L2-spaced.replays.json.gz",
+      "bytes": 312333,
+      "sha256": "b35d9fedefbb788894258cc4e14167e83f0c9a4e34e615235a9527a3baf088cf"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M4-total24__L2-spaced.rows.json.gz",
+      "bytes": 529852,
+      "sha256": "08d92522a2dcb99dc441b998e3146e2c85dbe8a0f8e62bd73c41efd5a2e2e830"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M4-total24__L2-spaced.summary.json",
+      "bytes": 319532,
+      "sha256": "f7e537e285a61ebeac8ce24fee1fe6327b979c841f72fcfee3422d998cc99014"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M4-total24__L4-original.config.json",
+      "bytes": 1459,
+      "sha256": "dc8845b9f587b6eccaedc70b19728b6d9003bcf444ffa250028da91fab8512e6"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M4-total24__L4-original.replays.json.gz",
+      "bytes": 309581,
+      "sha256": "9ca71e1ed2489319bf72af09388e2be2d948b3247a6f209f6c0248498d2629cb"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M4-total24__L4-original.rows.json.gz",
+      "bytes": 587049,
+      "sha256": "bd4a0a10845eb109037d5c57d56a1b22ea6f71be1b1498ac62fc447f94e71952"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-control/M4-total24__L4-original.summary.json",
+      "bytes": 321639,
+      "sha256": "375479a1f8b4aa67d4153af51a8c7ab7089ba8f37b2f276a8ebbc600eaee0c20"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-lock.json",
+      "bytes": 2416,
+      "sha256": "8b57fd8d3e71e566d1f184cdc93f749291c7e189d8c5682aa4d3f57cc248d831"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-manifest.json",
+      "bytes": 6549,
+      "sha256": "8c65a8b98fc71dd54526c4972ab99e881701de93cc94359ebf0c273169ac2212"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-policy-results.csv",
+      "bytes": 110511,
+      "sha256": "2a9647bd36a93fcdcb63f954d9ec931814de4ab76ca6572b3d7c2a07626a7d48"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-protocol.json",
+      "bytes": 8037,
+      "sha256": "47bc9700c2190cbce69c8e68023f6c59c11a1b730f632824e52bda977c0a5eff"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist-source.json.gz",
+      "bytes": 52635,
+      "sha256": "f05a5a9a21284c0d3e868e57903c58292255d59e89ca45ee5171d7f5d33713b7"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/A-baseline__L2-spaced.config.json",
+      "bytes": 1132,
+      "sha256": "4fc82811e3f971e7c97a701f2f77919a2cd1e86fd0f59ed1b8155461a2069474"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/A-baseline__L2-spaced.replays.json.gz",
+      "bytes": 311711,
+      "sha256": "c8c7d3a7fbd2867b7de64e4c209b22c883a72050c70be5a997ff3557273f2f24"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/A-baseline__L2-spaced.rows.json.gz",
+      "bytes": 713482,
+      "sha256": "2aa91169b6a572c674804a29349599e809bbf96f4c43f2cc6fdfeffbb4381ace"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/A-baseline__L2-spaced.summary.json",
+      "bytes": 313847,
+      "sha256": "0639a9a9814d073006c395e1f1ba6c31109c508ffb589fe73111d6c94413d8be"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/A-baseline__L3-bonds.config.json",
+      "bytes": 1106,
+      "sha256": "6ecf481d23639a6e50b1c94dfce79820253a4a3b63199ebb3e8f7e2750cce8d7"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/A-baseline__L3-bonds.replays.json.gz",
+      "bytes": 320535,
+      "sha256": "44966c5ea8d99cb9779d291e5552bae009d0045de1799525737c1532bdf74834"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/A-baseline__L3-bonds.rows.json.gz",
+      "bytes": 731794,
+      "sha256": "2c0c95918922b9811c29eb8e22cc524072987688633e12a8fa046e1c012db7d0"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/A-baseline__L3-bonds.summary.json",
+      "bytes": 313891,
+      "sha256": "809a60308dab88cc8260788e2d860e30e167dc35be24bd86f8df8466c32ca9d1"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/A-baseline__L4-original.config.json",
+      "bytes": 1068,
+      "sha256": "2e4c721bd2dbbb4992a77acdb1db60d959ecb38540f989e76bf13967f0c104b2"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/A-baseline__L4-original.replays.json.gz",
+      "bytes": 308188,
+      "sha256": "ff7cf4ad51e1656428b9fedf30ba42e9a1f91db683f0715d20238671c2b31cdf"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/A-baseline__L4-original.rows.json.gz",
+      "bytes": 736939,
+      "sha256": "ca62ca0a85faa37977abb0d65e58b052168f2e20630e7a69a38a02aebd37cf40"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/A-baseline__L4-original.summary.json",
+      "bytes": 314549,
+      "sha256": "940a90ca43a6b8bbb8ff448384b195ba98f2b582a5afa1cc64d797b895f2f239"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/I2-choice__L2-spaced.config.json",
+      "bytes": 1235,
+      "sha256": "515ee6811e93729f2a06f737a33f1bb691dc3680f6ff543c5218f3b5c44222c4"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/I2-choice__L2-spaced.replays.json.gz",
+      "bytes": 311586,
+      "sha256": "df0042305491d736c38638d125b9652c01191cb26e8701636ebb6d8b49d63a4f"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/I2-choice__L2-spaced.rows.json.gz",
+      "bytes": 737093,
+      "sha256": "45620654caabaa19ca56aadd6e8f67830d55e4f7de629977d71e2534d138cae3"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/I2-choice__L2-spaced.summary.json",
+      "bytes": 320180,
+      "sha256": "300de7dd8dd5d1f33355849993a2555a6bee06d40d9f07ba4079c77296b7d916"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/I2-choice__L3-bonds.config.json",
+      "bytes": 1209,
+      "sha256": "3789e38738fd77fe8d0166cb2c5af80f0ce832560c18fe5d6d3f44ea48e16b75"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/I2-choice__L3-bonds.replays.json.gz",
+      "bytes": 315272,
+      "sha256": "62139a2429549e6200f788a60329a1955442fcaa04daa127745b8c44c5a1784f"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/I2-choice__L3-bonds.rows.json.gz",
+      "bytes": 770546,
+      "sha256": "a19373cb2a65dfa30f2467d648e8540f6cc49b5392f78b8f4c06e6c9c07faeeb"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/I2-choice__L3-bonds.summary.json",
+      "bytes": 319519,
+      "sha256": "ffc48c8b0affa830f225eaf9e9ef1a1072464d495c4f2e54c0e675ed9f0acae1"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/I3-moderate__L4-original.config.json",
+      "bytes": 1266,
+      "sha256": "adf8eb63ef6b1a912cadc772c98d3c6bba94d50bcfd60971529346661b46d894"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/I3-moderate__L4-original.replays.json.gz",
+      "bytes": 309351,
+      "sha256": "8f35da63d784b47831366270a0582cf106aac99ba897642b246f27cff320ebd7"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/I3-moderate__L4-original.rows.json.gz",
+      "bytes": 803017,
+      "sha256": "7ab93fd142241eb2908970718dbec5f6f2e9216bb8b4a986c8c7cb9e2c92723b"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/I3-moderate__L4-original.summary.json",
+      "bytes": 325457,
+      "sha256": "62d6532c59d14d3c97a001494c1b9dd71dfe473259d014b33e70c13fb7c791a0"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/S2-rich__L2-spaced.config.json",
+      "bytes": 1226,
+      "sha256": "3b0cb92ca0d0ce18d060522ba1d40783fc1442f8bb5b4b9efe7a8a3120274417"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/S2-rich__L2-spaced.replays.json.gz",
+      "bytes": 312596,
+      "sha256": "330c1a41f513939fb6e442b3d72c82570c1158c282bcb3d81647ca7b1a649328"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/S2-rich__L2-spaced.rows.json.gz",
+      "bytes": 751062,
+      "sha256": "b591ea3c1aae41997a380799c4d5d3e926dc60a9fce342cad5ff481dbb4db5b1"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/S2-rich__L2-spaced.summary.json",
+      "bytes": 320301,
+      "sha256": "f238e6fcd73478e481adeb843a4a822f645f9d24e40c561fa5e3374a8913e6a9"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/S3-flat__L3-bonds.config.json",
+      "bytes": 1281,
+      "sha256": "9bfca9d73616458b543693bc9065c84d1dcd96515b5b803da09a6aec6a2fc1a7"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/S3-flat__L3-bonds.replays.json.gz",
+      "bytes": 320931,
+      "sha256": "2b1d28c69a8412f239434d6910561f697a31f65c23a03f97d859603249cdf2d8"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/S3-flat__L3-bonds.rows.json.gz",
+      "bytes": 783171,
+      "sha256": "03d022994273afd9e52aaae47c9721932bf657b28b01ae2b4c63451e285d298d"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/S3-flat__L3-bonds.summary.json",
+      "bytes": 324185,
+      "sha256": "f701fa61e6563a857fe247d308882bedb23f74ddde40b85d25251bec6e2762ed"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/S3-flat__L4-original.config.json",
+      "bytes": 1243,
+      "sha256": "b30f3a2e4fc35edd5fc4c12ec39518df21ea252b7d8c66d503aabb37984e8bf9"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/S3-flat__L4-original.replays.json.gz",
+      "bytes": 309144,
+      "sha256": "13288664fe9b87acd53e6ece370dbfabde19620f4cc3706330dd1226c1663933"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/S3-flat__L4-original.rows.json.gz",
+      "bytes": 805883,
+      "sha256": "cf66298f5470938843b6894c5f30dc2c644f8584c1b68403434e1818a81892a8"
+    },
+    {
+      "path": "docs/research/multi-course/shortlist/S3-flat__L4-original.summary.json",
+      "bytes": 324982,
+      "sha256": "5140a20c6c4dd2e15fcb7067013d8289871150778fac9d417a029324da14f6de"
+    },
+    {
+      "path": "docs/research/multi-course/verification.json",
+      "bytes": 1534,
+      "sha256": "131e364356af1eabe6ba33f6377c6536d138f97bbe4c299031b0e00ac119b669"
+    },
+    {
+      "path": "scripts/research/multi-course/adapter.mjs",
+      "bytes": 3187,
+      "sha256": "207af3a056ee9d8793a579126ac5c367d42d987c1552a4b91012e0c17979cf1f"
+    },
+    {
+      "path": "scripts/research/multi-course/analyze.mjs",
+      "bytes": 6697,
+      "sha256": "29da170cb4c11de291d4af860955611b32d8a9774a1261b4466527badcc4dae2"
+    },
+    {
+      "path": "scripts/research/multi-course/contrasts.mjs",
+      "bytes": 2753,
+      "sha256": "739a2b0d3fd409a2893694d75b3164aca160eb8077ec990403fab019634c8721"
+    },
+    {
+      "path": "scripts/research/multi-course/courses.mjs",
+      "bytes": 2520,
+      "sha256": "7f61a5b97c39138e1887b465a613de859fc9d446fb45faaa030f51f8139d67f0"
+    },
+    {
+      "path": "scripts/research/multi-course/courses.test.mjs",
+      "bytes": 2368,
+      "sha256": "ecabf5afdd4d66516b964dfa54505556d0fb1080357caab06ab4b91813971e9c"
+    },
+    {
+      "path": "scripts/research/multi-course/integration-worker.mjs",
+      "bytes": 2389,
+      "sha256": "25dfdb94716aaec0cba9332a9045752bf70bea1fdbdf3e5f97ca0d0c079af673"
+    },
+    {
+      "path": "scripts/research/multi-course/metrics.mjs",
+      "bytes": 3124,
+      "sha256": "5cf876ef425498d3acfa91da978a55379683fb930aedc1920e99ac29b7a08991"
+    },
+    {
+      "path": "scripts/research/multi-course/policy.mjs",
+      "bytes": 3785,
+      "sha256": "a664711e17177048c74d9a8744d93c3346739f830c609cf9fd57c08dad83fbfb"
+    },
+    {
+      "path": "scripts/research/multi-course/replay-file-worker.mjs",
+      "bytes": 958,
+      "sha256": "5f40ead11220e9056dc5cdccb5a466666dbecf1199f37289d20466c12f2877a2"
+    },
+    {
+      "path": "scripts/research/multi-course/replay.mjs",
+      "bytes": 1448,
+      "sha256": "ac9517d846712f125753e77c263d110fa59ac30ad84f4361545f3bc5504f38c6"
+    },
+    {
+      "path": "scripts/research/multi-course/report.mjs",
+      "bytes": 24296,
+      "sha256": "7da5adef5412bc4fbd474e5b9aa7f9986aa514425f82603c16d9e2fae9e48c5d"
+    },
+    {
+      "path": "scripts/research/multi-course/run.mjs",
+      "bytes": 4546,
+      "sha256": "90414422738e5ed81713b4a05e5edc66fa79db6cedebd7dd99cbcf9b9dc9020b"
+    },
+    {
+      "path": "scripts/research/multi-course/seal.mjs",
+      "bytes": 2337,
+      "sha256": "87b01b8ef61539e5c21a483fc107f17d518456b61cde2e3bcec44af851b04511"
+    },
+    {
+      "path": "scripts/research/multi-course/spec.mjs",
+      "bytes": 4683,
+      "sha256": "9467d707ce0a969eb02d987f3fa49f09b4de130b1915fe91f7f1a3efd4c9d9b9"
+    },
+    {
+      "path": "scripts/research/multi-course/stats.mjs",
+      "bytes": 4880,
+      "sha256": "d408f4d2a8082aea09b28d83d5a401765589ce7dd3de947f49c6b852b9df347c"
+    },
+    {
+      "path": "scripts/research/multi-course/stats.test.mjs",
+      "bytes": 1329,
+      "sha256": "b53c070b62981682574b8cf4f6f33cc391fe23fa418747d64927152344478060"
+    },
+    {
+      "path": "scripts/research/multi-course/verify-foundation.mjs",
+      "bytes": 769,
+      "sha256": "82d80865f3be15649cccb16fb4de10434d3a45f921425caad9c33bd152c672b1"
+    },
+    {
+      "path": "scripts/research/multi-course/verify-frozen-reproduction.mjs",
+      "bytes": 1604,
+      "sha256": "05f7d1dbffafa13042e4ee33908427bf2761670c21a49267abc942881ec5a455"
+    },
+    {
+      "path": "scripts/research/multi-course/verify.mjs",
+      "bytes": 4423,
+      "sha256": "1d5e0496c7b2f549b7a5c3d516ee54e6f29c1204b2fb8c8852d39388f0669e60"
+    },
+    {
+      "path": "scripts/research/multi-course/worker.mjs",
+      "bytes": 1217,
+      "sha256": "0a09f0d10f31e04de5bc7b07ad30161182b44d249556e6d18fcf79303499aae6"
+    },
+    {
+      "path": "tasks/mvp-b18-course-balance-lab.md",
+      "bytes": 4372,
+      "sha256": "4b58526218b2c6ca8fada31f83fa8b7847321df6a2a4219c3666a1ce2ba2de3a"
+    }
+  ]
+}
