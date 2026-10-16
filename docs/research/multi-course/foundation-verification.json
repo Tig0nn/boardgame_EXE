@@ -1,0 +1,20 @@
+{
+  "researchUnitTests": 6,
+  "passed": 6,
+  "researchFullStateReplays": 48,
+  "baselineFullProductionReplays": 12,
+  "jsonNormalizationOnly": "Undefined optional keys and negative zero normalized by JSON serialization; no financial/version/RNG fields ignored.",
+  "systemsCovered": [
+    "A-baseline",
+    "S2-extension",
+    "I3-choice",
+    "S4-decay"
+  ],
+  "layoutsCovered": [
+    "L4-original",
+    "L3-bank",
+    "L2-spaced",
+    "L3-personal"
+  ],
+  "noProductionChanges": true
+}
