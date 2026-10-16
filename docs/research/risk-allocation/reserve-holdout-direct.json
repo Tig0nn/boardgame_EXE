@@ -1,0 +1,418 @@
+{
+  "direction": "reserve5 - reserve0, D-personal/savings, holdout",
+  "comparison": {
+    "n": 400,
+    "delta": {
+      "won": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          -0.013876649577933858,
+          0.013876649577933858
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "proceeds": {
+        "n": 400,
+        "mean": -18023.22,
+        "ci95": [
+          -179634.73456611639,
+          143588.29456611638
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "funded": {
+        "n": 400,
+        "mean": -0.04,
+        "ci95": [
+          -0.059228049686248486,
+          -0.020771950313751515
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "borrowed": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "insolvent": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "creditLoss": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "transactionCosts": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "lockedBusiness": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "lockedBond": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "personalEncounters": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "courseRepeatVisits": {
+        "n": 400,
+        "mean": 0.005,
+        "ci95": [
+          -0.01335052463516969,
+          0.023350524635169692
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "decisionSteps": {
+        "n": 400,
+        "mean": 0.6175,
+        "ci95": [
+          0.5075239954401534,
+          0.7274760045598467
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "decisionEncounters": {
+        "n": 400,
+        "mean": 0.66,
+        "ci95": [
+          0.5527630333441688,
+          0.7672369666558313
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "startDecisionCheckpoints": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "fundingDecisionSteps": {
+        "n": 400,
+        "mean": -0.0425,
+        "ci95": [
+          -0.06347480945274468,
+          -0.021525190547255327
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "mandatoryCashShortfalls": {
+        "n": 400,
+        "mean": -0.0425,
+        "ci95": [
+          -0.06347480945274468,
+          -0.021525190547255327
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "earlySavingsWithdrawals": {
+        "n": 400,
+        "mean": -0.0425,
+        "ci95": [
+          -0.06347480945274468,
+          -0.021525190547255327
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "earlyWithdrawalPrincipal": {
+        "n": 400,
+        "mean": -1809437.5,
+        "ci95": [
+          -2680789.339705919,
+          -938085.6602940812
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "lostSavingsInterest": {
+        "n": 400,
+        "mean": -303258.75,
+        "ci95": [
+          -449176.81620226963,
+          -157340.6837977304
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "fundingSaleAmount": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "borrowedPrincipal": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "personalCommittedCost": {
+        "n": 400,
+        "mean": -625000,
+        "ci95": [
+          -694079.0292397175,
+          -555920.9707602825
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "personalDeferralPremium": {
+        "n": 400,
+        "mean": -625000,
+        "ci95": [
+          -694079.0292397175,
+          -555920.9707602825
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "personalImmediateShortfalls": {
+        "n": 400,
+        "mean": -0.7225,
+        "ci95": [
+          -0.8010284583570176,
+          -0.6439715416429824
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "personalDeferred": {
+        "n": 400,
+        "mean": -0.7225,
+        "ci95": [
+          -0.8010284583570176,
+          -0.6439715416429824
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "personalFundingSteps": {
+        "n": 400,
+        "mean": -0.04,
+        "ci95": [
+          -0.059228049686248486,
+          -0.020771950313751515
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "lockedCapitalDuringRollMean": {
+        "n": 400,
+        "mean": -2664422.891652114,
+        "ci95": [
+          -2833365.0857455377,
+          -2495480.697558691
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "lockedSavingsFinal": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "rawDrawdown": {
+        "n": 400,
+        "mean": -303750,
+        "ci95": [
+          -352155.538776162,
+          -255344.46122383798
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "livingAdjustedDrawdown": {
+        "n": 400,
+        "mean": -185000,
+        "ci95": [
+          -225844.87556167998,
+          -144155.12443832002
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "livingIncurred": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "personal0": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "personal1": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "personal2plus": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "macroWhileInvested": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "businessOpenOpportunity": {
+        "n": 400,
+        "mean": 0.0525,
+        "ci95": [
+          0.028516317681726584,
+          0.0764836823182734
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "businessOpenUpgradeExitPath": {
+        "n": 400,
+        "mean": 0.0375,
+        "ci95": [
+          0.01532041004602848,
+          0.05967958995397152
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      },
+      "businessUpgradeOpportunity": {
+        "n": 400,
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "sameDiceRate": 1,
+        "sameEncounterRate": 1
+      }
+    },
+    "paths": {
+      "diceHash": 1,
+      "encounterHash": 1,
+      "marketHash": 1,
+      "creditMarketHash": 1,
+      "rngPathHash": 1
+    }
+  },
+  "win": {
+    "n": 400,
+    "gains": 4,
+    "losses": 4,
+    "mean": 0,
+    "ci95": [
+      -0.02527765966131853,
+      0.02527765966131853
+    ],
+    "method": "conservative nominal 95% Bonferroni-Wilson on paired discordance rates"
+  },
+  "shortfall": {
+    "n": 400,
+    "gains": 0,
+    "losses": 16,
+    "mean": -0.04,
+    "ci95": [
+      -0.06826388566877686,
+      -0.010743800275949582
+    ],
+    "method": "conservative nominal 95% Bonferroni-Wilson on paired discordance rates"
+  },
+  "zeroRiskReminder": "0 observed does not imply impossible; savings already absorbs funding; no debt/default insolvency stress test was added"
+}

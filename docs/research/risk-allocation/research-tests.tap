@@ -1,0 +1,140 @@
+TAP version 13
+# (node:22564) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: instrumentation preserves every existing trading action and outcome
+ok 1 - instrumentation preserves every existing trading action and outcome
+  ---
+  duration_ms: 2829.8024
+  ...
+# Subtest: reserve applies to voluntary course and investments, never blocks mandatory funding
+ok 2 - reserve applies to voluntary course and investments, never blocks mandatory funding
+  ---
+  duration_ms: 3008273.4857
+  ...
+# Subtest: all allocation policies replay and preserve economic periods on paired reserves
+ok 3 - all allocation policies replay and preserve economic periods on paired reserves
+  ---
+  duration_ms: 9201908.0463
+  ...
+# Subtest: cash-course diagnostic holds cash and isolates the existing salary upgrade
+ok 4 - cash-course diagnostic holds cash and isolates the existing salary upgrade
+  ---
+  duration_ms: 760.9618
+  ...
+# (node:14348) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: repeated policies do not inflate independent seed count
+ok 5 - repeated policies do not inflate independent seed count
+  ---
+  duration_ms: 3.3143
+  ...
+# Subtest: paired analysis rejects duplicate or missing seeds
+ok 6 - paired analysis rejects duplicate or missing seeds
+  ---
+  duration_ms: 1.1599
+  ...
+# (node:9464) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: living-adjusted drawdown adds incurred cost once, including funding pause
+ok 7 - living-adjusted drawdown adds incurred cost once, including funding pause
+  ---
+  duration_ms: 5.165
+  ...
+# Subtest: market loss remains after removing living, and course remains a cost
+ok 8 - market loss remains after removing living, and course remains a cost
+  ---
+  duration_ms: 1.7459
+  ...
+# Subtest: variants preserve nine types, events, economics; common economy retains board/laps
+ok 9 - variants preserve nine types, events, economics; common economy retains board/laps
+  ---
+  duration_ms: 7.6538
+  ...
+# Subtest: one log encounter counts as coverage; course after purchase is a dead visit
+ok 10 - one log encounter counts as coverage; course after purchase is a dead visit
+  ---
+  duration_ms: 3.0991
+  ...
+# (node:25552) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: stocks: new arm can sell at its own tile, consumes visit, rejects reopened second trade
+ok 11 - stocks: new arm can sell at its own tile, consumes visit, rejects reopened second trade
+  ---
+  duration_ms: 523.5743
+  ...
+# Subtest: gold: new arm can sell at its own tile, consumes visit, rejects reopened second trade
+ok 12 - gold: new arm can sell at its own tile, consumes visit, rejects reopened second trade
+  ---
+  duration_ms: 357.1512
+  ...
+# Subtest: bonds: new arm can sell at its own tile, consumes visit, rejects reopened second trade
+ok 13 - bonds: new arm can sell at its own tile, consumes visit, rejects reopened second trade
+  ---
+  duration_ms: 334.1853
+  ...
+# Subtest: failed trade leaves the visit and state intact; wrong-asset sales remain forbidden
+ok 14 - failed trade leaves the visit and state intact; wrong-asset sales remain forbidden
+  ---
+  duration_ms: 375.5627
+  ...
+# Subtest: old arm rejects tile sale; both arms retain financial selling at START
+ok 15 - old arm rejects tile sale; both arms retain financial selling at START
+  ---
+  duration_ms: 676.1239
+  ...
+# Subtest: new rules never allow buy after a successful buy, even after tile/symbol reopening
+ok 16 - new rules never allow buy after a successful buy, even after tile/symbol reopening
+  ---
+  duration_ms: 344.3752
+  ...
+# Subtest: partial sale consumes visit; failed bond lot sale does not; defaulted bonds cannot be sold
+ok 17 - partial sale consumes visit; failed bond lot sale does not; defaulted bonds cannot be sold
+  ---
+  duration_ms: 3007744.3053
+  ...
+# Subtest: new/old policies produce replayable complete research games
+ok 18 - new/old policies produce replayable complete research games
+  ---
+  duration_ms: 9199205.0266
+  ...
+# (node:25840) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: deferred personal expense is recognized once, distinct from mandatory funding
+ok 19 - deferred personal expense is recognized once, distinct from mandatory funding
+  ---
+  duration_ms: 8.8731
+  ...
+# Subtest: an affordable investment followed by START does not imply actual ownership/sale
+ok 20 - an affordable investment followed by START does not imply actual ownership/sale
+  ---
+  duration_ms: 2.0486
+  ...
+# Subtest: holdout inference keeps auxiliary reserve arms within their strategy
+ok 21 - holdout inference keeps auxiliary reserve arms within their strategy
+  ---
+  duration_ms: 14.6649
+  ...
+# Subtest: reported reserve risk comes from observed cash shortfalls, not a win-rate proxy
+ok 22 - reported reserve risk comes from observed cash shortfalls, not a win-rate proxy
+  ---
+  duration_ms: 23.4348
+  ...
+# Subtest: no observed win flips is not a zero-width uncertainty interval
+ok 23 - no observed win flips is not a zero-width uncertainty interval
+  ---
+  duration_ms: 16.6954
+  ...
+# Subtest: matched binary interval is symmetric when swapping arms and rejects missing seeds
+ok 24 - matched binary interval is symmetric when swapping arms and rejects missing seeds
+  ---
+  duration_ms: 1.0993
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12214110.5638

@@ -63,6 +63,7 @@ export function allocationStep(s,p,c){
   return skip(s)
 }
 export function playStudy(seed,p,c,mode='allocation',{trace=false}={}){
+  if(!['cash','cash-course','savings','stocks','gold','bond-a','bond-b','business','diversified','liquidity','risk-aware','novice'].includes(p))throw Error('Unknown allocation policy')
   let s=createGame(seed,c.economy.initialSavings,c.economy.initialTerm,'experimental-b',undefined,'v2.4-customer-preferences','v2.4-atomic-investments','vn-v1','v2.5-credit-risk','v2.6-periodic-start')
   const observations=[]
   for(let i=0;s.phase!=='finished'&&i<1600;i++){

@@ -45,3 +45,12 @@ test('all allocation policies replay and preserve economic periods on paired res
     })
   }
 })
+test('cash-course diagnostic holds cash and isolates the existing salary upgrade',()=>{
+  const c=studyConfigs().B
+  return fixture(c,({playStudy,replayResearch})=>{
+    const x=playStudy('RISK-CASH-COURSE','cash-course',c,'allocation',{trace:true})
+    assert.equal(x.row.courseBought,true);assert.equal(x.row.buys,0);assert.equal(x.row.anyInvestment,false)
+    assert.equal(x.row.transactionCosts,0);replayResearch(x.state,c)
+    assert.throws(()=>playStudy('X','unknown',c),/Unknown allocation/)
+  })
+})

@@ -23,6 +23,12 @@ Nguồn được bảo toàn: `45b0c4d` (balance, đã push), `33de1229e36fb5fb8
 ## Checklist
 
 - [x] Xác minh commit nguồn và tạo `codex/core-mvp-risk-allocation` từ 33de122.
-- [ ] Audit, metrics và kiểm thử.
-- [ ] Screening có kiểm soát, freeze trước holdout.
-- [ ] Holdout, báo cáo, playtest protocol, verification, commit nghiên cứu.
+- [x] Audit 2.400 ván, metrics, đối chiếu instrumented states với trading simulator cũ.
+- [x] Screening 6.600; reserve gốc 2.160; course-control 480; reserve biến thể 2.160. Freeze trước holdout.
+- [x] Holdout 14.000, không tinh chỉnh simulator/config/policy sau khi xem kết quả.
+- [x] Báo cáo, bảng CSV/JSON, playtest protocol, source bundles và verifier.
+- [x] 24 tests; 27.800 rows reaggregated; 150 recorded-action replays + 3 historical; 431 old artifacts nguyên hash. Commit bàn giao trên nhánh nghiên cứu.
+
+Ba ứng viên để Owner duyệt: B-personal (ô13), D-personal (ô18), D gốc làm đối chứng ít áp lực hơn. Không chọn winner. Chỉ mở rộng reserve0/5 ở savings/D-personal vì screening thiếu hụt chênh >5 điểm %. Tổng 27.800 ván mới; không chạy lại bộ cũ.
+
+Sai sót phân tích đã xử lý trước khi đọc holdout: job reserve chỉ có savings nên không ghép với đủ 11 strategy. Sửa phạm vi pairing, lưu hash trước/sau và thời điểm trong analysis-correction.json. Không đổi dữ liệu mô phỏng hay tiêu chí đã đóng băng.

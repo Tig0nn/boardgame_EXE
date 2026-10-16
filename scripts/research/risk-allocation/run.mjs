@@ -31,8 +31,10 @@ export function jobsFor(phase,replacements){
   const cs=studyConfigs(replacements),job=(id,config,strategies=STRATEGIES)=>({id,config,strategies,mode:phase==='audit'?'audit':'allocation'})
   if(phase==='audit')return ['B','D'].map(id=>job(id,cs[id],STRATEGIES.filter(p=>p!=='risk-aware')))
   if(phase==='screen')return Object.entries(cs).map(([id,c])=>job(id,c))
+  if(phase==='course-control')return ['B','D','B-personal','D-personal'].map(id=>job(id,cs[id],['cash-course']))
   if(phase==='reserve')return ['B','D'].flatMap(id=>[0,5e6,15e6].map(r=>job(`${id}-r${r/1e6}`,reserveConfig(cs[id],r),['savings','stocks','diversified'])))
-  if(phase==='holdout'){const freeze=load('holdout-freeze.json');return freeze.candidates.map(id=>job(id,freeze.configs[id]))}
+  if(phase==='reserve-variant')return ['B-personal','D-personal'].flatMap(id=>[0,5e6,15e6].map(r=>job(`${id}-r${r/1e6}`,reserveConfig(cs[id],r),['savings','stocks','diversified'])))
+  if(phase==='holdout'){const freeze=load('holdout-freeze.json');return [...freeze.candidates.map(id=>job(id,freeze.configs[id])),...freeze.reserveJobs.map(j=>job(j.id,j.config,j.strategies))]}
   throw Error('Unknown phase')
 }
 export async function run(phase,count=120){
@@ -40,10 +42,11 @@ export async function run(phase,count=120){
   mkdirSync(out,{recursive:true});verifyProtected()
   if(existsSync(join(out,`${phase}-manifest.json`)))throw Error('Phase exists; reproduce in fresh RISK_STUDY_OUT')
   const replacements=phase==='audit'?undefined:load('screen-freeze.json').replacements
-  const jobs=jobsFor(phase,replacements),seeds=Array.from({length:count},(_,i)=>`RISK-ALLOCATION-${phase==='reserve'?'SCREEN':phase.toUpperCase()}-${i}`)
+  const jobs=jobsFor(phase,replacements),seeds=Array.from({length:count},(_,i)=>`RISK-ALLOCATION-${phase.startsWith('reserve')||phase==='course-control'?'SCREEN':phase.toUpperCase()}-${i}`)
   if(phase==='holdout'&&JSON.stringify(seeds)!==JSON.stringify(load('holdout-freeze.json').seeds))throw Error('Holdout seeds must match freeze')
-  if(phase==='reserve'&&count!==load('screen-manifest.json').count)throw Error('Reserve seed count must match screen')
+  if((phase.startsWith('reserve')||phase==='course-control')&&count!==load('screen-manifest.json').count)throw Error('Control seed count must match screen')
   const sourceHashes=sources(),sourceSha=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),started=new Date().toISOString()
+  if(phase==='holdout')for(const [p,expected]of Object.entries(load('holdout-freeze.json').sourceHashes))if(sourceHashes[p]!==expected)throw Error(`Frozen source changed before holdout: ${p}`)
   save(`${phase}-manifest.json`,{version:'risk-allocation-v1',phase,count,seeds,started,node:process.version,sourceSha,sourceBase:'33de122',sourceHashes,jobs,configHashes:Object.fromEntries(jobs.map(j=>[j.id,hash(JSON.stringify(j.config))])),rules:'new trading rights; business tile exits only; unchanged personal events/economics; research clone only',freeze:phase==='holdout'?load('holdout-freeze.json'):phase==='audit'?null:load('screen-freeze.json')})
   writeFileSync(join(out,`${phase}-source.json.gz`),gzipSync(JSON.stringify({sourceSha,files:Object.fromEntries(Object.keys(sourceHashes).map(p=>[p,readFileSync(p,'utf8').replace(/\r\n/g,'\n')]))})))
   mkdirSync(join(out,phase),{recursive:true});let next=0

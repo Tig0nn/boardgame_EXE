@@ -1,0 +1,50 @@
+{
+  "verifiedAt": "2026-10-16T05:42:53.115Z",
+  "rowsVerified": 27800,
+  "games": 27800,
+  "recordedActionReplays": 150,
+  "workerRecordedActionReplays": 150,
+  "exactPhaseSourceOverlays": true,
+  "seedHoldoutDisjoint": true,
+  "reserveAndCourseControlsPaired": true,
+  "frozenSimulatorUnchanged": true,
+  "analysisCorrection": {
+    "recordedAt": "2026-10-16T02:06:06.181Z",
+    "path": "scripts/analyze-core-mvp-risk-allocation.mjs",
+    "previousHash": "f9309046117b3cd4ffc55f0a26f0ea8ba84de35be9135ab3f6881a566ca32493",
+    "correctedHash": "44cb292c003062df8de4c2403d793ad080a97efe8cf9b6dcdedae5280a5a885a",
+    "reason": "Holdout adds reserve jobs with savings-only strategy; pair main candidates only with each other, and auxiliary reserve jobs against their parent r10. Prevent unmatched-strategy analysis, without changing simulation, selection, policy, config, seeds or primary endpoints.",
+    "holdoutResultsRead": false,
+    "productionChanged": false
+  },
+  "historical": [
+    {
+      "path": "docs/playtests/atomic-investments-v24/historical-multi-purchase.json.gz",
+      "sha256": "edc25c255d7220b266175dd8d410c4e6e5d8f434284a0fb3870d3bb8d6f00d16",
+      "seed": "atomic-history-fixture",
+      "entries": 111
+    },
+    {
+      "path": "docs/playtests/business-v2_3/browser-game-log.json.gz",
+      "sha256": "28397880de6b524894daf409607e954f0180b36ea516a3cbb911184742e5aaab",
+      "seed": "XVTL-V2-0",
+      "entries": 103
+    },
+    {
+      "path": "docs/playtests/bond-credit-v25/simulation-victory.json.gz",
+      "sha256": "97a3cee4fb803fd83494610519ee210ec4e41d7365ffdb686b722fa6fc567ce3",
+      "seed": "BOND-V25-0",
+      "entries": 92
+    }
+  ],
+  "protected": {
+    "artifacts": {
+      "core-mvp": 371,
+      "trading-ab": 60
+    },
+    "allExistingTrackedFilesUnchanged": true,
+    "tradingCommitPreserved": true
+  },
+  "researchTestsOnly": true,
+  "finalQA": false
+}

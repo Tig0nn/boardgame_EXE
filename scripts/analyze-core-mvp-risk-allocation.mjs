@@ -52,7 +52,7 @@ function audit(){
 }
 function analyze(phase){
   const manifest=load(`${phase}-manifest.json`),groups={},tables=[]
-  for(const job of manifest.jobs){const rows=raw(phase,job.id);groups[job.id]={policies:Object.fromEntries(job.strategies.map(p=>[p,summarize(rows.filter(r=>r.policy===p))])),purposeful:summarize(rows.filter(r=>purposeful.includes(r.policy)))}
+  for(const job of manifest.jobs){const rows=raw(phase,job.id),purposeRows=rows.filter(r=>purposeful.includes(r.policy));groups[job.id]={policies:Object.fromEntries(job.strategies.map(p=>[p,summarize(rows.filter(r=>r.policy===p))])),purposeful:summarize(purposeRows.length?purposeRows:rows)}
     for(const p of job.strategies){const s=groups[job.id].policies[p],l=s.learning;tables.push({phase,candidate:job.id,policy:p,seeds:s.n,win:s.won.rate,mean:s.proceeds.mean,median:s.proceeds.median,p10:s.proceeds.p10,worstDecile:s.expectedShortfall10,rawDrawdown:s.drawdown.mean,livingAdjustedDrawdown:l.livingAdjustedDrawdown.mean,living:l.livingIncurred.mean,fees:s.trading.feesPaid.mean,spread:s.trading.spreadPaid.mean,lockedTime:l.lockedCapitalDuringRollMean.mean,lockedBusiness:s.lockedBusiness.mean,lockedBond:s.lockedBond.mean,lockedSavings:l.lockedSavingsFinal.mean,personal0:l.personal0.rate,personal2plus:l.personal2plus.rate,personalMean:l.personalEncounters.mean,courseDead:l.courseRepeatVisits.mean,decisionSteps:l.decisionSteps.mean,shortfall:l.shortfallGame.rate,earlyWithdrawal:l.earlyWithdrawalGame.rate,forcedSales:l.fundingSaleGame.rate,borrowed:s.borrowed.rate,insolvent:s.insolvent.rate,personalCost:l.personalCommittedCost.mean,personalPremium:l.personalDeferralPremium.mean,personalCashShortfalls:l.personalImmediateShortfalls.mean})}
   }
   const pairs=[]
@@ -61,11 +61,16 @@ function analyze(phase){
     pairs.push({name,a,b,oldPhase,policies:Object.fromEntries(policies.map(p=>{const ar=fresh.filter(r=>r.policy===p),br=old.filter(r=>r.policy===p);return[p,{...compare(ar,br),winInterval:matchedWinInterval(ar,br)}]})),clustered:Object.fromEntries(['won','proceeds','personal0','personal2plus','decisionSteps','courseRepeatVisits','personalCommittedCost','mandatoryCashShortfalls','livingAdjustedDrawdown'].map(k=>[k,clusteredDelta(fresh,old,k,policies.filter(p=>purposeful.includes(p)))]))})
   }
   if(phase==='screen')for(const [name,a,b]of [['B-variant','B-personal','B'],['D-variant','D-personal','D'],['B-vs-D','B','D'],['common-economy-B-vs-D','B','D-common-B'],['D-economy-control','D-common-B','D']])addPair(name,a,b)
-  if(phase==='reserve')for(const j of manifest.jobs)addPair(j.id,j.id,j.id.slice(0,1),'screen')
-  if(phase==='holdout')for(const a of manifest.jobs)for(const b of manifest.jobs)if(a.id<b.id)addPair(`${a.id}-vs-${b.id}`,a.id,b.id)
+  if(phase.startsWith('reserve'))for(const j of manifest.jobs)addPair(j.id,j.id,j.id.replace(/-r\d+$/,''),'screen')
+  if(phase==='course-control')for(const j of manifest.jobs){const a=raw(phase,j.id),b=raw('screen',j.id).filter(r=>r.policy==='cash');pairs.push({name:`${j.id}-cash-course-vs-cash`,...compare(a,b),winInterval:matchedWinInterval(a,b)})}
+  if(phase==='holdout'){
+    const frozen=load('holdout-freeze.json'),main=manifest.jobs.filter(j=>frozen.candidates.includes(j.id))
+    for(const a of main)for(const b of main)if(a.id<b.id)addPair(`${a.id}-vs-${b.id}`,a.id,b.id)
+    for(const j of frozen.reserveJobs)addPair(`${j.id}-vs-r10`,j.id,j.parentCandidate)
+  }
   const result={phase,groups,pairs,units:'VND; rates 0..1; pooled descriptive distributions equal weights, not independent strategy samples; paired inference uses seed clusters',generatedAt:new Date().toISOString()}
   save(`${phase}-analysis.json`,result);csv(`${phase}-strategies.csv`,tables)
   console.log(JSON.stringify({phase,groups:Object.fromEntries(Object.entries(groups).map(([id,g])=>[id,{win:g.purposeful.won.rate,mean:g.purposeful.proceeds.mean,tail:g.purposeful.expectedShortfall10,personal0:g.purposeful.learning.personal0.rate,personal2plus:g.purposeful.learning.personal2plus.rate,dead:g.purposeful.learning.courseRepeatVisits.mean,decisions:g.purposeful.learning.decisionSteps.mean}]))}))
 }
 const phase=process.argv[2]
-if(phase==='audit')audit();else if(['screen','reserve','holdout'].includes(phase))analyze(phase)
+if(phase==='audit')audit();else if(['screen','reserve','reserve-variant','course-control','holdout'].includes(phase))analyze(phase)
