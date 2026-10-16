@@ -1,0 +1,103 @@
+{
+  "candidates": [
+    {
+      "system": "S2-rich",
+      "layout": "L2-spaced"
+    },
+    {
+      "system": "I2-choice",
+      "layout": "L3-bonds"
+    },
+    {
+      "system": "S3-flat",
+      "layout": "L4-original"
+    }
+  ],
+  "controls": [
+    {
+      "system": "A-baseline",
+      "layout": "L2-spaced"
+    },
+    {
+      "system": "A-baseline",
+      "layout": "L3-bonds"
+    },
+    {
+      "system": "A-baseline",
+      "layout": "L4-original"
+    }
+  ],
+  "configs": [
+    {
+      "system": "S2-rich",
+      "layout": "L2-spaced"
+    },
+    {
+      "system": "I2-choice",
+      "layout": "L3-bonds"
+    },
+    {
+      "system": "S3-flat",
+      "layout": "L4-original"
+    },
+    {
+      "system": "A-baseline",
+      "layout": "L2-spaced"
+    },
+    {
+      "system": "A-baseline",
+      "layout": "L3-bonds"
+    },
+    {
+      "system": "A-baseline",
+      "layout": "L4-original"
+    }
+  ],
+  "seeds": 448,
+  "policies": [
+    "cash-none",
+    "cash-early",
+    "cash-roi",
+    "cash-all",
+    "cash-reserve5",
+    "cash-reserve10",
+    "cash-reserve15",
+    "savings-none",
+    "savings-roi",
+    "savings-all",
+    "stocks-none",
+    "stocks-roi",
+    "gold-roi",
+    "bond-a-roi",
+    "bond-b-roi",
+    "business-none",
+    "business-roi",
+    "diversified-none",
+    "diversified-roi",
+    "risk-aware-roi",
+    "novice",
+    "savings-course-reserve0",
+    "savings-course-reserve5",
+    "savings-course-reserve15"
+  ],
+  "lockedBeforeAnyHoldoutExecution": true,
+  "retuneAfterHoldout": false,
+  "reason": "Three distinct design hypotheses locked: simple generous sequential2 with spaced2 tiles; independent2 cost/liquidity choice with3 tiles; equal sequential3 retaining original4 tiles. Match baseline within each layout. Do not promote four-course controls based on holdout.",
+  "newControlledReservePolicies": "Savings financial reserve stays10M, all bank/trading/personal/funding behavior unchanged; only voluntary course cash floor is0/5/10/15M. Existing savings-roi is the10M control.",
+  "confirmatoryMetrics": [
+    "encounter exhaustion and affordable positive ROI opportunities",
+    "course purchases, timing and realized net",
+    "strategy-specific proceeds, Wilson win CI, P10/worst-decile bootstrap CI",
+    "paired curriculum and learning-reserve contrasts",
+    "personal>=3 subgroup",
+    "dominance diagnostic: report cash/savings course win, means and tails against all asset policies; flag near certainty if win>=95% with Wilson lower>=90%, not evidence of human learning"
+  ],
+  "budget": {
+    "screen": 53312,
+    "shortlist": 50148,
+    "holdout": 64512,
+    "total": 167972,
+    "cap": 170000
+  },
+  "uncertainty": "Nominal/exploratory intervals; no multiple-testing correction.448 independent seeds per policy, not448x24 independent people."
+}

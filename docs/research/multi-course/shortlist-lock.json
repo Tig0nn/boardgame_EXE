@@ -1,0 +1,110 @@
+{
+  "phase": "shortlist",
+  "configs": [
+    {
+      "system": "I2-choice",
+      "layout": "L3-bonds"
+    },
+    {
+      "system": "I2-choice",
+      "layout": "L2-spaced"
+    },
+    {
+      "system": "S2-rich",
+      "layout": "L2-spaced"
+    },
+    {
+      "system": "S3-flat",
+      "layout": "L4-original"
+    },
+    {
+      "system": "I3-moderate",
+      "layout": "L4-original"
+    },
+    {
+      "system": "S3-flat",
+      "layout": "L3-bonds"
+    },
+    {
+      "system": "A-baseline",
+      "layout": "L4-original"
+    },
+    {
+      "system": "A-baseline",
+      "layout": "L3-bonds"
+    },
+    {
+      "system": "A-baseline",
+      "layout": "L2-spaced"
+    }
+  ],
+  "promising": [
+    {
+      "system": "I2-choice",
+      "layout": "L3-bonds"
+    },
+    {
+      "system": "I2-choice",
+      "layout": "L2-spaced"
+    },
+    {
+      "system": "S2-rich",
+      "layout": "L2-spaced"
+    },
+    {
+      "system": "S3-flat",
+      "layout": "L4-original"
+    },
+    {
+      "system": "I3-moderate",
+      "layout": "L4-original"
+    },
+    {
+      "system": "S3-flat",
+      "layout": "L3-bonds"
+    }
+  ],
+  "controls": [
+    {
+      "system": "A-baseline",
+      "layout": "L4-original"
+    },
+    {
+      "system": "A-baseline",
+      "layout": "L3-bonds"
+    },
+    {
+      "system": "A-baseline",
+      "layout": "L2-spaced"
+    }
+  ],
+  "seeds": 180,
+  "policies": [
+    "cash-none",
+    "cash-early",
+    "cash-roi",
+    "cash-all",
+    "cash-reserve5",
+    "cash-reserve10",
+    "cash-reserve15",
+    "savings-none",
+    "savings-roi",
+    "savings-all",
+    "stocks-none",
+    "stocks-roi",
+    "gold-roi",
+    "bond-a-roi",
+    "bond-b-roi",
+    "business-none",
+    "business-roi",
+    "diversified-none",
+    "diversified-roi",
+    "risk-aware-roi",
+    "novice"
+  ],
+  "lockedBeforeRunning": true,
+  "reason": "Six design hypotheses: independent two-course trade-off at3/2 tiles, generous sequential two-course dominance control, simple sequential three-course at4/3 tiles, independent heterogeneous three-course. Include baseline at each layout. Four-course and never-payback extra levels screened out on opportunity quality, complexity and novice downside; not low win rate alone.",
+  "screenGames": 53312,
+  "budgetPlan": "Shortlist34020; holdout up to6 arms x640 x21=80640; total<=167972. Exact final candidate list locked after shortlist and before holdout.",
+  "holdoutUntouched": true
+}

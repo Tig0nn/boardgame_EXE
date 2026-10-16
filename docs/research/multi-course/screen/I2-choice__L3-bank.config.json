@@ -1,0 +1,66 @@
+{
+  "format": "b18-multi-course-v1",
+  "id": "I2-choice__L3-bank",
+  "course": {
+    "id": "I2-choice",
+    "unlock": "independent",
+    "courses": [
+      {
+        "id": "c1",
+        "cost": 6000000,
+        "boost": 2000000
+      },
+      {
+        "id": "c2",
+        "cost": 10000000,
+        "boost": 4000000
+      }
+    ],
+    "rationale": "Cheap slow payback versus expensive efficient course."
+  },
+  "board": {
+    "id": "L3-bank",
+    "tiles": [
+      "start",
+      "macro",
+      "bonds",
+      "personal",
+      "course",
+      "gold",
+      "bank",
+      "course",
+      "business",
+      "bonds",
+      "stocks",
+      "business",
+      "course",
+      "stocks",
+      "business",
+      "bank",
+      "gold",
+      "bank"
+    ],
+    "changes": {
+      "15": "bank"
+    },
+    "rationale": "Replace late repeat at tile16 with access to savings."
+  },
+  "economy": {
+    "initialSavings": 0,
+    "initialTerm": 3,
+    "rules": {
+      "laps": 4,
+      "startingCapital": 50000000
+    }
+  },
+  "goal": {
+    "amount": 90000000,
+    "reserve": 0
+  },
+  "policy": {
+    "reserve": 10000000,
+    "liquidityReserve": 15000000,
+    "ticket": 10000000,
+    "diversifiedTicket": 5000000
+  }
+}

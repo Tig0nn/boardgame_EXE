@@ -1,0 +1,67 @@
+{
+  "format": "b18-multi-course-v1",
+  "id": "I2-choice__L2-bond-bank",
+  "course": {
+    "id": "I2-choice",
+    "unlock": "independent",
+    "courses": [
+      {
+        "id": "c1",
+        "cost": 6000000,
+        "boost": 2000000
+      },
+      {
+        "id": "c2",
+        "cost": 10000000,
+        "boost": 4000000
+      }
+    ],
+    "rationale": "Cheap slow payback versus expensive efficient course."
+  },
+  "board": {
+    "id": "L2-bond-bank",
+    "tiles": [
+      "start",
+      "macro",
+      "bonds",
+      "personal",
+      "course",
+      "gold",
+      "bank",
+      "course",
+      "business",
+      "bonds",
+      "stocks",
+      "business",
+      "bonds",
+      "stocks",
+      "business",
+      "bank",
+      "gold",
+      "bank"
+    ],
+    "changes": {
+      "12": "bonds",
+      "15": "bank"
+    },
+    "rationale": "Retain early course tiles5/8; reuse late encounters for liquidity."
+  },
+  "economy": {
+    "initialSavings": 0,
+    "initialTerm": 3,
+    "rules": {
+      "laps": 4,
+      "startingCapital": 50000000
+    }
+  },
+  "goal": {
+    "amount": 90000000,
+    "reserve": 0
+  },
+  "policy": {
+    "reserve": 10000000,
+    "liquidityReserve": 15000000,
+    "ticket": 10000000,
+    "diversifiedTicket": 5000000
+  }
+}

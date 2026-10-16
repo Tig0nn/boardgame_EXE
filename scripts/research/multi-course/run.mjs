@@ -5,25 +5,25 @@ import {gzipSync} from 'node:zlib'
 import {createAdapter,cleanup,sources,hash} from './adapter.mjs'
 import {config,systems,layouts,policies,screenPolicies,BASE_SHA} from './spec.mjs'
 const phase=process.argv[2],root=resolve(process.env.MULTI_COURSE_OUTPUT??'docs/research/multi-course')
-if(!['screen','shortlist','holdout'].includes(phase))throw Error('Usage: node run.mjs screen|shortlist|holdout')
+if(!['screen','screen-control','shortlist','shortlist-control','holdout'].includes(phase))throw Error('Usage: node run.mjs screen|screen-control|shortlist|shortlist-control|holdout')
 const lock=phase==='screen'?{configs:systems.flatMap(s=>layouts.map(l=>({system:s.id,layout:l.id}))),seeds:32,policies:screenPolicies.map(p=>p.id)}:JSON.parse(readFileSync(`docs/research/multi-course/${phase}-lock.json`))
 if(execFileSync('git',['diff',BASE_SHA,'--','src','mobile_app/src'],{encoding:'utf8'}).trim())throw Error('Protected production source changed')
 const stage=join(root,phase);mkdirSync(stage,{recursive:true})
 if(existsSync(join(root,`${phase}-manifest.json`)))throw Error('Completed phase exists; use MULTI_COURSE_OUTPUT for an independent reproduction')
 const n=lock.configs.length*lock.seeds*lock.policies.length
 let completedGames=0
-for(const p of ['screen','shortlist','holdout'])if(existsSync(join(root,`${p}-manifest.json`)))completedGames+=JSON.parse(readFileSync(join(root,`${p}-manifest.json`))).games
+for(const p of ['screen','screen-control','shortlist','shortlist-control','holdout'])if(existsSync(join(root,`${p}-manifest.json`)))completedGames+=JSON.parse(readFileSync(join(root,`${p}-manifest.json`))).games
 if(completedGames+n>170000)throw Error('Study budget cap170000 exceeded')
-const bundle=sources(),configs=lock.configs.map(x=>config(x.system,x.layout)),started=performance.now(),results=[]
+const bundle=sources(),configs=lock.configs.map(x=>x.format?x:config(x.system,x.layout)),started=performance.now(),results=[],seedPhase=phase==='screen-control'?'screen':phase==='shortlist-control'?'shortlist':phase
 writeFileSync(join(root,`${phase}-source.json.gz`),gzipSync(JSON.stringify(bundle)))
-writeFileSync(join(root,`${phase}-protocol.json`),JSON.stringify({phase,lock,games:n,sourceHashes:bundle.hashes,preregisteredBeforeRunning:true,base:BASE_SHA,initialSavings:0,initialTerm:3,seedPrefix:`B18-MULTICOURSE-${phase.toUpperCase()}-`,ci:'Wilson for win/funding; normal paired mean CI; tail bootstrap on holdout; pooled policies cluster by seed.',selection:'Exposure, ROI timing, tail/liquidity, dominance and simplicity; never highest win alone.'},null,2)+'\n')
+writeFileSync(join(root,`${phase}-protocol.json`),JSON.stringify({phase,lock,games:n,sourceHashes:bundle.hashes,preregisteredBeforeRunning:true,base:BASE_SHA,initialSavings:0,initialTerm:3,seedPrefix:`B18-MULTICOURSE-${seedPhase.toUpperCase()}-`,ci:'Wilson for win/funding; normal paired mean CI; tail bootstrap on holdout; pooled policies cluster by seed.',selection:'Exposure, ROI timing, tail/liquidity, dominance and simplicity; never highest win alone.'},null,2)+'\n')
 let cursor=0,failed=false
 async function pool(){
   while(cursor<configs.length&&!failed){
     const c=configs[cursor++],dir=createAdapter(c),target=join(stage,c.id)
-    const examplePolicies=phase==='screen'?['cash-roi']:['cash-roi','savings-all','diversified-roi','business-roi','risk-aware-roi','novice'].filter(p=>lock.policies.includes(p))
+    const examplePolicies=phase.startsWith('screen')?['cash-roi']:['cash-roi','savings-all','diversified-roi','business-roi','risk-aware-roi','novice'].filter(p=>lock.policies.includes(p))
     writeFileSync(`${target}.config.json`,JSON.stringify(c,null,2)+'\n')
-    writeFileSync(join(dir,'job.json'),JSON.stringify({phase,seeds:lock.seeds,policies:lock.policies,examplePolicies}))
+    writeFileSync(join(dir,'job.json'),JSON.stringify({phase:seedPhase,seeds:lock.seeds,policies:lock.policies,examplePolicies}))
     try{
       const output=await new Promise((res,rej)=>{
         const child=spawn(process.execPath,['--experimental-strip-types',join(dir,'scripts/research/multi-course/worker.mjs'),join(dir,'config.json'),join(dir,'job.json'),target],{windowsHide:true})

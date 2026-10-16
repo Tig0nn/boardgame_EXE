@@ -40,8 +40,9 @@ export const policies=[
   policy('business-none','business','none'),policy('business-roi','business','roi'),
   policy('diversified-none','diversified','none'),policy('diversified-roi','diversified','roi'),
   policy('risk-aware-roi','risk-aware','roi'),policy('novice','novice','synthetic',0),
+  ...[0,5,15].map(amount=>({...policy(`savings-course-reserve${amount}`,'savings','roi'),courseReserve:amount*M})),
 ]
-export const screenPolicies=policies.filter(p=>!['cash-reserve5','cash-reserve15','savings-none','stocks-none','business-none','diversified-none','bond-b-roi'].includes(p.id))
+export const screenPolicies=policies.filter(p=>!p.id.startsWith('savings-course-reserve')&&!['cash-reserve5','cash-reserve15','savings-none','stocks-none','business-none','diversified-none','bond-b-roi'].includes(p.id))
 export function config(systemId,layoutId){
   const course=systems.find(s=>s.id===systemId),board=layouts.find(l=>l.id===layoutId)
   if(!course||!board)throw Error('Unknown curriculum/layout')

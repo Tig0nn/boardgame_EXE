@@ -1,0 +1,454 @@
+{
+  "configs": [
+    {
+      "format": "b18-multi-course-v1",
+      "id": "M2-total24__L4-original",
+      "course": {
+        "id": "M2-total24",
+        "unlock": "independent",
+        "courses": [
+          {
+            "id": "c1",
+            "cost": 12000000,
+            "boost": 4000000
+          },
+          {
+            "id": "c2",
+            "cost": 12000000,
+            "boost": 4000000
+          }
+        ],
+        "rationale": "Matched total fees24M, total salary boost8M, each course payback3START; independent order. Isolates package granularity/opportunity timing, not just total generosity."
+      },
+      "board": {
+        "id": "L4-original",
+        "tiles": [
+          "start",
+          "macro",
+          "bonds",
+          "personal",
+          "course",
+          "gold",
+          "bank",
+          "course",
+          "business",
+          "bonds",
+          "stocks",
+          "business",
+          "course",
+          "stocks",
+          "business",
+          "course",
+          "gold",
+          "bank"
+        ],
+        "changes": {},
+        "rationale": "Original B18: course indices4/7/12/15."
+      },
+      "economy": {
+        "initialSavings": 0,
+        "initialTerm": 3,
+        "rules": {
+          "laps": 4,
+          "startingCapital": 50000000
+        }
+      },
+      "goal": {
+        "amount": 90000000,
+        "reserve": 0
+      },
+      "policy": {
+        "reserve": 10000000,
+        "liquidityReserve": 15000000,
+        "ticket": 10000000,
+        "diversifiedTicket": 5000000
+      }
+    },
+    {
+      "format": "b18-multi-course-v1",
+      "id": "M2-total24__L2-spaced",
+      "course": {
+        "id": "M2-total24",
+        "unlock": "independent",
+        "courses": [
+          {
+            "id": "c1",
+            "cost": 12000000,
+            "boost": 4000000
+          },
+          {
+            "id": "c2",
+            "cost": 12000000,
+            "boost": 4000000
+          }
+        ],
+        "rationale": "Matched total fees24M, total salary boost8M, each course payback3START; independent order. Isolates package granularity/opportunity timing, not just total generosity."
+      },
+      "board": {
+        "id": "L2-spaced",
+        "tiles": [
+          "start",
+          "macro",
+          "bonds",
+          "personal",
+          "course",
+          "gold",
+          "bank",
+          "bonds",
+          "business",
+          "bonds",
+          "stocks",
+          "business",
+          "course",
+          "stocks",
+          "business",
+          "bank",
+          "gold",
+          "bank"
+        ],
+        "changes": {
+          "7": "bonds",
+          "15": "bank"
+        },
+        "rationale": "Same tile counts as L2-bond-bank; courses at5/13 isolate spacing."
+      },
+      "economy": {
+        "initialSavings": 0,
+        "initialTerm": 3,
+        "rules": {
+          "laps": 4,
+          "startingCapital": 50000000
+        }
+      },
+      "goal": {
+        "amount": 90000000,
+        "reserve": 0
+      },
+      "policy": {
+        "reserve": 10000000,
+        "liquidityReserve": 15000000,
+        "ticket": 10000000,
+        "diversifiedTicket": 5000000
+      }
+    },
+    {
+      "format": "b18-multi-course-v1",
+      "id": "M3-total24__L4-original",
+      "course": {
+        "id": "M3-total24",
+        "unlock": "independent",
+        "courses": [
+          {
+            "id": "c1",
+            "cost": 6000000,
+            "boost": 2000000
+          },
+          {
+            "id": "c2",
+            "cost": 6000000,
+            "boost": 2000000
+          },
+          {
+            "id": "c3",
+            "cost": 12000000,
+            "boost": 4000000
+          }
+        ],
+        "rationale": "Matched total fees24M, total salary boost8M, each course payback3START; independent order. Isolates package granularity/opportunity timing, not just total generosity."
+      },
+      "board": {
+        "id": "L4-original",
+        "tiles": [
+          "start",
+          "macro",
+          "bonds",
+          "personal",
+          "course",
+          "gold",
+          "bank",
+          "course",
+          "business",
+          "bonds",
+          "stocks",
+          "business",
+          "course",
+          "stocks",
+          "business",
+          "course",
+          "gold",
+          "bank"
+        ],
+        "changes": {},
+        "rationale": "Original B18: course indices4/7/12/15."
+      },
+      "economy": {
+        "initialSavings": 0,
+        "initialTerm": 3,
+        "rules": {
+          "laps": 4,
+          "startingCapital": 50000000
+        }
+      },
+      "goal": {
+        "amount": 90000000,
+        "reserve": 0
+      },
+      "policy": {
+        "reserve": 10000000,
+        "liquidityReserve": 15000000,
+        "ticket": 10000000,
+        "diversifiedTicket": 5000000
+      }
+    },
+    {
+      "format": "b18-multi-course-v1",
+      "id": "M3-total24__L2-spaced",
+      "course": {
+        "id": "M3-total24",
+        "unlock": "independent",
+        "courses": [
+          {
+            "id": "c1",
+            "cost": 6000000,
+            "boost": 2000000
+          },
+          {
+            "id": "c2",
+            "cost": 6000000,
+            "boost": 2000000
+          },
+          {
+            "id": "c3",
+            "cost": 12000000,
+            "boost": 4000000
+          }
+        ],
+        "rationale": "Matched total fees24M, total salary boost8M, each course payback3START; independent order. Isolates package granularity/opportunity timing, not just total generosity."
+      },
+      "board": {
+        "id": "L2-spaced",
+        "tiles": [
+          "start",
+          "macro",
+          "bonds",
+          "personal",
+          "course",
+          "gold",
+          "bank",
+          "bonds",
+          "business",
+          "bonds",
+          "stocks",
+          "business",
+          "course",
+          "stocks",
+          "business",
+          "bank",
+          "gold",
+          "bank"
+        ],
+        "changes": {
+          "7": "bonds",
+          "15": "bank"
+        },
+        "rationale": "Same tile counts as L2-bond-bank; courses at5/13 isolate spacing."
+      },
+      "economy": {
+        "initialSavings": 0,
+        "initialTerm": 3,
+        "rules": {
+          "laps": 4,
+          "startingCapital": 50000000
+        }
+      },
+      "goal": {
+        "amount": 90000000,
+        "reserve": 0
+      },
+      "policy": {
+        "reserve": 10000000,
+        "liquidityReserve": 15000000,
+        "ticket": 10000000,
+        "diversifiedTicket": 5000000
+      }
+    },
+    {
+      "format": "b18-multi-course-v1",
+      "id": "M4-total24__L4-original",
+      "course": {
+        "id": "M4-total24",
+        "unlock": "independent",
+        "courses": [
+          {
+            "id": "c1",
+            "cost": 6000000,
+            "boost": 2000000
+          },
+          {
+            "id": "c2",
+            "cost": 6000000,
+            "boost": 2000000
+          },
+          {
+            "id": "c3",
+            "cost": 6000000,
+            "boost": 2000000
+          },
+          {
+            "id": "c4",
+            "cost": 6000000,
+            "boost": 2000000
+          }
+        ],
+        "rationale": "Matched total fees24M, total salary boost8M, each course payback3START; independent order. Isolates package granularity/opportunity timing, not just total generosity."
+      },
+      "board": {
+        "id": "L4-original",
+        "tiles": [
+          "start",
+          "macro",
+          "bonds",
+          "personal",
+          "course",
+          "gold",
+          "bank",
+          "course",
+          "business",
+          "bonds",
+          "stocks",
+          "business",
+          "course",
+          "stocks",
+          "business",
+          "course",
+          "gold",
+          "bank"
+        ],
+        "changes": {},
+        "rationale": "Original B18: course indices4/7/12/15."
+      },
+      "economy": {
+        "initialSavings": 0,
+        "initialTerm": 3,
+        "rules": {
+          "laps": 4,
+          "startingCapital": 50000000
+        }
+      },
+      "goal": {
+        "amount": 90000000,
+        "reserve": 0
+      },
+      "policy": {
+        "reserve": 10000000,
+        "liquidityReserve": 15000000,
+        "ticket": 10000000,
+        "diversifiedTicket": 5000000
+      }
+    },
+    {
+      "format": "b18-multi-course-v1",
+      "id": "M4-total24__L2-spaced",
+      "course": {
+        "id": "M4-total24",
+        "unlock": "independent",
+        "courses": [
+          {
+            "id": "c1",
+            "cost": 6000000,
+            "boost": 2000000
+          },
+          {
+            "id": "c2",
+            "cost": 6000000,
+            "boost": 2000000
+          },
+          {
+            "id": "c3",
+            "cost": 6000000,
+            "boost": 2000000
+          },
+          {
+            "id": "c4",
+            "cost": 6000000,
+            "boost": 2000000
+          }
+        ],
+        "rationale": "Matched total fees24M, total salary boost8M, each course payback3START; independent order. Isolates package granularity/opportunity timing, not just total generosity."
+      },
+      "board": {
+        "id": "L2-spaced",
+        "tiles": [
+          "start",
+          "macro",
+          "bonds",
+          "personal",
+          "course",
+          "gold",
+          "bank",
+          "bonds",
+          "business",
+          "bonds",
+          "stocks",
+          "business",
+          "course",
+          "stocks",
+          "business",
+          "bank",
+          "gold",
+          "bank"
+        ],
+        "changes": {
+          "7": "bonds",
+          "15": "bank"
+        },
+        "rationale": "Same tile counts as L2-bond-bank; courses at5/13 isolate spacing."
+      },
+      "economy": {
+        "initialSavings": 0,
+        "initialTerm": 3,
+        "rules": {
+          "laps": 4,
+          "startingCapital": 50000000
+        }
+      },
+      "goal": {
+        "amount": 90000000,
+        "reserve": 0
+      },
+      "policy": {
+        "reserve": 10000000,
+        "liquidityReserve": 15000000,
+        "ticket": 10000000,
+        "diversifiedTicket": 5000000
+      }
+    }
+  ],
+  "seeds": 128,
+  "policies": [
+    "cash-none",
+    "cash-early",
+    "cash-roi",
+    "cash-all",
+    "cash-reserve5",
+    "cash-reserve10",
+    "cash-reserve15",
+    "savings-none",
+    "savings-roi",
+    "savings-all",
+    "stocks-none",
+    "stocks-roi",
+    "gold-roi",
+    "bond-a-roi",
+    "bond-b-roi",
+    "business-none",
+    "business-roi",
+    "diversified-none",
+    "diversified-roi",
+    "risk-aware-roi",
+    "novice"
+  ],
+  "reason": "Strengthen controlled2/3/4 course comparison at equal total fees24M, boost8M and3START payback; same first128 shortlist seeds, per-layout original baseline available at180 seeds. These are controls, not extra final candidates.",
+  "lockedBeforeRunning": true,
+  "phase": "shortlist"
+}

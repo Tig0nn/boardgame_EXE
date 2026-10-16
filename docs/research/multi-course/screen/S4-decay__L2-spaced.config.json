@@ -1,0 +1,77 @@
+{
+  "format": "b18-multi-course-v1",
+  "id": "S4-decay__L2-spaced",
+  "course": {
+    "id": "S4-decay",
+    "unlock": "sequential",
+    "courses": [
+      {
+        "id": "c1",
+        "cost": 6000000,
+        "boost": 4000000
+      },
+      {
+        "id": "c2",
+        "cost": 8000000,
+        "boost": 3000000
+      },
+      {
+        "id": "c3",
+        "cost": 10000000,
+        "boost": 2000000
+      },
+      {
+        "id": "c4",
+        "cost": 12000000,
+        "boost": 1000000
+      }
+    ],
+    "rationale": "Four-course stress control; final level often unrecoverable."
+  },
+  "board": {
+    "id": "L2-spaced",
+    "tiles": [
+      "start",
+      "macro",
+      "bonds",
+      "personal",
+      "course",
+      "gold",
+      "bank",
+      "bonds",
+      "business",
+      "bonds",
+      "stocks",
+      "business",
+      "course",
+      "stocks",
+      "business",
+      "bank",
+      "gold",
+      "bank"
+    ],
+    "changes": {
+      "7": "bonds",
+      "15": "bank"
+    },
+    "rationale": "Same tile counts as L2-bond-bank; courses at5/13 isolate spacing."
+  },
+  "economy": {
+    "initialSavings": 0,
+    "initialTerm": 3,
+    "rules": {
+      "laps": 4,
+      "startingCapital": 50000000
+    }
+  },
+  "goal": {
+    "amount": 90000000,
+    "reserve": 0
+  },
+  "policy": {
+    "reserve": 10000000,
+    "liquidityReserve": 15000000,
+    "ticket": 10000000,
+    "diversifiedTicket": 5000000
+  }
+}

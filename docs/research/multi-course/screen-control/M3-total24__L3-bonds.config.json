@@ -1,0 +1,71 @@
+{
+  "format": "b18-multi-course-v1",
+  "id": "M3-total24__L3-bonds",
+  "course": {
+    "id": "M3-total24",
+    "unlock": "independent",
+    "courses": [
+      {
+        "id": "c1",
+        "cost": 6000000,
+        "boost": 2000000
+      },
+      {
+        "id": "c2",
+        "cost": 6000000,
+        "boost": 2000000
+      },
+      {
+        "id": "c3",
+        "cost": 12000000,
+        "boost": 4000000
+      }
+    ],
+    "rationale": "Matched total fees24M, total salary boost8M, each course payback3START; independent order. Isolates package granularity/opportunity timing, not just total generosity."
+  },
+  "board": {
+    "id": "L3-bonds",
+    "tiles": [
+      "start",
+      "macro",
+      "bonds",
+      "personal",
+      "course",
+      "gold",
+      "bank",
+      "course",
+      "business",
+      "bonds",
+      "stocks",
+      "business",
+      "course",
+      "stocks",
+      "business",
+      "bonds",
+      "gold",
+      "bank"
+    ],
+    "changes": {
+      "15": "bonds"
+    },
+    "rationale": "Same replaced position; additional investment/exit access."
+  },
+  "economy": {
+    "initialSavings": 0,
+    "initialTerm": 3,
+    "rules": {
+      "laps": 4,
+      "startingCapital": 50000000
+    }
+  },
+  "goal": {
+    "amount": 90000000,
+    "reserve": 0
+  },
+  "policy": {
+    "reserve": 10000000,
+    "liquidityReserve": 15000000,
+    "ticket": 10000000,
+    "diversifiedTicket": 5000000
+  }
+}

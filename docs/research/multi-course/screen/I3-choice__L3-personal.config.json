@@ -1,0 +1,71 @@
+{
+  "format": "b18-multi-course-v1",
+  "id": "I3-choice__L3-personal",
+  "course": {
+    "id": "I3-choice",
+    "unlock": "independent",
+    "courses": [
+      {
+        "id": "c1",
+        "cost": 6000000,
+        "boost": 1000000
+      },
+      {
+        "id": "c2",
+        "cost": 8000000,
+        "boost": 2000000
+      },
+      {
+        "id": "c3",
+        "cost": 12000000,
+        "boost": 4000000
+      }
+    ],
+    "rationale": "Three transparent cost/boost trade-offs."
+  },
+  "board": {
+    "id": "L3-personal",
+    "tiles": [
+      "start",
+      "macro",
+      "bonds",
+      "personal",
+      "course",
+      "gold",
+      "bank",
+      "course",
+      "business",
+      "bonds",
+      "stocks",
+      "business",
+      "course",
+      "stocks",
+      "business",
+      "personal",
+      "gold",
+      "bank"
+    ],
+    "changes": {
+      "15": "personal"
+    },
+    "rationale": "Prior studied tile16 replacement; reserve exposure control."
+  },
+  "economy": {
+    "initialSavings": 0,
+    "initialTerm": 3,
+    "rules": {
+      "laps": 4,
+      "startingCapital": 50000000
+    }
+  },
+  "goal": {
+    "amount": 90000000,
+    "reserve": 0
+  },
+  "policy": {
+    "reserve": 10000000,
+    "liquidityReserve": 15000000,
+    "ticket": 10000000,
+    "diversifiedTicket": 5000000
+  }
+}

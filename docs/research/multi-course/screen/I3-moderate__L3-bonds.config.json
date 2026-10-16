@@ -1,0 +1,71 @@
+{
+  "format": "b18-multi-course-v1",
+  "id": "I3-moderate__L3-bonds",
+  "course": {
+    "id": "I3-moderate",
+    "unlock": "independent",
+    "courses": [
+      {
+        "id": "c1",
+        "cost": 6000000,
+        "boost": 2000000
+      },
+      {
+        "id": "c2",
+        "cost": 8000000,
+        "boost": 3000000
+      },
+      {
+        "id": "c3",
+        "cost": 10000000,
+        "boost": 3000000
+      }
+    ],
+    "rationale": "Three independently chosen courses with bounded benefits."
+  },
+  "board": {
+    "id": "L3-bonds",
+    "tiles": [
+      "start",
+      "macro",
+      "bonds",
+      "personal",
+      "course",
+      "gold",
+      "bank",
+      "course",
+      "business",
+      "bonds",
+      "stocks",
+      "business",
+      "course",
+      "stocks",
+      "business",
+      "bonds",
+      "gold",
+      "bank"
+    ],
+    "changes": {
+      "15": "bonds"
+    },
+    "rationale": "Same replaced position; additional investment/exit access."
+  },
+  "economy": {
+    "initialSavings": 0,
+    "initialTerm": 3,
+    "rules": {
+      "laps": 4,
+      "startingCapital": 50000000
+    }
+  },
+  "goal": {
+    "amount": 90000000,
+    "reserve": 0
+  },
+  "policy": {
+    "reserve": 10000000,
+    "liquidityReserve": 15000000,
+    "ticket": 10000000,
+    "diversifiedTicket": 5000000
+  }
+}

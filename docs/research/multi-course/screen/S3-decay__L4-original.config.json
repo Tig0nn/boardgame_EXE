@@ -1,0 +1,69 @@
+{
+  "format": "b18-multi-course-v1",
+  "id": "S3-decay__L4-original",
+  "course": {
+    "id": "S3-decay",
+    "unlock": "sequential",
+    "courses": [
+      {
+        "id": "c1",
+        "cost": 6000000,
+        "boost": 3000000
+      },
+      {
+        "id": "c2",
+        "cost": 8000000,
+        "boost": 2000000
+      },
+      {
+        "id": "c3",
+        "cost": 10000000,
+        "boost": 1000000
+      }
+    ],
+    "rationale": "Declining boosts and increasingly long payback."
+  },
+  "board": {
+    "id": "L4-original",
+    "tiles": [
+      "start",
+      "macro",
+      "bonds",
+      "personal",
+      "course",
+      "gold",
+      "bank",
+      "course",
+      "business",
+      "bonds",
+      "stocks",
+      "business",
+      "course",
+      "stocks",
+      "business",
+      "course",
+      "gold",
+      "bank"
+    ],
+    "changes": {},
+    "rationale": "Original B18: course indices4/7/12/15."
+  },
+  "economy": {
+    "initialSavings": 0,
+    "initialTerm": 3,
+    "rules": {
+      "laps": 4,
+      "startingCapital": 50000000
+    }
+  },
+  "goal": {
+    "amount": 90000000,
+    "reserve": 0
+  },
+  "policy": {
+    "reserve": 10000000,
+    "liquidityReserve": 15000000,
+    "ticket": 10000000,
+    "diversifiedTicket": 5000000
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "format": "b18-multi-course-v1",
+  "id": "S2-costly__L2-stock-bank",
+  "course": {
+    "id": "S2-costly",
+    "unlock": "sequential",
+    "courses": [
+      {
+        "id": "c1",
+        "cost": 10000000,
+        "boost": 3000000
+      },
+      {
+        "id": "c2",
+        "cost": 12000000,
+        "boost": 2000000
+      }
+    ],
+    "rationale": "Conservative ROI stress control."
+  },
+  "board": {
+    "id": "L2-stock-bank",
+    "tiles": [
+      "start",
+      "macro",
+      "bonds",
+      "personal",
+      "course",
+      "gold",
+      "bank",
+      "course",
+      "business",
+      "bonds",
+      "stocks",
+      "business",
+      "stocks",
+      "stocks",
+      "business",
+      "bank",
+      "gold",
+      "bank"
+    ],
+    "changes": {
+      "12": "stocks",
+      "15": "bank"
+    },
+    "rationale": "Same course positions/count as preceding arm, different investment access."
+  },
+  "economy": {
+    "initialSavings": 0,
+    "initialTerm": 3,
+    "rules": {
+      "laps": 4,
+      "startingCapital": 50000000
+    }
+  },
+  "goal": {
+    "amount": 90000000,
+    "reserve": 0
+  },
+  "policy": {
+    "reserve": 10000000,
+    "liquidityReserve": 15000000,
+    "ticket": 10000000,
+    "diversifiedTicket": 5000000
+  }
+}

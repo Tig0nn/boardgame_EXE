@@ -1,0 +1,182 @@
+{
+  "phase": "screen-control",
+  "games": 9408,
+  "configs": 21,
+  "seedsPerPolicy": 32,
+  "policies": [
+    "cash-none",
+    "cash-early",
+    "cash-roi",
+    "cash-all",
+    "cash-reserve10",
+    "savings-roi",
+    "savings-all",
+    "stocks-roi",
+    "gold-roi",
+    "bond-a-roi",
+    "business-roi",
+    "diversified-roi",
+    "risk-aware-roi",
+    "novice"
+  ],
+  "elapsedSeconds": 31.6627108,
+  "base": "00e77a19691c109e8cb7079b83591463c3eb6136",
+  "sourceBundleSha256": "f05a5a9a21284c0d3e868e57903c58292255d59e89ca45ee5171d7f5d33713b7",
+  "sourceHashes": {
+    "src/game/bond-credit.ts": "a6acac583363368e359088fc58dfab2227143549c45762d6c2c4aff1c2be2e66",
+    "src/game/business.ts": "47aa6552647991911f9b8a1a070e9e482de7a9e6635d8539ae211dc8166a6d73",
+    "src/game/customer-preferences.ts": "1134683e76a2cd8aba20c3198a9b547a312b52a99eab66faa0925d62bfc02fff",
+    "src/game/encounters.ts": "8e788d2afc121b3a766577760322ee74b22c06ecb4337571d4b93dca2050d174",
+    "src/game/engine.ts": "b90ae933297fde51b7ccf5e37f61a77de530fa37885ddf3dada3e10e18e962c1",
+    "src/game/format.ts": "e7ac228b47f3276351166b2957ca039b0773abe9991d22abcddb8574c65d610e",
+    "src/game/living-expenses.ts": "07d8abf037ae34cc862afec21e4ce6d483d66376dbb0a8683a180139fac1a365",
+    "src/game/log.ts": "5a3c8f8a70c5bace9343cbd8fe45f2cfb05f696544bfff60e573b65ed52c7a7b",
+    "src/game/market.ts": "84a222cea5cce8a3f8886309c816bb6f8757d3057ad41222eef0d08eaeca74c5",
+    "src/game/new-game.ts": "89e3744ce95b3ecfc7e1fd050c48f5e1d1ecc53e3b11e29d205a712bbb87a4e4",
+    "src/game/random.ts": "6701ad680fd1cbf4dcf68f54c4998345190a28c3fdbbcfac4cafdab2f1124d29",
+    "src/game/rules-profile.ts": "2e7726b62b45273be6d906c886cf1e9c4daa884017092daa42b6b77adafe6fd1",
+    "src/game/saved-game.ts": "44b2f2a06d8f402928cd478e6c72716dce49a2fc9118f533ca1f149d773e9b99",
+    "src/game/savings.ts": "1b40f4a47d5b927128abdd087d5f9ac6843ca0272f28363463ffe8c3d3b50a36",
+    "src/game/seed.ts": "40d41ee56d9573fd6eb95c1825913a81bb1ebb66006d8cc88bf1f7130ea04b75",
+    "src/game/selectors.ts": "a525418219d21713b159b73e4ae728a99f95f5af537fa8ec5f6b43510d95f82d",
+    "src/game/settlement.ts": "6442816e87fbbeb9afce17ffb6680c30c9c2a9789adb8c04af7e6e0e3e5f3b0e",
+    "src/game/state.ts": "728b7708bc337a73a2984102b3ce6a8e85ce0b6204fc40a8aa04f194a3c85198",
+    "src/game/transactions.ts": "62fa375e04cfb58702fa7ae7134487668d20c90ff74de01d8a46636cbd92d1ef",
+    "src/game/types.ts": "cca92924fb27c2d31589d8bbd3d3bd98c497f2b90c97f625625095ea80701abf",
+    "src/data/board.ts": "c91a3ef4ee4b2478140f92326e4fd3a7b27b61687e6df722dd94d81e436ded0e",
+    "src/data/bond-issuers.ts": "779e0577db4539227e65fee60d0d6f78627808382751641ad54504d6502db135",
+    "src/data/config.ts": "df966518474c1821e337e73203c0970eaab8e3fd5b51fb0b9e14bddea04a7071",
+    "src/data/customer-preferences.ts": "7d74dfd4be5bc586ee76832c1b8bc342f0f7f504ec753eca9ffa8459bc61faa6",
+    "src/data/events.ts": "708b89e6e13b1d78907b1db49eac4ffbcc78065f7e053bdc581fe6f87828b1a5",
+    "src/data/modes.ts": "5c5a5eb0e8fa42e721a11b1b79556b619fda87a9a197c1c42343506248b4899d",
+    "src/data/stock-catalog.ts": "719c371b0f60f3329ea92e6220f13af78511cd7d80e2d9faf9dd6646204e2e73",
+    "scripts/research/multi-course/adapter.mjs": "996bfc1f8a6614e83b920cdb954a1685e1157298c2073a50bcbb01abc5e487c5",
+    "scripts/research/multi-course/analyze.mjs": "08c2e9187465d9ccebf152d2f25cb9bfb0f56201be03467b264e2dda4715f76b",
+    "scripts/research/multi-course/courses.mjs": "7f61a5b97c39138e1887b465a613de859fc9d446fb45faaa030f51f8139d67f0",
+    "scripts/research/multi-course/courses.test.mjs": "ecabf5afdd4d66516b964dfa54505556d0fb1080357caab06ab4b91813971e9c",
+    "scripts/research/multi-course/integration-worker.mjs": "4f5d976840d08546231efc44e4d9f0c442913a501d42fe6bda5fc4f8537eb352",
+    "scripts/research/multi-course/metrics.mjs": "5cf876ef425498d3acfa91da978a55379683fb930aedc1920e99ac29b7a08991",
+    "scripts/research/multi-course/policy.mjs": "ec6cceabaea22564a6c113c67d6ba37ba6ce1ac4fae58dab497d9cb207a53287",
+    "scripts/research/multi-course/replay.mjs": "ac9517d846712f125753e77c263d110fa59ac30ad84f4361545f3bc5504f38c6",
+    "scripts/research/multi-course/run.mjs": "1b2ad5534a666d8c5f0fe12055a09a125b50b972f63ae56614783306095cbc96",
+    "scripts/research/multi-course/spec.mjs": "99d02f59ea96d0fb78047efcff7879c4f8e4ecddaf3ae0780ed8e7eff878f20b",
+    "scripts/research/multi-course/stats.mjs": "d408f4d2a8082aea09b28d83d5a401765589ce7dd3de947f49c6b852b9df347c",
+    "scripts/research/multi-course/stats.test.mjs": "b53c070b62981682574b8cf4f6f33cc391fe23fa418747d64927152344478060",
+    "scripts/research/multi-course/verify-foundation.mjs": "82d80865f3be15649cccb16fb4de10434d3a45f921425caad9c33bd152c672b1",
+    "scripts/research/multi-course/worker.mjs": "0a09f0d10f31e04de5bc7b07ad30161182b44d249556e6d18fcf79303499aae6",
+    "upstream/core-mvp/policy.mjs": "4cfcec5681f4ffc7d51155225f0ed4c16fd1b1f5550e025ec9ae479613c195c6",
+    "upstream/core-mvp/metrics.mjs": "f69e3b46369135da58539533b0393cc4506fc01c137d4a06ef659794b7919af1",
+    "upstream/trading-ab/policy.mjs": "72d16ee0aef82437906d577e5e88ac2cf8cfae091bf7fc9c8f09e31dfa2fab43",
+    "upstream/trading-ab/metrics.mjs": "a81e1625cf87334ad5ebf55e138dbfde4c57f75d6515beca3803cca5b962ed47",
+    "upstream/risk-allocation/policy.mjs": "99a2c179254947549011633cc8f49f7aa2aa909c3d82999c11b9cdcf5c01085b",
+    "upstream/risk-allocation/metrics.mjs": "79f5dccc403ee5edb1246c238de6c2acce85460c2dcd1768a6434c98afb5eea1"
+  },
+  "results": [
+    {
+      "id": "M2-total24__L2-bond-bank",
+      "n": 448,
+      "seconds": 4.5681726
+    },
+    {
+      "id": "M2-total24__L2-spaced",
+      "n": 448,
+      "seconds": 4.6936561
+    },
+    {
+      "id": "M2-total24__L2-stock-bank",
+      "n": 448,
+      "seconds": 4.5737059
+    },
+    {
+      "id": "M2-total24__L3-bank",
+      "n": 448,
+      "seconds": 4.1787153
+    },
+    {
+      "id": "M2-total24__L3-bonds",
+      "n": 448,
+      "seconds": 4.4343186999999995
+    },
+    {
+      "id": "M2-total24__L3-personal",
+      "n": 448,
+      "seconds": 4.1811332000000005
+    },
+    {
+      "id": "M2-total24__L4-original",
+      "n": 448,
+      "seconds": 4.0207469
+    },
+    {
+      "id": "M3-total24__L2-bond-bank",
+      "n": 448,
+      "seconds": 4.4027743
+    },
+    {
+      "id": "M3-total24__L2-spaced",
+      "n": 448,
+      "seconds": 4.4322316
+    },
+    {
+      "id": "M3-total24__L2-stock-bank",
+      "n": 448,
+      "seconds": 4.369161
+    },
+    {
+      "id": "M3-total24__L3-bank",
+      "n": 448,
+      "seconds": 4.3767663
+    },
+    {
+      "id": "M3-total24__L3-bonds",
+      "n": 448,
+      "seconds": 4.4784319
+    },
+    {
+      "id": "M3-total24__L3-personal",
+      "n": 448,
+      "seconds": 4.2925891
+    },
+    {
+      "id": "M3-total24__L4-original",
+      "n": 448,
+      "seconds": 4.4451368
+    },
+    {
+      "id": "M4-total24__L2-bond-bank",
+      "n": 448,
+      "seconds": 4.5288923
+    },
+    {
+      "id": "M4-total24__L2-spaced",
+      "n": 448,
+      "seconds": 3.7350315999999997
+    },
+    {
+      "id": "M4-total24__L2-stock-bank",
+      "n": 448,
+      "seconds": 4.155109500000001
+    },
+    {
+      "id": "M4-total24__L3-bank",
+      "n": 448,
+      "seconds": 4.4370197
+    },
+    {
+      "id": "M4-total24__L3-bonds",
+      "n": 448,
+      "seconds": 4.550177400000001
+    },
+    {
+      "id": "M4-total24__L3-personal",
+      "n": 448,
+      "seconds": 4.328267800000001
+    },
+    {
+      "id": "M4-total24__L4-original",
+      "n": 448,
+      "seconds": 4.366000099999999
+    }
+  ],
+  "noProductionChanges": true
+}
