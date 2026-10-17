@@ -4,6 +4,7 @@ import type { GameState } from '../../../src/game/types'
 import { boardFor, MULTI_COURSE_B18_BOARD } from '../../../src/data/board'
 import { Modal } from '../../../src/components/Modal'
 import { Character3D } from './Character3D'
+import { tileInformation } from '../../../src/components/tile-information'
 
 const labels:Record<string,string[]>={start:['START'],macro:['Sự','kiện'],bonds:['Trái','phiếu'],personal:['Biến cố','cá nhân'],course:['Đầu tư','bản thân'],gold:['Vàng'],bank:['Ngân','hàng'],business:['Kinh','doanh'],stocks:['Cổ','phiếu']}
 const colors:Record<string,string>={start:'#f5d575',macro:'#f6b49b',bonds:'#b5dff0',personal:'#f6b49b',course:'#dfd0f3',gold:'#ffe09a',bank:'#b6e2cb',business:'#edccb1',stocks:'#b5dff0'}
@@ -33,6 +34,6 @@ export function CoreMvpBoard({game,position=0,lap=1,totalLaps=4,moving=false,dan
     <Character3D x={current.x} y={current.y} currentTileIndex={position} tileCoordinates={b18Coordinates} isMoving={moving} isDancing={dancing}/>
     {children}
     <div className="b18-location">Ô {position+1} · {current.label}</div>
-    {selected!==null&&<Modal title={`Ô ${selected+1}: ${board[selected].label}`} onClose={()=>setSelected(null)}><p>{selected===0?'Hoàn thành vòng qua START: thị trường, lương, kinh doanh, đáo hạn/coupon, sinh hoạt 5 triệu, nợ và nghĩa vụ.':'Chỉ kích hoạt khi dừng đúng ô. Đi ngang không mở encounter.'}</p><button className="button primary full-button" onClick={()=>setSelected(null)}>Trở về bàn</button></Modal>}
+    {selected!==null&&<Modal title={`Ô ${selected+1}: ${board[selected].label}`} onClose={()=>setSelected(null)}><h2>{board[selected].label}</h2><p>{tileInformation(board[selected].type,game)}</p><button className="button primary full-button" onClick={()=>setSelected(null)}>Trở về bàn</button></Modal>}
   </div>
 }

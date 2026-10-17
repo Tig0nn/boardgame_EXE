@@ -13,7 +13,7 @@ export function Modal({ title, children, onClose, onHelp, wide = false, classNam
     dialog.scrollTop = 0
     return () => {
       dialog.close()
-      if (previousFocus instanceof HTMLElement && previousFocus.isConnected) previousFocus.focus({ preventScroll: true })
+      if (previousFocus?.isConnected && 'focus' in previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus({ preventScroll: true })
     }
   }, [])
   return <dialog ref={ref} tabIndex={-1} className={`modal ${wide ? 'wide' : ''} ${className}`} aria-label={title} onCancel={e => { if (onClose) onClose(); else e.preventDefault() }}>

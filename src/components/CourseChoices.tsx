@@ -13,17 +13,20 @@ export function CourseChoices({ game, onChoose }: { game: GameState; onChoose: (
   return <section className="course-choices" aria-label="Đầu tư bản thân">
     <span className="section-kicker">VÒNG {game.lap} · Ô {game.position + 1}</span>
     <h2>Đầu tư bản thân</h2>
-    <p className="course-intro">Hai khóa độc lập · Học theo thứ tự bạn chọn · Mỗi lần ghé mua một khóa.</p>
+    <p className="course-intro">Hai khóa độc lập · Mỗi lần ghé mua một khóa bằng tiền mặt.</p>
     <p>Tiền mặt: <strong>{money(game.portfolio.cash)}</strong></p>
     <div className="course-card-list">{choices.map(c => <article className="course-card" key={c.id} aria-labelledby={`course-${c.id}-name`}>
       <div className="course-card-heading"><h3 id={`course-${c.id}-name`}>{c.name}</h3><span className={`course-status ${c.owned ? 'learned' : c.canBuy ? '' : 'unavailable'}`}>{c.owned ? 'Đã học' : c.canBuy ? 'Chưa học' : 'Không đủ tiền'}</span></div>
-      <dl><div><dt>Học phí</dt><dd>{money(c.cost)}</dd></div><div><dt>Lương tăng / START</dt><dd>+{money(c.boost)}</dd></div>
-        <div><dt>START còn lại</dt><dd>{c.remainingStarts}</dd></div><div><dt>Thu nhập thêm còn có thể nhận</dt><dd>{money(c.nominalIncome)}</dd></div>
+      <dl><div><dt>Học phí</dt><dd>{money(c.cost)}</dd></div><div><dt>Lương tăng / START</dt><dd>+{money(c.boost)}</dd></div></dl>
+      <details className="course-projection"><summary>Xem thu nhập còn lại</summary>
+        <dl><div><dt>START còn lại</dt><dd>{c.remainingStarts}</dd></div><div><dt>Thu nhập thêm còn có thể nhận</dt><dd>{money(c.nominalIncome)}</dd></div>
         <div className="course-net"><dt>Thu nhập còn lại − học phí</dt><dd>{signedMoney(c.netAfterFee)}</dd></div></dl>
+        <p className="course-note">Cần {Math.ceil(c.cost/c.boost)} START nhận lương thêm để bù học phí theo phép tính danh nghĩa.</p>
+        <p className="course-note">Tính danh nghĩa nếu tới đủ START còn lại; chưa cộng lương đã nhận hay chi phí cơ hội/bất ngờ. Đây không phải lợi nhuận bảo đảm hoặc khuyến nghị chọn khóa.</p>
+      </details>
       <button className="button primary full-button" disabled={!c.canBuy} onClick={() => onChoose(`course-${c.id}`)}>{c.owned ? 'Đã hoàn thành' : `Mua ${c.name.toLowerCase()}`}</button>
     </article>)}</div>
-    <p className="course-note">Tính danh nghĩa nếu tới đủ các START còn lại; chưa cộng lương đã nhận, chi phí cơ hội hay bất ngờ. Đây không phải lợi nhuận bảo đảm hoặc khuyến nghị chọn khóa.</p>
-    <p className="course-note">Chỉ dùng tiền mặt hiện có, không vay mới để học. Tăng lương từ START kế tiếp, cộng dồn; học phí không hoàn lại.</p>
+    <p className="course-note">Không vay mới để học. Lương tăng từ START kế tiếp; học phí không hoàn lại.</p>
     <button className="button secondary full-button course-skip" onClick={() => onChoose('skip')}>Bỏ qua</button>
   </section>
 }

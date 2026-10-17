@@ -14,6 +14,7 @@ import { GoalChecks } from './GoalChecks'
 import { TradingPanel } from './TradingPanel'
 import { MarketDetails } from './MarketDetails'
 import { investmentPurchasesComplete } from '../game/encounters'
+import { FinancialReview } from './FinancialReview'
 import { isMultiCourse } from '../game/rules-profile'
 import { CourseChoices } from './CourseChoices'
 
@@ -74,9 +75,9 @@ export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, on
       <div className="result-icon"><Icon name={won ? 'flag' : 'leaf'} size={32} /></div><span className="section-kicker">HÀNH TRÌNH · VÒNG {game.lap}/{game.totalLaps}</span>
       <h2>{game.termination === 'insolvent' ? 'Mất khả năng thanh toán' : won ? 'Bạn đã chạm đích!' : 'Mỗi vòng là một bài học.'}</h2><p className="modal-lead">{game.termination === 'insolvent' ? `Còn thiếu ${money(game.pendingPayment?.remaining ?? 0)}, không còn nguồn tiền hợp lệ hoặc hạn mức vay.` : won ? 'Bạn đã tích lũy đủ 90 triệu huy động hợp lệ sau khi hoàn thành đủ vòng.' : 'Nguồn tiền có thể huy động chưa đủ 90 triệu.'}</p>
       <div className="result-worth"><span>HUY ĐỘNG HỢP LỆ CUỐI VÁN</span><strong>{money(liquidatableFunds(game))}</strong><small>Mục tiêu: 90 triệu · Sau phí và nợ</small><small>Tài sản ròng: {money(worth)}</small><small>Tiền mặt: {money(game.portfolio.cash)}</small></div>
-      <div className="decision-preview"><span>Tổng giá trị tài sản<strong>{money(Object.entries(game.portfolio).filter(([key]) => key !== 'debt').reduce((sum, [, value]) => sum + value, 0))}</strong></span><span>Nợ vay<strong>{money(game.portfolio.debt)}</strong></span><span>Huy động hợp lệ sau phí và nợ<strong>{money(liquidatableFunds(game))}</strong></span><span>Mục tiêu duy nhất<strong>90.000.000 ₫</strong></span></div>
+      <FinancialReview game={game} /><details><summary>Chi tiết nguồn tiền về đích</summary><div className="decision-preview"><span>Tổng giá trị tài sản<strong>{money(Object.entries(game.portfolio).filter(([key]) => key !== 'debt').reduce((sum, [, value]) => sum + value, 0))}</strong></span><span>Nợ vay<strong>{money(game.portfolio.debt)}</strong></span><span>Huy động hợp lệ sau phí và nợ<strong>{money(liquidatableFunds(game))}</strong></span><span>Mục tiêu duy nhất<strong>90.000.000 ₫</strong></span></div>
       <p className="inline-note">Xét giá trị huy động hợp lệ theo báo giá hiện tại, không tự thanh lý tài sản. Kinh doanh chưa bán bị loại. Tiết kiệm chưa đáo hạn tính gốc rút sớm, không tính lãi chưa trả.</p>
-      <GoalChecks game={game} />
+      <GoalChecks game={game} /></details>
       <div className="lap-results">{game.summaries.map(summary => <div key={summary.lap}><span>Vòng {summary.lap}</span><strong>{money(summary.after)}</strong></div>)}</div>
       <button className="button primary full-button" onClick={onRestart}>Chơi một hành trình mới <Icon name="refresh" /></button><button className="button secondary full-button" onClick={onExport}><Icon name="download" size={17} /> Tải nhật ký quyết định</button>
     </Modal>

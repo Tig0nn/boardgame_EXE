@@ -12,13 +12,13 @@ import { CustomerPreferenceCard } from '../../../src/components/CustomerPreferen
 
 const steps = [
   { title: 'Từ vốn nhỏ, tới ước mơ lớn', tag: 'ĐÍCH ĐẾN CỦA BẠN',
-    text: 'Đi một vòng phố, nắm lấy cơ hội. Bạn có 4 vòng để chạm đích!',
+    text: 'Bắt đầu với 50 triệu. Sau 4 START, cần gom đủ 90 triệu sau phí và nợ.',
     detail: 'Mục tiêu là nguồn tiền hợp lệ: tiền mặt + gốc tiết kiệm đang gửi + giá bán tài sản tài chính sau phí, trừ nợ và các khoản phải trả. Vốn kinh doanh chưa bán và lãi tiết kiệm chưa nhận không được tính.' },
   { title: 'Một thành phố đầy cơ hội', tag: 'KHÁM PHÁ BÀN CỜ',
-    text: 'Mỗi ô dừng mở một câu chuyện. Đi ngang qua thì không kích hoạt ô.',
+    text: 'Chạm ô để xem trước. Gieo xúc xắc → di chuyển → chọn hành động khi dừng; đi ngang không kích hoạt ô.',
     detail: 'Qua START nhận lương và các khoản đến hạn. Ô Kinh doanh cho mua, nâng cấp hoặc bán quán. Ô thị trường cho mua hoặc bán đúng loại tài sản. Biến cố có thể đổi giá thị trường hoặc tạo khoản cần thanh toán.' },
   { title: 'Chạm xúc xắc, lên đường!', tag: 'MỘT LƯỢT CHƠI',
-    text: 'Gieo xúc xắc, theo chân nhân vật và chọn cách đi tiếp của bạn.',
+    text: 'Giữ tiền mặt cho sinh hoạt và bất ngờ. Bạn tự chọn mức dự phòng; đầu tư có thể làm tiền khó rút ngay.',
     detail: 'Chỉ quyết định khi nhân vật dừng. Mỗi lần ghé ô Cổ phiếu, Vàng hoặc Trái phiếu chỉ được một giao dịch mua hoặc bán thành công; xong là quay lại bàn cờ. Giao dịch lỗi không mất quyền. Bạn có thể bỏ qua hoặc giao dịch tiếp khi gặp lại ô ở lượt sau. Mở quán và gửi một khoản tiết kiệm xong cũng trở về bàn cờ.' },
   { title: 'Để đồng tiền cùng bạn lớn lên', tag: 'CHỌN CÁCH KIẾM TIỀN',
     text: 'Tiết kiệm có lãi cố định. Trái phiếu cho issuer vay: coupon cao hơn đi cùng rủi ro chậm trả hoặc mất vốn.',

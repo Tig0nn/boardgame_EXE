@@ -8,7 +8,7 @@ export function GoalChecks({ game }: { game?: GameState }) {
   const target=game?goalForGame(game).target:CORE_MVP_RULES.goal,progress=game?goalProgress(game):null
   return <div className="goal-conditions" aria-label="Mục tiêu tích lũy 90 triệu">
     <div className={progress&&progress.funds>=target?'met':''}><Icon name="flag" size={16}/><span>Tích lũy đủ <strong>{money(target)}</strong> sau {game?.totalLaps??4} vòng.</span></div>
-    <p>Giá trị huy động hợp lệ sau phí, nợ và nghĩa vụ. Không cần toàn bộ là tiền mặt; không tính quán chưa bán, lãi hay coupon chưa nhận. Không tự thanh lý tài sản.</p>
+    <p>Giá trị huy động hợp lệ = tiền mặt + gốc tiết kiệm rút được + tiền bán tài sản tài chính sau phí, trừ nợ/khoản phải trả. Không tính quán chưa bán, lãi/coupon chưa nhận; không tự bán tài sản.</p>
     {progress&&<p>Hiện có thể huy động <strong>{money(progress.funds)}</strong> · {progress.remaining>0?`Còn ${money(progress.remaining)} để đạt mục tiêu.`:'Đã đạt ngưỡng tài chính; cần hoàn thành đủ vòng và còn khả năng thanh toán.'}</p>}
   </div>
 }

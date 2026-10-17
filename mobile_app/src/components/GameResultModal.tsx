@@ -3,6 +3,7 @@ import { AICoachPanel } from '../../../src/ai/AICoachPanel'
 import { goalProgress, totalWorth, victory } from '../../../src/game/selectors'
 import { money } from '../../../src/game/format'
 import type { GameState } from '../../../src/game/types'
+import { FinancialReview } from '../../../src/components/FinancialReview'
 import { hasBondCredit } from '../../../src/game/bond-credit'
 
 export function GameResultModal({ game, onRestart, onExport, onHelp }: {
@@ -19,11 +20,12 @@ export function GameResultModal({ game, onRestart, onExport, onHelp }: {
       <progress max="100" value={progress} aria-label="Tiến độ nguồn tiền về đích" />
       <div className="result-progress-labels"><span>{Math.round(progress)}% mục tiêu</span><span>{money(target)}</span></div>
     </div>
-    <p>{won ? 'Bạn đã hoàn thành đủ vòng và tích lũy đủ 90 triệu huy động hợp lệ!' : game.termination === 'insolvent' ? 'Hành trình dừng vì không còn nguồn thanh toán.' : `Còn ${money(Math.max(0, target - funds))} để chạm đích. Thử một chiến lược mới nhé!`}</p>
+    <p>{won ? 'Đã hoàn thành đủ START và đạt mục tiêu.' : game.termination === 'insolvent' ? 'Hành trình dừng vì không còn nguồn thanh toán.' : `Còn ${money(Math.max(0, target - funds))} để đạt mục tiêu.`}</p>
+    <FinancialReview game={game} />
     <button className="button primary full-button" onClick={onRestart}>Chơi hành trình mới</button>
-    <details><summary>Nhìn lại hành trình</summary><AICoachPanel game={game} /></details>
+    <details><summary>AI Coach · Tùy chọn</summary><AICoachPanel game={game} /></details>
     <details><summary>Chi tiết kết quả & nhật ký</summary>
-      <p>Mục tiêu duy nhất: {money(target)}. Tài sản và tiền mặt dùng ngay là hai khái niệm khác nhau.</p>
+      <p>Giá trị huy động hợp lệ là tiền mặt + gốc tiết kiệm rút được + giá bán tài sản tài chính sau phí, trừ nợ và khoản phải trả.</p>
       <p>Tài sản ròng: {money(totalWorth(game))} · Tiền mặt: {money(game.portfolio.cash)}</p>
       <p>Vốn kinh doanh chưa bán và lãi tiết kiệm chưa trả không tính vào nguồn tiền về đích.</p>
       {hasBondCredit(game) && <p>Coupon và gốc đang chờ trả không được cộng thêm. Trái phiếu chỉ tính giá bán khả dụng sau phí; khoản vỡ nợ không có giá bán.</p>}

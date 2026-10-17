@@ -3,6 +3,7 @@
 .course-card-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
 .course-card { min-width: 0; padding: 16px; border: 1px solid #d6dcca; border-radius: 16px; background: #fcfcf5; color: #253b2d; }
 .course-choices .course-card h3, .course-choices .course-card dt, .course-choices .course-card dd { color: #253b2d; }
+.course-choices .course-card h3 { margin: 0; font-size: 1rem; }
 .course-card-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
 .course-card h3 { margin: 0; font-size: 1rem; }
 .course-status { font-size: .75rem; font-weight: 700; color: #31583c; }
@@ -13,6 +14,9 @@
 .course-card dt { min-width: 0; }
 .course-card dd { flex-shrink: 0; font-weight: 700; margin: 0; }
 .course-card .course-net { padding-top: 8px; border-top: 1px solid #d6dcca; }
+.course-projection summary { min-height: 44px; display: list-item; padding-block: 10px; font-size: .82rem; cursor: pointer; color: #31583c; }
+.course-choices .course-projection .course-note { color: #5f655e; }
+.mobile-event .course-choices .course-projection .course-note { color: #5f655e; }
 .course-choices button { min-height: 44px; white-space: normal; }
 .course-choices button:disabled { opacity: 1; color: #5e6259; background: #e6e8dc; border-color: #d6dcca; cursor: default; }
 .mobile-event .course-choices .course-intro, .mobile-event .course-choices .course-note { color: #cbd5e1; }

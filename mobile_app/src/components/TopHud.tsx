@@ -25,6 +25,6 @@ export function TopHud({ cash, lawfulProceeds, targetGoal, isMuted, onToggleMute
     <div className="hud-goal"><span>🏁 Về đích</span><strong>{(lawfulProceeds / 1_000_000).toLocaleString('vi-VN', { maximumFractionDigits: 1 })} / {targetGoal / 1_000_000} triệu</strong></div>
     <progress value={progress} max="100" aria-label="Tiến độ nguồn tiền hợp lệ về đích" />
     {lap&&<span className="hud-round">Vòng {lap}/{totalLaps}</span>}
-    <small className="hud-goal-note">Giá trị huy động hợp lệ · Chi tiết trong Ví</small>
+    <small className="hud-goal-note">Tiền có thể gom sau phí & nợ · Chi tiết trong Ví</small>
   </header>
 }

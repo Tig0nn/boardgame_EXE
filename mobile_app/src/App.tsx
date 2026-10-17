@@ -133,14 +133,23 @@ export function GameExperience({ session, onRestart, onHelp, helpOpen = false }:
 
 export default function App() {
   const [session, setSession] = useState<Session | null>(null)
-  const [saved]=useState(()=>loadGameLocally())
+  const [saved,setSaved]=useState(()=>loadGameLocally())
+  const [saveNotice,setSaveNotice]=useState('')
+  const returnToSetup=()=>{
+    const latest=session!.getSnapshot()
+    // Flush the current snapshot before unmount cancels a pending autosave timer.
+    const persisted=saveGameLocally(latest)
+    setSaved(latest)
+    setSaveNotice(persisted?'':'Ván mới nhất chỉ còn trong phiên này vì trình duyệt không lưu được. Hãy mở lại và xuất nhật ký trước khi đóng trang.')
+    setSession(null)
+  }
   const [tutorial, setTutorial] = useState<'first' | 'help' | null>(() => hasSeenTutorial() ? null : 'first')
   const openHelp = () => setTutorial('help')
   const closeTutorial = () => { if (tutorial === 'first') rememberTutorial(); setTutorial(null) }
   return <>
-    {session ? <GameExperience session={session} onRestart={() => setSession(null)} onHelp={openHelp} helpOpen={!!tutorial} /> : <>
+    {session ? <GameExperience session={session} onRestart={returnToSetup} onHelp={openHelp} helpOpen={!!tutorial} /> : <>
       <MobileContainer><CoreMvpBoard/></MobileContainer>
-      {tutorial !== 'first' && <GameSetup onHelp={openHelp} saved={saved} onRestore={s=>setSession(createMobileSession(s))} onStart={(seed, savings, term) => setSession(createMobileSession(createMvpMobileGame(seed, savings, term)))} />}
+      {tutorial !== 'first' && <GameSetup onHelp={openHelp} saved={saved} saveNotice={saveNotice} onRestore={s=>setSession(createMobileSession(s))} onStart={(seed, savings, term) => setSession(createMobileSession(createMvpMobileGame(seed, savings, term)))} />}
     </>}
     {tutorial==='first'&&<Tutorial firstTime onClose={closeTutorial} game={session?.getSnapshot()}/>}
     {tutorial==='help'&&<RulebookModal onClose={closeTutorial} game={session?.getSnapshot()}/>}
