@@ -1,3 +1,4 @@
+import { FinancialTerm } from '../../../src/components/FinancialTerm'
 import { Modal } from '../../../src/components/Modal'
 import { AICoachPanel } from '../../../src/ai/AICoachPanel'
 import { goalProgress, totalWorth, victory } from '../../../src/game/selectors'
@@ -16,7 +17,7 @@ export function GameResultModal({ game, onRestart, onExport, onHelp }: {
     <div className="result-medal" aria-hidden="true">{won ? '🏆' : '🌱'}</div>
     <h2>{game.termination === 'insolvent' ? 'Hẹn một hành trình mới!' : won ? 'Bạn đã chạm đích!' : 'Thêm một bước trưởng thành'}</h2>
     {game.termination === 'insolvent' && <p>Còn thiếu {money(game.pendingPayment?.remaining ?? 0)}; không còn nguồn hợp lệ.</p>}
-    <div className="result-worth"><span>Nguồn tiền về đích · Sau phí & nợ</span><strong>{money(funds)}</strong>
+    <div className="result-worth"><span><FinancialTerm term="proceeds">Nguồn tiền về đích</FinancialTerm> · Sau phí & nợ</span><strong>{money(funds)}</strong>
       <progress max="100" value={progress} aria-label="Tiến độ nguồn tiền về đích" />
       <div className="result-progress-labels"><span>{Math.round(progress)}% mục tiêu</span><span>{money(target)}</span></div>
     </div>
@@ -26,9 +27,9 @@ export function GameResultModal({ game, onRestart, onExport, onHelp }: {
     <details><summary>AI Coach · Tùy chọn</summary><AICoachPanel game={game} /></details>
     <details><summary>Chi tiết kết quả & nhật ký</summary>
       <p>Giá trị huy động hợp lệ là tiền mặt + gốc tiết kiệm rút được + giá bán tài sản tài chính sau phí, trừ nợ và khoản phải trả.</p>
-      <p>Tài sản ròng: {money(totalWorth(game))} · Tiền mặt: {money(game.portfolio.cash)}</p>
+      <p><FinancialTerm term="netWorth" />: {money(totalWorth(game))} · Tiền mặt: {money(game.portfolio.cash)}</p>
       <p>Vốn kinh doanh chưa bán và lãi tiết kiệm chưa trả không tính vào nguồn tiền về đích.</p>
-      {hasBondCredit(game) && <p>Coupon và gốc đang chờ trả không được cộng thêm. Trái phiếu chỉ tính giá bán khả dụng sau phí; khoản vỡ nợ không có giá bán.</p>}
+      {hasBondCredit(game) && <p><FinancialTerm term="coupon" /> và gốc đang chờ trả không được cộng thêm. Trái phiếu chỉ tính giá bán khả dụng sau phí; khoản vỡ nợ không có giá bán.</p>}
       <button className="button secondary full-button" onClick={onExport}>Lưu nhật ký hành trình</button>
     </details>
   </Modal>

@@ -2,6 +2,7 @@ import { courseChoices } from '../game/courses'
 import { money, signedMoney } from '../game/format'
 import type { GameState } from '../game/types'
 import './course-choices.css'
+import { FinancialTerm } from './FinancialTerm'
 
 // The same body is used by Desktop and Mobile; game decisions remain in the engine.
 export function CourseChoices({ game, onChoose }: { game: GameState; onChoose: (id: string) => void }) {
@@ -21,7 +22,7 @@ export function CourseChoices({ game, onChoose }: { game: GameState; onChoose: (
       <details className="course-projection"><summary>Xem thu nhập còn lại</summary>
         <dl><div><dt>START còn lại</dt><dd>{c.remainingStarts}</dd></div><div><dt>Thu nhập thêm còn có thể nhận</dt><dd>{money(c.nominalIncome)}</dd></div>
         <div className="course-net"><dt>Thu nhập còn lại − học phí</dt><dd>{signedMoney(c.netAfterFee)}</dd></div></dl>
-        <p className="course-note">Cần {Math.ceil(c.cost/c.boost)} START nhận lương thêm để bù học phí theo phép tính danh nghĩa.</p>
+        <p className="course-note"><FinancialTerm term="payback" />: cần {Math.ceil(c.cost/c.boost)} START nhận lương thêm để bù học phí theo phép tính danh nghĩa.</p>
         <p className="course-note">Tính danh nghĩa nếu tới đủ START còn lại; chưa cộng lương đã nhận hay chi phí cơ hội/bất ngờ. Đây không phải lợi nhuận bảo đảm hoặc khuyến nghị chọn khóa.</p>
       </details>
       <button className="button primary full-button" disabled={!c.canBuy} onClick={() => onChoose(`course-${c.id}`)}>{c.owned ? 'Đã hoàn thành' : `Mua ${c.name.toLowerCase()}`}</button>

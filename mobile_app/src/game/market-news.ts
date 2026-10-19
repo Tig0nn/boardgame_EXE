@@ -7,7 +7,7 @@ import type { BondIssuerId } from '../../../src/game/types.ts'
 const assets: TradableAsset[] = ['stocks', 'bonds', 'gold']
 const education: Record<TradableAsset, { characteristic: string; lesson: string }> = {
   stocks: { characteristic: 'Mỗi mã có thể đi khác hướng', lesson: 'Tín hiệu tích cực không loại bỏ rủi ro giảm giá. Đừng dùng tiền sắp cần chi.' },
-  bonds: { characteristic: `Coupon ${ECONOMY.bond.coupon * 100}% · Giá bán có thể giảm`, lesson: 'Coupon và biến động giá là hai phần khác nhau. Bán trước hạn có thể thu về ít hơn vốn.' },
+  bonds: { characteristic: `Lãi trái phiếu ${ECONOMY.bond.coupon * 100}% · Giá bán có thể giảm`, lesson: 'Lãi trái phiếu định kỳ và biến động giá là hai phần khác nhau. Bán trước hạn có thể thu về ít hơn vốn.' },
   gold: { characteristic: 'Không có lãi định kỳ · Có chênh lệch giá bán', lesson: 'Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.' },
 }
 
@@ -34,11 +34,11 @@ export function marketBulletin(game: GameState, lap = game.lap) {
     context: source?.scenario.description ?? 'Chưa tìm thấy bản tin đầu vòng này.',
     assets: assets.map(asset => ({ asset, ...ASSETS[asset], ...education[asset],
       ...(asset === 'bonds' && hasBondCredit(game) ? {
-        characteristic: 'Coupon tùy issuer · Có thể chậm trả hoặc mất vốn',
-        lesson: 'Coupon cao đi cùng rủi ro tín dụng. Xem hạng, áp lực trả nợ và tiền thực nhận của từng issuer.',
+        characteristic: 'Lãi trái phiếu tùy tổ chức phát hành · Có thể chậm trả hoặc mất vốn',
+        lesson: 'Lãi trái phiếu cao đi cùng rủi ro tín dụng. Xem xếp hạng tín nhiệm, áp lực trả nợ và tiền thực nhận của từng tổ chức phát hành.',
       } : {}),
       forecast: asset === 'bonds' && hasBondCredit(game) && source ? source.scenario.id === 'uncertain'
-        ? 'Tín dụng thận trọng · Issuer yếu chịu áp lực hơn' : 'Điều kiện tín dụng phân hóa theo issuer'
+        ? 'Khả năng trả nợ chịu áp lực · Tổ chức yếu rủi ro hơn' : 'Điều kiện tín dụng phân hóa theo tổ chức phát hành'
         : source?.scenario.tendencies[asset] ?? 'Chưa đủ dữ liệu' })),
   }
 }

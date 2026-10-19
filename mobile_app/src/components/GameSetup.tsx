@@ -1,3 +1,4 @@
+import { localizeNarrative } from '../../../src/components/glossary'
 import { useState } from 'react'
 import { Modal } from '../../../src/components/Modal'
 import { MoneyInput } from '../../../src/components/MoneyInput'
@@ -35,6 +36,6 @@ export function GameSetup({ onStart, onHelp, onRestore, saved, saveNotice }: { o
       <input id="mobile-seed" value={seed} placeholder="Để trống để khám phá ván mới" maxLength={128} onChange={e => setSeed(e.target.value)} />
       <p>Cùng mã và lựa chọn ban đầu sẽ có cùng hành trình.</p>
     </details>
-    {onRestore&&<details><summary>Mở ván đã lưu</summary><label htmlFor="saved-game-file">Nhật ký JSON · Giữ nguyên phiên bản của ván</label><input id="saved-game-file" type="file" accept=".json,application/json" onChange={async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>20_000_000)throw Error('File quá lớn.');onRestore(restoreSavedGame(await file.text()))}catch(err){setError(err instanceof Error?err.message:'Không mở được ván.')}}}/>{error&&<p role="alert">{error}</p>}</details>}
+    {onRestore&&<details><summary>Mở ván đã lưu</summary><label htmlFor="saved-game-file">Nhật ký JSON · Giữ nguyên phiên bản của ván</label><input id="saved-game-file" type="file" accept=".json,application/json" onChange={async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>20_000_000)throw Error('Tệp quá lớn.');onRestore(restoreSavedGame(await file.text()))}catch(err){setError(err instanceof SyntaxError?'Không đọc được tệp JSON. Hãy chọn nhật ký đã xuất từ trò chơi.':err instanceof Error?localizeNarrative(err.message):'Không mở được ván.')}}}/>{error&&<p role="alert">{error}</p>}</details>}
   </Modal>
 }

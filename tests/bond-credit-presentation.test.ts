@@ -17,7 +17,7 @@ test('public news/cards never reveal future or draw RNG; insufficient data stays
   const s = createGame('news-v25', 0, 1, 'experimental-b', undefined, 'v2.4-customer-preferences', 'v2.4-atomic-investments', 'vn-v1', 'v2.5-credit-risk')
   const before = JSON.stringify(s)
   for (let index = 0; index < 20; index++) {
-    assert.match(marketBulletin(s).assets[1].characteristic, /issuer/)
+    assert.match(marketBulletin(s).assets[1].characteristic, /tổ chức phát hành/)
     assert.match(investmentSignal(s, 'bonds', 'but-pha').label, /Bứt Phá/)
     assert.ok(creditRoundReview(s, 1).every(item => !item.available && item.returnRate === null))
   }

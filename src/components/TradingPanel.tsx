@@ -15,6 +15,7 @@ import { hasBondCredit } from '../game/bond-credit'
 import { BondCreditPanel } from './BondCreditPanel'
 import { tileTradingEnabled } from '../game/encounters'
 import { InvestmentEncounter } from './InvestmentEncounter'
+import { localizeNarrative } from './glossary'
 
 export function TradingPanel({ game, onTransaction, onSkip, compact = false, marketContext, buyOnly=false }: { game: GameState; onTransaction: (action: RebalanceAction) => boolean | void; onSkip: () => void; compact?: boolean; buyOnly?: boolean; marketContext?: (asset: TradableAsset, symbolId: string) => ReactNode }) {
   const tile = game.eventId as Asset | 'bank'
@@ -43,7 +44,7 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
   const atomicInvestment = financialTile && investmentPurchasesComplete(game)
   if(financialTile&&tileTradingEnabled(game)&&!buyOnly)return <InvestmentEncounter game={game} onTransaction={onTransaction} onSkip={onSkip} buyPanel={<TradingPanel game={game} onTransaction={onTransaction} onSkip={onSkip} compact={compact} marketContext={marketContext} buyOnly/>}/>
   const feedback = last?.kind === 'rebalancing' && last.turn === game.turn
-    ? <p className="transaction-feedback" role="status">Đã thực hiện: {last.decision}. Tiền mặt còn {money(game.portfolio.cash)}.</p> : null
+    ? <p className="transaction-feedback" role="status">Đã thực hiện: {localizeNarrative(last.decision)}. Tiền mặt còn {money(game.portfolio.cash)}.</p> : null
   if (atomicInvestment && investmentPurchaseUsed(game)) return <section>
     <p>Đã mua trong lượt này.</p><button className="button secondary full-button" onClick={onSkip}>Về bàn chơi</button>
   </section>
@@ -79,7 +80,7 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
         <button className="button secondary full-button" disabled={!!upgradeReason} onClick={() => submit({ kind: 'upgrade', asset: 'business', amount: config.upgradeCost, trend })}>Nâng cấp {money(config.upgradeCost)}</button>
         <button className="button secondary full-button" onClick={() => submit({ kind: 'sell', asset: 'business', amount: game.portfolio.business })}>Bán toàn cơ sở · Nhận {money(view.sale)}</button>
       </>}
-      <details className="trade-details"><summary>Chi phí, thu hồi vốn và rủi ro</summary><p>Giá thu hồi chịu xu hướng kinh tế, khấu hao {config.depreciation * 100}%/vòng và cú sốc kinh tế. Nâng cấp chỉ tăng giá thu hồi bằng {config.upgradeRecovery * 100}% chi phí.</p><p>{fixedIncome ? 'Cú sốc kinh tế đổi giá thu hồi, không đổi thu nhập vận hành. Phần thưởng nâng cấp trùng xu hướng phụ thuộc scenario hiện tại.' : 'Theo luật lịch sử, cú sốc kinh tế có thể đổi cả giá thu hồi và thu nhập.'} Có thể lỗ tổng vốn, hoặc không gặp lại ô để bán trước khi hết {view.remainingStarts} kỳ còn lại.</p></details>
+      <details className="trade-details"><summary>Chi phí, thu hồi vốn và rủi ro</summary><p>Giá thu hồi chịu xu hướng kinh tế, khấu hao {config.depreciation * 100}%/vòng và cú sốc kinh tế. Nâng cấp chỉ tăng giá thu hồi bằng {config.upgradeRecovery * 100}% chi phí.</p><p>{fixedIncome ? 'Cú sốc kinh tế đổi giá thu hồi, không đổi thu nhập vận hành. Phần thưởng nâng cấp trùng xu hướng phụ thuộc bối cảnh hiện tại.' : 'Theo luật lịch sử, cú sốc kinh tế có thể đổi cả giá thu hồi và thu nhập.'} Có thể lỗ tổng vốn, hoặc không gặp lại ô để bán trước khi hết {view.remainingStarts} kỳ còn lại.</p></details>
       <p className="inline-note">{singleActionEncounters(game) ? 'Mỗi lần gặp ô chỉ nâng cấp một lần, từ lượt sau khi mua. Bạn vẫn có thể bán cơ sở tại đây. Chọn “Hoàn tất” khi đã xong.' : 'Có thể nâng cấp nhiều tầng hợp lệ hoặc bán tại lần dừng này. Chọn “Hoàn tất” khi đã xong.'}</p>
     </section>
   }

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { localizeNarrative } from './glossary'
 import { ASSETS, RULES } from '../data/config'
 import { saleQuote } from '../game/selectors'
 import { money } from '../game/format'
@@ -32,13 +33,13 @@ export function RebalanceDialog({ game, onTransaction, onContinue, compact = fal
       {lots.map(item => <option key={item.lot.id} value={item.lot.id}>{bondIssuer(item.lot.credit!.issuerId).name} · {item.lot.id} · Nhận tối đa {money(item.quote.net)}</option>)}</select>{lots.length === 0 && <p>Chưa có khoản trái phiếu có giá bán khả dụng.</p>}</>}
     <label className="seed-label" htmlFor="sell-amount">Giá trị niêm yết muốn bán <span>Tối đa {money(available)}</span></label><MoneyInput id="sell-amount" amount={amount} onChange={setAmount} invalid={!valid} />
     {!valid && <p className="input-error">{game.portfolio[asset] === 0 ? 'Chưa có tài sản này để bán; chọn tài sản khác hoặc tiếp tục.' : 'Nhập số tiền nguyên dương trong số dư tài sản.'}</p>}
-    <div className="decision-preview"><span>Giá trị bán<strong>{money(quote.gross)}</strong></span><span>{compact ? 'Phí & chênh lệch' : 'Phí và spread'}<strong>{money(quote.fee + quote.spread)}</strong></span><span>Thực nhận<strong>{money(quote.net)}</strong></span><span>Tiền mặt sau bán<strong>{money(game.portfolio.cash + quote.net)}</strong></span></div>
+    <div className="decision-preview"><span>Giá trị bán<strong>{money(quote.gross)}</strong></span><span>{compact ? 'Phí & chênh lệch' : 'Phí và chênh lệch giá mua–bán'}<strong>{money(quote.fee + quote.spread)}</strong></span><span>Thực nhận<strong>{money(quote.net)}</strong></span><span>Tiền mặt sau bán<strong>{money(game.portfolio.cash + quote.net)}</strong></span></div>
     <button className="button secondary full-button" disabled={!valid} onClick={() => onTransaction({ kind: 'sell', asset, amount, ...(creditSale ? { lotId: lot?.lot.id } : {}) })}>Xác nhận bán <Icon name="check" size={17} /></button>
     <details className="trade-details"><summary>Báo giá và thông tin tài sản</summary><MarketDetails game={game} asset={asset} /></details>
     {game.portfolio.debt > 0 && <><p className={compact ? 'inline-note' : 'financial-warning'}>Nợ {money(game.portfolio.debt)} · {game.lap === game.totalLaps ? 'Đã gồm lãi cuối ván.' : `Lãi trả trước ${RULES.debtRate * 100}%.`}</p>
       <button className="button secondary full-button" disabled={repayable <= 0} onClick={() => onTransaction({ kind: 'repay', amount: repayable })}>Trả {money(repayable)} gốc · Lãi thêm {money(Math.round(repayable * debtRate))}</button>
     </>}
-    {game.log.at(-1)?.kind === 'rebalancing' && <p className="transaction-feedback" role="status">{game.log.at(-1)!.consequence}</p>}
+    {game.log.at(-1)?.kind === 'rebalancing' && <p className="transaction-feedback" role="status">{localizeNarrative(game.log.at(-1)!.consequence)}</p>}
     {compact ? <details><summary>Mục tiêu về đích</summary><GoalChecks game={game} /></details> : <GoalChecks game={game} />}
     <div className="sheet-actions"><button className="button primary full-button" onClick={onContinue}>{game.lap === game.totalLaps ? 'Xem kết quả hành trình' : 'Hoàn tất · Xem dự báo'} <Icon name="arrow" /></button></div>
   </Modal>

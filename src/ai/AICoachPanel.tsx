@@ -1,3 +1,5 @@
+import { localizeNarrative } from '../components/glossary'
+import { GlossaryText } from '../components/FinancialTerm'
 import { useState } from 'react'
 import type { GameState } from '../game/types.ts'
 import { buildCoachFacts } from './facts.ts'
@@ -174,13 +176,13 @@ export function AICoachPanel({
             <small style={{ color: '#64748b', fontSize: '0.75rem' }}>Góc nhìn sau ván cờ</small>
           </div>
 
-          <h3 className="ai-coach-headline">{output.headline}</h3>
+          <h3 className="ai-coach-headline">{localizeNarrative(output.headline)}</h3>
 
           <div className="ai-coach-insights-list">
             {output.insights.map((insight, idx) => (
               <div key={idx} className="ai-coach-insight-card">
-                <h4 className="ai-coach-insight-title">{insight.title}</h4>
-                <p className="ai-coach-insight-desc">{insight.explanation}</p>
+                <h4 className="ai-coach-insight-title">{localizeNarrative(insight.title)}</h4>
+                <p className="ai-coach-insight-desc"><GlossaryText text={localizeNarrative(insight.explanation)} /></p>
                 {insight.evidenceIds && insight.evidenceIds.length > 0 && (
                   <div className="ai-coach-evidence-badges">
                     {insight.evidenceIds.map(id => {
@@ -189,7 +191,7 @@ export function AICoachPanel({
                         <span
                           key={id}
                           className="ai-coach-badge"
-                          title={ev?.fact || id}
+                          title={ev?.fact ? localizeNarrative(ev.fact) : id}
                         >
                           {formatEvidenceTag(ev, id)}
                         </span>
@@ -206,19 +208,19 @@ export function AICoachPanel({
               <span className="ai-coach-try-next-label">
                 Bạn đồng hành mách nước ván tới
               </span>
-              <p className="ai-coach-try-next-text">{output.tryNext}</p>
+              <p className="ai-coach-try-next-text">{localizeNarrative(output.tryNext)}</p>
             </div>
           )}
 
           <div className="ai-coach-disclaimer">
-            Nhận xét AI · chỉ dùng dữ liệu giả lập trong game
+            Nhận xét AI · chỉ dùng dữ liệu giả lập trong trò chơi
           </div>
         </div>
       )}
 
       {status === 'error' && (
         <div className="ai-coach-error-card">
-          <p className="ai-coach-error-text">{errorMsg}</p>
+          <p className="ai-coach-error-text">{localizeNarrative(errorMsg)}</p>
           {retryCount < 2 && (
             <button
               type="button"

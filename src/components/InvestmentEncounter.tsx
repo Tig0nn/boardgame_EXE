@@ -6,6 +6,7 @@ import { creditBondLots } from '../game/bond-credit'
 import { money } from '../game/format'
 import type { GameState, RebalanceAction, TradableAsset } from '../game/types'
 import { MoneyInput } from './MoneyInput'
+import { FinancialTerm } from './FinancialTerm'
 
 export function InvestmentEncounter({game,buyPanel,onTransaction,onSkip}:{game:GameState;buyPanel:ReactNode;onTransaction:(a:RebalanceAction)=>boolean|void;onSkip:()=>void}){
   const asset=game.eventId as TradableAsset,lots=asset==='bonds'?creditBondLots(game).filter(x=>x.quote.executable):[]
@@ -27,7 +28,7 @@ export function InvestmentEncounter({game,buyPanel,onTransaction,onSkip}:{game:G
       {available<=0?<p role="status">Chưa có tài sản này với giá bán hợp lệ. Bạn có thể mua hoặc bỏ qua.</p>:<>
         <label htmlFor="tile-sell-amount">Giá trị muốn bán · Tối đa {money(available)}</label><MoneyInput id="tile-sell-amount" amount={amount} onChange={setAmount} invalid={!valid}/>
         {!valid&&<p className="input-error">Nhập số tiền nguyên dương trong giá trị tài sản đang giữ.</p>}
-        <div className="decision-preview"><span>Giá trị bán<strong>{money(quote.gross)}</strong></span><span>Phí<strong>{money(quote.fee)}</strong></span><span>Chênh lệch giá mua/bán<strong>{money(quote.spread)}</strong></span><span>Thực nhận vào tiền mặt<strong>{money(quote.net)}</strong></span><span>Tiền mặt sau bán<strong>{money(game.portfolio.cash+quote.net)}</strong></span></div>
+        <div className="decision-preview"><span>Giá trị bán<strong>{money(quote.gross)}</strong></span><span>Phí<strong>{money(quote.fee)}</strong></span><span><FinancialTerm term="spread" /><strong>{money(quote.spread)}</strong></span><span>Thực nhận vào tiền mặt<strong>{money(quote.net)}</strong></span><span>Tiền mặt sau bán<strong>{money(game.portfolio.cash+quote.net)}</strong></span></div>
         <button className="button primary full-button" disabled={!valid} onClick={sell}>Xác nhận bán · Nhận {money(quote.net)}</button>
       </>}
       <button className="button secondary full-button" onClick={onSkip}>Bỏ qua cơ hội</button>

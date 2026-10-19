@@ -6,6 +6,8 @@ import { BondStartCards, BondStartDetails } from './BondStartSummary'
 import { CompactForecastReality } from './MarketNews'
 import '../start-summary.css'
 import { GoalChecks } from '../../../src/components/GoalChecks'
+import { FinancialTerm, GlossaryText } from '../../../src/components/FinancialTerm'
+import { localizeNarrative } from '../../../src/components/glossary'
 
 export function LapSummaryModal({ game, onContinue, onHelp }: { game: GameState; onContinue: () => void; onHelp?: () => void }) {
   const summary = game.summaries.at(-1)!
@@ -13,7 +15,7 @@ export function LapSummaryModal({ game, onContinue, onHelp }: { game: GameState;
   const overview = buildStartOverview(game, summary.lap)
   return <Modal title={`Khép lại vòng ${summary.lap}`} onHelp={onHelp} className="start-summary">
     <div className="start-scroll">
-      <span className="section-kicker">START · {summary.lap}/{game.totalLaps}</span>
+      <span className="section-kicker"><FinancialTerm term="start" /> · {summary.lap}/{game.totalLaps}</span>
       <h2>Khép lại vòng {summary.lap}</h2>
       {overview ? <section className="start-overview" aria-label="Tiền thực nhận và đã chi tại START">
         <div className="start-totals"><div><span>Tiền đã nhận</span><strong className={cashTone(overview.received)}>{signedMoney(overview.received)}</strong></div>
@@ -35,12 +37,12 @@ export function LapSummaryModal({ game, onContinue, onHelp }: { game: GameState;
       <CompactForecastReality game={game} lap={summary.lap} />
       <BondStartDetails issuers={issuers} />
       <details className="start-details start-raw"><summary>Chi tiết giao dịch</summary>
-        <p className="start-caption">Bản ghi quyết toán gốc; mỗi dòng giữ nguyên số tiền của engine. Dòng 0 ₫ có thể là ghi chú về khoản chờ hoặc mất, không phải tiền đã nhận.</p>
+        <p className="start-caption">Số tiền được giữ nguyên từ bản ghi quyết toán; chỉ Việt hóa nhãn hiển thị. Dòng 0 ₫ có thể là ghi chú về khoản chờ hoặc mất, không phải tiền đã nhận.</p>
         <div className="summary-lines">{summary.lines.map((line, i) => <div key={i}>
-          <span>{line.label}</span><strong className={cashTone(line.amount)}>{signedMoney(line.amount)}</strong>
+          <span><GlossaryText text={localizeNarrative(line.label)} /></span><strong className={cashTone(line.amount)}>{signedMoney(line.amount)}</strong>
         </div>)}</div>
         <p>Tài sản ròng sau quyết toán: <strong>{money(summary.after)}</strong></p>
-        {summary.fundingNotes.map((note, i) => <p key={i}>{note}</p>)}
+        {summary.fundingNotes.map((note, i) => <p key={i}>{localizeNarrative(note)}</p>)}
       </details>
     </div>
     <footer className="start-actions"><button className="button primary full-button" onClick={onContinue}>Ghé ví tại START →</button></footer>

@@ -1,3 +1,4 @@
+import { localizeNarrative } from '../../src/components/glossary'
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import tilesData from './data/tiles.json'
 import { boardFor } from '../../src/data/board'
@@ -127,7 +128,7 @@ export function GameExperience({ session, onRestart, onHelp, helpOpen = false }:
     {!animation && !overlay && <GamePhase game={game} send={send} onRestart={onRestart} onHelp={onHelp} />}
     {overlay === 'portfolio' && <PortfolioDrawer game={game} onClose={() => setOverlay(null)} onHelp={onHelp} />}
     {overlay === 'log' && <LogDialog game={game} onClose={() => setOverlay(null)} />}
-    {notice && <Modal title="Không thể thực hiện" onClose={() => setNotice('')}><p role="alert">{notice}</p></Modal>}
+    {notice && <Modal title="Không thể thực hiện" onClose={() => setNotice('')}><p role="alert">{localizeNarrative(notice)}</p></Modal>}
   </>
 }
 

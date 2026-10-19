@@ -1,3 +1,5 @@
+import { localizeNarrative } from './glossary'
+import { GlossaryText } from './FinancialTerm'
 import { ASSETS, CATEGORIES } from '../data/config'
 import { eventsForGame } from '../data/events'
 import { canChoose, totalWorth, victory } from '../game/engine'
@@ -31,16 +33,16 @@ export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, on
     const category = CATEGORIES[event.category]
     const traded = game.log.some(entry => entry.turn === game.turn && entry.kind === 'rebalancing')
     const panelOwnsSkip = event.id === 'stocks' || (['gold', 'bonds'].includes(event.id) && investmentPurchasesComplete(game))
-    return <Modal key={`event-${game.turn}`} title={event.title} className={event.id === 'stocks' ? 'stock-modal' : event.id === 'business' && game.businessRulesVersion === 'v2.4-customer-preferences' ? 'business-modal' : ''}>
+    return <Modal key={`event-${game.turn}`} title={localizeNarrative(event.title)} className={event.id === 'stocks' ? 'stock-modal' : event.id === 'business' && game.businessRulesVersion === 'v2.4-customer-preferences' ? 'business-modal' : ''}>
       <div className={`event-category ${event.category}`}><Icon name={category.icon} size={24} /><span>{category.label}</span></div>
       <span className="event-location">Vòng {game.lap} · Ô {game.position + 1} · Lượt {game.turn}</span>
-      <h2>{event.title}</h2><p className="modal-lead">{event.id === 'stocks' ? 'Cơ hội tự nguyện · Chọn mã và số tiền mua.' : event.id === 'business' && game.businessRulesVersion === 'v2.4-customer-preferences' ? 'Cơ hội tự nguyện · Phát triển quán qua từng lần gặp ô.' : event.description}</p>
+      <h2>{localizeNarrative(event.title)}</h2><p className="modal-lead">{event.id === 'stocks' ? 'Cơ hội tự nguyện · Chọn mã và số tiền mua.' : event.id === 'business' && game.businessRulesVersion === 'v2.4-customer-preferences' ? 'Cơ hội tự nguyện · Phát triển quán qua từng lần gặp ô.' : localizeNarrative(event.description)}</p>
       <div className="event-cash"><span>Tiền mặt hiện có</span><strong>{money(game.portfolio.cash)}</strong></div>
       {['stocks', 'bonds', 'gold', 'business', 'bank'].includes(event.id) && <TradingPanel key={`${game.turn}-${game.log.length}`} game={game} onTransaction={onTransaction} onSkip={() => onChoose('skip')} />}
       {game.market.appliedShocks.includes(`${game.turn}:${event.id}`) && <details className="trade-details"><summary>Báo giá sau cú sốc</summary><MarketDetails game={game} asset="stocks" /><MarketDetails game={game} asset="gold" /><MarketDetails game={game} asset="bonds" /></details>}
       <div className="event-options">{event.options.filter(option => !panelOwnsSkip && !(event.id === 'course' && game.coursePurchased && option.id === 'upgrade')).map(option => {
         const shortfall = Math.max(0, (option.cost ?? 0) - game.portfolio.cash)
-        return <button key={option.id} className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}><div><strong>{option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : option.label}</strong><span>{option.id === 'skip' && traded ? 'Giữ các giao dịch đã thực hiện và tiếp tục gieo xúc xắc.' : option.detail}</span>
+        return <button key={option.id} className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}><div><strong>{option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : localizeNarrative(option.label)}</strong><span>{option.id === 'skip' && traded ? 'Giữ các giao dịch đã thực hiện và tiếp tục gieo xúc xắc.' : localizeNarrative(option.detail)}</span>
           <span>Tiền khả dụng: {money(game.portfolio.cash)} → {money(Math.max(0, game.portfolio.cash - (option.cost ?? 0)) + (option.income ?? 0))}</span>
           {shortfall > 0 && <small>Còn thiếu {money(shortfall)} · Bạn chọn nguồn thanh toán ở bước tiếp theo.</small>}
           {option.asset && <span>{ASSETS[option.asset].label}: {money(game.portfolio[option.asset])} → {money(game.portfolio[option.asset] + (option.amount ?? 0))}</span>}
@@ -58,11 +60,11 @@ export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, on
     return <Modal key={`summary-${game.lap}`} title={`Quyết toán vòng ${game.lap}`}>
       <span className="section-kicker"><Icon name="check" /> HOÀN THÀNH VÒNG {game.lap}</span><h2>Một vòng, một bước xa hơn.</h2><p className="modal-lead">Dòng tiền và thị trường đã được quyết toán.</p>
       <div className="income-breakdown"><div><span>Thu nhập cơ bản</span><strong>{signedMoney(rulesForGame(game).recurringIncome)}</strong></div><div><span>+ Thu nhập tăng thêm</span><strong>{signedMoney(summary.incomeTotal - rulesForGame(game).recurringIncome)}</strong></div><div><span>= Tổng lương vòng</span><strong>{signedMoney(summary.incomeTotal)}</strong></div></div>
-      <div className="summary-lines">{summary.lines.slice(2).map(line => <div key={line.label}><span>{line.label}</span><strong className={line.amount > 0 ? 'positive' : line.amount < 0 ? 'negative' : ''}>{signedMoney(line.amount)}</strong></div>)}</div>
+      <div className="summary-lines">{summary.lines.slice(2).map(line => <div key={line.label}><span><GlossaryText text={localizeNarrative(line.label)} /></span><strong className={line.amount > 0 ? 'positive' : line.amount < 0 ? 'negative' : ''}>{signedMoney(line.amount)}</strong></div>)}</div>
       <div className="actual-rates">{(Object.keys(summary.rates) as Asset[]).map(asset => <span key={asset}>{ASSETS[asset].label}<strong className={summary.rates[asset] >= 0 ? 'positive' : 'negative'}>{percent(summary.rates[asset])}</strong></span>)}</div>
       <div className="summary-total"><span>Tài sản ròng sau vòng {game.lap}</span><strong>{money(summary.after)}</strong></div>
-      {summary.fundingNotes.map((note, i) => <p className="inline-note" key={i}>{note}</p>)}
-      <p className="inline-note">Thứ tự: thị trường → lương → kinh doanh → đáo hạn/coupon → nợ/nghĩa vụ → bán tại START → dự báo hoặc kết quả. Cả vòng cuối đều có quyền bán.</p>
+      {summary.fundingNotes.map((note, i) => <p className="inline-note" key={i}>{localizeNarrative(note)}</p>)}
+      <p className="inline-note">Thứ tự: thị trường → lương → kinh doanh → đáo hạn/lãi trái phiếu định kỳ → nợ/nghĩa vụ → bán tại START → dự báo hoặc kết quả. Cả vòng cuối đều có quyền bán.</p>
       <GoalChecks game={game} />
       <button className="button primary full-button" onClick={onAdvance}>Mở quyền bán tại START<Icon name="arrow" /></button>
     </Modal>

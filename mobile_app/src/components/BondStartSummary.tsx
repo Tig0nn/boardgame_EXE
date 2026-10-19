@@ -1,3 +1,4 @@
+import { FinancialTerm, GlossaryText } from '../../../src/components/FinancialTerm'
 import { money, signedMoney } from '../../../src/game/format'
 import type { BondStartSummary as IssuerSummary } from '../game/start-summary'
 import { cashTone } from '../game/start-summary'
@@ -7,11 +8,11 @@ const statusCopy: Record<string, string> = {
   loss: 'Không trả đủ theo hợp đồng', holding: 'Chưa đến kỳ thanh toán',
 }
 const paymentCopy: Record<string, string> = {
-  performing: 'Trả đúng hạn', delayed: 'Đang chậm trả', defaulted: 'Đang thu hồi vốn', resolved: 'Đã hoàn tất',
+  performing: 'Trả đúng hạn', delayed: 'Đang chậm trả', defaulted: 'Vỡ nợ · Đang thu hồi vốn', resolved: 'Đã hoàn tất',
 }
 
 function CashRow({ label, amount }: { label: string; amount: number }) {
-  return <div><dt>{label}</dt><dd className={cashTone(amount)}>{signedMoney(amount)}</dd></div>
+  return <div><dt><GlossaryText text={label} /></dt><dd className={cashTone(amount)}>{signedMoney(amount)}</dd></div>
 }
 
 export function BondStartCards({ issuers }: { issuers: IssuerSummary[] }) {
@@ -22,7 +23,7 @@ export function BondStartCards({ issuers }: { issuers: IssuerSummary[] }) {
       <h3><small>Trái phiếu</small>{issuer.name}</h3>
       <p className="start-credit-status">{statusCopy[issuer.status]}</p>
       {issuer.couponPaid + issuer.principalPaid > 0 ? <dl className="start-money-rows">
-        {issuer.couponPaid > 0 && <CashRow label="Coupon đã nhận" amount={issuer.couponPaid} />}
+        {issuer.couponPaid > 0 && <CashRow label="Lãi trái phiếu định kỳ đã nhận" amount={issuer.couponPaid} />}
         {issuer.principalPaid > 0 && <CashRow label="Gốc đã thu hồi" amount={issuer.principalPaid} />}
       </dl> : <p className="start-no-receipt neutral">Chưa nhận tiền tại START này · {money(0)}</p>}
       {waiting > 0 && <div className="start-claim"><span>Khoản còn chờ</span><strong>{money(waiting)}</strong></div>}
@@ -39,15 +40,15 @@ export function BondStartDetails({ issuers }: { issuers: IssuerSummary[] }) {
     <p className="start-caption">Đến hạn khác với thực nhận. Khoản còn chờ và khoản mất không nằm trong tiền đã nhận.</p>
     {issuers.flatMap(issuer => issuer.lots.map(lot => <article className="start-lot" key={`${issuer.id}-${lot.id}`}>
       <h3>{issuer.name} · {lot.id}</h3>
-      <p className={lot.status === 'delayed' || lot.outstandingPrincipal + lot.outstandingCoupon > 0 ? 'start-amber' : 'neutral'}>{paymentCopy[lot.status]}</p>
+      <p className={lot.status === 'delayed' || lot.outstandingPrincipal + lot.outstandingCoupon > 0 ? 'start-amber' : 'neutral'}><GlossaryText text={paymentCopy[lot.status]} /></p>
       <dl className="start-money-rows">
-        <div><dt>Coupon đến hạn tại START này</dt><dd>{money(lot.couponDue)}</dd></div>
-        <CashRow label="Coupon đã nhận" amount={lot.couponPaid} />
+        <div><dt><FinancialTerm term="coupon" /> đến hạn tại START này</dt><dd>{money(lot.couponDue)}</dd></div>
+        <CashRow label="Lãi trái phiếu định kỳ đã nhận" amount={lot.couponPaid} />
         <div><dt>Gốc đến hạn tại START này</dt><dd>{money(lot.principalDue)}</dd></div>
         <CashRow label="Gốc đã nhận / thu hồi" amount={lot.principalPaid} />
-        <div className={lot.outstandingCoupon > 0 ? 'start-amber' : 'neutral'}><dt>Coupon còn chờ</dt><dd>{money(lot.outstandingCoupon)}</dd></div>
+        <div className={lot.outstandingCoupon > 0 ? 'start-amber' : 'neutral'}><dt><FinancialTerm term="coupon" /> còn chờ</dt><dd>{money(lot.outstandingCoupon)}</dd></div>
         <div className={lot.outstandingPrincipal > 0 ? 'start-amber' : 'neutral'}><dt>Gốc còn chờ / chờ thu hồi</dt><dd>{money(lot.outstandingPrincipal)}</dd></div>
-        <div className={cashTone(-lot.couponLost)}><dt>Coupon không thu hồi được · lũy kế</dt><dd>{money(lot.couponLost)}</dd></div>
+        <div className={cashTone(-lot.couponLost)}><dt><FinancialTerm term="coupon" /> không thu hồi được · lũy kế</dt><dd>{money(lot.couponLost)}</dd></div>
         <div className={cashTone(-lot.principalLost)}><dt>Gốc không thu hồi được · lũy kế</dt><dd>{money(lot.principalLost)}</dd></div>
         {lot.newLoss > 0 && <div className="negative"><dt>Mất được xác nhận tại START này</dt><dd>{money(lot.newLoss)}</dd></div>}
       </dl>

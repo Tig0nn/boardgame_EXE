@@ -1,0 +1,16 @@
+/* Isolate inline terms from the legacy panels' broad span/strong typography rules. */
+.financial-term.financial-term { display: inline; font: inherit; color: inherit; }
+.financial-term.financial-term > .financial-term-trigger { display: inline; color: inherit; font: inherit; font-weight: inherit; line-height: inherit; background: transparent; border: 0; border-radius: 2px; padding: 2px 0; text-align: inherit; text-decoration: underline dotted; text-underline-offset: 3px; cursor: help; white-space: normal; }
+.financial-term-trigger:focus-visible { outline: 2px solid #08736d; outline-offset: 3px; }
+.term-info { display: inline-block; margin-left: 3px; font-size: .78em; text-decoration: none; }
+.financial-term.financial-term .financial-term-popup.financial-term-popup { position: fixed; inset: auto; margin: 0; box-sizing: border-box; padding: 12px 14px; border: 1px solid #b8d6d1; border-radius: 10px; background: #f7fffd; color: #173d38; box-shadow: 0 6px 24px #102d3429; font-size: 14px; line-height: 1.5; text-align: left; font-weight: 400; text-transform: none; letter-spacing: normal; overflow: auto; overflow-wrap: anywhere; z-index: 10000; }
+.financial-term-popup:not([data-open]) { display: none; }
+.financial-term.financial-term .financial-term-popup.financial-term-popup > strong, .financial-term.financial-term .financial-term-popup.financial-term-popup > span { display: block; color: #173d38; font-size: 14px; line-height: 1.5; }
+.financial-term-popup strong { margin-bottom: 4px; }
+.financial-glossary { margin: 18px 0; text-align: left; }
+.financial-glossary summary { padding: 12px 0; cursor: pointer; font-weight: 700; }
+.financial-glossary dl { margin: 0; }
+.financial-glossary dl > div { padding: 12px 0; border-bottom: 1px solid #dbe5e1; }
+.financial-glossary dt { font-weight: 700; overflow-wrap: anywhere; }
+.financial-glossary dt small { font-weight: 400; }
+.financial-glossary dd { margin: 5px 0 0; line-height: 1.55; }

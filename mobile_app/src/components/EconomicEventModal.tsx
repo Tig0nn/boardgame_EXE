@@ -41,7 +41,7 @@ export function EconomicEventModal({ game, onChoose, onHelp }: { game: GameState
             <CreditNote item={item} />
           </div>)}</div>}
         </article>)}
-        <p className="event-caption">Đổi giá do biến cố vừa xảy ra; không phải tiền lãi/lỗ đã nhận, không gồm coupon hay phí.</p>
+        <p className="event-caption">Đổi giá do biến cố vừa xảy ra; không phải tiền lãi/lỗ đã nhận, không gồm lãi trái phiếu định kỳ hay phí.</p>
       </section>
       <aside className="event-lesson" aria-label="Góc nhìn tài chính"><h3>Góc nhìn tài chính</h3><p>{impact.lesson}</p></aside>
       <details className="event-breakdown"><summary>Xem chi tiết thị trường</summary>
@@ -56,7 +56,7 @@ export function EconomicEventModal({ game, onChoose, onHelp }: { game: GameState
             {item.credit && <><CreditNote item={item} /><small>Hạng {item.credit.ratingBefore} → {item.credit.ratingAfter} · {statusText[item.credit.statusAfter]}</small></>}
           </div>)}
         </section>)}
-        <p className="event-caption">Tín dụng xấu đi có thể ảnh hưởng khả năng trả nợ sau này; biến động giá không tự xác nhận chậm trả hay mất vốn. Bối cảnh và giá là nội dung trong game.</p>
+        <p className="event-caption">Tín dụng xấu đi có thể ảnh hưởng khả năng trả nợ sau này; biến động giá không tự xác nhận chậm trả hay mất vốn. Bối cảnh và giá là nội dung trong trò chơi.</p>
       </details>
       {impact.portfolio.length > 0 && <details className="event-portfolio"><summary>Tài sản của bạn bị ảnh hưởng thế nào?</summary>
         <p className="event-caption">Thay đổi định giá chưa thực hiện, theo tài sản nắm ngay trước biến cố. Không phải tiền mặt nhận/chi hoặc nguồn tiền về đích sau phí và nợ.</p>

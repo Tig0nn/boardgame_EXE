@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { GlossaryText } from './FinancialTerm'
 import { boardFor } from '../data/board'
 import { CATEGORIES } from '../data/config'
 import type { GameState } from '../game/types'
@@ -73,6 +74,6 @@ export function Board({ game, onRoll, rolling }: { game: GameState; onRoll: () =
       <div className={`die ${rolling ? 'rolling' : ''}`} role="img" aria-label={game.dice ? `Xúc xắc ${game.dice}` : 'Xúc xắc sẵn sàng'}>{Array.from({ length: 9 }, (_, i) => <span key={i} className={game.dice && dots[game.dice].includes(i + 1) ? 'visible' : ''} />)}{!game.dice && <b className="die-ready">?</b>}</div>
       <div className="roll-control">{purchased && <p className="purchase-success" role="status">{last.decisionId === 'deposit-bank' ? 'Đã gửi tiết kiệm' : last.decisionId === 'buy-business' ? 'Đã mua cơ sở kinh doanh' : 'Đã mua cổ phiếu'} · {last.decision}. Tiền mặt còn {money(game.portfolio.cash)}. Bạn có thể gieo tiếp.</p>}<button ref={rollButton} className="button primary roll-button" onClick={onRoll} disabled={game.phase !== 'rolling' || rolling}>{rolling ? 'Đang gieo…' : 'Gieo xúc xắc'}<Icon name="arrow" size={20} /></button><p className="board-hint" aria-live="polite">{rolling ? 'Cơ hội nào đang chờ bạn?' : game.dice ? `Kết quả: ${game.dice} bước · Vòng ${game.lap}/${game.totalLaps}` : 'Gieo 1 xúc xắc để bắt đầu khám phá'}</p></div>
     </div>
-    {tile && <Modal title={`Ô ${tile.index + 1}: ${tile.label}`} onClose={() => setSelected(null)}><span className="section-kicker">Ô {tile.index + 1} / {tiles.length} · {CATEGORIES[tile.category].short}</span><h2>{tile.label}</h2><p className="modal-lead">{tileInformation(tile.type,game)}</p><button className="button primary full-button" onClick={() => setSelected(null)}>Trở lại bàn chơi<Icon name="arrow" /></button></Modal>}
+    {tile && <Modal title={`Ô ${tile.index + 1}: ${tile.label}`} onClose={() => setSelected(null)}><span className="section-kicker">Ô {tile.index + 1} / {tiles.length} · {CATEGORIES[tile.category].short}</span><h2>{tile.type==='start'?'Ô Xuất phát (START)':tile.label}</h2><p className="modal-lead"><GlossaryText text={tileInformation(tile.type,game)} /></p><button className="button primary full-button" onClick={() => setSelected(null)}>Trở lại bàn chơi<Icon name="arrow" /></button></Modal>}
   </section>
 }
