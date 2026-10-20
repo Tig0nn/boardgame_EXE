@@ -19,7 +19,8 @@
 .course-projection summary { min-height: 44px; display: list-item; padding-block: 10px; font-size: .85rem; line-height: 1.5; cursor: pointer; color: #31583c; }
 .course-choices .course-projection .course-note { color: #5f655e; }
 .mobile-event .course-choices .course-projection .course-note { color: #5f655e; }
-.course-choices .button { display: block; width: 100%; min-height: 44px; white-space: normal; overflow-wrap: anywhere; }
+.course-choices button { min-height: 44px; white-space: normal; }
+.course-choices .button { display: block; width: 100%; overflow-wrap: anywhere; }
 .course-card > .button { margin: 12px 0 0; }
 .course-card :is(button, summary):focus-visible { outline: 3px solid #31583c; outline-offset: 3px; }
 .course-choices button:disabled { opacity: 1; color: #5e6259; background: #e6e8dc; border-color: #d6dcca; cursor: default; }
