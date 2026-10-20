@@ -37,7 +37,7 @@ export function LapSummaryModal({ game, onContinue, onHelp }: { game: GameState;
       <CompactForecastReality game={game} lap={summary.lap} />
       <BondStartDetails issuers={issuers} />
       <details className="start-details start-raw"><summary>Chi tiết giao dịch</summary>
-        <p className="start-caption">Số tiền được giữ nguyên từ bản ghi quyết toán; chỉ Việt hóa nhãn hiển thị. Dòng 0 ₫ có thể là ghi chú về khoản chờ hoặc mất, không phải tiền đã nhận.</p>
+      <p className="start-caption">Các khoản đã nhận và đã trả trong vòng. Dòng 0 ₫ có thể ghi khoản đang chờ hoặc không thu hồi được; không phải tiền đã vào ví.</p>
         <div className="summary-lines">{summary.lines.map((line, i) => <div key={i}>
           <span><GlossaryText text={localizeNarrative(line.label)} /></span><strong className={cashTone(line.amount)}>{signedMoney(line.amount)}</strong>
         </div>)}</div>

@@ -26,10 +26,10 @@ export function GameResultModal({ game, onRestart, onExport, onHelp }: {
     <button className="button primary full-button" onClick={onRestart}>Chơi hành trình mới</button>
     <details><summary>AI Coach · Tùy chọn</summary><AICoachPanel game={game} /></details>
     <details><summary>Chi tiết kết quả & nhật ký</summary>
-      <p>Giá trị huy động hợp lệ là tiền mặt + gốc tiết kiệm rút được + giá bán tài sản tài chính sau phí, trừ nợ và khoản phải trả.</p>
+      <p>Nguồn tiền về đích gồm tiền mặt, gốc tiết kiệm rút được và tiền bán tài sản tài chính theo giá hiện tại sau phí, trừ nợ và khoản phải trả. Đây là cách tính mục tiêu; trò chơi không tự bán tài sản.</p>
       <p><FinancialTerm term="netWorth" />: {money(totalWorth(game))} · Tiền mặt: {money(game.portfolio.cash)}</p>
       <p>Vốn kinh doanh chưa bán và lãi tiết kiệm chưa trả không tính vào nguồn tiền về đích.</p>
-      {hasBondCredit(game) && <p><FinancialTerm term="coupon" /> và gốc đang chờ trả không được cộng thêm. Trái phiếu chỉ tính giá bán khả dụng sau phí; khoản vỡ nợ không có giá bán.</p>}
+      {hasBondCredit(game) && <p><FinancialTerm term="coupon" /> và gốc đang chờ trả không được cộng thêm. Trái phiếu chỉ tính tiền có thể bán nhận sau phí; khoản mà bên phát hành không trả được nợ không có giá bán.</p>}
       <button className="button secondary full-button" onClick={onExport}>Lưu nhật ký hành trình</button>
     </details>
   </Modal>

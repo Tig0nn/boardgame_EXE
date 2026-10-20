@@ -16,8 +16,9 @@
 .event-movement.up { color: #6ee7b7; }
 .event-movement.down { color: #fda4af; }
 .event-movement.flat, .event-movement.unavailable { color: #cbd5e1; }
-.economic-event small, .economic-event .event-caption { color: #cbd5e1; font-size: 11px; line-height: 1.5; }
+.economic-event small, .economic-event .event-caption { color: #cbd5e1; font-size: 12px; line-height: 1.5; }
 .economic-event .event-caption { margin: 4px 0; }
+.economic-event .event-personal-impact { margin-top: 12px; padding: 8px; border: 1px solid #456275; border-radius: 8px; }
 .event-issuers { display: grid; gap: 6px; margin-top: 4px; font-size: 13px; }
 .event-credit, .event-credit > span, .event-instrument > small { display: block; }
 .event-lesson { border-left: 3px solid #fbbf24; padding-left: 12px; margin-top: 12px; }

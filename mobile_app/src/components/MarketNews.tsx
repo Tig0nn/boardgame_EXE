@@ -7,6 +7,7 @@ import { hasBondCredit } from '../../../src/game/bond-credit'
 import '../market-news.css'
 import { CustomerPreferenceCard } from '../../../src/components/CustomerPreferenceCard'
 import { GlossaryText } from '../../../src/components/FinancialTerm'
+import { tileTradingEnabled } from '../../../src/game/encounters'
 
 const policyContext: Record<string, string> = {
   'credit-tightening': 'Cổ phiếu và giá trái phiếu giảm; vàng tăng.',
@@ -27,7 +28,7 @@ export function EconomicBulletin({ game }: { game: GameState }) {
     <details><summary>Chi tiết · Đọc tín hiệu thế nào?</summary>
       {news.assets.map(item => <p key={item.asset}><b>{item.label}:</b> {item.lesson}</p>)}
       <p>Dự báo không bảo đảm giá tăng. Giá đổi tại ô Xuất phát và khi gặp sự kiện kinh tế. Những tình huống dưới đây có thể xuất hiện trong trò chơi, chưa phải sự kiện sắp xảy ra:</p>
-      <ul>{MACRO_EVENTS.map(event => <li key={event.id}><b>{event.label}:</b> {hasBondCredit(game) ? event.id === 'credit-tightening' ? 'Áp lực tín dụng tăng; giá và khả năng trả nợ khác nhau giữa tổ chức phát hành.' : 'Áp lực tín dụng giảm; không đảm bảo tổ chức phát hành trả đúng hạn.' : policyContext[event.id]}</li>)}</ul>
+      <ul>{MACRO_EVENTS.map(event => <li key={event.id}><b>{event.label}:</b> {hasBondCredit(game) ? event.id === 'credit-tightening' ? 'Áp lực tài chính của bên phát hành trái phiếu tăng; giá và khả năng trả nợ khác nhau giữa các bên.' : 'Áp lực tài chính của bên phát hành trái phiếu có thể giảm; không bảo đảm trả đúng hạn.' : policyContext[event.id]}</li>)}</ul>
       <p>Giá và tin tức là nội dung trong trò chơi, không phải bản tin hay giá giao dịch thực tế. Tiết kiệm giữ lãi suất cố định theo kỳ hạn; quán dùng sở thích khách trong màn Kinh doanh.</p>
     </details>
   </section>
@@ -43,8 +44,8 @@ export function ForecastReality({ game, lap }: { game: GameState; lap: number })
         <strong className={item.returnRate === null ? '' : item.returnRate >= 0 ? 'positive' : 'negative'}>{item.returnRate === null ? 'Chưa đủ dữ liệu' : percent(item.returnRate)}</strong></div>
       <small>Dự báo: {item.forecast}</small>
     </article>)}</div>
-    <p className="news-caption">Biến động giá, không phải lãi của bạn; chưa trừ phí và không gồm lãi trái phiếu định kỳ.</p>
-    {hasBondCredit(game) && <details className="credit-reality"><summary>Tín dụng & tiền thực nhận</summary>{creditRoundReview(game, lap).map(issuer => <article key={issuer.id}>
+    <p className="news-caption">Cổ phiếu: mức đổi giá trung bình của tất cả mã, mỗi mã tính như nhau. Đây là biến động giá, không phải lãi của bạn; chưa trừ phí hay cộng tiền lãi trái phiếu định kỳ.</p>
+    {hasBondCredit(game) && <details className="credit-reality"><summary>Khả năng trả nợ & tiền đã nhận</summary>{creditRoundReview(game, lap).map(issuer => <article key={issuer.id}>
       <strong>{issuer.name}</strong>{!issuer.available ? <p>Chưa đủ dữ liệu</p> : <><small>{issuer.forecast}</small>
         <p>Hạng {issuer.ratingBefore} → {issuer.ratingAfter} · {issuer.status === 'performing' ? 'Trả đúng hạn' : issuer.status === 'delayed' ? 'Chậm trả' : issuer.status === 'defaulted' ? 'Đang thu hồi vốn' : 'Đã xử lý thu hồi'}</p>
         <dl><dt>Biến động giá</dt><dd>{issuer.returnRate === null ? 'Chưa đủ dữ liệu' : issuer.returnRate === -1 ? 'Tạm ngừng giao dịch' : percent(issuer.returnRate)}</dd>
@@ -54,7 +55,7 @@ export function ForecastReality({ game, lap }: { game: GameState; lap: number })
           <dt>Mất gốc / lãi trái phiếu định kỳ</dt><dd>{money(issuer.principalLost)} / {money(issuer.couponLost)}</dd></dl></>}
     </article>)}</details>}
     <p className="news-caption">{review.shocks.length > 0 ? `${review.shocks.length} sự kiện kinh tế đã tác động; xem bên dưới.` : 'Chưa ghi nhận cú sốc kinh tế trong dữ liệu vòng này.'}</p>
-    <details><summary>Điều bạn học được</summary>
+    <details><summary>Nhìn lại dự báo và rủi ro</summary>
       {review.shocks.length > 0 ? <><p>Sự kiện đã tác động trong vòng; mức biến động trên đã gồm tác động này:</p>
         <ul>{review.shocks.map(shock => <li key={`${shock.turn}-${shock.eventId}`}>{shock.label} · Lượt {shock.turn}</li>)}</ul></>
         : <p>Không ghi nhận cú sốc kinh tế trong dữ liệu vòng này. Chênh lệch dự báo có thể đến từ biến động giá thông thường.</p>}
@@ -75,7 +76,7 @@ export function CompactForecastReality({ game, lap }: { game: GameState; lap: nu
       <strong className={item.returnRate === null || item.returnRate === 0 ? 'neutral' : item.returnRate > 0 ? 'positive' : 'negative'}>
         {item.returnRate === null ? 'Chưa đủ dữ liệu' : item.returnRate === -1 && item.asset === 'bonds' ? 'Ngừng giao dịch' : percent(item.returnRate)}
       </strong></li>)}</ul>
-    <p className="start-caption">Biến động giá; không gồm lãi trái phiếu định kỳ hay phí.</p>
+    <p className="start-caption">Cổ phiếu là trung bình đổi giá của tất cả mã, mỗi mã tính như nhau. Không phải lãi của bạn; chưa tính tiền lãi trái phiếu định kỳ hay phí.</p>
     <details><summary>Xem dự báo và thực tế</summary><ForecastReality game={game} lap={lap} /></details>
   </section>
 }
@@ -87,7 +88,7 @@ export function MarketSignal({ game, asset, symbolId }: { game: GameState; asset
     <p>Giá hiện tại: {signal.price === null ? 'Chưa đủ dữ liệu' : `${money(signal.price)}/đơn vị`}.
       {' '}Trong vòng: {signal.returnRate === null ? 'Chưa đủ dữ liệu; chưa có biến động giá.' : `${percent(signal.returnRate)} đã xảy ra.`}</p>
     <p>{signal.lesson}</p>
-    <p>Phí bán {percent(signal.saleFee).replace('+', '')}{signal.spread > 0 ? ` + chênh lệch ${percent(signal.spread).replace('+', '')}` : ''} · Còn {signal.remainingStarts} lần qua ô Xuất phát. Bán tại ô Xuất phát hoặc để trả khoản thiếu bắt buộc.</p>
+    <p>Phí bán {percent(signal.saleFee).replace('+', '')}{signal.spread > 0 ? ` + chênh lệch giá mua và bán ${percent(signal.spread).replace('+', '')}` : ''} · Còn {signal.remainingStarts} lần qua ô Xuất phát. {tileTradingEnabled(game) ? 'Có thể bán tại ô cùng loại tài sản, ô Xuất phát hoặc để trả khoản thiếu bắt buộc, nếu có giá bán hợp lệ.' : 'Bán tại ô Xuất phát hoặc để trả khoản thiếu bắt buộc, nếu có giá bán hợp lệ.'}</p>
     <p>Giữ đủ tiền cho sinh hoạt và khoản đến hạn. Xem tiền mặt sau giao dịch trước khi chọn mua.</p>
   </details>
 }

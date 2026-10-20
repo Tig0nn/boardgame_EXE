@@ -24,13 +24,13 @@ const steps = [
     detail: 'Chỉ quyết định khi nhân vật dừng. Mỗi lần ghé ô Cổ phiếu, Vàng hoặc Trái phiếu chỉ được một giao dịch mua hoặc bán thành công; xong là quay lại bàn cờ. Giao dịch lỗi không mất quyền. Bạn có thể bỏ qua hoặc giao dịch tiếp khi gặp lại ô ở lượt sau. Mở quán và gửi một khoản tiết kiệm xong cũng trở về bàn cờ.' },
   { title: 'Để đồng tiền cùng bạn lớn lên', tag: 'CHỌN CÁCH KIẾM TIỀN',
     text: 'Tiết kiệm có lãi cố định. Trái phiếu cho tổ chức phát hành vay: lãi trái phiếu định kỳ cao hơn đi cùng rủi ro chậm trả hoặc mất vốn.',
-    detail: 'Ngân hàng: một khoản gửi mới mỗi lần ghé, kỳ hạn 1 / 2 / 3 lần qua ô Xuất phát với lãi 4/5/6% mỗi kỳ, lãi đơn nhận cuối hạn; các khoản độc lập, không tự tái tục. Cổ phiếu, vàng, trái phiếu được bán ở ô tương ứng, tại ô Xuất phát và huy động tiền thanh toán. Quán chỉ được nâng cấp hoặc bán từ lần ghé ô Kinh doanh sau lượt mua; mỗi lần ghé nâng tối đa một tầng. Quán nhận 3 triệu + 700 nghìn mỗi tầng + 1 triệu mỗi tầng hợp sở thích khách tại ô Xuất phát; giá bán chịu thị trường và khấu hao. Giá tài sản có thể giảm. Các mức giá trong trò chơi là mô phỏng, không phải dữ liệu giao dịch thực tế.' },
+    detail: 'Ngân hàng: một khoản gửi mới mỗi lần ghé, kỳ hạn 1 / 2 / 3 lần qua ô Xuất phát với lãi 4/5/6% mỗi kỳ, lãi tính trên tiền gốc, nhận cuối kỳ hạn; các khoản độc lập, không tự tái tục. Cổ phiếu, vàng, trái phiếu được bán ở ô tương ứng, tại ô Xuất phát và huy động tiền thanh toán. Quán chỉ được nâng cấp hoặc bán từ lần ghé ô Kinh doanh sau lượt mua; mỗi lần ghé nâng tối đa một tầng. Quán nhận 3 triệu + 700 nghìn mỗi tầng + 1 triệu mỗi tầng hợp sở thích khách tại ô Xuất phát; giá bán chịu thị trường và khấu hao. Giá tài sản có thể giảm. Các mức giá trong trò chơi là mô phỏng, không phải dữ liệu giao dịch thực tế.' },
   { title: 'Luôn chừa tiền cho bất ngờ', tag: 'KHI CẦN THANH TOÁN',
     text: 'Dừng ở ô Sinh hoạt cần trả tiền. Thiếu tiền mặt? Bạn vẫn có thể xoay xở.',
     detail: 'Tiền mặt được dùng trước. Phần còn thiếu có thể kết hợp rút toàn khoản tiết kiệm, bán cổ phiếu/trái phiếu/vàng và vay trong hạn mức 30 triệu. Rút sớm mất toàn bộ lãi kỳ hạn chưa trả; tiền thừa vẫn ở ví. Vay chịu lãi 10% ở kỳ trả kế tiếp; vay tại lần qua ô Xuất phát cuối được cộng lãi vào nợ ngay. Không bán khẩn cấp quán kinh doanh. Hết nguồn thanh toán thì hành trình kết thúc.' },
   { title: 'Về đích với một chiếc ví vững vàng', tag: 'SẴN SÀNG CHƯA?',
-    text: 'Hoàn thành 4 vòng và tích lũy đủ 90 triệu huy động hợp lệ là chiến thắng!',
-    detail: 'Mục tiêu duy nhất90 triệu huy động hợp lệ sau phí, nợ và nghĩa vụ. Không cần toàn bộ là tiền mặt, không buộc giữ riêng 10 triệu. Nếu chưa đủ hoặc hết khả năng thanh toán, hãy thử một hành trình mới. Sổ tay luôn ở ngay trên màn hình để bạn xem lại bất cứ lúc nào.' },
+    text: 'Hoàn thành 4 vòng và tích lũy đủ 90 triệu từ nguồn tiền về đích là chiến thắng!',
+    detail: 'Mục tiêu duy nhất: 90 triệu từ tiền mặt, gốc tiết kiệm rút được và tiền bán tài sản tài chính, sau phí, nợ và khoản phải trả. Không cần toàn bộ là tiền mặt, không buộc giữ riêng 10 triệu. Nếu chưa đủ hoặc hết khả năng thanh toán, hãy thử một hành trình mới. Sổ tay luôn ở ngay trên màn hình để bạn xem lại bất cứ lúc nào.' },
 ]
 
 export function BoardGuide({ game }: { game?: GameState }) {

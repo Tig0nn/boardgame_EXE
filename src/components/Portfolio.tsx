@@ -34,7 +34,7 @@ export function Portfolio({ game, compact = false }: { game: GameState; compact?
       <p>{maturityLabel(lot.maturityLap)}</p>
     </article>)}{activeDeposits.length > 0 && <p className="savings-period-note">{savingsPeriodExplanation}</p>}</div>
     {!compact && <p className="portfolio-checkpoint">Mua/bán tại ô tài chính theo phiên bản ván; vẫn bán tại ô Xuất phát. Khi thiếu tiền bắt buộc, bạn chọn nguồn thanh toán.</p>}
-    <div className="debt-box"><span>Nợ vay <strong>{money(game.portfolio.debt)}</strong></span><span>Nghĩa vụ cuối vòng <strong>{money(game.obligations)}</strong></span>{game.pendingPayment && <span>Khoản đang thiếu <strong>{money(game.pendingPayment.remaining)}</strong></span>}<small>Các khoản phải trả đã được trừ khỏi tài sản ròng.</small></div>
+    <div className="debt-box"><span>Nợ vay của bạn <strong>{money(game.portfolio.debt)}</strong></span><span>Khoản hẹn trả cuối vòng <strong>{money(game.obligations)}</strong></span>{game.pendingPayment && <span>Khoản đang thiếu <strong>{money(game.pendingPayment.remaining)}</strong></span>}<small>Các khoản phải trả đã được trừ khỏi tài sản ròng.</small></div>
     <div className="cashflow"><h3>Khi qua ô Xuất phát</h3><dl><div><dt>Lương định kỳ</dt><dd className="positive">+{money(game.recurringIncome)}</dd></div></dl><p className="salary-remaining">Còn <strong>{remainingSalaryReceipts}</strong> lần nhận lương.</p><p>Sinh hoạt {money(livingCostForGame(game))} {hasPeriodicLiving(game) ? 'mỗi lần hoàn thành vòng qua ô Xuất phát' : 'khi dừng đúng ô'}. Giá thay đổi khi qua ô Xuất phát và khi có cú sốc kinh tế.</p></div>
   </aside>
 }

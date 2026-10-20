@@ -10,6 +10,7 @@ import { BondHoldings } from './BondHoldings'
 import './BondCredit.css'
 import { FinancialTerm, GlossaryText } from './FinancialTerm'
 import { localizeNarrative } from './glossary'
+import { tileTradingEnabled } from '../game/encounters'
 
 export function BondCreditPanel({ game, onTransaction, onSkip, marketContext }: {
   game: GameState; onTransaction: (action: RebalanceAction) => void; onSkip: () => void
@@ -28,7 +29,7 @@ export function BondCreditPanel({ game, onTransaction, onSkip, marketContext }: 
         <strong>{item.name}</strong><span>Hạng {current.rating} · {item.riskLabel}</span>
         <b>{(item.coupon * 100).toLocaleString('vi-VN')}% mỗi kỳ · {item.term} lần qua ô Xuất phát</b>
         <span>Giá {current.currentPrice ? money(current.currentPrice) : 'Tạm ngừng giao dịch'} · Mệnh giá {money(item.faceValue)}</span>
-        <small>{current.status === 'performing' ? `Áp lực ${current.stress}/2 · ${item.id === 'an-tam' ? 'Ít rủi ro hơn, vẫn có thể chậm trả.' : 'Lãi trái phiếu định kỳ cao, dễ chậm trả hoặc mất vốn.'}` : 'Đang xử lý khoản chậm trả · Tạm ngừng bán mới'}</small>
+        <small>{current.status === 'performing' ? item.id === 'an-tam' ? 'Ít rủi ro hơn, vẫn có thể chậm trả hoặc mất vốn.' : 'Lãi cao hơn, dễ chậm trả hoặc mất vốn hơn.' : 'Đang xử lý khoản chậm trả · Tạm ngừng bán mới'}</small>
       </button>
     })}</fieldset>
     <label htmlFor="trade-amount">Số tiền mua</label><MoneyInput id="trade-amount" amount={amount} onChange={setAmount} invalid={!preview.valid} />
@@ -41,12 +42,13 @@ export function BondCreditPanel({ game, onTransaction, onSkip, marketContext }: 
     {marketContext?.('bonds', issuerId)}
     <button className="button primary full-button" disabled={!preview.valid || !available} onClick={() => onTransaction({ kind: 'buy', asset: 'bonds', issuerId, amount, completeEncounter: true })}>Mua trái phiếu {preview.valid && available ? money(amount) : ''}</button>
     <button className="button secondary full-button" onClick={onSkip}>Bỏ qua cơ hội</button>
-    <details className="trade-details"><summary>Tín dụng, kỳ hạn & cách rút vốn</summary>
+    <details className="trade-details"><summary>Khả năng trả nợ và cách lấy lại tiền</summary>
       <p>Tiết kiệm nhận lãi cố định khi đến hạn; trái phiếu là khoản cho tổ chức phát hành vay. Lãi trái phiếu định kỳ cao đi cùng rủi ro tín dụng cao hơn. Hạng AA/B/CCC/D là thang trong trò chơi, không phải đánh giá doanh nghiệp thực.</p>
-      <p><FinancialTerm term="issuer" />: {config.name} · {issuer.status === 'performing' ? 'Đang trả đúng hạn' : issuer.status === 'delayed' ? 'Có khoản chậm trả' : <><FinancialTerm term="default" /> · Đang thu hồi vốn</>} · Áp lực {issuer.stress}/2. <GlossaryText text={localizeNarrative(config.description)} /></p>
+      <p><FinancialTerm term="issuer" />: {config.name} · {issuer.status === 'performing' ? 'Đang trả đúng hạn' : issuer.status === 'delayed' ? 'Có khoản chậm trả' : <><FinancialTerm term="default" /> · Đang thu hồi vốn</>}. <GlossaryText text={localizeNarrative(config.description)} /></p>
+      <p>Áp lực tài chính của bên phát hành: {issuer.stress}/2. Thang trong trò chơi: 0 thấp nhất, 2 cao nhất. Mức 0 vẫn có thể chậm trả hoặc mất vốn; đây không phải nợ của bạn.</p>
       <p><FinancialTerm term="rating" />: {issuer.rating} · Mức mô phỏng trong trò chơi.</p>
-      {issuer.events.length > 0 && <ul>{issuer.events.slice(-3).map(event => <li key={`${event.lap}-${event.turn}`}>ô Xuất phát {event.lap}: hạng {event.rating} · {event.to === 'performing' ? 'Trả đúng hạn' : event.to === 'delayed' ? 'Chậm trả' : event.to === 'defaulted' ? 'Tái cơ cấu' : 'Đã thu hồi theo phương án'}</li>)}</ul>}
-      <p>Chậm trả: khoản chưa nhận chưa vào ví. Khi tái cơ cấu, lãi trái phiếu định kỳ chưa trả mất toàn bộ; gốc thu hồi {config.recovery * 100}% ở lần qua ô Xuất phát tiếp theo, có thể sau khi hết ván. Bán từng khoản tại ô Xuất phát hoặc khi cần trả chi phí; giá bán có thể thấp hơn vốn. Khoản vỡ nợ tạm ngừng bán.</p>
+      {issuer.events.length > 0 && <ul>{issuer.events.slice(-3).map(event => <li key={`${event.lap}-${event.turn}`}>Qua ô Xuất phát lần thứ {event.lap}: hạng {event.rating} · {event.to === 'performing' ? 'Trả đúng hạn' : event.to === 'delayed' ? 'Chậm trả' : event.to === 'defaulted' ? 'Không trả được nợ · Thu hồi một phần gốc' : 'Đã thu hồi theo phương án'}</li>)}</ul>}
+      <p>Chậm trả: tiền đang chờ chưa vào ví. Khi bên phát hành không trả được nợ, lãi trái phiếu chưa trả mất toàn bộ; gốc thu hồi {config.recovery * 100}% ở lần qua ô Xuất phát tiếp theo, có thể sau khi hết ván. {tileTradingEnabled(game) ? 'Bán từng khoản tại ô Trái phiếu, ô Xuất phát hoặc khi cần trả chi phí bắt buộc' : 'Bán từng khoản tại ô Xuất phát hoặc khi cần trả chi phí bắt buộc'}; giá bán có thể thấp hơn vốn. Khoản không trả được nợ tạm ngừng bán.</p>
       <p>Mua một tổ chức phát hành mỗi lần ghé ô. Các khoản sau vòng 4 không tự được trả sớm; cuối ván chỉ tính giá bán khả dụng sau phí.</p>
       <BondHoldings game={game} />
     </details>

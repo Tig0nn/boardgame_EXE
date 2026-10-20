@@ -34,8 +34,8 @@ export function GameSetup({ onStart, onHelp, onRestore, saved, saveNotice }: { o
       <button className="button primary full-button" disabled={!valid} onClick={() => onStart(seed, savings, term)}>Bắt đầu hành trình <span aria-hidden="true">→</span></button></div>
     <details><summary>Chơi lại cùng hành trình</summary><label htmlFor="mobile-seed">Mã hành trình</label>
       <input id="mobile-seed" value={seed} placeholder="Để trống để khám phá ván mới" maxLength={128} onChange={e => setSeed(e.target.value)} />
-      <p>Cùng mã và lựa chọn ban đầu sẽ có cùng hành trình.</p>
+      <p>Giữ mã này để chơi lại cùng hành trình và lựa chọn ban đầu.</p>
     </details>
-    {onRestore&&<details><summary>Mở ván đã lưu</summary><label htmlFor="saved-game-file">Nhật ký JSON · Giữ nguyên phiên bản của ván</label><input id="saved-game-file" type="file" accept=".json,application/json" onChange={async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>20_000_000)throw Error('Tệp quá lớn.');onRestore(restoreSavedGame(await file.text()))}catch(err){setError(err instanceof SyntaxError?'Không đọc được tệp JSON. Hãy chọn nhật ký đã xuất từ trò chơi.':err instanceof Error?localizeNarrative(err.message):'Không mở được ván.')}}}/>{error&&<p role="alert">{error}</p>}</details>}
+    {onRestore&&<details><summary>Mở ván đã lưu</summary><label htmlFor="saved-game-file">Chọn tệp nhật ký đã xuất từ trò chơi (.json)</label><input id="saved-game-file" type="file" accept=".json,application/json" onChange={async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>20_000_000)throw Error('Tệp quá lớn.');onRestore(restoreSavedGame(await file.text()))}catch(err){setError(err instanceof SyntaxError?'Không đọc được tệp JSON. Hãy chọn nhật ký đã xuất từ trò chơi.':err instanceof Error?localizeNarrative(err.message):'Không mở được ván.')}}}/>{error&&<p role="alert">{error}</p>}</details>}
   </Modal>
 }

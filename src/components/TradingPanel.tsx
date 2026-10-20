@@ -95,12 +95,12 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
       {deposit.maturityLap > game.totalLaps && <p className={compact ? 'inline-note' : 'financial-warning'}>Đến hạn sau khi hết ván; rút sớm mất lãi chưa nhận.</p>}
     </>}
     {tile === 'bonds' && <p>Giá {money(game.market.bond.currentPrice)}/đơn vị · Lãi {ECONOMY.bond.coupon * 100}% mệnh giá/vòng · Kỳ hạn {ECONOMY.bond.term} lần qua ô Xuất phát · Phí bán {ECONOMY.tradeFees.bonds * 100}%.{!compact && ' Bán sớm có thể lỗ vốn.'}</p>}
-    {tile === 'gold' && <p>Giá {money(game.market.gold.currentPrice)}/đơn vị · Khi bán: chênh lệch {ECONOMY.goldSpread * 100}% + phí {ECONOMY.tradeFees.gold * 100}%.{!compact && ' Không có lãi định kỳ.'}</p>}
+    {tile === 'gold' && <p>Giá {money(game.market.gold.currentPrice)}/đơn vị · Khi bán: chênh lệch giá mua và bán {ECONOMY.goldSpread * 100}% + phí {ECONOMY.tradeFees.gold * 100}%. Vàng không trả lãi định kỳ; giá có thể giảm.</p>}
     {tile !== 'bank' && marketContext?.(tile, symbolId)}
     <label htmlFor="trade-amount">Số tiền {tile === 'bank' ? 'gửi' : 'mua'}</label><MoneyInput id="trade-amount" amount={amount} onChange={setAmount} invalid={!preview.valid} />
     <div className="trade-remaining"><span>Tiền mặt sau giao dịch</span><strong>{preview.cashAfter === null ? '—' : money(preview.cashAfter)}</strong></div>
     {!preview.valid && <p className="input-error" role="status">{preview.error}</p>}
-    {tile === 'stocks' && <p className="trade-risk">Phí mua 0 ₫ · Phí bán {ECONOMY.tradeFees.stocks * 100}%.{!compact && ' Giá có thể giảm; không đảm bảo lợi nhuận.'}</p>}
+    {tile === 'stocks' && <p className="trade-risk">Phí mua 0 ₫ · Phí bán {ECONOMY.tradeFees.stocks * 100}%. Giá có thể giảm; không đảm bảo lợi nhuận.</p>}
     <button className="button primary full-button" disabled={!preview.valid} onClick={() => submit({ kind: tile === 'bank' ? 'deposit' : 'buy', asset: tile === 'bank' ? undefined : tile, amount, term, symbolId, ...(tile === 'stocks' || atomicInvestment ? { completeEncounter: true } : {}) })}>{compact ? tile === 'bank' ? 'Gửi tiết kiệm' : 'Mua' : `Xác nhận ${tile === 'bank' ? 'gửi khoản mới' : `mua ${ASSETS[tile].label.toLowerCase()}`}`} {preview.valid ? money(amount) : ''}</button>
     {!compact && <p className="inline-note trade-continuation">{tile === 'stocks' || atomicInvestment ? 'Mua một lần tại ô này; xác nhận xong sẽ trở về bàn chơi.' : tile === 'bank' && singleActionEncounters(game) ? 'Mỗi lần gặp Ngân hàng chỉ gửi một khoản mới. Xác nhận xong sẽ trở về bàn chơi; các khoản cũ giữ nguyên kỳ hạn và lãi suất.' : 'Có thể giao dịch nhiều lần. Chọn “Hoàn tất” sau khi đã xong, hoặc bỏ qua nếu không giao dịch.'}</p>}
     {(tile === 'stocks' || atomicInvestment) && <button className="button secondary full-button stock-skip" onClick={onSkip}>Bỏ qua cơ hội</button>}

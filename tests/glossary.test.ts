@@ -23,7 +23,7 @@ test('annotation preserves selector text exactly, including numbers, symbols and
 
 test('historical narrative translation is presentation only and does not rewrite technical fields', () => {
   const original = Object.freeze({ consequence: 'Coupon 450.000 ₫; issuer An Tâm; spread 3%; ABC', couponRate: .045 })
-  assert.equal(localizeNarrative(original.consequence), 'Lãi trái phiếu định kỳ 450.000 ₫; tổ chức phát hành An Tâm; chênh lệch giá mua–bán 3%; ABC')
+  assert.equal(localizeNarrative(original.consequence), 'Tiền lãi trái phiếu định kỳ 450.000 ₫; tổ chức phát hành An Tâm; chênh lệch giá mua và bán 3%; ABC')
   assert.equal(original.consequence, 'Coupon 450.000 ₫; issuer An Tâm; spread 3%; ABC')
   assert.equal(localizeNarrative('issuerId couponRate businessRulesVersion ABC'), 'issuerId couponRate businessRulesVersion ABC')
   assert.equal(localizeNarrative('FPT CMG VCB TCB HPG BMP XV-MAY Vietcombank Techcombank'), 'FPT CMG VCB TCB HPG BMP XV-MAY Vietcombank Techcombank')

@@ -13,9 +13,9 @@ export function financialReview(game:GameState) {
     const gross=Object.values(e.assetSaleAmounts??{}).reduce((sum,a)=>sum+a,0)
     return n+(gross>0?Math.max(0,gross-e.cashProceeds):0)
   },0)
-  if(trading>0)facts.push({id:'trading',amounts:[trading],text:`Phí và chênh lệch mua/bán đã trả ${money(trading)}.`})
+  if(trading>0)facts.push({id:'trading',amounts:[trading],text:`Phí và chênh lệch giá mua và bán đã trả ${money(trading)}.`})
   if(game.portfolio.debt>0)facts.push({id:'debt',amounts:[game.portfolio.debt],text:`Nợ còn lại ${money(game.portfolio.debt)}, đã trừ khỏi nguồn tiền về đích.`})
-  if(game.business.capital>0)facts.push({id:'business',amounts:[game.business.capital],text:`Vốn quán chưa bán ${money(game.business.capital)}, không tính vào đích.`})
+  if(game.business.capital>0)facts.push({id:'business',amounts:[game.business.capital],text:`Tiền đã đầu tư còn nằm trong quán ${money(game.business.capital)}; quán chưa bán nên không tính vào mục tiêu.`})
   const personal=game.log.filter(e=>['decision','funding'].includes(e.kind)&&['medical','repair','family'].includes(e.eventId??'')).reduce((n,e)=>n+(e.expensePaid??0),0)
   if(personal>0)facts.push({id:'personal',amounts:[personal],text:`Thanh toán ngay cho biến cố cá nhân ${money(personal)}.`})
   // A cash-only run still has recorded cash flows; show those rather than invent a strategy.

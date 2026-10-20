@@ -35,10 +35,10 @@ export function marketBulletin(game: GameState, lap = game.lap) {
     assets: assets.map(asset => ({ asset, ...ASSETS[asset], ...education[asset],
       ...(asset === 'bonds' && hasBondCredit(game) ? {
         characteristic: 'Lãi trái phiếu tùy tổ chức phát hành · Có thể chậm trả hoặc mất vốn',
-        lesson: 'Lãi trái phiếu cao đi cùng rủi ro tín dụng. Xem xếp hạng tín nhiệm, áp lực trả nợ và tiền thực nhận của từng tổ chức phát hành.',
+        lesson: 'Lãi trái phiếu cao hơn đi cùng rủi ro không được trả đủ. Xem khả năng trả nợ và tiền đã nhận của từng bên phát hành.',
       } : {}),
       forecast: asset === 'bonds' && hasBondCredit(game) && source ? source.scenario.id === 'uncertain'
-        ? 'Khả năng trả nợ chịu áp lực · Tổ chức yếu rủi ro hơn' : 'Điều kiện tín dụng phân hóa theo tổ chức phát hành'
+        ? 'Bên phát hành có thể khó trả nợ hơn' : 'Khả năng trả nợ khác nhau giữa các bên phát hành'
         : source?.scenario.tendencies[asset] ?? 'Chưa đủ dữ liệu' })),
   }
 }

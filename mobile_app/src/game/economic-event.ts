@@ -14,7 +14,7 @@ const copy: Record<string, { context: string; lesson: string }> = {
   },
   'supply-recovery': {
     context: 'Nguyên liệu và hàng hóa lưu thông thuận lợi hơn. Triển vọng các ngành thay đổi, nên giá có thể đi theo những hướng khác nhau.',
-    lesson: 'Cùng một tin, mỗi ngành có thể phản ứng khác nhau. Giá đã tăng chưa bảo đảm bạn sẽ có lời sau phí hoặc khi cần bán.',
+    lesson: 'Cùng một tin, mỗi ngành có thể tăng hoặc giảm khác nhau. Bạn có lời hay không còn tùy giá đã mua và tiền bán nhận sau phí.',
   },
 }
 

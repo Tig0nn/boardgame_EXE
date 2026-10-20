@@ -33,7 +33,7 @@ export function BusinessPanel({ game, onTransaction, feedback, compact = false }
         <div><dt>Thu nhập nền mỗi lần qua ô Xuất phát</dt><dd>{money(config.baseIncome)}</dd></div>
         <div><dt>Giá thu hồi ban đầu</dt><dd>{money(view.initialSale)}</dd></div>
       </dl>
-      <p>{compact ? 'Nhận thu nhập tại ô Xuất phát. Bán quán khi ghé lại ô Kinh doanh.' : 'Nhận thu nhập khi qua ô Xuất phát. Chỉ bán toàn quán khi gặp lại ô Kinh doanh ở lượt sau.'}</p>
+      <p>{compact ? 'Nhận thu nhập tại ô Xuất phát. Chỉ bán khi ghé lại ô Kinh doanh; tiền còn trong quán không dùng trả chi phí bắt buộc hay tính vào mục tiêu.' : 'Nhận thu nhập khi qua ô Xuất phát. Chỉ bán toàn quán khi gặp lại ô Kinh doanh ở lượt sau.'}</p>
       <p className="inline-note">Tiền mặt sau mua: <b>{purchase.cashAfter === null ? 'Chưa đủ tiền' : money(purchase.cashAfter)}</b>{!compact && '. Mua xong sẽ trở về bàn chơi.'}</p>
       <button className="button primary full-button" disabled={!purchase.valid} onClick={() => onTransaction({ kind: 'buy', asset: 'business', amount: config.cost })}>{compact ? 'Mở quán' : 'Đầu tư cơ sở'} {money(config.cost)}</button>
       {!purchase.valid && <p className="input-error" role="status">Chưa đủ tiền mặt để mở quán.</p>}

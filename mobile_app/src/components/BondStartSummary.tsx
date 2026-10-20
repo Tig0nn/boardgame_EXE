@@ -9,7 +9,7 @@ const statusCopy: Record<string, string> = {
   loss: 'Không trả đủ theo hợp đồng', holding: 'Chưa đến kỳ thanh toán',
 }
 const paymentCopy: Record<string, string> = {
-  performing: 'Trả đúng hạn', delayed: 'Đang chậm trả', defaulted: 'Vỡ nợ · Đang thu hồi vốn', resolved: 'Đã hoàn tất',
+  performing: 'Trả đúng hạn', delayed: 'Đang chậm trả', defaulted: 'Không trả được nợ · Đang thu hồi vốn', resolved: 'Đã hoàn tất',
 }
 
 function CashRow({ label, amount }: { label: string; amount: number }) {

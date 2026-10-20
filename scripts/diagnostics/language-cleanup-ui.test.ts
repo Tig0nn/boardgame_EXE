@@ -62,6 +62,8 @@ test('wallet preserves deposit sequence/maturity and both interfaces explain sav
       assert.doesNotMatch(visible,/\bSTART\b|\b(?:deposit|bond|lot)-\d+\b/)
       audit.push({component:`MarketDetails/${asset}`,characters:visible.length,remainingStartOrLotIds:0,stateUnchanged:true})
     }
-    writeFileSync('docs/playtests/b18-language-cleanup/rendered-language-audit.json',JSON.stringify({audit,exception:'Only the exact shared glossary sentence explaining START as a technical name is allowed.',sourceArchivesReadOnly:true},null,2)+'\n')
+    // Tests are read-only by default. A new QA run must explicitly select its own
+    // output; never overwrite the evidence locked by the original cleanup task.
+    if(process.env.UI_AUDIT_OUTPUT)writeFileSync(process.env.UI_AUDIT_OUTPUT,JSON.stringify({audit,exception:'Only the exact shared glossary sentence explaining START as a technical name is allowed.',sourceArchivesReadOnly:true},null,2)+'\n')
   }finally{await server.close()}
 })
