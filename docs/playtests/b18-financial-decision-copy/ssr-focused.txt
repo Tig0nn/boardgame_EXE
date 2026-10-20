@@ -1,0 +1,64 @@
+TAP version 13
+# (node:18496) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 4:01:02 PM [vite] (client) [optimizer] scanning dependencies...
+# Subtest: financial decision copy renders scheduled outgoing amounts and valid profile-based savings quotes
+    # Subtest: family outgoing schedule, both wrappers, no mutation
+    ok 1 - family outgoing schedule, both wrappers, no mutation
+      ---
+      duration_ms: 16.0648
+      ...
+    # Subtest: medical outgoing schedule, both wrappers, no mutation
+    ok 2 - medical outgoing schedule, both wrappers, no mutation
+      ---
+      duration_ms: 2.5704
+      ...
+    # Subtest: repair outgoing schedule, both wrappers, no mutation
+    ok 3 - repair outgoing schedule, both wrappers, no mutation
+      ---
+      duration_ms: 2.8121
+      ...
+    # Subtest: bills outgoing schedule, both wrappers, no mutation
+    ok 4 - bills outgoing schedule, both wrappers, no mutation
+      ---
+      duration_ms: 2.6026
+      ...
+    # Subtest: contract outgoing schedule, both wrappers, no mutation
+    ok 5 - contract outgoing schedule, both wrappers, no mutation
+      ---
+      duration_ms: 3.4316
+      ...
+    # Subtest: positive income keeps its plus sign
+    ok 6 - positive income keeps its plus sign
+      ---
+      duration_ms: 1.2193
+      ...
+    # Subtest: term 1/2/3 quotes use the running profile and absolute maturity, including legacy
+    ok 7 - term 1/2/3 quotes use the running profile and absolute maturity, including legacy
+      ---
+      duration_ms: 15.2397
+      ...
+    # Subtest: invalid inputs never render projected proceeds; late maturity warns explicitly
+    ok 8 - invalid inputs never render projected proceeds; late maturity warns explicitly
+      ---
+      duration_ms: 1.1336
+      ...
+    # Subtest: plain savings explanation is split from the withdrawal warning; stock label stays asset-specific
+    ok 9 - plain savings explanation is split from the withdrawal warning; stock label stays asset-specific
+      ---
+      duration_ms: 6.0964
+      ...
+    1..9
+ok 1 - financial decision copy renders scheduled outgoing amounts and valid profile-based savings quotes
+  ---
+  duration_ms: 4691.096
+  ...
+1..1
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5154.4283

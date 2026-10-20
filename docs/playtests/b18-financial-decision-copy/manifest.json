@@ -1,0 +1,737 @@
+{
+  "format": "b18-financial-decision-clarity-v1",
+  "date": "2026-10-20",
+  "branch": "codex/b18-financial-decision-clarity",
+  "base": "1f60d792fb88d1e22dc4c9a3f928daa2efc2dd6b",
+  "implementation": "005c2b377da5c737bb5db2ce24a7980b5add1746",
+  "verified": {
+    "product": 354,
+    "ssr": 60,
+    "uiChecks": 116,
+    "exactActionSnapshotsAndResume": 28,
+    "savingsPreviews": 24,
+    "invalidSavingsInputs": 12,
+    "stockPrices": 24,
+    "beforeScreenshots": 20,
+    "afterScreenshots": 28,
+    "historicalReplay": 81,
+    "protectedArtifacts": 1727
+  },
+  "viewports": [
+    [
+      320,
+      740
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      430,
+      932
+    ],
+    [
+      1440,
+      900
+    ]
+  ],
+  "scope": {
+    "engineChanged": false,
+    "rulesChanged": false,
+    "rngChanged": false,
+    "pricingChanged": false,
+    "schemaChanged": false,
+    "replayChanged": false,
+    "oldEvidenceChanged": false,
+    "merged": false,
+    "deployed": false,
+    "promoted": false,
+    "domainChanged": false,
+    "ownerReviewPending": true
+  },
+  "limits": [
+    "Chromium viewport/touch emulation; no physical iOS/Android, native zoom/keyboard or screen reader.",
+    "Legacy bills/contracts covered by SSR; B18 personal events by actual UI.",
+    "Existing local favicon 404 retained."
+  ],
+  "hashing": "Source normalized UTF8 LF; artifacts raw-byte SHA256, excluding this manifest.",
+  "sourceFiles": [
+    {
+      "path": "docs/B18_FINANCIAL_DECISION_CLARITY_REPORT.md",
+      "bytes": 11061,
+      "sha256": "3ae359c0e3f6c11323511c51efc645cd2df3dc5595bb01fcfa3c29d4e69a60e6"
+    },
+    {
+      "path": "mobile_app/src/components/EventModal.tsx",
+      "bytes": 4032,
+      "sha256": "5a0d95eb81f8d5178cb8c330973e2ca3b2a68af8703a34292d4cf3261e4ed51f"
+    },
+    {
+      "path": "scripts/diagnostics/decision-copy-browser.mjs",
+      "bytes": 8341,
+      "sha256": "4dce496ae02943225c5c7ca20d6ba1674b45f599d88e9d779b24ac7f1dc36e6a"
+    },
+    {
+      "path": "scripts/diagnostics/decision-copy-checkpoints.ts",
+      "bytes": 3215,
+      "sha256": "b53f8c2c308bb83204e4c165847180319fa824db7e4ad4d9850fd185a3390d5a"
+    },
+    {
+      "path": "scripts/diagnostics/decision-copy-compat.ts",
+      "bytes": 1514,
+      "sha256": "3d5923b8a8ea26dbb40e61c5429a1c2ec14beef1569ede23fb45c3ea75063722"
+    },
+    {
+      "path": "scripts/diagnostics/financial-decision-ui.test.ts",
+      "bytes": 5414,
+      "sha256": "ed9c8d721c0102baf0f00dbc815b81ed1b3bd67c13b55589abcc0610964004e6"
+    },
+    {
+      "path": "scripts/diagnostics/language-cleanup-ui.test.ts",
+      "bytes": 6907,
+      "sha256": "ad9eac7884039a1d26da94bab6014e265a002c40d6371b624c7b786b92478a32"
+    },
+    {
+      "path": "scripts/verify-b18-financial-decision-evidence.mjs",
+      "bytes": 6065,
+      "sha256": "6e31e805f35ba26fa4981367a4972eb35508522970593f6887b74e140e4eb9eb"
+    },
+    {
+      "path": "src/components/GameDialogs.tsx",
+      "bytes": 11974,
+      "sha256": "3a3b1913e8b8c1a8679e8c4c8320b271b4a4b1c3abd96a709a03dcbbabdf0fef"
+    },
+    {
+      "path": "src/components/MarketDetails.tsx",
+      "bytes": 5902,
+      "sha256": "837a29501f5c1fd91815066fc95ee9a4e7e2b35942207be4f13b5fba292ab6d9"
+    },
+    {
+      "path": "src/components/SavingsPreview.tsx",
+      "bytes": 1168,
+      "sha256": "29b9de908ab41b49289ab7baf53082ce7cd55651550b9b8b56313d25ebf395ba"
+    },
+    {
+      "path": "src/components/SavingsTerms.tsx",
+      "bytes": 1465,
+      "sha256": "2f54fde0c1882c2b936aba44802031c988bf5fe61dce5b1325a2d3de73d96d71"
+    },
+    {
+      "path": "src/components/TradingPanel.tsx",
+      "bytes": 13689,
+      "sha256": "89edbb9c769d9e1abddd0e83d0b1cedd259620676143bda5ff3c8a160c71d37f"
+    },
+    {
+      "path": "src/components/financial-decision-copy.ts",
+      "bytes": 1317,
+      "sha256": "fcebe480db1d38a8a1b23049bbdccfdcfb90bd9a51b13f589adbed1c3a37ba7b"
+    },
+    {
+      "path": "src/components/savings-preview.css",
+      "bytes": 584,
+      "sha256": "2b89322e1b32a0fb44c63bef70ef0c62c0da74236dcb41a41f23d57b1dd63d00"
+    },
+    {
+      "path": "tests/financial-decision-copy.test.ts",
+      "bytes": 2274,
+      "sha256": "4e2494415ece4f59768df86e0cb8d4fcfc75e602899d1be6a43eabb1af7088bf"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/.gitattributes",
+      "bytes": 92,
+      "sha256": "a8be36eb3b48839a370917a1c7d53156349419321a109e3e4c8c0140b236139e"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after-run.txt",
+      "bytes": 223,
+      "sha256": "ca6918ce4c0af3bfbfcd88ae7455bca340f6bb6b82ce8757ff50a583154bf1d2"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-bank-invalid.png",
+      "bytes": 127168,
+      "sha256": "7cfc187f1b03427c64c514f97adcbfea9c233169d0dde71c487e903245f4cb4f"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-bank-invalid.txt",
+      "bytes": 737,
+      "sha256": "54cc82dfc62422232101a3bf36517ec769d9f1c21aa98a8b16aa05609ebe02f5"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-bank-summary.png",
+      "bytes": 134994,
+      "sha256": "3306c132b324ab59586016fe8c3eb9b053bee150ef43fcf7a32433a531384da3"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-bank-summary.txt",
+      "bytes": 890,
+      "sha256": "7706d55632469eb2d51f1c7427bbbc478243b061c5802df794dd31c72fe0b9e1"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-bank.png",
+      "bytes": 133977,
+      "sha256": "ecddb40752604bc299c3370bacfdfc514cd76274b14bcec2ea4ec443cefa7a1f"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-bank.txt",
+      "bytes": 895,
+      "sha256": "be380443d6c03a1c76b973d9b1bdfe647ee23411cc6a4bd696fba91875beee67"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-family.png",
+      "bytes": 149486,
+      "sha256": "bc82966d6a69010e8d07695deb8d08d8381071f1dc6a59734e5f6c21c5c779c9"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-family.txt",
+      "bytes": 350,
+      "sha256": "3dd12683173304fd932a07142cccc6dc592cb7b938a031fa7a388059536ec524"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-medical.png",
+      "bytes": 144821,
+      "sha256": "f01af944d85429eec5fe85de4077de637cc4243e7fe0d15dd77294097ee7fb40"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-medical.txt",
+      "bytes": 398,
+      "sha256": "42dd2a61c5c3a4d6e25ea8070864dd556c10f708865800bef5569cba81ca8317"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-repair.png",
+      "bytes": 152700,
+      "sha256": "68b5cb916e543c38db246c39ee8177f405610954302fef947c2083f9805515d2"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-repair.txt",
+      "bytes": 400,
+      "sha256": "41863648b4614330e9e002342cf27dbf8f68dbb8c0575269937e8ff957423bdf"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-stocks.png",
+      "bytes": 112752,
+      "sha256": "ee85cddabf52c4043d18ebb4ef0f583c15fc7deb8a3c0e72f347c979281f2f8b"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/1440-stocks.txt",
+      "bytes": 739,
+      "sha256": "6a23ec45b5eec1eea1e39e8deaa4d0c7b305b332e5ebf368b5da44db914015eb"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-bank-invalid.png",
+      "bytes": 78264,
+      "sha256": "d4e22ec9b22d216cd01cc7cc4b0c471e603f9801e0e8a6d999fa6a6b386b3478"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-bank-invalid.txt",
+      "bytes": 737,
+      "sha256": "54cc82dfc62422232101a3bf36517ec769d9f1c21aa98a8b16aa05609ebe02f5"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-bank-summary.png",
+      "bytes": 83931,
+      "sha256": "51aac724697bcd2c6559d573fc22bf27bfa4ad75b44b9631cdb7e0a334a8124a"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-bank-summary.txt",
+      "bytes": 890,
+      "sha256": "7706d55632469eb2d51f1c7427bbbc478243b061c5802df794dd31c72fe0b9e1"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-bank.png",
+      "bytes": 84603,
+      "sha256": "c70d8793a403bde5bcc727304949f8d4ed0510697c7927c9113f2f2c7213899c"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-bank.txt",
+      "bytes": 895,
+      "sha256": "be380443d6c03a1c76b973d9b1bdfe647ee23411cc6a4bd696fba91875beee67"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-family.png",
+      "bytes": 81840,
+      "sha256": "6cbee03859d0d62ac97174ea7fc65e0d157654b71610ff6eda5d242ca732e5b5"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-family.txt",
+      "bytes": 350,
+      "sha256": "3dd12683173304fd932a07142cccc6dc592cb7b938a031fa7a388059536ec524"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-medical.png",
+      "bytes": 77205,
+      "sha256": "f53368fbd0c8af655da211395ad0fb70be217ada8507350542bd0ef3c8995309"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-medical.txt",
+      "bytes": 398,
+      "sha256": "42dd2a61c5c3a4d6e25ea8070864dd556c10f708865800bef5569cba81ca8317"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-repair.png",
+      "bytes": 81451,
+      "sha256": "786c84e5c984e1037954a0631d41c73834c17c86a9e18cec5d70f84facc75cb9"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-repair.txt",
+      "bytes": 400,
+      "sha256": "41863648b4614330e9e002342cf27dbf8f68dbb8c0575269937e8ff957423bdf"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-stocks.png",
+      "bytes": 70486,
+      "sha256": "1e97628a953379222b85739215a3644b8ca98570409d8fa32cdf3801b9ecfb8d"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/320-stocks.txt",
+      "bytes": 739,
+      "sha256": "6a23ec45b5eec1eea1e39e8deaa4d0c7b305b332e5ebf368b5da44db914015eb"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-bank-invalid.png",
+      "bytes": 95502,
+      "sha256": "62b71f7868f8efc910574f99fa890bb592a6390ab350c50d5d662d31ccac1d8f"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-bank-invalid.txt",
+      "bytes": 737,
+      "sha256": "54cc82dfc62422232101a3bf36517ec769d9f1c21aa98a8b16aa05609ebe02f5"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-bank-summary.png",
+      "bytes": 102590,
+      "sha256": "f6ba526d234a00b413958d343d95a151ecb0e48b7d3921ed25a4a344bd8e31a0"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-bank-summary.txt",
+      "bytes": 890,
+      "sha256": "7706d55632469eb2d51f1c7427bbbc478243b061c5802df794dd31c72fe0b9e1"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-bank.png",
+      "bytes": 102002,
+      "sha256": "4fa202ba4652d7398102bb7c361311fe5095dbc35159096f57eac8ed4228b2cf"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-bank.txt",
+      "bytes": 895,
+      "sha256": "be380443d6c03a1c76b973d9b1bdfe647ee23411cc6a4bd696fba91875beee67"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-family.png",
+      "bytes": 97144,
+      "sha256": "32ba4b26cb571b0557f2ec462b5356afda259e107c06e99e9d62d0b6255244dc"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-family.txt",
+      "bytes": 350,
+      "sha256": "3dd12683173304fd932a07142cccc6dc592cb7b938a031fa7a388059536ec524"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-medical.png",
+      "bytes": 97066,
+      "sha256": "a12b0b4a8384413ff117e419a12c56b60bb8d79dcdab8872d0e4dc9abd6e48d0"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-medical.txt",
+      "bytes": 398,
+      "sha256": "42dd2a61c5c3a4d6e25ea8070864dd556c10f708865800bef5569cba81ca8317"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-repair.png",
+      "bytes": 100485,
+      "sha256": "1a87eef943675f61427d62d65899618abc7e39e389e66d4ef3b50673a70ac520"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-repair.txt",
+      "bytes": 400,
+      "sha256": "41863648b4614330e9e002342cf27dbf8f68dbb8c0575269937e8ff957423bdf"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-stocks.png",
+      "bytes": 85884,
+      "sha256": "4b9a4a9136fbdc75e4bea8ff808c7b9e3c7cfbd7d9bf51d37042f0149d3938ec"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/390-stocks.txt",
+      "bytes": 739,
+      "sha256": "6a23ec45b5eec1eea1e39e8deaa4d0c7b305b332e5ebf368b5da44db914015eb"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-bank-invalid.png",
+      "bytes": 104861,
+      "sha256": "43133f0b8bb5d984defd971cdef73fa823aa44923e341b347431fd0aa295c434"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-bank-invalid.txt",
+      "bytes": 737,
+      "sha256": "54cc82dfc62422232101a3bf36517ec769d9f1c21aa98a8b16aa05609ebe02f5"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-bank-summary.png",
+      "bytes": 114207,
+      "sha256": "41a987a38787a636f35ae07f25dc185a6df886478b32268113ba274efd08c59e"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-bank-summary.txt",
+      "bytes": 890,
+      "sha256": "7706d55632469eb2d51f1c7427bbbc478243b061c5802df794dd31c72fe0b9e1"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-bank.png",
+      "bytes": 113514,
+      "sha256": "ec8107b80075784e8b18731e5815a582bea635acf39cc4c0853aeaff92d4bf70"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-bank.txt",
+      "bytes": 895,
+      "sha256": "be380443d6c03a1c76b973d9b1bdfe647ee23411cc6a4bd696fba91875beee67"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-family.png",
+      "bytes": 114426,
+      "sha256": "9eccce39f18abbc30b3e9932e72ed8da5ecfe95b6baf59eaa239e0b43d9e6bfd"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-family.txt",
+      "bytes": 350,
+      "sha256": "3dd12683173304fd932a07142cccc6dc592cb7b938a031fa7a388059536ec524"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-medical.png",
+      "bytes": 110787,
+      "sha256": "794a1c49bb0c943189653987a5e4dde1d01bfd645219121202d2f1d5b7038aa7"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-medical.txt",
+      "bytes": 398,
+      "sha256": "42dd2a61c5c3a4d6e25ea8070864dd556c10f708865800bef5569cba81ca8317"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-repair.png",
+      "bytes": 113788,
+      "sha256": "0976e087345f8b790d989c2f1bf60521515d818da23c8c92fb4b825df8854594"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-repair.txt",
+      "bytes": 400,
+      "sha256": "41863648b4614330e9e002342cf27dbf8f68dbb8c0575269937e8ff957423bdf"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-stocks.png",
+      "bytes": 90523,
+      "sha256": "6a5424eca45dc5354375bd6b2a22d6b4a65b4a2b07d53631b176ef685193fcdd"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/430-stocks.txt",
+      "bytes": 739,
+      "sha256": "6a23ec45b5eec1eea1e39e8deaa4d0c7b305b332e5ebf368b5da44db914015eb"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/after/results.json",
+      "bytes": 30987,
+      "sha256": "d270081874c050f8c54b590de16f176b992bb57289d85b8ccd26f275c630f318"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before-run.txt",
+      "bytes": 223,
+      "sha256": "a9d1c825341844fda5caf8c678c787eed91c5725c29036cdad57e1c0dd5b7d85"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/1440-bank.png",
+      "bytes": 129208,
+      "sha256": "77b6cde3aa07a15973734d38af0cef2db912e3567e5c2bd40107b77bc7408414"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/1440-bank.txt",
+      "bytes": 666,
+      "sha256": "7ff7de3a3c7880f9c468ae9fb8ecef9bccf0ec7eaaac08aee47d6f755dbeff72"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/1440-family.png",
+      "bytes": 152255,
+      "sha256": "51c633deb2fcd6e80d78d49c7b42768dd182375eb6c127be2e6c22a7123db3f7"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/1440-family.txt",
+      "bytes": 306,
+      "sha256": "d89f0e694415995bc7eacface9ef4bf40f1b052671a5e3e72bdde09c43c6e50e"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/1440-medical.png",
+      "bytes": 147662,
+      "sha256": "161016399d0d95162d98c4d506b77da4ea84f582ef1401815627c2f610079037"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/1440-medical.txt",
+      "bytes": 352,
+      "sha256": "b8887a738a998fd3e660af183305a343852e0e2edfed93e7372d82db856cf7c7"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/1440-repair.png",
+      "bytes": 154726,
+      "sha256": "a983ce7e01bdba7a88fd2e72d93e7e712945e7bbac9d176f5869df1e971cd027"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/1440-repair.txt",
+      "bytes": 336,
+      "sha256": "856374798b9692311a53d1255092c3fc35f44daf0b32fe9a2db040651d4b869b"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/1440-stocks.png",
+      "bytes": 112826,
+      "sha256": "b3fb83543321c87255a90fed187a72a88d994a2d7037b011121f21585b5e7fc0"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/1440-stocks.txt",
+      "bytes": 739,
+      "sha256": "0469ed26b46f8cab0c70e022dff9948d6d4be8a00a9de16a01e5b890b17fbd6b"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/320-bank.png",
+      "bytes": 80331,
+      "sha256": "6c2dabc07b59827c5d9d58b3a557796b24720e556ac56c8d41d4f7ab074fd536"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/320-bank.txt",
+      "bytes": 666,
+      "sha256": "7ff7de3a3c7880f9c468ae9fb8ecef9bccf0ec7eaaac08aee47d6f755dbeff72"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/320-family.png",
+      "bytes": 80417,
+      "sha256": "1f875cad916a56f2be96e1f924d2ee3ab356238840277e2d503ed601bdaa8698"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/320-family.txt",
+      "bytes": 306,
+      "sha256": "d89f0e694415995bc7eacface9ef4bf40f1b052671a5e3e72bdde09c43c6e50e"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/320-medical.png",
+      "bytes": 79038,
+      "sha256": "5146cd2b7828fad854908bbe76dad2052b8a071c77f2d8b7abc60b27439d8322"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/320-medical.txt",
+      "bytes": 352,
+      "sha256": "b8887a738a998fd3e660af183305a343852e0e2edfed93e7372d82db856cf7c7"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/320-repair.png",
+      "bytes": 82094,
+      "sha256": "a18edec0ce7639fc2cdce0b8908bb22459a0db5d04a1eaa5507906ee3ce22f31"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/320-repair.txt",
+      "bytes": 336,
+      "sha256": "856374798b9692311a53d1255092c3fc35f44daf0b32fe9a2db040651d4b869b"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/320-stocks.png",
+      "bytes": 70458,
+      "sha256": "8e3e056a459395359c4a815cee02ced556ada12c60e9aa9633e73679a07fe44b"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/320-stocks.txt",
+      "bytes": 739,
+      "sha256": "0469ed26b46f8cab0c70e022dff9948d6d4be8a00a9de16a01e5b890b17fbd6b"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/390-bank.png",
+      "bytes": 92196,
+      "sha256": "bbddf892124a0adf8b4b95581b77233d26aa2a629c69891f54e23ba9cb107935"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/390-bank.txt",
+      "bytes": 666,
+      "sha256": "7ff7de3a3c7880f9c468ae9fb8ecef9bccf0ec7eaaac08aee47d6f755dbeff72"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/390-family.png",
+      "bytes": 102314,
+      "sha256": "c29f3f59354dc656c678644c65d3b68432312a935ce3c78e7f4f1fe8be82b487"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/390-family.txt",
+      "bytes": 306,
+      "sha256": "d89f0e694415995bc7eacface9ef4bf40f1b052671a5e3e72bdde09c43c6e50e"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/390-medical.png",
+      "bytes": 102039,
+      "sha256": "be5b2d33a5d2b276e13ac4ff47a9ad0dfdc4c6e32e85eb061af3ced2c1d82207"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/390-medical.txt",
+      "bytes": 352,
+      "sha256": "b8887a738a998fd3e660af183305a343852e0e2edfed93e7372d82db856cf7c7"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/390-repair.png",
+      "bytes": 101851,
+      "sha256": "38bb6464516d5e7e60ba866d4b02ad82ad587f6663b6fb510cdbcf27b82c03ac"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/390-repair.txt",
+      "bytes": 336,
+      "sha256": "856374798b9692311a53d1255092c3fc35f44daf0b32fe9a2db040651d4b869b"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/390-stocks.png",
+      "bytes": 85936,
+      "sha256": "d56394b06a50e815f6044b80fef982754929fc95845200d91f89fc274f7226e4"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/390-stocks.txt",
+      "bytes": 739,
+      "sha256": "0469ed26b46f8cab0c70e022dff9948d6d4be8a00a9de16a01e5b890b17fbd6b"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/430-bank.png",
+      "bytes": 104605,
+      "sha256": "d0f3947f9aa301970485495962a335bef4b96e2ce7cc0d49d4ce717676bede27"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/430-bank.txt",
+      "bytes": 666,
+      "sha256": "7ff7de3a3c7880f9c468ae9fb8ecef9bccf0ec7eaaac08aee47d6f755dbeff72"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/430-family.png",
+      "bytes": 117215,
+      "sha256": "d0e2298b998b25195da2b1aa0a5cb26ea0bed0499d652099d39649ef20589e85"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/430-family.txt",
+      "bytes": 306,
+      "sha256": "d89f0e694415995bc7eacface9ef4bf40f1b052671a5e3e72bdde09c43c6e50e"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/430-medical.png",
+      "bytes": 114821,
+      "sha256": "9a4e77bfca753c348122da192751cfaf90fe88500145431c91ac6144feb74dd9"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/430-medical.txt",
+      "bytes": 352,
+      "sha256": "b8887a738a998fd3e660af183305a343852e0e2edfed93e7372d82db856cf7c7"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/430-repair.png",
+      "bytes": 116598,
+      "sha256": "2377c76ceeff56f2f9f0704bebcbcb280acf2e1728836984fbab138002b34071"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/430-repair.txt",
+      "bytes": 336,
+      "sha256": "856374798b9692311a53d1255092c3fc35f44daf0b32fe9a2db040651d4b869b"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/430-stocks.png",
+      "bytes": 90582,
+      "sha256": "7eb9cebb25d7797d1da35d40134cdeb1b741d220fc4dbb784826091cb83aa0a7"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/430-stocks.txt",
+      "bytes": 739,
+      "sha256": "0469ed26b46f8cab0c70e022dff9948d6d4be8a00a9de16a01e5b890b17fbd6b"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/before/results.json",
+      "bytes": 10959,
+      "sha256": "ed75f6119df7770658b243692b9c410793abb6b302e035ad8e4544a02c903975"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/build-mobile.txt",
+      "bytes": 395,
+      "sha256": "ddb7dc844b85843f39285200105c827a4018d6ed91a75d8e8630617dc2f8b239"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/checkpoints/bank.json.gz",
+      "bytes": 158204,
+      "sha256": "510d923022d4056e2be9fc520a702a8979d865d5639e318feefefcec60367ae9"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/checkpoints/family.json.gz",
+      "bytes": 22793,
+      "sha256": "7cc5886432a28e850ca2272afc3bf5083909cd516f8a3f3af2ee0b17a0c23110"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/checkpoints/medical.json.gz",
+      "bytes": 256063,
+      "sha256": "33d31baab16d415b0bb3dd2ab9750308cc8ea276e5fd5ef66629d8caab689bc1"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/checkpoints/provenance.json",
+      "bytes": 1951,
+      "sha256": "3976f0534940b10bac1cfcfff087c22b4a9b095c82f632f288f3c68d2d88b1f3"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/checkpoints/repair.json.gz",
+      "bytes": 1254096,
+      "sha256": "b0a4ee925443f50f45f2f28e679f25d0b01f3408249cfafb6ffd630e31550f96"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/checkpoints/stocks.json.gz",
+      "bytes": 960005,
+      "sha256": "a4c2f65f3818d8cd3083c9e3276c099871f44bbb36fa11ed89ddba08bcaa4818"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/compatibility.json",
+      "bytes": 1583,
+      "sha256": "2814b5735b5b568bc90fbdbe6621ff8e38dc4a0f85f50905129ccd31625d6316"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/compatibility.txt",
+      "bytes": 1471,
+      "sha256": "307f899c350ae0a421ac693dd19501fec599d2356a748c9ee90732f3dd1825ec"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/helper-tests.txt",
+      "bytes": 995,
+      "sha256": "23a6fe44063d92ba1ac54214f94e4c870989fbfe3800eb6b80e2eb7ddaa1eebe"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/lint.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/product-tests.txt",
+      "bytes": 82900,
+      "sha256": "53825fb54730bcd1a832fedb55eaee4c15fe7721b36d6b65846b85f32afb067c"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/red-tests.txt",
+      "bytes": 1604,
+      "sha256": "9cd5deca973a280527635be732294feff8d6f14134fd5d5bff54713e12c6cd48"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/rendered-language-audit.json",
+      "bytes": 2241,
+      "sha256": "7203772aada0dfdea56b61bcdcd790dd2feb4de852f41860f9cfa88b76153e97"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/ssr-focused.txt",
+      "bytes": 2462,
+      "sha256": "2458140c2f44bacbfb2561f263cb049ac00200cb92ad712695cd840f3151191c"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/ssr-tests.txt",
+      "bytes": 17495,
+      "sha256": "77e8143d25c2b7505796a84fe293b88bfa8ef0f3fa13e47bd05a13eb067f4381"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/typecheck-mobile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/playtests/b18-financial-decision-copy/typecheck-shared.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
