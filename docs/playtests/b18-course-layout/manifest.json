@@ -1,0 +1,752 @@
+{
+  "format": "b18-course-layout-v1",
+  "date": "2026-10-20",
+  "branch": "codex/b18-course-layout-polish",
+  "base": "f96a8f6fdedaaa6151dfd108084a090b738a942f",
+  "implementation": "0c60f1c6516d686785bfea0981a8728f5cb7d3eb",
+  "verified": {
+    "productTests": 351,
+    "relevantSsr": 2,
+    "uiChecks": 142,
+    "purchaseChecks": 20,
+    "skipChecks": 10,
+    "readOnlySaveChecks": 30,
+    "beforeScreenshots": 27,
+    "afterScreenshots": 27,
+    "historicalReplays": 81,
+    "protectedArtifacts": 1598
+  },
+  "viewports": [
+    [
+      320,
+      740
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      430,
+      932
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1440,
+      900
+    ]
+  ],
+  "limits": [
+    "Chromium viewport/touch emulation only; no physical iOS/Android or screen reader.",
+    "Text-only computed font magnification is not native zoom.",
+    "Existing local favicon 404 remains."
+  ],
+  "scope": {
+    "engineChanged": false,
+    "schemaChanged": false,
+    "replayChanged": false,
+    "historicalEvidenceChanged": false,
+    "dependenciesChanged": false,
+    "merged": false,
+    "redeployed": false,
+    "promoted": false,
+    "ownerReviewPending": true
+  },
+  "hashing": "Source normalized UTF8 LF; raw-byte evidence SHA256. Manifest excludes itself.",
+  "sourceFiles": [
+    {
+      "path": "docs/B18_COURSE_LAYOUT_POLISH_REPORT.md",
+      "bytes": 8595,
+      "sha256": "8c7ddedabcd61d1efc4f6b49d18a32318e019f6060501dd8c661f6daff8a2f07"
+    },
+    {
+      "path": "scripts/diagnostics/b18-ux-ui.test.ts",
+      "bytes": 2810,
+      "sha256": "3e07e6a7dc6fdf15d3dbd22419cca38e0709831d994427fb1b91510f044122c4"
+    },
+    {
+      "path": "scripts/diagnostics/course-layout-browser.mjs",
+      "bytes": 9708,
+      "sha256": "584baff3dbfa16cd27791bd58b2809d8010a367e7ac0c2ee2e8c92df6b101760"
+    },
+    {
+      "path": "scripts/diagnostics/course-layout-checkpoints.ts",
+      "bytes": 3464,
+      "sha256": "ef70b505a07fc0394447003650a461bf94a38b8f6bb3b42d27caffa323ce110a"
+    },
+    {
+      "path": "scripts/diagnostics/course-layout-compat.ts",
+      "bytes": 1559,
+      "sha256": "96b141f6c25feb112242b53279ed4729713d10b5bd89d98dc3cf82a8a79c7c0f"
+    },
+    {
+      "path": "scripts/diagnostics/multi-course-ui.test.ts",
+      "bytes": 4154,
+      "sha256": "a0c93e149d8de95967a84410456185c5e7cfce86fd617b5ed440a931084ad96d"
+    },
+    {
+      "path": "scripts/verify-b18-course-layout-evidence.mjs",
+      "bytes": 5624,
+      "sha256": "2d2bb833f957d715d8984582e22249df871451a6307d2c3b6535e175fd685826"
+    },
+    {
+      "path": "src/components/CourseChoices.tsx",
+      "bytes": 3225,
+      "sha256": "2c6d10151e11af5d19357b6800839077c6c4c4787c9471238f75185f6c070816"
+    },
+    {
+      "path": "src/components/course-choices.css",
+      "bytes": 2617,
+      "sha256": "f9eb24cc626499aa590c80855a34cd8569b97b2e3576ffe2728837e970f8d5b9"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/playtests/b18-course-layout/.gitattributes",
+      "bytes": 92,
+      "sha256": "a8be36eb3b48839a370917a1c7d53156349419321a109e3e4c8c0140b236139e"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after-run.txt",
+      "bytes": 242,
+      "sha256": "52009e9b69698acdd9e97508835ce8655b7e7811841ac13be6d47d2008029cc4"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-advanced-learned.png",
+      "bytes": 101014,
+      "sha256": "2b4f98e3ecad1cfa09851243bd329ef442050d5c9371604e889b30cf3ad2574e"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-advanced-learned.txt",
+      "bytes": 609,
+      "sha256": "71e89f59fc7798cfb6c46abe2d8912f15d006e9883df37e827548f884c678ba3"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-available-expanded.png",
+      "bytes": 117618,
+      "sha256": "bc8092d1f08870df598115eae9c7fd4458b10900a2ce0791bb3eeb39bdc5e9cd"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-available-expanded.txt",
+      "bytes": 1116,
+      "sha256": "4a62b16b5096a42223d8ce450fe2217f225fb17811b7c8255d25f7664ed0882e"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-available-second-card.png",
+      "bytes": 97103,
+      "sha256": "a291ff26b968b2732b1a27b716805cf159e49cf94e55d47037e449d81edf5abc"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-available-second-card.txt",
+      "bytes": 612,
+      "sha256": "c8b4f02cca3cc8c4d3261c3600ddee2e7d4db098aabf43d82a9f4f067cd65fb7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-available-text-200.png",
+      "bytes": 105229,
+      "sha256": "f5cabe54cddac8ebc43018a3548de20f53a7a3ccd2a32b4370f9f3236b44b8ab"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-available-text-200.txt",
+      "bytes": 612,
+      "sha256": "c8b4f02cca3cc8c4d3261c3600ddee2e7d4db098aabf43d82a9f4f067cd65fb7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-available.png",
+      "bytes": 101201,
+      "sha256": "c1cc7c4392f5d954dac29bfd0a972b6348f4fe2ebf40586106d4e7f2fa748c9d"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-available.txt",
+      "bytes": 612,
+      "sha256": "c8b4f02cca3cc8c4d3261c3600ddee2e7d4db098aabf43d82a9f4f067cd65fb7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-basic-learned.png",
+      "bytes": 101026,
+      "sha256": "a788acd22df3dacf5436caee4267ceb7603814c2a40bdbbee6170c193c7f92dc"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-basic-learned.txt",
+      "bytes": 609,
+      "sha256": "3aaf3414d1fb44c7826f92a82c74c5365326fa0fe05636a73412d8c88981a6db"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-basic-only-affordable.png",
+      "bytes": 102118,
+      "sha256": "7d990bfc16c9463e75df6199b8e9ec0b2aae40be95513d684a70cf461fa79dfa"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-basic-only-affordable.txt",
+      "bytes": 619,
+      "sha256": "9e6fb1c28f2ec2ac330f410ad640d66abfaaa2452c04eae0446325c2624416c7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-both-learned.png",
+      "bytes": 160978,
+      "sha256": "868a5b0eecd2662f5d5835a868130ab724d9877604384caaa44b444345245cad"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-both-learned.txt",
+      "bytes": 122,
+      "sha256": "54b5f9cb581dce8bf9992321ee0141c592045c06a5850bb91bfee83e6d5c8fbb"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-insufficient.png",
+      "bytes": 102983,
+      "sha256": "165ff1f88e31bc8854ff80d3ad851eeb3570bdeeb6ce53f3ee709df63d46b03f"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/1440-insufficient.txt",
+      "bytes": 628,
+      "sha256": "e3aa2cd540f4f8c7d1538125e28ff1aa13ebe5f5679f8b85f749b80635394d4a"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/320-available-expanded.png",
+      "bytes": 68843,
+      "sha256": "f50066f69b4f43d6b4c9eb840d7163dca1c287990be0359f2b83050ba8f632ee"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/320-available-expanded.txt",
+      "bytes": 1116,
+      "sha256": "4a62b16b5096a42223d8ce450fe2217f225fb17811b7c8255d25f7664ed0882e"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/320-available-second-card.png",
+      "bytes": 61238,
+      "sha256": "5eb4e053014a44ea8ac33e575bd53eca1088809adf625d3f7eb967e8aca4feed"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/320-available-second-card.txt",
+      "bytes": 612,
+      "sha256": "c8b4f02cca3cc8c4d3261c3600ddee2e7d4db098aabf43d82a9f4f067cd65fb7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/320-available-text-200.png",
+      "bytes": 59536,
+      "sha256": "daa57e3a8d9aa02a89603cad021c1c5aac44f398420bfab3efd42e1b39f63f47"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/320-available-text-200.txt",
+      "bytes": 612,
+      "sha256": "c8b4f02cca3cc8c4d3261c3600ddee2e7d4db098aabf43d82a9f4f067cd65fb7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/320-available.png",
+      "bytes": 66308,
+      "sha256": "87b0776c1d7fa1491ccbccc622d6a5992db11769c221a237b09ce9c42bd99ed6"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/320-available.txt",
+      "bytes": 612,
+      "sha256": "c8b4f02cca3cc8c4d3261c3600ddee2e7d4db098aabf43d82a9f4f067cd65fb7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-advanced-learned.png",
+      "bytes": 74413,
+      "sha256": "8ed46f3543a7bc62ab7813a8ba50debbb486fe9c55897ad12d8c079400beba0d"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-advanced-learned.txt",
+      "bytes": 609,
+      "sha256": "71e89f59fc7798cfb6c46abe2d8912f15d006e9883df37e827548f884c678ba3"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-available-expanded.png",
+      "bytes": 86565,
+      "sha256": "48a52d88c49fcc64df6e851ea7cb60535f01d3caa8cedb75635103818eeb27dc"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-available-expanded.txt",
+      "bytes": 1116,
+      "sha256": "4a62b16b5096a42223d8ce450fe2217f225fb17811b7c8255d25f7664ed0882e"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-available-second-card.png",
+      "bytes": 71074,
+      "sha256": "ed3b42f348ef808559fd62366ce9b2d2da0b11370f908e960e7e225b5578ab9e"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-available-second-card.txt",
+      "bytes": 612,
+      "sha256": "c8b4f02cca3cc8c4d3261c3600ddee2e7d4db098aabf43d82a9f4f067cd65fb7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-available.png",
+      "bytes": 74335,
+      "sha256": "691916bccf2a31eaff2fd64d7a8a86ebe059af6ae6b2a1f8b10b849ea60094d9"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-available.txt",
+      "bytes": 612,
+      "sha256": "c8b4f02cca3cc8c4d3261c3600ddee2e7d4db098aabf43d82a9f4f067cd65fb7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-basic-learned.png",
+      "bytes": 74175,
+      "sha256": "542b56ee3216456f43df3c6acec0c3270b86c3313f2ceb67933c3bf8cdcd21a5"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-basic-learned.txt",
+      "bytes": 609,
+      "sha256": "3aaf3414d1fb44c7826f92a82c74c5365326fa0fe05636a73412d8c88981a6db"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-basic-only-affordable.png",
+      "bytes": 75025,
+      "sha256": "6065076703e44c94ba399bf96f12569cb01c4fc5f6d64849d4f3c815ce4581ab"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-basic-only-affordable.txt",
+      "bytes": 619,
+      "sha256": "9e6fb1c28f2ec2ac330f410ad640d66abfaaa2452c04eae0446325c2624416c7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-both-learned.png",
+      "bytes": 109146,
+      "sha256": "5a3341d2bcc58b4779acb4f99524d9fe26d76da7b69cead1be486f0ebd4d740a"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-both-learned.txt",
+      "bytes": 122,
+      "sha256": "54b5f9cb581dce8bf9992321ee0141c592045c06a5850bb91bfee83e6d5c8fbb"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-insufficient.png",
+      "bytes": 75875,
+      "sha256": "42cf6bcf2e7186c4b095d7fc2b2062659f5db8c79e025d3f776e5a6794d7a3ee"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/390-insufficient.txt",
+      "bytes": 628,
+      "sha256": "e3aa2cd540f4f8c7d1538125e28ff1aa13ebe5f5679f8b85f749b80635394d4a"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/430-available-expanded.png",
+      "bytes": 90982,
+      "sha256": "a622304e57ace64ef02d444b8e3b24b455b27ab71e6768fc01c8f29de0858aba"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/430-available-expanded.txt",
+      "bytes": 1116,
+      "sha256": "4a62b16b5096a42223d8ce450fe2217f225fb17811b7c8255d25f7664ed0882e"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/430-available-second-card.png",
+      "bytes": 76510,
+      "sha256": "e17c9a6cf2347b1bdc36fe8da32e6021ad4a4b3307d5bd5f309576ae303fc039"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/430-available-second-card.txt",
+      "bytes": 612,
+      "sha256": "c8b4f02cca3cc8c4d3261c3600ddee2e7d4db098aabf43d82a9f4f067cd65fb7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/430-available.png",
+      "bytes": 78680,
+      "sha256": "fdc683caa4c01d3e66053d18b001655f6d5c83216ca5bf1cc8a29f836f0b0e1c"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/430-available.txt",
+      "bytes": 612,
+      "sha256": "c8b4f02cca3cc8c4d3261c3600ddee2e7d4db098aabf43d82a9f4f067cd65fb7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/768-available-expanded.png",
+      "bytes": 159435,
+      "sha256": "54bc6b87199ee15c7d808af390d953561143069ebb93d3cffb7b4ec0b8538448"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/768-available-expanded.txt",
+      "bytes": 1116,
+      "sha256": "4a62b16b5096a42223d8ce450fe2217f225fb17811b7c8255d25f7664ed0882e"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/768-available-second-card.png",
+      "bytes": 149637,
+      "sha256": "e6513c1b05fe53ea997b057a0d02405022d79aea1d995bb141c53cb12bdeb483"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/768-available-second-card.txt",
+      "bytes": 612,
+      "sha256": "c8b4f02cca3cc8c4d3261c3600ddee2e7d4db098aabf43d82a9f4f067cd65fb7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/768-available.png",
+      "bytes": 149560,
+      "sha256": "ec4b04125264134b6a98072479fb8ddb6ba26734b4db71e782231503be726ff6"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/768-available.txt",
+      "bytes": 612,
+      "sha256": "c8b4f02cca3cc8c4d3261c3600ddee2e7d4db098aabf43d82a9f4f067cd65fb7"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/after/results.json",
+      "bytes": 135804,
+      "sha256": "41279fef0adc96088197261879cc286917a3429dfdeda5c365e782f8b03a33f2"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/baseline-ssr.txt",
+      "bytes": 536,
+      "sha256": "3fe806adfa4e86f1fd41e5bf72cea707b98fd1089e5c9bc95fb8cd963a27e702"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before-run.txt",
+      "bytes": 243,
+      "sha256": "13bd604d13c0e8f7b95804fef4a2091bde6373a05c2c634be965206b6570213d"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-advanced-learned.png",
+      "bytes": 138866,
+      "sha256": "2c87f49efd9c73326be088c09726390eccf44733827387b697e34d66c2aa9440"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-advanced-learned.txt",
+      "bytes": 599,
+      "sha256": "9ebaf7b659037811f833e0d71958988f63c070c267068413ce9e932063fdb8c0"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-available-expanded.png",
+      "bytes": 136125,
+      "sha256": "45c5043d0e53dc9b8f18a61f62c4eb5ac6466080b24bef6c32291a52714df17c"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-available-expanded.txt",
+      "bytes": 1106,
+      "sha256": "d0f6be777ae127c48c85703d925e53a63f3bcaa76bf13514e13abfe22212593b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-available-second-card.png",
+      "bytes": 145366,
+      "sha256": "7b953cbfb696e518b6d9407519410f05551d286d2044636d686ae65364045ab0"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-available-second-card.txt",
+      "bytes": 602,
+      "sha256": "ecdd664d390594d33e87ad54b99e479b8e122340d145c7e8e09debf375f8b67b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-available-text-200.png",
+      "bytes": 96923,
+      "sha256": "c3068624c92c337d35061f1916730141554fbe4ff09820152ca3ee8aff4c9d7c"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-available-text-200.txt",
+      "bytes": 602,
+      "sha256": "ecdd664d390594d33e87ad54b99e479b8e122340d145c7e8e09debf375f8b67b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-available.png",
+      "bytes": 144820,
+      "sha256": "afc7b48eb934986935fea27daf03c5e38d730ca5c3ba9a3180c73bda8c0d526d"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-available.txt",
+      "bytes": 602,
+      "sha256": "ecdd664d390594d33e87ad54b99e479b8e122340d145c7e8e09debf375f8b67b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-basic-learned.png",
+      "bytes": 144866,
+      "sha256": "97a8510488d24d0a196c1346abc7762e27c2d4f287dbd8ac158be4070903352d"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-basic-learned.txt",
+      "bytes": 599,
+      "sha256": "86f756b223e5957c7323db1d9c6161f55cfaf4c96a96a940b68f88aca0126496"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-basic-only-affordable.png",
+      "bytes": 145463,
+      "sha256": "207d3c2b7d2d9218577a8d8d18e09419153b31dc1fadf2ab503819ea574d6e81"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-basic-only-affordable.txt",
+      "bytes": 609,
+      "sha256": "287ed2dc4fbb78b9cbd7a53283e0c1055adfb57fe1c43e4dd035deb23544893f"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-both-learned.png",
+      "bytes": 160919,
+      "sha256": "baafafceea2fb77a46ac35606ea5ab864f68a9022cd7417895ca28a09c08991e"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-both-learned.txt",
+      "bytes": 122,
+      "sha256": "54b5f9cb581dce8bf9992321ee0141c592045c06a5850bb91bfee83e6d5c8fbb"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-insufficient.png",
+      "bytes": 136370,
+      "sha256": "63ebf131498b0ad317674ce69b29f08e0b46bbd2c96463b71ac60cb97df3e5a0"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/1440-insufficient.txt",
+      "bytes": 618,
+      "sha256": "1b48db98eefe1c7c391217dc84df5e971b608809a5809177e36630c6877bd5bd"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/320-available-expanded.png",
+      "bytes": 76693,
+      "sha256": "7dfc0aa1a738d30b1ed5dab4ba157c8e3ac1d4d9292b1e857ddf074cb3b3d7a6"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/320-available-expanded.txt",
+      "bytes": 1106,
+      "sha256": "d0f6be777ae127c48c85703d925e53a63f3bcaa76bf13514e13abfe22212593b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/320-available-second-card.png",
+      "bytes": 64787,
+      "sha256": "16d1bb8827a46b8b0f92404260dde08e5e217cbfc2ed726810e96de3ee233725"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/320-available-second-card.txt",
+      "bytes": 602,
+      "sha256": "ecdd664d390594d33e87ad54b99e479b8e122340d145c7e8e09debf375f8b67b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/320-available-text-200.png",
+      "bytes": 57527,
+      "sha256": "54b963b06ba0a1d7df69c7cecebacdadd55badcfd1c6a1fdb20ed7a54d2bc794"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/320-available-text-200.txt",
+      "bytes": 602,
+      "sha256": "ecdd664d390594d33e87ad54b99e479b8e122340d145c7e8e09debf375f8b67b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/320-available.png",
+      "bytes": 66148,
+      "sha256": "22e5f8af7308cfdf8d1dd2bba1dc0dd067088bf744d4a32a8d8a08e1de91dd60"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/320-available.txt",
+      "bytes": 602,
+      "sha256": "ecdd664d390594d33e87ad54b99e479b8e122340d145c7e8e09debf375f8b67b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-advanced-learned.png",
+      "bytes": 82030,
+      "sha256": "86be017bf6076655f023ed9497f734757f44231b14133569f0198fd3379ad2f3"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-advanced-learned.txt",
+      "bytes": 599,
+      "sha256": "9ebaf7b659037811f833e0d71958988f63c070c267068413ce9e932063fdb8c0"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-available-expanded.png",
+      "bytes": 89978,
+      "sha256": "4080ff31ec1586375a746c0a2e0ee7d032859a76947cb944c053d5d06e90b9db"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-available-expanded.txt",
+      "bytes": 1106,
+      "sha256": "d0f6be777ae127c48c85703d925e53a63f3bcaa76bf13514e13abfe22212593b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-available-second-card.png",
+      "bytes": 82176,
+      "sha256": "06b80af275777a9c18844628150b6ae9c08f4d5ca5cc9875475a98bae26832a1"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-available-second-card.txt",
+      "bytes": 602,
+      "sha256": "ecdd664d390594d33e87ad54b99e479b8e122340d145c7e8e09debf375f8b67b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-available.png",
+      "bytes": 82117,
+      "sha256": "395ac47f1a63acaf4686e2ffc29aa3a7e98e332efd69c20fff1cf862d4fbb22c"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-available.txt",
+      "bytes": 602,
+      "sha256": "ecdd664d390594d33e87ad54b99e479b8e122340d145c7e8e09debf375f8b67b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-basic-learned.png",
+      "bytes": 82068,
+      "sha256": "01ec695abfb03e6e3deb61a28fb5a2c7484550608f4904eeda84bb48daff04b8"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-basic-learned.txt",
+      "bytes": 599,
+      "sha256": "86f756b223e5957c7323db1d9c6161f55cfaf4c96a96a940b68f88aca0126496"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-basic-only-affordable.png",
+      "bytes": 83173,
+      "sha256": "044abdb7c58800d455473a0126bd5ad66ffcc716b233c96069e7f0065d11e105"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-basic-only-affordable.txt",
+      "bytes": 609,
+      "sha256": "287ed2dc4fbb78b9cbd7a53283e0c1055adfb57fe1c43e4dd035deb23544893f"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-both-learned.png",
+      "bytes": 109151,
+      "sha256": "d0abde8947fcfdf62994b5aea0ce071ae51f3a42b150eecac5fb910da4486f5d"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-both-learned.txt",
+      "bytes": 122,
+      "sha256": "54b5f9cb581dce8bf9992321ee0141c592045c06a5850bb91bfee83e6d5c8fbb"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-insufficient.png",
+      "bytes": 84079,
+      "sha256": "c6ab9e411a119ad5ebcceeeb41352e4ad8fbf6d022b941dce46f2c5126fd6784"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/390-insufficient.txt",
+      "bytes": 618,
+      "sha256": "1b48db98eefe1c7c391217dc84df5e971b608809a5809177e36630c6877bd5bd"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/430-available-expanded.png",
+      "bytes": 99375,
+      "sha256": "5d48938b89539c79a4d5575432ddd042ae467640c048613ea4aeee75eadeb735"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/430-available-expanded.txt",
+      "bytes": 1106,
+      "sha256": "d0f6be777ae127c48c85703d925e53a63f3bcaa76bf13514e13abfe22212593b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/430-available-second-card.png",
+      "bytes": 91753,
+      "sha256": "e2ee07aae813f48b29b405536d5cdf7d860807f2440a8daa6dc20a5b28d1c25f"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/430-available-second-card.txt",
+      "bytes": 602,
+      "sha256": "ecdd664d390594d33e87ad54b99e479b8e122340d145c7e8e09debf375f8b67b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/430-available.png",
+      "bytes": 91394,
+      "sha256": "c35437a340a9d40584edf32f3f60e1ac198453395cf0e0f6bc5fd970d57bf1f8"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/430-available.txt",
+      "bytes": 602,
+      "sha256": "ecdd664d390594d33e87ad54b99e479b8e122340d145c7e8e09debf375f8b67b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/768-available-expanded.png",
+      "bytes": 177812,
+      "sha256": "20f476597d984796f7069fa16a4b710c50b680d2822eae76683eb249cdf37a39"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/768-available-expanded.txt",
+      "bytes": 1106,
+      "sha256": "d0f6be777ae127c48c85703d925e53a63f3bcaa76bf13514e13abfe22212593b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/768-available-second-card.png",
+      "bytes": 173970,
+      "sha256": "341ea260b133ea5287d812cfa25e57e0cb4b38d4337a748b0bc304212ee5476b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/768-available-second-card.txt",
+      "bytes": 602,
+      "sha256": "ecdd664d390594d33e87ad54b99e479b8e122340d145c7e8e09debf375f8b67b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/768-available.png",
+      "bytes": 173351,
+      "sha256": "0cf29219a4c29653ba014e615c4637b7ae2d521d74afe74104aed49da6a8864e"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/768-available.txt",
+      "bytes": 602,
+      "sha256": "ecdd664d390594d33e87ad54b99e479b8e122340d145c7e8e09debf375f8b67b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/before/results.json",
+      "bytes": 178743,
+      "sha256": "58bc820b95ab1797682bb60c94bef2f5038d380dee7a11806b02d13ac1c1d21d"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/build-mobile.txt",
+      "bytes": 395,
+      "sha256": "ebb92fecb30d90bf69dbf1dccbcc6825ee8099836c47550af7830b9e67ee94f5"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/checkpoints/advanced-learned.json.gz",
+      "bytes": 200350,
+      "sha256": "4c9461cd84af41d8761552cc635e83964d9291b6c830cf2ca9b028b493594dba"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/checkpoints/available.json.gz",
+      "bytes": 74051,
+      "sha256": "b9e9f64e19ac005fd03d9c95a22f2582af325be4b3e3350de1a244a3f5277078"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/checkpoints/basic-learned.json.gz",
+      "bytes": 200284,
+      "sha256": "cd94fa5322036fcea67dbc2b5e5a8ae2d69f94706573f05b86f5ab94a9209644"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/checkpoints/basic-only-affordable.json.gz",
+      "bytes": 581751,
+      "sha256": "9b4f003a664a8cdddc5783312d9bcfe7545746e5952d9e5671c1f2b807e145dc"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/checkpoints/both-learned.json.gz",
+      "bytes": 557107,
+      "sha256": "cb34a336381aa8ac5bef9feceeb6d1c68719ac26e4ab9a4c293733e007c23049"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/checkpoints/insufficient.json.gz",
+      "bytes": 1374432,
+      "sha256": "d1ab6210fac60c62cd4e55b1a62a3cd407ce57b0df849ff5a650252d4fee95fa"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/checkpoints/provenance.json",
+      "bytes": 2780,
+      "sha256": "af416de8c07e3e8748ebfadb136e04768d7390e4c65b769717864725fc75de2e"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/compatibility.json",
+      "bytes": 1399,
+      "sha256": "0935b3b287ac208317a292be54544524c5300ed05327c34a1cd77626f1eec8ba"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/compatibility.txt",
+      "bytes": 1320,
+      "sha256": "76d0e5590a114caaa2b20871638902cf74fb7bd4e62b9645abcf2d9e576c654f"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/lint.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/product-tests.txt",
+      "bytes": 82049,
+      "sha256": "e0a282a81b9000fbea74eadba918df3e41e6bf22e4b5c90108d4eacc5a24f2b6"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/ssr-tests.txt",
+      "bytes": 963,
+      "sha256": "b09510f480d40a84384c77e80fee88bea3526491ef5d6f4efa42e921a5c0e00b"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/typecheck-mobile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/playtests/b18-course-layout/typecheck-shared.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
