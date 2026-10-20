@@ -18,8 +18,8 @@ export function CourseChoices({ game, onChoose }: { game: GameState; onChoose: (
     <p>Tiền mặt: <strong>{money(game.portfolio.cash)}</strong></p>
     <div className="course-card-list">{choices.map(c => <article className="course-card" key={c.id} aria-labelledby={`course-${c.id}-name`}>
       <div className="course-card-heading"><h3 id={`course-${c.id}-name`}>{c.name}</h3><span className={`course-status ${c.owned ? 'learned' : c.canBuy ? '' : 'unavailable'}`}>{c.owned ? 'Đã học' : c.canBuy ? 'Chưa học' : 'Không đủ tiền'}</span></div>
-      <dl><div><dt>Học phí</dt><dd>{money(c.cost)}</dd></div><div><dt>Lương tăng / lần qua ô Xuất phát</dt><dd>+{money(c.boost)}</dd></div></dl>
-      <details className="course-projection"><summary>Xem thu nhập còn lại</summary>
+      <dl className="course-facts"><div><dt>Học phí</dt><dd>{money(c.cost)}</dd></div><div><dt>Lương tăng mỗi lần qua ô Xuất phát</dt><dd>+{money(c.boost)}</dd></div></dl>
+      <details className="course-projection"><summary>Xem thu nhập dự kiến</summary>
         <dl><div><dt>Số lần qua ô Xuất phát còn lại</dt><dd>{c.remainingStarts}</dd></div><div><dt>Thu nhập thêm còn có thể nhận</dt><dd>{money(c.nominalIncome)}</dd></div>
         <div className="course-net"><dt>Thu nhập còn lại − học phí</dt><dd>{signedMoney(c.netAfterFee)}</dd></div></dl>
         <p className="course-note"><FinancialTerm term="payback" />: cần {Math.ceil(c.cost/c.boost)} lần qua ô Xuất phát nhận lương thêm để bù học phí theo phép tính danh nghĩa.</p>

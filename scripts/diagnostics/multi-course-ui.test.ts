@@ -28,6 +28,14 @@ test('Desktop/Mobile share exact course cards and preserve legacy single-course 
     assert.match(body,/Số lần qua ô Xuất phát còn lại/);assert.match(body,/không phải lợi nhuận bảo đảm/);assert.match(body,/không vay mới/i)
     const poor=render('CourseChoices',{...s,portfolio:{...s.portfolio,cash:0}})
     assert.equal((poor.match(/disabled=""/g)??[]).length,2);assert.equal((poor.match(/Không đủ tiền/g)??[]).length,2)
+    const partial=render('CourseChoices',{...s,portfolio:{...s.portfolio,cash:6e6}})
+    assert.equal((partial.match(/disabled=""/g)??[]).length,1)
+    assert.match(partial,/Mua khóa cơ bản/);assert.match(partial,/Không đủ tiền/)
+    const basic=decide(s,'course-basic')
+    const basicOnly={...basic,turn:1,position:7,phase:'event' as const,eventId:'course'}
+    const basicBefore=JSON.stringify(basicOnly),basicHtml=render('CourseChoices',basicOnly)
+    assert.equal((basicHtml.match(/Đã hoàn thành/g)??[]).length,1);assert.match(basicHtml,/Mua khóa nâng cao/)
+    assert.equal(JSON.stringify(basicOnly),basicBefore,'Rendering course choices must not change state')
     let learned=decide(s,'course-advanced')
     learned={...learned,turn:1,position:7,phase:'event',eventId:'course'}
     const one=render('CourseChoices',learned);assert.equal((one.match(/Đã hoàn thành/g)??[]).length,1);assert.match(one,/Mua khóa cơ bản/)

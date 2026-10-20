@@ -19,7 +19,7 @@ test('beginner course disclosure, factual result feedback and ended-vs-running s
     const s=createMultiCourseGame('DISCLOSURE'),html=render('CourseChoices',{...s,phase:'event',eventId:'course',position:4})
     assert.equal((html.match(/class="course-projection"/g)??[]).length,2)
     assert.doesNotMatch(html,/class="course-projection" open/)
-    assert.match(html,/<summary>Xem thu nhập còn lại<\/summary>/)
+    assert.match(html,/<summary>Xem thu nhập dự kiến<\/summary>/)
     const initial=html.replace(/<details[\s\S]*?<\/details>/g,'')
     assert.match(initial,/6\.000\.000/);assert.match(initial,/10\.000\.000/);assert.match(initial,/Mua khóa cơ bản/);assert.match(initial,/Bỏ qua/)
     assert.doesNotMatch(initial,/Thu nhập còn lại − học phí|Số lần qua ô Xuất phát còn lại|chi phí cơ hội/)
