@@ -1,0 +1,181 @@
+{
+  "stage": "before",
+  "seed": "LANG-0",
+  "screenshots": 12,
+  "checks": [
+    {
+      "label": "320-setup-terms",
+      "w": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-setup",
+      "visibleAudit": true,
+      "technicalSections": 0
+    },
+    {
+      "label": "320-bank-terms",
+      "w": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-bank",
+      "visibleAudit": true,
+      "technicalSections": 0
+    },
+    {
+      "label": "320-wallet-deposits",
+      "w": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-wallet",
+      "visibleAudit": true,
+      "technicalSections": 0
+    },
+    {
+      "label": "320-wallet-cashflow",
+      "w": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-save-reload-stable",
+      "stateHash": "27297a0e665e90f68dfd91875eee3dcf319524ab19857023b7792462de4848c3",
+      "stateUnchanged": true
+    },
+    {
+      "label": "390-setup-terms",
+      "w": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-setup",
+      "visibleAudit": true,
+      "technicalSections": 0
+    },
+    {
+      "label": "390-bank-terms",
+      "w": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-bank",
+      "visibleAudit": true,
+      "technicalSections": 0
+    },
+    {
+      "label": "390-wallet-deposits",
+      "w": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-wallet",
+      "visibleAudit": true,
+      "technicalSections": 0
+    },
+    {
+      "label": "390-wallet-cashflow",
+      "w": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-save-reload-stable",
+      "stateHash": "27297a0e665e90f68dfd91875eee3dcf319524ab19857023b7792462de4848c3",
+      "stateUnchanged": true
+    },
+    {
+      "label": "desktop-setup-terms",
+      "w": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "desktop-setup",
+      "visibleAudit": true,
+      "technicalSections": 0
+    },
+    {
+      "label": "desktop-bank-terms",
+      "w": 1440,
+      "scroll": 1440,
+      "dialogs": [
+        {
+          "scroll": 505,
+          "client": 505
+        }
+      ]
+    },
+    {
+      "label": "desktop-bank",
+      "visibleAudit": true,
+      "technicalSections": 0
+    },
+    {
+      "label": "desktop-wallet-deposits",
+      "w": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "desktop-wallet",
+      "visibleAudit": true,
+      "technicalSections": 0
+    },
+    {
+      "label": "desktop-wallet-cashflow",
+      "w": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    }
+  ],
+  "errors": [],
+  "actualUi": true
+}
