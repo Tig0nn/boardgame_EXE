@@ -19,6 +19,7 @@ import { investmentPurchasesComplete } from '../game/encounters'
 import { FinancialReview } from './FinancialReview'
 import { isMultiCourse } from '../game/rules-profile'
 import { CourseChoices } from './CourseChoices'
+import { paymentOptionCopy } from './financial-decision-copy'
 
 export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, onFund, onTransaction }: { game: GameState; onAdvance: () => void; onChoose: (id: string) => void; onRestart: () => void; onExport: () => void; onFund: (source: FundingSource, amount: number, lotId?: string) => void; onTransaction: (action: RebalanceAction) => void }) {
   if (game.phase === 'funding') return <FundingDialog key={`${game.pendingPayment!.title}-${game.pendingPayment!.remaining}`} game={game} onFund={onFund} />
@@ -42,11 +43,13 @@ export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, on
       {game.market.appliedShocks.includes(`${game.turn}:${event.id}`) && <details className="trade-details"><summary>Báo giá sau cú sốc</summary><MarketDetails game={game} asset="stocks" /><MarketDetails game={game} asset="gold" /><MarketDetails game={game} asset="bonds" /></details>}
       <div className="event-options">{event.options.filter(option => !panelOwnsSkip && !(event.id === 'course' && game.coursePurchased && option.id === 'upgrade')).map(option => {
         const shortfall = Math.max(0, (option.cost ?? 0) - game.portfolio.cash)
-        return <button key={option.id} className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}><div><strong>{option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : localizeNarrative(option.label)}</strong><span>{option.id === 'skip' && traded ? 'Giữ các giao dịch đã thực hiện và tiếp tục gieo xúc xắc.' : localizeNarrative(option.detail)}</span>
+        const payment = paymentOptionCopy(event, option)
+        return <button key={option.id} className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}><div><strong>{option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : payment?.label ?? localizeNarrative(option.label)}</strong><span>{option.id === 'skip' && traded ? 'Giữ các giao dịch đã thực hiện và tiếp tục gieo xúc xắc.' : payment?.detail ?? localizeNarrative(option.detail)}</span>
+          {payment?.comparison && <span>{payment.comparison}</span>}
           <span>Tiền khả dụng: {money(game.portfolio.cash)} → {money(Math.max(0, game.portfolio.cash - (option.cost ?? 0)) + (option.income ?? 0))}</span>
           {shortfall > 0 && <small>Còn thiếu {money(shortfall)} · Bạn chọn nguồn thanh toán ở bước tiếp theo.</small>}
           {option.asset && <span>{ASSETS[option.asset].label}: {money(game.portfolio[option.asset])} → {money(game.portfolio[option.asset] + (option.amount ?? 0))}</span>}
-          {!!option.obligation && <span>Nghĩa vụ cuối vòng: {money(game.obligations)} → {money(game.obligations + option.obligation)}</span>}
+          {!!option.obligation && <span>Khoản hẹn trả khi qua ô Xuất phát: {money(game.obligations)} → {money(game.obligations + option.obligation)}</span>}
           {!!option.recurringIncomeIncrease && <><span>Thu nhập định kỳ: {money(game.recurringIncome)} → {money(game.recurringIncome + option.recurringIncomeIncrease)}/vòng</span><small>Còn {game.totalLaps - game.lap + 1} kỳ quyết toán · Tổng thu nhập tăng thêm {money(option.recurringIncomeIncrease * (game.totalLaps - game.lap + 1))}. Cân nhắc chi phí trả trước.</small></>}
           {option.asset === 'business' && <small className="business-lock">Chỉ bán cơ sở tại ô Kinh doanh; vốn chưa bán không tính vào mục tiêu.</small>}
         </div><Icon name="arrow" size={18} /></button>

@@ -1,17 +1,18 @@
-import { investmentLotLabel, maturityLabel, savingsPeriodExplanation } from './player-language'
+import { investmentLotLabel, maturityLabel } from './player-language'
 import { useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { ASSETS, ECONOMY, SCENARIOS, SECTORS } from '../data/config'
 import { businessRulesForGame, businessUpgradeUnlocked } from '../game/business'
 import { money, percent } from '../game/format'
-import { businessOverview, depositPreview, purchasePreview, stockQuote } from '../game/selectors'
+import { businessOverview, purchasePreview, stockQuote } from '../game/selectors'
 import type { Asset, GameState, RebalanceAction, Term, TradableAsset } from '../game/types'
 import { MarketDetails } from './MarketDetails'
 import { MoneyInput } from './MoneyInput'
 import { savingsProfileForGame } from '../game/savings'
 import { encounterActionUsed, investmentPurchaseUsed, investmentPurchasesComplete, singleActionEncounters } from '../game/encounters'
 import { BusinessPanel } from './BusinessPanel'
-import { SavingsTerms } from './SavingsTerms'
+import { SavingsTerms, SavingsExplanation } from './SavingsTerms'
+import { SavingsPreview } from './SavingsPreview'
 import { hasBondCredit } from '../game/bond-credit'
 import { BondCreditPanel } from './BondCreditPanel'
 import { tileTradingEnabled } from '../game/encounters'
@@ -39,7 +40,6 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
   const preview = purchasePreview(game, amount)
   const rates = savingsProfileForGame(game).rates
   const quote = stockQuote(game, symbolId)
-  const deposit = depositPreview(game, amount, term)
   const last = game.log.at(-1)
   const financialTile = tile === 'stocks' || tile === 'gold' || tile === 'bonds'
   const atomicInvestment = financialTile && investmentPurchasesComplete(game)
@@ -88,16 +88,14 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
   return <section className={`trading-panel ${tile === 'stocks' ? 'stock-trading' : ''}`}>{feedback}
     {tile === 'stocks' && <>
       <label htmlFor="trade-symbol">Mã cổ phiếu · {SECTORS[quote.stock.sector]}</label><select id="trade-symbol" className="text-input" value={symbolId} onChange={event => setSymbolId(event.target.value)}>{game.market.stocks.map(stock => <option key={stock.id} value={stock.id}>{stock.id} · {stock.name}</option>)}</select>
-      <div className="trade-facts"><div><span>Giá / đơn vị</span><strong>{money(quote.stock.currentPrice)}</strong></div><div><span>Thay đổi gần nhất</span><strong>{percent(quote.recent.returnRate)}</strong>{!compact && <small>{quote.recent.kind === 'history' ? 'Lịch sử giả lập trước ván' : `Vòng ${quote.recent.lap} · Lượt ${quote.recent.timestamp}`}</small>}</div>{!compact && <div><span>Đang nắm giữ</span><strong>{quote.units.toLocaleString('vi-VN', { maximumFractionDigits: 4 })} đơn vị</strong></div>}</div>
+      <div className="trade-facts"><div><span>Giá hiện tại</span><strong>{money(quote.stock.currentPrice)}</strong></div><div><span>Thay đổi gần nhất</span><strong>{percent(quote.recent.returnRate)}</strong>{!compact && <small>{quote.recent.kind === 'history' ? 'Lịch sử giả lập trước ván' : `Vòng ${quote.recent.lap} · Lượt ${quote.recent.timestamp}`}</small>}</div>{!compact && <div><span>Đang nắm giữ</span><strong>{quote.units.toLocaleString('vi-VN', { maximumFractionDigits: 4 })} đơn vị</strong></div>}</div>
     </>}
-    {tile === 'bank' && <>{compact ? <SavingsTerms name="deposit-term" term={term} rates={rates} onChange={setTerm} /> : <><label htmlFor="deposit-term">Kỳ hạn (lần qua ô Xuất phát)</label><select id="deposit-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} kỳ · Lãi {Math.round(rates[value] * 100)}%/kỳ</option>)}</select><p className="savings-period-note">{savingsPeriodExplanation}</p></>}
-      <p>{maturityLabel(deposit.maturityLap)} · Nhận lãi {money(deposit.interest)}</p>
-      {deposit.maturityLap > game.totalLaps && <p className={compact ? 'inline-note' : 'financial-warning'}>Đến hạn sau khi hết ván; rút sớm mất lãi chưa nhận.</p>}
-    </>}
+    {tile === 'bank' && <>{compact ? <SavingsTerms name="deposit-term" term={term} rates={rates} onChange={setTerm} /> : <><label htmlFor="deposit-term">Kỳ hạn (lần qua ô Xuất phát)</label><select id="deposit-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} kỳ · Lãi {Math.round(rates[value] * 100)}%/kỳ</option>)}</select><SavingsExplanation /></>}</>}
     {tile === 'bonds' && <p>Giá {money(game.market.bond.currentPrice)}/đơn vị · Lãi {ECONOMY.bond.coupon * 100}% mệnh giá/vòng · Kỳ hạn {ECONOMY.bond.term} lần qua ô Xuất phát · Phí bán {ECONOMY.tradeFees.bonds * 100}%.{!compact && ' Bán sớm có thể lỗ vốn.'}</p>}
     {tile === 'gold' && <p>Giá {money(game.market.gold.currentPrice)}/đơn vị · Khi bán: chênh lệch giá mua và bán {ECONOMY.goldSpread * 100}% + phí {ECONOMY.tradeFees.gold * 100}%. Vàng không trả lãi định kỳ; giá có thể giảm.</p>}
     {tile !== 'bank' && marketContext?.(tile, symbolId)}
     <label htmlFor="trade-amount">Số tiền {tile === 'bank' ? 'gửi' : 'mua'}</label><MoneyInput id="trade-amount" amount={amount} onChange={setAmount} invalid={!preview.valid} />
+    {tile === 'bank' && <SavingsPreview game={game} amount={amount} term={term} />}
     <div className="trade-remaining"><span>Tiền mặt sau giao dịch</span><strong>{preview.cashAfter === null ? '—' : money(preview.cashAfter)}</strong></div>
     {!preview.valid && <p className="input-error" role="status">{preview.error}</p>}
     {tile === 'stocks' && <p className="trade-risk">Phí mua 0 ₫ · Phí bán {ECONOMY.tradeFees.stocks * 100}%. Giá có thể giảm; không đảm bảo lợi nhuận.</p>}
@@ -105,6 +103,6 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
     {!compact && <p className="inline-note trade-continuation">{tile === 'stocks' || atomicInvestment ? 'Mua một lần tại ô này; xác nhận xong sẽ trở về bàn chơi.' : tile === 'bank' && singleActionEncounters(game) ? 'Mỗi lần gặp Ngân hàng chỉ gửi một khoản mới. Xác nhận xong sẽ trở về bàn chơi; các khoản cũ giữ nguyên kỳ hạn và lãi suất.' : 'Có thể giao dịch nhiều lần. Chọn “Hoàn tất” sau khi đã xong, hoặc bỏ qua nếu không giao dịch.'}</p>}
     {(tile === 'stocks' || atomicInvestment) && <button className="button secondary full-button stock-skip" onClick={onSkip}>Bỏ qua cơ hội</button>}
     {tile !== 'bank' && <details className="trade-details"><summary>Lịch sử giá và thông tin</summary><MarketDetails game={game} asset={tile} symbolId={symbolId} />{!compact && <p>Lịch sử giá giả lập đã xảy ra, không dự báo lợi nhuận tương lai.</p>}</details>}
-    {tile === 'bank' && <details className="trade-details"><summary>Các khoản gửi đang hoạt động</summary>{game.deposits.filter(lot => lot.status === 'active').map(lot => <p key={lot.id}>{investmentLotLabel('savings', lot.id)}: {money(lot.principal)} · {maturityLabel(lot.maturityLap)}</p>)}<p>Mỗi lần gửi tạo một khoản riêng. Không tự tái tục; rút sớm chỉ khi thiếu tiền bắt buộc, rút toàn khoản và mất lãi chưa trả.</p></details>}
+    {tile === 'bank' && <details className="trade-details"><summary>Các khoản gửi đang hoạt động</summary>{game.deposits.filter(lot => lot.status === 'active').map(lot => <p key={lot.id}>{investmentLotLabel('savings', lot.id)}: {money(lot.principal)} · {maturityLabel(lot.maturityLap)}</p>)}<p>Mỗi lần gửi tạo một khoản riêng; các khoản cũ giữ nguyên kỳ hạn và lãi suất. Không tự tái tục.</p></details>}
   </section>
 }

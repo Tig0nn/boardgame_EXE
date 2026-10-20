@@ -1,5 +1,9 @@
 import type { Term } from '../game/types'
-import { savingsPeriodExplanation } from './player-language'
+
+export function SavingsExplanation() {
+  return <><p className="savings-period-note">Mỗi lần qua ô Xuất phát được tính là 1 kỳ. Khi hết kỳ hạn, bạn nhận lại tiền đã gửi và toàn bộ tiền lãi. Lãi chỉ tính trên số tiền gửi ban đầu.</p>
+    <p className="savings-period-note">Nếu phải rút trước hạn để thanh toán khoản bắt buộc, bạn sẽ mất phần lãi chưa nhận.</p></>
+}
 
 // Presentation only: rates are supplied by the official profile for the current game.
 export function SavingsTerms({ name, term, rates, onChange }: {
@@ -11,6 +15,6 @@ export function SavingsTerms({ name, term, rates, onChange }: {
         aria-label={`${value} kỳ · Lãi suất ${Math.round(rates[value] * 100)}% mỗi kỳ · Tổng ${Math.round(rates[value] * value * 100)}% cuối kỳ hạn`} />
       <span>{value} kỳ</span><strong>{Math.round(rates[value] * 100)}% mỗi kỳ</strong>
       <small>Tổng {Math.round(rates[value] * value * 100)}% cuối kỳ hạn</small>
-    </label>)}</div><p className="savings-period-note">{savingsPeriodExplanation}</p>
+    </label>)}</div><SavingsExplanation />
   </fieldset>
 }

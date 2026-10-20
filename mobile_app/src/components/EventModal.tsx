@@ -11,6 +11,7 @@ import { EconomicEventModal } from './EconomicEventModal'
 import { isMultiCourse } from '../../../src/game/rules-profile'
 import { CourseChoices } from '../../../src/components/CourseChoices'
 import { localizeNarrative } from '../../../src/components/glossary'
+import { paymentOptionCopy } from '../../../src/components/financial-decision-copy'
 
 export function EventModal({ game, onChoose, onTransaction, onHelp }: {
   game: GameState; onChoose: (id: string) => void; onTransaction: (action: RebalanceAction) => boolean | void; onHelp?: () => void
@@ -30,11 +31,14 @@ export function EventModal({ game, onChoose, onTransaction, onHelp }: {
     {trading && <TradingPanel key={`${game.turn}-${game.log.length}`} game={game} compact onTransaction={onTransaction} onSkip={() => onChoose('skip')}
       marketContext={(asset, symbolId) => <MarketSignal game={game} asset={asset} symbolId={symbolId} />} />}
     {event.id === 'course' && !canChoose(game, 'upgrade') && <p className="inline-note">{game.coursePurchased ? 'Bạn đã hoàn thành khóa học này.' : 'Chưa đủ tiền mặt cho khóa học.'}</p>}
-    {event.options.filter(option => !panelOwnsSkip&&!(event.id==='course'&&game.coursePurchased&&option.id==='upgrade')).map(option => <button key={option.id}
+    {event.options.filter(option => !panelOwnsSkip&&!(event.id==='course'&&game.coursePurchased&&option.id==='upgrade')).map(option => {
+      const payment = paymentOptionCopy(event, option)
+      return <button key={option.id}
       className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}>
-      <strong>{option.id === 'acknowledge'||event.id==='course'&&game.coursePurchased ? 'Tiếp tục' : option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : option.label}</strong>
-      {option.id !== 'skip' && option.id !== 'acknowledge' && <span>{localizeNarrative(option.detail)}</span>}
+      <strong>{option.id === 'acknowledge'||event.id==='course'&&game.coursePurchased ? 'Tiếp tục' : option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : payment?.label ?? option.label}</strong>
+      {option.id !== 'skip' && option.id !== 'acknowledge' && <span>{payment?.detail ?? localizeNarrative(option.detail)}</span>}
+      {payment?.comparison && <span>{payment.comparison}</span>}
       {(option.cost ?? 0) > game.portfolio.cash && <span>Thiếu {money(option.cost! - game.portfolio.cash)} · Chọn nguồn tiền tiếp theo</span>}
-    </button>)}
+    </button>})}
   </Modal>
 }
