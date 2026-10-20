@@ -1,0 +1,1497 @@
+{
+  "base": "bd5925a9276eefb814cf04b78b67deb67fa36c95",
+  "branch": "codex/b18-compact-financial-ui",
+  "implementationCommit": "717b0b404a30a76b73edf850e4ba1df20366bf07",
+  "sourceHash": "UTF-8 normalized LF",
+  "artifactHash": "raw bytes",
+  "sources": [
+    {
+      "path": "mobile_app/src/components/EventModal.tsx",
+      "sha256": "39b9329011f75006f108971399aabd6c2f69027b910d5c88f667ab77db56680c"
+    },
+    {
+      "path": "mobile_app/src/components/MarketNews.tsx",
+      "sha256": "5bbad4842ea720f63526e1cf07f8301744dadb0e9723a84161a77397a3b42f26"
+    },
+    {
+      "path": "mobile_app/src/components/Tutorial.tsx",
+      "sha256": "fe2e8c0d2377bfa93082a4c0f10fbd1ed8ba95a6bad0caea6708fa9a5dfd0320"
+    },
+    {
+      "path": "mobile_app/src/engine-ui.css",
+      "sha256": "4ef428ffa4dce95818a582a2d394c36d39e356cf9cbf37eeb7f241ff673f8972"
+    },
+    {
+      "path": "scripts/diagnostics/atomic-investments-ui.test.ts",
+      "sha256": "64f6bdb7e1377cecfe45543ce2590eb2ea59070edaa28fe818bd542b3f5397be"
+    },
+    {
+      "path": "scripts/diagnostics/bond-credit-ui.test.ts",
+      "sha256": "40c3969ee3fddea94135a47dd11ccf4e9d5de57346495ec0d167a52d7de9ee07"
+    },
+    {
+      "path": "scripts/diagnostics/compact-financial-browser.mjs",
+      "sha256": "74cf121705c9dd485fb6948e33066e490c2c0a3c1a6850e3fc2b7391482077e2"
+    },
+    {
+      "path": "scripts/diagnostics/compact-financial-checkpoints.ts",
+      "sha256": "3c4a56fa5ef6f491791acd6009a7170ba7162602759a11915031065bd90b055f"
+    },
+    {
+      "path": "scripts/diagnostics/compact-financial-compat.ts",
+      "sha256": "46dd32e278278e29280c56e1c32ef19ef593354ae742cf0d22810cf5721ea932"
+    },
+    {
+      "path": "scripts/diagnostics/compact-financial-settlement.mjs",
+      "sha256": "3277f4d53febff1d099a29518929c1a1d1936a89f173af6f5f32f7b2ab1f5754"
+    },
+    {
+      "path": "scripts/diagnostics/economic-news-ui.test.ts",
+      "sha256": "41d2dee2a4f410ce1e2a518fc5c421fa78624df2d66930b6a258a03f3c8b4d40"
+    },
+    {
+      "path": "scripts/diagnostics/financial-decision-ui.test.ts",
+      "sha256": "682225c8e4ecf13078e05176de51202e50820cbce0d92c3a3c9fecaf2746db90"
+    },
+    {
+      "path": "scripts/diagnostics/language-cleanup-ui.test.ts",
+      "sha256": "bbed0647aebc4ce4b51239d788915dd7186807014ce9602699d0e54e7a2d1dc6"
+    },
+    {
+      "path": "scripts/verify-b18-compact-financial-evidence.mjs",
+      "sha256": "58fd63930dfee6d0d13f3732d8744d38fe672d8215ef545bfce74d9d978a7733"
+    },
+    {
+      "path": "src/components/BondCredit.css",
+      "sha256": "92f2110ce4a6890213148d297f95c1d09708a69383a4537988c4992e45a99418"
+    },
+    {
+      "path": "src/components/BondCreditPanel.tsx",
+      "sha256": "9c42ecb551640b07804e7d1a1c06d093448a58b431b890fb1e4aa0da5d148c94"
+    },
+    {
+      "path": "src/components/GameDialogs.tsx",
+      "sha256": "bad010902911addcf0082fc285c806446bba0a1005e7396f60e865b030a0eaab"
+    },
+    {
+      "path": "src/components/MarketDetails.tsx",
+      "sha256": "b842f1ef1788c1a053882b01ac623917fa71e1b9dca7ff56d5e845ad3b715dba"
+    },
+    {
+      "path": "src/components/SavingsPreview.tsx",
+      "sha256": "b7f90148acd33385a3b35da52bfce1a43ca1c0da91736f5119674e6fe182db57"
+    },
+    {
+      "path": "src/components/SavingsTerms.tsx",
+      "sha256": "a17413fdb96552a50810ebb83d46f2e23f5da97697d3afbb1878602259e1ae88"
+    },
+    {
+      "path": "src/components/TradingPanel.tsx",
+      "sha256": "aa937706f54fe7ecb683fa0fa72bdd1a3e190cb35647714280ca91d6ae4c498d"
+    },
+    {
+      "path": "src/components/financial-decision-copy.ts",
+      "sha256": "94e62e1154db2eaa8a1b7f391078deba1f2603075572c5c4d328f1305375bbc0"
+    },
+    {
+      "path": "src/components/glossary.ts",
+      "sha256": "dba8dda1526d3514512102fdeaf48ba08016c6ae0f98408e0b9190efeed1c07c"
+    },
+    {
+      "path": "tests/financial-decision-copy.test.ts",
+      "sha256": "b85a753dea931010881f6c6501395a3cc3cf4e966fe3d619e6d0ae8cb129aec5"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/.gitattributes",
+      "sha256": "a8be36eb3b48839a370917a1c7d53156349419321a109e3e4c8c0140b236139e",
+      "bytes": 92
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/1440-family.png",
+      "sha256": "60411fa6e25c647cf06b531768ddeeb36cf507ba66fc5a790f97f1bdb99709b2",
+      "bytes": 152980
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/1440-family.txt",
+      "sha256": "6a3eec77a98812008ccb951b5af8edf4df4d5b8fdc3d1dd4af2fb42e8512647d",
+      "bytes": 259
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/1440-medical.png",
+      "sha256": "7f1c1ecc07cc100526f85aaf29a1182bac16d6291167b5823ddfe019b0c28afd",
+      "bytes": 148342
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/1440-medical.txt",
+      "sha256": "66ae877a42fdfd8c4606efcec2255410a7f1f774e28de6c75cd4f082d212c634",
+      "bytes": 307
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/1440-repair.png",
+      "sha256": "c8c5949f0062e3a91c99b9f9b53c6d16ab13bde6a8b746b134aece2f3d88bd06",
+      "bytes": 152403
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/1440-repair.txt",
+      "sha256": "3bb93f25aa5e162864ec5e3dcf1cfb23b0e2d9d9a72c65df595828c566b973a8",
+      "bytes": 324
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/320-family.png",
+      "sha256": "af2091d0fe8a5d92aa657d6c6518446a55bdba4c1fad3a6f0a1189a0d3d95374",
+      "bytes": 82500
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/320-family.txt",
+      "sha256": "6a3eec77a98812008ccb951b5af8edf4df4d5b8fdc3d1dd4af2fb42e8512647d",
+      "bytes": 259
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/320-medical.png",
+      "sha256": "08b5ea6af4ac8ac7b21729c219ad0e3afa6e474c689877e0aa1d56d19b4f1cca",
+      "bytes": 78860
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/320-medical.txt",
+      "sha256": "66ae877a42fdfd8c4606efcec2255410a7f1f774e28de6c75cd4f082d212c634",
+      "bytes": 307
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/320-repair.png",
+      "sha256": "c8a97f8982ae9a4a00f50f62a9bf9b0af568b0dbe287fc6579ceadbc3a03c7b1",
+      "bytes": 82269
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/320-repair.txt",
+      "sha256": "3bb93f25aa5e162864ec5e3dcf1cfb23b0e2d9d9a72c65df595828c566b973a8",
+      "bytes": 324
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/390-family.png",
+      "sha256": "67d7fd07771dd44ee2edcce1f9c863309f257418c836dd463f302284b6471469",
+      "bytes": 103011
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/390-family.txt",
+      "sha256": "6a3eec77a98812008ccb951b5af8edf4df4d5b8fdc3d1dd4af2fb42e8512647d",
+      "bytes": 259
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/390-medical.png",
+      "sha256": "af6d3bb087cff73873fead9d0e57dbf55b52badd5b8b0a321588e189c5a1bbfd",
+      "bytes": 100270
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/390-medical.txt",
+      "sha256": "66ae877a42fdfd8c4606efcec2255410a7f1f774e28de6c75cd4f082d212c634",
+      "bytes": 307
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/390-repair.png",
+      "sha256": "ba1cf7357fe92530ff8bfcf7f2760e047ecf57479771ef710198b9a5859c558c",
+      "bytes": 102060
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/390-repair.txt",
+      "sha256": "3bb93f25aa5e162864ec5e3dcf1cfb23b0e2d9d9a72c65df595828c566b973a8",
+      "bytes": 324
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/430-family.png",
+      "sha256": "83168f886f3ac08b7c7f0e6921f81dd3f17e1f552c75e8df94e7a1e2ba505f69",
+      "bytes": 117951
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/430-family.txt",
+      "sha256": "6a3eec77a98812008ccb951b5af8edf4df4d5b8fdc3d1dd4af2fb42e8512647d",
+      "bytes": 259
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/430-medical.png",
+      "sha256": "ca28c1833b9138830b7941c31a3aea47541bd57776243c1db9182fa48cde865b",
+      "bytes": 114769
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/430-medical.txt",
+      "sha256": "66ae877a42fdfd8c4606efcec2255410a7f1f774e28de6c75cd4f082d212c634",
+      "bytes": 307
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/430-repair.png",
+      "sha256": "b869ee8f8334c93733d4abb3d3e7f18b62de240d0e996a8e760bae1ab8121cf8",
+      "bytes": 115731
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/430-repair.txt",
+      "sha256": "3bb93f25aa5e162864ec5e3dcf1cfb23b0e2d9d9a72c65df595828c566b973a8",
+      "bytes": 324
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/768-family.png",
+      "sha256": "14914cd89504927e6a68052fa1830b89d4c8e5594ae7385dbb72e339c8cbdaa6",
+      "bytes": 182211
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/768-family.txt",
+      "sha256": "6a3eec77a98812008ccb951b5af8edf4df4d5b8fdc3d1dd4af2fb42e8512647d",
+      "bytes": 259
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/768-medical.png",
+      "sha256": "382d883fe648251d1024998082022309013f51a4bce72b703987195f823534dc",
+      "bytes": 181079
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/768-medical.txt",
+      "sha256": "66ae877a42fdfd8c4606efcec2255410a7f1f774e28de6c75cd4f082d212c634",
+      "bytes": 307
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/768-repair.png",
+      "sha256": "2789b08bf7765e71e11815c23b3b006050cec0b73b399f3325f063ded30ea190",
+      "bytes": 184812
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/768-repair.txt",
+      "sha256": "3bb93f25aa5e162864ec5e3dcf1cfb23b0e2d9d9a72c65df595828c566b973a8",
+      "bytes": 324
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after-payment-wrap/results.json",
+      "sha256": "5e547a4d1fd0cd8f4164777c0e9d4492d3fc6c2a577ab31386d6ae0400e636c9",
+      "bytes": 23601
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-bank-interest.png",
+      "sha256": "eb23d8755cf1f3d26c4eabc72c4cd374e6b80b0536cbcb10c7a09411cc324b7f",
+      "bytes": 133980
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-bank-interest.txt",
+      "sha256": "f33714fe09f4c7f38929431610b776714f8704c98425e28a843c4d2f11a30510",
+      "bytes": 948
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-bank-schedule.png",
+      "sha256": "8c66143cbb0a6cef4cab2b03a4c539cd4e6e45b3118d52a089f9cf8b14c03575",
+      "bytes": 121314
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-bank-schedule.txt",
+      "sha256": "4a8ec1edd892b564d0f1910c22cd0dc792f1e2f30f47a5c124e97b741f943880",
+      "bytes": 762
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-bank.png",
+      "sha256": "943ca29eeaa584edb0f7585bc636ec90562b49137e28572af486b5f1472cd99e",
+      "bytes": 117886
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-bank.txt",
+      "sha256": "9ddc7b36e24153919b3ee9f9a4552da107693e30511529e8fb8b7224cba46a75",
+      "bytes": 645
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-bonds-details.png",
+      "sha256": "a43354ff868240164ca1d7365b8bd619188e90139804c41c38be6437e1e8740d",
+      "bytes": 115701
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-bonds-details.txt",
+      "sha256": "ee39a19ff886ee37b075b51a6a461c7496356d57057c0c18c89f97449a498a86",
+      "bytes": 2483
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-bonds-market.png",
+      "sha256": "69f82b6de744ed500a89d67b29c5eb7faffa0685a6d14dda619efb3a3c66b913",
+      "bytes": 143808
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-bonds-market.txt",
+      "sha256": "61147e0e73e284b2b732b58997de31fd7a4076206f4e7c559755dce7a44ef1c8",
+      "bytes": 1448
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-bonds.png",
+      "sha256": "45a954a7ee36898c85a3f4c3ea4444a1f06fc6b498fdeb73ef9e4191dd242fb3",
+      "bytes": 125942
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-bonds.txt",
+      "sha256": "6599bdf9db684b6fd072f52073332c71d22f2f20d01dcecc01b6b6e145d74078",
+      "bytes": 783
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-family.png",
+      "sha256": "612bafd5742895c600b735625d889eb596319e45b6b5192752e55a42f4a9cf22",
+      "bytes": 153053
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-family.txt",
+      "sha256": "3be83a83ad54b1a6bfa3783c3025b0641e848380db6e578e279bb4f233ac8e3d",
+      "bytes": 256
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-gold-history.png",
+      "sha256": "dfff9baeff9e88334e91be8b2f89cffc1c6b93de7d90349ec4b6c8c3ff64e477",
+      "bytes": 111240
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-gold-history.txt",
+      "sha256": "f2369cb5af028daa4b7b8bbc53276ddcb14f4002b2302117fd3c337197e9e25f",
+      "bytes": 944
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-gold-market.png",
+      "sha256": "30cadaabb2a74e31b2d7684474c89e22494de421b866b0b98d217a7b6da07cc3",
+      "bytes": 142779
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-gold-market.txt",
+      "sha256": "6b03065b23d1d138a87f37f30706eeaa5edfd28a685d2d09e770d380b1e4bb4e",
+      "bytes": 1119
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-gold-sale.png",
+      "sha256": "706b69ab4c9b04d149d1e390865a7858547a1b9f230d0dd5057a05e84d99fcad",
+      "bytes": 130136
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-gold-sale.txt",
+      "sha256": "8f262f77592aee250d92dda4d92f42dec895021345aa9a4276cb895a5549d3c2",
+      "bytes": 521
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-gold.png",
+      "sha256": "ae4ed942b255dc55a7c2a51730ecb8dcd0455240662c8943825d6bd70ee93aa4",
+      "bytes": 108523
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-gold.txt",
+      "sha256": "c236d6879342564b116fefc8e51536b8ab6aa36fbc8f060be9875d65517a63e3",
+      "bytes": 522
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-medical.png",
+      "sha256": "20aa5008c54308353b4776640d1ea4d04515b2b1eaa7058fb12fe14275e34ce3",
+      "bytes": 148315
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-medical.txt",
+      "sha256": "aae4a75f4d8ae1fd7245f2d48583370c2561679cc5ee0823b8a8457d90b28a20",
+      "bytes": 304
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-repair.png",
+      "sha256": "9f0b685e7e3b555485d74194de8da3fb07facc38f7989d23d0f6e7541f17fd15",
+      "bytes": 152403
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/1440-repair.txt",
+      "sha256": "d0af4c935bb8b4a9ef58b35e7d593b124f987b1f57035927bea368a4594877fa",
+      "bytes": 319
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bank-cta.png",
+      "sha256": "2faee24d6265df8f0f599ef0ef069076a68daaee4bb0dcacaf6955c0c454b35c",
+      "bytes": 64079
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bank-cta.txt",
+      "sha256": "9ddc7b36e24153919b3ee9f9a4552da107693e30511529e8fb8b7224cba46a75",
+      "bytes": 645
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bank-interest.png",
+      "sha256": "93061ee6129da6e069e300da604f350c8f818e774c5ba447864dcb86f0b1ff38",
+      "bytes": 78864
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bank-interest.txt",
+      "sha256": "f33714fe09f4c7f38929431610b776714f8704c98425e28a843c4d2f11a30510",
+      "bytes": 948
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bank-late.png",
+      "sha256": "5ce00cfb53afa6223fd42a5cc44c0f4aa82bbd7b8efd5ed37e73eb18b3fb713d",
+      "bytes": 71144
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bank-late.txt",
+      "sha256": "3bace253a5b7d106a84014bd7ec9791e19017dddbfa8949e557fadd16fe4a902",
+      "bytes": 835
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bank-schedule.png",
+      "sha256": "fbfb4505459b9f61681c406b758a27b3f8e961f106aab3d3db6729c27fbf0bb7",
+      "bytes": 71812
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bank-schedule.txt",
+      "sha256": "4a8ec1edd892b564d0f1910c22cd0dc792f1e2f30f47a5c124e97b741f943880",
+      "bytes": 762
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bank.png",
+      "sha256": "52c0147e930c8bb73b8771586a56f99e033615379eecba2f8ec0a1b570e54946",
+      "bytes": 72755
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bank.txt",
+      "sha256": "9ddc7b36e24153919b3ee9f9a4552da107693e30511529e8fb8b7224cba46a75",
+      "bytes": 645
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bonds-cta.png",
+      "sha256": "368118c224c8a03099a1f9ca396cdbda39c2c157564fc22256b51479c1f878df",
+      "bytes": 64908
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bonds-cta.txt",
+      "sha256": "6599bdf9db684b6fd072f52073332c71d22f2f20d01dcecc01b6b6e145d74078",
+      "bytes": 783
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bonds-details.png",
+      "sha256": "c9f6f0238803690648dfcc99ce3f5de7b1418ea123b687dd666f8bd8dac1f02f",
+      "bytes": 67111
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bonds-details.txt",
+      "sha256": "ee39a19ff886ee37b075b51a6a461c7496356d57057c0c18c89f97449a498a86",
+      "bytes": 2483
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bonds-late.png",
+      "sha256": "c51dc5e18a645be90d542d562575c3a945051fdd4ba6b24006b802fc64677e40",
+      "bytes": 79672
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bonds-late.txt",
+      "sha256": "be38f70ee6be1f41bfe5865c9bbab870a837bc2a797dfd01aae701959f8ae2ee",
+      "bytes": 841
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bonds-market.png",
+      "sha256": "8b1605d6fee7c5a08565709e29e7badd1648804d33a6a0df688dce9f9e8e3449",
+      "bytes": 84770
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bonds-market.txt",
+      "sha256": "61147e0e73e284b2b732b58997de31fd7a4076206f4e7c559755dce7a44ef1c8",
+      "bytes": 1448
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bonds.png",
+      "sha256": "49fb6ebe89f0d22bfc03ca55b62c19791b899b5601f2ce7516d0720a70217309",
+      "bytes": 80118
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-bonds.txt",
+      "sha256": "6599bdf9db684b6fd072f52073332c71d22f2f20d01dcecc01b6b6e145d74078",
+      "bytes": 783
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-family.png",
+      "sha256": "10cffdb3279c481a52471279c45a3edbd96c5d42c1433c4ac80c373126184462",
+      "bytes": 82904
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-family.txt",
+      "sha256": "3be83a83ad54b1a6bfa3783c3025b0641e848380db6e578e279bb4f233ac8e3d",
+      "bytes": 256
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-gold-cta.png",
+      "sha256": "90640863fc150b282b4daa4664887995e266da45efd22ff04613b2398eac2c11",
+      "bytes": 67217
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-gold-cta.txt",
+      "sha256": "c236d6879342564b116fefc8e51536b8ab6aa36fbc8f060be9875d65517a63e3",
+      "bytes": 522
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-gold-history.png",
+      "sha256": "0f217ebad2daf26fb48472e85dec92826d8f9a10081329d361e5724281245506",
+      "bytes": 67942
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-gold-history.txt",
+      "sha256": "f2369cb5af028daa4b7b8bbc53276ddcb14f4002b2302117fd3c337197e9e25f",
+      "bytes": 944
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-gold-market.png",
+      "sha256": "0583f23903a19e510a454fc3202c02d473a014264571f9ec887b7b58db7afeb5",
+      "bytes": 96960
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-gold-market.txt",
+      "sha256": "6b03065b23d1d138a87f37f30706eeaa5edfd28a685d2d09e770d380b1e4bb4e",
+      "bytes": 1119
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-gold-sale.png",
+      "sha256": "56ca20ef9288c7bc509bf0d60cdd6b3ff17dcf2f02fcd4942f51eb4d654365c7",
+      "bytes": 77064
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-gold-sale.txt",
+      "sha256": "8f262f77592aee250d92dda4d92f42dec895021345aa9a4276cb895a5549d3c2",
+      "bytes": 521
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-gold.png",
+      "sha256": "0f2c79be9a3056978c228eedc7274bfbbef28cdf7ba99ac20b361543c0488ceb",
+      "bytes": 70285
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-gold.txt",
+      "sha256": "c236d6879342564b116fefc8e51536b8ab6aa36fbc8f060be9875d65517a63e3",
+      "bytes": 522
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-medical.png",
+      "sha256": "631740087109f9a96a2c53f6385a7fa05853a191fac0d5b61a219b0a48d6c797",
+      "bytes": 78892
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-medical.txt",
+      "sha256": "aae4a75f4d8ae1fd7245f2d48583370c2561679cc5ee0823b8a8457d90b28a20",
+      "bytes": 304
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-repair.png",
+      "sha256": "5e8ff018948c4a0543b4e1317fd79e8981a9853ad6c33dc81f5a67c7cf348b45",
+      "bytes": 82263
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/320-repair.txt",
+      "sha256": "d0af4c935bb8b4a9ef58b35e7d593b124f987b1f57035927bea368a4594877fa",
+      "bytes": 319
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bank-cta.png",
+      "sha256": "a0232aec4bebecc4f9294bc29b8f84e4e7b5fca5e6f8101b442c14d379670ef4",
+      "bytes": 86628
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bank-cta.txt",
+      "sha256": "9ddc7b36e24153919b3ee9f9a4552da107693e30511529e8fb8b7224cba46a75",
+      "bytes": 645
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bank-interest.png",
+      "sha256": "ff264e9bb66253c7e642e80f1478005d3f271047c1dedc3dd7ebffaf4734baf6",
+      "bytes": 98775
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bank-interest.txt",
+      "sha256": "f33714fe09f4c7f38929431610b776714f8704c98425e28a843c4d2f11a30510",
+      "bytes": 948
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bank-late.png",
+      "sha256": "eb92019da3b1ce3fc0d02c22788bda3049bb36075ce616652c4a3ce556c71f92",
+      "bytes": 92750
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bank-late.txt",
+      "sha256": "3bace253a5b7d106a84014bd7ec9791e19017dddbfa8949e557fadd16fe4a902",
+      "bytes": 835
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bank-schedule.png",
+      "sha256": "4b6af2ec25ebad520bfb1425eccea5e6c204b6a422c5354077743c0ae98c8995",
+      "bytes": 88173
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bank-schedule.txt",
+      "sha256": "4a8ec1edd892b564d0f1910c22cd0dc792f1e2f30f47a5c124e97b741f943880",
+      "bytes": 762
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bank.png",
+      "sha256": "35ebe3170d82adf8b89be1fe39b29753840bade6a7edd741aff3ae61bf4fc648",
+      "bytes": 86819
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bank.txt",
+      "sha256": "9ddc7b36e24153919b3ee9f9a4552da107693e30511529e8fb8b7224cba46a75",
+      "bytes": 645
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bonds-cta.png",
+      "sha256": "5e92e68a21f47c02613cad502520382e70e4127a39dfa5466a66a1d6233f6a5c",
+      "bytes": 81852
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bonds-cta.txt",
+      "sha256": "6599bdf9db684b6fd072f52073332c71d22f2f20d01dcecc01b6b6e145d74078",
+      "bytes": 783
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bonds-details.png",
+      "sha256": "30e5688ed21ca33fb144cecd1c4faaeea9dc207f81131fa89bfb98aef83a5129",
+      "bytes": 83662
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bonds-details.txt",
+      "sha256": "ee39a19ff886ee37b075b51a6a461c7496356d57057c0c18c89f97449a498a86",
+      "bytes": 2483
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bonds-late.png",
+      "sha256": "f9c83dde843957198b09cac8296f9388882b024e81899bab542ef0d23dff4d68",
+      "bytes": 95858
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bonds-late.txt",
+      "sha256": "be38f70ee6be1f41bfe5865c9bbab870a837bc2a797dfd01aae701959f8ae2ee",
+      "bytes": 841
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bonds-market.png",
+      "sha256": "ab5b8c81391629797aea485fc99852364a3dd87ed630a3e16c86a9d78598e4a6",
+      "bytes": 102317
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bonds-market.txt",
+      "sha256": "61147e0e73e284b2b732b58997de31fd7a4076206f4e7c559755dce7a44ef1c8",
+      "bytes": 1448
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bonds.png",
+      "sha256": "5179c1de6d79aac94becf84b937207addce4436006057d7b711894a927bc8550",
+      "bytes": 91247
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-bonds.txt",
+      "sha256": "6599bdf9db684b6fd072f52073332c71d22f2f20d01dcecc01b6b6e145d74078",
+      "bytes": 783
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-family.png",
+      "sha256": "76c82fac114d4536dc514de28a9258b0706008d6b815c3128371e0c8fc7bda17",
+      "bytes": 103086
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-family.txt",
+      "sha256": "3be83a83ad54b1a6bfa3783c3025b0641e848380db6e578e279bb4f233ac8e3d",
+      "bytes": 256
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-gold-cta.png",
+      "sha256": "8750c991c46f570282bf62045120be3e59d54995d5312c6cf292451057abc1c5",
+      "bytes": 81801
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-gold-cta.txt",
+      "sha256": "c236d6879342564b116fefc8e51536b8ab6aa36fbc8f060be9875d65517a63e3",
+      "bytes": 522
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-gold-history.png",
+      "sha256": "e2cf0c13f9211d3f5e34f50cdcf08be6835fe35b710c7432cb84c3b39b1babda",
+      "bytes": 81648
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-gold-history.txt",
+      "sha256": "f2369cb5af028daa4b7b8bbc53276ddcb14f4002b2302117fd3c337197e9e25f",
+      "bytes": 944
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-gold-market.png",
+      "sha256": "04adf6aec05442d1c4fb2094e2d43dedb665d763d79a8865c8c968a15e44229c",
+      "bytes": 111000
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-gold-market.txt",
+      "sha256": "6b03065b23d1d138a87f37f30706eeaa5edfd28a685d2d09e770d380b1e4bb4e",
+      "bytes": 1119
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-gold-sale.png",
+      "sha256": "e4412993ff53f5341b85436fccd9a71e74e710bdc6721d520a4f9ca8e44995d4",
+      "bytes": 90404
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-gold-sale.txt",
+      "sha256": "8f262f77592aee250d92dda4d92f42dec895021345aa9a4276cb895a5549d3c2",
+      "bytes": 521
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-gold.png",
+      "sha256": "2cf7b3146eb65a72ec752790992cc7f5adf0e6b78a2c5af3c7c78bf42dd45d34",
+      "bytes": 79904
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-gold.txt",
+      "sha256": "c236d6879342564b116fefc8e51536b8ab6aa36fbc8f060be9875d65517a63e3",
+      "bytes": 522
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-medical.png",
+      "sha256": "9b311d8ebbdda07291342f02147a8ae876e5d9b6c42d84990e01f37a75b46c00",
+      "bytes": 100392
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-medical.txt",
+      "sha256": "aae4a75f4d8ae1fd7245f2d48583370c2561679cc5ee0823b8a8457d90b28a20",
+      "bytes": 304
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-repair.png",
+      "sha256": "f8b502eeaee33eacc9ff4661773b432d0d3f97d025f8bd12fe6221f72bf32416",
+      "bytes": 102106
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/390-repair.txt",
+      "sha256": "d0af4c935bb8b4a9ef58b35e7d593b124f987b1f57035927bea368a4594877fa",
+      "bytes": 319
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-bank-interest.png",
+      "sha256": "be3a19d63bbe890f4982f287f5bdab0e9c851e2bf0f1feb6d29d3637a9d50080",
+      "bytes": 111472
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-bank-interest.txt",
+      "sha256": "f33714fe09f4c7f38929431610b776714f8704c98425e28a843c4d2f11a30510",
+      "bytes": 948
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-bank-schedule.png",
+      "sha256": "a51ccb3a281e698b2678477458a1353009e1bd4a12563eaa73d5c37c3a1892e3",
+      "bytes": 99402
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-bank-schedule.txt",
+      "sha256": "4a8ec1edd892b564d0f1910c22cd0dc792f1e2f30f47a5c124e97b741f943880",
+      "bytes": 762
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-bank.png",
+      "sha256": "b31a2f26b9bf166fa019769b45050860b15c48784ff5bd050d5037037a811eea",
+      "bytes": 95961
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-bank.txt",
+      "sha256": "9ddc7b36e24153919b3ee9f9a4552da107693e30511529e8fb8b7224cba46a75",
+      "bytes": 645
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-bonds-details.png",
+      "sha256": "0534c7b537bd542db2bfc6d781b5fa888fb755fdf14a9f1c598ef5b47f1cfc8e",
+      "bytes": 96083
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-bonds-details.txt",
+      "sha256": "ee39a19ff886ee37b075b51a6a461c7496356d57057c0c18c89f97449a498a86",
+      "bytes": 2483
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-bonds-market.png",
+      "sha256": "fa385535488ffa70fa0e29d4659123d7c3630bbfa8083a5aa112696441d46fea",
+      "bytes": 120648
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-bonds-market.txt",
+      "sha256": "61147e0e73e284b2b732b58997de31fd7a4076206f4e7c559755dce7a44ef1c8",
+      "bytes": 1448
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-bonds.png",
+      "sha256": "9bd3f30ab135aed1ba986d97e3095947c0f22e06574ed3250d20ea4cafadc52d",
+      "bytes": 103736
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-bonds.txt",
+      "sha256": "6599bdf9db684b6fd072f52073332c71d22f2f20d01dcecc01b6b6e145d74078",
+      "bytes": 783
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-family.png",
+      "sha256": "d163a368c8fc09f0b5e3d6840cd72ab40e4a0e67546b399cd86e550a8ac6208f",
+      "bytes": 117971
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-family.txt",
+      "sha256": "3be83a83ad54b1a6bfa3783c3025b0641e848380db6e578e279bb4f233ac8e3d",
+      "bytes": 256
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-gold-history.png",
+      "sha256": "b89bc9a4ebd1482917c4b50fb3ea2e585824b0d8e05f57d0b57e6940ea537c9d",
+      "bytes": 93846
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-gold-history.txt",
+      "sha256": "f2369cb5af028daa4b7b8bbc53276ddcb14f4002b2302117fd3c337197e9e25f",
+      "bytes": 944
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-gold-market.png",
+      "sha256": "e606edee92acaf13b7b591a11c81acc543d7ebc7e48d58423f14ee7012b817dc",
+      "bytes": 120004
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-gold-market.txt",
+      "sha256": "6b03065b23d1d138a87f37f30706eeaa5edfd28a685d2d09e770d380b1e4bb4e",
+      "bytes": 1119
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-gold-sale.png",
+      "sha256": "d96d5ec798d12dbc4170a5105fbb98707e53264ac0196dc6571eb091731f52c4",
+      "bytes": 109898
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-gold-sale.txt",
+      "sha256": "8f262f77592aee250d92dda4d92f42dec895021345aa9a4276cb895a5549d3c2",
+      "bytes": 521
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-gold.png",
+      "sha256": "8a78efaab21bb5bf462ae0f2291b85a1aca5390af61cf88297228280da2a41d9",
+      "bytes": 87425
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-gold.txt",
+      "sha256": "c236d6879342564b116fefc8e51536b8ab6aa36fbc8f060be9875d65517a63e3",
+      "bytes": 522
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-medical.png",
+      "sha256": "d9c3402d035d5ae17ed35b73b4396dd44d2977e8d4b531f41dfcddb3319f349a",
+      "bytes": 114846
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-medical.txt",
+      "sha256": "aae4a75f4d8ae1fd7245f2d48583370c2561679cc5ee0823b8a8457d90b28a20",
+      "bytes": 304
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-repair.png",
+      "sha256": "b4756113b78963973ce9284160c7907f1647a7055c83a2238f754b54515c0f26",
+      "bytes": 115752
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/430-repair.txt",
+      "sha256": "d0af4c935bb8b4a9ef58b35e7d593b124f987b1f57035927bea368a4594877fa",
+      "bytes": 319
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-bank-interest.png",
+      "sha256": "18cb1f5e68d2b3f3b929d01adfebb6b50b2494ae696551a7d67d5022760c79cd",
+      "bytes": 177998
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-bank-interest.txt",
+      "sha256": "f33714fe09f4c7f38929431610b776714f8704c98425e28a843c4d2f11a30510",
+      "bytes": 948
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-bank-schedule.png",
+      "sha256": "10d15dd610fb82cd049aba9e69aec439933126e80855279dcbb0c4ee5047a040",
+      "bytes": 164754
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-bank-schedule.txt",
+      "sha256": "4a8ec1edd892b564d0f1910c22cd0dc792f1e2f30f47a5c124e97b741f943880",
+      "bytes": 762
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-bank.png",
+      "sha256": "bd9492269907ceead662883dc7b20ad3d8bf18dc8717707a9e199c045ceb14b4",
+      "bytes": 161099
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-bank.txt",
+      "sha256": "9ddc7b36e24153919b3ee9f9a4552da107693e30511529e8fb8b7224cba46a75",
+      "bytes": 645
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-bonds-details.png",
+      "sha256": "265449d2a2a16a824897abd44dd0ede5fc07300c0e5fac435cf3641fad8e4414",
+      "bytes": 168408
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-bonds-details.txt",
+      "sha256": "ee39a19ff886ee37b075b51a6a461c7496356d57057c0c18c89f97449a498a86",
+      "bytes": 2483
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-bonds-market.png",
+      "sha256": "f3c00d2520e4a167a8092cd47e0e37c6f20e3131c045b629e58504768eaeaf9a",
+      "bytes": 194484
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-bonds-market.txt",
+      "sha256": "61147e0e73e284b2b732b58997de31fd7a4076206f4e7c559755dce7a44ef1c8",
+      "bytes": 1448
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-bonds.png",
+      "sha256": "756e833683dffa973b8b250af18695124ad5e1f774b99305b92e6ae925690bbb",
+      "bytes": 169425
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-bonds.txt",
+      "sha256": "6599bdf9db684b6fd072f52073332c71d22f2f20d01dcecc01b6b6e145d74078",
+      "bytes": 783
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-family.png",
+      "sha256": "06cc0b1da351b5861fd1b660809e5a4c3b77ca3dd55ec1bb250b06906935d7c9",
+      "bytes": 182186
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-family.txt",
+      "sha256": "3be83a83ad54b1a6bfa3783c3025b0641e848380db6e578e279bb4f233ac8e3d",
+      "bytes": 256
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-gold-history.png",
+      "sha256": "d3c3509e67eb086e8f862abc03343d8032e014ac886da0a0ea5515d433cd56d4",
+      "bytes": 168248
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-gold-history.txt",
+      "sha256": "f2369cb5af028daa4b7b8bbc53276ddcb14f4002b2302117fd3c337197e9e25f",
+      "bytes": 944
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-gold-market.png",
+      "sha256": "46946bc4d83f6d0fc332c533bc6b434688b78ce0c60998df1dfbaf5fcfb24269",
+      "bytes": 184901
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-gold-market.txt",
+      "sha256": "6b03065b23d1d138a87f37f30706eeaa5edfd28a685d2d09e770d380b1e4bb4e",
+      "bytes": 1119
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-gold-sale.png",
+      "sha256": "d8e942bcdf3b53f030d36d5b8a7fbbd28a2c2095df474992c10b3f5927288b33",
+      "bytes": 167594
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-gold-sale.txt",
+      "sha256": "8f262f77592aee250d92dda4d92f42dec895021345aa9a4276cb895a5549d3c2",
+      "bytes": 521
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-gold.png",
+      "sha256": "0e742f52b78c317b2d90ee2b51a39831bba0c76c3cdcee77b29203fdad5f8820",
+      "bytes": 155789
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-gold.txt",
+      "sha256": "c236d6879342564b116fefc8e51536b8ab6aa36fbc8f060be9875d65517a63e3",
+      "bytes": 522
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-medical.png",
+      "sha256": "f83ebc52005609ef31591e3452a16b97694a8ffe2701f36add22b3f7277f16cf",
+      "bytes": 181068
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-medical.txt",
+      "sha256": "aae4a75f4d8ae1fd7245f2d48583370c2561679cc5ee0823b8a8457d90b28a20",
+      "bytes": 304
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-repair.png",
+      "sha256": "9855bdecc8caf34c42e64aeb74660e9f89c7ded74c5a1163a80723060b244bcb",
+      "bytes": 184775
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/768-repair.txt",
+      "sha256": "d0af4c935bb8b4a9ef58b35e7d593b124f987b1f57035927bea368a4594877fa",
+      "bytes": 319
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/after/results.json",
+      "sha256": "aeb4fd1cd51a12dedde22771eb6410a3dd36578f28d901b2a7772f0eb0c3754f",
+      "bytes": 50464
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/1440-bank.png",
+      "sha256": "ecddb40752604bc299c3370bacfdfc514cd76274b14bcec2ea4ec443cefa7a1f",
+      "bytes": 133977
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/1440-bank.txt",
+      "sha256": "be380443d6c03a1c76b973d9b1bdfe647ee23411cc6a4bd696fba91875beee67",
+      "bytes": 895
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/1440-bonds.png",
+      "sha256": "bde2eb0f9a7b4caa8d4e4ba4d59311664ff2c5d6fbcce4b8384f29c8cdd6bfc6",
+      "bytes": 136399
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/1440-bonds.txt",
+      "sha256": "120b6b069b3f59f43060d1a5cc61ff003bc4a5e46cf253c5dfd0d34a6fac4469",
+      "bytes": 1133
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/1440-family.png",
+      "sha256": "8d02816751c2f37350d3f96bf6c0719b9690cf98523bb87e0290e64da83e75ab",
+      "bytes": 149710
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/1440-family.txt",
+      "sha256": "3dd12683173304fd932a07142cccc6dc592cb7b938a031fa7a388059536ec524",
+      "bytes": 350
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/1440-gold.png",
+      "sha256": "888b40a7005b8afd4b9b34a32284f55e88a8e92f7ba231cd238f206b5052b80d",
+      "bytes": 123425
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/1440-gold.txt",
+      "sha256": "e4d3226ad817cce78e727874b6e31233f6765340be0639c06e523185b4ddd5fc",
+      "bytes": 537
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/1440-medical.png",
+      "sha256": "82dfe8679a8ef23fc023f294b24f113eb1b37550c16398782a6371495b17d297",
+      "bytes": 144801
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/1440-medical.txt",
+      "sha256": "42dd2a61c5c3a4d6e25ea8070864dd556c10f708865800bef5569cba81ca8317",
+      "bytes": 398
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/1440-repair.png",
+      "sha256": "2730f0c93bac889fac1cab6416c8705b6c1b942311b545180651f9ff4db8e912",
+      "bytes": 152908
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/1440-repair.txt",
+      "sha256": "41863648b4614330e9e002342cf27dbf8f68dbb8c0575269937e8ff957423bdf",
+      "bytes": 400
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/320-bank.png",
+      "sha256": "a58409e3fb3b5f0a04acf2cbfc4da5cced2d22f442504c60c45842ad8ea69e97",
+      "bytes": 84603
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/320-bank.txt",
+      "sha256": "be380443d6c03a1c76b973d9b1bdfe647ee23411cc6a4bd696fba91875beee67",
+      "bytes": 895
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/320-bonds.png",
+      "sha256": "ee0d4451a9595e577c19ca0accfa1fed5cf629cf1272e61a6165bcb4ffe2f896",
+      "bytes": 84367
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/320-bonds.txt",
+      "sha256": "120b6b069b3f59f43060d1a5cc61ff003bc4a5e46cf253c5dfd0d34a6fac4469",
+      "bytes": 1133
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/320-family.png",
+      "sha256": "64be978b151c46349f68ddd3a3edafd40af61645af477fff34bdd2f46f07426b",
+      "bytes": 82458
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/320-family.txt",
+      "sha256": "3dd12683173304fd932a07142cccc6dc592cb7b938a031fa7a388059536ec524",
+      "bytes": 350
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/320-gold.png",
+      "sha256": "e3cdf80390391dd70836a8100aeb19340207b157a155ce68865b8208e335afab",
+      "bytes": 72798
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/320-gold.txt",
+      "sha256": "e4d3226ad817cce78e727874b6e31233f6765340be0639c06e523185b4ddd5fc",
+      "bytes": 537
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/320-medical.png",
+      "sha256": "0d8308f9a0808f989aef852f7791045fce8a8c8ff162608d3752f9b6e7f50aa4",
+      "bytes": 77299
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/320-medical.txt",
+      "sha256": "42dd2a61c5c3a4d6e25ea8070864dd556c10f708865800bef5569cba81ca8317",
+      "bytes": 398
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/320-repair.png",
+      "sha256": "8ad67c0ca2b3e1add816f10b7fde41269ee86458c43222e8914afae7618167cc",
+      "bytes": 81595
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/320-repair.txt",
+      "sha256": "41863648b4614330e9e002342cf27dbf8f68dbb8c0575269937e8ff957423bdf",
+      "bytes": 400
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/390-bank.png",
+      "sha256": "a45b8d0689b2683100acaa4b6e021b3292c77c0cfb957fbee285a70a03959d2d",
+      "bytes": 101986
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/390-bank.txt",
+      "sha256": "be380443d6c03a1c76b973d9b1bdfe647ee23411cc6a4bd696fba91875beee67",
+      "bytes": 895
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/390-bonds.png",
+      "sha256": "266ec3647a60fedca2c0a600d3190f32a53aba95315b878db50712a9d385051d",
+      "bytes": 104602
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/390-bonds.txt",
+      "sha256": "120b6b069b3f59f43060d1a5cc61ff003bc4a5e46cf253c5dfd0d34a6fac4469",
+      "bytes": 1133
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/390-family.png",
+      "sha256": "4a369ed291e55a06e2c035f6c3b3340bd62b834405d0ae734fbe9f633b40bebc",
+      "bytes": 97314
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/390-family.txt",
+      "sha256": "3dd12683173304fd932a07142cccc6dc592cb7b938a031fa7a388059536ec524",
+      "bytes": 350
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/390-gold.png",
+      "sha256": "2e7fd0912dfb8f10a8bba87172b1100d1e33d61c3e938b864907e414368e878c",
+      "bytes": 83734
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/390-gold.txt",
+      "sha256": "e4d3226ad817cce78e727874b6e31233f6765340be0639c06e523185b4ddd5fc",
+      "bytes": 537
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/390-medical.png",
+      "sha256": "23f83464a168ffc86a15ad8627212722f09afa6b604d172a10ae010e6af35fda",
+      "bytes": 97265
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/390-medical.txt",
+      "sha256": "42dd2a61c5c3a4d6e25ea8070864dd556c10f708865800bef5569cba81ca8317",
+      "bytes": 398
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/390-repair.png",
+      "sha256": "7806868fd1e853167a975dbb2d403c211807592e4cd8d44abe976f7f70352d86",
+      "bytes": 100695
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/390-repair.txt",
+      "sha256": "41863648b4614330e9e002342cf27dbf8f68dbb8c0575269937e8ff957423bdf",
+      "bytes": 400
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/430-bank.png",
+      "sha256": "c5dcf875f52f2451cf0e3a7b7a5caa9a23cd9547cc24442806313713a5f9570a",
+      "bytes": 113516
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/430-bank.txt",
+      "sha256": "be380443d6c03a1c76b973d9b1bdfe647ee23411cc6a4bd696fba91875beee67",
+      "bytes": 895
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/430-bonds.png",
+      "sha256": "844368b57d8ff61b413fa420fd02521fa11ead7520e390feca613591549b9109",
+      "bytes": 114868
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/430-bonds.txt",
+      "sha256": "120b6b069b3f59f43060d1a5cc61ff003bc4a5e46cf253c5dfd0d34a6fac4469",
+      "bytes": 1133
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/430-family.png",
+      "sha256": "fa117edb53f492c79f109efb121332b726177cfb6a92018aca6725fdd4957941",
+      "bytes": 114541
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/430-family.txt",
+      "sha256": "3dd12683173304fd932a07142cccc6dc592cb7b938a031fa7a388059536ec524",
+      "bytes": 350
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/430-gold.png",
+      "sha256": "b10a8dcf697a7f7b7ed16f69ebc6b806559a9b4cb4b74e385b42f2c86c7c4f77",
+      "bytes": 101359
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/430-gold.txt",
+      "sha256": "e4d3226ad817cce78e727874b6e31233f6765340be0639c06e523185b4ddd5fc",
+      "bytes": 537
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/430-medical.png",
+      "sha256": "28f7ffabc1e70c075e03e576606fb2ef00c8154feba1131fd9193f0f7cd9c4de",
+      "bytes": 110785
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/430-medical.txt",
+      "sha256": "42dd2a61c5c3a4d6e25ea8070864dd556c10f708865800bef5569cba81ca8317",
+      "bytes": 398
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/430-repair.png",
+      "sha256": "7b6095386b23f73f3f90905ebee498fccd12988e69158ea70d1ef72298cda0ab",
+      "bytes": 114183
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/430-repair.txt",
+      "sha256": "41863648b4614330e9e002342cf27dbf8f68dbb8c0575269937e8ff957423bdf",
+      "bytes": 400
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/768-bank.png",
+      "sha256": "e24bee0576da1e7778be8679315762ea536f34f6605df9cfbd7b5b5346d06fe9",
+      "bytes": 177450
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/768-bank.txt",
+      "sha256": "be380443d6c03a1c76b973d9b1bdfe647ee23411cc6a4bd696fba91875beee67",
+      "bytes": 895
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/768-bonds.png",
+      "sha256": "6fcced1767c7e78571a7079f806473408bded788c3250f5a8ff797002ae74160",
+      "bytes": 183520
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/768-bonds.txt",
+      "sha256": "120b6b069b3f59f43060d1a5cc61ff003bc4a5e46cf253c5dfd0d34a6fac4469",
+      "bytes": 1133
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/768-family.png",
+      "sha256": "3380731430a79e176a3b17d2c91f78a25a5ed6fd87b8487e9b8befc4760cd403",
+      "bytes": 182878
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/768-family.txt",
+      "sha256": "3dd12683173304fd932a07142cccc6dc592cb7b938a031fa7a388059536ec524",
+      "bytes": 350
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/768-gold.png",
+      "sha256": "b8626e77fc94e1912bc3a1a68ca4cce68533554f26f78bcb466641f55fdcd99b",
+      "bytes": 161976
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/768-gold.txt",
+      "sha256": "e4d3226ad817cce78e727874b6e31233f6765340be0639c06e523185b4ddd5fc",
+      "bytes": 537
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/768-medical.png",
+      "sha256": "af5160b8123f0930e3bb3dbea34e9564836e00615bed975e463cb66afccfc106",
+      "bytes": 179776
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/768-medical.txt",
+      "sha256": "42dd2a61c5c3a4d6e25ea8070864dd556c10f708865800bef5569cba81ca8317",
+      "bytes": 398
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/768-repair.png",
+      "sha256": "017c3cc1c94b9fef9d99f8e6298e11946d24602b88c20bc919c3c553126f9c38",
+      "bytes": 186094
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/768-repair.txt",
+      "sha256": "41863648b4614330e9e002342cf27dbf8f68dbb8c0575269937e8ff957423bdf",
+      "bytes": 400
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/before/results.json",
+      "sha256": "942b4484b0206cda7325b89bac3e7a8d750a6fa54929318a6c4eb7675b38daac",
+      "bytes": 13140
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/checkpoint-run.txt",
+      "sha256": "28a409fcfa195bd3e0484f3ca2829903aaa265c231f0f2eca247487fa82d7ce6",
+      "bytes": 67
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/checkpoints/additional-provenance.json",
+      "sha256": "783ec178bd39b4753ba4be6e5f3f56e9a70df7937bef78b35a5247b043fe5163",
+      "bytes": 1362
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/checkpoints/bank-late.json.gz",
+      "sha256": "334e7164fb89204739e33a525f39180f320b60a2e492e552abaf28231b6fea6d",
+      "bytes": 949101
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/checkpoints/bank.json.gz",
+      "sha256": "510d923022d4056e2be9fc520a702a8979d865d5639e318feefefcec60367ae9",
+      "bytes": 158204
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/checkpoints/bonds-late.json.gz",
+      "sha256": "304131d0d1c4fa3f03f70e3e5ea840b6a823b663f2660afadd22e31ca463a191",
+      "bytes": 1295649
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/checkpoints/bonds.json.gz",
+      "sha256": "6208ab59e5e790023c55e09a855aede7aaacdafb90415015fcb12df9042715d3",
+      "bytes": 53601
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/checkpoints/copied-provenance.json",
+      "sha256": "fc344cd4e968e4983d04caaa78d2adcaafeda1601ad4a66a7652e13cd7c13022",
+      "bytes": 673
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/checkpoints/family.json.gz",
+      "sha256": "7cc5886432a28e850ca2272afc3bf5083909cd516f8a3f3af2ee0b17a0c23110",
+      "bytes": 22793
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/checkpoints/gold-owned.json.gz",
+      "sha256": "22b7a104986299918e65b9c0b17402a3bd7973ee5f97fafb80f8471689725e0e",
+      "bytes": 253376
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/checkpoints/gold.json.gz",
+      "sha256": "78477ff2fe022968f650bbbf15d86fbfeb85bfb5de2ec3790b5f175c74ff13be",
+      "bytes": 22656
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/checkpoints/medical.json.gz",
+      "sha256": "33d31baab16d415b0bb3dd2ab9750308cc8ea276e5fd5ef66629d8caab689bc1",
+      "bytes": 256063
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/checkpoints/repair.json.gz",
+      "sha256": "b0a4ee925443f50f45f2f28e679f25d0b01f3408249cfafb6ffd630e31550f96",
+      "bytes": 1254096
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/compatibility-run.txt",
+      "sha256": "b0e13527b1505920fdba231e7fa72e93007cbeb8b2cfdc8fd18b5a66606b44d0",
+      "bytes": 1451
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/compatibility.json",
+      "sha256": "afd3c8b96f4719f315504f968dc07ee80790f7932f6d791e4078e271c0ed005e",
+      "bytes": 1777
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/final-lint.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/lint.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/mobile-build.txt",
+      "sha256": "3d04942b9f02a6b2788ca8d25404aba7648e8ab29c850f9fb39e014a3f5763f1",
+      "bytes": 385
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/parity.txt",
+      "sha256": "0ac2e0e2b16826e3277d33828e813c44e054e8517c47a44e8f7797092abb16da",
+      "bytes": 70
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/product-tests.txt",
+      "sha256": "c90d4bebdc3143cc737f47963ab92293ae1625d3abdf7ccbcbf5b71997ddbe3e",
+      "bytes": 81238
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/rendered-language-audit.json",
+      "sha256": "521f13724f379c562aeb400e91c0ef3c8c990b004a7a51862da3af48c7322f33",
+      "bytes": 2241
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/settlement/bonds-an-tam.json.gz",
+      "sha256": "41b421a38a3c6f3f3f09e034febd4e10333c355d27e62cc512caee3af0e588b4",
+      "bytes": 681257
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/settlement/bonds-but-pha.json.gz",
+      "sha256": "28b928775c50e9b0a9fd98f883444ce5983a911587ca23dac47f265f89763ffc",
+      "bytes": 681696
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/settlement/family.json.gz",
+      "sha256": "48132458f8a1264093b781021c515d0c0a3c7388d4f99c22392459466c570981",
+      "bytes": 192578
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/settlement/gold-sale.json.gz",
+      "sha256": "24361903a1411ccc4042f3c45d478e120c0c6a8c3d0b62cca2fb8a81c8180715",
+      "bytes": 269828
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/settlement/repair.json.gz",
+      "sha256": "a0841281391b2545a0f2791e10d07b396091f417b3f646d87362c063310cb827",
+      "bytes": 1704872
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/settlement/results.json",
+      "sha256": "6e72904274e76248b2032a549ca2033c0843b711e40f4d0a0b25b6f15ed7c582",
+      "bytes": 3116
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/settlement/savings-1.json.gz",
+      "sha256": "10780ea228ebfff843925bd912a4d53c427b1eae18a3d62c7227915ee1a0a4a6",
+      "bytes": 533666
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/settlement/savings-2.json.gz",
+      "sha256": "02ff372020fa7c5aa2bb75f4c5b2602fda7b6ce4bb684fd1c3c59584a5f108c4",
+      "bytes": 836581
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/settlement/savings-3.json.gz",
+      "sha256": "5d97cbaf6059e7f4fae022dec924dc0ba183fb712ebf1d86f3488980d4f5edb5",
+      "bytes": 1266494
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/ssr-tests-before-final-assertion.txt",
+      "sha256": "095070537411223c22f77a62d6f79e220f5f5a1d82def58aae330b6891316c21",
+      "bytes": 20581
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/ssr-tests-initial.txt",
+      "sha256": "99fc6ddad428bd9aae67418517bb639e72ceae795e539979b2538b6fd6a4ee15",
+      "bytes": 41927
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/ssr-tests.txt",
+      "sha256": "dc42bedb0427ee86e8258c8d3c9ac1126ed9d3dfd410e5a9c6aea4c48461b2c0",
+      "bytes": 17616
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/typecheck-mobile.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/playtests/b18-compact-financial-ui/typecheck-shared.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ]
+}
