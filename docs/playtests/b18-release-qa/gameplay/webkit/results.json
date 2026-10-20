@@ -1,0 +1,192 @@
+{
+  "browser": "webkit",
+  "results": [
+    {
+      "name": "mobile-advanced-first",
+      "width": 390,
+      "seed": "TRADING-AB-MAIN-0",
+      "policy": "advanced-first",
+      "url": "https://boardgame-exe-mobile-preview-7y72c042b-tris-projects-2888207c.vercel.app",
+      "actualUi": true,
+      "injectedState": false,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 94000000,
+        "termination": "completed"
+      },
+      "events": [
+        "demand-boom",
+        "course",
+        "gold",
+        "bank",
+        "business",
+        "stocks",
+        "bonds"
+      ],
+      "courses": [
+        "course-advanced",
+        "course-basic"
+      ],
+      "reloaded": true,
+      "completed": true,
+      "endedLabelCorrect": true,
+      "logEntries": 101
+    }
+  ],
+  "errors": [],
+  "layout": [
+    {
+      "label": "mobile-advanced-first-setup",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-demand-boom",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-course",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-resumed",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "mobile-advanced-first-event-gold",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-bank",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-business",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-summary-1",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-stocks",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-bonds",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-summary-2",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-summary-3",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-summary-4",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-result",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "actualPreview": true,
+  "humanPlaytest": false
+}

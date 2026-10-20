@@ -1,0 +1,75 @@
+{
+  "id": "dpl_DtQYn1xSUpSamKqJLjx6wbPYeQgY",
+  "name": "boardgame-exe-mobile-preview",
+  "url": "boardgame-exe-mobile-preview-7y72c042b-tris-projects-2888207c.vercel.app",
+  "target": "preview",
+  "readyState": "READY",
+  "createdAt": 1792460643677,
+  "duration": {
+    "startTime": 1792460671610,
+    "endTime": 1792460723462,
+    "endTimeCapped": 1792460723462,
+    "timeToReady": 35207,
+    "timeToContainerExit": 51852,
+    "timeToContainerExitCapped": 51852,
+    "timeForBilling": 60000,
+    "cpuTimeForBilling": 120000
+  },
+  "buildMachine": {
+    "cores": 2,
+    "memory": 8192,
+    "machine": "basic",
+    "selectionType": "fixed",
+    "selectionSource": "plan-default"
+  },
+  "aliases": [
+    "boardgame-exe-mobile-preview-git-643609-tris-projects-2888207c.vercel.app"
+  ],
+  "builds": [
+    {
+      "id": "bld_wsqyjvctm",
+      "deploymentId": "dpl_DtQYn1xSUpSamKqJLjx6wbPYeQgY",
+      "entrypoint": ".",
+      "readyState": "READY",
+      "readyStateAt": 1792460643581,
+      "createdAt": 1792460643581,
+      "createdIn": "sfo1",
+      "use": "@vercel/vc-build",
+      "config": {
+        "framework": "vite",
+        "installCommand": "npm ci && npm ci --prefix mobile_app",
+        "buildCommand": "npm run build --prefix mobile_app",
+        "outputDirectory": "mobile_app/dist",
+        "nodeVersion": "24.x",
+        "projectCreatedAt": 1791885487992,
+        "vercelConfig": {}
+      },
+      "middleware": [],
+      "output": [
+        {
+          "prerender": null,
+          "type": "lambda",
+          "path": "api/ai-coach",
+          "digest": "prj_mNqBP0UOsodb1WifpfNuFfKLmUpG/a3ae22ea649c4ada8985fa25064735e954f8e1b2c433d47144f4849aa9aa438d",
+          "mode": 49590,
+          "size": 20806,
+          "lambda": {
+            "functionName": "team_qjfNkjnn7fJ4crJevgBurRbB-3049166d6e9d0e34c372ae474a85567651",
+            "deployedTo": [
+              "iad1"
+            ],
+            "runtime": "nodejs24.x",
+            "memorySize": 2048,
+            "timeout": 300,
+            "layers": [
+              "arn:aws:lambda:AWS_REGION_PLACEHOLDER:977805900156:layer:vercel-rusty-runtime-nodejs-1_51_11-production-851b7ac1bb-AWS_ARCH_PLACEHOLDER:1"
+            ]
+          },
+          "edge": null
+        }
+      ],
+      "fingerprint": null
+    }
+  ],
+  "contextName": "tris-projects-2888207c"
+}

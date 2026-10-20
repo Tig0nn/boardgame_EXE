@@ -1,0 +1,1042 @@
+{
+  "results": [
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-defeat.json.gz",
+      "sha256": "6d379d1a1cd8cde9f201179af8e92535d2ca957ea2e67082fb6cac174d55da18",
+      "seed": "TRADING-AB-MAIN-0",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 25,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "defeat",
+        "won": false,
+        "lawfulProceeds": 86000000,
+        "termination": "completed"
+      },
+      "course": [],
+      "terms": [],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 0,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 86000000,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-savings-victory.json.gz",
+      "sha256": "cb0a04800c1165b0e6b379b03052be6363e7fa794649c6e6f18a7c910da7de14",
+      "seed": "TRADING-AB-MAIN-0",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 25,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 95000000,
+        "termination": "completed"
+      },
+      "course": [],
+      "terms": [
+        3
+      ],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 0,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 95000000,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-victory.json.gz",
+      "sha256": "d23e52dd2ad8673dd67180920fa30d0c304c01dd1e5c8be831383c5cd857b4e7",
+      "seed": "TRADING-AB-MAIN-0",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 25,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 94000000,
+        "termination": "completed"
+      },
+      "course": [
+        {
+          "id": "course-basic",
+          "cost": 6000000,
+          "boost": 2000000,
+          "lap": 1
+        },
+        {
+          "id": "course-advanced",
+          "cost": 10000000,
+          "boost": 4000000,
+          "lap": 1
+        }
+      ],
+      "terms": [],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 0,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 94000000,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first.json.gz",
+      "sha256": "cf8b8606ef3f2ebc59a35f7489ae476cbc8ff6f288c54a47477caa9f114295e2",
+      "seed": "TRADING-AB-MAIN-0",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 25,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 94000000,
+        "termination": "completed"
+      },
+      "course": [
+        {
+          "id": "course-basic",
+          "cost": 6000000,
+          "boost": 2000000,
+          "lap": 1
+        },
+        {
+          "id": "course-advanced",
+          "cost": 10000000,
+          "boost": 4000000,
+          "lap": 1
+        }
+      ],
+      "terms": [],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 0,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 94000000,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first.json.gz",
+      "sha256": "129d5bb9bb7e782f70256d57cb4939777ca10bca5d4c2380b413925163f65aff",
+      "seed": "TRADING-AB-MAIN-0",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 25,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 94000000,
+        "termination": "completed"
+      },
+      "course": [
+        {
+          "id": "course-advanced",
+          "cost": 10000000,
+          "boost": 4000000,
+          "lap": 1
+        },
+        {
+          "id": "course-basic",
+          "cost": 6000000,
+          "boost": 2000000,
+          "lap": 1
+        }
+      ],
+      "terms": [],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 0,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 94000000,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding.json.gz",
+      "sha256": "35b4037d8ce10a857c0e70e1898600442b2cdefe52b0ddb26be2749102a3d413",
+      "seed": "RELEASE-ASSET-FUND-3",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 23,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "defeat",
+        "won": false,
+        "lawfulProceeds": 74925307,
+        "termination": "completed"
+      },
+      "course": [],
+      "terms": [],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 5,
+        "sell-bonds": 0,
+        "buy-gold": 1,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 3,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 17497174,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 5313086,
+        "gold": 54352539,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 5233390,
+        "gold": 52194743
+      },
+      "finance": {
+        "fees": 331923,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first.json.gz",
+      "sha256": "cf8b8606ef3f2ebc59a35f7489ae476cbc8ff6f288c54a47477caa9f114295e2",
+      "seed": "TRADING-AB-MAIN-0",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 25,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 94000000,
+        "termination": "completed"
+      },
+      "course": [
+        {
+          "id": "course-basic",
+          "cost": 6000000,
+          "boost": 2000000,
+          "lap": 1
+        },
+        {
+          "id": "course-advanced",
+          "cost": 10000000,
+          "boost": 4000000,
+          "lap": 1
+        }
+      ],
+      "terms": [],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 0,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 94000000,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business.json.gz",
+      "sha256": "7f6853de4ef06035d6e20a155da67a8e029a7e74f1376fcd9945b5105be80ab8",
+      "seed": "TRADING-AB-MAIN-0",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 25,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "defeat",
+        "won": false,
+        "lawfulProceeds": 85500000,
+        "termination": "completed"
+      },
+      "course": [
+        {
+          "id": "course-basic",
+          "cost": 6000000,
+          "boost": 2000000,
+          "lap": 1
+        },
+        {
+          "id": "course-advanced",
+          "cost": 10000000,
+          "boost": 4000000,
+          "lap": 1
+        }
+      ],
+      "terms": [],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 0,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 1,
+        "upgrade-business": 1,
+        "sell-business": 1,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 85500000,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding.json.gz",
+      "sha256": "ee28246e12192a47365f5e3c857f127c71c9dfa4f181e0188e5f42f08ef3e727",
+      "seed": "B18-MULTICOURSE-SCREEN-0",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 18,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "defeat",
+        "won": false,
+        "lawfulProceeds": 89329927,
+        "termination": "completed"
+      },
+      "course": [],
+      "terms": [
+        3
+      ],
+      "counts": {
+        "buy-stocks": 1,
+        "sell-stocks": 0,
+        "buy-bonds": 1,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 1,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 77909209,
+        "savings": 0,
+        "stocks": 11536079,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 11420718,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings.json.gz",
+      "sha256": "bc259888d0e9d5e945258ee7c13fb6d9665439c06921f2d6b467ef3af607d035",
+      "seed": "TRADING-AB-MAIN-0",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 25,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 95000000,
+        "termination": "completed"
+      },
+      "course": [
+        {
+          "id": "course-basic",
+          "cost": 6000000,
+          "boost": 2000000,
+          "lap": 1
+        },
+        {
+          "id": "course-advanced",
+          "cost": 10000000,
+          "boost": 4000000,
+          "lap": 1
+        }
+      ],
+      "terms": [
+        1,
+        2
+      ],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 0,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 95000000,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades.json.gz",
+      "sha256": "a533ab3f57255df8d5f0a01f929b59d349e29656e54fd37c3bacd17dc294d542",
+      "seed": "B18-UI-TRADES",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 21,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "defeat",
+        "won": false,
+        "lawfulProceeds": 84635118,
+        "termination": "completed"
+      },
+      "course": [
+        {
+          "id": "course-basic",
+          "cost": 6000000,
+          "boost": 2000000,
+          "lap": 2
+        },
+        {
+          "id": "course-advanced",
+          "cost": 10000000,
+          "boost": 4000000,
+          "lap": 3
+        }
+      ],
+      "terms": [],
+      "counts": {
+        "buy-stocks": 1,
+        "sell-stocks": 1,
+        "buy-bonds": 3,
+        "sell-bonds": 2,
+        "buy-gold": 2,
+        "sell-gold": 2,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 84635118,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 124517,
+        "spread": 129790
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal.json.gz",
+      "sha256": "96613675e6b325033d27889fe381b396fe7b17aa2e923eef06d10d3a9de6e4c5",
+      "seed": "B18-MULTICOURSE-SCREEN-0",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 18,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "defeat",
+        "won": false,
+        "lawfulProceeds": 78000000,
+        "termination": "completed"
+      },
+      "course": [],
+      "terms": [
+        3
+      ],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 0,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 1,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 78000000,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first.json.gz",
+      "sha256": "129d5bb9bb7e782f70256d57cb4939777ca10bca5d4c2380b413925163f65aff",
+      "seed": "TRADING-AB-MAIN-0",
+      "schema": 7,
+      "phase": "finished",
+      "replayed": true,
+      "rolls": 25,
+      "board": 18,
+      "summaries": 4,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 94000000,
+        "termination": "completed"
+      },
+      "course": [
+        {
+          "id": "course-advanced",
+          "cost": 10000000,
+          "boost": 4000000,
+          "lap": 1
+        },
+        {
+          "id": "course-basic",
+          "cost": 6000000,
+          "boost": 2000000,
+          "lap": 1
+        }
+      ],
+      "terms": [],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 0,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 94000000,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/stock-resale/stock-resale-after.json.gz",
+      "sha256": "e597d4d99b03c170c0ec2d3b83463a3fb2fd5221c20085197ac4179ab9146c09",
+      "seed": "B18-MULTICOURSE-SHORTLIST-0",
+      "schema": 7,
+      "phase": "rolling",
+      "replayed": true,
+      "rolls": 8,
+      "board": 18,
+      "summaries": 1,
+      "result": {
+        "status": "in-progress",
+        "won": null,
+        "lawfulProceeds": 32852244,
+        "termination": null
+      },
+      "course": [
+        {
+          "id": "course-advanced",
+          "cost": 10000000,
+          "boost": 4000000,
+          "lap": 1
+        }
+      ],
+      "terms": [],
+      "counts": {
+        "buy-stocks": 1,
+        "sell-stocks": 1,
+        "buy-bonds": 1,
+        "sell-bonds": 0,
+        "buy-gold": 1,
+        "sell-gold": 0,
+        "buy-business": 1,
+        "upgrade-business": 1,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 23125744,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 5000000,
+        "gold": 5000000,
+        "business": 17284240,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 4925000,
+        "gold": 4801500
+      },
+      "finance": {
+        "fees": 54806,
+        "spread": 0
+      },
+      "excludedBusiness": 17284240,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/desktop-before-reload.json.gz",
+      "sha256": "e6845a1fd8cc74e1e381cc8c6fec1cc5d1368b9dc47773f45d13aaa762c03587",
+      "seed": "LANG-0",
+      "schema": 7,
+      "phase": "rolling",
+      "replayed": true,
+      "rolls": 1,
+      "board": 18,
+      "summaries": 0,
+      "result": {
+        "status": "in-progress",
+        "won": null,
+        "lawfulProceeds": 50000000,
+        "termination": null
+      },
+      "course": [],
+      "terms": [
+        1
+      ],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 0,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 44000000,
+        "savings": 6000000,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 6000000,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/quota-recovery-export.json.gz",
+      "sha256": "2ddf51f33a997ef17dce3071b0d16b36b65c0685c3b241326077edae1578f4f9",
+      "seed": "3c0ab2708f3f782d1ecc0ab6aaa4867e",
+      "schema": 7,
+      "phase": "rolling",
+      "replayed": true,
+      "rolls": 0,
+      "board": 18,
+      "summaries": 0,
+      "result": {
+        "status": "in-progress",
+        "won": null,
+        "lawfulProceeds": 50000000,
+        "termination": null
+      },
+      "course": [],
+      "terms": [],
+      "counts": {
+        "buy-stocks": 0,
+        "sell-stocks": 0,
+        "buy-bonds": 0,
+        "sell-bonds": 0,
+        "buy-gold": 0,
+        "sell-gold": 0,
+        "buy-business": 0,
+        "upgrade-business": 0,
+        "sell-business": 0,
+        "fund-debt": 0,
+        "fund-savings": 0,
+        "fund-bonds": 0,
+        "fund-stocks": 0,
+        "fund-gold": 0
+      },
+      "portfolio": {
+        "cash": 50000000,
+        "savings": 0,
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0,
+        "business": 0,
+        "debt": 0
+      },
+      "unpaidObligations": 0,
+      "activeSavingsPrincipal": 0,
+      "assetNet": {
+        "stocks": 0,
+        "bonds": 0,
+        "gold": 0
+      },
+      "finance": {
+        "fees": 0,
+        "spread": 0
+      },
+      "excludedBusiness": 0,
+      "goalAccountingExact": true
+    }
+  ],
+  "completeNaturalGames": 13,
+  "allReplayed": true,
+  "allFinancialOutcomesExact": true,
+  "method": "Logs downloaded through UI. No state construction. Explicit cash + active principal + executable net asset quotes - debts - obligations; locked business/unpaid claims are not added."
+}
