@@ -1,0 +1,1721 @@
+{
+  "format": "b18-mobile-ux-writing-v1",
+  "date": "2026-10-20",
+  "branch": "codex/b18-mobile-ux-writing-audit",
+  "base": "f0bb612a2aa9514c4fc2fcbf8d878b7bece3947f",
+  "productionCodeBase": "927e53e2189bd6d901ed494791d9dc7e912358a6",
+  "implementation": "878414a93e66f6545ff816ee6ffb64957c74870a",
+  "verified": {
+    "product": 351,
+    "ssr": 50,
+    "historicalReplays": 81,
+    "historicalArtifacts": 1300,
+    "parityGames": 13,
+    "paritySnapshots": 2306,
+    "beforeScreenshots": 24,
+    "afterScreenshots": 96,
+    "accessibilityScreenshots": 12,
+    "visualAfterChecks": 162,
+    "accessibilityChecks": 12,
+    "saveResumeImports": 33,
+    "latestSaveFlows": 3
+  },
+  "limits": [
+    "Chromium viewport/touch emulation only in this task; no physical iOS/Safari or Android, screen reader, native zoom or virtual keyboard.",
+    "Existing local favicon.ico 404 recorded; no application JavaScript page errors.",
+    "No human learning assessment, no new full UI games. Checkpoints are exact historical replay prefixes."
+  ],
+  "scope": {
+    "gameplayChanged": false,
+    "engineChanged": false,
+    "schemaChanged": false,
+    "oldEvidenceChanged": false,
+    "dependenciesChanged": false,
+    "desktopProjectChanged": false,
+    "merged": false,
+    "manualDeployment": false,
+    "promoted": false,
+    "domainChanged": false,
+    "ownerReviewPending": true
+  },
+  "hashing": "Source UTF8 normalized LF; evidence artifacts raw SHA256; excludes manifest itself.",
+  "sourceFiles": [
+    {
+      "path": "docs/B18_MOBILE_UX_WRITING_AUDIT.md",
+      "bytes": 5305,
+      "sha256": "ece0930c62379f2c680a357b88b72e3a4a8d6880dbca03659ca0ac59885b50ef"
+    },
+    {
+      "path": "docs/B18_MOBILE_UX_WRITING_REPORT.md",
+      "bytes": 14991,
+      "sha256": "571760244e190836539d46ce34a632ee9baf3aa4e092d878c7dcfaf68b0ddcbe"
+    },
+    {
+      "path": "mobile_app/src/components/BondStartSummary.tsx",
+      "bytes": 4696,
+      "sha256": "b06a6b0683c7f36c0c7ef0631fac2bede7c7c8b22dbfc2e69054ff00b869e393"
+    },
+    {
+      "path": "mobile_app/src/components/EconomicEventModal.tsx",
+      "bytes": 7322,
+      "sha256": "8bed5493defa896abb10958e57e7b347007c85afbe63c8f876c06e97e34be7e7"
+    },
+    {
+      "path": "mobile_app/src/components/GameResultModal.tsx",
+      "bytes": 3210,
+      "sha256": "5702307498432c900cfd5d5c391c01ce0cef468c9d5ed51f94b9ebab31296284"
+    },
+    {
+      "path": "mobile_app/src/components/GameSetup.tsx",
+      "bytes": 4535,
+      "sha256": "e29c44a529bdeb078e65102c11df2260bcf5e96bca688eed89e8cd68a76e613d"
+    },
+    {
+      "path": "mobile_app/src/components/LapSummaryModal.tsx",
+      "bytes": 4488,
+      "sha256": "daa05548916f734888020d38f8e64ec483da51b1f9641c65309b8f5e4aef715a"
+    },
+    {
+      "path": "mobile_app/src/components/MarketNews.tsx",
+      "bytes": 9557,
+      "sha256": "d4d08a075a33e273d185b4d8ec855034506a82d5825fced1f852bf921ebbc3e5"
+    },
+    {
+      "path": "mobile_app/src/components/RulebookModal.tsx",
+      "bytes": 8044,
+      "sha256": "94747bedaae17fc37edbb8e9418e77a34148d452523dc1e3cc48c8a242cba62c"
+    },
+    {
+      "path": "mobile_app/src/components/Tutorial.tsx",
+      "bytes": 11956,
+      "sha256": "ad0833d0330ccedef704f9374ec37c69093df0bdff9fd25effad775987e05d7b"
+    },
+    {
+      "path": "mobile_app/src/components/market-language.ts",
+      "bytes": 1038,
+      "sha256": "d6dc48115bab639dd5687cd13c9b96a4b5f44fb64ba8cf5a07c5427b7c786746"
+    },
+    {
+      "path": "mobile_app/src/economic-event.css",
+      "bytes": 2895,
+      "sha256": "29a81514b3c2b47eaf373b31d38073f6b85da1df7ca7b0100d589092b84eeaee"
+    },
+    {
+      "path": "mobile_app/src/game/economic-event.ts",
+      "bytes": 6865,
+      "sha256": "d033f4e41829775d5f5a25bf68f5e14837d364aac307e12c700cc0e7bdf88a85"
+    },
+    {
+      "path": "mobile_app/src/game/market-news.ts",
+      "bytes": 9860,
+      "sha256": "0adc941de40b87d439b3deb55eba19991c4731a6ea613e87c07d6cf6584b3628"
+    },
+    {
+      "path": "scripts/diagnostics/atomic-investments-ui.test.ts",
+      "bytes": 4297,
+      "sha256": "98c5b6a8820c1ff0ca893df2c409a610215f80238a05479868f2114e0d5861de"
+    },
+    {
+      "path": "scripts/diagnostics/economic-event-ui.test.ts",
+      "bytes": 6414,
+      "sha256": "714bf26e1b333e64a7d7191d90b7832a9af7bf3a800d2f132d26069b260e9730"
+    },
+    {
+      "path": "scripts/diagnostics/economic-news-ui.test.ts",
+      "bytes": 4153,
+      "sha256": "37f425fef440d4dc3b2391d0c9cb940e2fe5f11533b8dfdfdde460ec81e0a355"
+    },
+    {
+      "path": "scripts/diagnostics/language-cleanup-ui.test.ts",
+      "bytes": 6865,
+      "sha256": "13c27d6fc11d516465b76088cb1a147bd8d34211990267fd179b501bb02b9e8f"
+    },
+    {
+      "path": "scripts/diagnostics/terminology-ui.test.ts",
+      "bytes": 2790,
+      "sha256": "5c1c2b3eef85da262f04ec13d2d75d677ea8080ee28db6556058f0f21443caed"
+    },
+    {
+      "path": "scripts/diagnostics/ux-writing-accessibility.mjs",
+      "bytes": 5910,
+      "sha256": "5b81ca44d85270c4c5f0a8b2d2b12a9e48f1917f172e0d44f62ab04c87088540"
+    },
+    {
+      "path": "scripts/diagnostics/ux-writing-browser.mjs",
+      "bytes": 6955,
+      "sha256": "51af60b4b491b192f9e70f64d7d37a6784df72e63bbdcf1b13af6baa162b872c"
+    },
+    {
+      "path": "scripts/diagnostics/ux-writing-checkpoints.ts",
+      "bytes": 4149,
+      "sha256": "2f635694549de644396593d7a7fe3a21216c3ef5cf5667e74ac25484b2649c80"
+    },
+    {
+      "path": "scripts/diagnostics/ux-writing-compat.ts",
+      "bytes": 1879,
+      "sha256": "b8ece0f1f4cdca640717764738c730128ba6a4e1067380213a397bf38e82a2c5"
+    },
+    {
+      "path": "scripts/diagnostics/ux-writing-inventory.mjs",
+      "bytes": 3043,
+      "sha256": "7820922c046534015c83563aad70fb8f967733a0998b78668fef03379223d7d4"
+    },
+    {
+      "path": "scripts/verify-b18-ux-writing-evidence.mjs",
+      "bytes": 7031,
+      "sha256": "9a47f2a787f5420d083416942c0d55d8434caf973515568496d90ddea5117cb4"
+    },
+    {
+      "path": "src/components/BondCreditPanel.tsx",
+      "bytes": 6268,
+      "sha256": "7a95f95d593b594689aae756e9779e366c5d0d8002201822a2c2349be2b6d90a"
+    },
+    {
+      "path": "src/components/BusinessPanel.tsx",
+      "bytes": 7112,
+      "sha256": "c54f3f547b360c3b7a9b266569d95e152c8d7775c834a07c1d9406008a6f44e5"
+    },
+    {
+      "path": "src/components/FundingDialog.tsx",
+      "bytes": 7967,
+      "sha256": "91322cc1db6fb9f0eb561a3b8a085d6107cb0ab9c4293b6c66eba0012dff9f9d"
+    },
+    {
+      "path": "src/components/MarketDetails.tsx",
+      "bytes": 5792,
+      "sha256": "509218c22d0aaa76be85ed7287602594a1a422364a0fea586720a2957d96f2a6"
+    },
+    {
+      "path": "src/components/Portfolio.tsx",
+      "bytes": 4760,
+      "sha256": "01de6ff4318fb7e77db0f3e4749d9f5c7290086f77a71c13557493edd244d19f"
+    },
+    {
+      "path": "src/components/RebalanceDialog.tsx",
+      "bytes": 5937,
+      "sha256": "1557544e31da14798ab87fd7a6206cdebcfa57d5bd5826c9bbac93709c930ceb"
+    },
+    {
+      "path": "src/components/TradingPanel.tsx",
+      "bytes": 13989,
+      "sha256": "af1d22a60b182d6d764b462a2830f147943ed3e5fc11a65416e091830cd67a56"
+    },
+    {
+      "path": "src/components/financial-review.ts",
+      "bytes": 2542,
+      "sha256": "ab1e08e8280eed5e5e7b3e87e77bd60db8df2d7e1a1fdf071a243e6535aa5cff"
+    },
+    {
+      "path": "src/components/glossary.ts",
+      "bytes": 8467,
+      "sha256": "f10ee84b00f5f5d3acf529e482ca8cdcb4f9697e9d37bc61d772eb149243ac98"
+    },
+    {
+      "path": "src/components/tile-information.ts",
+      "bytes": 3997,
+      "sha256": "664d407ec77340a6fe94733c2174c5bc71353e6d97a763adf147d277b95fec45"
+    },
+    {
+      "path": "tests/glossary.test.ts",
+      "bytes": 2685,
+      "sha256": "b4ca9d8338df82b9aa87905f655bf283048faf5d9257b1762418718f40e403a9"
+    },
+    {
+      "path": "tests/market-language.test.ts",
+      "bytes": 1459,
+      "sha256": "20227baf2174e0630431d9b4dbd80423b47d6e4ced95898dcb641256801a8b55"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/.gitattributes",
+      "bytes": 159,
+      "sha256": "914860bb2696efced8a19028243cde57bc2e3e8157281e184fc0c3caba1bd256"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility-run.txt",
+      "bytes": 44,
+      "sha256": "e6aaa3a0e6586101f39f536a7e0595222102ac3cc36379da8b2faaffe4263f34"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/320-bond-risk-details.png",
+      "bytes": 118786,
+      "sha256": "806a893a7aa8cef399d259ce0a1a740aaceb36c10c44c84170b46729078fba5f"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/320-bond-risk-details.txt",
+      "bytes": 3195,
+      "sha256": "229c460d0d0fcc6174050fcc6b69c9bd8ec2360df621140c178e6471f31fac3c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/320-coupon-explanation.png",
+      "bytes": 76334,
+      "sha256": "f9fd47f5f2589b2290f6ffa9ae67218fddff03795ad473415508712cb621c0cc"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/320-coupon-explanation.txt",
+      "bytes": 3437,
+      "sha256": "98edebc728621da8e57ceefefef61b093cbb53ccc0334331d701a124e16439fa"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/320-economic-empty-personal-impact.png",
+      "bytes": 96621,
+      "sha256": "7fa0754dadf821d7867f52018d5c72e76a452ef3e12abb170be2573890afc8d2"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/320-economic-empty-personal-impact.txt",
+      "bytes": 1827,
+      "sha256": "b6ea4b7db650b9801585d25b7f7028c777e1e3e1f2650c136be01e7828eebd30"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/320-economic-owned-personal-impact.png",
+      "bytes": 91166,
+      "sha256": "59770578618721f6452fc49008efe07146c24b331257f08c0abbdb0af9f6ecdd"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/320-economic-owned-personal-impact.txt",
+      "bytes": 1931,
+      "sha256": "3bb9d136d7bb3bb5b9289c38b56b78ea3c744f7c033a2b2a80ed720d4dddbed6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/390-bond-risk-details.png",
+      "bytes": 153352,
+      "sha256": "3c452ed243d9f0b9de86e933ce0dcb0b4816e71cdf97b38f19192aeef3101bcf"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/390-bond-risk-details.txt",
+      "bytes": 3195,
+      "sha256": "229c460d0d0fcc6174050fcc6b69c9bd8ec2360df621140c178e6471f31fac3c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/390-coupon-explanation.png",
+      "bytes": 104904,
+      "sha256": "9eb1f59a0a5c8f24f4ef7656fdf969eab19e8793240c158c7328a55edcb32e8d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/390-coupon-explanation.txt",
+      "bytes": 3437,
+      "sha256": "98edebc728621da8e57ceefefef61b093cbb53ccc0334331d701a124e16439fa"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/390-economic-empty-personal-impact.png",
+      "bytes": 110557,
+      "sha256": "556700020ae564ae4d415729f4afd9bf54b7cdb78a156b35c28de8e163294518"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/390-economic-empty-personal-impact.txt",
+      "bytes": 1827,
+      "sha256": "b6ea4b7db650b9801585d25b7f7028c777e1e3e1f2650c136be01e7828eebd30"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/390-economic-owned-personal-impact.png",
+      "bytes": 114013,
+      "sha256": "36408ce579617a2a1179a5d65e9621d059930ea0fdd5515b140fe04d46777e08"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/390-economic-owned-personal-impact.txt",
+      "bytes": 1931,
+      "sha256": "3bb9d136d7bb3bb5b9289c38b56b78ea3c744f7c033a2b2a80ed720d4dddbed6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/430-bond-risk-details.png",
+      "bytes": 163161,
+      "sha256": "f8d4f0921aa5d34bb79e80e32de8ceea0a305a4dd3ee9c6fa0412334bc1816c9"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/430-bond-risk-details.txt",
+      "bytes": 3195,
+      "sha256": "229c460d0d0fcc6174050fcc6b69c9bd8ec2360df621140c178e6471f31fac3c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/430-coupon-explanation.png",
+      "bytes": 115122,
+      "sha256": "7a6f40062dc1c1cfe57cfa0088c77e66509caae288b0551b2a77ce734d174b05"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/430-coupon-explanation.txt",
+      "bytes": 3437,
+      "sha256": "98edebc728621da8e57ceefefef61b093cbb53ccc0334331d701a124e16439fa"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/430-economic-empty-personal-impact.png",
+      "bytes": 123340,
+      "sha256": "a76d4bdc6497f2f9772be9ba39c504bdcdaae6c3e4b3f351fe7645a2f55ae99f"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/430-economic-empty-personal-impact.txt",
+      "bytes": 1827,
+      "sha256": "b6ea4b7db650b9801585d25b7f7028c777e1e3e1f2650c136be01e7828eebd30"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/430-economic-owned-personal-impact.png",
+      "bytes": 127056,
+      "sha256": "bf997a32d549ec2e308df3b55debc423436a9ad2e90769d3b3e5d3f7595632a3"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/430-economic-owned-personal-impact.txt",
+      "bytes": 1931,
+      "sha256": "3bb9d136d7bb3bb5b9289c38b56b78ea3c744f7c033a2b2a80ed720d4dddbed6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/accessibility/results.json",
+      "bytes": 2512,
+      "sha256": "3082e77d436f2dd865a4d2c15707c62480e44a416b7cd2c5fd549fb4e72e4408"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-bank.png",
+      "bytes": 78885,
+      "sha256": "589b8d143ec0ca4c257b00a17a46ff172f96c3327f5ae938a7ffbc9ae47de3b1"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-bank.txt",
+      "bytes": 1286,
+      "sha256": "35d79084b6ee527b1a0edd247aae4533714d1d3fc7ca98a3bff118d18bf3bac6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-bonds-details.png",
+      "bytes": 84628,
+      "sha256": "9fd4d2d0cfdb33e41611f6381b9443f3912130e999ae93456240db8b8d7989d9"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-bonds-details.txt",
+      "bytes": 2423,
+      "sha256": "988f47147927b62f20a5d1abb16181a828b7a675ed21745d7b85bc249878f211"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-bonds.png",
+      "bytes": 84473,
+      "sha256": "79242a100c0158d62deccc5f3161590e25b9e18a84aa94a483d525288cfb1e87"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-bonds.txt",
+      "bytes": 1758,
+      "sha256": "31cf5500e1a66cfe7b9a40d9f5ff3b5e701c7a7dca059c926d82cf45f26daca6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-business.png",
+      "bytes": 84751,
+      "sha256": "0634c3fdd140b85ae1c1804d1da3a051cf9c8ec50b51bac702684a4f1e55249c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-business.txt",
+      "bytes": 1386,
+      "sha256": "9c6413df906ec110caa4f9e09b702e19ace5bfc57a0e22978dd6af6481add2a6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-course.png",
+      "bytes": 66516,
+      "sha256": "87ae3b5dc36234f2f839122033dd7c51fc7a97766dfd63bc7c0d33af0e4d6286"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-course.txt",
+      "bytes": 1237,
+      "sha256": "e07d537fec2b687dffec3ceb39e847d8ce50cc425c621d430cd568558a3ae722"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-economic-event-details.png",
+      "bytes": 99425,
+      "sha256": "d8fb3e425706ecb0262b4d785a493d381526f769a5268488a6191188d9eedbe9"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-economic-event-details.txt",
+      "bytes": 3586,
+      "sha256": "94f2a9b7ec1afa5836f388cdec5d768574d7727c16cc0d5c485ee7809fddf094"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-economic-event.png",
+      "bytes": 97405,
+      "sha256": "d7ba8f399487430ef95c450a5e5094e72085e3361cdc32eebd1e3f7aa58ebb59"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-economic-event.txt",
+      "bytes": 1871,
+      "sha256": "1611e441731f936f82647ea6021819921f361dfd6049224302bf647cf1a557ec"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-forecast.png",
+      "bytes": 82922,
+      "sha256": "b5f3e4d3176b57e946719239293447840edd8c7dbf291edf3da90b5bab17e3cd"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-forecast.txt",
+      "bytes": 1567,
+      "sha256": "1e6a0af022d033d114ec601c99272774b081c70aa0e307ffec1c29728d1e2cb8"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-funding.png",
+      "bytes": 77319,
+      "sha256": "b31f17b58b10bc9b8cab446bc746aaaeb4939dff0ac392a27843677d06216a79"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-funding.txt",
+      "bytes": 1367,
+      "sha256": "29a20a5d85f0cc14063c92c3b6e1535f51f6241d795f9dd2a71e59cf73f3251c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-gold.png",
+      "bytes": 72810,
+      "sha256": "36e9425aaa70f7b6e912cae2b10b7f4180635a7a74e1b28d025250deb7608da6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-gold.txt",
+      "bytes": 1151,
+      "sha256": "ecf4ab2c22dee217a63a25fda8a484b5eeda7afbd776dd42a418598a7e2c15f0"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-handbook-rule-tab-0.png",
+      "bytes": 89840,
+      "sha256": "45058714ce9b36c121622b0f2746f95d76d5873d0adaa25600cab22ef14ac1c6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-handbook-rule-tab-0.txt",
+      "bytes": 1380,
+      "sha256": "753dd0cd3ede6e20ae0f7e267bfb491d34f646f5dfb01157eceed5418f0ac5f8"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-handbook-rule-tab-1.png",
+      "bytes": 64980,
+      "sha256": "3a24079f24d90aff0f851b2fe2d970a92970a33f8eac567cc6f5154c37a5d741"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-handbook-rule-tab-1.txt",
+      "bytes": 1157,
+      "sha256": "c281d0a3ab1cb3d26c2608a0847b72081a0c663cc2f540448c4c7f477a8ce549"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-handbook-rule-tab-2.png",
+      "bytes": 96135,
+      "sha256": "8c4e065316e87f6e54fb41f13c3b16165c6f900abd51adb3ac6182484f0b6ade"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-handbook-rule-tab-2.txt",
+      "bytes": 1179,
+      "sha256": "5900cbcdd704d7e685c15356867bc2dd4effca69f3099e4404b5ef3e134dd606"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-handbook-rule-tab-3.png",
+      "bytes": 111904,
+      "sha256": "54e17499c44936750c9df8b4a3078b70cc0b0a27e0f416cb4961d9599f90a2eb"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-handbook-rule-tab-3.txt",
+      "bytes": 2659,
+      "sha256": "6e77b4b6119705be8c41ff98d073d65f3c5d478886ac5c563bd23e41f9bab1ea"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-handbook-rule-tab-4.png",
+      "bytes": 103106,
+      "sha256": "95db3e3e3802595db4b947c1f96e326a0e15b737612827173b08d95166cb9713"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-handbook-rule-tab-4.txt",
+      "bytes": 1618,
+      "sha256": "919bc20a421c942f00cdf395d1f6052fb91a2091e36d89d5ced0b2f872259437"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-handbook-rule-tab-5.png",
+      "bytes": 94379,
+      "sha256": "54d9059c02098cb67c5063e19e09d0565cffc3fd0daa0e7d0f74801e7a275a9e"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-handbook-rule-tab-5.txt",
+      "bytes": 1260,
+      "sha256": "bd4d3b7063dd77b0b5f5f3bdf67932c00b3b18b129179496c44a7eb514447f8c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-repair.png",
+      "bytes": 78526,
+      "sha256": "bd752214ee6ca68d5f662d5ebf6b9b75a4df59cfeb921e7cf7bc460caf455386"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-repair.txt",
+      "bytes": 1067,
+      "sha256": "1e5a2fba393b9b3bffc1ea068caa1607bb1963195293dcb1e071a82f77bd54f3"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-result-details.png",
+      "bytes": 74620,
+      "sha256": "35f122666568c4cf57363fc207a882a466c317502f64ab28b71c17c263bc892a"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-result-details.txt",
+      "bytes": 1806,
+      "sha256": "19d91085262c5fd380d4df47d507e4a7d0336e2870e7041665b796561edff1e9"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-result.png",
+      "bytes": 73961,
+      "sha256": "2d805b724f33fa0d2f81ec65f7c7fb15852572f56976a863b9f5e76a1adace3d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-result.txt",
+      "bytes": 1087,
+      "sha256": "352d271867ab57b0be86b83016cbabc25ff5dead639582ffa0cc21007fa9ad6c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-settlement.png",
+      "bytes": 83417,
+      "sha256": "cb4ccb51961be146079e702d84f390529182f051f9fc049ab184c074b72744ac"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-settlement.txt",
+      "bytes": 1284,
+      "sha256": "27601ce34b7c5f187f42dceb3b1eb75b58aea6346bdb11024ceacaabfcf82440"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-setup-zero-cash.png",
+      "bytes": 88502,
+      "sha256": "b258c98c38124c6995dc1bd0ea15b266e1d15f3d6820b2cf48510460800f8f1d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-setup-zero-cash.txt",
+      "bytes": 1503,
+      "sha256": "5d7f8dc455dbd0ada3e3fff1e82d81f987ddc40b20a323deb6ced7ab8d09f719"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-stocks-details.png",
+      "bytes": 70887,
+      "sha256": "cf61d824f385f2fce68236967cc8fdea6188b2752e00ffca105e33d7f47e544d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-stocks-details.txt",
+      "bytes": 1674,
+      "sha256": "011fd09a76c51db00a8e8443e08bce597c5a9b20b274ec6ebfacd7e1fdb0478e"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-stocks.png",
+      "bytes": 76389,
+      "sha256": "4f53db9b5cd6063dab11faf558886b8912cf7a92a823c80b0e6c72024c4eb2d8"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-stocks.txt",
+      "bytes": 1353,
+      "sha256": "c4d4b16d5b6e72af03b6871dea1b830c50da4f5349eb4c23a9ca573287433a33"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-1.png",
+      "bytes": 94681,
+      "sha256": "10e6a7014874ed244d04022ccfb5eda2ee6c020404c348772b99e8a642ac7aff"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-1.txt",
+      "bytes": 900,
+      "sha256": "5b2a5cdc291d669a2935f1767ac3a28bb82ffaafde8f68fe17fa9dedd046203d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-2.png",
+      "bytes": 92698,
+      "sha256": "a5150bde64201d8984deff8b39b480f7a99b24bd5bebad4c84dda1d2da7d1736"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-2.txt",
+      "bytes": 814,
+      "sha256": "6dba70de489604679d47fdb0c7973d8563a86124bec164a70766793821dad3d1"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-3.png",
+      "bytes": 94151,
+      "sha256": "1192374f31cbfa5dbe3de06999dd875a45a8587c17d93eb7e2435697ddb6dc70"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-3.txt",
+      "bytes": 897,
+      "sha256": "fed0f86c9988374a531dc750a89c64a3a5f5f06e31536c499f7f131b4001366f"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-4.png",
+      "bytes": 93856,
+      "sha256": "80e87cd96af26925c61a500d92fda769f3088b490f99c4bb7d84aad06fff4026"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-4.txt",
+      "bytes": 877,
+      "sha256": "dbaa140c024f68a1cbe588e6585568018d10be3358cf51bb4f8cd8a98e888ed2"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-5.png",
+      "bytes": 95656,
+      "sha256": "3e88682b79f5bcc07cdd54b0cea3c8a1064513b72b300a426ebc41e2ceeb5ea8"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-5.txt",
+      "bytes": 905,
+      "sha256": "027058a0fe9357dba328472b29522d095a1700af8aced5e63e712b6653d13cbf"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-6.png",
+      "bytes": 91183,
+      "sha256": "384f96ff1ac22df8c58e8730864d2acb0ffd2630d1d1d120da98da7c458e0471"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-6.txt",
+      "bytes": 805,
+      "sha256": "778ed5364b5ce538fb294be9120444acd50cb580fbb279cbb62bbbd70c780ddf"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-7.png",
+      "bytes": 91764,
+      "sha256": "ba572c9473604b3b647a3f5a14a93855cbb5f9d931135ffbd5c345890a38a97d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-7.txt",
+      "bytes": 846,
+      "sha256": "2382a9478d2e6aa1b0eeb316f22a43013db34efffa7011b6f4299a35886f1e8a"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-8.png",
+      "bytes": 91689,
+      "sha256": "7b80b9b67e783bdd18fffcaadaee8a0ca8ab742dcefd95c9f8ccb8cdcc2fdc05"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-8.txt",
+      "bytes": 841,
+      "sha256": "99ed92db3dfa13d1aae9c8767b48f1cf9a9dd959e61be0f6e09c2e93c2660c8d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-9.png",
+      "bytes": 91222,
+      "sha256": "24db48be51357c4865ee1a7067d583d1b522d17fa2bd0e38e9af06e5dbb8fdc6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/320-tile-9.txt",
+      "bytes": 805,
+      "sha256": "1ed532483ce36fda661fd881d364c0e999760ec297a09e1b430d6959c66d8800"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-bank.png",
+      "bytes": 91775,
+      "sha256": "090d1d1dc3e528d8ef4b4fc491ab87c60a5a3a52806ac5cc130e112047d6cdd6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-bank.txt",
+      "bytes": 1286,
+      "sha256": "35d79084b6ee527b1a0edd247aae4533714d1d3fc7ca98a3bff118d18bf3bac6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-bonds-details.png",
+      "bytes": 112109,
+      "sha256": "fd5f1975242899cb0a513d291664e3d9dc6b18ae90c8d7c5e70995f1cae146a6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-bonds-details.txt",
+      "bytes": 2423,
+      "sha256": "988f47147927b62f20a5d1abb16181a828b7a675ed21745d7b85bc249878f211"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-bonds.png",
+      "bytes": 104926,
+      "sha256": "22c0cae539363a1fbb3058f4165d427a61709312818059f47818ca3db0c71fd9"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-bonds.txt",
+      "bytes": 1758,
+      "sha256": "31cf5500e1a66cfe7b9a40d9f5ff3b5e701c7a7dca059c926d82cf45f26daca6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-business.png",
+      "bytes": 96440,
+      "sha256": "636018dcc9ca3049fd521cb5c4577fc60e57060b97c987d8a896ab9a696fe70c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-business.txt",
+      "bytes": 1386,
+      "sha256": "9c6413df906ec110caa4f9e09b702e19ace5bfc57a0e22978dd6af6481add2a6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-course.png",
+      "bytes": 82896,
+      "sha256": "7868a37fdf16495a11d5b602a28baec937d0d0de111f2816914c4e2149c9980a"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-course.txt",
+      "bytes": 1237,
+      "sha256": "e07d537fec2b687dffec3ceb39e847d8ce50cc425c621d430cd568558a3ae722"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-economic-event-details.png",
+      "bytes": 116217,
+      "sha256": "c6f45b47b01e4eda82532a84ac0a3832bd4c3b8b1d3f13e25742c356759106bc"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-economic-event-details.txt",
+      "bytes": 3586,
+      "sha256": "94f2a9b7ec1afa5836f388cdec5d768574d7727c16cc0d5c485ee7809fddf094"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-economic-event.png",
+      "bytes": 112532,
+      "sha256": "9960eb4e7444f6a9a6c302f719e3c84052cf2cdb3cc80a1c08210b5517b38bdc"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-economic-event.txt",
+      "bytes": 1871,
+      "sha256": "1611e441731f936f82647ea6021819921f361dfd6049224302bf647cf1a557ec"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-forecast.png",
+      "bytes": 101407,
+      "sha256": "06846f5790f692721142c8e18f52084b0148b3d26ccfaddfeddb5f22a6f88e85"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-forecast.txt",
+      "bytes": 1567,
+      "sha256": "1e6a0af022d033d114ec601c99272774b081c70aa0e307ffec1c29728d1e2cb8"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-funding.png",
+      "bytes": 93613,
+      "sha256": "cccfafabb4e37ee56c4e7245cc4305e34633feede8efbfd489d06e5cf552a1f8"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-funding.txt",
+      "bytes": 1367,
+      "sha256": "29a20a5d85f0cc14063c92c3b6e1535f51f6241d795f9dd2a71e59cf73f3251c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-gold.png",
+      "bytes": 83745,
+      "sha256": "2faca57892df643b5f16fc56cc0a52cf8c1dd4483651a2c4637e9eaedc161fb2"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-gold.txt",
+      "bytes": 1151,
+      "sha256": "ecf4ab2c22dee217a63a25fda8a484b5eeda7afbd776dd42a418598a7e2c15f0"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-handbook-rule-tab-0.png",
+      "bytes": 121302,
+      "sha256": "7c6d45033b6a2a32d0aeabdfccfcf0f2dae000e8323fb8cfc97143a5deacd789"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-handbook-rule-tab-0.txt",
+      "bytes": 1380,
+      "sha256": "753dd0cd3ede6e20ae0f7e267bfb491d34f646f5dfb01157eceed5418f0ac5f8"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-handbook-rule-tab-1.png",
+      "bytes": 74712,
+      "sha256": "5dab77f4972e36bfba25c6ed87aab2682afc5b818f3e158b9d1a0fc10683ec04"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-handbook-rule-tab-1.txt",
+      "bytes": 1157,
+      "sha256": "c281d0a3ab1cb3d26c2608a0847b72081a0c663cc2f540448c4c7f477a8ce549"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-handbook-rule-tab-2.png",
+      "bytes": 117956,
+      "sha256": "ae61529c43d74ab40874e6f69049a04fa2cedbffe2330a3740d9d706aa1c5fe6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-handbook-rule-tab-2.txt",
+      "bytes": 1179,
+      "sha256": "5900cbcdd704d7e685c15356867bc2dd4effca69f3099e4404b5ef3e134dd606"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-handbook-rule-tab-3.png",
+      "bytes": 149147,
+      "sha256": "73d77e23e2e85b59bc412d518c8625aab76c6745419fe27f5be8065f0c212e9e"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-handbook-rule-tab-3.txt",
+      "bytes": 2659,
+      "sha256": "6e77b4b6119705be8c41ff98d073d65f3c5d478886ac5c563bd23e41f9bab1ea"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-handbook-rule-tab-4.png",
+      "bytes": 131451,
+      "sha256": "6d0c46a59cf974201589bcc4552e0f6958bd079102f92bbe158d0fbc306a6c9d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-handbook-rule-tab-4.txt",
+      "bytes": 1618,
+      "sha256": "919bc20a421c942f00cdf395d1f6052fb91a2091e36d89d5ced0b2f872259437"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-handbook-rule-tab-5.png",
+      "bytes": 121128,
+      "sha256": "9e188d0bba3caebfe52f8d2525db4cb2d419c64a86e5f515d7190afb0c48b71b"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-handbook-rule-tab-5.txt",
+      "bytes": 1260,
+      "sha256": "bd4d3b7063dd77b0b5f5f3bdf67932c00b3b18b129179496c44a7eb514447f8c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-repair.png",
+      "bytes": 99318,
+      "sha256": "759adfb8a1451e9ec19c357b4079c22a110e69a6ba1ddb5437fe19f7e90bda77"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-repair.txt",
+      "bytes": 1067,
+      "sha256": "1e5a2fba393b9b3bffc1ea068caa1607bb1963195293dcb1e071a82f77bd54f3"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-result-details.png",
+      "bytes": 88938,
+      "sha256": "3e7fc7458202d886928bddcfd979478ade081e83e0999b720b6ea182ddbf8ad4"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-result-details.txt",
+      "bytes": 1806,
+      "sha256": "19d91085262c5fd380d4df47d507e4a7d0336e2870e7041665b796561edff1e9"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-result.png",
+      "bytes": 84208,
+      "sha256": "4ef66b9c1e2693effa1a35917a4298b403f6e7b5bc89c7104c9ae767b7529ed2"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-result.txt",
+      "bytes": 1087,
+      "sha256": "352d271867ab57b0be86b83016cbabc25ff5dead639582ffa0cc21007fa9ad6c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-settlement.png",
+      "bytes": 104141,
+      "sha256": "21d3d5f22360556cbc86a622aa971049d6a9529559b01586bc865b3e502d9d94"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-settlement.txt",
+      "bytes": 1284,
+      "sha256": "27601ce34b7c5f187f42dceb3b1eb75b58aea6346bdb11024ceacaabfcf82440"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-setup-zero-cash.png",
+      "bytes": 109781,
+      "sha256": "488591005c61e6533d91473552069125bd396da24ed71590e7ae1f651869dd2e"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-setup-zero-cash.txt",
+      "bytes": 1503,
+      "sha256": "5d7f8dc455dbd0ada3e3fff1e82d81f987ddc40b20a323deb6ced7ab8d09f719"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-stocks-details.png",
+      "bytes": 84094,
+      "sha256": "4572ab56c03fcfff8e13443ad2658ff4b40fda470d3de51f317b52d2b6da8e49"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-stocks-details.txt",
+      "bytes": 1674,
+      "sha256": "011fd09a76c51db00a8e8443e08bce597c5a9b20b274ec6ebfacd7e1fdb0478e"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-stocks.png",
+      "bytes": 86927,
+      "sha256": "9cbf2f185a1d485ee5b9d5ef11c7d36021b411c8227b0a09472d7f41a512f616"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-stocks.txt",
+      "bytes": 1353,
+      "sha256": "c4d4b16d5b6e72af03b6871dea1b830c50da4f5349eb4c23a9ca573287433a33"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-1.png",
+      "bytes": 118854,
+      "sha256": "9ac5648ab02d9688180be74fb934c4258061c6d34b20ed49136e5f248662cd8b"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-1.txt",
+      "bytes": 900,
+      "sha256": "5b2a5cdc291d669a2935f1767ac3a28bb82ffaafde8f68fe17fa9dedd046203d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-2.png",
+      "bytes": 116367,
+      "sha256": "6c724bad6141cfd8f71201684d5953fdd259abf7d2a1d61824d590c2b761f447"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-2.txt",
+      "bytes": 814,
+      "sha256": "6dba70de489604679d47fdb0c7973d8563a86124bec164a70766793821dad3d1"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-3.png",
+      "bytes": 118407,
+      "sha256": "676dc9e581b9dbc27075c396bf5d417a27662997d6c00d74c2a770b2796d23d3"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-3.txt",
+      "bytes": 897,
+      "sha256": "fed0f86c9988374a531dc750a89c64a3a5f5f06e31536c499f7f131b4001366f"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-4.png",
+      "bytes": 117330,
+      "sha256": "230aa93326323c994ace3647cc71ea619a015aaf7ec7983f7c39aaf5b11785d0"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-4.txt",
+      "bytes": 877,
+      "sha256": "dbaa140c024f68a1cbe588e6585568018d10be3358cf51bb4f8cd8a98e888ed2"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-5.png",
+      "bytes": 120188,
+      "sha256": "30851ed3db9f26ec28900731766a8e52ec2b8b9fd2f662663b273a2d91bd8cb0"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-5.txt",
+      "bytes": 905,
+      "sha256": "027058a0fe9357dba328472b29522d095a1700af8aced5e63e712b6653d13cbf"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-6.png",
+      "bytes": 114030,
+      "sha256": "80b47ec03ea017e06d5dcb66dccf23ae5cc5a2264326da6a0eb364645fb1ecbf"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-6.txt",
+      "bytes": 805,
+      "sha256": "778ed5364b5ce538fb294be9120444acd50cb580fbb279cbb62bbbd70c780ddf"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-7.png",
+      "bytes": 115824,
+      "sha256": "943e356daedf8cd57dd131f428887015233e7e3bc256ef560a24e5b9e1633f72"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-7.txt",
+      "bytes": 846,
+      "sha256": "2382a9478d2e6aa1b0eeb316f22a43013db34efffa7011b6f4299a35886f1e8a"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-8.png",
+      "bytes": 114024,
+      "sha256": "c4976982f4a5bc3529f6d4eb187ba2f99e3229a4e1b6077d70dddf0c22149970"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-8.txt",
+      "bytes": 841,
+      "sha256": "99ed92db3dfa13d1aae9c8767b48f1cf9a9dd959e61be0f6e09c2e93c2660c8d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-9.png",
+      "bytes": 112921,
+      "sha256": "723d1068d6bd0b2d4314ea8a2d5f46172825254c2194e07a93a0a3e4e8d055c5"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/390-tile-9.txt",
+      "bytes": 805,
+      "sha256": "1ed532483ce36fda661fd881d364c0e999760ec297a09e1b430d6959c66d8800"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-bank.png",
+      "bytes": 104190,
+      "sha256": "7545bf73dab2e3545ca523cb2fe892f7f3c49ef9436af8200f5896011f8ad400"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-bank.txt",
+      "bytes": 1286,
+      "sha256": "35d79084b6ee527b1a0edd247aae4533714d1d3fc7ca98a3bff118d18bf3bac6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-bonds-details.png",
+      "bytes": 126894,
+      "sha256": "760eca338bd11b7ef00f89f015c06b85be410e9f20bb968e1dbaa093acab29fa"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-bonds-details.txt",
+      "bytes": 2423,
+      "sha256": "988f47147927b62f20a5d1abb16181a828b7a675ed21745d7b85bc249878f211"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-bonds.png",
+      "bytes": 115080,
+      "sha256": "46020a51d20f1dd68a941fedd1c964bc6acf21daa5386937ffce2b2a1752bcd9"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-bonds.txt",
+      "bytes": 1758,
+      "sha256": "31cf5500e1a66cfe7b9a40d9f5ff3b5e701c7a7dca059c926d82cf45f26daca6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-business.png",
+      "bytes": 101955,
+      "sha256": "ee735d866671d861de5e91fb643b9dae28cff59c484f970cb64966cf3b487e2c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-business.txt",
+      "bytes": 1386,
+      "sha256": "9c6413df906ec110caa4f9e09b702e19ace5bfc57a0e22978dd6af6481add2a6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-course.png",
+      "bytes": 92231,
+      "sha256": "74be86404ff87923cd7efd144c818985445c118d1f591cfe7438e7c6e0aac8db"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-course.txt",
+      "bytes": 1237,
+      "sha256": "e07d537fec2b687dffec3ceb39e847d8ce50cc425c621d430cd568558a3ae722"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-economic-event-details.png",
+      "bytes": 126377,
+      "sha256": "32839b9e52c91d13fcf5d17d3d113a530a574bdc96f4ae49cc5ae15f4804a68e"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-economic-event-details.txt",
+      "bytes": 3586,
+      "sha256": "94f2a9b7ec1afa5836f388cdec5d768574d7727c16cc0d5c485ee7809fddf094"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-economic-event.png",
+      "bytes": 126087,
+      "sha256": "a2c34278c74ce16bd26105afae76ebe180dd266a9fbf6231e35cbb339e66dfe0"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-economic-event.txt",
+      "bytes": 1871,
+      "sha256": "1611e441731f936f82647ea6021819921f361dfd6049224302bf647cf1a557ec"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-forecast.png",
+      "bytes": 105773,
+      "sha256": "ae2033beb7e8e6771910e4b77664bc56ffbf6d70a338bbf9077a7570e423cfc4"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-forecast.txt",
+      "bytes": 1541,
+      "sha256": "a5bbba90438d98c5ec197c94dfdff903fc0a38997dc263fd6a80d2057f10e81f"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-funding.png",
+      "bytes": 99831,
+      "sha256": "86942d9a5079dc6c12fad33712f31ac2f756268f03e6cc343f20c9c1eb1f3b01"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-funding.txt",
+      "bytes": 1367,
+      "sha256": "29a20a5d85f0cc14063c92c3b6e1535f51f6241d795f9dd2a71e59cf73f3251c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-gold.png",
+      "bytes": 101509,
+      "sha256": "49c17529c238d6fbcd01a3981ba0ce37a199c5b4c195ea5e1ae9a6c470542901"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-gold.txt",
+      "bytes": 1151,
+      "sha256": "ecf4ab2c22dee217a63a25fda8a484b5eeda7afbd776dd42a418598a7e2c15f0"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-handbook-rule-tab-0.png",
+      "bytes": 129560,
+      "sha256": "906edd9ea9c67bbf8e1c6301529621cc1ecca275481ca24f420d14ef42bc228a"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-handbook-rule-tab-0.txt",
+      "bytes": 1380,
+      "sha256": "753dd0cd3ede6e20ae0f7e267bfb491d34f646f5dfb01157eceed5418f0ac5f8"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-handbook-rule-tab-1.png",
+      "bytes": 90847,
+      "sha256": "dd11253aa3c4036bc6321e20b44cba6f9d51b9b2b521cac6ddf175f0105869e5"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-handbook-rule-tab-1.txt",
+      "bytes": 1157,
+      "sha256": "c281d0a3ab1cb3d26c2608a0847b72081a0c663cc2f540448c4c7f477a8ce549"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-handbook-rule-tab-2.png",
+      "bytes": 126822,
+      "sha256": "ab5941e4c01fbc1c8a3bd235cad47564ecb3aba86b28642a85aa7a8b60e2b097"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-handbook-rule-tab-2.txt",
+      "bytes": 1179,
+      "sha256": "5900cbcdd704d7e685c15356867bc2dd4effca69f3099e4404b5ef3e134dd606"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-handbook-rule-tab-3.png",
+      "bytes": 186650,
+      "sha256": "e23f218fbb1d3b730c919db8da0a846ad4e19c53fb2a8a9dccb6a039c4758eb6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-handbook-rule-tab-3.txt",
+      "bytes": 2657,
+      "sha256": "f28051158000596021f849441541e80a0d0ac04988ceda93b1ef3bc442ac884e"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-handbook-rule-tab-4.png",
+      "bytes": 149527,
+      "sha256": "db077f1d6cbcb251292dadd478f7b78c254f9c46c936b349647d23f6420dc0f1"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-handbook-rule-tab-4.txt",
+      "bytes": 1618,
+      "sha256": "919bc20a421c942f00cdf395d1f6052fb91a2091e36d89d5ced0b2f872259437"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-handbook-rule-tab-5.png",
+      "bytes": 128706,
+      "sha256": "e991dbee22b2785df4d502154ca44f3c7dc8b2d2565bb35481c1002ecb8306f8"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-handbook-rule-tab-5.txt",
+      "bytes": 1260,
+      "sha256": "bd4d3b7063dd77b0b5f5f3bdf67932c00b3b18b129179496c44a7eb514447f8c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-repair.png",
+      "bytes": 113823,
+      "sha256": "320af38a96a24d232a52c0f1a604ff3b4c8e969472b1973cb2e4e79d31bccc5d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-repair.txt",
+      "bytes": 1067,
+      "sha256": "1e5a2fba393b9b3bffc1ea068caa1607bb1963195293dcb1e071a82f77bd54f3"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-result-details.png",
+      "bytes": 113137,
+      "sha256": "3184156462ee338064d9bda21cbe7fcc31a0f2cbf37f6e17ca73384c2a3f8671"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-result-details.txt",
+      "bytes": 1806,
+      "sha256": "19d91085262c5fd380d4df47d507e4a7d0336e2870e7041665b796561edff1e9"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-result.png",
+      "bytes": 100554,
+      "sha256": "f5f51bd917a1a452cff1d92f7a1d21655520d54df1d0e9cce9009b6b10a8b29c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-result.txt",
+      "bytes": 1087,
+      "sha256": "352d271867ab57b0be86b83016cbabc25ff5dead639582ffa0cc21007fa9ad6c"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-settlement.png",
+      "bytes": 115959,
+      "sha256": "7f13e5d871a8f6ab2024b69aabe113382b0a1aed233394c425aa97d40f3ea6eb"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-settlement.txt",
+      "bytes": 1284,
+      "sha256": "27601ce34b7c5f187f42dceb3b1eb75b58aea6346bdb11024ceacaabfcf82440"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-setup-zero-cash.png",
+      "bytes": 120447,
+      "sha256": "bbc084834b8ed1c05a3e284ecefe09191c06fcc185ee0a37fda75297d1fbbfa9"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-setup-zero-cash.txt",
+      "bytes": 1503,
+      "sha256": "5d7f8dc455dbd0ada3e3fff1e82d81f987ddc40b20a323deb6ced7ab8d09f719"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-stocks-details.png",
+      "bytes": 94211,
+      "sha256": "7c0a937806725b963187761cb365cc25265df32f39ea1056ba731a7df08202ef"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-stocks-details.txt",
+      "bytes": 1674,
+      "sha256": "011fd09a76c51db00a8e8443e08bce597c5a9b20b274ec6ebfacd7e1fdb0478e"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-stocks.png",
+      "bytes": 94365,
+      "sha256": "77ad79a00fe8e3438107338aad486246224ee4f1cf0f84af17cdd16d0dd49dd5"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-stocks.txt",
+      "bytes": 1353,
+      "sha256": "c4d4b16d5b6e72af03b6871dea1b830c50da4f5349eb4c23a9ca573287433a33"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-1.png",
+      "bytes": 130626,
+      "sha256": "7f5ce599299dfdcb13c5d6cc910d95df1fa832a6bf97ca2c4ae2f02bc49516ed"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-1.txt",
+      "bytes": 900,
+      "sha256": "5b2a5cdc291d669a2935f1767ac3a28bb82ffaafde8f68fe17fa9dedd046203d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-2.png",
+      "bytes": 127534,
+      "sha256": "abb2023999ccbd5fe1efaa3792f01f11d956718345218a3c7bc2b3821e02ab27"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-2.txt",
+      "bytes": 814,
+      "sha256": "6dba70de489604679d47fdb0c7973d8563a86124bec164a70766793821dad3d1"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-3.png",
+      "bytes": 130678,
+      "sha256": "be9a6f704de3c5f8bbb6a858542b09745cb0356bc4169b5d7b2875740ae53f4a"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-3.txt",
+      "bytes": 897,
+      "sha256": "fed0f86c9988374a531dc750a89c64a3a5f5f06e31536c499f7f131b4001366f"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-4.png",
+      "bytes": 131446,
+      "sha256": "b96eaf4ce94a767697bd7ad80bdfb1797319663b7c726c962aa4e26e1b59cd88"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-4.txt",
+      "bytes": 877,
+      "sha256": "dbaa140c024f68a1cbe588e6585568018d10be3358cf51bb4f8cd8a98e888ed2"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-5.png",
+      "bytes": 133656,
+      "sha256": "14a351e8aabd79a1559e10b5d85c908bde82c07f1663f66693ceddafb7a83252"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-5.txt",
+      "bytes": 905,
+      "sha256": "027058a0fe9357dba328472b29522d095a1700af8aced5e63e712b6653d13cbf"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-6.png",
+      "bytes": 124971,
+      "sha256": "042d11754e41977cb3314e83788cb6440f8168a4039749316a862053c2cb9fb4"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-6.txt",
+      "bytes": 805,
+      "sha256": "778ed5364b5ce538fb294be9120444acd50cb580fbb279cbb62bbbd70c780ddf"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-7.png",
+      "bytes": 126872,
+      "sha256": "9e0f46900b47033e003247fba8e6cce5a21097490038770d8acd900a48ef00c4"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-7.txt",
+      "bytes": 846,
+      "sha256": "2382a9478d2e6aa1b0eeb316f22a43013db34efffa7011b6f4299a35886f1e8a"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-8.png",
+      "bytes": 127272,
+      "sha256": "3fc384e9669b3c5b4c0de6bdb1f5812fa6f60abfa01abc005cf5d32c887876db"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-8.txt",
+      "bytes": 841,
+      "sha256": "99ed92db3dfa13d1aae9c8767b48f1cf9a9dd959e61be0f6e09c2e93c2660c8d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-9.png",
+      "bytes": 124939,
+      "sha256": "54177eae1216a5ed636ad06f81ee81c26d0f766c1be99199adcbbf46dfb4c2ce"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/430-tile-9.txt",
+      "bytes": 805,
+      "sha256": "1ed532483ce36fda661fd881d364c0e999760ec297a09e1b430d6959c66d8800"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/after/results.json",
+      "bytes": 58718,
+      "sha256": "4cff59f11ce536b60780d9aed3c2a8d715bee78351e7a438d6dfb03db500dfe2"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-bonds-details.png",
+      "bytes": 86585,
+      "sha256": "75b7012f36edb824e26c1110319755387ca2734913ab360aa21abe59f184b0f6"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-bonds-details.txt",
+      "bytes": 2409,
+      "sha256": "3037b125a3b32763582223e0f6c6a16c2a181577d041ea9b9d611e78e2702c29"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-bonds.png",
+      "bytes": 84223,
+      "sha256": "d9e3e891808fa131942197260e2609d4d861df31b433d9efd96300e3d7b7e6e5"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-bonds.txt",
+      "bytes": 1774,
+      "sha256": "1c08dde71d70ed3f3beac4f81a05c960b10b6885a11cbd2aa6659f3e67d096ed"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-economic-event-details.png",
+      "bytes": 93390,
+      "sha256": "0f66e23fd892d518af1e2a7855c10b3e02bb0a05a214f9326c6ff79a17893ffc"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-economic-event-details.txt",
+      "bytes": 2659,
+      "sha256": "a9057715f6e48832ab99491e647d76af517a8aace213dc37d52c9b11dd47b47a"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-economic-event.png",
+      "bytes": 93991,
+      "sha256": "40f448e7f77997d3a09889746ad01541e1dc83ee46cd897cdfafcfa251619bde"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-economic-event.txt",
+      "bytes": 1516,
+      "sha256": "447743e2903ac69fe6bd88999383b50e221cd379d4f27047f765c458e9195d25"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-result-details.png",
+      "bytes": 73567,
+      "sha256": "0cdb3f80661eb2207e687ad0355d9e0fc45acd2a145fc9400b3bc44704fc0837"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-result-details.txt",
+      "bytes": 1647,
+      "sha256": "47b89d05cb36cb65b362be254b537cd755c950eb18d9ab230dfa871dc846580d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-result.png",
+      "bytes": 73572,
+      "sha256": "79b312d66219c5337c463505676c18b0f72965e5b905939a0158c89fc940a39d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-result.txt",
+      "bytes": 1075,
+      "sha256": "7b99159bb25b5353d089202f15c9125d6c3da4bedab80e430847b5b3c9a8aec0"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-stocks-details.png",
+      "bytes": 67764,
+      "sha256": "6d75d781400954d475893d53ee94fb607bbc9f7b6085581127881b47b4f80717"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-stocks-details.txt",
+      "bytes": 1616,
+      "sha256": "8ebea1cc78afc91f8f120dacd6caf6bb5d27a567b8c215eeed59260e835bb86f"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-stocks.png",
+      "bytes": 72280,
+      "sha256": "96bbca7e6d03caa51ce40617df5b5f5ff7b5f5c11c97ebab6e8e1598347831c2"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/320-stocks.txt",
+      "bytes": 1295,
+      "sha256": "4bb3d9086dc62ecf9aa3fa17fdbdd08aeca20d53c3b2d894a0823484ef9e7b8d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-bonds-details.png",
+      "bytes": 114220,
+      "sha256": "f7c9e29ebb4abb6843c440354c222d10ae2b0d98a09c4f83cabe1301d61744f3"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-bonds-details.txt",
+      "bytes": 2409,
+      "sha256": "3037b125a3b32763582223e0f6c6a16c2a181577d041ea9b9d611e78e2702c29"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-bonds.png",
+      "bytes": 105639,
+      "sha256": "d056854aa2d5d8cfb83de23af0622a3adb08b6f5811ef72d053f2750bf5fc4e7"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-bonds.txt",
+      "bytes": 1774,
+      "sha256": "1c08dde71d70ed3f3beac4f81a05c960b10b6885a11cbd2aa6659f3e67d096ed"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-economic-event-details.png",
+      "bytes": 108181,
+      "sha256": "b373e135cc92db12b193ee1db42add506974c64e52e0d8e2873824fd493dd5ea"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-economic-event-details.txt",
+      "bytes": 2659,
+      "sha256": "a9057715f6e48832ab99491e647d76af517a8aace213dc37d52c9b11dd47b47a"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-economic-event.png",
+      "bytes": 103101,
+      "sha256": "8b659f7a9f1f343860f65daed9d897748f6cc05a006e6e3e2caf5290ad8f5c22"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-economic-event.txt",
+      "bytes": 1516,
+      "sha256": "447743e2903ac69fe6bd88999383b50e221cd379d4f27047f765c458e9195d25"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-result-details.png",
+      "bytes": 93484,
+      "sha256": "32e87c671d6092a94bef92aa04c4dd593d3871a002984345eb3189af67c3a62a"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-result-details.txt",
+      "bytes": 1647,
+      "sha256": "47b89d05cb36cb65b362be254b537cd755c950eb18d9ab230dfa871dc846580d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-result.png",
+      "bytes": 84137,
+      "sha256": "c64d7f4802b589aa3ca0104733076c0d0d671894bb25767202b0cce95b6b54a5"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-result.txt",
+      "bytes": 1075,
+      "sha256": "7b99159bb25b5353d089202f15c9125d6c3da4bedab80e430847b5b3c9a8aec0"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-stocks-details.png",
+      "bytes": 82716,
+      "sha256": "016660f984237c75cf1422afc20c6f6dd9a48c80aa37f6e93270f0d90b811c1e"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-stocks-details.txt",
+      "bytes": 1616,
+      "sha256": "8ebea1cc78afc91f8f120dacd6caf6bb5d27a567b8c215eeed59260e835bb86f"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-stocks.png",
+      "bytes": 82962,
+      "sha256": "caf297e4fd82d022435d41c1d829f5d43278e82c55d49dce85cc92597124ccbc"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/390-stocks.txt",
+      "bytes": 1295,
+      "sha256": "4bb3d9086dc62ecf9aa3fa17fdbdd08aeca20d53c3b2d894a0823484ef9e7b8d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-bonds-details.png",
+      "bytes": 121951,
+      "sha256": "6e88c2899cf5190b26072f4a75edf3059a1e222003a21441f8e45afd169c8632"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-bonds-details.txt",
+      "bytes": 2409,
+      "sha256": "3037b125a3b32763582223e0f6c6a16c2a181577d041ea9b9d611e78e2702c29"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-bonds.png",
+      "bytes": 116885,
+      "sha256": "feea35c6c729f12cf01185416a0d17cba5095ede23645988596b4823c26b3e0a"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-bonds.txt",
+      "bytes": 1774,
+      "sha256": "1c08dde71d70ed3f3beac4f81a05c960b10b6885a11cbd2aa6659f3e67d096ed"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-economic-event-details.png",
+      "bytes": 119776,
+      "sha256": "dd2328cd4b174d8a035c84ed82d6fa2999c2bd347ef059b64f8b28318da17e0d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-economic-event-details.txt",
+      "bytes": 2659,
+      "sha256": "a9057715f6e48832ab99491e647d76af517a8aace213dc37d52c9b11dd47b47a"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-economic-event.png",
+      "bytes": 109568,
+      "sha256": "d313b827574d37a704123b64f0caf3f12f986131b6a8d5b3f6c203503dede758"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-economic-event.txt",
+      "bytes": 1516,
+      "sha256": "447743e2903ac69fe6bd88999383b50e221cd379d4f27047f765c458e9195d25"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-result-details.png",
+      "bytes": 109685,
+      "sha256": "aa8c611c71e7e5ea8d1e216e3ec017f4b29bd615bdbd2924fc77225d50f1fcab"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-result-details.txt",
+      "bytes": 1647,
+      "sha256": "47b89d05cb36cb65b362be254b537cd755c950eb18d9ab230dfa871dc846580d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-result.png",
+      "bytes": 104574,
+      "sha256": "32960b1e5ecc6dbfc52b08cb4f03eafa7f051fd87cf9fb6e67a03a90f448c906"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-result.txt",
+      "bytes": 1075,
+      "sha256": "7b99159bb25b5353d089202f15c9125d6c3da4bedab80e430847b5b3c9a8aec0"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-stocks-details.png",
+      "bytes": 91244,
+      "sha256": "752850426c56ffe2a58c08bea72a5fd4501101534de2a6c44662b839aeafe785"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-stocks-details.txt",
+      "bytes": 1616,
+      "sha256": "8ebea1cc78afc91f8f120dacd6caf6bb5d27a567b8c215eeed59260e835bb86f"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-stocks.png",
+      "bytes": 88899,
+      "sha256": "9dbe731c24ff65150aaf0d8611354a16d1134c0598663b031d3af8bfaac55f7b"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/430-stocks.txt",
+      "bytes": 1295,
+      "sha256": "4bb3d9086dc62ecf9aa3fa17fdbdd08aeca20d53c3b2d894a0823484ef9e7b8d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/before/results.json",
+      "bytes": 12507,
+      "sha256": "5c49fd736ddb77cf6c4a356bcd016c354591d7e98e979aaced47a57069386cd2"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/build-mobile.txt",
+      "bytes": 395,
+      "sha256": "f0f72619e5ddbf41be04b1553427f7f59ca9f3e6292ebae008fdaf96f3527e83"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/changed-display-strings.json",
+      "bytes": 38707,
+      "sha256": "16da324e7e99d4363142824012648dd2b81c2a6ec010813812a623a8c685edce"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/bank.json.gz",
+      "bytes": 302223,
+      "sha256": "20f71123fb80cff491627b0e94fbbceef347553e3103523fcef25dbe3526a0fe"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/bonds.json.gz",
+      "bytes": 53601,
+      "sha256": "6208ab59e5e790023c55e09a855aede7aaacdafb90415015fcb12df9042715d3"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/business.json.gz",
+      "bytes": 38189,
+      "sha256": "a93d1652dfa8f3f4d92db8bcbc3347b2f6fd6d7fc593ae96c082a4f4e7c7f983"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/course.json.gz",
+      "bytes": 452212,
+      "sha256": "6770982d046d603fd5f6e9760d0dcee6c089f3e76bfbc539db23ee7a4c26f5ca"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/economic-empty.json.gz",
+      "bytes": 32005,
+      "sha256": "a6a9126005c10ccf9d20a0be2bbaba96cdcd53f2dae2eacc626d06487ef72b85"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/economic-event.json.gz",
+      "bytes": 214593,
+      "sha256": "3f469e60f3ff0973b4f42fd8d0d10e83d4235b1ea5d0299eeea860e527c787c8"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/economic-owned.json.gz",
+      "bytes": 1108632,
+      "sha256": "905f33f9f2c72b781fc371fb11ab32e86038a5719af10b31924258fcfd311138"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/funding.json.gz",
+      "bytes": 28679,
+      "sha256": "0dbd888bf789fdcebc49ef5d8e3a0c6bfb8c1460f126ce47017157471bff2536"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/gold.json.gz",
+      "bytes": 22656,
+      "sha256": "78477ff2fe022968f650bbbf15d86fbfeb85bfb5de2ec3790b5f175c74ff13be"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/provenance.json",
+      "bytes": 5760,
+      "sha256": "d066cda91d4227b2e560bd3220cc6a5b19193b8f35cedc2f54de09ad1fbb4ddc"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/repair.json.gz",
+      "bytes": 23259,
+      "sha256": "08d28dd1eab81f182e708e74bb521d468c5c56fd7d637c953d360cc99ba34abb"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/result.json.gz",
+      "bytes": 1623406,
+      "sha256": "0065c648fa85ab2ba74227ba0df75fab2c11b965b4206d9096990644689ba1f8"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/settlement.json.gz",
+      "bytes": 220959,
+      "sha256": "a6226d780cd96b3e9b0e46427271c357200d25b02784f30173ee5c456c914579"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/stocks.json.gz",
+      "bytes": 401372,
+      "sha256": "dd7a5f4b2ed1bee14cbb54e8b4b19289f1c7e73057502bbcbb5be03cd0e96e87"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/compatibility.json",
+      "bytes": 17068,
+      "sha256": "add98d58895993aa8c2285198e66a03c10faff020ca8cff586feb0e00fb716cf"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/compatibility.txt",
+      "bytes": 834,
+      "sha256": "ff33817d1dacdd190649b2c2e2936999924a03b4a088e06625ff50bff67b1c34"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/lint.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/literal-inventory.json",
+      "bytes": 398855,
+      "sha256": "34af297a1d8e0ec5f4594577767a03ea22aa8b70da82f3eb4557017e6b0bd71d"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/macro-ssr.txt",
+      "bytes": 5387,
+      "sha256": "a3552ec93d38f732d714a2aee81c4ad70ef74756130c90b7a035911631cd7938"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/parity.txt",
+      "bytes": 250,
+      "sha256": "3587d5099976b4c94a578ecdb597f1ccedf5df477e5eb8b37f4759eccf22cc21"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/product-tests.txt",
+      "bytes": 82033,
+      "sha256": "4d3369223742b3435d125ceda07e07eb3e1fb9a8cd329165153b500bf285cf9e"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/rendered-language-audit.json",
+      "bytes": 2241,
+      "sha256": "e2057cea195bd3e21d7da45f5af5fcb9a6145a33dc0a42e9e552d178b6523e45"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/ssr-recheck.txt",
+      "bytes": 3474,
+      "sha256": "257c928717d3eda1482aab4be81c15ffb1511b801442f8ae4c911331c5bf5d3f"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/ssr-tests.txt",
+      "bytes": 15248,
+      "sha256": "85498fe9adf0b7f96af9548a2be46398c8a1e90d4abd93253543049819d1e8da"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/typecheck-mobile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/typecheck-shared.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-ux-writing/visual-run.txt",
+      "bytes": 15129,
+      "sha256": "dcac3527b8c6c2fb73dd26922d895ea6b8e75bf6d3409aafea8bade967c8fcde"
+    }
+  ]
+}

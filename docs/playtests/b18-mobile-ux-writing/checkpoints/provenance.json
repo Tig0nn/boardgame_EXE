@@ -1,0 +1,145 @@
+[
+  {
+    "label": "gold",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/gold.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-trades.json.gz",
+    "seed": "B18-UI-TRADES",
+    "turn": 1,
+    "lap": 1,
+    "phase": "event",
+    "event": "gold",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "business",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/business.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-trades.json.gz",
+    "seed": "B18-UI-TRADES",
+    "turn": 2,
+    "lap": 1,
+    "phase": "event",
+    "event": "business",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "bonds",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/bonds.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-trades.json.gz",
+    "seed": "B18-UI-TRADES",
+    "turn": 3,
+    "lap": 1,
+    "phase": "event",
+    "event": "bonds",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "settlement",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/settlement.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-trades.json.gz",
+    "seed": "B18-UI-TRADES",
+    "turn": 5,
+    "lap": 1,
+    "phase": "summary",
+    "event": null,
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "bank",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/bank.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-trades.json.gz",
+    "seed": "B18-UI-TRADES",
+    "turn": 7,
+    "lap": 2,
+    "phase": "event",
+    "event": "bank",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "stocks",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/stocks.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-trades.json.gz",
+    "seed": "B18-UI-TRADES",
+    "turn": 9,
+    "lap": 2,
+    "phase": "event",
+    "event": "stocks",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "course",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/course.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-trades.json.gz",
+    "seed": "B18-UI-TRADES",
+    "turn": 10,
+    "lap": 2,
+    "phase": "event",
+    "event": "course",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "economic-owned",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/economic-owned.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-trades.json.gz",
+    "seed": "B18-UI-TRADES",
+    "turn": 16,
+    "lap": 4,
+    "phase": "event",
+    "event": "credit-tightening",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "result",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/result.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-trades.json.gz",
+    "seed": "B18-UI-TRADES",
+    "turn": 21,
+    "lap": 4,
+    "phase": "finished",
+    "event": null,
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "economic-empty",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/economic-empty.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first.json.gz",
+    "seed": "TRADING-AB-MAIN-0",
+    "turn": 1,
+    "lap": 1,
+    "phase": "event",
+    "event": "demand-boom",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "repair",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/repair.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding.json.gz",
+    "seed": "B18-MULTICOURSE-SCREEN-0",
+    "turn": 1,
+    "lap": 1,
+    "phase": "event",
+    "event": "repair",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "funding",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/funding.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding.json.gz",
+    "seed": "B18-MULTICOURSE-SCREEN-0",
+    "turn": 1,
+    "lap": 1,
+    "phase": "funding",
+    "event": "repair",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "economic-event",
+    "path": "docs/playtests/b18-mobile-ux-writing/checkpoints/economic-event.json.gz",
+    "source": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-diversified-roi.json.gz",
+    "seed": "B18-MULTICOURSE-HOLDOUT-0",
+    "turn": 4,
+    "lap": 2,
+    "phase": "event",
+    "event": "supply-recovery",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  }
+]

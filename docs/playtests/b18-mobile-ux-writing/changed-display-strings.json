@@ -1,0 +1,1051 @@
+{
+  "base": "f0bb612a2aa9514c4fc2fcbf8d878b7bece3947f",
+  "changes": [
+    {
+      "file": "mobile_app/src/components/BondStartSummary.tsx",
+      "removed": [
+        {
+          "kind": "literal",
+          "line": 12,
+          "value": "Vỡ nợ · Đang thu hồi vốn"
+        }
+      ],
+      "added": [
+        {
+          "kind": "literal",
+          "line": 12,
+          "value": "Không trả được nợ · Đang thu hồi vốn"
+        }
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/EconomicEventModal.tsx",
+      "removed": [
+        {
+          "kind": "jsx-text",
+          "line": 20,
+          "value": "Áp lực trả nợ"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 20,
+          "value": "/2 →"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 20,
+          "value": "/2"
+        },
+        {
+          "kind": "literal",
+          "line": 33,
+          "value": "Thị trường vừa phản ứng"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 34,
+          "value": "Thị trường vừa phản ứng"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 38,
+          "value": "Bình quân đều các mã"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 44,
+          "value": "Đổi giá do biến cố vừa xảy ra; không phải tiền lãi/lỗ đã nhận, không gồm lãi trái phiếu định kỳ hay phí."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 48,
+          "value": "So sánh giá ngay trước → ngay sau cùng biến cố. Bình quân ngành dùng trọng số bằng nhau giữa các mã, không theo danh mục của bạn."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 59,
+          "value": "Tín dụng xấu đi có thể ảnh hưởng khả năng trả nợ sau này; biến động giá không tự xác nhận chậm trả hay mất vốn. Bối cảnh và giá là nội dung trong trò chơi."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 62,
+          "value": "Thay đổi định giá chưa thực hiện, theo tài sản nắm ngay trước biến cố. Không phải tiền mặt nhận/chi hoặc nguồn tiền về đích sau phí và nợ."
+        }
+      ],
+      "added": [
+        {
+          "kind": "literal",
+          "line": 7,
+          "value": "./market-language"
+        },
+        {
+          "kind": "literal",
+          "line": 30,
+          "value": "active"
+        },
+        {
+          "kind": "literal",
+          "line": 36,
+          "value": "Giá thay đổi sau sự kiện"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 37,
+          "value": "Giá thay đổi sau sự kiện"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 41,
+          "value": "Mức thay đổi trung bình của tất cả cổ phiếu, mỗi mã tính như nhau. Từng mã có thể tăng hoặc giảm khác nhau; đây không phải lãi của bạn."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 46,
+          "value": "Áp lực tài chính là của bên phát hành trái phiếu, không phải nợ của bạn."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 48,
+          "value": "Giá đổi chưa phải tiền lãi/lỗ đã nhận; chưa tính tiền lãi trái phiếu định kỳ hay phí bán."
+        },
+        {
+          "kind": "literal",
+          "line": 50,
+          "value": "event-caption event-personal-impact"
+        },
+        {
+          "kind": "literal",
+          "line": 51,
+          "value": "Bạn chưa giữ cổ phiếu, trái phiếu, vàng hay quán. Mức đổi giá trên không phải lãi/lỗ của bạn."
+        },
+        {
+          "kind": "template-fragment",
+          "line": 53,
+          "value": "Giá trị tài sản bạn đang giữ thay đổi:"
+        },
+        {
+          "kind": "template-fragment",
+          "line": 53,
+          "value": ". Chưa phải tiền bán đã nhận."
+        },
+        {
+          "kind": "literal",
+          "line": 54,
+          "value": "Chưa đủ dữ liệu để tính thay đổi giá trị tài sản bạn đang giữ."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 57,
+          "value": "So sánh ngay trước → ngay sau sự kiện. Mức trung bình là trung bình cộng tỷ lệ đổi giá của từng mã: mỗi mã có trọng số bằng nhau, không theo số tiền bạn đầu tư và không phải chỉ số thị trường thực."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 68,
+          "value": "Áp lực tài chính tăng có thể làm bên phát hành khó trả nợ hơn sau này. Giá giảm không đồng nghĩa đã chậm trả hoặc mất vốn. Bối cảnh và giá là nội dung trong trò chơi."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 71,
+          "value": "Giá trị trước và sau sự kiện của cùng lượng tài sản đang giữ. Chưa bán nên chưa nhận khoản tiền này; chưa trừ phí bán và nợ. Không phải lãi/lỗ so với số tiền đã bỏ ra mua."
+        }
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/GameResultModal.tsx",
+      "removed": [
+        {
+          "kind": "jsx-text",
+          "line": 29,
+          "value": "Giá trị huy động hợp lệ là tiền mặt + gốc tiết kiệm rút được + giá bán tài sản tài chính sau phí, trừ nợ và khoản phải trả."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 32,
+          "value": "và gốc đang chờ trả không được cộng thêm. Trái phiếu chỉ tính giá bán khả dụng sau phí; khoản vỡ nợ không có giá bán."
+        }
+      ],
+      "added": [
+        {
+          "kind": "jsx-text",
+          "line": 29,
+          "value": "Nguồn tiền về đích gồm tiền mặt, gốc tiết kiệm rút được và tiền bán tài sản tài chính theo giá hiện tại sau phí, trừ nợ và khoản phải trả. Đây là cách tính mục tiêu; trò chơi không tự bán tài sản."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 32,
+          "value": "và gốc đang chờ trả không được cộng thêm. Trái phiếu chỉ tính tiền có thể bán nhận sau phí; khoản mà bên phát hành không trả được nợ không có giá bán."
+        }
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/GameSetup.tsx",
+      "removed": [
+        {
+          "kind": "jsx-text",
+          "line": 37,
+          "value": "Cùng mã và lựa chọn ban đầu sẽ có cùng hành trình."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 39,
+          "value": "Nhật ký JSON · Giữ nguyên phiên bản của ván"
+        }
+      ],
+      "added": [
+        {
+          "kind": "jsx-text",
+          "line": 37,
+          "value": "Giữ mã này để chơi lại cùng hành trình và lựa chọn ban đầu."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 39,
+          "value": "Chọn tệp nhật ký đã xuất từ trò chơi (.json)"
+        }
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/LapSummaryModal.tsx",
+      "removed": [
+        {
+          "kind": "jsx-text",
+          "line": 40,
+          "value": "Số tiền được giữ nguyên từ bản ghi quyết toán; chỉ Việt hóa nhãn hiển thị. Dòng 0 ₫ có thể là ghi chú về khoản chờ hoặc mất, không phải tiền đã nhận."
+        }
+      ],
+      "added": [
+        {
+          "kind": "jsx-text",
+          "line": 40,
+          "value": "Các khoản đã nhận và đã trả trong vòng. Dòng 0 ₫ có thể ghi khoản đang chờ hoặc không thu hồi được; không phải tiền đã vào ví."
+        }
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/MarketNews.tsx",
+      "removed": [
+        {
+          "kind": "literal",
+          "line": 30,
+          "value": "Áp lực tín dụng tăng; giá và khả năng trả nợ khác nhau giữa tổ chức phát hành."
+        },
+        {
+          "kind": "literal",
+          "line": 30,
+          "value": "Áp lực tín dụng giảm; không đảm bảo tổ chức phát hành trả đúng hạn."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 46,
+          "value": "Biến động giá, không phải lãi của bạn; chưa trừ phí và không gồm lãi trái phiếu định kỳ."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 47,
+          "value": "Tín dụng & tiền thực nhận"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 57,
+          "value": "Điều bạn học được"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 78,
+          "value": "Biến động giá; không gồm lãi trái phiếu định kỳ hay phí."
+        },
+        {
+          "kind": "template-fragment",
+          "line": 90,
+          "value": "+ chênh lệch"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 90,
+          "value": "lần qua ô Xuất phát. Bán tại ô Xuất phát hoặc để trả khoản thiếu bắt buộc."
+        }
+      ],
+      "added": [
+        {
+          "kind": "literal",
+          "line": 10,
+          "value": "../../../src/game/encounters"
+        },
+        {
+          "kind": "literal",
+          "line": 31,
+          "value": "Áp lực tài chính của bên phát hành trái phiếu tăng; giá và khả năng trả nợ khác nhau giữa các bên."
+        },
+        {
+          "kind": "literal",
+          "line": 31,
+          "value": "Áp lực tài chính của bên phát hành trái phiếu có thể giảm; không bảo đảm trả đúng hạn."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 47,
+          "value": "Cổ phiếu: mức đổi giá trung bình của tất cả mã, mỗi mã tính như nhau. Đây là biến động giá, không phải lãi của bạn; chưa trừ phí hay cộng tiền lãi trái phiếu định kỳ."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 48,
+          "value": "Khả năng trả nợ & tiền đã nhận"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 58,
+          "value": "Nhìn lại dự báo và rủi ro"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 79,
+          "value": "Cổ phiếu là trung bình đổi giá của tất cả mã, mỗi mã tính như nhau. Không phải lãi của bạn; chưa tính tiền lãi trái phiếu định kỳ hay phí."
+        },
+        {
+          "kind": "template-fragment",
+          "line": 91,
+          "value": "+ chênh lệch giá mua và bán"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 91,
+          "value": "lần qua ô Xuất phát."
+        },
+        {
+          "kind": "literal",
+          "line": 91,
+          "value": "Có thể bán tại ô cùng loại tài sản, ô Xuất phát hoặc để trả khoản thiếu bắt buộc, nếu có giá bán hợp lệ."
+        },
+        {
+          "kind": "literal",
+          "line": 91,
+          "value": "Bán tại ô Xuất phát hoặc để trả khoản thiếu bắt buộc, nếu có giá bán hợp lệ."
+        }
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "removed": [
+        {
+          "kind": "jsx-text",
+          "line": 22,
+          "value": "Bắt đầu 50 triệu tự phân bổ. Không bắt buộc dùng mọi loại đầu tư hoặc giữ riêng 10 triệu tiền mặt. Bạn tự cân nhắc lợi nhuận, dự phòng và thanh khoản."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 24,
+          "value": "Qua ô Xuất phát để quyết toán vòng."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 26,
+          "value": "Cổ phiếu và Vàng: lợi nhuận phụ thuộc giá, có thể lỗ. Vàng không có thu nhập định kỳ, bán chịu chênh lệch giá mua–bán 3% và phí 1% sau chênh lệch giá mua–bán. Cổ phiếu phí bán 1%."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 26,
+          "value": "Trái phiếu hiện tại: An Tâm lãi trái phiếu định kỳ 4,5%, Bứt Phá 10%, kỳ hạn 2 lần qua ô Xuất phát; lãi trái phiếu định kỳ cao đi cùng rủi ro chậm trả/mất vốn. Lãi trái phiếu định kỳ/gốc chưa nhận chưa phải tiền mặt; vỡ nợ không có giá bán; phí bán 1,5%."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 27,
+          "value": "Biến cố cá nhân giữ ba tình huống: Y tế trả 5M hoặc hẹn 6M; sửa xe 4M hoặc 1M ngay + 4M cuối vòng; gia đình 3M hoặc hẹn 3,5M. Xem nghĩa vụ trước khi chọn."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 27,
+          "value": "Tiền mặt dùng trước; thiếu thì chọn rút tiết kiệm, bán tài sản tài chính hoặc vay phần thiếu trong hạn mức 30M. Vay lãi 10%; vay ở lần qua ô Xuất phát cuối cộng lãi vào nợ ngay. Kinh doanh không dùng huy động tiền thanh toán. Hết nguồn hợp lệ thì phá sản."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 27,
+          "value": "Không cần giữ một mức dự phòng cố định. Hãy cân nhắc vốn bị khóa, phí/chênh lệch giá mua–bán và những khoản có thể phải trả trước khi đầu tư."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 28,
+          "value": "Thị trường, lương, kinh doanh, đáo hạn/lãi trái phiếu định kỳ và các khoản đến hạn được xử lý theo phiên bản của ván. Ô Xuất phát vẫn cho bán tài sản tài chính; quán chỉ bán tại ô Kinh doanh. Giá trị huy động hợp lệ trừ nợ và nghĩa vụ; không tự thanh lý tài sản."
+        }
+      ],
+      "added": [
+        {
+          "kind": "jsx-text",
+          "line": 22,
+          "value": "Bắt đầu 50 triệu tự phân bổ. Không bắt buộc dùng mọi loại đầu tư hoặc giữ riêng 10 triệu tiền mặt. Bạn tự cân nhắc lợi nhuận, tiền dự phòng và khả năng có tiền khi cần."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 24,
+          "value": "Qua ô Xuất phát để nhận lương và thanh toán các khoản đến hạn."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 26,
+          "value": "Cổ phiếu và Vàng: lợi nhuận phụ thuộc giá, có thể lỗ. Vàng không có thu nhập định kỳ, bán chịu chênh lệch giá mua và bán 3% và phí 1% sau chênh lệch giá mua và bán. Cổ phiếu phí bán 1%."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 26,
+          "value": "Trái phiếu hiện tại: An Tâm lãi trái phiếu định kỳ 4,5%, Bứt Phá 10%, kỳ hạn 2 lần qua ô Xuất phát; lãi trái phiếu định kỳ cao đi cùng rủi ro chậm trả/mất vốn. Lãi trái phiếu định kỳ/gốc chưa nhận chưa phải tiền mặt; bên phát hành không trả được nợ thì khoản đó không có giá bán; phí bán 1,5%."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 27,
+          "value": "Biến cố cá nhân giữ ba tình huống: Y tế trả 5M hoặc hẹn 6M; sửa xe 4M hoặc 1M ngay + 4M cuối vòng; gia đình 3M hoặc hẹn 3,5M. Xem số tiền cần trả và thời điểm trả trước khi chọn."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 27,
+          "value": "Tiền mặt dùng trước; thiếu thì chọn rút tiết kiệm, bán tài sản tài chính hoặc vay phần thiếu trong hạn mức 30M. Vay lãi 10%; vay ở lần qua ô Xuất phát cuối cộng lãi vào nợ ngay. Không bán quán để trả chi phí bắt buộc. Hết nguồn hợp lệ thì phá sản."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 27,
+          "value": "Không cần giữ một mức dự phòng cố định. Hãy cân nhắc tiền chưa rút được, phí và chênh lệch giá mua và bán và những khoản có thể phải trả trước khi đầu tư."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 28,
+          "value": "Thị trường, lương, kinh doanh, đáo hạn/lãi trái phiếu định kỳ và các khoản đến hạn được xử lý theo phiên bản của ván. Ô Xuất phát vẫn cho bán tài sản tài chính; quán chỉ bán tại ô Kinh doanh. Nguồn tiền về đích trừ nợ và khoản phải trả; không tự thanh lý tài sản."
+        }
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/Tutorial.tsx",
+      "removed": [
+        {
+          "kind": "literal",
+          "line": 27,
+          "value": "Ngân hàng: một khoản gửi mới mỗi lần ghé, kỳ hạn 1 / 2 / 3 lần qua ô Xuất phát với lãi 4/5/6% mỗi kỳ, lãi đơn nhận cuối hạn; các khoản độc lập, không tự tái tục. Cổ phiếu, vàng, trái phiếu được bán ở ô tương ứng, tại ô Xuất phát và huy động tiền thanh toán. Quán chỉ được nâng cấp hoặc bán từ lần ghé ô Kinh doanh sau lượt mua; mỗi lần ghé nâng tối đa một tầng. Quán nhận 3 triệu + 700 nghìn mỗi tầng + 1 triệu mỗi tầng hợp sở thích khách tại ô Xuất phát; giá bán chịu thị trường và khấu hao. Giá tài sản có thể giảm. Các mức giá trong trò chơi là mô phỏng, không phải dữ liệu giao dịch thực tế."
+        },
+        {
+          "kind": "literal",
+          "line": 32,
+          "value": "Hoàn thành 4 vòng và tích lũy đủ 90 triệu huy động hợp lệ là chiến thắng!"
+        },
+        {
+          "kind": "literal",
+          "line": 33,
+          "value": "Mục tiêu duy nhất90 triệu huy động hợp lệ sau phí, nợ và nghĩa vụ. Không cần toàn bộ là tiền mặt, không buộc giữ riêng 10 triệu. Nếu chưa đủ hoặc hết khả năng thanh toán, hãy thử một hành trình mới. Sổ tay luôn ở ngay trên màn hình để bạn xem lại bất cứ lúc nào."
+        }
+      ],
+      "added": [
+        {
+          "kind": "literal",
+          "line": 27,
+          "value": "Ngân hàng: một khoản gửi mới mỗi lần ghé, kỳ hạn 1 / 2 / 3 lần qua ô Xuất phát với lãi 4/5/6% mỗi kỳ, lãi tính trên tiền gốc, nhận cuối kỳ hạn; các khoản độc lập, không tự tái tục. Cổ phiếu, vàng, trái phiếu được bán ở ô tương ứng, tại ô Xuất phát và huy động tiền thanh toán. Quán chỉ được nâng cấp hoặc bán từ lần ghé ô Kinh doanh sau lượt mua; mỗi lần ghé nâng tối đa một tầng. Quán nhận 3 triệu + 700 nghìn mỗi tầng + 1 triệu mỗi tầng hợp sở thích khách tại ô Xuất phát; giá bán chịu thị trường và khấu hao. Giá tài sản có thể giảm. Các mức giá trong trò chơi là mô phỏng, không phải dữ liệu giao dịch thực tế."
+        },
+        {
+          "kind": "literal",
+          "line": 32,
+          "value": "Hoàn thành 4 vòng và tích lũy đủ 90 triệu từ nguồn tiền về đích là chiến thắng!"
+        },
+        {
+          "kind": "literal",
+          "line": 33,
+          "value": "Mục tiêu duy nhất: 90 triệu từ tiền mặt, gốc tiết kiệm rút được và tiền bán tài sản tài chính, sau phí, nợ và khoản phải trả. Không cần toàn bộ là tiền mặt, không buộc giữ riêng 10 triệu. Nếu chưa đủ hoặc hết khả năng thanh toán, hãy thử một hành trình mới. Sổ tay luôn ở ngay trên màn hình để bạn xem lại bất cứ lúc nào."
+        }
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/market-language.ts",
+      "removed": [],
+      "added": [
+        {
+          "kind": "literal",
+          "line": 5,
+          "value": "Chưa đủ dữ liệu về áp lực tài chính"
+        },
+        {
+          "kind": "literal",
+          "line": 6,
+          "value": "Áp lực tài chính tăng"
+        },
+        {
+          "kind": "literal",
+          "line": 6,
+          "value": "Áp lực tài chính giảm"
+        },
+        {
+          "kind": "literal",
+          "line": 6,
+          "value": "Áp lực tài chính không thay đổi"
+        },
+        {
+          "kind": "literal",
+          "line": 10,
+          "value": "Chưa đủ dữ liệu về áp lực tài chính của bên phát hành."
+        },
+        {
+          "kind": "template-fragment",
+          "line": 11,
+          "value": "Áp lực tài chính của bên phát hành:"
+        },
+        {
+          "kind": "template-fragment",
+          "line": 11,
+          "value": "/2 →"
+        },
+        {
+          "kind": "template-fragment",
+          "line": 11,
+          "value": "/2. Trong trò chơi, 0 là thấp nhất, 2 là cao nhất; không phải nợ của bạn. Mức 0 vẫn có thể chậm trả hoặc mất vốn. Chỉ số này không tự xác nhận đã chậm trả."
+        }
+      ]
+    },
+    {
+      "file": "mobile_app/src/game/economic-event.ts",
+      "removed": [
+        {
+          "kind": "literal",
+          "line": 17,
+          "value": "Cùng một tin, mỗi ngành có thể phản ứng khác nhau. Giá đã tăng chưa bảo đảm bạn sẽ có lời sau phí hoặc khi cần bán."
+        }
+      ],
+      "added": [
+        {
+          "kind": "literal",
+          "line": 17,
+          "value": "Cùng một tin, mỗi ngành có thể tăng hoặc giảm khác nhau. Bạn có lời hay không còn tùy giá đã mua và tiền bán nhận sau phí."
+        }
+      ]
+    },
+    {
+      "file": "mobile_app/src/game/market-news.ts",
+      "removed": [
+        {
+          "kind": "literal",
+          "line": 38,
+          "value": "Lãi trái phiếu cao đi cùng rủi ro tín dụng. Xem xếp hạng tín nhiệm, áp lực trả nợ và tiền thực nhận của từng tổ chức phát hành."
+        },
+        {
+          "kind": "literal",
+          "line": 41,
+          "value": "Khả năng trả nợ chịu áp lực · Tổ chức yếu rủi ro hơn"
+        },
+        {
+          "kind": "literal",
+          "line": 41,
+          "value": "Điều kiện tín dụng phân hóa theo tổ chức phát hành"
+        }
+      ],
+      "added": [
+        {
+          "kind": "literal",
+          "line": 38,
+          "value": "Lãi trái phiếu cao hơn đi cùng rủi ro không được trả đủ. Xem khả năng trả nợ và tiền đã nhận của từng bên phát hành."
+        },
+        {
+          "kind": "literal",
+          "line": 41,
+          "value": "Bên phát hành có thể khó trả nợ hơn"
+        },
+        {
+          "kind": "literal",
+          "line": 41,
+          "value": "Khả năng trả nợ khác nhau giữa các bên phát hành"
+        }
+      ]
+    },
+    {
+      "file": "src/components/BondCreditPanel.tsx",
+      "removed": [
+        {
+          "kind": "template-fragment",
+          "line": 31,
+          "value": "Áp lực"
+        },
+        {
+          "kind": "template-fragment",
+          "line": 31,
+          "value": "/2 ·"
+        },
+        {
+          "kind": "literal",
+          "line": 31,
+          "value": "Ít rủi ro hơn, vẫn có thể chậm trả."
+        },
+        {
+          "kind": "literal",
+          "line": 31,
+          "value": "Lãi trái phiếu định kỳ cao, dễ chậm trả hoặc mất vốn."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 44,
+          "value": "Tín dụng, kỳ hạn & cách rút vốn"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 46,
+          "value": "· Áp lực"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 46,
+          "value": "/2."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 48,
+          "value": "ô Xuất phát"
+        },
+        {
+          "kind": "literal",
+          "line": 48,
+          "value": "Tái cơ cấu"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 49,
+          "value": "Chậm trả: khoản chưa nhận chưa vào ví. Khi tái cơ cấu, lãi trái phiếu định kỳ chưa trả mất toàn bộ; gốc thu hồi"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 49,
+          "value": "% ở lần qua ô Xuất phát tiếp theo, có thể sau khi hết ván. Bán từng khoản tại ô Xuất phát hoặc khi cần trả chi phí; giá bán có thể thấp hơn vốn. Khoản vỡ nợ tạm ngừng bán."
+        }
+      ],
+      "added": [
+        {
+          "kind": "literal",
+          "line": 13,
+          "value": "../game/encounters"
+        },
+        {
+          "kind": "literal",
+          "line": 32,
+          "value": "Ít rủi ro hơn, vẫn có thể chậm trả hoặc mất vốn."
+        },
+        {
+          "kind": "literal",
+          "line": 32,
+          "value": "Lãi cao hơn, dễ chậm trả hoặc mất vốn hơn."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 45,
+          "value": "Khả năng trả nợ và cách lấy lại tiền"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 48,
+          "value": "Áp lực tài chính của bên phát hành:"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 48,
+          "value": "/2. Thang trong trò chơi: 0 thấp nhất, 2 cao nhất. Mức 0 vẫn có thể chậm trả hoặc mất vốn; đây không phải nợ của bạn."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 50,
+          "value": "Qua ô Xuất phát lần thứ"
+        },
+        {
+          "kind": "literal",
+          "line": 50,
+          "value": "Không trả được nợ · Thu hồi một phần gốc"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 51,
+          "value": "Chậm trả: tiền đang chờ chưa vào ví. Khi bên phát hành không trả được nợ, lãi trái phiếu chưa trả mất toàn bộ; gốc thu hồi"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 51,
+          "value": "% ở lần qua ô Xuất phát tiếp theo, có thể sau khi hết ván."
+        },
+        {
+          "kind": "literal",
+          "line": 51,
+          "value": "Bán từng khoản tại ô Trái phiếu, ô Xuất phát hoặc khi cần trả chi phí bắt buộc"
+        },
+        {
+          "kind": "literal",
+          "line": 51,
+          "value": "Bán từng khoản tại ô Xuất phát hoặc khi cần trả chi phí bắt buộc"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 51,
+          "value": "; giá bán có thể thấp hơn vốn. Khoản không trả được nợ tạm ngừng bán."
+        }
+      ]
+    },
+    {
+      "file": "src/components/BusinessPanel.tsx",
+      "removed": [
+        {
+          "kind": "literal",
+          "line": 36,
+          "value": "Nhận thu nhập tại ô Xuất phát. Bán quán khi ghé lại ô Kinh doanh."
+        }
+      ],
+      "added": [
+        {
+          "kind": "literal",
+          "line": 36,
+          "value": "Nhận thu nhập tại ô Xuất phát. Chỉ bán khi ghé lại ô Kinh doanh; tiền còn trong quán không dùng trả chi phí bắt buộc hay tính vào mục tiêu."
+        }
+      ]
+    },
+    {
+      "file": "src/components/FundingDialog.tsx",
+      "removed": [
+        {
+          "kind": "literal",
+          "line": 47,
+          "value": "Phí và chênh lệch giá mua–bán"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 47,
+          "value": "Thực nhận"
+        }
+      ],
+      "added": [
+        {
+          "kind": "literal",
+          "line": 47,
+          "value": "Phí và chênh lệch giá mua và bán"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 47,
+          "value": "Tiền nhận sau phí"
+        }
+      ]
+    },
+    {
+      "file": "src/components/MarketDetails.tsx",
+      "removed": [
+        {
+          "kind": "jsx-text",
+          "line": 39,
+          "value": "Người chơi mua:"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 39,
+          "value": "Người chơi bán:"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 39,
+          "value": "Giá vốn bình quân của bạn:"
+        }
+      ],
+      "added": [
+        {
+          "kind": "jsx-text",
+          "line": 39,
+          "value": "Giá mua:"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 39,
+          "value": "Bán nhận sau phí:"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 39,
+          "value": "Bình quân số tiền đã bỏ ra mua mỗi đơn vị:"
+        }
+      ]
+    },
+    {
+      "file": "src/components/Portfolio.tsx",
+      "removed": [
+        {
+          "kind": "jsx-text",
+          "line": 37,
+          "value": "Nợ vay"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 37,
+          "value": "Nghĩa vụ cuối vòng"
+        }
+      ],
+      "added": [
+        {
+          "kind": "jsx-text",
+          "line": 37,
+          "value": "Nợ vay của bạn"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 37,
+          "value": "Khoản hẹn trả cuối vòng"
+        }
+      ]
+    },
+    {
+      "file": "src/components/RebalanceDialog.tsx",
+      "removed": [
+        {
+          "kind": "literal",
+          "line": 37,
+          "value": "Phí và chênh lệch giá mua–bán"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 37,
+          "value": "Thực nhận"
+        }
+      ],
+      "added": [
+        {
+          "kind": "literal",
+          "line": 37,
+          "value": "Phí và chênh lệch giá mua và bán"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 37,
+          "value": "Tiền nhận sau phí"
+        }
+      ]
+    },
+    {
+      "file": "src/components/TradingPanel.tsx",
+      "removed": [
+        {
+          "kind": "jsx-text",
+          "line": 98,
+          "value": "/đơn vị · Khi bán: chênh lệch"
+        },
+        {
+          "kind": "literal",
+          "line": 98,
+          "value": "Không có lãi định kỳ."
+        },
+        {
+          "kind": "literal",
+          "line": 103,
+          "value": "Giá có thể giảm; không đảm bảo lợi nhuận."
+        }
+      ],
+      "added": [
+        {
+          "kind": "jsx-text",
+          "line": 98,
+          "value": "/đơn vị · Khi bán: chênh lệch giá mua và bán"
+        },
+        {
+          "kind": "jsx-text",
+          "line": 98,
+          "value": "%. Vàng không trả lãi định kỳ; giá có thể giảm."
+        },
+        {
+          "kind": "jsx-text",
+          "line": 103,
+          "value": "%. Giá có thể giảm; không đảm bảo lợi nhuận."
+        }
+      ]
+    },
+    {
+      "file": "src/components/financial-review.ts",
+      "removed": [
+        {
+          "kind": "template-fragment",
+          "line": 16,
+          "value": "Phí và chênh lệch mua/bán đã trả"
+        },
+        {
+          "kind": "template-fragment",
+          "line": 18,
+          "value": "Vốn quán chưa bán"
+        },
+        {
+          "kind": "template-fragment",
+          "line": 18,
+          "value": ", không tính vào đích."
+        }
+      ],
+      "added": [
+        {
+          "kind": "template-fragment",
+          "line": 16,
+          "value": "Phí và chênh lệch giá mua và bán đã trả"
+        },
+        {
+          "kind": "template-fragment",
+          "line": 18,
+          "value": "Tiền đã đầu tư còn nằm trong quán"
+        },
+        {
+          "kind": "template-fragment",
+          "line": 18,
+          "value": "; quán chưa bán nên không tính vào mục tiêu."
+        }
+      ]
+    },
+    {
+      "file": "src/components/glossary.ts",
+      "removed": [
+        {
+          "kind": "literal",
+          "line": 8,
+          "value": "Khả năng biến tài sản thành tiền để thanh toán, có thể chịu phí hoặc tổn thất. Có tài sản không có nghĩa luôn bán ngay được; quán chỉ bán tại ô Kinh doanh."
+        },
+        {
+          "kind": "literal",
+          "line": 10,
+          "value": "Thời điểm đến hạn trả gốc hoặc lãi theo hợp đồng."
+        },
+        {
+          "kind": "literal",
+          "line": 11,
+          "value": "Tổ chức không thực hiện đầy đủ nghĩa vụ; người chơi có thể mất một phần vốn."
+        },
+        {
+          "kind": "literal",
+          "line": 16,
+          "value": "Tiền mặt, gốc tiết kiệm rút hợp lệ và tiền bán tài sản tài chính sau phí, trừ nợ và khoản phải trả. Không tính quán chưa bán hoặc lãi chưa nhận; trò chơi không tự bán tài sản."
+        }
+      ],
+      "added": [
+        {
+          "kind": "literal",
+          "line": 4,
+          "value": "Tiền lãi trái phiếu định kỳ"
+        },
+        {
+          "kind": "literal",
+          "line": 4,
+          "value": "Tiền lãi trái phiếu định kỳ"
+        },
+        {
+          "kind": "literal",
+          "line": 4,
+          "value": "tiền lãi trái phiếu định kỳ"
+        },
+        {
+          "kind": "literal",
+          "line": 7,
+          "value": "Chênh lệch giá mua và bán"
+        },
+        {
+          "kind": "literal",
+          "line": 7,
+          "value": "Chênh lệch giá mua và bán"
+        },
+        {
+          "kind": "literal",
+          "line": 7,
+          "value": "chênh lệch giá mua và bán"
+        },
+        {
+          "kind": "literal",
+          "line": 8,
+          "value": "Khả năng có tiền khi cần"
+        },
+        {
+          "kind": "literal",
+          "line": 8,
+          "value": "Khả năng biến tài sản thành tiền để thanh toán, có thể chịu phí hoặc tổn thất (thanh khoản). Có tài sản không có nghĩa luôn bán ngay được; quán chỉ bán tại ô Kinh doanh."
+        },
+        {
+          "kind": "literal",
+          "line": 8,
+          "value": "Khả năng có tiền khi cần"
+        },
+        {
+          "kind": "literal",
+          "line": 8,
+          "value": "khả năng có tiền khi cần"
+        },
+        {
+          "kind": "literal",
+          "line": 9,
+          "value": "Xoay tiền để thanh toán"
+        },
+        {
+          "kind": "literal",
+          "line": 9,
+          "value": "Xoay tiền để thanh toán"
+        },
+        {
+          "kind": "literal",
+          "line": 9,
+          "value": "xoay tiền để thanh toán"
+        },
+        {
+          "kind": "literal",
+          "line": 10,
+          "value": "Mốc nhận gốc hoặc lãi khi đến hạn theo hợp đồng. Tiết kiệm trả gốc và lãi cuối kỳ hạn; trái phiếu có thể chậm trả dù đã đến hạn."
+        },
+        {
+          "kind": "literal",
+          "line": 11,
+          "value": "Không trả được nợ"
+        },
+        {
+          "kind": "literal",
+          "line": 11,
+          "value": "Bên phát hành trái phiếu không trả đầy đủ theo hợp đồng (vỡ nợ). Người giữ trái phiếu có thể mất lãi và một phần gốc; đây không phải nợ vay của người chơi."
+        },
+        {
+          "kind": "literal",
+          "line": 11,
+          "value": "Không trả được nợ"
+        },
+        {
+          "kind": "literal",
+          "line": 11,
+          "value": "không trả được nợ"
+        },
+        {
+          "kind": "literal",
+          "line": 16,
+          "value": "Nguồn tiền về đích"
+        },
+        {
+          "kind": "literal",
+          "line": 16,
+          "value": "Tiền mặt, gốc tiết kiệm rút hợp lệ và tiền bán tài sản tài chính sau phí, trừ nợ và khoản phải trả. Không tính quán chưa bán hoặc lãi chưa nhận; trò chơi không tự bán tài sản. Tên trong luật: giá trị huy động hợp lệ."
+        },
+        {
+          "kind": "literal",
+          "line": 16,
+          "value": "Nguồn tiền về đích"
+        },
+        {
+          "kind": "literal",
+          "line": 16,
+          "value": "nguồn tiền về đích"
+        }
+      ]
+    },
+    {
+      "file": "src/components/tile-information.ts",
+      "removed": [
+        {
+          "kind": "template-fragment",
+          "line": 12,
+          "value": ", nợ/nghĩa vụ. Có quyền bán tài sản tài chính, không bán quán. Hoàn thành"
+        },
+        {
+          "kind": "literal",
+          "line": 19,
+          "value": "Gặp một trong ba tình huống: khám bệnh, sửa xe hoặc hỗ trợ gia đình. Chọn thanh toán ngay hay hẹn theo tình huống; thiếu tiền phải chọn nguồn huy động tiền thanh toán, có thể mất lãi hoặc phát sinh nợ."
+        }
+      ],
+      "added": [
+        {
+          "kind": "template-fragment",
+          "line": 12,
+          "value": ", nợ và khoản hẹn trả. Có quyền bán tài sản tài chính, không bán quán. Hoàn thành"
+        },
+        {
+          "kind": "literal",
+          "line": 19,
+          "value": "Gặp một trong ba tình huống: khám bệnh, sửa xe hoặc hỗ trợ gia đình. Chọn thanh toán ngay hay hẹn theo tình huống; thiếu tiền phải chọn nguồn tiền khác để trả, có thể mất lãi hoặc phát sinh nợ."
+        }
+      ]
+    }
+  ]
+}

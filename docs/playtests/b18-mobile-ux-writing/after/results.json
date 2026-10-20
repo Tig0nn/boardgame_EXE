@@ -1,0 +1,2583 @@
+{
+  "stage": "after",
+  "browser": "149.0.7827.55",
+  "checks": [
+    {
+      "label": "320-economic-event",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đã hiểu · Tiếp tục",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-economic-event-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-economic-event-details",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đã hiểu · Tiếp tục",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-economic-event-resume",
+      "unchanged": true,
+      "sha256": "fdcfacf73fae5762450782fb7ee2351866fd6d1405711b892ecd800cef00420e"
+    },
+    {
+      "label": "320-bonds",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 50.390625
+        },
+        {
+          "text": "Bán",
+          "height": 50.390625
+        },
+        {
+          "text": "Mua trái phiếu 8.000.000 ₫",
+          "height": 48.390625
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-bonds-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-bonds-details",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 50.390625
+        },
+        {
+          "text": "Bán",
+          "height": 50.390625
+        },
+        {
+          "text": "Mua trái phiếu 8.000.000 ₫",
+          "height": 48.390625
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-bonds-resume",
+      "unchanged": true,
+      "sha256": "73090e2be2db8051b67035c7600423b0d5c8c8b570191b89341555fff8a8c799"
+    },
+    {
+      "label": "320-stocks",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 50.390625
+        },
+        {
+          "text": "Bán",
+          "height": 50.390625
+        },
+        {
+          "text": "Mua 10.000.000 ₫",
+          "height": 48.390625
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-stocks-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-stocks-details",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 50.390625
+        },
+        {
+          "text": "Bán",
+          "height": 50.390625
+        },
+        {
+          "text": "Mua 10.000.000 ₫",
+          "height": 48.390625
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-stocks-resume",
+      "unchanged": true,
+      "sha256": "e8972da79238491f1f8a27cf08494f2e8be687f34a7dc667dc5ba001bc07b1c6"
+    },
+    {
+      "label": "320-result",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Chơi hành trình mới",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-result-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-result-details",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Chơi hành trình mới",
+          "height": 48.390625
+        },
+        {
+          "text": "Lưu nhật ký hành trình",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-result-resume",
+      "unchanged": true,
+      "sha256": "5280134b8e20a1160765b180487570f993436e71f6624d5ceccf9c0f45a45194"
+    },
+    {
+      "label": "320-bank",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Gửi tiết kiệm 10.000.000 ₫",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-bank-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-bank-resume",
+      "unchanged": true,
+      "sha256": "28f0cb269af4132411af9137e832d482465bd9cedb4506d57fb1aface62d8883"
+    },
+    {
+      "label": "320-gold",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 50.390625
+        },
+        {
+          "text": "Bán",
+          "height": 50.390625
+        },
+        {
+          "text": "Mua 6.000.000 ₫",
+          "height": 48.390625
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-gold-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-gold-resume",
+      "unchanged": true,
+      "sha256": "22c1e8051ca9181a46e37ad551551c710885c38d53dd75772cb7eadfce66bbec"
+    },
+    {
+      "label": "320-business",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mở quán 20.000.000 ₫",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-business-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-business-resume",
+      "unchanged": true,
+      "sha256": "8a3fa103277c70a1fd383a42be088431abca69718b364a90be962902e8fef737"
+    },
+    {
+      "label": "320-course",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua khóa cơ bản",
+          "height": 48.390625
+        },
+        {
+          "text": "Mua khóa nâng cao",
+          "height": 48.390625
+        },
+        {
+          "text": "Bỏ qua",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-course-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-course-resume",
+      "unchanged": true,
+      "sha256": "36a8bd9f10ce4d715056e48f2469e413df3b4fb140df0658a0733f5261ae3602"
+    },
+    {
+      "label": "320-repair",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": []
+    },
+    {
+      "label": "320-repair-resume",
+      "unchanged": true,
+      "sha256": "d4626a807ff4af57072825ddf029e8062d71095bb1224b9b972b4877ec6cf3ad"
+    },
+    {
+      "label": "320-funding",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Dùng nguồn tiền này ",
+          "height": 53.390625
+        }
+      ]
+    },
+    {
+      "label": "320-funding-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-funding-resume",
+      "unchanged": true,
+      "sha256": "9724752ce5f49898487f3cf3104433aeb3a2b574dfcc668a933cb6df3166017b"
+    },
+    {
+      "label": "320-settlement",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Ghé ví tại ô Xuất phát →",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-settlement-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-settlement-resume",
+      "unchanged": true,
+      "sha256": "fcee12071225ab1b1659605b727851ea86dffd123543b4ee0c2e34716fbb2140"
+    },
+    {
+      "label": "320-setup-zero-cash",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Bắt đầu hành trình →",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-forecast",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Bắt đầu vòng 1",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-tile-1",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-tile-2",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-tile-3",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-tile-4",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-tile-5",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-tile-6",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-tile-7",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-tile-8",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-tile-9",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-handbook-rule-tab-0",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-handbook-rule-tab-1",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-handbook-rule-tab-2",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-handbook-rule-tab-3",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-handbook-rule-tab-4",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-handbook-rule-tab-5",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-read-only-board-handbook",
+      "types": [
+        "Xuất phát",
+        "Sự kiện",
+        "Trái phiếu",
+        "Biến cố cá nhân",
+        "Đầu tư bản thân",
+        "Vàng",
+        "Ngân hàng",
+        "Kinh doanh",
+        "Cổ phiếu"
+      ],
+      "unchanged": true
+    },
+    {
+      "label": "390-economic-event",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đã hiểu · Tiếp tục",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-economic-event-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-economic-event-details",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đã hiểu · Tiếp tục",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-economic-event-resume",
+      "unchanged": true,
+      "sha256": "fdcfacf73fae5762450782fb7ee2351866fd6d1405711b892ecd800cef00420e"
+    },
+    {
+      "label": "390-bonds",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua trái phiếu 8.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-bonds-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-bonds-details",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua trái phiếu 8.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-bonds-resume",
+      "unchanged": true,
+      "sha256": "73090e2be2db8051b67035c7600423b0d5c8c8b570191b89341555fff8a8c799"
+    },
+    {
+      "label": "390-stocks",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua 10.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-stocks-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-stocks-details",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua 10.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-stocks-resume",
+      "unchanged": true,
+      "sha256": "e8972da79238491f1f8a27cf08494f2e8be687f34a7dc667dc5ba001bc07b1c6"
+    },
+    {
+      "label": "390-result",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Chơi hành trình mới",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-result-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-result-details",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Chơi hành trình mới",
+          "height": 50
+        },
+        {
+          "text": "Lưu nhật ký hành trình",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-result-resume",
+      "unchanged": true,
+      "sha256": "5280134b8e20a1160765b180487570f993436e71f6624d5ceccf9c0f45a45194"
+    },
+    {
+      "label": "390-bank",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Gửi tiết kiệm 10.000.000 ₫",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-bank-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-bank-resume",
+      "unchanged": true,
+      "sha256": "28f0cb269af4132411af9137e832d482465bd9cedb4506d57fb1aface62d8883"
+    },
+    {
+      "label": "390-gold",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua 6.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-gold-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-gold-resume",
+      "unchanged": true,
+      "sha256": "22c1e8051ca9181a46e37ad551551c710885c38d53dd75772cb7eadfce66bbec"
+    },
+    {
+      "label": "390-business",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mở quán 20.000.000 ₫",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-business-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-business-resume",
+      "unchanged": true,
+      "sha256": "8a3fa103277c70a1fd383a42be088431abca69718b364a90be962902e8fef737"
+    },
+    {
+      "label": "390-course",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua khóa cơ bản",
+          "height": 50
+        },
+        {
+          "text": "Mua khóa nâng cao",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-course-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-course-resume",
+      "unchanged": true,
+      "sha256": "36a8bd9f10ce4d715056e48f2469e413df3b4fb140df0658a0733f5261ae3602"
+    },
+    {
+      "label": "390-repair",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": []
+    },
+    {
+      "label": "390-repair-resume",
+      "unchanged": true,
+      "sha256": "d4626a807ff4af57072825ddf029e8062d71095bb1224b9b972b4877ec6cf3ad"
+    },
+    {
+      "label": "390-funding",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Dùng nguồn tiền này ",
+          "height": 53
+        }
+      ]
+    },
+    {
+      "label": "390-funding-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-funding-resume",
+      "unchanged": true,
+      "sha256": "9724752ce5f49898487f3cf3104433aeb3a2b574dfcc668a933cb6df3166017b"
+    },
+    {
+      "label": "390-settlement",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Ghé ví tại ô Xuất phát →",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-settlement-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-settlement-resume",
+      "unchanged": true,
+      "sha256": "fcee12071225ab1b1659605b727851ea86dffd123543b4ee0c2e34716fbb2140"
+    },
+    {
+      "label": "390-setup-zero-cash",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Bắt đầu hành trình →",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-forecast",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Bắt đầu vòng 1",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-tile-1",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-tile-2",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-tile-3",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-tile-4",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-tile-5",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-tile-6",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-tile-7",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-tile-8",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-tile-9",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-handbook-rule-tab-0",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-handbook-rule-tab-1",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-handbook-rule-tab-2",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-handbook-rule-tab-3",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-handbook-rule-tab-4",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-handbook-rule-tab-5",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-read-only-board-handbook",
+      "types": [
+        "Xuất phát",
+        "Sự kiện",
+        "Trái phiếu",
+        "Biến cố cá nhân",
+        "Đầu tư bản thân",
+        "Vàng",
+        "Ngân hàng",
+        "Kinh doanh",
+        "Cổ phiếu"
+      ],
+      "unchanged": true
+    },
+    {
+      "label": "430-economic-event",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đã hiểu · Tiếp tục",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-economic-event-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-economic-event-details",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đã hiểu · Tiếp tục",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-economic-event-resume",
+      "unchanged": true,
+      "sha256": "fdcfacf73fae5762450782fb7ee2351866fd6d1405711b892ecd800cef00420e"
+    },
+    {
+      "label": "430-bonds",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua trái phiếu 8.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-bonds-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-bonds-details",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua trái phiếu 8.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-bonds-resume",
+      "unchanged": true,
+      "sha256": "73090e2be2db8051b67035c7600423b0d5c8c8b570191b89341555fff8a8c799"
+    },
+    {
+      "label": "430-stocks",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua 10.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-stocks-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-stocks-details",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua 10.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-stocks-resume",
+      "unchanged": true,
+      "sha256": "e8972da79238491f1f8a27cf08494f2e8be687f34a7dc667dc5ba001bc07b1c6"
+    },
+    {
+      "label": "430-result",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Chơi hành trình mới",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-result-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-result-details",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Chơi hành trình mới",
+          "height": 50
+        },
+        {
+          "text": "Lưu nhật ký hành trình",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-result-resume",
+      "unchanged": true,
+      "sha256": "5280134b8e20a1160765b180487570f993436e71f6624d5ceccf9c0f45a45194"
+    },
+    {
+      "label": "430-bank",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Gửi tiết kiệm 10.000.000 ₫",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-bank-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-bank-resume",
+      "unchanged": true,
+      "sha256": "28f0cb269af4132411af9137e832d482465bd9cedb4506d57fb1aface62d8883"
+    },
+    {
+      "label": "430-gold",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua 6.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-gold-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-gold-resume",
+      "unchanged": true,
+      "sha256": "22c1e8051ca9181a46e37ad551551c710885c38d53dd75772cb7eadfce66bbec"
+    },
+    {
+      "label": "430-business",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mở quán 20.000.000 ₫",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-business-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-business-resume",
+      "unchanged": true,
+      "sha256": "8a3fa103277c70a1fd383a42be088431abca69718b364a90be962902e8fef737"
+    },
+    {
+      "label": "430-course",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua khóa cơ bản",
+          "height": 50
+        },
+        {
+          "text": "Mua khóa nâng cao",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-course-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-course-resume",
+      "unchanged": true,
+      "sha256": "36a8bd9f10ce4d715056e48f2469e413df3b4fb140df0658a0733f5261ae3602"
+    },
+    {
+      "label": "430-repair",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": []
+    },
+    {
+      "label": "430-repair-resume",
+      "unchanged": true,
+      "sha256": "d4626a807ff4af57072825ddf029e8062d71095bb1224b9b972b4877ec6cf3ad"
+    },
+    {
+      "label": "430-funding",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Dùng nguồn tiền này ",
+          "height": 53
+        }
+      ]
+    },
+    {
+      "label": "430-funding-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-funding-resume",
+      "unchanged": true,
+      "sha256": "9724752ce5f49898487f3cf3104433aeb3a2b574dfcc668a933cb6df3166017b"
+    },
+    {
+      "label": "430-settlement",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Ghé ví tại ô Xuất phát →",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-settlement-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-settlement-resume",
+      "unchanged": true,
+      "sha256": "fcee12071225ab1b1659605b727851ea86dffd123543b4ee0c2e34716fbb2140"
+    },
+    {
+      "label": "430-setup-zero-cash",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Bắt đầu hành trình →",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-forecast",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Bắt đầu vòng 1",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-tile-1",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-tile-2",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-tile-3",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-tile-4",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-tile-5",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-tile-6",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-tile-7",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-tile-8",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-tile-9",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Trở về bàn",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-handbook-rule-tab-0",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-handbook-rule-tab-1",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-handbook-rule-tab-2",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-handbook-rule-tab-3",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-handbook-rule-tab-4",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-handbook-rule-tab-5",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đóng sổ tay",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-read-only-board-handbook",
+      "types": [
+        "Xuất phát",
+        "Sự kiện",
+        "Trái phiếu",
+        "Biến cố cá nhân",
+        "Đầu tư bản thân",
+        "Vàng",
+        "Ngân hàng",
+        "Kinh doanh",
+        "Cổ phiếu"
+      ],
+      "unchanged": true
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [
+    {
+      "width": 320,
+      "label": "economic-event",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "economic-event",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "economic-event",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "bonds",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "bonds",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "stocks",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "stocks",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "result",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "result",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "bank",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "bank",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "gold",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "gold",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "business",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "business",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "course",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "course",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "repair",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "repair",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "funding",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "funding",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "settlement",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 320,
+      "label": "settlement",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "economic-event",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "economic-event",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "bonds",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "bonds",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "stocks",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "stocks",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "result",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "result",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "bank",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "bank",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "gold",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "gold",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "business",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "business",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "course",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "course",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "repair",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "funding",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "funding",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "settlement",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 390,
+      "label": "settlement",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "economic-event",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "economic-event",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "bonds",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "bonds",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "stocks",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "stocks",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "result",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "result",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "bank",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "bank",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "gold",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "gold",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "business",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "business",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "course",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "course",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "repair",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "repair",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "funding",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "funding",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "settlement",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "width": 430,
+      "label": "settlement",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5210/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  ],
+  "httpErrors": [],
+  "source": "Local Mobile build, exact replay prefixes imported through product UI. Not a new full gameplay run.",
+  "physicalDevices": false
+}
