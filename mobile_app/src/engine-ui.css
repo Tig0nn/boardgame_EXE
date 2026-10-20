@@ -38,6 +38,16 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .event-cash { padding-block: 8px; border-block: 1px solid #456275; }
 .decision-button { display: flex; flex-direction: column; text-align: left; width: 100%; gap: 6px; margin-top: 12px; }
 .decision-button span { font-size: 13px; }
+/* Financial sheets keep one native scroll surface, including on desktop. */
+.modal.financial-modal { scrollbar-width: thin; scrollbar-color: #78909c #0f172a; padding-bottom: max(20px, env(safe-area-inset-bottom)); }
+.financial-modal .decision-button { gap: 8px; padding: 16px; }
+.financial-modal .decision-button strong { font-size: 16px; line-height: 1.5; }
+.financial-modal .decision-button span { font-size: 14px; line-height: 1.5; }
+.financial-modal .payment-comparison { color: #fde68a; }
+.financial-modal .trade-facts strong { font-size: 17px; font-variant-numeric: tabular-nums; }
+.financial-modal .trade-facts > div { gap: 4px 12px; }
+.financial-modal .trade-risk { line-height: 1.5; }
+.financial-modal .savings-period-note { margin-block: 8px; }
 .money-input { position: relative; }
 .money-input input { padding-right: 36px !important; }
 .money-input > span { position: absolute; right: 14px; top: 12px; }

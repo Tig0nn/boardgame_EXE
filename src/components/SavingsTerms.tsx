@@ -1,8 +1,9 @@
 import type { Term } from '../game/types'
 
 export function SavingsExplanation() {
-  return <><p className="savings-period-note">Mỗi lần qua ô Xuất phát được tính là 1 kỳ. Khi hết kỳ hạn, bạn nhận lại tiền đã gửi và toàn bộ tiền lãi. Lãi chỉ tính trên số tiền gửi ban đầu.</p>
-    <p className="savings-period-note">Nếu phải rút trước hạn để thanh toán khoản bắt buộc, bạn sẽ mất phần lãi chưa nhận.</p></>
+  return <><p className="savings-period-note">Rút trước hạn để trả khoản bắt buộc: mất lãi chưa nhận.</p>
+    <details className="trade-details"><summary>Cách nhận lãi</summary><p>Khi hết kỳ hạn, bạn nhận lại tiền đã gửi và toàn bộ tiền lãi. Lãi chỉ tính trên số tiền gửi ban đầu.</p>
+      <p>Nếu phải rút trước hạn để thanh toán khoản bắt buộc, bạn sẽ mất phần lãi chưa nhận. Rút toàn khoản; không tự tái tục.</p></details></>
 }
 
 // Presentation only: rates are supplied by the official profile for the current game.

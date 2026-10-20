@@ -44,18 +44,18 @@ export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, on
       <div className="event-options">{event.options.filter(option => !panelOwnsSkip && !(event.id === 'course' && game.coursePurchased && option.id === 'upgrade')).map(option => {
         const shortfall = Math.max(0, (option.cost ?? 0) - game.portfolio.cash)
         const payment = paymentOptionCopy(event, option)
-        return <button key={option.id} className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}><div><strong>{option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : payment?.label ?? localizeNarrative(option.label)}</strong><span>{option.id === 'skip' && traded ? 'Giữ các giao dịch đã thực hiện và tiếp tục gieo xúc xắc.' : payment?.detail ?? localizeNarrative(option.detail)}</span>
+        return <button key={option.id} className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}><div><strong>{option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : payment?.label ?? localizeNarrative(option.label)}</strong>{payment ? payment.detail && <span>{payment.detail}</span> : <span>{option.id === 'skip' && traded ? 'Giữ các giao dịch đã thực hiện và tiếp tục gieo xúc xắc.' : localizeNarrative(option.detail)}</span>}
           {payment?.comparison && <span>{payment.comparison}</span>}
           <span>Tiền khả dụng: {money(game.portfolio.cash)} → {money(Math.max(0, game.portfolio.cash - (option.cost ?? 0)) + (option.income ?? 0))}</span>
           {shortfall > 0 && <small>Còn thiếu {money(shortfall)} · Bạn chọn nguồn thanh toán ở bước tiếp theo.</small>}
           {option.asset && <span>{ASSETS[option.asset].label}: {money(game.portfolio[option.asset])} → {money(game.portfolio[option.asset] + (option.amount ?? 0))}</span>}
-          {!!option.obligation && <span>Khoản hẹn trả khi qua ô Xuất phát: {money(game.obligations)} → {money(game.obligations + option.obligation)}</span>}
+          {!!option.obligation && !payment && <span>Khoản hẹn trả cuối vòng: {money(game.obligations)} → {money(game.obligations + option.obligation)}</span>}
           {!!option.recurringIncomeIncrease && <><span>Thu nhập định kỳ: {money(game.recurringIncome)} → {money(game.recurringIncome + option.recurringIncomeIncrease)}/vòng</span><small>Còn {game.totalLaps - game.lap + 1} kỳ quyết toán · Tổng thu nhập tăng thêm {money(option.recurringIncomeIncrease * (game.totalLaps - game.lap + 1))}. Cân nhắc chi phí trả trước.</small></>}
           {option.asset === 'business' && <small className="business-lock">Chỉ bán cơ sở tại ô Kinh doanh; vốn chưa bán không tính vào mục tiêu.</small>}
         </div><Icon name="arrow" size={18} /></button>
       })}</div>
       {event.id === 'course' && <p className="inline-note">{game.coursePurchased ? 'Bạn đã học khóa này; không mua lại. Chọn bỏ qua để tiếp tục.' : game.portfolio.cash < rulesForGame(game).courseCost! ? 'Chưa đủ tiền mặt trả học phí; có thể bỏ qua. Học phí không hoàn lại.' : 'Học tự nguyện, chỉ mua một lần. Lương tăng từ lần qua ô Xuất phát kế tiếp; học phí không hoàn lại.'}</p>}
-      {['living', 'medical', 'repair', 'family', 'bills', 'contract'].includes(event.id) && <p className="inline-note">Khoản phải trả bắt buộc. {event.options.length > 1 ? 'Bạn chọn thời điểm thanh toán; hoãn sẽ tạo nghĩa vụ tại ô Xuất phát. ' : ''}Thiếu tiền mặt sẽ mở bước chọn nguồn thanh toán.</p>}
+      {['living', 'medical', 'repair', 'family', 'bills', 'contract'].includes(event.id) && <p className="inline-note">Khoản bắt buộc. Thiếu tiền mặt? Chọn nguồn thanh toán ở bước tiếp theo.</p>}
     </Modal>
   }
   if (game.phase === 'summary') {

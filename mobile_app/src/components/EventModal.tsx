@@ -23,7 +23,7 @@ export function EventModal({ game, onChoose, onTransaction, onHelp }: {
   const traded = game.log.some(entry => entry.turn === game.turn && entry.kind === 'rebalancing')
   const panelOwnsSkip = event.id === 'stocks' || (['gold', 'bonds'].includes(event.id) && investmentPurchasesComplete(game))
   const title = ({ stocks: 'Cổ phiếu', bonds: 'Trái phiếu', gold: 'Vàng', business: 'Quán của bạn' } as Record<string, string>)[event.id] ?? event.title
-  return <Modal title={title} onHelp={onHelp} className="mobile-event">
+  return <Modal title={title} onHelp={onHelp} className={`mobile-event ${['family', 'medical', 'repair', 'bills', 'contract', 'bank', 'bonds', 'gold'].includes(event.id) ? 'financial-modal' : ''}`}>
     <span className="section-kicker">VÒNG {game.lap} · Ô {game.position + 1}</span>
     <h2>{title}</h2>
     {!trading && <p>{event.id === 'living' ? 'Đến lúc chăm lo cho cuộc sống.' : event.id === 'course' ? 'Học một lần, tăng lương cho những vòng còn lại.' : event.category === 'shock' && !event.options.some(option => option.cost || option.obligation) ? 'Thị trường vừa thay đổi. Cơ hội mới đang chờ bạn!' : localizeNarrative(event.description)}</p>}
@@ -36,8 +36,8 @@ export function EventModal({ game, onChoose, onTransaction, onHelp }: {
       return <button key={option.id}
       className="decision-button" disabled={!canChoose(game, option.id)} onClick={() => onChoose(option.id)}>
       <strong>{option.id === 'acknowledge'||event.id==='course'&&game.coursePurchased ? 'Tiếp tục' : option.id === 'skip' && traded ? 'Hoàn tất · Về bàn chơi' : payment?.label ?? option.label}</strong>
-      {option.id !== 'skip' && option.id !== 'acknowledge' && <span>{payment?.detail ?? localizeNarrative(option.detail)}</span>}
-      {payment?.comparison && <span>{payment.comparison}</span>}
+      {option.id !== 'skip' && option.id !== 'acknowledge' && (payment ? payment.detail && <span>{payment.detail}</span> : <span>{localizeNarrative(option.detail)}</span>)}
+      {payment?.comparison && <span className="payment-comparison">{payment.comparison}</span>}
       {(option.cost ?? 0) > game.portfolio.cash && <span>Thiếu {money(option.cost! - game.portfolio.cash)} · Chọn nguồn tiền tiếp theo</span>}
     </button>})}
   </Modal>

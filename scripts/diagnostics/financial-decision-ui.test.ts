@@ -3,6 +3,8 @@ import assert from 'node:assert/strict'
 import { createServer } from '../../mobile_app/node_modules/vite/dist/node/index.js'
 import react from '@vitejs/plugin-react'
 import { createMultiCourseGame, createPlayerGame } from '../../src/game/new-game.ts'
+import { ECONOMY } from '../../src/data/config.ts'
+import { BOND_ISSUERS } from '../../src/data/bond-issuers.ts'
 import { depositPreview } from '../../src/game/selectors.ts'
 import { money } from '../../src/game/format.ts'
 import { eventsForGame } from '../../src/data/events.ts'
@@ -18,7 +20,7 @@ test('financial decision copy renders scheduled outgoing amounts and valid profi
       import {SavingsPreview} from '/src/components/SavingsPreview.tsx';
       import {SavingsTerms} from '/src/components/SavingsTerms.tsx';
       import {TradingPanel} from '/src/components/TradingPanel.tsx';
-      export const render=(name,props)=>renderToStaticMarkup(createElement({EventModal,PhaseDialog,SavingsPreview,SavingsTerms,TradingPanel}[name],{onChoose(){},onTransaction(){},onSkip(){},...props}));
+      export const render=(name,props)=>renderToStaticMarkup(createElement({EventModal,PhaseDialog,SavingsPreview,SavingsTerms,TradingPanel}[name],{onChoose(){},onTransaction(){},onSkip(){},...props})).replaceAll('\u00a0',' ');
     ` },
   }], resolve: { dedupe: ['react', 'react-dom'] }, server: { middlewareMode: true }, appType: 'custom' })
   try {
@@ -29,12 +31,39 @@ test('financial decision copy renders scheduled outgoing amounts and valid profi
       const saved = JSON.stringify(game)
       for (const name of ['EventModal', 'PhaseDialog']) {
         const html = render(name, { game })
-        assert.match(html, /Trả ngay/); assert.match(html, /phải trả .* khi qua ô Xuất phát/)
+        assert.match(html, /(?:Trả|Sửa) ngay — /); assert.match(html, /cuối vòng/); assert.doesNotMatch(html, /Bây giờ trả 0|Tổng trả/)
         assert.doesNotMatch(html, /Nghĩa vụ tại|\+3\.500\.000|lãi vay|tiền phạt|\bSTART\b/)
-        if (id === 'family') assert.match(html, /nhiều hơn trả ngay 500\.000/)
-        if (id === 'repair') assert.match(html, /Tổng trả 5\.000\.000.*nhiều hơn trả ngay 1\.000\.000/)
+        if (id === 'family') assert.match(html, /cao hơn 500\.000/)
+        if (id === 'repair') assert.match(html, /Tốn thêm 1\.000\.000 ₫ nếu trả sau/)
       }
       assert.equal(JSON.stringify(game), saved)
+    })
+    await t.test('compact bond cards retain risk and exact contract dates in details', () => {
+      for (const lap of [1, 3, 4]) {
+        const game = { ...createMultiCourseGame('BOND-COMPACT'), phase: 'event', eventId: 'bonds', lap }
+        const html = render('TradingPanel', { game, compact: true })
+        const cards = [...html.matchAll(/<button[^>]*class="bond-issuer-card[^]*?<\/button>/g)].map(m => m[0])
+        assert.equal(cards.length, 2)
+        cards.forEach((card, i) => {
+          assert.match(card, /Lãi mỗi kỳ/); assert.match(card, /Thời hạn/)
+          assert.ok(card.includes(BOND_ISSUERS[i].term + ' kỳ'))
+          assert.doesNotMatch(card, /Mệnh giá|Giá |lần qua ô/)
+          assert.match(card, /chậm trả hoặc mất vốn/)
+        })
+        assert.match(html, /Lãi mỗi kỳ nếu trả đúng hạn/)
+        assert.match(html, new RegExp('lần thứ ' + lap))
+        assert.match(html, new RegExp('lần thứ ' + (lap + BOND_ISSUERS[0].term - 1)))
+        if (lap === 4) assert.match(html, /Sau khi hết ván/)
+      }
+    })
+    await t.test('gold shows separate config facts, without an invented combined fee', () => {
+      const game = { ...createMultiCourseGame('GOLD-COMPACT'), phase: 'event', eventId: 'gold' }
+      const html = render('TradingPanel', { game, compact: true })
+      assert.match(html, /Giá hiện tại/); assert.ok(html.includes(money(game.market.gold.currentPrice)))
+      assert.match(html, /Chênh lệch mua–bán/); assert.ok(html.includes((ECONOMY.goldSpread * 100) + '%'))
+      assert.ok(html.includes((ECONOMY.tradeFees.gold * 100) + '%'))
+      assert.match(html, /Giá có thể giảm. Vàng không trả lãi định kỳ/)
+      assert.doesNotMatch(html, /3% \+|tổng 4%/)
     })
     await t.test('positive income keeps its plus sign', () => {
       const game = { ...createPlayerGame('BONUS', 0), phase: 'event', eventId: 'bonus', position: 9 }
@@ -60,7 +89,7 @@ test('financial decision copy renders scheduled outgoing amounts and valid profi
     })
     await t.test('plain savings explanation is split from the withdrawal warning; stock label stays asset-specific', () => {
       const text = render('SavingsTerms', { name: 'terms', term: 2, rates: { 1: .04, 2: .05, 3: .06 }, onChange() {} })
-      assert.match(text, /Mỗi lần qua ô Xuất phát được tính là 1 kỳ/)
+      assert.match(text, /<details[^>]*><summary>Cách nhận lãi<\/summary>/)
       assert.match(text, /Lãi chỉ tính trên số tiền gửi ban đầu/)
       assert.match(text, /<p[^>]*>Nếu phải rút trước hạn/)
       const game = { ...createMultiCourseGame('STOCKS'), phase: 'event', eventId: 'stocks', position: 10 }

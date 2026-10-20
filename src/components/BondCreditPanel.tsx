@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { ReactNode } from 'react'
 import { BOND_ISSUERS } from '../data/bond-issuers'
+import { ECONOMY } from '../data/config'
 import { creditIssuer } from '../game/bond-credit'
 import { money } from '../game/format'
 import { purchasePreview } from '../game/selectors'
@@ -21,28 +22,30 @@ export function BondCreditPanel({ game, onTransaction, onSkip, marketContext }: 
   const config = BOND_ISSUERS.find(item => item.id === issuerId)!, issuer = creditIssuer(game, issuerId)
   const preview = purchasePreview(game, amount), available = issuer.status === 'performing'
   const face = preview.valid && available ? Math.round(amount / issuer.currentPrice * config.faceValue) : 0
+  const maturityLap = game.lap + config.term - 1
   return <section className="trading-panel bond-credit-panel">
     <fieldset className="bond-issuer-cards"><legend>Bạn cho ai vay vốn?</legend>{BOND_ISSUERS.map(item => {
       const current = creditIssuer(game, item.id)
       return <button key={item.id} type="button" className={`bond-issuer-card ${issuerId === item.id ? 'selected' : ''}`}
         aria-pressed={issuerId === item.id} onClick={() => setIssuerId(item.id)}>
-        <strong>{item.name}</strong><span>Hạng {current.rating} · {item.riskLabel}</span>
-        <b>{(item.coupon * 100).toLocaleString('vi-VN')}% mỗi kỳ · {item.term} lần qua ô Xuất phát</b>
-        <span>Giá {current.currentPrice ? money(current.currentPrice) : 'Tạm ngừng giao dịch'} · Mệnh giá {money(item.faceValue)}</span>
-        <small>{current.status === 'performing' ? item.id === 'an-tam' ? 'Ít rủi ro hơn, vẫn có thể chậm trả hoặc mất vốn.' : 'Lãi cao hơn, dễ chậm trả hoặc mất vốn hơn.' : 'Đang xử lý khoản chậm trả · Tạm ngừng bán mới'}</small>
+        <span className="bond-issuer-heading"><strong>{item.name}</strong><span>Hạng {current.rating}</span></span>
+        <span className="bond-issuer-metrics"><span>Lãi mỗi kỳ<b>{(item.coupon * 100).toLocaleString('vi-VN')}%</b></span><span>Thời hạn<b>{item.term} kỳ</b></span></span>
+        <span className="bond-issuer-risk">{current.status === 'performing' ? item.id === 'an-tam' ? 'Ít rủi ro hơn; vẫn có thể chậm trả hoặc mất vốn.' : 'Lãi cao hơn; dễ chậm trả hoặc mất vốn hơn.' : 'Có khoản chậm trả · Tạm ngừng bán mới'}</span>
       </button>
     })}</fieldset>
     <label htmlFor="trade-amount">Số tiền mua</label><MoneyInput id="trade-amount" amount={amount} onChange={setAmount} invalid={!preview.valid} />
-    <div className="trade-facts"><div><span><FinancialTerm term="coupon" /> mỗi lần qua ô Xuất phát nếu trả đúng hạn</span><strong>{money(Math.round(face * config.coupon))}</strong></div>
-      <div><span><FinancialTerm term="faceValue" /> đang mua</span><strong>{money(face)}</strong><small><FinancialTerm term="maturity" /> khi qua ô Xuất phát lần thứ {game.lap + 1}{game.lap + 1 > game.totalLaps ? ' · Sau khi hết ván' : ''}</small></div></div>
+    <div className="trade-facts"><div><span>Lãi mỗi kỳ nếu trả đúng hạn</span><strong>{preview.valid && available ? money(Math.round(face * config.coupon)) : '—'}</strong></div>
+      <div><span>Phí bán</span><strong>{(ECONOMY.tradeFees.bonds * 100).toLocaleString('vi-VN')}%</strong></div></div>
+    {maturityLap > game.totalLaps && <p className="inline-note">Đáo hạn sau khi hết ván; không được trả sớm.</p>}
     <div className="trade-remaining"><span>Tiền mặt sau giao dịch</span><strong>{preview.cashAfter === null ? '—' : money(preview.cashAfter)}</strong></div>
     {!preview.valid && <p className="input-error" role="status">{preview.error}</p>}
     {!available && <p className="input-error" role="status">Tổ chức phát hành này tạm ngừng bán mới. Hãy chọn thẻ còn lại hoặc bỏ qua.</p>}
-    <p className="trade-risk">Có thể chậm trả hoặc mất một phần gốc. Phí bán 1.5%.</p>
     {marketContext?.('bonds', issuerId)}
     <button className="button primary full-button" disabled={!preview.valid || !available} onClick={() => onTransaction({ kind: 'buy', asset: 'bonds', issuerId, amount, completeEncounter: true })}>Mua trái phiếu {preview.valid && available ? money(amount) : ''}</button>
     <button className="button secondary full-button" onClick={onSkip}>Bỏ qua cơ hội</button>
-    <details className="trade-details"><summary>Khả năng trả nợ và cách lấy lại tiền</summary>
+    <details className="trade-details"><summary>Báo giá, lịch nhận tiền và rủi ro</summary>
+      <dl className="bond-contract-facts"><div><dt>Giá một trái phiếu</dt><dd>{issuer.currentPrice ? money(issuer.currentPrice) : 'Tạm ngừng giao dịch'}</dd></div><div><dt>Mệnh giá một trái phiếu</dt><dd>{money(config.faceValue)}</dd></div><div><dt>Mệnh giá đang mua</dt><dd>{preview.valid && available ? money(face) : '—'}</dd></div></dl>
+      <p>Kỳ đầu: khi qua ô Xuất phát lần thứ {game.lap}. <FinancialTerm term="maturity" /> khi qua ô Xuất phát lần thứ {maturityLap}{maturityLap > game.totalLaps ? ' · Sau khi hết ván' : ''}. Lãi và gốc có thể chậm trả.</p>
       <p>Tiết kiệm nhận lãi cố định khi đến hạn; trái phiếu là khoản cho tổ chức phát hành vay. Lãi trái phiếu định kỳ cao đi cùng rủi ro tín dụng cao hơn. Hạng AA/B/CCC/D là thang trong trò chơi, không phải đánh giá doanh nghiệp thực.</p>
       <p><FinancialTerm term="issuer" />: {config.name} · {issuer.status === 'performing' ? 'Đang trả đúng hạn' : issuer.status === 'delayed' ? 'Có khoản chậm trả' : <><FinancialTerm term="default" /> · Đang thu hồi vốn</>}. <GlossaryText text={localizeNarrative(config.description)} /></p>
       <p>Áp lực tài chính của bên phát hành: {issuer.stress}/2. Thang trong trò chơi: 0 thấp nhất, 2 cao nhất. Mức 0 vẫn có thể chậm trả hoặc mất vốn; đây không phải nợ của bạn.</p>

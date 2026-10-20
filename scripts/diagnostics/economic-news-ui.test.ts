@@ -43,7 +43,7 @@ test('Mobile economic news renders through real phase and transaction components
         const before = JSON.stringify(game)
         const html = render('GamePhase', { ...props, game })
         assert.equal(html.includes('Xem tín hiệu thị trường'), ['stocks', 'bonds', 'gold'].includes(eventId))
-        if (eventId === 'bonds') assert.match(html.split('<summary>Xem tín hiệu thị trường')[0], /Phí bán 1\.5%/)
+        if (eventId === 'bonds') assert.match(html.split('<summary>Xem tín hiệu thị trường')[0], /Phí bán<\/span><strong>1,5%/)
         assert.doesNotMatch(html, /<button[^>]*>Bán /)
         assert.equal(JSON.stringify(game), before)
       }
@@ -63,7 +63,7 @@ test('Mobile economic news renders through real phase and transaction components
       const unavailable = render('ForecastReality', { game: base, lap: 1 })
       assert.match(unavailable, /Chưa đủ dữ liệu/)
       const signal = render('MarketSignal', { game: base, asset: 'gold' })
-      assert.match(signal, /Phí bán 1% \+ chênh lệch giá mua và bán 3%/)
+      assert.match(signal, /Phí bán 1%; chênh lệch giá mua và bán 3%/)
       assert.match(signal, /Giá hiện tại/)
       assert.match(signal, /Còn 4 lần qua ô Xuất phát/)
     })

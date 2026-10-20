@@ -14,7 +14,7 @@ export function SavingsPreview({ game, amount, term }: { game: GameState; amount
       <div><dt>Tổng tiền lãi</dt><dd>{money(preview.interest)}</dd></div>
       <div className="savings-total"><dt>Tổng nhận khi đến hạn</dt><dd>{money(amount + preview.interest)}</dd></div>
     </dl>
-    <p>{maturityLabel(preview.maturityLap)}</p>
+    <details className="trade-details"><summary>Lịch nhận tiền</summary><p>Kỳ hạn {term} kỳ. Kỳ đầu kết thúc ở cuối vòng {game.lap}.</p><p>{maturityLabel(preview.maturityLap)}.</p></details>
     {preview.maturityLap > game.totalLaps && <p className="inline-note">Đến hạn sau khi hết ván; cuối ván không tính lãi chưa nhận.</p>}
   </section>
 }

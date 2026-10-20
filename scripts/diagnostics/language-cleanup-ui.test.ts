@@ -40,7 +40,7 @@ test('wallet preserves deposit sequence/maturity and both interfaces explain sav
     assert.doesNotMatch(funding,/>deposit-\d+/)
     for(const name of ['GameSetup','Setup']){
       const setup=render(name,{onStart(){},onHelp(){}})
-      assert.match(setup,/mỗi kỳ/);assert.match(setup,/mỗi lần qua ô Xuất phát/i);assert.doesNotMatch(setup,/\bSTART\b/)
+      assert.match(setup,/mỗi kỳ/);if(name==='Setup')assert.match(setup,/mỗi lần qua ô Xuất phát/i);else assert.match(setup,/<summary>Cách nhận lãi<\/summary>/);assert.doesNotMatch(setup,/\bSTART\b/)
     }
     const terms=render('SavingsTerms',{name:'qa-term',term:3,rates:{1:.04,2:.05,3:.06},onChange(){}})
     assert.match(terms,/Tổng 18% cuối kỳ hạn/);assert.match(terms,/Lãi chỉ tính trên số tiền gửi ban đầu/)

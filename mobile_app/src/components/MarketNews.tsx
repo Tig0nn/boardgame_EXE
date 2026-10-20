@@ -88,7 +88,7 @@ export function MarketSignal({ game, asset, symbolId }: { game: GameState; asset
     <p>Giá hiện tại: {signal.price === null ? 'Chưa đủ dữ liệu' : `${money(signal.price)}/đơn vị`}.
       {' '}Trong vòng: {signal.returnRate === null ? 'Chưa đủ dữ liệu; chưa có biến động giá.' : `${percent(signal.returnRate)} đã xảy ra.`}</p>
     <p>{signal.lesson}</p>
-    <p>Phí bán {percent(signal.saleFee).replace('+', '')}{signal.spread > 0 ? ` + chênh lệch giá mua và bán ${percent(signal.spread).replace('+', '')}` : ''} · Còn {signal.remainingStarts} lần qua ô Xuất phát. {tileTradingEnabled(game) ? 'Có thể bán tại ô cùng loại tài sản, ô Xuất phát hoặc để trả khoản thiếu bắt buộc, nếu có giá bán hợp lệ.' : 'Bán tại ô Xuất phát hoặc để trả khoản thiếu bắt buộc, nếu có giá bán hợp lệ.'}</p>
+    <p>Phí bán {percent(signal.saleFee).replace('+', '')}{signal.spread > 0 ? `; chênh lệch giá mua và bán ${percent(signal.spread).replace('+', '')}` : ''} · Còn {signal.remainingStarts} lần qua ô Xuất phát. {tileTradingEnabled(game) ? 'Có thể bán tại ô cùng loại tài sản, ô Xuất phát hoặc để trả khoản thiếu bắt buộc, nếu có giá bán hợp lệ.' : 'Bán tại ô Xuất phát hoặc để trả khoản thiếu bắt buộc, nếu có giá bán hợp lệ.'}</p>
     <p>Giữ đủ tiền cho sinh hoạt và khoản đến hạn. Xem tiền mặt sau giao dịch trước khi chọn mua.</p>
   </details>
 }

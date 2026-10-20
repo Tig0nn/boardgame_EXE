@@ -27,7 +27,7 @@ test('Bond V2.5 real React panels expose issuer choice, executable lot sales and
       assert.equal((html.match(/class="bond-issuer-card[ "]/g) ?? []).length, 2)
       assert.equal((html.match(/Bỏ qua cơ hội/g) ?? []).length, 1)
       assert.match(html, /Mua trái phiếu/); assert.match(html, /nếu trả đúng hạn/)
-      assert.match(html, /Phí bán 1\.5%/); assert.match(html, /Xem tín hiệu thị trường/)
+      assert.match(html, /Phí bán<\/span><strong>1,5%/); assert.match(html, /Xem tín hiệu thị trường/)
       assert.doesNotMatch(html, /financial-warning/)
     })
     let owned = transact({ ...base, phase: 'event', eventId: 'bonds', position: 6, turn: 1 }, { kind: 'buy', asset: 'bonds', issuerId: 'but-pha', amount: 6_000_000 })

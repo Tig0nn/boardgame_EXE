@@ -37,7 +37,7 @@ test('atomic investment UI preserves prices/news and follows the saved encounter
           assert.doesNotMatch(html, /Hoàn tất · Về bàn chơi|Có thể giao dịch nhiều lần/)
         }
         assert.match(mobile, /Xem tín hiệu thị trường/)
-        assert.match(mobile, asset === 'gold' ? /chênh lệch giá mua và bán 3% \+ phí 1%/ : asset === 'bonds' ? /Phí bán 1\.5%/ : /Phí bán 1%/)
+        assert.match(mobile, asset === 'gold' ? /Chênh lệch mua–bán<\/span><strong>3%<\/strong>[^]*Phí bán<\/span><strong>1%/ : asset === 'bonds' ? /Phí bán 1\.5%/ : /Phí bán 1%/)
       }
     })
     await t.test('successful purchases leave no encounter modal or second form', () => {
