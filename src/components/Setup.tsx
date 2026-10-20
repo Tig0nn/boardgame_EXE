@@ -1,3 +1,4 @@
+import { maturityLabel, savingsPeriodExplanation } from './player-language'
 import { useState } from 'react'
 import { RULES } from '../data/config'
 import { savingsProfileForMode } from '../game/savings'
@@ -35,10 +36,10 @@ export function Setup({ onStart }: { onStart: (seed: string, savings: number, te
       <div className="range-labels"><span>0 ₫</span><span>50 triệu ₫</span></div>
       <div className="allocation-cards">
         <div><Icon name="wallet" /><span>Tiền mặt</span><strong>{money(RULES.startingCapital - savings)}</strong><small>Sẵn sàng cho mọi cơ hội</small></div>
-        <div><Icon name="bank" /><span>Tiết kiệm có kỳ hạn</span><strong>{money(savings)}</strong><small>Lãi mô phỏng {Math.round(rates[term] * 100)}%/vòng, trả cuối kỳ</small></div>
+        <div><Icon name="bank" /><span>Tiết kiệm có kỳ hạn</span><strong>{money(savings)}</strong><small>Lãi suất {Math.round(rates[term] * 100)}% mỗi kỳ, nhận cuối kỳ hạn</small></div>
       </div>
-      <label className="seed-label" htmlFor="initial-term">Kỳ hạn khoản gửi đầu ván</label><select id="initial-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} lần qua START · {Math.round(rates[value] * 100)}% lãi mô phỏng/vòng</option>)}</select>
-      <p className="inline-note"><Icon name="info" size={16} /> Đáo hạn tại START vòng {term}, gốc + {money(Math.round(savings * rates[term] * term))} lãi về tiền mặt. Rút toàn khoản trước hạn mất toàn bộ lãi chưa trả.</p>
+      <label className="seed-label" htmlFor="initial-term">Kỳ hạn khoản gửi đầu ván</label><select id="initial-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} kỳ · Lãi suất {Math.round(rates[value] * 100)}% mỗi kỳ</option>)}</select><p className="savings-period-note">{savingsPeriodExplanation}</p>
+      <p className="inline-note"><Icon name="info" size={16} /> {maturityLabel(term)}, gốc + {money(Math.round(savings * rates[term] * term))} lãi về tiền mặt. Rút toàn khoản trước hạn mất toàn bộ lãi chưa trả.</p>
       <label className="seed-label" htmlFor="seed">Mã hành trình <span>Cùng mã, cùng chuỗi ngẫu nhiên</span></label>
       <input id="seed" className="text-input" value={seed} maxLength={64} onChange={e => setSeed(e.target.value)} placeholder="Để trống: ván ngẫu nhiên mới" />
       </details>

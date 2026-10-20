@@ -21,7 +21,7 @@ export function GameResultModal({ game, onRestart, onExport, onHelp }: {
       <progress max="100" value={progress} aria-label="Tiến độ nguồn tiền về đích" />
       <div className="result-progress-labels"><span>{Math.round(progress)}% mục tiêu</span><span>{money(target)}</span></div>
     </div>
-    <p>{won ? 'Đã hoàn thành đủ START và đạt mục tiêu.' : game.termination === 'insolvent' ? 'Hành trình dừng vì không còn nguồn thanh toán.' : `Còn ${money(Math.max(0, target - funds))} để đạt mục tiêu.`}</p>
+    <p>{won ? 'Đã hoàn thành đủ ô Xuất phát và đạt mục tiêu.' : game.termination === 'insolvent' ? 'Hành trình dừng vì không còn nguồn thanh toán.' : `Còn ${money(Math.max(0, target - funds))} để đạt mục tiêu.`}</p>
     <FinancialReview game={game} />
     <button className="button primary full-button" onClick={onRestart}>Chơi hành trình mới</button>
     <details><summary>AI Coach · Tùy chọn</summary><AICoachPanel game={game} /></details>

@@ -51,8 +51,8 @@ export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, on
           {option.asset === 'business' && <small className="business-lock">Chỉ bán cơ sở tại ô Kinh doanh; vốn chưa bán không tính vào mục tiêu.</small>}
         </div><Icon name="arrow" size={18} /></button>
       })}</div>
-      {event.id === 'course' && <p className="inline-note">{game.coursePurchased ? 'Bạn đã học khóa này; không mua lại. Chọn bỏ qua để tiếp tục.' : game.portfolio.cash < rulesForGame(game).courseCost! ? 'Chưa đủ tiền mặt trả học phí; có thể bỏ qua. Học phí không hoàn lại.' : 'Học tự nguyện, chỉ mua một lần. Lương tăng từ START kế tiếp; học phí không hoàn lại.'}</p>}
-      {['living', 'medical', 'repair', 'family', 'bills', 'contract'].includes(event.id) && <p className="inline-note">Khoản phải trả bắt buộc. {event.options.length > 1 ? 'Bạn chọn thời điểm thanh toán; hoãn sẽ tạo nghĩa vụ tại START. ' : ''}Thiếu tiền mặt sẽ mở bước chọn nguồn thanh toán.</p>}
+      {event.id === 'course' && <p className="inline-note">{game.coursePurchased ? 'Bạn đã học khóa này; không mua lại. Chọn bỏ qua để tiếp tục.' : game.portfolio.cash < rulesForGame(game).courseCost! ? 'Chưa đủ tiền mặt trả học phí; có thể bỏ qua. Học phí không hoàn lại.' : 'Học tự nguyện, chỉ mua một lần. Lương tăng từ lần qua ô Xuất phát kế tiếp; học phí không hoàn lại.'}</p>}
+      {['living', 'medical', 'repair', 'family', 'bills', 'contract'].includes(event.id) && <p className="inline-note">Khoản phải trả bắt buộc. {event.options.length > 1 ? 'Bạn chọn thời điểm thanh toán; hoãn sẽ tạo nghĩa vụ tại ô Xuất phát. ' : ''}Thiếu tiền mặt sẽ mở bước chọn nguồn thanh toán.</p>}
     </Modal>
   }
   if (game.phase === 'summary') {
@@ -64,9 +64,9 @@ export function PhaseDialog({ game, onAdvance, onChoose, onRestart, onExport, on
       <div className="actual-rates">{(Object.keys(summary.rates) as Asset[]).map(asset => <span key={asset}>{ASSETS[asset].label}<strong className={summary.rates[asset] >= 0 ? 'positive' : 'negative'}>{percent(summary.rates[asset])}</strong></span>)}</div>
       <div className="summary-total"><span>Tài sản ròng sau vòng {game.lap}</span><strong>{money(summary.after)}</strong></div>
       {summary.fundingNotes.map((note, i) => <p className="inline-note" key={i}>{localizeNarrative(note)}</p>)}
-      <p className="inline-note">Thứ tự: thị trường → lương → kinh doanh → đáo hạn/lãi trái phiếu định kỳ → nợ/nghĩa vụ → bán tại START → dự báo hoặc kết quả. Cả vòng cuối đều có quyền bán.</p>
+      <p className="inline-note">Thứ tự: thị trường → lương → kinh doanh → đáo hạn/lãi trái phiếu định kỳ → nợ/nghĩa vụ → bán tại ô Xuất phát → dự báo hoặc kết quả. Cả vòng cuối đều có quyền bán.</p>
       <GoalChecks game={game} />
-      <button className="button primary full-button" onClick={onAdvance}>Mở quyền bán tại START<Icon name="arrow" /></button>
+      <button className="button primary full-button" onClick={onAdvance}>Mở quyền bán tại ô Xuất phát<Icon name="arrow" /></button>
     </Modal>
   }
   if (game.phase === 'finished') {

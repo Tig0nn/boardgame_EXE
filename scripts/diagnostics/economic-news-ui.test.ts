@@ -51,10 +51,10 @@ test('Mobile economic news renders through real phase and transaction components
     await t.test('summary renders realized prices, observed shock and educational distinction', () => {
       const game = beginSettlement(applyMacroShock({ ...base, turn: 1 }, 'credit-tightening'))
       const html = render('GamePhase', { ...props, game })
-      assert.match(html, /Dự báo vs\. Thực tế/)
+      assert.match(html, /Dự báo và thực tế/)
       assert.match(html, /Tín dụng thắt chặt/)
       assert.match(html, /không phải lãi của bạn/)
-      assert.match(html, /Ghé ví tại START/)
+      assert.match(html, /Ghé ví tại ô Xuất phát/)
       assert.equal((html.match(/<article>/g) ?? []).length, 5)
       assert.match(html, /Tín dụng &amp; tiền thực nhận/)
       assert.doesNotMatch(html, /Dự báo:.*Nhu cầu tích cực/)
@@ -65,7 +65,7 @@ test('Mobile economic news renders through real phase and transaction components
       const signal = render('MarketSignal', { game: base, asset: 'gold' })
       assert.match(signal, /Phí bán 1% \+ chênh lệch 3%/)
       assert.match(signal, /Giá hiện tại/)
-      assert.match(signal, /Còn 4 lần qua START/)
+      assert.match(signal, /Còn 4 lần qua ô Xuất phát/)
     })
   } finally { await server.close() }
 })

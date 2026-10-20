@@ -64,6 +64,6 @@ export function GlossaryText({ text }: { text: string }) {
 export function FinancialGlossary() {
   return <details className="financial-glossary"><summary>Giải thích thuật ngữ</summary>
     <p>Lãi suất, giá và xếp hạng dưới đây thuộc mô phỏng của trò chơi.</p>
-    <dl>{(Object.keys(FINANCIAL_TERMS) as FinancialTermId[]).map(term => <div key={term}><dt>{FINANCIAL_TERMS[term].label} <small>({FINANCIAL_TERMS[term].english})</small></dt><dd>{FINANCIAL_TERMS[term].definition}</dd></div>)}</dl>
+    <dl>{(Object.keys(FINANCIAL_TERMS) as FinancialTermId[]).map(term => <div key={term}><dt>{FINANCIAL_TERMS[term].label}{term !== 'start' && <> <small>({FINANCIAL_TERMS[term].english})</small></>}</dt><dd>{FINANCIAL_TERMS[term].definition}</dd></div>)}</dl>
   </details>
 }

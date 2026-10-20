@@ -46,7 +46,7 @@ test('Mobile final UI contracts use the official engine, board and financial pre
     })
     await t.test('term cards show per-START and total simple interest correctly', () => {
       const html = render('SavingsTerms', { name: 'terms', term: 1, rates: { 1: .04, 2: .05, 3: .06 }, onChange: noop })
-      for (const label of ['1 START · 4% mỗi START · 4% cuối kỳ', '2 START · 5% mỗi START · 10% cuối kỳ', '3 START · 6% mỗi START · 18% cuối kỳ']) assert.ok(html.includes(label))
+      for (const label of ['1 kỳ · Lãi suất 4% mỗi kỳ · Tổng 4% cuối kỳ hạn', '2 kỳ · Lãi suất 5% mỗi kỳ · Tổng 10% cuối kỳ hạn', '3 kỳ · Lãi suất 6% mỗi kỳ · Tổng 18% cuối kỳ hạn']) assert.ok(html.includes(label))
       assert.equal((html.match(/type="radio"/g) ?? []).length, 3)
     })
     await t.test('purchase tiles never offer voluntary selling even when holdings exist', () => {
@@ -75,10 +75,10 @@ test('Mobile final UI contracts use the official engine, board and financial pre
       assert.match(html, /aria-valuemax="6"/)
       const board = render('BoardGuide', { game: createMobileGame('legacy-guide', 0, 1, 'v2.4-single-issuer', 'v2.4-on-landing') })
       assert.equal((board.match(/<li /g) ?? []).length, 20)
-      for (const tile of C20_BOARD) assert.match(board, new RegExp(`<li value="${tile.index + 1}">[\\s\\S]*?</svg> ${tile.label}</li>`))
+      for (const tile of C20_BOARD) assert.match(board, new RegExp(`<li value="${tile.index + 1}">[\\s\\S]*?</svg> ${tile.type === 'start' ? 'Xuất phát' : tile.label}</li>`))
       assert.deepEqual(C20_BOARD.filter(tile => tile.type === 'bank').map(tile => tile.index + 1), [2, 13])
-      const candidate = render('BoardGuide', {})
-      for (const tile of PERIODIC_C20_BOARD) assert.match(candidate, new RegExp(`<li value="${tile.index + 1}">[\\s\\S]*?</svg> ${tile.label}</li>`))
+      const candidate = render('BoardGuide', { game: base })
+      for (const tile of PERIODIC_C20_BOARD) assert.match(candidate, new RegExp(`<li value="${tile.index + 1}">[\\s\\S]*?</svg> ${tile.type === 'start' ? 'Xuất phát' : tile.label}</li>`))
       assert.doesNotMatch(candidate, /Sinh hoạt/)
     })
     await t.test('stock completion and Bank lots remain atomic through the Mobile controller', () => {

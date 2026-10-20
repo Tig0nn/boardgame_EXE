@@ -25,7 +25,7 @@ test('Desktop/Mobile share exact course cards and preserve legacy single-course 
     for(const name of ['PhaseDialog','EventModal'])assert.ok(content(render(name,s)).includes(content(body)))
     assert.equal((body.match(/<article /g)??[]).length,2)
     assert.match(body,/Khóa cơ bản/);assert.match(body,/Khóa nâng cao/);assert.match(body,/6\.000\.000/);assert.match(body,/10\.000\.000/)
-    assert.match(body,/START còn lại/);assert.match(body,/không phải lợi nhuận bảo đảm/);assert.match(body,/không vay mới/i)
+    assert.match(body,/Số lần qua ô Xuất phát còn lại/);assert.match(body,/không phải lợi nhuận bảo đảm/);assert.match(body,/không vay mới/i)
     const poor=render('CourseChoices',{...s,portfolio:{...s.portfolio,cash:0}})
     assert.equal((poor.match(/disabled=""/g)??[]).length,2);assert.equal((poor.match(/Không đủ tiền/g)??[]).length,2)
     let learned=decide(s,'course-advanced')

@@ -17,7 +17,7 @@ export function LapSummaryModal({ game, onContinue, onHelp }: { game: GameState;
     <div className="start-scroll">
       <span className="section-kicker"><FinancialTerm term="start" /> · {summary.lap}/{game.totalLaps}</span>
       <h2>Khép lại vòng {summary.lap}</h2>
-      {overview ? <section className="start-overview" aria-label="Tiền thực nhận và đã chi tại START">
+      {overview ? <section className="start-overview" aria-label="Tiền thực nhận và đã chi tại ô Xuất phát">
         <div className="start-totals"><div><span>Tiền đã nhận</span><strong className={cashTone(overview.received)}>{signedMoney(overview.received)}</strong></div>
           <div><span>Tiền đã chi</span><strong className={cashTone(-overview.paid)}>{signedMoney(-overview.paid)}</strong></div></div>
         <dl className="start-money-rows">
@@ -30,7 +30,7 @@ export function LapSummaryModal({ game, onContinue, onHelp }: { game: GameState;
           {overview.fundingReceived > 0 && <div><dt>Tiền huy động · gồm cả vay nếu có</dt><dd className="positive">{signedMoney(overview.fundingReceived)}</dd></div>}
         </dl>
         <p className="start-cash-balance">Tiền mặt hiện có <strong>{money(overview.cashAfter)}</strong></p>
-        <p className="start-caption">Đã xử lý các khoản chi tại START.{overview.debtAfter > 0 ? ` Còn nợ ${money(overview.debtAfter)}.` : ''}</p>
+        <p className="start-caption">Đã xử lý các khoản chi tại ô Xuất phát.{overview.debtAfter > 0 ? ` Còn nợ ${money(overview.debtAfter)}.` : ''}</p>
       </section> : <p className="start-caption">Chưa đủ dữ liệu dòng tiền. Xem chi tiết giao dịch bên dưới.</p>}
       <BondStartCards issuers={issuers} />
       <details><summary>Tiến độ tới 90 triệu</summary><GoalChecks game={game}/></details>
@@ -45,6 +45,6 @@ export function LapSummaryModal({ game, onContinue, onHelp }: { game: GameState;
         {summary.fundingNotes.map((note, i) => <p key={i}>{localizeNarrative(note)}</p>)}
       </details>
     </div>
-    <footer className="start-actions"><button className="button primary full-button" onClick={onContinue}>Ghé ví tại START →</button></footer>
+    <footer className="start-actions"><button className="button primary full-button" onClick={onContinue}>Ghé ví tại ô Xuất phát →</button></footer>
   </Modal>
 }

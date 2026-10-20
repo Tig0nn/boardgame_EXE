@@ -191,9 +191,9 @@ export function AICoachPanel({
                         <span
                           key={id}
                           className="ai-coach-badge"
-                          title={ev?.fact ? localizeNarrative(ev.fact) : id}
+                          title={ev?.fact ? localizeNarrative(ev.fact) : 'Bằng chứng trong nhật ký'}
                         >
-                          {formatEvidenceTag(ev, id)}
+                          {ev ? localizeNarrative(formatEvidenceTag(ev, id)) : 'Quyết định trong ván'}
                         </span>
                       )
                     })}

@@ -22,7 +22,7 @@ test('beginner course disclosure, factual result feedback and ended-vs-running s
     assert.match(html,/<summary>Xem thu nhập còn lại<\/summary>/)
     const initial=html.replace(/<details[\s\S]*?<\/details>/g,'')
     assert.match(initial,/6\.000\.000/);assert.match(initial,/10\.000\.000/);assert.match(initial,/Mua khóa cơ bản/);assert.match(initial,/Bỏ qua/)
-    assert.doesNotMatch(initial,/Thu nhập còn lại − học phí|START còn lại|chi phí cơ hội/)
+    assert.doesNotMatch(initial,/Thu nhập còn lại − học phí|Số lần qua ô Xuất phát còn lại|chi phí cơ hội/)
     const done=JSON.parse(gunzipSync(readFileSync('docs/playtests/core-mvp-b18-multi-course/browser-390-trades.json.gz')).toString()).state
     const result=render('GameResultModal',done)
     assert.match(result,/data-financial-fact="courses"/);assert.match(result,/16\.000\.000/)

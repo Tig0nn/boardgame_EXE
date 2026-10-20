@@ -1,3 +1,4 @@
+import { tileDisplayLabel, localizePlayerText } from './player-language'
 import { useEffect, useRef, useState } from 'react'
 import { GlossaryText } from './FinancialTerm'
 import { boardFor } from '../data/board'
@@ -45,9 +46,9 @@ export function Board({ game, onRoll, rolling }: { game: GameState; onRoll: () =
           const { x, y } = tileCenter(item)
           const active = game.position === item.index
           return <g key={item.index} transform={`translate(${x} ${y}) scale(${SCENE.tileScale})`} className={`board-tile ${item.category} ${active ? 'active' : ''}`} data-tile-index={item.index} data-category={item.category} role="button" tabIndex={0}
-            aria-label={`Ô ${item.index + 1}: ${item.label}${active ? ', bạn đang ở đây' : ''}`} aria-current={active ? 'step' : undefined}
+            aria-label={`Ô ${item.index + 1}: ${tileDisplayLabel(item.label)}${active ? ', bạn đang ở đây' : ''}`} aria-current={active ? 'step' : undefined}
             onClick={() => setSelected(item.index)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelected(item.index) } }}>
-            <title>{item.index + 1}. {item.label} · {CATEGORIES[item.category].short}</title>
+            <title>{`${item.index + 1}. ${tileDisplayLabel(item.label)} · ${CATEGORIES[item.category].short}`}</title>
             <path className="tile-depth" d="m-47 0 47 29 47-29v9L0 38-47 9Z" />
             <path className="tile-face" d="M0-29 47 0 0 29-47 0Z" />
             <text className="board-tile-number" textAnchor="middle" y="24">{String(item.index + 1).padStart(2, '0')}</text>
@@ -68,12 +69,12 @@ export function Board({ game, onRoll, rolling }: { game: GameState; onRoll: () =
         </g>
       </svg>
     </div>
-    <div className="location-card" aria-live="polite"><span className={`location-icon ${tiles[game.position].category}`}><Icon name={tiles[game.position].icon} /></span><div><small>BẠN ĐANG Ở Ô {String(game.position + 1).padStart(2, '0')}</small><strong>{tiles[game.position].label}</strong></div><span className="location-turn">Lượt {game.turn}</span></div>
+    <div className="location-card" aria-live="polite"><span className={`location-icon ${tiles[game.position].category}`}><Icon name={tiles[game.position].icon} /></span><div><small>BẠN ĐANG Ở Ô {String(game.position + 1).padStart(2, '0')}</small><strong>{tileDisplayLabel(tiles[game.position].label)}</strong></div><span className="location-turn">Lượt {game.turn}</span></div>
     <div className="board-legend">{Object.entries(CATEGORIES).map(([key, cat]) => <span key={key}><i className={key} />{cat.short}</span>)}<span className="legend-player"><i />Bạn</span></div>
     <div className="roll-dock">
       <div className={`die ${rolling ? 'rolling' : ''}`} role="img" aria-label={game.dice ? `Xúc xắc ${game.dice}` : 'Xúc xắc sẵn sàng'}>{Array.from({ length: 9 }, (_, i) => <span key={i} className={game.dice && dots[game.dice].includes(i + 1) ? 'visible' : ''} />)}{!game.dice && <b className="die-ready">?</b>}</div>
-      <div className="roll-control">{purchased && <p className="purchase-success" role="status">{last.decisionId === 'deposit-bank' ? 'Đã gửi tiết kiệm' : last.decisionId === 'buy-business' ? 'Đã mua cơ sở kinh doanh' : 'Đã mua cổ phiếu'} · {last.decision}. Tiền mặt còn {money(game.portfolio.cash)}. Bạn có thể gieo tiếp.</p>}<button ref={rollButton} className="button primary roll-button" onClick={onRoll} disabled={game.phase !== 'rolling' || rolling}>{rolling ? 'Đang gieo…' : 'Gieo xúc xắc'}<Icon name="arrow" size={20} /></button><p className="board-hint" aria-live="polite">{rolling ? 'Cơ hội nào đang chờ bạn?' : game.dice ? `Kết quả: ${game.dice} bước · Vòng ${game.lap}/${game.totalLaps}` : 'Gieo 1 xúc xắc để bắt đầu khám phá'}</p></div>
+      <div className="roll-control">{purchased && <p className="purchase-success" role="status">{last.decisionId === 'deposit-bank' ? 'Đã gửi tiết kiệm' : last.decisionId === 'buy-business' ? 'Đã mua cơ sở kinh doanh' : 'Đã mua cổ phiếu'} · {localizePlayerText(last.decision)}. Tiền mặt còn {money(game.portfolio.cash)}. Bạn có thể gieo tiếp.</p>}<button ref={rollButton} className="button primary roll-button" onClick={onRoll} disabled={game.phase !== 'rolling' || rolling}>{rolling ? 'Đang gieo…' : 'Gieo xúc xắc'}<Icon name="arrow" size={20} /></button><p className="board-hint" aria-live="polite">{rolling ? 'Cơ hội nào đang chờ bạn?' : game.dice ? `Kết quả: ${game.dice} bước · Vòng ${game.lap}/${game.totalLaps}` : 'Gieo 1 xúc xắc để bắt đầu khám phá'}</p></div>
     </div>
-    {tile && <Modal title={`Ô ${tile.index + 1}: ${tile.label}`} onClose={() => setSelected(null)}><span className="section-kicker">Ô {tile.index + 1} / {tiles.length} · {CATEGORIES[tile.category].short}</span><h2>{tile.type==='start'?'Ô Xuất phát (START)':tile.label}</h2><p className="modal-lead"><GlossaryText text={tileInformation(tile.type,game)} /></p><button className="button primary full-button" onClick={() => setSelected(null)}>Trở lại bàn chơi<Icon name="arrow" /></button></Modal>}
+    {tile && <Modal title={`Ô ${tile.index + 1}: ${tileDisplayLabel(tile.label)}`} onClose={() => setSelected(null)}><span className="section-kicker">Ô {tile.index + 1} / {tiles.length} · {CATEGORIES[tile.category].short}</span><h2>{tile.type==='start'?'Ô Xuất phát':tileDisplayLabel(tile.label)}</h2><p className="modal-lead"><GlossaryText text={tileInformation(tile.type,game)} /></p><button className="button primary full-button" onClick={() => setSelected(null)}>Trở lại bàn chơi<Icon name="arrow" /></button></Modal>}
   </section>
 }

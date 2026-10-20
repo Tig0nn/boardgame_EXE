@@ -182,7 +182,7 @@ export const Character3D: React.FC<Character3DProps> = ({
           ref={modelViewerRef}
           data-model-status="loading"
           src="/assets/character.glb"
-          alt="3D Young Student Mascot"
+          alt="Nhân vật sinh viên 3D"
           autoplay
           animation-name={animationName}
           camera-controls

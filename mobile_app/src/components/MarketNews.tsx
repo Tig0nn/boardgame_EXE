@@ -23,10 +23,10 @@ export function EconomicBulletin({ game }: { game: GameState }) {
       <Icon name={item.icon} size={22} /><div><h3>{item.label}</h3><strong><GlossaryText text={item.forecast} /></strong><small><GlossaryText text={item.characteristic} /></small></div>
     </article>)}</div>
     <CustomerPreferenceCard game={game} />
-    <p className="news-reminder">Chừa tiền cho sinh hoạt và khoản đến hạn. Cân nhắc phí bán, khả năng xoay tiền và {game.totalLaps - game.lap + 1} lần qua START còn lại.</p>
+    <p className="news-reminder">Chừa tiền cho sinh hoạt và khoản đến hạn. Cân nhắc phí bán, khả năng xoay tiền và {game.totalLaps - game.lap + 1} lần qua ô Xuất phát còn lại.</p>
     <details><summary>Chi tiết · Đọc tín hiệu thế nào?</summary>
       {news.assets.map(item => <p key={item.asset}><b>{item.label}:</b> {item.lesson}</p>)}
-      <p>Dự báo không bảo đảm giá tăng. Giá đổi tại START và khi gặp sự kiện kinh tế. Những tình huống dưới đây có thể xuất hiện trong trò chơi, chưa phải sự kiện sắp xảy ra:</p>
+      <p>Dự báo không bảo đảm giá tăng. Giá đổi tại ô Xuất phát và khi gặp sự kiện kinh tế. Những tình huống dưới đây có thể xuất hiện trong trò chơi, chưa phải sự kiện sắp xảy ra:</p>
       <ul>{MACRO_EVENTS.map(event => <li key={event.id}><b>{event.label}:</b> {hasBondCredit(game) ? event.id === 'credit-tightening' ? 'Áp lực tín dụng tăng; giá và khả năng trả nợ khác nhau giữa tổ chức phát hành.' : 'Áp lực tín dụng giảm; không đảm bảo tổ chức phát hành trả đúng hạn.' : policyContext[event.id]}</li>)}</ul>
       <p>Giá và tin tức là nội dung trong trò chơi, không phải bản tin hay giá giao dịch thực tế. Tiết kiệm giữ lãi suất cố định theo kỳ hạn; quán dùng sở thích khách trong màn Kinh doanh.</p>
     </details>
@@ -37,7 +37,7 @@ export function ForecastReality({ game, lap }: { game: GameState; lap: number })
   const review = roundMarketReview(game, lap)
   return <section className="forecast-reality" aria-label="Dự báo và thực tế">
     <h3>Dự báo và thực tế</h3>
-    <p className="news-caption">{review.headline} · {review.settled ? 'Giá đầu vòng → sau START' : 'Chưa đủ dữ liệu cuối vòng'}</p>
+    <p className="news-caption">{review.headline} · {review.settled ? 'Giá đầu vòng → sau ô Xuất phát' : 'Chưa đủ dữ liệu cuối vòng'}</p>
     <div className="reality-assets">{review.assets.map(item => <article key={item.asset}>
       <div className="reality-heading"><span><Icon name={item.icon} size={18} /> {item.label}</span>
         <strong className={item.returnRate === null ? '' : item.returnRate >= 0 ? 'positive' : 'negative'}>{item.returnRate === null ? 'Chưa đủ dữ liệu' : percent(item.returnRate)}</strong></div>
@@ -61,7 +61,7 @@ export function ForecastReality({ game, lap }: { game: GameState; lap: number })
       {review.assets.map(item => <p key={item.asset}><b>{item.label}:</b> {item.lesson}</p>)}
       <p>Cổ phiếu là bình quân biến động của tất cả mã với cùng trọng số, không theo số tiền bạn nắm giữ. Mỗi mã có thể khác nhau:</p>
       <ul>{review.assets[0].instruments.map(item => <li key={item.label}>{item.label}: {item.returnRate === null ? 'Chưa đủ dữ liệu' : percent(item.returnRate)}</li>)}</ul>
-      <p>So sánh giá trước biến động đầu tiên của vòng với giá sau cập nhật START. Các đợt tăng/giảm nối tiếp đã được tính một lần, không cộng lại cú sốc. Lãi trái phiếu định kỳ, thời điểm mua/bán và phí khiến kết quả đầu tư của bạn khác biến động giá.</p>
+      <p>So sánh giá trước biến động đầu tiên của vòng với giá sau cập nhật ô Xuất phát. Các đợt tăng/giảm nối tiếp đã được tính một lần, không cộng lại cú sốc. Lãi trái phiếu định kỳ, thời điểm mua/bán và phí khiến kết quả đầu tư của bạn khác biến động giá.</p>
       <p>Một quyết định hợp lý vẫn có thể lỗ. Hãy nhìn cả khoản dự phòng, chi phí và thời gian còn lại.</p>
     </details>
   </section>
@@ -87,7 +87,7 @@ export function MarketSignal({ game, asset, symbolId }: { game: GameState; asset
     <p>Giá hiện tại: {signal.price === null ? 'Chưa đủ dữ liệu' : `${money(signal.price)}/đơn vị`}.
       {' '}Trong vòng: {signal.returnRate === null ? 'Chưa đủ dữ liệu; chưa có biến động giá.' : `${percent(signal.returnRate)} đã xảy ra.`}</p>
     <p>{signal.lesson}</p>
-    <p>Phí bán {percent(signal.saleFee).replace('+', '')}{signal.spread > 0 ? ` + chênh lệch ${percent(signal.spread).replace('+', '')}` : ''} · Còn {signal.remainingStarts} lần qua START. Bán tại START hoặc để trả khoản thiếu bắt buộc.</p>
+    <p>Phí bán {percent(signal.saleFee).replace('+', '')}{signal.spread > 0 ? ` + chênh lệch ${percent(signal.spread).replace('+', '')}` : ''} · Còn {signal.remainingStarts} lần qua ô Xuất phát. Bán tại ô Xuất phát hoặc để trả khoản thiếu bắt buộc.</p>
     <p>Giữ đủ tiền cho sinh hoạt và khoản đến hạn. Xem tiền mặt sau giao dịch trước khi chọn mua.</p>
   </details>
 }

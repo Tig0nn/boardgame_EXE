@@ -54,7 +54,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
       {/* 1. Nền Cỏ Game (Layer 1) */}
       <img
         src="/assets/main-background.png"
-        alt="Main Background"
+        alt="Nền bàn cờ"
         style={{
           position: 'absolute',
           top: 0,
@@ -69,7 +69,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
       {/* 2. Bàn Cờ Isometric Playboard (Layer 2) */}
       <img
         src="/assets/playboard.PNG"
-        alt="Playboard Isometric"
+        alt="Bàn cờ góc nhìn nghiêng"
         style={{
           position: 'absolute',
           top: 0,

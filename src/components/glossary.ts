@@ -1,3 +1,4 @@
+import { localizePlayerText } from './player-language.ts'
 /** Presentation-only dictionary. Never used by settlement, pricing or replay. */
 export const FINANCIAL_TERMS = {
   coupon: { label: 'Lãi trái phiếu định kỳ', english: 'Coupon', definition: 'Khoản lãi tính trên mệnh giá đang nắm giữ; có thể chậm trả hoặc không được trả đủ. Lãi này khác với tổng lợi nhuận, còn phụ thuộc giá mua/bán và phí.', aliases: ['Lãi trái phiếu định kỳ', 'lãi trái phiếu định kỳ', 'Lãi trái phiếu', 'lãi trái phiếu'] },
@@ -10,7 +11,7 @@ export const FINANCIAL_TERMS = {
   default: { label: 'Vỡ nợ', english: 'Default', definition: 'Tổ chức không thực hiện đầy đủ nghĩa vụ; người chơi có thể mất một phần vốn.', aliases: ['Vỡ nợ', 'vỡ nợ'] },
   payback: { label: 'Hoàn vốn', english: 'Payback', definition: 'Thời điểm thu nhập tăng thêm tích lũy đủ bù số tiền ban đầu đã bỏ ra. Đây là thời gian bù vốn, khác tỷ suất sinh lời (ROI); không phải cam kết lợi nhuận.', aliases: ['Hoàn vốn', 'hoàn vốn'] },
   faceValue: { label: 'Mệnh giá', english: 'Face value', definition: 'Giá trị làm căn cứ tính gốc và lãi hợp đồng, có thể khác giá mua trên thị trường.', aliases: ['Mệnh giá', 'mệnh giá'] },
-  start: { label: 'Ô Xuất phát (START)', english: 'START', definition: 'Mốc quyết toán vòng: lương, thị trường và các khoản đến hạn. Đi ngang START cũng quyết toán theo luật của ván đang chơi.', aliases: ['Ô Xuất phát (START)'] },
+  start: { label: 'Ô Xuất phát', english: 'START', definition: 'Mốc quyết toán vòng: thị trường, lương và các khoản đến hạn. Đi ngang ô này cũng quyết toán theo luật của ván. START là tên kỹ thuật trong dữ liệu.', aliases: ['Ô Xuất phát', 'ô Xuất phát'] },
   netWorth: { label: 'Tài sản ròng', english: 'Net worth', definition: 'Tổng giá trị tài sản theo cách định giá của ván, trừ nợ và nghĩa vụ. Khác tiền mặt và khác số tiền hợp lệ để về đích.', aliases: ['Tài sản ròng', 'tài sản ròng'] },
   proceeds: { label: 'Giá trị huy động hợp lệ', english: 'Eligible proceeds', definition: 'Tiền mặt, gốc tiết kiệm rút hợp lệ và tiền bán tài sản tài chính sau phí, trừ nợ và khoản phải trả. Không tính quán chưa bán hoặc lãi chưa nhận; trò chơi không tự bán tài sản.', aliases: ['Giá trị huy động hợp lệ', 'giá trị huy động hợp lệ'] },
 } as const
@@ -48,7 +49,7 @@ const narrativeWords: Record<string, string> = {
 /** Only human narrative fields pass here, never JSON, IDs, prices or state. Whole Latin
  * words keep API identifiers (couponRate, issuerId) intact; React still escapes output. */
 export function localizeNarrative(text: string): string {
-  return text.replace(/[A-Za-z]+/g, word => {
+  return localizePlayerText(text).replace(/[A-Za-z]+/g, word => {
     const translation = narrativeWords[word.toLowerCase()]
     return translation ? (word[0] === word[0].toUpperCase() ? translation[0].toUpperCase() + translation.slice(1) : translation) : word
   })

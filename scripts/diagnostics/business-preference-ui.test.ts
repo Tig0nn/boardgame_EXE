@@ -38,7 +38,7 @@ test('current customer preference UI is shared, current-only and read-only', asy
           assert.match(html, new RegExp(`data-current-preference="${preference.id}"`))
           assert.ok(html.includes(preference.label)); assert.ok(html.includes(preference.example))
           assert.match(html, /THỊ HIẾU KHÁCH HÀNG · VÒNG 1/)
-          assert.match(html, /1\.000\.000 ₫\/tầng tại START/)
+          assert.match(html, /1\.000\.000 ₫\/tầng tại ô Xuất phát/)
           for (const other of CUSTOMER_PREFERENCES.filter(p => p.id !== preference.id)) assert.ok(!html.includes(other.label))
         }
         assert.equal(serializeLog(game), before)
