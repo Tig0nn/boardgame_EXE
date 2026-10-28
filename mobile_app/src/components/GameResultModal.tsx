@@ -442,7 +442,7 @@ export function GameResultModal({
             <summary>
               <span style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '12px' }}>
                 <span>🤖</span>
-                <span>AI Coach · Phân tích chiến lược</span>
+                <span>AI Coach · Tùy chọn</span>
               </span>
               <span style={{ fontSize: '9.5px', color: '#94a3b8' }}>▼</span>
             </summary>
