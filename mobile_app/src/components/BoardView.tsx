@@ -72,9 +72,9 @@ export const BoardView: React.FC<BoardViewProps> = ({
         }}
       />
 
-      {/* 2. Bàn Cờ Isometric Playboard Fit Bãi Cỏ (Layer 2) */}
+      {/* 2. Bàn Cờ Isometric Playboard-4 Fit Bãi Cỏ (Layer 2) */}
       <img
-        src="/assets/playboard.PNG"
+        src="/assets/playboard-4.PNG"
         alt="Bàn cờ góc nhìn nghiêng"
         style={{
           position: 'absolute',
