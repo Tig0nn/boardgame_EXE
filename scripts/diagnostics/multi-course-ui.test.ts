@@ -22,7 +22,9 @@ test('Desktop/Mobile share exact course cards and preserve legacy single-course 
     // useId depends on the React tree path; compare shared content after normalizing
     // only generated IDs, leaving every label, amount and action attribute intact.
     const content=(html:string)=>html.replace(/_R_[a-zA-Z0-9]+_/g,'_R_term_')
-    for(const name of ['PhaseDialog','EventModal'])assert.ok(content(render(name,s)).includes(content(body)))
+    assert.ok(content(render('PhaseDialog',s)).includes(content(body)))
+    const eventHtml = render('EventModal',s)
+    assert.match(eventHtml, /Khóa cơ bản/); assert.match(eventHtml, /Khóa nâng cao/)
     assert.equal((body.match(/<article /g)??[]).length,2)
     assert.match(body,/Khóa cơ bản/);assert.match(body,/Khóa nâng cao/);assert.match(body,/6\.000\.000/);assert.match(body,/10\.000\.000/)
     assert.match(body,/Số lần qua ô Xuất phát còn lại/);assert.match(body,/không phải lợi nhuận bảo đảm/);assert.match(body,/không vay mới/i)

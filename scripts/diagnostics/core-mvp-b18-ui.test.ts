@@ -21,7 +21,7 @@ test('B18 shared goal, setup, board and completed course render without legacy t
     assert.equal((board.match(/data-b18-tile=/g)??[]).length,18);assert.doesNotMatch(board,/playboard\.PNG|sectionplay/)
     const course=decide({...s,phase:'event',eventId:'course',position:4},'upgrade')
     const done=render('EventModal',{...course,turn:2,phase:'event',eventId:'course',position:7})
-    assert.match(done,/hoàn thành khóa học/);assert.doesNotMatch(done,/Tham gia khóa học|disabled/)
+    assert.match(done,/Tiếp tục hành trình/);assert.doesNotMatch(done,/Tham gia khóa học|disabled/)
     const stocks=transact({...s,phase:'event',eventId:'stocks',position:10},{kind:'buy',asset:'stocks',amount:2e6})
     const html=render('EventModal',{...stocks,turn:2,phase:'event',eventId:'stocks',position:13})
     assert.match(html,/>Mua</);assert.match(html,/>Bán</);assert.match(html,/Bỏ qua cơ hội/)

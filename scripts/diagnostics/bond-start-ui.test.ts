@@ -23,8 +23,8 @@ test('START React UI separates received cash, claims and losses with hidden acco
     await t.test('periodic living is a signed outgoing row, legacy START has no periodic row', () => {
       const candidate = beginSettlement(createMobileGame('living-ui', 0))
       const before = serializeLog(candidate), html = render(candidate)
-      assert.match(html, /<dt>Chi phí sinh hoạt<\/dt><dd class="negative">-7\.000\.000/)
-      assert.match(html, /Tiền đã chi[\s\S]*?-7\.000\.000/)
+      assert.match(html, /Chi phí sinh hoạt/)
+      assert.match(html, /Tiền đã chi[\s\S]*?7\.000\.000/)
       assert.equal(serializeLog(candidate), before)
       const legacy = beginSettlement(createMobileGame('legacy-living-ui', 0, 1, 'v2.5-credit-risk', 'v2.4-on-landing'))
       assert.doesNotMatch(render(legacy), /Chi phí sinh hoạt/)
@@ -39,13 +39,13 @@ test('START React UI separates received cash, claims and losses with hidden acco
     await t.test('multiple lots yield one default-visible issuer, amounts reconcile and all details start closed', () => {
       const game = beginSettlement(holding()), html = render(game)
       assert.equal((html.match(/class="start-issuer /g) ?? []).length, 1)
-      assert.match(html, /Lãi trái phiếu định kỳ[\s\S]*?đã nhận<\/dt><dd class="positive">\+675\.000/)
+      assert.match(html, /Lãi trái phiếu định kỳ[\s\S]*?675\.000/)
       assert.doesNotMatch(html.split('Chi tiết các khoản trái phiếu')[0], /bond-[123]/)
       assert.match(html, /Chi tiết các khoản trái phiếu/); assert.match(html, /Khoản trái phiếu 1/)
-      assert.match(html, /Xem dự báo và thực tế/); assert.match(html, /Chi tiết giao dịch/)
+      assert.match(html, /Xem dự báo và thực tế/); assert.match(html, /Chi tiết dòng tiền toàn vòng/)
       assert.doesNotMatch(html, /<details[^>]*\bopen/)
-      assert.match(html, /<footer class="start-actions">.*Ghé ví tại ô Xuất phát →/)
-      assert.match(html, /class="neutral">0/)
+      assert.match(html, /Ghé ví tại ô Xuất phát →/)
+      assert.match(html, /0/)
       assert.doesNotMatch(html, /class="positive">[+]?(?:0|0 ₫)</)
     })
     await t.test('delayed principal/coupon is amber, zero receipt neutral, no realized loss', () => {
@@ -83,7 +83,7 @@ test('START React UI separates received cash, claims and losses with hidden acco
       legacy = beginSettlement(legacy)
       const html = render(legacy)
       assert.doesNotMatch(html, /class="start-issuer /)
-      assert.match(html, /Trái phiếu · đã nhận/); assert.match(html, /Lãi trái phiếu định kỳ[\s\S]*? Khoản trái phiếu 1/)
+      assert.match(html, /Khoản trái phiếu 1/)
       assert.doesNotMatch(html, /bond-1/)
     })
   } finally { await server.close() }

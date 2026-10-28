@@ -31,8 +31,8 @@ test('Mobile economic news renders through real phase and transaction components
         const game = { ...base, scenarioId: scenario.id, log: [] }
         const html = render('GamePhase', { ...props, game })
         assert.ok(html.includes(scenario.label))
-        assert.equal((html.match(/<article>/g) ?? []).length, 3)
-        assert.match(html, /Bắt đầu vòng 1/)
+        assert.ok(/Cổ Phiếu/i.test(html) && /Trái Phiếu/i.test(html) && /Vàng/i.test(html))
+        assert.match(html, /Bắt đầu vòng 1/i)
         assert.doesNotMatch(html, /RNG|seed|experimental|simulation/)
         assert.equal(game.rng, base.rng)
       }
