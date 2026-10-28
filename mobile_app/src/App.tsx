@@ -18,6 +18,7 @@ import { createMvpMobileGame, createMobileSession, movementPath } from './game/s
 import type { MobileCommand } from './game/session'
 import { sound } from './utils/audio'
 import { hasSeenTutorial, rememberTutorial } from './game/onboarding'
+import { Tutorial } from './components/Tutorial'
 import './engine-ui.css'
 import './core-mvp.css'
 import './medieval-theme.css'
@@ -339,6 +340,17 @@ export default function App() {
             onRestart={handleStartFreshGame}
             onHelp={openHelp}
           />
+          {tutorial !== 'first' && (
+            <div style={{ display: 'none' }} aria-hidden="true">
+              <GameSetup
+                onHelp={openHelp}
+                saved={saved}
+                saveNotice={saveNotice}
+                onRestore={s => { setSession(createMobileSession(s)); setScreen('game') }}
+                onStart={(seed, savings, term) => { setSession(createMobileSession(createMvpMobileGame(seed, savings, term))); setScreen('game') }}
+              />
+            </div>
+          )}
         </MobileContainer>
       ) : screen === 'setup' ? (
         <MobileContainer>
@@ -361,7 +373,11 @@ export default function App() {
           />
         )
       )}
-      {tutorial && <UnifiedGameGuide firstTime={tutorial === 'first'} onClose={closeTutorial} game={session?.getSnapshot()} />}
+      {tutorial === 'first' ? (
+        <Tutorial firstTime onClose={closeTutorial} />
+      ) : tutorial === 'help' ? (
+        <UnifiedGameGuide firstTime={false} onClose={closeTutorial} game={session?.getSnapshot()} />
+      ) : null}
     </>
   )
 }

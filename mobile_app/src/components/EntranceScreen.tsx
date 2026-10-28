@@ -55,10 +55,10 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
         userSelect: 'none',
       }}
     >
-      {/* 1. Nền Màn Hình Chờ Trung Cổ trang-cho.png */}
+      {/* 1. Nền Màn Hình Chờ Trung Cổ splash-game.png */}
       <img
-        src="/assets/trang-cho.png"
-        alt="Màn hình chờ Xoay Vòng Tiến Lui Trung Cổ"
+        src="/assets/splash-game.png"
+        alt="Màn hình chờ Xoay Vòng Tiến Lui"
         style={{
           position: 'absolute',
           inset: 0,

@@ -4,7 +4,7 @@
  */
 
 const CRITICAL_ASSETS = [
-  '/assets/trang-cho.png',
+  '/assets/splash-game.png',
   '/assets/play-icon.png',
   '/assets/sound-btn.png',
   '/assets/setting-btn.png',
