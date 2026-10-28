@@ -1,7 +1,7 @@
 .modal.start-summary { padding: 0; overflow: hidden; }
 .modal.start-summary[open] { display: flex; flex-direction: column; }
-.start-summary .sheet-help { position: absolute; top: 4px; right: 12px; z-index: 1; }
-.start-scroll { overflow-y: auto; min-height: 0; padding: 20px 16px 12px; overscroll-behavior: contain; }
+.start-scroll { overflow-y: auto; min-height: 0; padding: 20px 16px 12px; overscroll-behavior: contain; scrollbar-width: none; -ms-overflow-style: none; }
+.start-scroll::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
 .start-scroll > .section-kicker { padding-right: 88px; min-height: 28px; }
 .start-summary h2 { margin: 0 0 12px; }
 .start-overview { padding-bottom: 12px; border-bottom: 1px solid #456275; }

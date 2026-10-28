@@ -1,2 +1,1 @@
-// Shared quotes, whole-lot withdrawal and borrowing permissions.
-export { FundingDialog } from '../../../src/components/FundingDialog'
+export { MobileFundingDialog as FundingDialog } from './MobileFundingDialog'

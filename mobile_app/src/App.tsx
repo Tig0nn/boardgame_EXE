@@ -2,17 +2,14 @@ import { localizeNarrative } from '../../src/components/glossary'
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import tilesData from './data/tiles.json'
 import { boardFor } from '../../src/data/board'
-import { hasPeriodicLiving } from '../../src/game/living-expenses'
 import { goalProgress } from '../../src/game/selectors'
 import { money } from '../../src/game/format'
-import { LogDialog } from '../../src/components/EventLog'
 import { Modal } from '../../src/components/Modal'
 import { MobileContainer } from './components/MobileContainer'
 import { TopHud } from './components/TopHud'
 import { BoardView } from './components/BoardView'
 import { Dice3D } from './components/Dice3D'
 import { BottomControls } from './components/BottomControls'
-import { PortfolioDrawer } from './components/PortfolioDrawer'
 import { FloatingMoney } from './components/FloatingMoney'
 import type { MoneyParticle } from './components/FloatingMoney'
 import { GameSetup } from './components/GameSetup'
@@ -20,41 +17,60 @@ import { GamePhase } from './components/GamePhase'
 import { createMvpMobileGame, createMobileSession, movementPath } from './game/session'
 import type { MobileCommand } from './game/session'
 import { sound } from './utils/audio'
-import { Tutorial } from './components/Tutorial'
 import { hasSeenTutorial, rememberTutorial } from './game/onboarding'
 import './engine-ui.css'
 import './core-mvp.css'
-import { CoreMvpBoard } from './components/CoreMvpBoard'
-import { isCoreMvp } from '../../src/game/rules-profile'
-import { RulebookModal } from './components/RulebookModal'
-import { loadGameLocally, saveGameLocally } from '../../src/game/saved-game'
+import './medieval-theme.css'
+import { UnifiedGameGuide } from './components/UnifiedGameGuide'
+import tilesB18Data from './data/tiles-b18.json'
+import { loadGameLocally, saveGameLocally, GAME_SAVE_KEY } from '../../src/game/saved-game'
+import { preloadGameAssets } from './utils/preloader'
+import { EntranceScreen } from './components/EntranceScreen'
+import { UnifiedManagementSheet } from './components/UnifiedManagementSheet'
+import { SettingsModal } from './components/SettingsModal'
 
-// Coordinates are artwork metadata; category/order/labels come from the official C20 board.
-const coordinatesFor = (board: ReturnType<typeof boardFor>) => board.map((tile, i) => ({ ...tilesData[i], ...tile }))
+// Coordinates are artwork metadata; category/order/labels come from the official C20 or B18 board.
+const coordinatesFor = (board: ReturnType<typeof boardFor>) => {
+  const source = board.length === 18 ? tilesB18Data : tilesData
+  return board.map((tile, i) => ({ ...source[i], ...tile }))
+}
 const delay = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms))
 type Session = ReturnType<typeof createMobileSession>
 
-export function GameExperience({ session, onRestart, onHelp, helpOpen = false }: { session: Session; onRestart: () => void; onHelp?: () => void; helpOpen?: boolean }) {
+export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = false }: {
+  session: Session;
+  onRestart: () => void;
+  onHome?: () => void;
+  onHelp?: () => void;
+  helpOpen?: boolean;
+}) {
   // React subscribes to immutable engine snapshots: https://react.dev/reference/react/useSyncExternalStore
   const game = useSyncExternalStore(session.subscribe, session.getSnapshot)
   const coordinates = coordinatesFor(boardFor(game))
   const [animation, setAnimation] = useState<'dice' | 'pause' | 'moving' | null>(null)
   const [animatedTile, setAnimatedTile] = useState(0)
   const [overlay, setOverlay] = useState<'portfolio' | 'log' | null>(null)
+  const [dismissResult, setDismissResult] = useState(false)
   const [muted, setMuted] = useState(false)
   const [notice, setNotice] = useState('')
   const [particles, setParticles] = useState<MoneyParticle[]>([])
+  const [diceSealValue, setDiceSealValue] = useState<number | null>(null)
+  const [settingsOpen, setSettingsOpen] = useState(false)
   const busy = useRef(false)
   const generation = useRef(0)
   const particleId = useRef(0)
   const nextActionAt = useRef(0)
+
   useEffect(() => () => { generation.current++ }, [])
-  useEffect(()=>{
-    const timer=window.setTimeout(()=>{
-      if(!saveGameLocally(game))setNotice('Không lưu tự động được trên trình duyệt này. Hãy xuất nhật ký trong Ví để giữ ván. Khi đóng hoặc tải lại trang, các lượt chưa lưu có thể mất.')
-    },0)
-    return ()=>window.clearTimeout(timer)
-  },[game])
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      if (!saveGameLocally(game)) {
+        setNotice('Không lưu tự động được trên trình duyệt này. Hãy xuất nhật ký trong Ví để giữ ván. Khi đóng hoặc tải lại trang, các lượt chưa lưu có thể mất.')
+      }
+    }, 0)
+    return () => window.clearTimeout(timer)
+  }, [game])
+
   useEffect(() => {
     const unlock = () => { sound.unlockAudio(); if (!sound.isMuted) sound.startBgm() }
     window.addEventListener('pointerdown', unlock, { once: true })
@@ -76,7 +92,10 @@ export function GameExperience({ session, onRestart, onHelp, helpOpen = false }:
         if (delta > 0) sound.playCoin(); else sound.playPay()
       }
       return true
-    } catch (error) { setNotice(error instanceof Error ? error.message : 'Không thể thực hiện hành động.'); return false }
+    } catch (error) {
+      setNotice(error instanceof Error ? error.message : 'Không thể thực hiện hành động.')
+      return false
+    }
   }
 
   const rollDice = async () => {
@@ -90,9 +109,15 @@ export function GameExperience({ session, onRestart, onHelp, helpOpen = false }:
     sound.unlockAudio(); sound.playDiceRoll(); sound.triggerHaptic('medium')
     await delay(800)
     if (token !== generation.current) return
+
+    // Medieval Dice Seal Result Flourish
     setAnimation('pause')
-    await delay(400)
+    setDiceSealValue(rolled.dice)
+    sound.playCoin()
+    await delay(650)
     if (token !== generation.current) return
+    setDiceSealValue(null)
+
     setAnimation('moving')
     for (const position of movementPath(game, rolled)) {
       sound.playHop(); sound.triggerHaptic('light')
@@ -104,55 +129,239 @@ export function GameExperience({ session, onRestart, onHelp, helpOpen = false }:
     setAnimation(null)
     sound.playEventShow()
   }
+
   const disabled = helpOpen || !!animation || !!overlay || game.phase !== 'rolling'
-  const goal=goalProgress(game)
-  const pieces=<><Dice3D value={game.dice||1} isRolling={animation==='dice'} isPawnMoving={animation==='moving'} onRollClick={rollDice} disabled={disabled} isUpOnLawn={!!animation||(game.dice>0&&game.phase!=='rolling')}/><FloatingMoney particles={particles}/></>
-  return <>
-    <MobileContainer overlay={<>
-      <TopHud cash={game.portfolio.cash} debt={game.portfolio.debt}
-        lawfulProceeds={goal.funds} targetGoal={goal.target} isMuted={muted} lap={game.lap} totalLaps={game.totalLaps}
-        onHelp={onHelp} helpDisabled={!!animation}
-        onToggleMute={() => { const next = !muted; sound.isMuted = next; setMuted(next); if (next) sound.stopBgm(); else { sound.unlockAudio(); sound.startBgm() } }} />
-      <BottomControls onRollClick={rollDice} disabled={disabled} lastDiceValue={game.dice || undefined}
-        onPortfolioClick={() => { if (!busy.current) setOverlay('portfolio') }}
-        onLogClick={() => { if (!busy.current) setOverlay('log') }} />
-    </>}>
-      {isCoreMvp(game)?<CoreMvpBoard game={game} position={animation?animatedTile:game.position} lap={game.lap} totalLaps={game.totalLaps} moving={animation==='moving'} dancing={!animation&&game.phase==='summary'}>{pieces}</CoreMvpBoard>:<BoardView currentTileIndex={animation ? animatedTile : game.position} tileCoordinates={coordinates}
-        replacementTiles={hasPeriodicLiving(game) ? [3, 14] : []}
-        lap={game.lap} totalLaps={game.totalLaps} isPawnMoving={animation === 'moving'} isDancing={!animation && game.phase === 'summary'}>
-        <Dice3D value={game.dice || 1} isRolling={animation === 'dice'} isPawnMoving={animation === 'moving'}
-          onRollClick={rollDice} disabled={disabled} isUpOnLawn={!!animation || (game.dice > 0 && game.phase !== 'rolling')} />
-        <FloatingMoney particles={particles} />
-      </BoardView>}
-    </MobileContainer>
-    {!animation && !overlay && <GamePhase game={game} send={send} onRestart={onRestart} onHelp={onHelp} />}
-    {overlay === 'portfolio' && <PortfolioDrawer game={game} onClose={() => setOverlay(null)} onHelp={onHelp} />}
-    {overlay === 'log' && <LogDialog game={game} onClose={() => setOverlay(null)} />}
-    {notice && <Modal title="Không thể thực hiện" onClose={() => setNotice('')}><p role="alert">{localizeNarrative(notice)}</p></Modal>}
-  </>
+  const goal = goalProgress(game)
+  const pieces = (
+    <>
+      <Dice3D
+        value={game.dice || 1}
+        isRolling={animation === 'dice'}
+        isPawnMoving={animation === 'moving'}
+        onRollClick={rollDice}
+        disabled={disabled}
+        isUpOnLawn={!!animation || (game.dice > 0 && game.phase !== 'rolling')}
+      />
+      <FloatingMoney particles={particles} />
+      {diceSealValue !== null && (
+        <div className="medieval-dice-seal-container">
+          <div className="medieval-dice-seal">
+            <span className="seal-subtext">KẾT QUẢ</span>
+            <span className="seal-number">{diceSealValue}</span>
+            <span className="seal-unit">BƯỚC TIẾN</span>
+          </div>
+        </div>
+      )}
+    </>
+  )
+
+  const toggleMute = () => {
+    const next = !muted
+    sound.isMuted = next
+    setMuted(next)
+    if (next) sound.stopBgm()
+    else { sound.unlockAudio(); sound.startBgm() }
+  }
+
+  return (
+    <>
+      <MobileContainer
+        overlay={
+          <>
+            <TopHud
+              cash={game.portfolio.cash}
+              debt={game.portfolio.debt}
+              lawfulProceeds={goal.funds}
+              targetGoal={goal.target}
+              isMuted={muted}
+              lap={game.lap}
+              totalLaps={game.totalLaps}
+              onHelp={onHelp}
+              helpDisabled={!!animation}
+              onHome={onHome || onRestart}
+              onToggleMute={toggleMute}
+              onOpenSettings={() => setSettingsOpen(true)}
+            />
+            <BottomControls
+              onRollClick={rollDice}
+              disabled={disabled}
+              lastDiceValue={game.dice || undefined}
+              onBagClick={() => { if (!busy.current) setOverlay('portfolio') }}
+              onGuideClick={() => { if (!busy.current) onHelp?.() }}
+            />
+          </>
+        }
+      >
+        <BoardView
+          game={game}
+          currentTileIndex={animation ? animatedTile : game.position}
+          tileCoordinates={coordinates}
+          lap={game.lap}
+          totalLaps={game.totalLaps}
+          isPawnMoving={animation === 'moving'}
+          isDancing={!animation && game.phase === 'summary'}
+        >
+          {pieces}
+        </BoardView>
+      </MobileContainer>
+
+      {!animation && !overlay && (!dismissResult || game.phase !== 'finished') && (
+        <GamePhase
+          game={game}
+          send={send}
+          onRestart={onRestart}
+          onHome={onHome}
+          onHelp={onHelp}
+          onDismissResult={() => setDismissResult(true)}
+        />
+      )}
+
+      {dismissResult && game.phase === 'finished' && !overlay && (
+        <div
+          style={{
+            position: 'fixed',
+            bottom: '84px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 60,
+          }}
+        >
+          <button
+            onClick={() => setDismissResult(false)}
+            className="medieval-ribbon-btn"
+            style={{
+              padding: '10px 22px',
+              fontSize: '13.5px',
+              fontWeight: 900,
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: '8px',
+              whiteSpace: 'nowrap',
+              border: '2px solid #b45309',
+            }}
+          >
+            <span>🏆</span>
+            <strong>Xem Kết Quả Ván Chơi</strong>
+          </button>
+        </div>
+      )}
+
+      {overlay && (
+        <UnifiedManagementSheet
+          game={game}
+          initialTab={overlay}
+          onClose={() => setOverlay(null)}
+          onHelp={onHelp}
+        />
+      )}
+
+      <SettingsModal
+        isOpen={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+        isMuted={muted}
+        onToggleMute={toggleMute}
+        onRestart={onRestart}
+        onHelp={onHelp}
+      />
+
+      {notice && (
+        <Modal title="Không thể thực hiện" onClose={() => setNotice('')}>
+          <p role="alert">{localizeNarrative(notice)}</p>
+        </Modal>
+      )}
+    </>
+  )
 }
 
 export default function App() {
+  const [screen, setScreen] = useState<'entrance' | 'game' | 'setup'>('entrance')
   const [session, setSession] = useState<Session | null>(null)
-  const [saved,setSaved]=useState(()=>loadGameLocally())
-  const [saveNotice,setSaveNotice]=useState('')
-  const returnToSetup=()=>{
-    const latest=session!.getSnapshot()
-    // Flush the current snapshot before unmount cancels a pending autosave timer.
-    const persisted=saveGameLocally(latest)
-    setSaved(latest)
-    setSaveNotice(persisted?'':'Ván mới nhất chỉ còn trong phiên này vì trình duyệt không lưu được. Hãy mở lại và xuất nhật ký trước khi đóng trang.')
-    setSession(null)
+  const [saved, setSaved] = useState(() => loadGameLocally())
+  const [saveNotice, setSaveNotice] = useState('')
+  const [muted, setMuted] = useState(() => sound.isMuted)
+
+  useEffect(() => { preloadGameAssets() }, [])
+
+  const returnToEntrance = () => {
+    if (session) {
+      const latest = session.getSnapshot()
+      if (latest.phase === 'finished') {
+        window.localStorage.removeItem(GAME_SAVE_KEY)
+        setSaved(null)
+      } else {
+        const persisted = saveGameLocally(latest)
+        setSaved(latest)
+        setSaveNotice(persisted ? '' : 'Ván mới nhất chỉ còn trong phiên này vì trình duyệt không lưu được.')
+      }
+    }
+    setScreen('entrance')
   }
+
+  const handleStartFreshGame = () => {
+    const fresh = createMvpMobileGame(String(Date.now()), 0, 1)
+    saveGameLocally(fresh)
+    setSaved(fresh)
+    setSession(createMobileSession(fresh))
+    setScreen('game')
+  }
+
+  const handle1ClickPlay = () => {
+    if (saved && saved.phase !== 'finished') {
+      setSession(createMobileSession(saved))
+    } else {
+      handleStartFreshGame()
+      return
+    }
+    setScreen('game')
+  }
+
+  const handleToggleSound = () => {
+    const next = !sound.isMuted
+    sound.isMuted = next
+    setMuted(next)
+    if (next) sound.stopBgm()
+    else { sound.unlockAudio(); sound.startBgm() }
+  }
+
   const [tutorial, setTutorial] = useState<'first' | 'help' | null>(() => hasSeenTutorial() ? null : 'first')
   const openHelp = () => setTutorial('help')
   const closeTutorial = () => { if (tutorial === 'first') rememberTutorial(); setTutorial(null) }
-  return <>
-    {session ? <GameExperience session={session} onRestart={returnToSetup} onHelp={openHelp} helpOpen={!!tutorial} /> : <>
-      <MobileContainer><CoreMvpBoard/></MobileContainer>
-      {tutorial !== 'first' && <GameSetup onHelp={openHelp} saved={saved} saveNotice={saveNotice} onRestore={s=>setSession(createMobileSession(s))} onStart={(seed, savings, term) => setSession(createMobileSession(createMvpMobileGame(seed, savings, term)))} />}
-    </>}
-    {tutorial==='first'&&<Tutorial firstTime onClose={closeTutorial} game={session?.getSnapshot()}/>}
-    {tutorial==='help'&&<RulebookModal onClose={closeTutorial} game={session?.getSnapshot()}/>}
-  </>
+
+  return (
+    <>
+      {screen === 'entrance' ? (
+        <MobileContainer>
+          <EntranceScreen
+            onPlay={handle1ClickPlay}
+            isMuted={muted}
+            onToggleMute={handleToggleSound}
+            onRestart={handleStartFreshGame}
+            onHelp={openHelp}
+          />
+        </MobileContainer>
+      ) : screen === 'setup' ? (
+        <MobileContainer>
+          <GameSetup
+            onHelp={openHelp}
+            saved={saved}
+            saveNotice={saveNotice}
+            onRestore={s => { setSession(createMobileSession(s)); setScreen('game') }}
+            onStart={(seed, savings, term) => { setSession(createMobileSession(createMvpMobileGame(seed, savings, term))); setScreen('game') }}
+          />
+        </MobileContainer>
+      ) : (
+        session && (
+          <GameExperience
+            session={session}
+            onRestart={handleStartFreshGame}
+            onHome={returnToEntrance}
+            onHelp={openHelp}
+            helpOpen={!!tutorial}
+          />
+        )
+      )}
+      {tutorial && <UnifiedGameGuide firstTime={tutorial === 'first'} onClose={closeTutorial} game={session?.getSnapshot()} />}
+    </>
+  )
 }

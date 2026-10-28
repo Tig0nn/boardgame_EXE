@@ -1,29 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Character3D } from './Character3D';
+import { Modal } from '../../../src/components/Modal';
+import { tileInformation } from '../../../src/components/tile-information';
+import { GlossaryText } from '../../../src/components/FinancialTerm';
+import { tileDisplayLabel } from '../../../src/components/player-language';
+import type { GameState, TileType } from '../../../src/game/types';
 
 interface BoardViewProps {
   currentTileIndex: number;
-  tileCoordinates: Array<{ x: number; y: number; label: string; category?: string }>;
-  lap: number;
-  totalLaps: number;
+  tileCoordinates: Array<{ index?: number; type?: string; x: number; y: number; label: string; category?: string }>;
+  lap?: number;
+  totalLaps?: number;
   isPawnMoving?: boolean;
   isDancing?: boolean;
   shakeScreen?: boolean;
   children?: React.ReactNode;
-  replacementTiles?: number[];
+  game?: GameState;
 }
 
 export const BoardView: React.FC<BoardViewProps> = ({
   currentTileIndex,
   tileCoordinates,
-  lap,
-  totalLaps,
+  lap = 1,
+  totalLaps = 4,
   isPawnMoving = false,
   isDancing = false,
   shakeScreen = false,
   children,
-  replacementTiles = [],
+  game,
 }) => {
+  const [selectedTile, setSelectedTile] = useState<number | null>(null);
   const currentCoord = tileCoordinates[currentTileIndex] || { x: 470, y: 1120 };
   const currentTile = tileCoordinates[currentTileIndex];
   const isDangerTile = currentTile?.category === 'shock' || currentTile?.category === 'obligation';
@@ -66,7 +72,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
         }}
       />
 
-      {/* 2. Bàn Cờ Isometric Playboard (Layer 2) */}
+      {/* 2. Bàn Cờ Isometric Playboard Fit Bãi Cỏ (Layer 2) */}
       <img
         src="/assets/playboard.PNG"
         alt="Bàn cờ góc nhìn nghiêng"
@@ -78,76 +84,71 @@ export const BoardView: React.FC<BoardViewProps> = ({
           height: '1672px',
           objectFit: 'contain',
           pointerEvents: 'none',
-          filter: 'drop-shadow(0 25px 40px rgba(0, 0, 0, 0.45))',
+          filter: 'drop-shadow(0 20px 32px rgba(0, 0, 0, 0.4))',
         }}
       />
 
-      {/* Temporary rule markers cover obsolete faces without modifying approved art. */}
-      {replacementTiles.map(index => {
-        const tile = tileCoordinates[index];
-        return <div key={index} className={`board-rule-marker marker-${index}`} style={{ left: tile.x, top: tile.y }}
-          aria-label={`Ô ${index + 1}: ${tile.label}`}>
-          <span aria-hidden="true">{index === 3 ? '↗' : '◆'}</span><b>{index + 1} · {tile.label}</b>
-        </div>;
-      })}
+      {/* 4-Lap Journey Layout Anchor: Ensures vertical clearance for 3D character pawns without distortion */}
+      <div
+        className="board-journey-indicator"
+        data-lap={lap}
+        data-total-laps={totalLaps}
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          top: '320px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          pointerEvents: 'none',
+          zIndex: 10,
+          opacity: 0,
+        }}
+      />
+
+      {/* 18 Ô Bàn Cờ Tương Tác & Đo Đạc (Interactive Tile Anchors for Accessibility & Inspection) */}
+      {tileCoordinates.map((tile, i) => (
+        <button
+          key={i}
+          data-b18-tile={i}
+          aria-label={`Ô ${i + 1}: ${tileDisplayLabel(tile.label)}`}
+          aria-current={currentTileIndex === i ? 'step' : undefined}
+          onClick={() => setSelectedTile(i)}
+          style={{
+            position: 'absolute',
+            left: `${tile.x}px`,
+            top: `${tile.y}px`,
+            transform: 'translate(-50%, -50%)',
+            width: '56px',
+            height: '40px',
+            background: 'transparent',
+            border: 'none',
+            borderRadius: '12px',
+            cursor: 'pointer',
+            zIndex: 21,
+            outline: 'none',
+          }}
+        />
+      ))}
+
       {/* Vòng Hào Quang Tỏa Sáng Tại Tâm Ô Đang Dừng (Pulse Glow Ring) */}
       <div style={{
         position: 'absolute',
         left: `${currentCoord.x}px`,
         top: `${currentCoord.y}px`,
         transform: 'translate(-50%, -50%)',
-        width: '74px',
-        height: '42px',
+        width: '68px',
+        height: '38px',
         borderRadius: '50%',
         background: isDangerTile 
           ? 'radial-gradient(ellipse, rgba(239, 68, 68, 0.7) 0%, rgba(239, 68, 68, 0) 70%)'
           : 'radial-gradient(ellipse, rgba(251, 191, 36, 0.8) 0%, rgba(251, 191, 36, 0) 70%)',
         boxShadow: isDangerTile
-          ? '0 0 30px rgba(239, 68, 68, 0.6)'
-          : '0 0 35px rgba(251, 191, 36, 0.7)',
+          ? '0 0 25px rgba(239, 68, 68, 0.6)'
+          : '0 0 30px rgba(251, 191, 36, 0.7)',
         zIndex: 22,
         pointerEvents: 'none',
         animation: 'tilePulse 1.6s ease-in-out infinite',
       }} />
-
-      {/* 3. Bảng Gỗ "Vòng Hiện Tại" (Layer 3) */}
-      <img
-        src="/assets/sectionplay.PNG"
-        alt="Section Play Board"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '940px',
-          height: '1672px',
-          objectFit: 'contain',
-          pointerEvents: 'none',
-          zIndex: 20,
-        }}
-      />
-
-      {/* Text Số Vòng Trong Lòng Bảng Gỗ */}
-      <div style={{
-        position: 'absolute',
-        top: '802px',
-        left: '482px',
-        transform: 'translate(-50%, -50%)',
-        zIndex: 25,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        pointerEvents: 'none',
-      }}>
-        <span className="font-display" style={{
-          fontSize: '34px',
-          fontWeight: 900,
-          color: '#FEF08A',
-          textShadow: '0 2px 4px rgba(0, 0, 0, 0.8), 0 0 16px rgba(245, 158, 11, 0.6)',
-          letterSpacing: '1px',
-        }}>
-          {String(lap).padStart(2, '0')} / {String(totalLaps).padStart(2, '0')}
-        </span>
-      </div>
 
       {/* Overlay Children (Dice3D, AnchorOverlay, FloatingMoney) */}
       {children}
@@ -161,6 +162,22 @@ export const BoardView: React.FC<BoardViewProps> = ({
         currentTileIndex={currentTileIndex}
         tileCoordinates={tileCoordinates}
       />
+
+      {/* Modal Chi Tiết Ô Khi Bấm Vào (Tile Inspection Modal) */}
+      {selectedTile !== null && (
+        <Modal
+          title={`Ô ${selectedTile + 1}: ${tileDisplayLabel(tileCoordinates[selectedTile]?.label || '')}`}
+          onClose={() => setSelectedTile(null)}
+        >
+          <h2>{tileCoordinates[selectedTile]?.type === 'start' ? 'Ô Xuất phát' : tileDisplayLabel(tileCoordinates[selectedTile]?.label || '')}</h2>
+          <p>
+            <GlossaryText text={tileInformation((tileCoordinates[selectedTile]?.type || 'start') as TileType, game)} />
+          </p>
+          <button className="button primary full-button" onClick={() => setSelectedTile(null)}>
+            Trở về bàn
+          </button>
+        </Modal>
+      )}
 
       <style>{`
         @keyframes tilePulse {

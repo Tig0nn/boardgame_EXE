@@ -1,1 +1,1 @@
-export { RebalanceDialog as RebalanceModal } from '../../../src/components/RebalanceDialog'
+export { MobileRebalanceModal as RebalanceModal } from './MobileRebalanceModal'

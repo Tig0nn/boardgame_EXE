@@ -1,7 +1,8 @@
 .modal.economic-event { padding: 0; overflow: hidden; }
 .modal.economic-event[open] { display: flex; flex-direction: column; }
 .economic-event .sheet-help { position: absolute; top: 0; right: 8px; z-index: 1; }
-.economic-event-scroll { overflow-y: auto; min-height: 0; padding: 20px 16px 12px; overscroll-behavior: contain; }
+.economic-event-scroll { overflow-y: auto; min-height: 0; padding: 20px 16px 12px; overscroll-behavior: contain; scrollbar-width: none; -ms-overflow-style: none; }
+.economic-event-scroll::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
 .economic-event .section-kicker { font-size: 10px; padding-right: 68px; }
 .economic-event h2 { display: flex; align-items: baseline; gap: 4px; margin: 8px 0; font-size: 25px; line-height: 1.2; }
 .economic-event h2 svg { flex-shrink: 0; }

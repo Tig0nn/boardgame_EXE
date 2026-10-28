@@ -50,7 +50,7 @@ export const Dice3D: React.FC<Dice3DProps> = ({
   const renderDots = (count: number, isTopHighlight = false) => {
     const isRed = count === 1;
     const dotColor = isRed ? '#EF4444' : '#1E293B';
-    const dotSize = isRed ? '18px' : '11px';
+    const dotSize = isRed ? '12px' : '7.5px';
 
     const getDotPositions = () => {
       switch (count) {
@@ -122,9 +122,9 @@ export const Dice3D: React.FC<Dice3DProps> = ({
 
   const baseFaceStyle: React.CSSProperties = {
     position: 'absolute',
-    width: '68px',
-    height: '68px',
-    borderRadius: '14px',
+    width: '46px',
+    height: '46px',
+    borderRadius: '10px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -133,7 +133,7 @@ export const Dice3D: React.FC<Dice3DProps> = ({
 
   // Trạng thái: Nằm trên sân cỏ hay ở hốc Footer
   const isUp = isUpOnLawn !== undefined ? isUpOnLawn : (isRolling || isPawnMoving);
-  const currentTop = isUp ? '945px' : '1600px';
+  const currentTop = isUp ? '855px' : '1600px';
 
   return (
     <div
@@ -197,7 +197,7 @@ export const Dice3D: React.FC<Dice3DProps> = ({
               background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 60%, #F1F5F9 100%)',
               border: '1.5px solid #CBD5E1',
               boxShadow: 'inset 0 0 10px rgba(56, 189, 248, 0.2), 0 1px 3px rgba(0, 0, 0, 0.2)',
-              transform: 'rotateX(90deg) translateZ(34px)',
+              transform: 'rotateX(90deg) translateZ(23px)',
             }}
           >
             {renderDots(faces.top, true)}
@@ -209,7 +209,7 @@ export const Dice3D: React.FC<Dice3DProps> = ({
               ...baseFaceStyle,
               background: '#CBD5E1',
               border: '1px solid #94A3B8',
-              transform: 'rotateX(-90deg) translateZ(34px)',
+              transform: 'rotateX(-90deg) translateZ(23px)',
             }}
           >
             {renderDots(faces.bottom)}
@@ -222,7 +222,7 @@ export const Dice3D: React.FC<Dice3DProps> = ({
               background: 'linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%)',
               border: '1px solid #CBD5E1',
               boxShadow: 'inset 0 0 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.2)',
-              transform: 'rotateY(0deg) translateZ(34px)',
+              transform: 'rotateY(0deg) translateZ(23px)',
             }}
           >
             {renderDots(faces.front)}
@@ -234,7 +234,7 @@ export const Dice3D: React.FC<Dice3DProps> = ({
               ...baseFaceStyle,
               background: '#CBD5E1',
               border: '1px solid #94A3B8',
-              transform: 'rotateY(180deg) translateZ(34px)',
+              transform: 'rotateY(180deg) translateZ(23px)',
             }}
           >
             {renderDots(faces.back)}
@@ -247,7 +247,7 @@ export const Dice3D: React.FC<Dice3DProps> = ({
               background: 'linear-gradient(135deg, #E2E8F0 0%, #CBD5E1 100%)',
               border: '1px solid #94A3B8',
               boxShadow: 'inset 0 0 8px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.2)',
-              transform: 'rotateY(90deg) translateZ(34px)',
+              transform: 'rotateY(90deg) translateZ(23px)',
             }}
           >
             {renderDots(faces.right)}
@@ -259,7 +259,7 @@ export const Dice3D: React.FC<Dice3DProps> = ({
               ...baseFaceStyle,
               background: '#CBD5E1',
               border: '1px solid #94A3B8',
-              transform: 'rotateY(-90deg) translateZ(34px)',
+              transform: 'rotateY(-90deg) translateZ(23px)',
             }}
           >
             {renderDots(faces.left)}
@@ -269,8 +269,8 @@ export const Dice3D: React.FC<Dice3DProps> = ({
 
       <style>{`
         .dice-cube {
-          width: 68px;
-          height: 68px;
+          width: 46px;
+          height: 46px;
           position: relative;
           transform-style: preserve-3d;
           transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
@@ -279,13 +279,13 @@ export const Dice3D: React.FC<Dice3DProps> = ({
         .dice-ground-shadow {
           position: absolute;
           left: 50%;
-          bottom: -18px;
+          bottom: -12px;
           transform: translateX(-50%);
-          width: 64px;
-          height: 18px;
+          width: 44px;
+          height: 14px;
           border-radius: 50%;
           background: rgba(0, 0, 0, 0.45);
-          filter: blur(5px);
+          filter: blur(4px);
           transition: all 0.2s ease;
         }
 

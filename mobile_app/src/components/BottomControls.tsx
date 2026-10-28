@@ -1,149 +1,304 @@
 import React from 'react';
-import { Dice3D } from './Dice3D';
+import { sound } from '../utils/audio';
 
-interface BottomControlsProps {
-  onRollClick: () => void;
-  onPortfolioClick: () => void;
-  onLogClick: () => void;
+export interface BottomControlsProps {
+  onRollClick?: () => void;
+  onBagClick?: () => void;
+  onPortfolioClick?: () => void;
+  onGuideClick?: () => void;
+  onLogClick?: () => void;
   lastDiceValue?: number;
   disabled?: boolean;
+
+  // Interface contract props
+  onRollDice?: () => void;
+  canRoll?: boolean;
+  isRolling?: boolean;
+  onOpenBag?: () => void;
+  onOpenGuide?: () => void;
 }
 
 export const BottomControls: React.FC<BottomControlsProps> = ({
   onRollClick,
+  onBagClick,
   onPortfolioClick,
+  onGuideClick,
   onLogClick,
   lastDiceValue,
-  disabled = false,
+  disabled,
+  onRollDice,
+  canRoll,
+  isRolling,
+  onOpenBag,
+  onOpenGuide,
 }) => {
+  const handleBag = onOpenBag || onBagClick || onPortfolioClick || (() => {});
+  const handleGuide = onOpenGuide || onGuideClick || onLogClick || (() => {});
+  const handleRoll = onRollDice || onRollClick || (() => {});
+
+  const isDisabled =
+    disabled !== undefined
+      ? disabled
+      : (canRoll !== undefined ? !canRoll : false) || (isRolling ?? false);
+
+  const onBagPress = () => {
+    sound.playClick();
+    sound.triggerHaptic('light');
+    handleBag();
+  };
+
+  const onGuidePress = () => {
+    sound.playClick();
+    sound.triggerHaptic('light');
+    handleGuide();
+  };
+
+  const onRollPress = () => {
+    if (isDisabled) return;
+    sound.playDiceRoll();
+    sound.triggerHaptic('medium');
+    handleRoll();
+  };
+
   return (
-    <div style={{
-      position: 'absolute',
-      bottom: '36px',
-      left: '16px',
-      right: '16px',
-      zIndex: 50,
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      gap: '10px',
-    }}>
-      {/* Badge hiển thị kết quả vừa gieo nếu có */}
+    <div
+      style={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        width: '100%',
+        maxWidth: '440px',
+        margin: '0 auto',
+        zIndex: 50,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        pointerEvents: 'none',
+        userSelect: 'none',
+        boxSizing: 'border-box',
+      }}
+    >
+      {/* Badge hiển thị kết quả vừa gieo phong cách Retro Game Badge */}
       {lastDiceValue && (
-        <div style={{
-          background: 'rgba(14, 40, 70, 0.55)',
-          color: '#38BDF8',
-          padding: '4px 14px',
-          borderRadius: '999px',
-          fontSize: '12px',
-          fontWeight: 800,
-          border: '1.5px solid rgba(56, 189, 248, 0.45)',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)',
-          backdropFilter: 'blur(8px)',
-        }}>
-          🎲 Vừa Gieo: {lastDiceValue}
+        <div
+          style={{
+            background: 'linear-gradient(180deg, #1e1b4b 0%, #0f172a 100%)',
+            color: '#fde68a',
+            padding: '4px 14px',
+            borderRadius: '999px',
+            fontSize: '13px',
+            fontWeight: 900,
+            border: '2px solid #f59e0b',
+            boxShadow: '0 4px 14px rgba(0, 0, 0, 0.65), 0 0 10px rgba(245, 158, 11, 0.4)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            marginBottom: '6px',
+            pointerEvents: 'auto',
+            animation: 'fadeIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            fontFamily: "'Fredoka', 'Baloo 2', sans-serif",
+            textShadow: '0 0 8px rgba(251, 191, 36, 0.8), 2px 2px 0px rgba(0,0,0,0.8)',
+          }}
+        >
+          <span style={{ fontSize: '18px', display: 'inline-block', transform: 'rotate(-5deg)' }}>🎲</span>
+          <span style={{ letterSpacing: '1px', fontWeight: 800 }}>: {lastDiceValue}</span>
         </div>
       )}
 
-      {/* Thanh điều khiển chính: Khung board kính đại dương trong trẻo, các icon nằm trực tiếp không viền bo */}
-      <div style={{
-        width: '100%',
-        maxWidth: '420px',
-        background: 'linear-gradient(180deg, rgba(14, 40, 70, 0.45) 0%, rgba(8, 25, 48, 0.55) 100%)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        border: '1.5px solid rgba(56, 189, 248, 0.45)',
-        borderRadius: '38px',
-        padding: '10px 12px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '24px',
-        boxShadow: '0 10px 32px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.2)',
-      }}>
-        {/* Nút Ví Tài Sản (Icon Trực Tiếp, Bỏ Viền Bo Vuông) */}
+      {/* Floating Controls Row */}
+      <div
+        style={{
+          width: '100%',
+          maxWidth: '440px',
+          margin: '0 auto',
+          padding: '0 clamp(8px, 2.5vw, 16px) max(8px, env(safe-area-inset-bottom)) clamp(8px, 2.5vw, 16px)',
+          paddingBottom: 'max(8px, env(safe-area-inset-bottom))',
+          display: 'flex',
+          alignItems: 'flex-end',
+          justifyContent: 'space-between',
+          boxSizing: 'border-box',
+          pointerEvents: 'auto',
+        }}
+      >
+        {/* Bên Trái: Nút Túi Đồ (Icon Huy Hiệu Gỗ Túi Đồ To Đẹp) */}
         <button
-          onClick={onPortfolioClick}
-          title="Ví Tài Sản"
+          onClick={onBagPress}
+          title="Túi Đồ (Ví Tài Sản & Nhật Ký)"
+          aria-label="Túi Đồ"
+          className="medieval-icon-btn"
           style={{
-            background: 'transparent',
+            background: 'none',
             border: 'none',
+            padding: '2px',
+            cursor: 'pointer',
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            cursor: 'pointer',
-            padding: '8px',
-            fontSize: '34px',
-            lineHeight: 1,
-            filter: 'drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4))',
-            transition: 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            outline: 'none',
+            marginBottom: '4px',
+            minWidth: '48px',
+            minHeight: '48px',
+            width: 'clamp(56px, 16vw, 68px)',
+            height: 'clamp(56px, 16vw, 68px)',
+            boxSizing: 'border-box',
+            filter: 'drop-shadow(0 6px 14px rgba(0, 0, 0, 0.55))',
+            transition: 'transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1)',
           }}
-          onMouseDown={(e) => { e.currentTarget.style.transform = 'scale(0.88)'; }}
-          onMouseUp={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
-          onTouchStart={(e) => { e.currentTarget.style.transform = 'scale(0.88)'; }}
-          onTouchEnd={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+          onMouseDown={(e) => {
+            e.currentTarget.style.transform = 'scale(0.92)';
+          }}
+          onMouseUp={(e) => {
+            e.currentTarget.style.transform = 'scale(1)';
+          }}
+          onTouchStart={(e) => {
+            e.currentTarget.style.transform = 'scale(0.92)';
+          }}
+          onTouchEnd={(e) => {
+            e.currentTarget.style.transform = 'scale(1)';
+          }}
         >
-          💼
+          <img
+            src="/assets/cropped/tuido-icon.png"
+            alt="Túi Đồ"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              display: 'block',
+              pointerEvents: 'none',
+            }}
+            onError={(e) => {
+              if (!e.currentTarget.src.includes('tui-do.png')) {
+                e.currentTarget.src = '/assets/tui-do.png';
+              }
+            }}
+          />
         </button>
 
-        {/* Vùng Bấm Gieo Xúc Xắc Tại Footer (Trong Suốt, Bỏ Vòng Bo Tròn Bao Quanh) */}
-        <div style={{ position: 'relative' }}>
-          <button
-            onClick={!disabled ? onRollClick : undefined}
-            disabled={disabled}
-            title="Chạm vào để Gieo Xúc Xắc"
-            aria-label="Gieo xúc xắc"
-            style={{
-              width: '74px',
-              height: '74px',
-              background: 'transparent',
-              border: 'none',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: disabled ? 'not-allowed' : 'pointer',
-              opacity: disabled ? 0.6 : 1,
-              padding: 0,
-            }}
-          ><Dice3D docked value={lastDiceValue || 1} isRolling={false} disabled onRollClick={onRollClick} isUpOnLawn={false} /></button>
-        </div>
-
-        {/* Nút Nhật Ký (Icon Trực Tiếp, Bỏ Viền Bo Vuông) */}
+        {/* Ở Giữa: Nút Lắc Xúc Xắc Nằm Sát Đáy Chân Thực, To Rõ Dễ Bấm */}
         <button
-          onClick={onLogClick}
-          title="Nhật Ký Hành Trình"
+          onClick={onRollPress}
+          disabled={isDisabled}
+          title={isDisabled ? 'Đang thực hiện lượt...' : 'Chạm để Gieo Xúc Xắc'}
+          aria-label="Lắc Xúc Xắc"
           style={{
-            background: 'transparent',
+            background: 'none',
             border: 'none',
+            padding: 0,
+            cursor: isDisabled ? 'not-allowed' : 'pointer',
+            opacity: isDisabled ? 0.65 : 1,
+            outline: 'none',
+            transition: 'transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            filter: 'drop-shadow(0 10px 24px rgba(0, 0, 0, 0.6))',
+            animation: !isDisabled ? 'nutlacBreathe 2.4s infinite ease-in-out' : 'none',
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            cursor: 'pointer',
-            padding: '8px',
-            fontSize: '34px',
-            lineHeight: 1,
-            filter: 'drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4))',
-            transition: 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            marginBottom: '-4px',
+            minWidth: '48px',
+            minHeight: '48px',
+            width: 'clamp(124px, 34vw, 152px)',
+            height: 'clamp(52px, 14vw, 64px)',
+            boxSizing: 'border-box',
           }}
-          onMouseDown={(e) => { e.currentTarget.style.transform = 'scale(0.88)'; }}
-          onMouseUp={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
-          onTouchStart={(e) => { e.currentTarget.style.transform = 'scale(0.88)'; }}
-          onTouchEnd={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+          onMouseDown={(e) => {
+            if (!isDisabled) e.currentTarget.style.transform = 'scale(0.92)';
+          }}
+          onMouseUp={(e) => {
+            if (!isDisabled) e.currentTarget.style.transform = 'scale(1)';
+          }}
+          onTouchStart={(e) => {
+            if (!isDisabled) e.currentTarget.style.transform = 'scale(0.92)';
+          }}
+          onTouchEnd={(e) => {
+            if (!isDisabled) e.currentTarget.style.transform = 'scale(1)';
+          }}
         >
-          📜
+          <img
+            src="/assets/cropped/nutlac-btn.png"
+            alt="Lắc Xúc Xắc"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              display: 'block',
+              pointerEvents: 'none',
+            }}
+            onError={(e) => {
+              if (!e.currentTarget.src.includes('nutlac.PNG')) {
+                e.currentTarget.src = '/assets/nutlac.PNG';
+              }
+            }}
+          />
+        </button>
+
+        {/* Bên Phải: Nút Sổ Tay (Kiến Thức) (Icon Huy Hiệu Gỗ To Đẹp) */}
+        <button
+          onClick={onGuidePress}
+          title="Sổ Tay Chiến Lược (Kiến Thức)"
+          aria-label="Sổ Tay"
+          className="medieval-icon-btn"
+          style={{
+            background: 'none',
+            border: 'none',
+            padding: '2px',
+            cursor: 'pointer',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            outline: 'none',
+            marginBottom: '4px',
+            minWidth: '48px',
+            minHeight: '48px',
+            width: 'clamp(56px, 16vw, 68px)',
+            height: 'clamp(56px, 16vw, 68px)',
+            boxSizing: 'border-box',
+            filter: 'drop-shadow(0 6px 14px rgba(0, 0, 0, 0.55))',
+            transition: 'transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          }}
+          onMouseDown={(e) => {
+            e.currentTarget.style.transform = 'scale(0.92)';
+          }}
+          onMouseUp={(e) => {
+            e.currentTarget.style.transform = 'scale(1)';
+          }}
+          onTouchStart={(e) => {
+            e.currentTarget.style.transform = 'scale(0.92)';
+          }}
+          onTouchEnd={(e) => {
+            e.currentTarget.style.transform = 'scale(1)';
+          }}
+        >
+          <img
+            src="/assets/cropped/sotay-full-icon.png"
+            alt="Sổ Tay"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              display: 'block',
+              pointerEvents: 'none',
+            }}
+            onError={(e) => {
+              if (!e.currentTarget.src.includes('sotay.PNG')) {
+                e.currentTarget.src = '/assets/sotay.PNG';
+              }
+            }}
+          />
         </button>
       </div>
 
       <style>{`
-        @keyframes diceButtonBreathe {
+        @keyframes nutlacBreathe {
           0%, 100% {
             transform: scale(1);
-            box-shadow: 0 10px 24px rgba(217, 119, 6, 0.55), inset 0 2px 6px rgba(255, 255, 255, 0.65);
           }
           50% {
-            transform: scale(1.08);
-            box-shadow: 0 16px 36px rgba(245, 158, 11, 0.85), inset 0 2px 8px rgba(255, 255, 255, 0.85);
+            transform: scale(1.05);
           }
         }
       `}</style>
