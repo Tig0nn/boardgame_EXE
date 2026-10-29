@@ -337,7 +337,7 @@ export default function App() {
     else { sound.unlockAudio(); sound.startBgm() }
   }
 
-  const [tutorial, setTutorial] = useState<'first' | 'help' | null>(null)
+  const [tutorial, setTutorial] = useState<'first' | 'help' | null>(() => hasSeenTutorial() ? null : 'first')
   const openHelp = () => setTutorial('help')
 
   // Bấm PLAY trên EntranceScreen: vào thẳng màn hình Bản Đồ 4 Vòng
