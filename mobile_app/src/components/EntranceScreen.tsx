@@ -76,9 +76,12 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
         pointerEvents: 'auto',
       }}
     >
-      {/* 1. Nền Màn Hình Chờ Trung Cổ splash-game.png */}
+      {/* 1. Nền Màn Hình Chờ Xoay Vòng Tiến Lui (WebP Q88 tối ưu hóa kèm fallback) */}
       <img
-        src="/assets/splash-game.png"
+        src="/assets/splash-game.webp"
+        onError={(e) => {
+          (e.currentTarget as HTMLImageElement).src = '/assets/splash-game.png';
+        }}
         alt="Màn hình chờ Xoay Vòng Tiến Lui"
         className="pointer-events-none select-none"
         style={{

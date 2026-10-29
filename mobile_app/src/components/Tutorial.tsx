@@ -69,10 +69,12 @@ export function Tutorial({
   firstTime,
   onClose,
   game,
+  onHelp,
 }: {
   firstTime: boolean
   onClose: () => void
   game?: GameState
+  onHelp?: () => void
 }) {
   const [index, setIndex] = useState(0)
   const heading = useRef<HTMLHeadingElement>(null)
@@ -99,6 +101,7 @@ export function Tutorial({
       badgeText={firstTime ? 'CHÀO MỪNG TÂN BINH' : 'SỔ TAY HÀNH TRÌNH'}
       title="Hướng dẫn chơi"
       onClose={firstTime ? undefined : onClose}
+      onHelp={firstTime ? undefined : onHelp}
       primaryAction={{
         label:
           index === steps.length - 1

@@ -57,9 +57,12 @@ export const BoardView: React.FC<BoardViewProps> = ({
         }} />
       )}
 
-      {/* 1. Nền Cỏ Game (Layer 1) */}
+      {/* 1. Nền Cỏ Game (Layer 1 - Tối ưu WebP Q88 kèm fallback) */}
       <img
-        src="/assets/main-background.png"
+        src="/assets/main-background.webp"
+        onError={(e) => {
+          (e.currentTarget as HTMLImageElement).src = '/assets/main-background.png';
+        }}
         alt="Nền bàn cờ"
         style={{
           position: 'absolute',

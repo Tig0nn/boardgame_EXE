@@ -136,7 +136,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
           maxWidth: '360px',
           height: '84vh',
           maxHeight: '710px',
-          backgroundImage: 'url(/assets/luat-choi.png)',
+          backgroundImage: 'url(/assets/luat-choi.webp)',
           backgroundSize: '100% 100%',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',

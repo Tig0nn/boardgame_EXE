@@ -4,15 +4,16 @@
  */
 
 const CRITICAL_ASSETS = [
-  '/assets/splash-game.png',
+  '/assets/splash-game.webp',
   '/assets/play-icon.png',
   '/assets/sound-btn.png',
   '/assets/setting-btn.png',
   '/assets/setting-frame.png',
-  '/assets/layer-2-clean.png',
-  '/assets/layer-1-clean.PNG',
+  '/assets/layer-2-clean.webp',
+  '/assets/layer-1-clean.webp',
   '/assets/oke-btn.png',
-  '/assets/main-background.png',
+  '/assets/main-background.webp',
+  '/assets/luat-choi.webp',
   '/assets/playboard-4.PNG',
   '/assets/sectionplay.PNG',
   '/assets/nut-home.PNG',

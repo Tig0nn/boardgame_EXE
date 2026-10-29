@@ -43,10 +43,10 @@ export const BookHelpButton: React.FC<BookHelpButtonProps> = ({
       className={`hover:scale-110 active:scale-95 transition-transform duration-150 cursor-pointer ${className}`}
       style={{
         position: 'absolute',
-        top: '6px',
-        right: '10px',
-        width: '34px',
-        height: '34px',
+        top: '10px',
+        right: '12px',
+        width: '32px',
+        height: '32px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -54,7 +54,7 @@ export const BookHelpButton: React.FC<BookHelpButtonProps> = ({
         border: 'none',
         padding: 0,
         zIndex: 35,
-        filter: 'drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.35))',
+        filter: 'drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.25))',
         cursor: 'pointer',
         transition: 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)',
         ...style,
@@ -175,20 +175,11 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
           </div>
         )}
 
-        {/* Nút Sổ Tay Chiến Lược 3D Gamified (Không viền tròn thô, thả nổi tự nhiên) */}
-        {onHelp && (
-          <BookHelpButton
-            onClick={() => {
-              sound.playClick()
-              onHelp()
-            }}
-          />
-        )}
-
-        {/* Lòng Thẻ Glassmorphic Anime Canvas (Tinh Gọn) */}
+        {/* Lòng Thẻ Glassmorphic Anime Canvas (Khung Trắng Nội Dung) */}
         <div
           className="flex-1 flex flex-col overflow-hidden bg-white/95 rounded-[26px] m-1 p-3 px-4 py-3"
           style={{
+            position: 'relative',
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
@@ -199,7 +190,7 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
             WebkitBackdropFilter: 'blur(16px)',
             margin: '4px',
             marginTop: badgeText ? '16px' : '4px',
-            padding: '12px 16px 10px 16px',
+            padding: '12px 14px 10px 14px',
             boxSizing: 'border-box',
             border: '1.5px solid rgba(255, 255, 255, 0.9)',
             boxShadow: 'inset 0 2px 5px rgba(0, 0, 0, 0.03)',
@@ -208,6 +199,24 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
             textOrientation: 'mixed',
           }}
         >
+          {/* Nút Sổ Tay Chiến Lược 3D Gamified NẰM GỌN TRONG KHUNG TRẮNG (Áp sát góc trên phải) */}
+          {onHelp && (
+            <BookHelpButton
+              onClick={() => {
+                sound.playClick()
+                onHelp()
+              }}
+              style={{
+                position: 'absolute',
+                top: '10px',
+                right: '12px',
+                width: '32px',
+                height: '32px',
+                zIndex: 35,
+              }}
+            />
+          )}
+
           {/* 1. HEADER ZONE (FIXED - flex-shrink-0) */}
           {title && (
             <div
@@ -215,6 +224,8 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
               style={{
                 flexShrink: 0,
                 paddingBottom: '6px',
+                paddingLeft: onHelp ? '36px' : '10px',
+                paddingRight: onHelp ? '36px' : '10px',
                 textAlign: 'center',
                 writingMode: 'horizontal-tb',
               }}

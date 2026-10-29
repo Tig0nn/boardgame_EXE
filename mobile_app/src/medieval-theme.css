@@ -107,7 +107,7 @@ dialog.modal::backdrop {
   width: min(420px, 92vw);
   max-width: 92vw;
   max-height: min(600px, 80vh);
-  background-image: url('/assets/layer-2-clean.png');
+  background-image: url('/assets/layer-2-clean.webp');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.85));
