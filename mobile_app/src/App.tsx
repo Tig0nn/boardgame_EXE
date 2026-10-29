@@ -17,7 +17,7 @@ import { GamePhase } from './components/GamePhase'
 import { createMvpMobileGame, createMobileSession, movementPath } from './game/session'
 import type { MobileCommand } from './game/session'
 import { sound } from './utils/audio'
-import { hasSeenTutorial, rememberTutorial } from './game/onboarding'
+import { hasSeenTutorial, rememberTutorial, isTutorialDisabled } from './game/onboarding'
 import { Tutorial } from './components/Tutorial'
 import './engine-ui.css'
 import './core-mvp.css'
@@ -29,6 +29,8 @@ import { preloadGameAssets } from './utils/preloader'
 import { EntranceScreen } from './components/EntranceScreen'
 import { UnifiedManagementSheet } from './components/UnifiedManagementSheet'
 import { SettingsModal } from './components/SettingsModal'
+import { MapScreen } from './components/MapScreen'
+import type { MapNodeConfig } from './game/map-progress'
 
 // Coordinates are artwork metadata; category/order/labels come from the official C20 or B18 board.
 const coordinatesFor = (board: ReturnType<typeof boardFor>) => {
@@ -276,16 +278,20 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
 }
 
 export default function App() {
-  const [screen, setScreen] = useState<'entrance' | 'game' | 'setup'>('entrance')
+  const [screen, setScreen] = useState<'entrance' | 'map' | 'game' | 'setup'>('entrance')
   const [session, setSession] = useState<Session | null>(null)
   const [saved, setSaved] = useState(() => loadGameLocally())
   const [saveNotice, setSaveNotice] = useState('')
   const [muted, setMuted] = useState(() => sound.isMuted)
   const [settingsOpen, setSettingsOpen] = useState(false)
+  const [mapOverlay, setMapOverlay] = useState<'portfolio' | 'rules' | null>(null)
 
   useEffect(() => { preloadGameAssets() }, [])
 
-  const returnToEntrance = () => {
+  // Chương 1 (Node 1) là chương duy nhất mở khóa, gồm 4 vòng chơi (Laps 1-4).
+  // Các vòng chơi thuộc tiến trình nội bộ của Chương 1, không nhảy node hay mở khóa Chương 2-5.
+
+  const returnToMap = () => {
     if (session) {
       const latest = session.getSnapshot()
       if (latest.phase === 'finished') {
@@ -297,7 +303,7 @@ export default function App() {
         setSaveNotice(persisted ? '' : 'Ván mới nhất chỉ còn trong phiên này vì trình duyệt không lưu được.')
       }
     }
-    setScreen('entrance')
+    setScreen('map')
   }
 
   const handleStartFreshGame = () => {
@@ -308,14 +314,19 @@ export default function App() {
     setScreen('game')
   }
 
-  const handle1ClickPlay = () => {
+  const handlePlayNode = (node: MapNodeConfig) => {
+    sound.playClick()
+    void node.id
     if (saved && saved.phase !== 'finished') {
       setSession(createMobileSession(saved))
+      setScreen('game')
     } else {
       handleStartFreshGame()
-      return
     }
-    setScreen('game')
+    // Chạm Node 1: nếu là tân binh, mở trực tiếp modal "Chào Tân Binh" trên bàn cờ
+    if (!isTutorialDisabled() && !hasSeenTutorial()) {
+      setTutorial('first')
+    }
   }
 
   const handleToggleSound = () => {
@@ -329,21 +340,20 @@ export default function App() {
   const [tutorial, setTutorial] = useState<'first' | 'help' | null>(null)
   const openHelp = () => setTutorial('help')
 
-  // Bấm PLAY trên EntranceScreen: người mới mở modal Chào Tân Binh, người cũ vào thẳng game
+  // Bấm PLAY trên EntranceScreen: vào thẳng màn hình Bản Đồ 4 Vòng
   const handlePlayFromEntrance = () => {
-    if (!hasSeenTutorial()) {
-      setTutorial('first')
-    } else {
-      handle1ClickPlay()
-    }
+    sound.playClick()
+    setScreen('map')
   }
 
   const closeTutorial = () => {
     if (tutorial === 'first') {
       rememberTutorial()
-      handle1ClickPlay()
     }
     setTutorial(null)
+    if (screen === 'entrance') {
+      setScreen('map')
+    }
   }
 
   return (
@@ -362,6 +372,19 @@ export default function App() {
             <div style={{ display: 'none' }} aria-hidden="true" id="initial-savings" />
           )}
         </MobileContainer>
+      ) : screen === 'map' ? (
+        <MobileContainer>
+          <MapScreen
+            onBack={() => setScreen('entrance')}
+            onPlayNode={handlePlayNode}
+            onOpenSettings={() => setSettingsOpen(true)}
+            isMuted={muted}
+            onToggleMute={handleToggleSound}
+            game={session ? session.getSnapshot() : (saved || undefined)}
+            onOpenInventory={() => setMapOverlay('portfolio')}
+            onOpenRules={() => setMapOverlay('rules')}
+          />
+        </MobileContainer>
       ) : screen === 'setup' ? (
         <MobileContainer>
           <GameSetup
@@ -377,12 +400,30 @@ export default function App() {
           <GameExperience
             session={session}
             onRestart={handleStartFreshGame}
-            onHome={returnToEntrance}
+            onHome={returnToMap}
             onHelp={openHelp}
             helpOpen={!!tutorial}
           />
         )
       )}
+
+      {/* Root Layer Modals cho Map Screen (chuẩn hóa kích thước tương đương Playboard, tránh scale-down) */}
+      {screen === 'map' && mapOverlay === 'portfolio' && (
+        <UnifiedManagementSheet
+          game={session ? session.getSnapshot() : (saved || createMvpMobileGame('map-preview', 0, 1))}
+          initialTab="portfolio"
+          onClose={() => setMapOverlay(null)}
+          onHelp={() => setMapOverlay('rules')}
+        />
+      )}
+      {screen === 'map' && mapOverlay === 'rules' && (
+        <UnifiedGameGuide
+          firstTime={false}
+          onClose={() => setMapOverlay(null)}
+          game={session?.getSnapshot() || saved || undefined}
+        />
+      )}
+
       {tutorial === 'first' ? (
         <Tutorial firstTime onClose={closeTutorial} />
       ) : tutorial === 'help' ? (

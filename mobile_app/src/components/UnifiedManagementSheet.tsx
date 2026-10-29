@@ -79,15 +79,15 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
         }
       }}
     >
-      {/* Khung Sổ Quản Lý Bìa Giấy Da Cổ Điển (#F5EBE6 / #E3CCA9) — layer-2-clean.png */}
+      {/* Khung Sổ Quản Lý Bìa Giấy Da Cổ Điển (#F5EBE6 / #E3CCA9) — Chuẩn hóa kích thước đồng bộ: min(92%, 400px) x min(86vh, 700px) */}
       <div
-        className="w-[90%] max-w-[350px] h-[80vh] max-h-[660px] mx-auto relative overflow-hidden flex flex-col shadow-2xl bg-transparent"
+        className="w-[92%] max-w-[400px] mx-auto relative overflow-hidden flex flex-col shadow-2xl bg-transparent"
         style={{
           position: 'relative',
-          width: '90%',
-          maxWidth: '350px',
-          height: '80vh',
-          maxHeight: '660px',
+          width: 'min(92%, 400px)',
+          maxWidth: '400px',
+          height: 'min(86vh, 700px)',
+          maxHeight: '700px',
           background: 'linear-gradient(175deg, #FDF8F3 0%, #F5EBE6 30%, #ECDCC2 75%, #E3CCA9 100%)',
           border: '3.5px solid #8C5828',
           outline: '2px solid #5C3513',
@@ -148,14 +148,14 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
         {/* Cặp nút mũi tên Trái & Phải đã được gỡ bỏ hoàn toàn theo yêu cầu UI mới */}
         {/* Navigation arrows stripped per UI overhaul: disabled={activeTab === 'portfolio'}, disabled={activeTab === 'log'} */}
 
-        {/* VÙNG NỘI DUNG NẰM TRỌN TRONG PARCHMENT (Edge-to-Edge cân đối px-4 sm:px-5) */}
+        {/* VÙNG NỘI DUNG NẰM TRỌN TRONG PARCHMENT (Edge-to-Edge cân đối px-3.5) */}
         <div
-          className="px-4 sm:px-5"
+          className="px-3.5 sm:px-4"
           style={{
             position: 'relative',
             width: '100%',
             height: '100%',
-            padding: '16px 16px 12px 16px',
+            padding: '12px 14px 8px 14px',
             display: 'flex',
             flexDirection: 'column',
             boxSizing: 'border-box',
@@ -168,11 +168,11 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              paddingBottom: '8px',
+              paddingBottom: '5px',
               borderBottom: '1.5px solid rgba(184, 144, 91, 0.4)',
-              marginBottom: '6px',
+              marginBottom: '4px',
               flexShrink: 0,
-              gap: '8px',
+              gap: '6px',
               width: '100%',
             }}
           >
@@ -185,8 +185,8 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                 border: 'none',
                 borderRadius: '8px',
                 borderBottom: activeTab === 'portfolio' ? '2.5px solid #b45309' : '2.5px solid transparent',
-                padding: '4px 12px',
-                fontSize: '13px',
+                padding: '3px 10px',
+                fontSize: '12.5px',
                 fontWeight: activeTab === 'portfolio' ? 800 : 600,
                 cursor: 'pointer',
                 display: 'flex',
@@ -210,8 +210,8 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                 border: 'none',
                 borderRadius: '8px',
                 borderBottom: activeTab === 'log' ? '2.5px solid #b45309' : '2.5px solid transparent',
-                padding: '4px 12px',
-                fontSize: '13px',
+                padding: '3px 10px',
+                fontSize: '12.5px',
                 fontWeight: activeTab === 'log' ? 800 : 600,
                 cursor: 'pointer',
                 display: 'flex',
@@ -233,12 +233,12 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
               <div
                 style={{
                   flexShrink: 0,
-                  paddingBottom: '6px',
+                  paddingBottom: '4px',
                   borderBottom: '1px solid rgba(184, 144, 91, 0.35)',
-                  marginBottom: '4px',
+                  marginBottom: '3px',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '4px',
+                  gap: '3px',
                 }}
               >
                 {/* Net Worth */}
@@ -353,16 +353,16 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                     WebkitOverflowScrolling: 'touch',
                     overscrollBehavior: 'contain',
                     paddingRight: '4px',
-                    paddingBottom: '24px',
+                    paddingBottom: '10px',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '4px',
+                    gap: '3px',
                     fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
                     color: '#2c1808',
                   }}
                 >
                   {/* DANH SÁCH TÀI SẢN (FLAT ASSET LIST) */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
                     {Object.entries(ASSETS).map(([key, asset]) => {
                       const amount = game.portfolio[key as keyof typeof ASSETS];
                       const locked =
@@ -377,8 +377,8 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'space-between',
-                            padding: '4px 0',
-                            borderBottom: '1px dashed rgba(184, 144, 91, 0.25)',
+                            padding: '3px 0',
+                            borderBottom: '1px dashed rgba(184, 144, 91, 0.22)',
                             fontSize: '12px',
                             opacity: locked ? 0.65 : 1,
                           }}

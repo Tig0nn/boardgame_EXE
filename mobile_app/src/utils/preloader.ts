@@ -24,6 +24,22 @@ const CRITICAL_ASSETS = [
   '/assets/cropped/nutlac-btn.webp',
   '/assets/cropped/xucxac-icon.png',
   '/assets/cropped/sectionplay-board.png',
+  '/assets/map-no-nodes.webp',
+  '/assets/map-chapter-1.png',
+  '/assets/map-chapter-2.png',
+  '/assets/map-chapter-3.png',
+  '/assets/map-chapter-4.png',
+  '/assets/map-chapter-5.png',
+  '/assets/map-chapter-1.webp',
+  '/assets/map-chapter-2.webp',
+  '/assets/map-chapter-3.webp',
+  '/assets/map-chapter-4.webp',
+  '/assets/map-chapter-5.webp',
+  '/assets/nodes/node-1.webp',
+  '/assets/nodes/node-2.webp',
+  '/assets/nodes/node-3.webp',
+  '/assets/nodes/node-4.webp',
+  '/assets/nodes/node-5.webp',
 ];
 
 const loadedCache = new Set<string>();

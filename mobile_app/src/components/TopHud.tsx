@@ -88,18 +88,21 @@ export function TopHud({
           {onHome ? (
             <button
               onClick={onHome}
-              title="Quay lại Màn hình chờ"
-              aria-label="Về trang chủ"
+              title="Quay lại Bản đồ"
+              aria-label="Quay lại Bản đồ"
               className="medieval-icon-btn"
               style={{
+                width: 'clamp(32px, 8.5vw, 38px)',
+                height: 'clamp(32px, 8.5vw, 38px)',
                 background: 'transparent',
                 border: 'none',
                 padding: 0,
                 cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 flexShrink: 0,
-                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.5))',
+                filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.5))',
                 transition: 'transform 0.12s ease',
               }}
               onPointerDown={(e) => {
@@ -110,12 +113,12 @@ export function TopHud({
               }}
             >
               <img
-                src="/assets/cropped/app-logo.png"
+                src="/assets/cropped/home-luat-choi-btn.png"
                 onError={(e) => {
-                  e.currentTarget.src = '/assets/icon.PNG'
+                  e.currentTarget.src = '/assets/nut-home-luat-choi.png'
                 }}
-                alt="Mỏ Hỗn (Xoay Vòng Tiến Lui)"
-                style={{ height: 'clamp(34px, 9.5vw, 42px)', width: 'auto', objectFit: 'contain' }}
+                alt="Quay lại Bản đồ"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
               />
             </button>
           ) : (

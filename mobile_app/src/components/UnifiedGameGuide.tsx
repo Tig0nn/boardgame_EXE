@@ -127,14 +127,15 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
         }
       }}
     >
-      {/* Khung Sổ Tay / Bảng Gỗ Luật Chơi luat-choi.webp (2 Thanh gỗ nguyên bản chạm sát mép trần Top) */}
+      {/* Khung Sổ Tay / Bảng Gỗ Luật Chơi luat-choi.webp (Chuẩn hóa kích thước đồng bộ: min(92%, 400px) x min(86vh, 700px)) */}
       <div
-        className="guide-board-wrapper w-[94%] max-w-[390px] mx-auto relative flex flex-col shadow-2xl bg-transparent"
+        className="guide-board-wrapper w-[92%] max-w-[400px] mx-auto relative flex flex-col shadow-2xl bg-transparent"
         style={{
           position: 'relative',
-          width: '94%',
-          maxWidth: '390px',
-          height: 'min(98vh, 760px)',
+          width: 'min(92%, 400px)',
+          maxWidth: '400px',
+          height: 'min(86vh, 700px)',
+          maxHeight: '700px',
           marginTop: '-4px',
           backgroundImage: 'url(/assets/luat-choi.webp)',
           backgroundSize: '100% 100%',
@@ -164,10 +165,10 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
             aria-label="Đóng"
             style={{
               position: 'absolute',
-              top: '6.2%',
-              right: '6.5%',
-              width: '42px',
-              height: '42px',
+              top: '5.6%',
+              right: '6.2%',
+              width: '38px',
+              height: '38px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -192,8 +193,8 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
               }}
               alt="Đóng"
               style={{
-                width: '36px',
-                height: '36px',
+                width: '32px',
+                height: '32px',
                 objectFit: 'contain',
                 filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))',
               }}
@@ -201,7 +202,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
           </button>
         )}
 
-        {/* Nút Mũi Tên Trái (Left Arrow) - asset left-button.PNG */}
+        {/* Nút Mũi Tên Trái (Left Arrow) */}
         <button
           onClick={() => navigateTo(currentTab - 1)}
           disabled={currentTab === 0}
@@ -209,18 +210,18 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
           aria-label="Chương trước"
           style={{
             position: 'absolute',
-            left: '3.5%',
+            left: '2%',
             top: '49%',
             transform: 'translateY(-50%)',
-            width: '40px',
-            height: '48px',
+            width: '36px',
+            height: '44px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             background: 'transparent',
             border: 'none',
             cursor: currentTab === 0 ? 'default' : 'pointer',
-            opacity: currentTab === 0 ? 0.25 : 1,
+            opacity: currentTab === 0 ? 0.2 : 0.95,
             padding: 0,
             zIndex: 35,
             transition: 'opacity 0.2s ease, transform 0.15s ease',
@@ -238,11 +239,11 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
               (e.currentTarget as HTMLImageElement).src = '/assets/left-button.PNG';
             }}
             alt="Trước"
-            style={{ width: '28px', height: '36px', objectFit: 'contain' }}
+            style={{ width: '26px', height: '34px', objectFit: 'contain' }}
           />
         </button>
 
-        {/* Nút Mũi Tên Phải (Right Arrow) - asset right-button.PNG */}
+        {/* Nút Mũi Tên Phải (Right Arrow) */}
         <button
           onClick={() => navigateTo(currentTab + 1)}
           disabled={currentTab === chapters.length - 1}
@@ -250,18 +251,18 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
           aria-label="Chương sau"
           style={{
             position: 'absolute',
-            right: '3.5%',
+            right: '2%',
             top: '49%',
             transform: 'translateY(-50%)',
-            width: '40px',
-            height: '48px',
+            width: '36px',
+            height: '44px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             background: 'transparent',
             border: 'none',
             cursor: currentTab === chapters.length - 1 ? 'default' : 'pointer',
-            opacity: currentTab === chapters.length - 1 ? 0.25 : 1,
+            opacity: currentTab === chapters.length - 1 ? 0.2 : 0.95,
             padding: 0,
             zIndex: 35,
             transition: 'opacity 0.2s ease, transform 0.15s ease',
@@ -280,17 +281,17 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
               (e.currentTarget as HTMLImageElement).src = '/assets/right-button.PNG';
             }}
             alt="Sau"
-            style={{ width: '28px', height: '36px', objectFit: 'contain' }}
+            style={{ width: '26px', height: '34px', objectFit: 'contain' }}
           />
         </button>
 
-        {/* VÙNG NỘI DUNG NẰM HOÀN TOÀN TRONG PHẦN GIẤY PARCHMENT CỦA BẢNG */}
-        {/* Bounds: Top 18%, Bottom 23.5%, Left 13.5%, Right 13.5% */}
+        {/* VÙNG NỘI DUNG NẰM HOÀN TOÀN TRONG PHẦN GIẤY PARCHMENT CỦA BẢNG - KHÔNG TRÀN RA NGOÀI */}
+        {/* Bounds: Top 16.5%, Bottom 26%, Left 13.5%, Right 13.5% */}
         <div
           style={{
             position: 'absolute',
-            top: '18%',
-            bottom: '23.5%',
+            top: '16.5%',
+            bottom: '26%',
             left: '13.5%',
             right: '13.5%',
             display: 'flex',

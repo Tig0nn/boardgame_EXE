@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { sound } from '../utils/audio'
 import { GamifiedModal } from './GamifiedModal'
+import { isTutorialDisabled, setTutorialDisabled } from '../game/onboarding'
 
 interface SettingsModalProps {
   isOpen: boolean
@@ -19,11 +20,20 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   onRestart,
   onHelp,
 }) => {
+  const [tutDisabled, setTutDisabled] = useState(() => isTutorialDisabled())
+
   if (!isOpen) return null
 
   const handleToggleSound = () => {
     sound.playClick()
     onToggleMute()
+  }
+
+  const handleToggleTutorial = () => {
+    sound.playClick()
+    const next = !tutDisabled
+    setTutDisabled(next)
+    setTutorialDisabled(next)
   }
 
   const handleRestart = () => {
@@ -116,7 +126,79 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         </button>
       </div>
 
-      {/* 2. THẺ HƯỚNG DẪN & SỔ TAY */}
+      {/* 2. THẺ BẬT/TẮT HƯỚNG DẪN TÂN BINH */}
+      <div
+        style={{
+          background: '#FFFFFF',
+          border: '1.5px solid #E2E8F0',
+          borderRadius: '20px',
+          padding: '12px 14px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div
+            style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '12px',
+              background: tutDisabled ? '#F1F5F9' : '#EDE9FE',
+              color: tutDisabled ? '#64748B' : '#7C3AED',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '20px',
+            }}
+          >
+            🎓
+          </div>
+          <div>
+            <div style={{ fontSize: '14px', fontWeight: 900, color: '#1E1B4B' }}>
+              Hướng Dẫn Tân Binh
+            </div>
+            <div style={{ fontSize: '11.5px', color: '#64748B', fontWeight: 600 }}>
+              {tutDisabled ? 'Đã tắt tự động' : 'Tự động mở khi bấm Play'}
+            </div>
+          </div>
+        </div>
+
+        {/* Toggle Switch */}
+        <button
+          onClick={handleToggleTutorial}
+          type="button"
+          aria-label={tutDisabled ? 'Bật hướng dẫn' : 'Tắt hướng dẫn'}
+          style={{
+            width: '52px',
+            height: '30px',
+            borderRadius: '9999px',
+            background: tutDisabled ? '#CBD5E1' : '#8B5CF6',
+            border: 'none',
+            padding: '3px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            transition: 'background 0.2s ease',
+            boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.15)',
+          }}
+        >
+          <div
+            style={{
+              width: '24px',
+              height: '24px',
+              borderRadius: '50%',
+              background: '#FFFFFF',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.25)',
+              transform: tutDisabled ? 'translateX(0)' : 'translateX(22px)',
+              transition: 'transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            }}
+          />
+        </button>
+      </div>
+
+      {/* 3. THẺ HƯỚNG DẪN & SỔ TAY */}
       {onHelp && (
         <button
           onClick={() => {
