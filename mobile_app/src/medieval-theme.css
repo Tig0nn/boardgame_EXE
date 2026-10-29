@@ -56,8 +56,24 @@ body, button, input, select, textarea, dialog {
 
 
 /* ==========================================================================
-   STRIP ALL DIALOG WHITE RECTANGLE BACKGROUNDS
+   STRIP ALL DIALOG WHITE RECTANGLE BACKGROUNDS & ENFORCE HORIZONTAL WRITING
    ========================================================================== */
+
+dialog.modal,
+dialog.modal.mobile-event,
+dialog.modal.medieval-journal-modal,
+dialog.modal.financial-modal,
+dialog.modal.economic-event,
+dialog.modal.start-summary,
+.modal,
+.gamified-modal-backdrop,
+.gamified-modal-card,
+.device-wrapper,
+.device-frame,
+.game-viewport {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+}
 
 dialog.modal,
 dialog.modal.mobile-event,

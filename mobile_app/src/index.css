@@ -111,6 +111,7 @@ html, body {
   left: 0;
   transform-origin: top left;
   overflow: hidden;
+  pointer-events: auto;
 }
 
 /* Tiện ích typography */

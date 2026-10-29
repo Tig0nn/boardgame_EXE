@@ -67,7 +67,7 @@ export const MobileContainer: React.FC<MobileContainerProps> = ({ children, over
         }} />
 
         {/* Viewport Game Canvas 940x1672 co giãn đồng bộ */}
-        <div className="game-viewport" style={transformStyle}>
+        <div className="game-viewport" style={{ ...transformStyle, pointerEvents: 'auto' }}>
           {children}
         </div>
         {overlay}

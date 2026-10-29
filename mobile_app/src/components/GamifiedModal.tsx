@@ -97,6 +97,7 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
 }) => {
   return (
     <div
+      className="gamified-modal-backdrop"
       style={{
         position: 'fixed',
         inset: 0,
@@ -110,6 +111,9 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
         padding: '8px',
         animation: 'fadeIn 0.18s ease-out',
         boxSizing: 'border-box',
+        writingMode: 'horizontal-tb',
+        textOrientation: 'mixed',
+        pointerEvents: 'auto',
       }}
       onClick={(e) => {
         if (e.target === e.currentTarget && onClose) {
@@ -120,7 +124,7 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
     >
       {/* Khung Tinh Gọn Chuẩn Di Động (w-[90%] max-w-[360px] h-[80vh] max-h-[680px]) */}
       <div
-        className={`w-[90%] max-w-[360px] h-[80vh] max-h-[680px] mx-auto rounded-[32px] border-4 border-emerald-400 shadow-2xl flex flex-col relative overflow-visible bg-white ${className}`}
+        className={`gamified-modal-card w-[90%] max-w-[360px] h-[80vh] max-h-[680px] mx-auto rounded-[32px] border-4 border-emerald-400 shadow-2xl flex flex-col relative overflow-visible bg-white ${className}`}
         style={{
           position: 'relative',
           width: '90%',
@@ -135,9 +139,12 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
           boxShadow: '0 20px 50px rgba(0, 0, 0, 0.75), 0 0 20px rgba(52, 211, 153, 0.35)',
           fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
           boxSizing: 'border-box',
+          writingMode: 'horizontal-tb',
+          textOrientation: 'mixed',
           animation: 'animePopupScale 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
           userSelect: 'none',
           overflow: 'visible',
+          pointerEvents: 'auto',
         }}
       >
         {/* Ruy Băng Hồng Nhỏ Nhắn Tinh Tế (Compact Ribbon) */}
@@ -197,6 +204,8 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
             border: '1.5px solid rgba(255, 255, 255, 0.9)',
             boxShadow: 'inset 0 2px 5px rgba(0, 0, 0, 0.03)',
             color: '#1E1B4B',
+            writingMode: 'horizontal-tb',
+            textOrientation: 'mixed',
           }}
         >
           {/* 1. HEADER ZONE (FIXED - flex-shrink-0) */}
@@ -207,6 +216,7 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
                 flexShrink: 0,
                 paddingBottom: '6px',
                 textAlign: 'center',
+                writingMode: 'horizontal-tb',
               }}
             >
               <h2
@@ -216,6 +226,7 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
                   fontWeight: 900,
                   color: '#1E1B4B',
                   letterSpacing: '-0.2px',
+                  writingMode: 'horizontal-tb',
                 }}
               >
                 {title}
@@ -236,6 +247,8 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
               flexDirection: 'column',
               gap: '10px',
               boxSizing: 'border-box',
+              writingMode: 'horizontal-tb',
+              textOrientation: 'mixed',
             }}
           >
             {children}

@@ -68,6 +68,9 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
         backdropFilter: 'blur(8px)',
         WebkitBackdropFilter: 'blur(8px)',
         animation: 'fadeIn 0.2s ease',
+        writingMode: 'horizontal-tb',
+        textOrientation: 'mixed',
+        pointerEvents: 'auto',
       }}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -96,6 +99,9 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
           display: 'flex',
           flexDirection: 'column',
           animation: 'sheetScaleUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          writingMode: 'horizontal-tb',
+          textOrientation: 'mixed',
+          pointerEvents: 'auto',
         }}
       >
         {/* Nút đóng góc trên bên phải bằng asset nút exit.png */}

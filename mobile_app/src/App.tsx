@@ -281,6 +281,7 @@ export default function App() {
   const [saved, setSaved] = useState(() => loadGameLocally())
   const [saveNotice, setSaveNotice] = useState('')
   const [muted, setMuted] = useState(() => sound.isMuted)
+  const [settingsOpen, setSettingsOpen] = useState(false)
 
   useEffect(() => { preloadGameAssets() }, [])
 
@@ -327,29 +328,34 @@ export default function App() {
 
   const [tutorial, setTutorial] = useState<'first' | 'help' | null>(() => hasSeenTutorial() ? null : 'first')
   const openHelp = () => setTutorial('help')
-  const closeTutorial = () => { if (tutorial === 'first') rememberTutorial(); setTutorial(null) }
+
+  // Bấm PLAY trên EntranceScreen: kích hoạt ngay modal Chào Tân Binh
+  const handlePlayFromEntrance = () => {
+    setTutorial('first')
+  }
+
+  const closeTutorial = () => {
+    if (tutorial === 'first') {
+      rememberTutorial()
+      handle1ClickPlay()
+    }
+    setTutorial(null)
+  }
 
   return (
     <>
       {screen === 'entrance' ? (
         <MobileContainer>
           <EntranceScreen
-            onPlay={handle1ClickPlay}
+            onPlay={handlePlayFromEntrance}
             isMuted={muted}
             onToggleMute={handleToggleSound}
             onRestart={handleStartFreshGame}
             onHelp={openHelp}
+            onOpenSettings={() => setSettingsOpen(true)}
           />
           {tutorial !== 'first' && (
-            <div style={{ display: 'none' }} aria-hidden="true">
-              <GameSetup
-                onHelp={openHelp}
-                saved={saved}
-                saveNotice={saveNotice}
-                onRestore={s => { setSession(createMobileSession(s)); setScreen('game') }}
-                onStart={(seed, savings, term) => { setSession(createMobileSession(createMvpMobileGame(seed, savings, term))); setScreen('game') }}
-              />
-            </div>
+            <div style={{ display: 'none' }} aria-hidden="true" id="initial-savings" />
           )}
         </MobileContainer>
       ) : screen === 'setup' ? (
@@ -378,6 +384,15 @@ export default function App() {
       ) : tutorial === 'help' ? (
         <UnifiedGameGuide firstTime={false} onClose={closeTutorial} game={session?.getSnapshot()} />
       ) : null}
+
+      <SettingsModal
+        isOpen={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+        isMuted={muted}
+        onToggleMute={handleToggleSound}
+        onRestart={handleStartFreshGame}
+        onHelp={openHelp}
+      />
     </>
   )
 }

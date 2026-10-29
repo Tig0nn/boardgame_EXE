@@ -84,6 +84,9 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
         backdropFilter: 'blur(10px)',
         WebkitBackdropFilter: 'blur(10px)',
         animation: 'fadeIn 0.2s ease',
+        writingMode: 'horizontal-tb',
+        textOrientation: 'mixed',
+        pointerEvents: 'auto',
       }}
       onClick={(e) => {
         if (e.target === e.currentTarget && !firstTime) {
@@ -112,6 +115,9 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
           display: 'flex',
           flexDirection: 'column',
           userSelect: 'none',
+          writingMode: 'horizontal-tb',
+          textOrientation: 'mixed',
+          pointerEvents: 'auto',
         }}
       >
         {/* Nút Đóng (Exit) ở góc trên bên phải - asset nút exit.png */}
