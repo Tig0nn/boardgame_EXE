@@ -110,8 +110,8 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: 'max(16px, env(safe-area-inset-top))',
+        justifyContent: 'flex-start',
+        paddingTop: 0,
         background: 'rgba(10, 18, 30, 0.78)',
         backdropFilter: 'blur(10px)',
         WebkitBackdropFilter: 'blur(10px)',
@@ -127,19 +127,19 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
         }
       }}
     >
-      {/* Khung Sổ Tay / Bảng Gỗ Luật Chơi luật chơi.png (940x1672 aspect ratio) */}
+      {/* Khung Sổ Tay / Bảng Gỗ Luật Chơi luat-choi.webp (2 Thanh gỗ nguyên bản chạm sát mép trần Top) */}
       <div
-        className="w-[92%] max-w-[360px] h-[84vh] max-h-[710px] mx-auto relative overflow-hidden flex flex-col shadow-2xl bg-transparent"
+        className="guide-board-wrapper w-[94%] max-w-[390px] mx-auto relative flex flex-col shadow-2xl bg-transparent"
         style={{
           position: 'relative',
-          width: '92%',
-          maxWidth: '360px',
-          height: '84vh',
-          maxHeight: '710px',
+          width: '94%',
+          maxWidth: '390px',
+          height: 'min(98vh, 760px)',
+          marginTop: '-4px',
           backgroundImage: 'url(/assets/luat-choi.webp)',
           backgroundSize: '100% 100%',
           backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
+          backgroundPosition: 'top center',
           filter: 'drop-shadow(0 20px 45px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 16px rgba(245, 158, 11, 0.25))',
           boxSizing: 'border-box',
           fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
@@ -147,6 +147,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
           display: 'flex',
           flexDirection: 'column',
           userSelect: 'none',
+          overflow: 'hidden',
           writingMode: 'horizontal-tb',
           textOrientation: 'mixed',
           pointerEvents: 'auto',

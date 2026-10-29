@@ -200,8 +200,8 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
             marginBottom: '-4px',
             minWidth: '48px',
             minHeight: '48px',
-            width: 'clamp(124px, 34vw, 152px)',
-            height: 'clamp(52px, 14vw, 64px)',
+            width: 'clamp(128px, 34vw, 156px)',
+            height: 'clamp(68px, 18vw, 86px)',
             boxSizing: 'border-box',
           }}
           onMouseDown={(e) => {
@@ -218,7 +218,7 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
           }}
         >
           <img
-            src="/assets/cropped/nutlac-btn.png"
+            src="/assets/cropped/nutlac-btn.webp"
             alt="Lắc Xúc Xắc"
             style={{
               width: '100%',
@@ -228,7 +228,9 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
               pointerEvents: 'none',
             }}
             onError={(e) => {
-              if (!e.currentTarget.src.includes('nutlac.PNG')) {
+              if (!e.currentTarget.src.includes('nutlac-btn.png')) {
+                e.currentTarget.src = '/assets/cropped/nutlac-btn.png';
+              } else if (!e.currentTarget.src.includes('nutlac.PNG')) {
                 e.currentTarget.src = '/assets/nutlac.PNG';
               }
             }}

@@ -21,7 +21,7 @@ const CRITICAL_ASSETS = [
   '/assets/cropped/app-logo.png',
   '/assets/cropped/tuido-icon.png',
   '/assets/cropped/sotay-full-icon.png',
-  '/assets/cropped/nutlac-btn.png',
+  '/assets/cropped/nutlac-btn.webp',
   '/assets/cropped/xucxac-icon.png',
   '/assets/cropped/sectionplay-board.png',
 ];
