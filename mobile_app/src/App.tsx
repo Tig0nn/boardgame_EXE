@@ -326,12 +326,16 @@ export default function App() {
     else { sound.unlockAudio(); sound.startBgm() }
   }
 
-  const [tutorial, setTutorial] = useState<'first' | 'help' | null>(() => hasSeenTutorial() ? null : 'first')
+  const [tutorial, setTutorial] = useState<'first' | 'help' | null>(null)
   const openHelp = () => setTutorial('help')
 
-  // Bấm PLAY trên EntranceScreen: kích hoạt ngay modal Chào Tân Binh
+  // Bấm PLAY trên EntranceScreen: người mới mở modal Chào Tân Binh, người cũ vào thẳng game
   const handlePlayFromEntrance = () => {
-    setTutorial('first')
+    if (!hasSeenTutorial()) {
+      setTutorial('first')
+    } else {
+      handle1ClickPlay()
+    }
   }
 
   const closeTutorial = () => {
