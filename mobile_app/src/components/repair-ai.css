@@ -1,0 +1,36 @@
+/* Scoped to the repair modal; keep Phat's green/gold palette and existing scroll body. */
+.repair-ai { flex-shrink: 0; min-width: 0; color: #166534; font-size: 13px; }
+.repair-ai button { font: inherit; font-weight: 700; cursor: pointer; min-height: 44px; }
+.repair-ai button:disabled { opacity: .65; cursor: wait; }
+.repair-ai h3 { margin: 0 0 8px; font-size: 14px; }
+.repair-ai p { margin: 8px 0; line-height: 1.5; user-select: text; }
+.repair-ai-hint { color: #475569; }
+.repair-ai-samples { display: flex; flex-wrap: wrap; gap: 6px; }
+.repair-ai-samples button { text-align: left; background: white; color: #166534; border: 1px solid #bbf7d0; border-radius: 10px; padding: 6px 8px; }
+.repair-ai form { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.repair-ai label { font-weight: 700; }
+.repair-ai input { box-sizing: border-box; width: 100%; min-width: 0; min-height: 44px; border: 1px solid #64748b; border-radius: 8px; padding: 8px; font: inherit; font-size: 16px; color: #1e293b; background: white; user-select: text; }
+.repair-ai form button { border: 0; border-radius: 10px; background: #166534; color: white; padding: 8px; }
+.repair-ai-result { color: #1e293b; }
+.repair-ai-reflection { border-left: 3px solid #16a34a; padding-left: 8px; }
+.repair-ai :focus-visible { outline: 3px solid #166534; outline-offset: 2px; }
+.gamified-modal-card.repair-event-modal { height: min(80dvh, 680px) !important; max-height: calc(100dvh - 32px) !important; }
+.repair-event-modal .anime-slim-scroll > * { flex-shrink: 0; }/* The modal owns the single scroll region; title, tabs, cash and return stay outside it. */
+.repair-fixed { display: grid; gap: 8px; padding-bottom: 8px; }
+.repair-tabs { display: flex; gap: 4px; padding: 4px; background: #dcfce7; border-radius: 14px; }
+.repair-tabs [role="tab"] { flex: 1; min-width: 0; min-height: 44px; border: 0; border-radius: 10px; padding: 6px; font: inherit; font-weight: 800; font-size: 13px; color: #166534; background: transparent; cursor: pointer; }
+.repair-tabs [aria-selected="true"] { background: #166534; color: white; box-shadow: 0 2px 4px #16653430; }
+.repair-tabs :focus-visible, .repair-return :focus-visible { outline: 3px solid #92400e; outline-offset: 2px; }
+.repair-event-modal [role="tabpanel"][hidden] { display: none !important; }
+.repair-decision-content { display: flex; flex-direction: column; gap: 10px; }
+.repair-ai-conclusion { padding: 10px; border-radius: 12px; background: #f0fdf4; border: 1px solid #bbf7d0; }
+.repair-ai-conclusion p { margin-bottom: 0; }
+.repair-fact-card { padding: 10px; border: 1px solid #cbd5e1; border-radius: 12px; background: white; margin: 8px 0; }
+.repair-fact-card h4 { margin: 0; font-size: 13px; color: #166534; }
+.repair-fact-card p { margin-bottom: 0; font-weight: 650; font-variant-numeric: tabular-nums; }
+.repair-fact-temporary { border-color: #fcd34d; background: #fffbeb; }
+.repair-ai-limitations { font-size: 12px; color: #475569; border-top: 1px dashed #cbd5e1; margin-top: 12px; }
+.repair-ai-limitations ul { padding-left: 18px; line-height: 1.5; }
+.repair-return { padding-top: 8px; }
+.repair-return button { width: 100%; min-height: 44px; padding: 8px; font: inherit; font-size: 13px; font-weight: 800; color: #166534; background: #f0fdf4; border: 1px solid #86efac; border-radius: 12px; cursor: pointer; }
+.repair-disable { min-height: 44px; background: transparent; color: #475569; border: 0; text-decoration: underline; }

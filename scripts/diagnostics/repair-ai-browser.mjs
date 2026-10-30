@@ -1,0 +1,79 @@
+import {createServer} from 'vite'
+import react from '@vitejs/plugin-react'
+import assert from 'node:assert/strict'
+import {createRequire} from 'node:module'
+import {mkdirSync,writeFileSync} from 'node:fs'
+import {resolve} from 'node:path'
+import {revealedRepair} from '../../tests/helpers/companion.ts'
+import {saveGameLocally} from '../../src/game/saved-game.ts'
+const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE||'playwright')
+const qa=resolve('node_modules/.tmp/b18-ai-sync-20261030');mkdirSync(qa,{recursive:true})
+const host=`import React from 'react';import{createRoot}from'react-dom/client';import{EventModal}from'/mobile_app/src/components/EventModal.tsx';import'/mobile_app/src/index.css';let root,current;const listeners=new Set();const session={getSnapshot:()=>current,subscribe(fn){listeners.add(fn);return()=>listeners.delete(fn)}};function render(){root.render(React.createElement(React.StrictMode,null,React.createElement(EventModal,{game:current,session,onChoose(){},onTransaction(){}})))}window.tabsHost={mount(game){current=game;root=createRoot(document.getElementById('root'));render()},change(){current={...current,portfolio:{...current.portfolio,cash:current.portfolio.cash-1}};listeners.forEach(fn=>fn());render()},unmount(){root.unmount()}};`
+const server=await createServer({configFile:false,root:resolve('.'),envDir:resolve(qa,'no-env'),publicDir:resolve('mobile_app/public'),resolve:{dedupe:['react','react-dom']},plugins:[{name:'tabs-test-host',resolveId(id){if(id==='/tabs-host.js')return '/__tabs_host_virtual.js'},load(id){if(id==='/__tabs_host_virtual.js')return host},configureServer(s){s.middlewares.use(async(req,res,next)=>{if(req.url?.startsWith('/tabs-host.html')){res.setHeader('Content-Type','text/html');res.end(await s.transformIndexHtml('/tabs-host.html','<html lang="vi"><head><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><div id="root"></div><script type="module" src="/tabs-host.js"></script></body></html>'))}else next()})}},react()],server:{host:'127.0.0.1',port:5186,strictPort:true,hmr:false}})
+await server.listen()
+const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})})
+const base='http://127.0.0.1:5186/tests/browser/repair-ai.html',results=[],errors=[],network=[]
+const decision=p=>p.getByRole('tab',{name:'Quyết định',exact:true}),ai=p=>p.getByRole('tab',{name:'✨ Hỏi AI',exact:true}),input=p=>p.getByLabel('Bạn muốn hiểu điều gì?',{exact:true})
+async function run(name,fn,viewport={width:390,height:844}){const p=await browser.newPage({viewport,isMobile:true,hasTouch:true});p.on('pageerror',e=>errors.push({name,message:e.message}));p.on('request',r=>{if(r.url().includes('/api/')||r.url().includes('generativelanguage'))network.push(r.url())});await p.route('**/*',r=>new URL(r.request().url()).hostname==='127.0.0.1'?r.continue():r.abort());try{await fn(p);results.push({name,passed:true});console.log('PASS',name)}catch(e){results.push({name,passed:false,error:e.message});throw e}finally{await p.close()}}
+async function start(p,query='?repairAi=1'){await p.goto(base+query);await decision(p).waitFor()}
+async function ask(p,text){await input(p).fill(text);await p.getByRole('button',{name:'Gửi câu hỏi',exact:true}).click()}
+async function slow(p){await p.addInitScript(()=>{const digest=crypto.subtle.digest.bind(crypto.subtle);crypto.subtle.digest=async(...args)=>{await new Promise(r=>setTimeout(r,150));return digest(...args)}})}
+async function hostStart(p){await p.goto('http://127.0.0.1:5186/tabs-host.html?repairAi=1');await p.waitForFunction(()=>!!window.tabsHost);await p.evaluate(game=>window.tabsHost.mount(game),revealedRepair());await decision(p).waitFor()}
+try{
+ await run('feature OFF preserves original decisions without AI tabs',async p=>{await p.goto(base);await p.getByText('Tiền mặt hiện có:').waitFor();assert.equal(await p.getByRole('tab').count(),0);assert(await p.getByRole('button',{name:/^Sửa ngay/i}).isVisible())})
+ await run('default decision, no automatic ask; StrictMode one ask; retained answer and game',async p=>{
+  let save='';assert(saveGameLocally(revealedRepair(),{setItem(_key,v){save=v}}))
+  await p.addInitScript(save=>{localStorage.setItem('xvtl:mobile:game:v1',save);localStorage.setItem('xvtl:mobile:tutorial:v1','seen');window.uuidCount=0;const uuid=crypto.randomUUID.bind(crypto);crypto.randomUUID=()=>{window.uuidCount++;return uuid()}},save)
+  await p.goto(base+'?app=1&repairAi=1');await p.screenshot({animations:'disabled',path:resolve(qa,'actual-app-entrance-390.png')});await p.getByRole('button',{name:'Bắt đầu phiêu lưu'}).click();await p.locator('.map-screen-root').waitFor();for(const width of [320,375,390]){await p.setViewportSize({width,height:844});await p.screenshot({animations:'disabled',path:resolve(qa,'actual-app-map-'+width+'.png')})};await p.getByTestId('map-node-1.1').click();await decision(p).waitFor()
+  assert.equal(await decision(p).getAttribute('aria-selected'),'true');assert.equal(await input(p).isVisible(),false)
+  const before=await p.evaluate(()=>localStorage.getItem('xvtl:mobile:game:v1')),ids=await p.evaluate(()=>window.uuidCount)
+  await ai(p).click();await decision(p).click();await ai(p).click();assert.equal(await p.evaluate(()=>window.uuidCount),ids)
+  await ask(p,'So sánh trả ngay và sửa tạm');await p.locator('.repair-ai-reflection').waitFor();assert.equal(await p.evaluate(()=>window.uuidCount)-ids,1)
+  const answer=await p.locator('.repair-ai-result').innerText();assert.match(answer,/3.000.000 đ/)
+  await p.getByRole('button',{name:'← Quay lại Quyết định',exact:true}).click();assert(await p.getByRole('button',{name:/^Sửa ngay/i}).isVisible());assert.equal(await p.locator('.repair-ai-result').isVisible(),false)
+  await ai(p).click();assert.equal(await input(p).inputValue(),'So sánh trả ngay và sửa tạm');assert.equal(await p.locator('.repair-ai-result').innerText(),answer);assert.equal(await p.evaluate(()=>window.uuidCount)-ids,1)
+  assert.deepEqual(JSON.parse(await p.evaluate(()=>localStorage.getItem('xvtl:mobile:game:v1'))),JSON.parse(before));assert.equal(await p.locator('.gamified-modal-backdrop').count(),1)
+ })
+ await run('false premise remains canonical and unsupported stays honest',async p=>{await start(p);await ai(p).click();await ask(p,'Sửa tạm miễn phí đúng không');await p.locator('.repair-ai-reflection').waitFor();const answer=await p.locator('.repair-ai-result').innerText();for(const money of ['1.000.000 đ','4.000.000 đ','5.000.000 đ'])assert(answer.includes(money));await ask(p,'Thu nhập của tôi là bao nhiêu?');await p.getByText('Chưa thể trả lời câu hỏi này',{exact:true}).waitFor();assert.equal(await p.locator('.repair-fact-card').count(),0);assert.equal(await p.locator('.repair-ai-reflection').count(),0)})
+ await run('snapshot while decision tab clears retained answer',async p=>{await hostStart(p);await ai(p).click();await ask(p,'Thanh khoản là gì?');await p.locator('.repair-ai-reflection').waitFor();await decision(p).click();await p.evaluate(()=>window.tabsHost.change());await ai(p).click();assert.equal(await input(p).inputValue(),'');assert.equal(await p.locator('.repair-ai-reflection').count(),0)})
+ await run('pending work invalidates while hidden on decision tab',async p=>{await slow(p);await hostStart(p);await ai(p).click();await ask(p,'Thanh khoản là gì?');await decision(p).click();await p.evaluate(()=>window.tabsHost.change());await p.waitForTimeout(1100);await ai(p).click();assert.equal(await p.locator('.repair-ai-reflection').count(),0)})
+ await run('unmount cancels pending tab work',async p=>{await slow(p);await hostStart(p);await ai(p).click();await ask(p,'Thanh khoản là gì?');await p.evaluate(()=>window.tabsHost.unmount());await p.waitForTimeout(1100);assert.equal(await p.locator('#root').innerText(),'')})
+ await run('edit supersedes pending question and clears old answer',async p=>{await slow(p);await start(p);await ai(p).click();await ask(p,'Thanh khoản là gì?');await input(p).fill('Sửa tạm có rủi ro gì?');await p.waitForTimeout(1100);assert.equal(await p.locator('.repair-ai-reflection').count(),0);await p.getByRole('button',{name:'Gửi câu hỏi',exact:true}).click();await p.locator('.repair-ai-reflection').waitFor()})
+ await run('feature disable while loading restores plain decision modal',async p=>{await slow(p);await start(p);await ai(p).click();await ask(p,'Thanh khoản là gì?');await p.getByRole('button',{name:'Tắt AI ở phiên này',exact:true}).click();await p.waitForTimeout(1100);assert.equal(await p.getByRole('tab').count(),0);assert(await p.getByRole('button',{name:/^Sửa ngay/i}).isVisible())})
+ await run('poor cash keeps full funding condition and existing payment transition',async p=>{await start(p,'?repairAi=1&poor=1');await ai(p).click();await ask(p,'So sánh trả ngay và sửa tạm');await p.locator('.repair-ai-reflection').waitFor();await p.getByText('Chi phí huy động vốn chưa được tính trong giải thích này.',{exact:true}).waitFor();assert.equal(await p.locator('.repair-ai-limitations li').count(),4);await decision(p).click();await p.getByRole('button',{name:/^Sửa ngay/i}).click();assert.equal(await p.getByRole('tab').count(),0)})
+ await run('restart/import selects decision and forgets old question',async p=>{await start(p);await ai(p).click();await ask(p,'Thanh khoản là gì?');await p.locator('.repair-ai-reflection').waitFor();await p.getByRole('button',{name:'Test: restart/import session'}).click();assert.equal(await decision(p).getAttribute('aria-selected'),'true');await ai(p).click();assert.equal(await input(p).inputValue(),'');assert.equal(await p.locator('.repair-ai-reflection').count(),0)})
+ await run('tabs roving focus and Escape return are accessible',async p=>{await start(p);await decision(p).focus();await p.keyboard.press('ArrowRight');assert.equal(await ai(p).evaluate(el=>el===document.activeElement),true);assert.equal(await ai(p).getAttribute('aria-selected'),'true');await p.keyboard.press('Home');assert.equal(await decision(p).evaluate(el=>el===document.activeElement),true);await p.keyboard.press('End');await input(p).focus();await p.keyboard.press('Escape');assert.equal(await decision(p).evaluate(el=>el===document.activeElement),true);assert.equal(await p.getByRole('tabpanel').count(),1)})
+ await run('safe error remains separate from fallback',async p=>{await p.addInitScript(()=>{crypto.subtle.digest=async()=>{throw Error('PRIVATE_ERROR')}});await start(p);await ai(p).click();await ask(p,'Thanh khoản là gì?');await p.getByRole('alert').waitFor();assert.doesNotMatch(await p.getByRole('alert').innerText(),/PRIVATE_ERROR/);assert(await p.getByRole('button',{name:'← Quay lại Quyết định',exact:true}).isVisible())})
+
+ await run('fresh onboarding completes then Map node opens the board',async p=>{
+  await p.goto(base+'?app=1&repairAi=1');await p.getByRole('heading',{name:'Hướng dẫn chơi',exact:true}).waitFor();await p.screenshot({animations:'disabled',path:resolve(qa,'fresh-onboarding.png')})
+  for(let step=0;step<6;step++){
+   const ready=p.getByRole('button',{name:'Sẵn sàng chơi! →',exact:true})
+   if(await ready.count()){await ready.click();break}
+   await p.getByRole('button',{name:'Tiếp theo →',exact:true}).click()
+  }
+  await p.locator('.map-screen-root').waitFor();await p.getByTestId('map-node-1.1').click();await p.locator('.map-screen-root').waitFor({state:'detached'});assert.equal(await p.getByRole('heading',{name:'Hướng dẫn chơi',exact:true}).count(),0)
+ })
+ await run('Map roundtrip preserves game and clears old AI; payment then return and continue',async p=>{
+  let save='';assert(saveGameLocally(revealedRepair(),{setItem(_key,v){save=v}}))
+  await p.addInitScript(save=>{localStorage.setItem('xvtl:mobile:game:v1',save);localStorage.setItem('xvtl:mobile:tutorial:v1','seen')},save)
+  await p.goto(base+'?app=1&repairAi=1');await p.getByRole('button',{name:'Bắt đầu phiêu lưu'}).click();await p.getByTestId('map-node-1.1').click();await ai(p).click();await ask(p,'So sánh trả ngay và sửa tạm');await p.locator('.repair-ai-reflection').waitFor();await p.screenshot({animations:'disabled',path:resolve(qa,'map-to-grounded-answer.png')})
+  await decision(p).click();await p.getByRole('button',{name:/^Sửa ngay/i}).click();await p.getByRole('tab').first().waitFor({state:'detached'});assert.equal(await p.locator('.repair-ai-reflection').count(),0)
+  await p.getByRole('button',{name:'Quay lại Bản đồ',exact:true}).click();await p.locator('.map-screen-root').waitFor();const saved=await p.evaluate(()=>localStorage.getItem('xvtl:mobile:game:v1'));await p.screenshot({animations:'disabled',path:resolve(qa,'return-map-after-payment.png')})
+  await p.getByTestId('map-node-1.1').click();assert.equal(await p.locator('.map-screen-root').count(),0);assert.equal(await p.locator('.repair-ai-reflection').count(),0);assert.deepEqual(JSON.parse(await p.evaluate(()=>localStorage.getItem('xvtl:mobile:game:v1'))),JSON.parse(saved))
+ })
+ await run('Map locked nodes and utility modals remain available',async p=>{
+  await p.addInitScript(()=>localStorage.setItem('xvtl:mobile:tutorial:v1','seen'));await p.goto(base+'?app=1');await p.getByRole('button',{name:'Bắt đầu phiêu lưu'}).click();await p.getByTestId('map-node-1.2').click();await p.getByText('Chương 2: Đang cập nhật!',{exact:true}).waitFor();assert(await p.locator('.map-screen-root').isVisible())
+  await p.getByRole('button',{name:'Mở Sổ Tay Kiến Thức & Luật Chơi',exact:true}).click();await p.getByRole('button',{name:'Đóng',exact:true}).click();assert(await p.locator('.map-screen-root').isVisible())
+ })
+ for(const width of [320,375,390])await run(`responsive tabs screenshots ${width}`,async p=>{
+  await start(p);await p.screenshot({animations:'disabled',path:resolve(qa,`${width}-decision.png`)})
+  await ai(p).click();await p.screenshot({animations:'disabled',path:resolve(qa,`${width}-ai.png`)})
+  await ask(p,'So sánh trả ngay và sửa tạm');await p.locator('.repair-ai-reflection').waitFor();await p.locator('.repair-ai-conclusion').scrollIntoViewIfNeeded();await p.screenshot({animations:'disabled',path:resolve(qa,`${width}-answered.png`)})
+  const cashBefore=await p.getByText('Tiền mặt hiện có:').boundingBox();await p.locator('.repair-ai-limitations').scrollIntoViewIfNeeded();const cashAfter=await p.getByText('Tiền mặt hiện có:').boundingBox();assert.equal(cashBefore.y,cashAfter.y)
+  assert(await p.getByRole('button',{name:'← Quay lại Quyết định',exact:true}).isVisible());assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth))
+  await ask(p,'Thu nhập của tôi là bao nhiêu?');await p.getByText('Chưa thể trả lời câu hỏi này',{exact:true}).scrollIntoViewIfNeeded();await p.screenshot({animations:'disabled',path:resolve(qa,`${width}-fallback.png`)})
+  await p.setViewportSize({width,height:360});await input(p).focus();await input(p).scrollIntoViewIfNeeded();const back=await p.getByRole('button',{name:'← Quay lại Quyết định',exact:true}).boundingBox();assert(back.y+back.height<=360);await p.screenshot({animations:'disabled',path:resolve(qa,`${width}-keyboard-viewport.png`)})
+ },{width,height:844})
+ assert.deepEqual(errors,[]);assert.deepEqual(network,[])
+}finally{writeFileSync(resolve(qa,'browser-results.json'),JSON.stringify({results,errors,network,physicalKeyboard:'NOT TESTED; reduced viewport only'},null,2));await browser.close();await server.close()}
