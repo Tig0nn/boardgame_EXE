@@ -1,0 +1,8 @@
+- [x] Gate/session tests and binding:9 PASS
+- [x] Inline panel and host glue
+- [x] StrictMode browser scenarios:14 PASS; production OFF confirmed
+- [x] Historical replay:81 PASS; lint/typechecks/ESM PASS
+- [x] Broad regression completed:708/710; one pre-existing onboarding child plus parent failure
+- [x] Preservation inventory and integration report
+- [ ] Owner/Phat review; reconcile existing onboarding assertion
+- [ ] Separately approved commit/transfer (not performed)

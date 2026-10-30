@@ -208,6 +208,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
 
       {!animation && !overlay && (!dismissResult || game.phase !== 'finished') && (
         <GamePhase
+          session={session}
           game={game}
           send={send}
           onRestart={onRestart}

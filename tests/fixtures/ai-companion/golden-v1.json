@@ -1,0 +1,3417 @@
+{
+  "apiVersion": 1,
+  "contextVersion": "b18-advice.v1",
+  "status": "Offline mock and deterministic contracts only. No Gemini or HTTP endpoint.",
+  "examples": [
+    {
+      "name": "explain",
+      "provenance": "Naturally played to revealed repair; no injected event or RNG.",
+      "request": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-explain",
+        "mode": "explain",
+        "locale": "vi-VN",
+        "contextDigest": "sha256:d96135e7d2c9a6f1d2bd3ab89e1cad3238aabfb5329e569401270551c728e9f7",
+        "context": {
+          "profile": {
+            "gameplayProfile": "core-mvp-b18-multi-course-v1",
+            "boardRevision": "b18-l3-bonds-v1",
+            "goalRulesVersion": "single-90m-v1",
+            "encounterRulesVersion": "b18-tile-trading-v1",
+            "courseRulesVersion": "b18-i2-choice-v1",
+            "bondRulesVersion": "v2.5-credit-risk",
+            "livingExpenseRulesVersion": "b18-periodic-start-v1",
+            "savingsProfileId": "v2.2-c20",
+            "adviceRulesVersion": "b18-repair.v1"
+          },
+          "decision": {
+            "decisionId": "golden-explain:repair:3",
+            "stateRevision": "golden-explain:1",
+            "phase": "event",
+            "eventId": "repair",
+            "encounterSequence": 3,
+            "turn": 1,
+            "lap": 1,
+            "totalLaps": 4,
+            "tileIndex": 3,
+            "tileType": "personal"
+          },
+          "financial": {
+            "cashVnd": 50000000,
+            "savingsPrincipalVnd": 0,
+            "assetLiquidationQuoteVnd": 0,
+            "netWorthVnd": 50000000,
+            "debtVnd": 0,
+            "obligationsVnd": 0,
+            "goalTargetVnd": 90000000
+          },
+          "options": [
+            {
+              "optionId": "full",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 4000000,
+              "obligationAddedVnd": 0,
+              "totalCommittedCostVnd": 4000000,
+              "cashAfterImmediateVnd": 46000000,
+              "obligationsAfterImmediateVnd": 0,
+              "obligationsAfterResolutionVnd": 0,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "none",
+              "dueLap": null
+            },
+            {
+              "optionId": "temporary",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 1000000,
+              "obligationAddedVnd": 4000000,
+              "totalCommittedCostVnd": 5000000,
+              "cashAfterImmediateVnd": 49000000,
+              "obligationsAfterImmediateVnd": 4000000,
+              "obligationsAfterResolutionVnd": 4000000,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "next-start-settlement",
+              "dueLap": 1
+            }
+          ],
+          "revealedDecisions": [],
+          "publicMarket": []
+        }
+      },
+      "candidate": {
+        "summary": {
+          "templateId": "repair.explain-summary.v1",
+          "bindings": {}
+        },
+        "tradeoffs": [
+          {
+            "optionId": "full",
+            "statements": [
+              {
+                "templateId": "repair.full-breakdown.v1",
+                "bindings": {
+                  "now": "full.now",
+                  "after": "full.cashAfter",
+                  "later": "full.later",
+                  "total": "full.total"
+                }
+              }
+            ]
+          },
+          {
+            "optionId": "temporary",
+            "statements": [
+              {
+                "templateId": "repair.temporary-breakdown.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "temporary.cashAfter",
+                  "later": "temporary.later",
+                  "total": "temporary.total",
+                  "due": "rule.obligationDue"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "templateId": "repair.deferred-obligation-risk.v1",
+            "bindings": {
+              "later": "temporary.later",
+              "due": "rule.obligationDue"
+            }
+          },
+          {
+            "templateId": "repair.existing-obligations.v1",
+            "bindings": {
+              "before": "ctx.obligations",
+              "after": "temporary.obligationsAfter"
+            }
+          }
+        ],
+        "reflectionQuestion": {
+          "templateId": "repair.reflection-explain.v1",
+          "bindings": {
+            "concept": "concept.liquidity"
+          }
+        }
+      },
+      "success": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-explain",
+        "decisionId": "golden-explain:repair:3",
+        "stateRevision": "golden-explain:1",
+        "contextDigest": "sha256:d96135e7d2c9a6f1d2bd3ab89e1cad3238aabfb5329e569401270551c728e9f7",
+        "mode": "explain",
+        "source": "mock",
+        "integrity": "rules-checked-client-state-unverified",
+        "advice": {
+          "summary": {
+            "templateId": "repair.explain-summary.v1",
+            "bindings": {},
+            "text": "Thanh khoản là tiền mặt có thể dùng ngay, khác tổng tài sản ròng. Trả sau thay đổi lịch chi trả; nghĩa vụ chỉ ghi nhận khi thanh toán ban đầu hoàn tất.",
+            "evidenceRefs": []
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-breakdown.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total"
+                  },
+                  "text": "Trả ngay 4.000.000 đ; tiền mặt còn 46.000.000 đ, nghĩa vụ sửa xe mới 0 đ, tổng chi phí 4.000.000 đ.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 49.000.000 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 0 đ; tổng nghĩa vụ sẽ là 4.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-explain.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn phân biệt tổng chi phí, tiền mặt còn lại và nghĩa vụ hẹn trả trong tình huống này như thế nào?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown"
+          ]
+        }
+      },
+      "fallback": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-explain",
+        "decisionId": "golden-explain:repair:3",
+        "stateRevision": "golden-explain:1",
+        "contextDigest": "sha256:d96135e7d2c9a6f1d2bd3ab89e1cad3238aabfb5329e569401270551c728e9f7",
+        "mode": "explain",
+        "source": "deterministic",
+        "integrity": "rules-checked-client-state-unverified",
+        "fallbackReason": "offline-prototype",
+        "advice": {
+          "summary": {
+            "templateId": "repair.explain-summary.v1",
+            "bindings": {},
+            "text": "Thanh khoản là tiền mặt có thể dùng ngay, khác tổng tài sản ròng. Trả sau thay đổi lịch chi trả; nghĩa vụ chỉ ghi nhận khi thanh toán ban đầu hoàn tất.",
+            "evidenceRefs": []
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-breakdown.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total"
+                  },
+                  "text": "Trả ngay 4.000.000 đ; tiền mặt còn 46.000.000 đ, nghĩa vụ sửa xe mới 0 đ, tổng chi phí 4.000.000 đ.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 49.000.000 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 0 đ; tổng nghĩa vụ sẽ là 4.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-explain.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn phân biệt tổng chi phí, tiền mặt còn lại và nghĩa vụ hẹn trả trong tình huống này như thế nào?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown"
+          ]
+        }
+      }
+    },
+    {
+      "name": "compare",
+      "provenance": "Naturally played to revealed repair; no injected event or RNG.",
+      "request": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-compare",
+        "mode": "compare",
+        "locale": "vi-VN",
+        "contextDigest": "sha256:779830f3d68b5970d0d5ebe73d236026bc68dd923010350ad6bd1ec15087cfea",
+        "context": {
+          "profile": {
+            "gameplayProfile": "core-mvp-b18-multi-course-v1",
+            "boardRevision": "b18-l3-bonds-v1",
+            "goalRulesVersion": "single-90m-v1",
+            "encounterRulesVersion": "b18-tile-trading-v1",
+            "courseRulesVersion": "b18-i2-choice-v1",
+            "bondRulesVersion": "v2.5-credit-risk",
+            "livingExpenseRulesVersion": "b18-periodic-start-v1",
+            "savingsProfileId": "v2.2-c20",
+            "adviceRulesVersion": "b18-repair.v1"
+          },
+          "decision": {
+            "decisionId": "golden-compare:repair:3",
+            "stateRevision": "golden-compare:1",
+            "phase": "event",
+            "eventId": "repair",
+            "encounterSequence": 3,
+            "turn": 1,
+            "lap": 1,
+            "totalLaps": 4,
+            "tileIndex": 3,
+            "tileType": "personal"
+          },
+          "financial": {
+            "cashVnd": 50000000,
+            "savingsPrincipalVnd": 0,
+            "assetLiquidationQuoteVnd": 0,
+            "netWorthVnd": 50000000,
+            "debtVnd": 0,
+            "obligationsVnd": 0,
+            "goalTargetVnd": 90000000
+          },
+          "options": [
+            {
+              "optionId": "full",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 4000000,
+              "obligationAddedVnd": 0,
+              "totalCommittedCostVnd": 4000000,
+              "cashAfterImmediateVnd": 46000000,
+              "obligationsAfterImmediateVnd": 0,
+              "obligationsAfterResolutionVnd": 0,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "none",
+              "dueLap": null
+            },
+            {
+              "optionId": "temporary",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 1000000,
+              "obligationAddedVnd": 4000000,
+              "totalCommittedCostVnd": 5000000,
+              "cashAfterImmediateVnd": 49000000,
+              "obligationsAfterImmediateVnd": 4000000,
+              "obligationsAfterResolutionVnd": 4000000,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "next-start-settlement",
+              "dueLap": 1
+            }
+          ],
+          "revealedDecisions": [],
+          "publicMarket": []
+        }
+      },
+      "candidate": {
+        "summary": {
+          "templateId": "repair.cash-sufficient-overview.v1",
+          "bindings": {
+            "extraCost": "comparison.extraCost",
+            "retainedCash": "comparison.retainedCash"
+          }
+        },
+        "tradeoffs": [
+          {
+            "optionId": "full",
+            "statements": [
+              {
+                "templateId": "repair.full-breakdown.v1",
+                "bindings": {
+                  "now": "full.now",
+                  "after": "full.cashAfter",
+                  "later": "full.later",
+                  "total": "full.total"
+                }
+              }
+            ]
+          },
+          {
+            "optionId": "temporary",
+            "statements": [
+              {
+                "templateId": "repair.temporary-breakdown.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "temporary.cashAfter",
+                  "later": "temporary.later",
+                  "total": "temporary.total",
+                  "due": "rule.obligationDue"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "templateId": "repair.deferred-obligation-risk.v1",
+            "bindings": {
+              "later": "temporary.later",
+              "due": "rule.obligationDue"
+            }
+          },
+          {
+            "templateId": "repair.existing-obligations.v1",
+            "bindings": {
+              "before": "ctx.obligations",
+              "after": "temporary.obligationsAfter"
+            }
+          }
+        ],
+        "reflectionQuestion": {
+          "templateId": "repair.reflection-liquidity.v1",
+          "bindings": {
+            "concept": "concept.liquidity"
+          }
+        }
+      },
+      "success": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-compare",
+        "decisionId": "golden-compare:repair:3",
+        "stateRevision": "golden-compare:1",
+        "contextDigest": "sha256:779830f3d68b5970d0d5ebe73d236026bc68dd923010350ad6bd1ec15087cfea",
+        "mode": "compare",
+        "source": "mock",
+        "integrity": "rules-checked-client-state-unverified",
+        "advice": {
+          "summary": {
+            "templateId": "repair.cash-sufficient-overview.v1",
+            "bindings": {
+              "extraCost": "comparison.extraCost",
+              "retainedCash": "comparison.retainedCash"
+            },
+            "text": "Sửa tạm giữ thêm 3.000.000 đ tiền mặt ngay và có tổng chi phí cao hơn 1.000.000 đ so với trả ngay.",
+            "evidenceRefs": [
+              "comparison.extraCost",
+              "comparison.retainedCash"
+            ]
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-breakdown.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total"
+                  },
+                  "text": "Trả ngay 4.000.000 đ; tiền mặt còn 46.000.000 đ, nghĩa vụ sửa xe mới 0 đ, tổng chi phí 4.000.000 đ.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 49.000.000 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 0 đ; tổng nghĩa vụ sẽ là 4.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-liquidity.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn muốn giữ thêm tiền mặt lúc này để làm gì, và sẽ chuẩn bị cho khoản hẹn trả ra sao?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "comparison.extraCost",
+            "comparison.retainedCash",
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown"
+          ]
+        }
+      },
+      "fallback": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-compare",
+        "decisionId": "golden-compare:repair:3",
+        "stateRevision": "golden-compare:1",
+        "contextDigest": "sha256:779830f3d68b5970d0d5ebe73d236026bc68dd923010350ad6bd1ec15087cfea",
+        "mode": "compare",
+        "source": "deterministic",
+        "integrity": "rules-checked-client-state-unverified",
+        "fallbackReason": "offline-prototype",
+        "advice": {
+          "summary": {
+            "templateId": "repair.cash-sufficient-overview.v1",
+            "bindings": {
+              "extraCost": "comparison.extraCost",
+              "retainedCash": "comparison.retainedCash"
+            },
+            "text": "Sửa tạm giữ thêm 3.000.000 đ tiền mặt ngay và có tổng chi phí cao hơn 1.000.000 đ so với trả ngay.",
+            "evidenceRefs": [
+              "comparison.extraCost",
+              "comparison.retainedCash"
+            ]
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-breakdown.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total"
+                  },
+                  "text": "Trả ngay 4.000.000 đ; tiền mặt còn 46.000.000 đ, nghĩa vụ sửa xe mới 0 đ, tổng chi phí 4.000.000 đ.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 49.000.000 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 0 đ; tổng nghĩa vụ sẽ là 4.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-liquidity.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn muốn giữ thêm tiền mặt lúc này để làm gì, và sẽ chuẩn bị cho khoản hẹn trả ra sao?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "comparison.extraCost",
+            "comparison.retainedCash",
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown"
+          ]
+        }
+      }
+    },
+    {
+      "name": "guide",
+      "provenance": "Naturally played to revealed repair; no injected event or RNG.",
+      "request": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-guide",
+        "mode": "guide",
+        "locale": "vi-VN",
+        "contextDigest": "sha256:69810050ccdfc355d1675558be2d08aa90dde521a4fa2225c71e5b15eed9077b",
+        "context": {
+          "profile": {
+            "gameplayProfile": "core-mvp-b18-multi-course-v1",
+            "boardRevision": "b18-l3-bonds-v1",
+            "goalRulesVersion": "single-90m-v1",
+            "encounterRulesVersion": "b18-tile-trading-v1",
+            "courseRulesVersion": "b18-i2-choice-v1",
+            "bondRulesVersion": "v2.5-credit-risk",
+            "livingExpenseRulesVersion": "b18-periodic-start-v1",
+            "savingsProfileId": "v2.2-c20",
+            "adviceRulesVersion": "b18-repair.v1"
+          },
+          "decision": {
+            "decisionId": "golden-guide:repair:3",
+            "stateRevision": "golden-guide:1",
+            "phase": "event",
+            "eventId": "repair",
+            "encounterSequence": 3,
+            "turn": 1,
+            "lap": 1,
+            "totalLaps": 4,
+            "tileIndex": 3,
+            "tileType": "personal"
+          },
+          "financial": {
+            "cashVnd": 50000000,
+            "savingsPrincipalVnd": 0,
+            "assetLiquidationQuoteVnd": 0,
+            "netWorthVnd": 50000000,
+            "debtVnd": 0,
+            "obligationsVnd": 0,
+            "goalTargetVnd": 90000000
+          },
+          "options": [
+            {
+              "optionId": "full",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 4000000,
+              "obligationAddedVnd": 0,
+              "totalCommittedCostVnd": 4000000,
+              "cashAfterImmediateVnd": 46000000,
+              "obligationsAfterImmediateVnd": 0,
+              "obligationsAfterResolutionVnd": 0,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "none",
+              "dueLap": null
+            },
+            {
+              "optionId": "temporary",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 1000000,
+              "obligationAddedVnd": 4000000,
+              "totalCommittedCostVnd": 5000000,
+              "cashAfterImmediateVnd": 49000000,
+              "obligationsAfterImmediateVnd": 4000000,
+              "obligationsAfterResolutionVnd": 4000000,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "next-start-settlement",
+              "dueLap": 1
+            }
+          ],
+          "revealedDecisions": [],
+          "publicMarket": []
+        }
+      },
+      "candidate": {
+        "summary": {
+          "templateId": "repair.guide-summary.v1",
+          "bindings": {}
+        },
+        "tradeoffs": [
+          {
+            "optionId": "full",
+            "statements": [
+              {
+                "templateId": "repair.full-breakdown.v1",
+                "bindings": {
+                  "now": "full.now",
+                  "after": "full.cashAfter",
+                  "later": "full.later",
+                  "total": "full.total"
+                }
+              }
+            ]
+          },
+          {
+            "optionId": "temporary",
+            "statements": [
+              {
+                "templateId": "repair.temporary-breakdown.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "temporary.cashAfter",
+                  "later": "temporary.later",
+                  "total": "temporary.total",
+                  "due": "rule.obligationDue"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "templateId": "repair.deferred-obligation-risk.v1",
+            "bindings": {
+              "later": "temporary.later",
+              "due": "rule.obligationDue"
+            }
+          },
+          {
+            "templateId": "repair.existing-obligations.v1",
+            "bindings": {
+              "before": "ctx.obligations",
+              "after": "temporary.obligationsAfter"
+            }
+          }
+        ],
+        "reflectionQuestion": {
+          "templateId": "repair.reflection-guide.v1",
+          "bindings": {
+            "concept": "concept.liquidity"
+          }
+        }
+      },
+      "success": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-guide",
+        "decisionId": "golden-guide:repair:3",
+        "stateRevision": "golden-guide:1",
+        "contextDigest": "sha256:69810050ccdfc355d1675558be2d08aa90dde521a4fa2225c71e5b15eed9077b",
+        "mode": "guide",
+        "source": "mock",
+        "integrity": "rules-checked-client-state-unverified",
+        "advice": {
+          "summary": {
+            "templateId": "repair.guide-summary.v1",
+            "bindings": {},
+            "text": "Hãy cân nhắc nhu cầu tiền mặt hiện tại và khoản cam kết tại Xuất phát. Mỗi lựa chọn có đánh đổi riêng; bạn tự quyết định.",
+            "evidenceRefs": []
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-breakdown.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total"
+                  },
+                  "text": "Trả ngay 4.000.000 đ; tiền mặt còn 46.000.000 đ, nghĩa vụ sửa xe mới 0 đ, tổng chi phí 4.000.000 đ.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 49.000.000 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 0 đ; tổng nghĩa vụ sẽ là 4.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-guide.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn cần giữ tiền mặt cho việc gì trước lần qua Xuất phát, và sẽ chuẩn bị cho khoản hẹn trả ra sao?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown"
+          ]
+        }
+      },
+      "fallback": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-guide",
+        "decisionId": "golden-guide:repair:3",
+        "stateRevision": "golden-guide:1",
+        "contextDigest": "sha256:69810050ccdfc355d1675558be2d08aa90dde521a4fa2225c71e5b15eed9077b",
+        "mode": "guide",
+        "source": "deterministic",
+        "integrity": "rules-checked-client-state-unverified",
+        "fallbackReason": "offline-prototype",
+        "advice": {
+          "summary": {
+            "templateId": "repair.guide-summary.v1",
+            "bindings": {},
+            "text": "Hãy cân nhắc nhu cầu tiền mặt hiện tại và khoản cam kết tại Xuất phát. Mỗi lựa chọn có đánh đổi riêng; bạn tự quyết định.",
+            "evidenceRefs": []
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-breakdown.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total"
+                  },
+                  "text": "Trả ngay 4.000.000 đ; tiền mặt còn 46.000.000 đ, nghĩa vụ sửa xe mới 0 đ, tổng chi phí 4.000.000 đ.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 49.000.000 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 0 đ; tổng nghĩa vụ sẽ là 4.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-guide.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn cần giữ tiền mặt cho việc gì trước lần qua Xuất phát, và sẽ chuẩn bị cho khoản hẹn trả ra sao?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown"
+          ]
+        }
+      }
+    },
+    {
+      "name": "existing-obligations",
+      "provenance": "Controlled financial variation of a naturally revealed encounter; not a replay fixture.",
+      "request": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-existing-obligations",
+        "mode": "compare",
+        "locale": "vi-VN",
+        "contextDigest": "sha256:c41ebe6a9771d539e9da2e0914612b533b39f5b8f500b62aa03158daf9ddd096",
+        "context": {
+          "profile": {
+            "gameplayProfile": "core-mvp-b18-multi-course-v1",
+            "boardRevision": "b18-l3-bonds-v1",
+            "goalRulesVersion": "single-90m-v1",
+            "encounterRulesVersion": "b18-tile-trading-v1",
+            "courseRulesVersion": "b18-i2-choice-v1",
+            "bondRulesVersion": "v2.5-credit-risk",
+            "livingExpenseRulesVersion": "b18-periodic-start-v1",
+            "savingsProfileId": "v2.2-c20",
+            "adviceRulesVersion": "b18-repair.v1"
+          },
+          "decision": {
+            "decisionId": "golden-existing-obligations:repair:3",
+            "stateRevision": "golden-existing-obligations:1",
+            "phase": "event",
+            "eventId": "repair",
+            "encounterSequence": 3,
+            "turn": 1,
+            "lap": 1,
+            "totalLaps": 4,
+            "tileIndex": 3,
+            "tileType": "personal"
+          },
+          "financial": {
+            "cashVnd": 50000000,
+            "savingsPrincipalVnd": 0,
+            "assetLiquidationQuoteVnd": 0,
+            "netWorthVnd": 48000000,
+            "debtVnd": 0,
+            "obligationsVnd": 2000000,
+            "goalTargetVnd": 90000000
+          },
+          "options": [
+            {
+              "optionId": "full",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 4000000,
+              "obligationAddedVnd": 0,
+              "totalCommittedCostVnd": 4000000,
+              "cashAfterImmediateVnd": 46000000,
+              "obligationsAfterImmediateVnd": 2000000,
+              "obligationsAfterResolutionVnd": 2000000,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "none",
+              "dueLap": null
+            },
+            {
+              "optionId": "temporary",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 1000000,
+              "obligationAddedVnd": 4000000,
+              "totalCommittedCostVnd": 5000000,
+              "cashAfterImmediateVnd": 49000000,
+              "obligationsAfterImmediateVnd": 6000000,
+              "obligationsAfterResolutionVnd": 6000000,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "next-start-settlement",
+              "dueLap": 1
+            }
+          ],
+          "revealedDecisions": [],
+          "publicMarket": []
+        }
+      },
+      "candidate": {
+        "summary": {
+          "templateId": "repair.cash-sufficient-overview.v1",
+          "bindings": {
+            "extraCost": "comparison.extraCost",
+            "retainedCash": "comparison.retainedCash"
+          }
+        },
+        "tradeoffs": [
+          {
+            "optionId": "full",
+            "statements": [
+              {
+                "templateId": "repair.full-breakdown.v1",
+                "bindings": {
+                  "now": "full.now",
+                  "after": "full.cashAfter",
+                  "later": "full.later",
+                  "total": "full.total"
+                }
+              }
+            ]
+          },
+          {
+            "optionId": "temporary",
+            "statements": [
+              {
+                "templateId": "repair.temporary-breakdown.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "temporary.cashAfter",
+                  "later": "temporary.later",
+                  "total": "temporary.total",
+                  "due": "rule.obligationDue"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "templateId": "repair.deferred-obligation-risk.v1",
+            "bindings": {
+              "later": "temporary.later",
+              "due": "rule.obligationDue"
+            }
+          },
+          {
+            "templateId": "repair.existing-obligations.v1",
+            "bindings": {
+              "before": "ctx.obligations",
+              "after": "temporary.obligationsAfter"
+            }
+          }
+        ],
+        "reflectionQuestion": {
+          "templateId": "repair.reflection-liquidity.v1",
+          "bindings": {
+            "concept": "concept.liquidity"
+          }
+        }
+      },
+      "success": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-existing-obligations",
+        "decisionId": "golden-existing-obligations:repair:3",
+        "stateRevision": "golden-existing-obligations:1",
+        "contextDigest": "sha256:c41ebe6a9771d539e9da2e0914612b533b39f5b8f500b62aa03158daf9ddd096",
+        "mode": "compare",
+        "source": "mock",
+        "integrity": "rules-checked-client-state-unverified",
+        "advice": {
+          "summary": {
+            "templateId": "repair.cash-sufficient-overview.v1",
+            "bindings": {
+              "extraCost": "comparison.extraCost",
+              "retainedCash": "comparison.retainedCash"
+            },
+            "text": "Sửa tạm giữ thêm 3.000.000 đ tiền mặt ngay và có tổng chi phí cao hơn 1.000.000 đ so với trả ngay.",
+            "evidenceRefs": [
+              "comparison.extraCost",
+              "comparison.retainedCash"
+            ]
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-breakdown.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total"
+                  },
+                  "text": "Trả ngay 4.000.000 đ; tiền mặt còn 46.000.000 đ, nghĩa vụ sửa xe mới 0 đ, tổng chi phí 4.000.000 đ.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 49.000.000 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 2.000.000 đ; tổng nghĩa vụ sẽ là 6.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-liquidity.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn muốn giữ thêm tiền mặt lúc này để làm gì, và sẽ chuẩn bị cho khoản hẹn trả ra sao?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "comparison.extraCost",
+            "comparison.retainedCash",
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown"
+          ]
+        }
+      },
+      "fallback": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-existing-obligations",
+        "decisionId": "golden-existing-obligations:repair:3",
+        "stateRevision": "golden-existing-obligations:1",
+        "contextDigest": "sha256:c41ebe6a9771d539e9da2e0914612b533b39f5b8f500b62aa03158daf9ddd096",
+        "mode": "compare",
+        "source": "deterministic",
+        "integrity": "rules-checked-client-state-unverified",
+        "fallbackReason": "offline-prototype",
+        "advice": {
+          "summary": {
+            "templateId": "repair.cash-sufficient-overview.v1",
+            "bindings": {
+              "extraCost": "comparison.extraCost",
+              "retainedCash": "comparison.retainedCash"
+            },
+            "text": "Sửa tạm giữ thêm 3.000.000 đ tiền mặt ngay và có tổng chi phí cao hơn 1.000.000 đ so với trả ngay.",
+            "evidenceRefs": [
+              "comparison.extraCost",
+              "comparison.retainedCash"
+            ]
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-breakdown.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total"
+                  },
+                  "text": "Trả ngay 4.000.000 đ; tiền mặt còn 46.000.000 đ, nghĩa vụ sửa xe mới 0 đ, tổng chi phí 4.000.000 đ.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 49.000.000 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 2.000.000 đ; tổng nghĩa vụ sẽ là 6.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-liquidity.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn muốn giữ thêm tiền mặt lúc này để làm gì, và sẽ chuẩn bị cho khoản hẹn trả ra sao?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "comparison.extraCost",
+            "comparison.retainedCash",
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown"
+          ]
+        }
+      }
+    },
+    {
+      "name": "low-cash",
+      "provenance": "Controlled financial variation of a naturally revealed encounter; not a replay fixture.",
+      "request": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-low-cash",
+        "mode": "compare",
+        "locale": "vi-VN",
+        "contextDigest": "sha256:4fe7580c7ae3096c88a56472e86dd9aec7770a30ecb17e111ad4a66a11affdcc",
+        "context": {
+          "profile": {
+            "gameplayProfile": "core-mvp-b18-multi-course-v1",
+            "boardRevision": "b18-l3-bonds-v1",
+            "goalRulesVersion": "single-90m-v1",
+            "encounterRulesVersion": "b18-tile-trading-v1",
+            "courseRulesVersion": "b18-i2-choice-v1",
+            "bondRulesVersion": "v2.5-credit-risk",
+            "livingExpenseRulesVersion": "b18-periodic-start-v1",
+            "savingsProfileId": "v2.2-c20",
+            "adviceRulesVersion": "b18-repair.v1"
+          },
+          "decision": {
+            "decisionId": "golden-low-cash:repair:3",
+            "stateRevision": "golden-low-cash:1",
+            "phase": "event",
+            "eventId": "repair",
+            "encounterSequence": 3,
+            "turn": 1,
+            "lap": 1,
+            "totalLaps": 4,
+            "tileIndex": 3,
+            "tileType": "personal"
+          },
+          "financial": {
+            "cashVnd": 500000,
+            "savingsPrincipalVnd": 0,
+            "assetLiquidationQuoteVnd": 0,
+            "netWorthVnd": 500000,
+            "debtVnd": 0,
+            "obligationsVnd": 0,
+            "goalTargetVnd": 90000000
+          },
+          "options": [
+            {
+              "optionId": "full",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 4000000,
+              "obligationAddedVnd": 0,
+              "totalCommittedCostVnd": 4000000,
+              "cashAfterImmediateVnd": 0,
+              "obligationsAfterImmediateVnd": 0,
+              "obligationsAfterResolutionVnd": 0,
+              "fundingShortfallVnd": 3500000,
+              "execution": "funding-required",
+              "due": "none",
+              "dueLap": null
+            },
+            {
+              "optionId": "temporary",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 1000000,
+              "obligationAddedVnd": 4000000,
+              "totalCommittedCostVnd": 5000000,
+              "cashAfterImmediateVnd": 0,
+              "obligationsAfterImmediateVnd": 0,
+              "obligationsAfterResolutionVnd": 4000000,
+              "fundingShortfallVnd": 500000,
+              "execution": "funding-required",
+              "due": "next-start-settlement",
+              "dueLap": 1
+            }
+          ],
+          "revealedDecisions": [],
+          "publicMarket": []
+        }
+      },
+      "candidate": {
+        "summary": {
+          "templateId": "repair.funding-overview.v1",
+          "bindings": {}
+        },
+        "tradeoffs": [
+          {
+            "optionId": "full",
+            "statements": [
+              {
+                "templateId": "repair.full-funding.v1",
+                "bindings": {
+                  "now": "full.now",
+                  "after": "full.cashAfter",
+                  "later": "full.later",
+                  "total": "full.total",
+                  "shortfall": "full.shortfall"
+                }
+              }
+            ]
+          },
+          {
+            "optionId": "temporary",
+            "statements": [
+              {
+                "templateId": "repair.temporary-funding.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "temporary.cashAfter",
+                  "later": "temporary.later",
+                  "total": "temporary.total",
+                  "shortfall": "temporary.shortfall"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "templateId": "repair.deferred-obligation-risk.v1",
+            "bindings": {
+              "later": "temporary.later",
+              "due": "rule.obligationDue"
+            }
+          },
+          {
+            "templateId": "repair.existing-obligations.v1",
+            "bindings": {
+              "before": "ctx.obligations",
+              "after": "temporary.obligationsAfter"
+            }
+          }
+        ],
+        "reflectionQuestion": {
+          "templateId": "repair.reflection-liquidity.v1",
+          "bindings": {
+            "concept": "concept.liquidity"
+          }
+        }
+      },
+      "success": null,
+      "fallback": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-low-cash",
+        "decisionId": "golden-low-cash:repair:3",
+        "stateRevision": "golden-low-cash:1",
+        "contextDigest": "sha256:4fe7580c7ae3096c88a56472e86dd9aec7770a30ecb17e111ad4a66a11affdcc",
+        "mode": "compare",
+        "source": "deterministic",
+        "integrity": "rules-checked-client-state-unverified",
+        "fallbackReason": "funding-not-modeled",
+        "advice": {
+          "summary": {
+            "templateId": "repair.funding-overview.v1",
+            "bindings": {},
+            "text": "Có lựa chọn cần thêm nguồn thanh toán. Thiếu tiền mặt không tự cấm lựa chọn; việc hoàn tất còn phụ thuộc nguồn funding hợp lệ.",
+            "evidenceRefs": []
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-funding.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total",
+                    "shortfall": "full.shortfall"
+                  },
+                  "text": "Cần trả 4.000.000 đ ban đầu, tiền mặt còn 0 đ sau phần trả ngay và còn thiếu 3.500.000 đ. Chỉ nếu hoàn tất thanh toán mới ghi nhận nghĩa vụ sửa xe 0 đ; tổng chi cam kết 4.000.000 đ, chưa gồm chi phí huy động.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.shortfall",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-funding.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "shortfall": "temporary.shortfall"
+                  },
+                  "text": "Cần trả 1.000.000 đ ban đầu, tiền mặt còn 0 đ sau phần trả ngay và còn thiếu 500.000 đ. Chỉ nếu hoàn tất thanh toán mới ghi nhận nghĩa vụ sửa xe 4.000.000 đ; tổng chi cam kết 5.000.000 đ, chưa gồm chi phí huy động.",
+                  "evidenceRefs": [
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.shortfall",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 0 đ; tổng nghĩa vụ sẽ là 4.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-liquidity.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn muốn giữ thêm tiền mặt lúc này để làm gì, và sẽ chuẩn bị cho khoản hẹn trả ra sao?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.shortfall",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.shortfall",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown",
+            "funding-costs-not-included"
+          ]
+        }
+      }
+    },
+    {
+      "name": "zero-cash",
+      "provenance": "Controlled financial variation of a naturally revealed encounter; not a replay fixture.",
+      "request": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-zero-cash",
+        "mode": "guide",
+        "locale": "vi-VN",
+        "contextDigest": "sha256:0ce2718153b7f9a50a49516163a86c278226e7669207e1a22d5e253da45b1524",
+        "context": {
+          "profile": {
+            "gameplayProfile": "core-mvp-b18-multi-course-v1",
+            "boardRevision": "b18-l3-bonds-v1",
+            "goalRulesVersion": "single-90m-v1",
+            "encounterRulesVersion": "b18-tile-trading-v1",
+            "courseRulesVersion": "b18-i2-choice-v1",
+            "bondRulesVersion": "v2.5-credit-risk",
+            "livingExpenseRulesVersion": "b18-periodic-start-v1",
+            "savingsProfileId": "v2.2-c20",
+            "adviceRulesVersion": "b18-repair.v1"
+          },
+          "decision": {
+            "decisionId": "golden-zero-cash:repair:3",
+            "stateRevision": "golden-zero-cash:1",
+            "phase": "event",
+            "eventId": "repair",
+            "encounterSequence": 3,
+            "turn": 1,
+            "lap": 1,
+            "totalLaps": 4,
+            "tileIndex": 3,
+            "tileType": "personal"
+          },
+          "financial": {
+            "cashVnd": 0,
+            "savingsPrincipalVnd": 0,
+            "assetLiquidationQuoteVnd": 0,
+            "netWorthVnd": 0,
+            "debtVnd": 0,
+            "obligationsVnd": 0,
+            "goalTargetVnd": 90000000
+          },
+          "options": [
+            {
+              "optionId": "full",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 4000000,
+              "obligationAddedVnd": 0,
+              "totalCommittedCostVnd": 4000000,
+              "cashAfterImmediateVnd": 0,
+              "obligationsAfterImmediateVnd": 0,
+              "obligationsAfterResolutionVnd": 0,
+              "fundingShortfallVnd": 4000000,
+              "execution": "funding-required",
+              "due": "none",
+              "dueLap": null
+            },
+            {
+              "optionId": "temporary",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 1000000,
+              "obligationAddedVnd": 4000000,
+              "totalCommittedCostVnd": 5000000,
+              "cashAfterImmediateVnd": 0,
+              "obligationsAfterImmediateVnd": 0,
+              "obligationsAfterResolutionVnd": 4000000,
+              "fundingShortfallVnd": 1000000,
+              "execution": "funding-required",
+              "due": "next-start-settlement",
+              "dueLap": 1
+            }
+          ],
+          "revealedDecisions": [],
+          "publicMarket": []
+        }
+      },
+      "candidate": {
+        "summary": {
+          "templateId": "repair.guide-summary.v1",
+          "bindings": {}
+        },
+        "tradeoffs": [
+          {
+            "optionId": "full",
+            "statements": [
+              {
+                "templateId": "repair.full-funding.v1",
+                "bindings": {
+                  "now": "full.now",
+                  "after": "full.cashAfter",
+                  "later": "full.later",
+                  "total": "full.total",
+                  "shortfall": "full.shortfall"
+                }
+              }
+            ]
+          },
+          {
+            "optionId": "temporary",
+            "statements": [
+              {
+                "templateId": "repair.temporary-funding.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "temporary.cashAfter",
+                  "later": "temporary.later",
+                  "total": "temporary.total",
+                  "shortfall": "temporary.shortfall"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "templateId": "repair.deferred-obligation-risk.v1",
+            "bindings": {
+              "later": "temporary.later",
+              "due": "rule.obligationDue"
+            }
+          },
+          {
+            "templateId": "repair.existing-obligations.v1",
+            "bindings": {
+              "before": "ctx.obligations",
+              "after": "temporary.obligationsAfter"
+            }
+          }
+        ],
+        "reflectionQuestion": {
+          "templateId": "repair.reflection-guide.v1",
+          "bindings": {
+            "concept": "concept.liquidity"
+          }
+        }
+      },
+      "success": null,
+      "fallback": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-zero-cash",
+        "decisionId": "golden-zero-cash:repair:3",
+        "stateRevision": "golden-zero-cash:1",
+        "contextDigest": "sha256:0ce2718153b7f9a50a49516163a86c278226e7669207e1a22d5e253da45b1524",
+        "mode": "guide",
+        "source": "deterministic",
+        "integrity": "rules-checked-client-state-unverified",
+        "fallbackReason": "funding-not-modeled",
+        "advice": {
+          "summary": {
+            "templateId": "repair.guide-summary.v1",
+            "bindings": {},
+            "text": "Hãy cân nhắc nhu cầu tiền mặt hiện tại và khoản cam kết tại Xuất phát. Mỗi lựa chọn có đánh đổi riêng; bạn tự quyết định.",
+            "evidenceRefs": []
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-funding.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total",
+                    "shortfall": "full.shortfall"
+                  },
+                  "text": "Cần trả 4.000.000 đ ban đầu, tiền mặt còn 0 đ sau phần trả ngay và còn thiếu 4.000.000 đ. Chỉ nếu hoàn tất thanh toán mới ghi nhận nghĩa vụ sửa xe 0 đ; tổng chi cam kết 4.000.000 đ, chưa gồm chi phí huy động.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.shortfall",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-funding.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "shortfall": "temporary.shortfall"
+                  },
+                  "text": "Cần trả 1.000.000 đ ban đầu, tiền mặt còn 0 đ sau phần trả ngay và còn thiếu 1.000.000 đ. Chỉ nếu hoàn tất thanh toán mới ghi nhận nghĩa vụ sửa xe 4.000.000 đ; tổng chi cam kết 5.000.000 đ, chưa gồm chi phí huy động.",
+                  "evidenceRefs": [
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.shortfall",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 0 đ; tổng nghĩa vụ sẽ là 4.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-guide.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn cần giữ tiền mặt cho việc gì trước lần qua Xuất phát, và sẽ chuẩn bị cho khoản hẹn trả ra sao?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.shortfall",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.shortfall",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown",
+            "funding-costs-not-included"
+          ]
+        }
+      }
+    },
+    {
+      "name": "temporary-cash-sufficient",
+      "provenance": "Controlled financial variation of a naturally revealed encounter; not a replay fixture.",
+      "request": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-temporary-cash-sufficient",
+        "mode": "explain",
+        "locale": "vi-VN",
+        "contextDigest": "sha256:c5f5afd7be53f3771810cc65dd0da2700fd17eebb5fc4ae97c4316a52d26841e",
+        "context": {
+          "profile": {
+            "gameplayProfile": "core-mvp-b18-multi-course-v1",
+            "boardRevision": "b18-l3-bonds-v1",
+            "goalRulesVersion": "single-90m-v1",
+            "encounterRulesVersion": "b18-tile-trading-v1",
+            "courseRulesVersion": "b18-i2-choice-v1",
+            "bondRulesVersion": "v2.5-credit-risk",
+            "livingExpenseRulesVersion": "b18-periodic-start-v1",
+            "savingsProfileId": "v2.2-c20",
+            "adviceRulesVersion": "b18-repair.v1"
+          },
+          "decision": {
+            "decisionId": "golden-temporary-cash-sufficient:repair:3",
+            "stateRevision": "golden-temporary-cash-sufficient:1",
+            "phase": "event",
+            "eventId": "repair",
+            "encounterSequence": 3,
+            "turn": 1,
+            "lap": 1,
+            "totalLaps": 4,
+            "tileIndex": 3,
+            "tileType": "personal"
+          },
+          "financial": {
+            "cashVnd": 1000000,
+            "savingsPrincipalVnd": 0,
+            "assetLiquidationQuoteVnd": 0,
+            "netWorthVnd": 1000000,
+            "debtVnd": 0,
+            "obligationsVnd": 0,
+            "goalTargetVnd": 90000000
+          },
+          "options": [
+            {
+              "optionId": "full",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 4000000,
+              "obligationAddedVnd": 0,
+              "totalCommittedCostVnd": 4000000,
+              "cashAfterImmediateVnd": 0,
+              "obligationsAfterImmediateVnd": 0,
+              "obligationsAfterResolutionVnd": 0,
+              "fundingShortfallVnd": 3000000,
+              "execution": "funding-required",
+              "due": "none",
+              "dueLap": null
+            },
+            {
+              "optionId": "temporary",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 1000000,
+              "obligationAddedVnd": 4000000,
+              "totalCommittedCostVnd": 5000000,
+              "cashAfterImmediateVnd": 0,
+              "obligationsAfterImmediateVnd": 4000000,
+              "obligationsAfterResolutionVnd": 4000000,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "next-start-settlement",
+              "dueLap": 1
+            }
+          ],
+          "revealedDecisions": [],
+          "publicMarket": []
+        }
+      },
+      "candidate": {
+        "summary": {
+          "templateId": "repair.explain-summary.v1",
+          "bindings": {}
+        },
+        "tradeoffs": [
+          {
+            "optionId": "full",
+            "statements": [
+              {
+                "templateId": "repair.full-funding.v1",
+                "bindings": {
+                  "now": "full.now",
+                  "after": "full.cashAfter",
+                  "later": "full.later",
+                  "total": "full.total",
+                  "shortfall": "full.shortfall"
+                }
+              }
+            ]
+          },
+          {
+            "optionId": "temporary",
+            "statements": [
+              {
+                "templateId": "repair.temporary-breakdown.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "temporary.cashAfter",
+                  "later": "temporary.later",
+                  "total": "temporary.total",
+                  "due": "rule.obligationDue"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "templateId": "repair.deferred-obligation-risk.v1",
+            "bindings": {
+              "later": "temporary.later",
+              "due": "rule.obligationDue"
+            }
+          },
+          {
+            "templateId": "repair.existing-obligations.v1",
+            "bindings": {
+              "before": "ctx.obligations",
+              "after": "temporary.obligationsAfter"
+            }
+          }
+        ],
+        "reflectionQuestion": {
+          "templateId": "repair.reflection-explain.v1",
+          "bindings": {
+            "concept": "concept.liquidity"
+          }
+        }
+      },
+      "success": null,
+      "fallback": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-temporary-cash-sufficient",
+        "decisionId": "golden-temporary-cash-sufficient:repair:3",
+        "stateRevision": "golden-temporary-cash-sufficient:1",
+        "contextDigest": "sha256:c5f5afd7be53f3771810cc65dd0da2700fd17eebb5fc4ae97c4316a52d26841e",
+        "mode": "explain",
+        "source": "deterministic",
+        "integrity": "rules-checked-client-state-unverified",
+        "fallbackReason": "funding-not-modeled",
+        "advice": {
+          "summary": {
+            "templateId": "repair.explain-summary.v1",
+            "bindings": {},
+            "text": "Thanh khoản là tiền mặt có thể dùng ngay, khác tổng tài sản ròng. Trả sau thay đổi lịch chi trả; nghĩa vụ chỉ ghi nhận khi thanh toán ban đầu hoàn tất.",
+            "evidenceRefs": []
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-funding.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total",
+                    "shortfall": "full.shortfall"
+                  },
+                  "text": "Cần trả 4.000.000 đ ban đầu, tiền mặt còn 0 đ sau phần trả ngay và còn thiếu 3.000.000 đ. Chỉ nếu hoàn tất thanh toán mới ghi nhận nghĩa vụ sửa xe 0 đ; tổng chi cam kết 4.000.000 đ, chưa gồm chi phí huy động.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.shortfall",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 0 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 0 đ; tổng nghĩa vụ sẽ là 4.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-explain.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn phân biệt tổng chi phí, tiền mặt còn lại và nghĩa vụ hẹn trả trong tình huống này như thế nào?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.shortfall",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown",
+            "funding-costs-not-included"
+          ]
+        }
+      }
+    },
+    {
+      "name": "final-lap",
+      "provenance": "Naturally played to revealed repair; no injected event or RNG.",
+      "request": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-final-lap",
+        "mode": "compare",
+        "locale": "vi-VN",
+        "contextDigest": "sha256:81541a3c733ebb03544b147678ee91660fdcc1163935b33f57cde51b301412d3",
+        "context": {
+          "profile": {
+            "gameplayProfile": "core-mvp-b18-multi-course-v1",
+            "boardRevision": "b18-l3-bonds-v1",
+            "goalRulesVersion": "single-90m-v1",
+            "encounterRulesVersion": "b18-tile-trading-v1",
+            "courseRulesVersion": "b18-i2-choice-v1",
+            "bondRulesVersion": "v2.5-credit-risk",
+            "livingExpenseRulesVersion": "b18-periodic-start-v1",
+            "savingsProfileId": "v2.2-c20",
+            "adviceRulesVersion": "b18-repair.v1"
+          },
+          "decision": {
+            "decisionId": "golden-final-lap:repair:68",
+            "stateRevision": "golden-final-lap:1",
+            "phase": "event",
+            "eventId": "repair",
+            "encounterSequence": 68,
+            "turn": 15,
+            "lap": 4,
+            "totalLaps": 4,
+            "tileIndex": 3,
+            "tileType": "personal"
+          },
+          "financial": {
+            "cashVnd": 72000000,
+            "savingsPrincipalVnd": 0,
+            "assetLiquidationQuoteVnd": 0,
+            "netWorthVnd": 72000000,
+            "debtVnd": 0,
+            "obligationsVnd": 0,
+            "goalTargetVnd": 90000000
+          },
+          "options": [
+            {
+              "optionId": "full",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 4000000,
+              "obligationAddedVnd": 0,
+              "totalCommittedCostVnd": 4000000,
+              "cashAfterImmediateVnd": 68000000,
+              "obligationsAfterImmediateVnd": 0,
+              "obligationsAfterResolutionVnd": 0,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "none",
+              "dueLap": null
+            },
+            {
+              "optionId": "temporary",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 1000000,
+              "obligationAddedVnd": 4000000,
+              "totalCommittedCostVnd": 5000000,
+              "cashAfterImmediateVnd": 71000000,
+              "obligationsAfterImmediateVnd": 4000000,
+              "obligationsAfterResolutionVnd": 4000000,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "next-start-settlement",
+              "dueLap": 4
+            }
+          ],
+          "revealedDecisions": [],
+          "publicMarket": []
+        }
+      },
+      "candidate": {
+        "summary": {
+          "templateId": "repair.cash-sufficient-overview.v1",
+          "bindings": {
+            "extraCost": "comparison.extraCost",
+            "retainedCash": "comparison.retainedCash"
+          }
+        },
+        "tradeoffs": [
+          {
+            "optionId": "full",
+            "statements": [
+              {
+                "templateId": "repair.full-breakdown.v1",
+                "bindings": {
+                  "now": "full.now",
+                  "after": "full.cashAfter",
+                  "later": "full.later",
+                  "total": "full.total"
+                }
+              }
+            ]
+          },
+          {
+            "optionId": "temporary",
+            "statements": [
+              {
+                "templateId": "repair.temporary-breakdown.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "temporary.cashAfter",
+                  "later": "temporary.later",
+                  "total": "temporary.total",
+                  "due": "rule.obligationDue"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "templateId": "repair.deferred-obligation-risk.v1",
+            "bindings": {
+              "later": "temporary.later",
+              "due": "rule.obligationDue"
+            }
+          },
+          {
+            "templateId": "repair.existing-obligations.v1",
+            "bindings": {
+              "before": "ctx.obligations",
+              "after": "temporary.obligationsAfter"
+            }
+          }
+        ],
+        "reflectionQuestion": {
+          "templateId": "repair.reflection-liquidity.v1",
+          "bindings": {
+            "concept": "concept.liquidity"
+          }
+        }
+      },
+      "success": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-final-lap",
+        "decisionId": "golden-final-lap:repair:68",
+        "stateRevision": "golden-final-lap:1",
+        "contextDigest": "sha256:81541a3c733ebb03544b147678ee91660fdcc1163935b33f57cde51b301412d3",
+        "mode": "compare",
+        "source": "mock",
+        "integrity": "rules-checked-client-state-unverified",
+        "advice": {
+          "summary": {
+            "templateId": "repair.cash-sufficient-overview.v1",
+            "bindings": {
+              "extraCost": "comparison.extraCost",
+              "retainedCash": "comparison.retainedCash"
+            },
+            "text": "Sửa tạm giữ thêm 3.000.000 đ tiền mặt ngay và có tổng chi phí cao hơn 1.000.000 đ so với trả ngay.",
+            "evidenceRefs": [
+              "comparison.extraCost",
+              "comparison.retainedCash"
+            ]
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-breakdown.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total"
+                  },
+                  "text": "Trả ngay 4.000.000 đ; tiền mặt còn 68.000.000 đ, nghĩa vụ sửa xe mới 0 đ, tổng chi phí 4.000.000 đ.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 71.000.000 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 0 đ; tổng nghĩa vụ sẽ là 4.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-liquidity.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn muốn giữ thêm tiền mặt lúc này để làm gì, và sẽ chuẩn bị cho khoản hẹn trả ra sao?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "comparison.extraCost",
+            "comparison.retainedCash",
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown"
+          ]
+        }
+      },
+      "fallback": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-final-lap",
+        "decisionId": "golden-final-lap:repair:68",
+        "stateRevision": "golden-final-lap:1",
+        "contextDigest": "sha256:81541a3c733ebb03544b147678ee91660fdcc1163935b33f57cde51b301412d3",
+        "mode": "compare",
+        "source": "deterministic",
+        "integrity": "rules-checked-client-state-unverified",
+        "fallbackReason": "offline-prototype",
+        "advice": {
+          "summary": {
+            "templateId": "repair.cash-sufficient-overview.v1",
+            "bindings": {
+              "extraCost": "comparison.extraCost",
+              "retainedCash": "comparison.retainedCash"
+            },
+            "text": "Sửa tạm giữ thêm 3.000.000 đ tiền mặt ngay và có tổng chi phí cao hơn 1.000.000 đ so với trả ngay.",
+            "evidenceRefs": [
+              "comparison.extraCost",
+              "comparison.retainedCash"
+            ]
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-breakdown.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total"
+                  },
+                  "text": "Trả ngay 4.000.000 đ; tiền mặt còn 68.000.000 đ, nghĩa vụ sửa xe mới 0 đ, tổng chi phí 4.000.000 đ.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 71.000.000 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 0 đ; tổng nghĩa vụ sẽ là 4.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-liquidity.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn muốn giữ thêm tiền mặt lúc này để làm gì, và sẽ chuẩn bị cho khoản hẹn trả ra sao?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "comparison.extraCost",
+            "comparison.retainedCash",
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown"
+          ]
+        }
+      }
+    },
+    {
+      "name": "signed-net-worth",
+      "provenance": "Controlled financial variation of a naturally revealed encounter; not a replay fixture.",
+      "request": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-signed-net-worth",
+        "mode": "compare",
+        "locale": "vi-VN",
+        "contextDigest": "sha256:f883956355968581ddfc59940cab1c8ba299cfba256274b146d0c8e199f9f624",
+        "context": {
+          "profile": {
+            "gameplayProfile": "core-mvp-b18-multi-course-v1",
+            "boardRevision": "b18-l3-bonds-v1",
+            "goalRulesVersion": "single-90m-v1",
+            "encounterRulesVersion": "b18-tile-trading-v1",
+            "courseRulesVersion": "b18-i2-choice-v1",
+            "bondRulesVersion": "v2.5-credit-risk",
+            "livingExpenseRulesVersion": "b18-periodic-start-v1",
+            "savingsProfileId": "v2.2-c20",
+            "adviceRulesVersion": "b18-repair.v1"
+          },
+          "decision": {
+            "decisionId": "golden-signed-net-worth:repair:3",
+            "stateRevision": "golden-signed-net-worth:1",
+            "phase": "event",
+            "eventId": "repair",
+            "encounterSequence": 3,
+            "turn": 1,
+            "lap": 1,
+            "totalLaps": 4,
+            "tileIndex": 3,
+            "tileType": "personal"
+          },
+          "financial": {
+            "cashVnd": 50000000,
+            "savingsPrincipalVnd": 0,
+            "assetLiquidationQuoteVnd": 0,
+            "netWorthVnd": -10000000,
+            "debtVnd": 0,
+            "obligationsVnd": 60000000,
+            "goalTargetVnd": 90000000
+          },
+          "options": [
+            {
+              "optionId": "full",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 4000000,
+              "obligationAddedVnd": 0,
+              "totalCommittedCostVnd": 4000000,
+              "cashAfterImmediateVnd": 46000000,
+              "obligationsAfterImmediateVnd": 60000000,
+              "obligationsAfterResolutionVnd": 60000000,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "none",
+              "dueLap": null
+            },
+            {
+              "optionId": "temporary",
+              "engineAction": "choose",
+              "allowed": true,
+              "costNowVnd": 1000000,
+              "obligationAddedVnd": 4000000,
+              "totalCommittedCostVnd": 5000000,
+              "cashAfterImmediateVnd": 49000000,
+              "obligationsAfterImmediateVnd": 64000000,
+              "obligationsAfterResolutionVnd": 64000000,
+              "fundingShortfallVnd": 0,
+              "execution": "cash-sufficient",
+              "due": "next-start-settlement",
+              "dueLap": 1
+            }
+          ],
+          "revealedDecisions": [],
+          "publicMarket": []
+        }
+      },
+      "candidate": {
+        "summary": {
+          "templateId": "repair.cash-sufficient-overview.v1",
+          "bindings": {
+            "extraCost": "comparison.extraCost",
+            "retainedCash": "comparison.retainedCash"
+          }
+        },
+        "tradeoffs": [
+          {
+            "optionId": "full",
+            "statements": [
+              {
+                "templateId": "repair.full-breakdown.v1",
+                "bindings": {
+                  "now": "full.now",
+                  "after": "full.cashAfter",
+                  "later": "full.later",
+                  "total": "full.total"
+                }
+              }
+            ]
+          },
+          {
+            "optionId": "temporary",
+            "statements": [
+              {
+                "templateId": "repair.temporary-breakdown.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "temporary.cashAfter",
+                  "later": "temporary.later",
+                  "total": "temporary.total",
+                  "due": "rule.obligationDue"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "templateId": "repair.deferred-obligation-risk.v1",
+            "bindings": {
+              "later": "temporary.later",
+              "due": "rule.obligationDue"
+            }
+          },
+          {
+            "templateId": "repair.existing-obligations.v1",
+            "bindings": {
+              "before": "ctx.obligations",
+              "after": "temporary.obligationsAfter"
+            }
+          }
+        ],
+        "reflectionQuestion": {
+          "templateId": "repair.reflection-liquidity.v1",
+          "bindings": {
+            "concept": "concept.liquidity"
+          }
+        }
+      },
+      "success": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-signed-net-worth",
+        "decisionId": "golden-signed-net-worth:repair:3",
+        "stateRevision": "golden-signed-net-worth:1",
+        "contextDigest": "sha256:f883956355968581ddfc59940cab1c8ba299cfba256274b146d0c8e199f9f624",
+        "mode": "compare",
+        "source": "mock",
+        "integrity": "rules-checked-client-state-unverified",
+        "advice": {
+          "summary": {
+            "templateId": "repair.cash-sufficient-overview.v1",
+            "bindings": {
+              "extraCost": "comparison.extraCost",
+              "retainedCash": "comparison.retainedCash"
+            },
+            "text": "Sửa tạm giữ thêm 3.000.000 đ tiền mặt ngay và có tổng chi phí cao hơn 1.000.000 đ so với trả ngay.",
+            "evidenceRefs": [
+              "comparison.extraCost",
+              "comparison.retainedCash"
+            ]
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-breakdown.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total"
+                  },
+                  "text": "Trả ngay 4.000.000 đ; tiền mặt còn 46.000.000 đ, nghĩa vụ sửa xe mới 0 đ, tổng chi phí 4.000.000 đ.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 49.000.000 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 60.000.000 đ; tổng nghĩa vụ sẽ là 64.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-liquidity.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn muốn giữ thêm tiền mặt lúc này để làm gì, và sẽ chuẩn bị cho khoản hẹn trả ra sao?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "comparison.extraCost",
+            "comparison.retainedCash",
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown"
+          ]
+        }
+      },
+      "fallback": {
+        "apiVersion": 1,
+        "contextVersion": "b18-advice.v1",
+        "requestId": "req-signed-net-worth",
+        "decisionId": "golden-signed-net-worth:repair:3",
+        "stateRevision": "golden-signed-net-worth:1",
+        "contextDigest": "sha256:f883956355968581ddfc59940cab1c8ba299cfba256274b146d0c8e199f9f624",
+        "mode": "compare",
+        "source": "deterministic",
+        "integrity": "rules-checked-client-state-unverified",
+        "fallbackReason": "offline-prototype",
+        "advice": {
+          "summary": {
+            "templateId": "repair.cash-sufficient-overview.v1",
+            "bindings": {
+              "extraCost": "comparison.extraCost",
+              "retainedCash": "comparison.retainedCash"
+            },
+            "text": "Sửa tạm giữ thêm 3.000.000 đ tiền mặt ngay và có tổng chi phí cao hơn 1.000.000 đ so với trả ngay.",
+            "evidenceRefs": [
+              "comparison.extraCost",
+              "comparison.retainedCash"
+            ]
+          },
+          "tradeoffs": [
+            {
+              "optionId": "full",
+              "statements": [
+                {
+                  "templateId": "repair.full-breakdown.v1",
+                  "bindings": {
+                    "now": "full.now",
+                    "after": "full.cashAfter",
+                    "later": "full.later",
+                    "total": "full.total"
+                  },
+                  "text": "Trả ngay 4.000.000 đ; tiền mặt còn 46.000.000 đ, nghĩa vụ sửa xe mới 0 đ, tổng chi phí 4.000.000 đ.",
+                  "evidenceRefs": [
+                    "full.cashAfter",
+                    "full.later",
+                    "full.now",
+                    "full.total"
+                  ]
+                }
+              ]
+            },
+            {
+              "optionId": "temporary",
+              "statements": [
+                {
+                  "templateId": "repair.temporary-breakdown.v1",
+                  "bindings": {
+                    "now": "temporary.now",
+                    "after": "temporary.cashAfter",
+                    "later": "temporary.later",
+                    "total": "temporary.total",
+                    "due": "rule.obligationDue"
+                  },
+                  "text": "Sửa tạm trả 1.000.000 đ ngay; tiền mặt còn 49.000.000 đ, hẹn 4.000.000 đ tại lần quyết toán qua Xuất phát kế tiếp; tổng chi phí 5.000.000 đ.",
+                  "evidenceRefs": [
+                    "rule.obligationDue",
+                    "temporary.cashAfter",
+                    "temporary.later",
+                    "temporary.now",
+                    "temporary.total"
+                  ]
+                }
+              ]
+            }
+          ],
+          "risks": [
+            {
+              "templateId": "repair.deferred-obligation-risk.v1",
+              "bindings": {
+                "later": "temporary.later",
+                "due": "rule.obligationDue"
+              },
+              "text": "Khoản hẹn 4.000.000 đ chỉ ghi nhận sau khi hoàn tất thanh toán ban đầu và đến hạn tại lần quyết toán qua Xuất phát kế tiếp. Chưa biết tiền mặt lúc đó có đủ hay không.",
+              "evidenceRefs": [
+                "rule.obligationDue",
+                "temporary.later"
+              ]
+            },
+            {
+              "templateId": "repair.existing-obligations.v1",
+              "bindings": {
+                "after": "temporary.obligationsAfter",
+                "before": "ctx.obligations"
+              },
+              "text": "Nghĩa vụ hiện có 60.000.000 đ; tổng nghĩa vụ sẽ là 64.000.000 đ nếu hoàn tất lựa chọn sửa tạm. Đây không phải tiền mặt đã chi ngay.",
+              "evidenceRefs": [
+                "ctx.obligations",
+                "temporary.obligationsAfter"
+              ]
+            }
+          ],
+          "reflectionQuestion": {
+            "templateId": "repair.reflection-liquidity.v1",
+            "bindings": {
+              "concept": "concept.liquidity"
+            },
+            "text": "Bạn muốn giữ thêm tiền mặt lúc này để làm gì, và sẽ chuẩn bị cho khoản hẹn trả ra sao?",
+            "evidenceRefs": [
+              "concept.liquidity"
+            ]
+          },
+          "evidenceRefs": [
+            "comparison.extraCost",
+            "comparison.retainedCash",
+            "concept.liquidity",
+            "ctx.obligations",
+            "full.cashAfter",
+            "full.later",
+            "full.now",
+            "full.total",
+            "rule.obligationDue",
+            "temporary.cashAfter",
+            "temporary.later",
+            "temporary.now",
+            "temporary.obligationsAfter",
+            "temporary.total"
+          ],
+          "limitations": [
+            "simulated-game-only",
+            "client-state-unverified",
+            "future-outcomes-unknown"
+          ]
+        }
+      }
+    }
+  ],
+  "errors": {
+    "invalidOptions": {
+      "apiVersion": 1,
+      "error": {
+        "code": "INVALID_OPTIONS",
+        "message": "Lựa chọn không khớp luật hiện hành.",
+        "retryable": false
+      },
+      "correlation": {
+        "requestId": "req-compare",
+        "decisionId": "golden-compare:repair:3",
+        "stateRevision": "golden-compare:1"
+      }
+    },
+    "rateLimited": {
+      "apiVersion": 1,
+      "error": {
+        "code": "RATE_LIMITED",
+        "message": "Vui lòng đợi trước khi hỏi lại.",
+        "retryable": true,
+        "retryAfterMs": 30000
+      },
+      "correlation": {
+        "requestId": "req-compare",
+        "decisionId": "golden-compare:repair:3",
+        "stateRevision": "golden-compare:1"
+      }
+    },
+    "unavailable": {
+      "apiVersion": 1,
+      "error": {
+        "code": "SERVICE_UNAVAILABLE",
+        "message": "Trợ giúp hiện chưa sẵn sàng.",
+        "retryable": true
+      },
+      "correlation": {
+        "requestId": "req-compare",
+        "decisionId": "golden-compare:repair:3",
+        "stateRevision": "golden-compare:1"
+      }
+    },
+    "unsupported": {
+      "apiVersion": 1,
+      "error": {
+        "code": "UNSUPPORTED_VERSION",
+        "message": "Phiên bản hợp đồng chưa được hỗ trợ.",
+        "retryable": false
+      },
+      "correlation": {
+        "requestId": null,
+        "decisionId": null,
+        "stateRevision": null
+      }
+    }
+  },
+  "invalidCandidates": [
+    {
+      "name": "wrong-fact-role",
+      "candidate": {
+        "summary": {
+          "templateId": "repair.cash-sufficient-overview.v1",
+          "bindings": {
+            "extraCost": "comparison.extraCost",
+            "retainedCash": "comparison.retainedCash"
+          }
+        },
+        "tradeoffs": [
+          {
+            "optionId": "full",
+            "statements": [
+              {
+                "templateId": "repair.full-breakdown.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "full.cashAfter",
+                  "later": "full.later",
+                  "total": "full.total"
+                }
+              }
+            ]
+          },
+          {
+            "optionId": "temporary",
+            "statements": [
+              {
+                "templateId": "repair.temporary-breakdown.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "temporary.cashAfter",
+                  "later": "temporary.later",
+                  "total": "temporary.total",
+                  "due": "rule.obligationDue"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "templateId": "repair.deferred-obligation-risk.v1",
+            "bindings": {
+              "later": "temporary.later",
+              "due": "rule.obligationDue"
+            }
+          },
+          {
+            "templateId": "repair.existing-obligations.v1",
+            "bindings": {
+              "before": "ctx.obligations",
+              "after": "temporary.obligationsAfter"
+            }
+          }
+        ],
+        "reflectionQuestion": {
+          "templateId": "repair.reflection-liquidity.v1",
+          "bindings": {
+            "concept": "concept.liquidity"
+          }
+        }
+      }
+    },
+    {
+      "name": "raw-amount",
+      "candidate": {
+        "summary": {
+          "templateId": "repair.cash-sufficient-overview.v1",
+          "bindings": {
+            "extraCost": "comparison.extraCost",
+            "retainedCash": "comparison.retainedCash"
+          }
+        },
+        "tradeoffs": [
+          {
+            "optionId": "full",
+            "statements": [
+              {
+                "templateId": "repair.full-breakdown.v1",
+                "bindings": {
+                  "now": "full.now",
+                  "after": "full.cashAfter",
+                  "later": "full.later",
+                  "total": "full.total"
+                }
+              }
+            ]
+          },
+          {
+            "optionId": "temporary",
+            "statements": [
+              {
+                "templateId": "repair.temporary-breakdown.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "temporary.cashAfter",
+                  "later": "temporary.later",
+                  "total": "temporary.total",
+                  "due": "rule.obligationDue"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "templateId": "repair.deferred-obligation-risk.v1",
+            "bindings": {
+              "later": "temporary.later",
+              "due": "rule.obligationDue"
+            }
+          },
+          {
+            "templateId": "repair.existing-obligations.v1",
+            "bindings": {
+              "before": "ctx.obligations",
+              "after": "temporary.obligationsAfter"
+            }
+          }
+        ],
+        "reflectionQuestion": {
+          "templateId": "repair.reflection-liquidity.v1",
+          "bindings": {
+            "concept": "concept.liquidity"
+          }
+        },
+        "amountVnd": 999999999
+      }
+    },
+    {
+      "name": "probability",
+      "candidate": {
+        "summary": {
+          "templateId": "repair.cash-sufficient-overview.v1",
+          "bindings": {
+            "extraCost": "comparison.extraCost",
+            "retainedCash": "comparison.retainedCash"
+          }
+        },
+        "tradeoffs": [
+          {
+            "optionId": "full",
+            "statements": [
+              {
+                "templateId": "repair.full-breakdown.v1",
+                "bindings": {
+                  "now": "full.now",
+                  "after": "full.cashAfter",
+                  "later": "full.later",
+                  "total": "full.total"
+                }
+              }
+            ]
+          },
+          {
+            "optionId": "temporary",
+            "statements": [
+              {
+                "templateId": "repair.temporary-breakdown.v1",
+                "bindings": {
+                  "now": "temporary.now",
+                  "after": "temporary.cashAfter",
+                  "later": "temporary.later",
+                  "total": "temporary.total",
+                  "due": "rule.obligationDue"
+                }
+              }
+            ]
+          }
+        ],
+        "risks": [
+          {
+            "templateId": "repair.deferred-obligation-risk.v1",
+            "bindings": {
+              "later": "temporary.later",
+              "due": "rule.obligationDue"
+            }
+          },
+          {
+            "templateId": "repair.existing-obligations.v1",
+            "bindings": {
+              "before": "ctx.obligations",
+              "after": "temporary.obligationsAfter"
+            }
+          }
+        ],
+        "reflectionQuestion": {
+          "templateId": "repair.reflection-liquidity.v1",
+          "bindings": {
+            "concept": "concept.liquidity"
+          }
+        },
+        "probability": 0.99
+      }
+    }
+  ]
+}

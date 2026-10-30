@@ -1,3 +1,8 @@
+import { useMemo, useSyncExternalStore } from 'react'
+import { createRepairAiBinding, repairAiEligible } from '../game/repair-ai'
+import type { RepairAiSession } from '../game/repair-ai'
+import { repairAiFeature } from '../game/repair-ai-feature'
+import { RepairAiPanel } from './RepairAiPanel'
 import { eventsForGame } from '../../../src/data/events'
 import { canChoose } from '../../../src/game/engine'
 import { money } from '../../../src/game/format'
@@ -17,15 +22,19 @@ import { sound } from '../utils/audio'
 
 export function EventModal({
   game,
+  session,
   onChoose,
   onTransaction,
   onHelp,
 }: {
   game: GameState
+  session?: RepairAiSession
   onChoose: (id: string) => void
   onTransaction: (action: RebalanceAction) => boolean | void
   onHelp?: () => void
 }) {
+  const aiEnabled = useSyncExternalStore(repairAiFeature.subscribe, repairAiFeature.isEnabled, () => false)
+  const ai = useMemo(() => session ? createRepairAiBinding(session, repairAiFeature) : null, [session])
   if (MACRO_EVENTS.some((event) => event.id === game.eventId)) {
     return <EconomicEventModal game={game} onChoose={onChoose} onHelp={onHelp} />
   }
@@ -79,7 +88,8 @@ export function EventModal({
     <GamifiedModal
       badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · Ô ${game.position + 1}`}
       title={title}
-      onHelp={onHelp}
+      className={event.id === 'repair' && aiEnabled ? 'repair-event-modal' : ''}
+      onHelp={onHelp ? () => { ai?.close(); onHelp() } : undefined}
     >
       {/* Narrative Mô Tả Tình Huống */}
       {!trading && (
@@ -125,6 +135,8 @@ export function EventModal({
         </strong>
       </div>
 
+      {aiEnabled && ai && session?.getSnapshot() === game && repairAiEligible(game) && <RepairAiPanel binding={ai} />}
+
       {/* Trading Panel nếu thuộc nhóm giao dịch */}
       {trading && (
         <div style={{ width: '100%' }}>
@@ -161,6 +173,7 @@ export function EventModal({
                 disabled={disabled}
                 onClick={() => {
                   sound.playClick()
+                  ai?.close()
                   onChoose(option.id)
                 }}
                 style={{

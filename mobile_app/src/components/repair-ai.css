@@ -1,0 +1,22 @@
+/* Scoped to the repair modal; keep Phat's green/gold palette and existing scroll body. */
+.repair-ai { flex-shrink: 0; min-width: 0; color: #166534; font-size: 13px; }
+.repair-ai button { font: inherit; font-weight: 700; cursor: pointer; min-height: 44px; }
+.repair-ai button:disabled { opacity: .65; cursor: wait; }
+.repair-ai-trigger { width: 100%; border: 1.5px solid #86efac; border-radius: 14px; padding: 10px; background: #f0fdf4; color: #166534; }
+.repair-ai-panel { margin-top: 8px; padding: 12px; border: 1px solid #bbf7d0; border-radius: 14px; background: #f8fafc; overflow-wrap: anywhere; }
+.repair-ai h3 { margin: 0 0 8px; font-size: 14px; }
+.repair-ai p { margin: 8px 0; line-height: 1.5; user-select: text; }
+.repair-ai-hint { color: #475569; }
+.repair-ai-samples { display: flex; flex-wrap: wrap; gap: 6px; }
+.repair-ai-samples button { text-align: left; background: white; color: #166534; border: 1px solid #bbf7d0; border-radius: 10px; padding: 6px 8px; }
+.repair-ai form { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.repair-ai label { font-weight: 700; }
+.repair-ai input { box-sizing: border-box; width: 100%; min-width: 0; min-height: 44px; border: 1px solid #64748b; border-radius: 8px; padding: 8px; font: inherit; font-size: 16px; color: #1e293b; background: white; user-select: text; }
+.repair-ai form button { border: 0; border-radius: 10px; background: #166534; color: white; padding: 8px; }
+.repair-ai-result { color: #1e293b; }
+.repair-ai-reflection { border-left: 3px solid #16a34a; padding-left: 8px; }
+.repair-ai-actions { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+.repair-ai-actions button { border: 1px solid #cbd5e1; border-radius: 10px; background: white; color: #475569; padding: 6px; }
+.repair-ai :focus-visible { outline: 3px solid #166534; outline-offset: 2px; }
+.gamified-modal-card.repair-event-modal { height: min(80dvh, 680px) !important; max-height: calc(100dvh - 32px) !important; }
+.repair-event-modal .anime-slim-scroll > * { flex-shrink: 0; }
