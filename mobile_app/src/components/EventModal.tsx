@@ -84,13 +84,8 @@ export function EventModal({
       string
     >)[event.id] ?? event.title
 
-  return (
-    <GamifiedModal
-      badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · Ô ${game.position + 1}`}
-      title={title}
-      className={event.id === 'repair' && aiEnabled ? 'repair-event-modal' : ''}
-      onHelp={onHelp ? () => { ai?.close(); onHelp() } : undefined}
-    >
+  const description = (
+    <>
       {/* Narrative Mô Tả Tình Huống */}
       {!trading && (
         <div
@@ -115,6 +110,10 @@ export function EventModal({
         </div>
       )}
 
+    </>
+  )
+  const cash = (
+    <>
       {/* Badge Tiền Mặt Hiện Có (Soft Organic UI) */}
       <div
         style={{
@@ -135,24 +134,10 @@ export function EventModal({
         </strong>
       </div>
 
-      {aiEnabled && ai && session?.getSnapshot() === game && repairAiEligible(game) && <RepairAiPanel binding={ai} />}
-
-      {/* Trading Panel nếu thuộc nhóm giao dịch */}
-      {trading && (
-        <div style={{ width: '100%' }}>
-          <TradingPanel
-            key={`${game.turn}-${game.log.length}`}
-            game={game}
-            compact
-            onTransaction={onTransaction}
-            onSkip={() => onChoose('skip')}
-            marketContext={(asset, symbolId) => (
-              <MarketSignal game={game} asset={asset} symbolId={symbolId} />
-            )}
-          />
-        </div>
-      )}
-
+    </>
+  )
+  const decisions = (
+    <>
       {/* Danh Sách Các Lựa Chọn Hành Động */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '4px' }}>
         {event.options
@@ -247,6 +232,31 @@ export function EventModal({
             )
           })}
       </div>
-    </GamifiedModal>
+    </>
   )
+  if (aiEnabled && ai && session?.getSnapshot() === game && repairAiEligible(game)) {
+    return <RepairAiPanel binding={ai} title={title} badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · Ô ${game.position + 1}`}
+      cash={cash} description={description} decisions={decisions} onHelp={onHelp ? () => { ai.close(); onHelp() } : undefined} />
+  }
+  return <GamifiedModal badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · Ô ${game.position + 1}`} title={title} onHelp={onHelp}>
+    {description}
+    {cash}
+    {/* Trading Panel nếu thuộc nhóm giao dịch */}
+      {trading && (
+        <div style={{ width: '100%' }}>
+          <TradingPanel
+            key={`${game.turn}-${game.log.length}`}
+            game={game}
+            compact
+            onTransaction={onTransaction}
+            onSkip={() => onChoose('skip')}
+            marketContext={(asset, symbolId) => (
+              <MarketSignal game={game} asset={asset} symbolId={symbolId} />
+            )}
+          />
+        </div>
+      )}
+
+    {decisions}
+  </GamifiedModal>
 }

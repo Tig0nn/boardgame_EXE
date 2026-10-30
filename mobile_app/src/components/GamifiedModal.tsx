@@ -15,6 +15,8 @@ export interface GamifiedModalProps {
     label: string
     onClick: () => void
   }
+  fixedContent?: React.ReactNode
+  footerContent?: React.ReactNode
   children: React.ReactNode
   className?: string
 }
@@ -93,6 +95,8 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
   primaryAction,
   secondaryAction,
   children,
+  fixedContent,
+  footerContent,
   className = '',
 }) => {
   return (
@@ -245,6 +249,8 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
             </div>
           )}
 
+          {fixedContent && <div style={{ flexShrink: 0 }}>{fixedContent}</div>}
+
           {/* 2. BODY CONTENT (SCROLLABLE - flex-1 overflow-y-auto min-h-0) */}
           <div
             className="flex-1 overflow-y-auto min-h-0 anime-slim-scroll flex flex-col gap-2.5"
@@ -264,6 +270,8 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
           >
             {children}
           </div>
+
+          {footerContent && <div style={{ flexShrink: 0 }}>{footerContent}</div>}
 
           {/* 3. FOOTER / CTA (FIXED - flex-shrink-0 pt-2) */}
           {(primaryAction || secondaryAction) && (
