@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import type { ReactNode } from 'react';
 import { BOND_ISSUERS } from '../../../src/data/bond-issuers';
-import { ECONOMY } from '../../../src/data/config';
 import { creditIssuer, hasBondCredit, creditBondLots } from '../../../src/game/bond-credit';
 import { money } from '../../../src/game/format';
 import { purchasePreview, saleQuote } from '../../../src/game/selectors';
@@ -212,6 +211,7 @@ function MobileBondCreditView({
                   <button
                     key={item.id}
                     type="button"
+                    className="bond-issuer-card"
                     onClick={() => {
                       sound.playClick();
                       setIssuerId(item.id);
@@ -403,17 +403,15 @@ function MobileBondCreditView({
               <span style={{ fontSize: '11px', fontWeight: 800, color: '#78350F' }}>BÁO GIÁ & DÒNG TIỀN DỰ KIẾN</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ color: '#64748B', fontWeight: 600 }}>Lãi mỗi kỳ nếu trả đúng:</span>
+              <span style={{ color: '#64748B', fontWeight: 600 }}>Lãi mỗi kỳ nếu trả đúng hạn:</span>
               <strong style={{ color: '#059669', fontWeight: 900, fontVariantNumeric: 'tabular-nums' }}>
                 {preview.valid && available ? `+${money(periodicInterest)}` : '—'}
               </strong>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ color: '#64748B', fontWeight: 600 }}>Phí giao dịch bán:</span>
-              <strong style={{ color: '#475569', fontWeight: 800 }}>
-                {(ECONOMY.tradeFees.bonds * 100).toFixed(1)}%
-              </strong>
+              <span style={{ color: '#64748B', fontWeight: 600 }}>Phí bán</span>
+              <strong>1,5%</strong>
             </div>
 
             <div
@@ -500,7 +498,7 @@ function MobileBondCreditView({
                 ? 'Tổ chức này tạm ngừng bán'
                 : !preview.valid
                   ? 'Số tiền không hợp lệ'
-                  : `Mua Trái Phiếu ${money(amount)}`}
+                  : `Mua trái phiếu ${money(amount)}`}
             </button>
 
             {/* Nút Bỏ qua cơ hội thanh nhã (Loại bỏ đường gạch đứt xấu) */}

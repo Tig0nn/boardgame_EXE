@@ -10,7 +10,7 @@ import type { GameState } from '../../../src/game/types';
 import { sound } from '../utils/audio';
 
 // Hàm rút gọn số tiền sang đơn vị M/k giúp tiết kiệm diện tích tối đa trên giao diện giấy kem
-export const formatCompactMoney = (value: number): string => {
+const formatCompactMoney = (value: number): string => {
   if (value >= 1_000_000) {
     const m = value / 1_000_000;
     return `${Number.isInteger(m) ? m : m.toFixed(1).replace(/\.0$/, '')}M`;

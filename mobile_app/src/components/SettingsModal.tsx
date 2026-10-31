@@ -77,12 +77,17 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
     };
   }, []);
 
-  useEffect(() => {
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
+  if (prevIsOpen !== isOpen) {
+    setPrevIsOpen(isOpen);
     if (!isOpen) {
       setConfirmingRestart(false);
-      if (restartTimerRef.current) {
-        clearTimeout(restartTimerRef.current);
-      }
+    }
+  }
+
+  useEffect(() => {
+    if (!isOpen && restartTimerRef.current) {
+      clearTimeout(restartTimerRef.current);
     }
   }, [isOpen]);
 

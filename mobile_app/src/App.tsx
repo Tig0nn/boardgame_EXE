@@ -28,6 +28,8 @@ import { preloadGameAssets } from './utils/preloader'
 import { EntranceScreen } from './components/EntranceScreen'
 import { UnifiedManagementSheet } from './components/UnifiedManagementSheet'
 import { SettingsModal } from './components/SettingsModal'
+import { hasSeenTutorial, rememberTutorial } from './game/onboarding'
+import { Tutorial } from './components/Tutorial'
 import { MapScreen } from './components/MapScreen'
 import type { MapNodeConfig } from './game/map-progress'
 
@@ -277,6 +279,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
         />
       )}
 
+
       <SettingsModal
         isOpen={settingsOpen}
         onClose={() => setSettingsOpen(false)}
@@ -330,6 +333,14 @@ export default function App() {
     setSaved(fresh)
     setSession(createMobileSession(fresh))
     setScreen('game')
+  }
+
+  const [tutorial, setTutorial] = useState<'first' | null>(() => hasSeenTutorial() ? null : 'first')
+  const closeTutorial = () => {
+    if (tutorial === 'first') {
+      rememberTutorial()
+    }
+    setTutorial(null)
   }
 
   // Quản lý popup Luật chơi theo Chương (Chapter-specific rules)
@@ -391,7 +402,9 @@ export default function App() {
             onHelp={openHelp}
             onOpenSettings={() => setSettingsOpen(true)}
           />
-          <div style={{ display: 'none' }} aria-hidden="true" id="initial-savings" />
+          {tutorial !== 'first' && (
+            <div style={{ display: 'none' }} aria-hidden="true" id="initial-savings" />
+          )}
         </MobileContainer>
       ) : screen === 'map' ? (
         <MobileContainer>
@@ -462,6 +475,11 @@ export default function App() {
           onClose={() => setGuideHelpOpen(false)}
           game={session?.getSnapshot() || saved || undefined}
         />
+      )}
+
+
+      {tutorial === 'first' && (
+        <Tutorial firstTime onClose={closeTutorial} />
       )}
 
       <SettingsModal
