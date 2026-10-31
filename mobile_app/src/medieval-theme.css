@@ -1,0 +1,823 @@
+/* ==========================================================================
+   MEDIEVAL FANTASY JOURNAL DESIGN SYSTEM
+   Xoay Vòng Tiến Lui — Mobile UI Redesign
+   ========================================================================== */
+
+:root {
+  --medieval-font-heading: 'Fredoka', 'Baloo 2', system-ui, sans-serif;
+  --medieval-font-body: 'Fredoka', 'Baloo 2', system-ui, sans-serif;
+  --medieval-font-ui: 'Fredoka', 'Baloo 2', system-ui, sans-serif;
+
+  --medieval-ink-dark: #2a1506;
+  --medieval-ink-heading: #451a03;
+  --medieval-ink-muted: #5c3513;
+  --medieval-ink-subtle: #78350f;
+
+  --medieval-parchment-base: #fcf5e5;
+  --medieval-parchment-light: #fefcf3;
+  --medieval-parchment-dark: #eed8b1;
+  --medieval-parchment-border: #b8905b;
+
+  --medieval-gold: #b45309;
+  --medieval-gold-bright: #d97706;
+  --medieval-gold-light: #fef3c7;
+  --medieval-wax-red: #881337;
+  --medieval-wax-red-light: #991b1b;
+}
+
+/* Global Font Override for Chunky, Tactile Gaming Aesthetic — Eliminate all Serif leaks */
+body, button, input, select, textarea, dialog, label, span, p, h1, h2, h3, h4, strong, small, legend, summary, dt, dd,
+.button, .button.secondary, .full-button,
+.business-panel, .business-panel *,
+.trading-panel, .trading-panel *,
+.decision-item button, .rebalance-actions button {
+  font-family: 'Fredoka', 'Baloo 2', system-ui, -apple-system, sans-serif !important;
+  font-weight: 700;
+}
+
+/* Antique Parchment Custom Scrollbar */
+.medieval-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(180, 83, 9, 0.6) rgba(184, 144, 91, 0.12);
+  -webkit-overflow-scrolling: touch;
+}
+.medieval-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.medieval-scrollbar::-webkit-scrollbar-track {
+  background: rgba(184, 144, 91, 0.1);
+  border-radius: 2px;
+}
+.medieval-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(180, 83, 9, 0.55);
+  border-radius: 3px;
+  border: 1px solid rgba(246, 226, 189, 0.3);
+}
+.medieval-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(180, 83, 9, 0.85);
+}
+
+
+/* ==========================================================================
+   STRIP ALL DIALOG WHITE RECTANGLE BACKGROUNDS & ENFORCE HORIZONTAL WRITING
+   ========================================================================== */
+
+dialog.modal,
+dialog.modal.mobile-event,
+dialog.modal.medieval-journal-modal,
+dialog.modal.financial-modal,
+dialog.modal.economic-event,
+dialog.modal.start-summary,
+.modal,
+.gamified-modal-backdrop,
+.gamified-modal-card,
+.device-wrapper,
+.device-frame,
+.game-viewport {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+}
+
+dialog.modal,
+dialog.modal.mobile-event,
+dialog.modal.medieval-journal-modal,
+dialog.modal.financial-modal,
+dialog.modal.economic-event,
+dialog.modal.start-summary {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+dialog.modal::backdrop {
+  background: rgba(12, 10, 8, 0.75) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* ==========================================================================
+   MEDIEVAL JOURNAL MODAL (layer-2-clean.png Background)
+   ========================================================================== */
+
+.medieval-parchment-inner {
+  position: relative;
+  width: min(420px, 92vw);
+  max-width: 92vw;
+  max-height: min(600px, 80vh);
+  background-image: url('/assets/layer-2-clean.webp');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.85));
+  box-sizing: border-box;
+  padding: clamp(26px, 5.5vh, 36px) clamp(18px, 4.5vw, 26px) clamp(22px, 4.8vh, 30px) clamp(18px, 4.5vw, 26px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: var(--medieval-font-body);
+  color: var(--medieval-ink-dark);
+}
+
+/* 3-ZONE MODAL ARCHITECTURE: HEADER (FIXED) - CONTENT (SCROLLABLE) - FOOTER (FIXED) */
+.modal-header-zone {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 6px;
+}
+
+.modal-content-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-action-footer {
+  flex-shrink: 0;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(184, 144, 91, 0.45);
+  margin-top: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.medieval-section-kicker {
+  font-family: var(--medieval-font-heading);
+  font-size: clamp(10px, 2.8vw, 11.5px);
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--medieval-gold);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.medieval-event-title {
+  font-family: var(--medieval-font-heading);
+  font-size: clamp(18px, 5vw, 22px);
+  font-weight: 800;
+  color: var(--medieval-ink-heading);
+  margin: 0;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.medieval-narrative-text {
+  font-size: clamp(12.5px, 3.6vw, 14.5px);
+  line-height: 1.45;
+  color: var(--medieval-ink-dark);
+  margin: 6px 0 8px 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.medieval-cash-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px dashed rgba(184, 144, 91, 0.45);
+  padding-bottom: 3px;
+  font-size: 13px;
+  color: var(--medieval-ink-muted);
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.medieval-cash-badge strong {
+  color: var(--medieval-wax-red-light);
+  font-weight: 800;
+}
+
+.medieval-inline-note {
+  font-size: 12.5px;
+  color: var(--medieval-wax-red-light);
+  font-style: italic;
+  margin: 4px 0 6px 0;
+}
+
+/* ==========================================================================
+   ELIMINATE MODERN SAAS CARDS IN TRADING PANEL (Ô Vàng, Cổ Phiếu, Trái Phiếu)
+   ========================================================================== */
+
+.investment-encounter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--medieval-font-body);
+  color: var(--medieval-ink-dark);
+}
+
+.investment-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.investment-actions button {
+  flex: 1;
+  padding: 6px 12px;
+  background: transparent !important;
+  border: 1.5px solid #b8905b !important;
+  border-radius: 3px !important;
+  color: #451a03 !important;
+  font-family: var(--medieval-font-heading) !important;
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  cursor: pointer;
+  box-shadow: none !important;
+}
+
+.investment-actions button[aria-pressed="true"] {
+  background: #b45309 !important;
+  color: #ffffff !important;
+  border-color: #78350f !important;
+}
+
+/* Bỏ hộp màu xanh đậm SaaS của decision-preview */
+.decision-preview,
+.investment-encounter .decision-preview,
+.trading-panel .decision-preview {
+  background: rgba(184, 144, 91, 0.1) !important;
+  border: 1px dashed rgba(184, 144, 91, 0.45) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 8px 10px !important;
+  color: #2c1808 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.decision-preview span,
+.decision-preview dt {
+  color: #5c3513 !important;
+  font-size: 12.5px !important;
+}
+
+.decision-preview strong,
+.decision-preview dd {
+  color: #2c1808 !important;
+  font-weight: 800 !important;
+  font-size: 13.5px !important;
+}
+
+/* Bỏ hộp màu xanh đậm của MoneyInput */
+.money-input,
+.investment-encounter .money-input {
+  background: rgba(254, 252, 243, 0.95) !important;
+  border: 1.5px solid #b8905b !important;
+  border-radius: 3px !important;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1) !important;
+  color: #2c1808 !important;
+  padding: 6px 10px !important;
+}
+
+.money-input input {
+  background: transparent !important;
+  color: #2c1808 !important;
+  font-family: var(--medieval-font-heading) !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Nút Mua/Bán trong giao dịch & Quán kinh doanh */
+.investment-encounter button.button,
+.trading-panel button.button,
+.business-panel button.button,
+.mobile-trading-wrapper button {
+  font-family: 'Fredoka', 'Baloo 2', system-ui, sans-serif !important;
+  border-radius: 12px !important;
+}
+
+.investment-encounter button.button.primary,
+.investment-encounter button.button.full-button,
+.trading-panel button.button.primary,
+.trading-panel button.button.full-button {
+  background: linear-gradient(180deg, #FBBF24 0%, #F97316 48%, #EA580C 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 14px !important;
+  font-family: 'Fredoka', 'Baloo 2', system-ui, sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 14.5px !important;
+  padding: 12px 14px !important;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 6px;
+  transition: transform 0.12s ease;
+}
+
+.business-panel button.button.primary,
+.business-panel button.button.full-button {
+  background: linear-gradient(180deg, #FBBF24 0%, #F97316 48%, #EA580C 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 14px !important;
+  font-family: 'Fredoka', 'Baloo 2', system-ui, sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 14.5px !important;
+  padding: 12px 14px !important;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 6px;
+  transition: transform 0.12s ease;
+}
+
+.investment-encounter button.button.primary:active,
+.business-panel button.button.primary:active,
+.trading-panel button.button.primary:active {
+  transform: scale(0.97);
+}
+
+.investment-encounter button.button.secondary,
+.trading-panel button.button.secondary {
+  background: #ffffff !important;
+  color: #78350f !important;
+  border: 1.5px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  font-family: 'Fredoka', 'Baloo 2', system-ui, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  cursor: pointer;
+  padding: 9px 12px !important;
+  width: 100%;
+  margin-top: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06) !important;
+  transition: transform 0.12s ease;
+}
+
+.business-panel button.button.secondary {
+  background: #ffffff !important;
+  color: #B45309 !important;
+  border: 1.5px solid #F59E0B !important;
+  border-radius: 14px !important;
+  font-family: 'Fredoka', 'Baloo 2', system-ui, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  cursor: pointer;
+  padding: 11px 14px !important;
+  width: 100%;
+  margin-top: 6px;
+  box-shadow: 0 2px 6px rgba(180, 83, 9, 0.1) !important;
+  transition: transform 0.12s ease;
+}
+
+.investment-encounter button.button.secondary:active,
+.business-panel button.button.secondary:active,
+.trading-panel button.button.secondary:active {
+  transform: scale(0.97);
+}
+
+/* Quán của bạn — Gắn icon cửa hàng chính thức */
+.business-intro svg {
+  display: none !important;
+}
+.business-intro {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+.business-intro::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: url('/assets/shop-icon.png') center/contain no-repeat;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   STRIP ALL CARD BOXES IN PORTFOLIO (Ví Tài Sản)
+   ========================================================================== */
+
+.portfolio.panel {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  font-family: var(--medieval-font-body) !important;
+}
+
+.portfolio .panel-heading {
+  border-bottom: 1px solid rgba(184, 144, 91, 0.35) !important;
+  padding-bottom: 4px !important;
+  margin-bottom: 6px !important;
+}
+
+.portfolio .panel-heading h2 {
+  font-family: var(--medieval-font-heading) !important;
+  font-size: 15px !important;
+  color: #451a03 !important;
+}
+
+.portfolio .net-worth {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px dashed rgba(184, 144, 91, 0.35) !important;
+  border-radius: 0 !important;
+  padding: 4px 0 !important;
+  margin-bottom: 6px !important;
+}
+
+.portfolio .net-worth strong {
+  font-size: 18px !important;
+  color: #2c1808 !important;
+}
+
+.portfolio .asset-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.portfolio .asset-row {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px dashed rgba(184, 144, 91, 0.25) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 3px 0 !important;
+}
+
+.portfolio .asset-row strong {
+  color: #2c1808 !important;
+  font-size: 13px !important;
+}
+
+.portfolio .deposit-card {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px dashed rgba(184, 144, 91, 0.25) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 4px 0 !important;
+}
+
+.portfolio .debt-box,
+.portfolio .cashflow {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px dashed rgba(184, 144, 91, 0.35) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 4px 0 !important;
+  font-size: 12px !important;
+}
+
+/* ==========================================================================
+   DECISION RIBBON BUTTONS (Màn hình Lựa chọn Giải pháp)
+   ========================================================================== */
+
+.medieval-ribbon-btn {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background: linear-gradient(180deg, #fdfbf5 0%, #f6edd7 60%, #eee1c0 100%);
+  border: 1.5px solid #b8905b;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(42, 21, 6, 0.1);
+  color: var(--medieval-ink-dark);
+  font-family: var(--medieval-font-body);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.medieval-ribbon-btn:hover:not(:disabled) {
+  border-color: #d97706;
+  background: linear-gradient(180deg, #ffffff 0%, #fbf3e0 60%, #f2e6c8 100%);
+}
+
+.medieval-ribbon-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.medieval-ribbon-btn:disabled {
+  opacity: 0.55;
+  filter: grayscale(0.6);
+  cursor: not-allowed;
+  border-color: #d1b896;
+}
+
+.medieval-ribbon-btn strong {
+  font-family: var(--medieval-font-heading);
+  font-size: clamp(12.5px, 3.5vw, 14px);
+  font-weight: 800;
+  color: var(--medieval-ink-heading);
+  line-height: 1.25;
+  margin-bottom: 2px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.medieval-ribbon-btn span {
+  font-size: clamp(11px, 3vw, 12px);
+  line-height: 1.35;
+  color: var(--medieval-ink-muted);
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.medieval-ribbon-btn .ribbon-highlight {
+  font-weight: 700;
+  color: var(--medieval-wax-red-light);
+  margin-top: 2px;
+}
+
+/* Antique Ink Divider */
+.medieval-ink-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(138, 92, 45, 0.4) 20%, rgba(138, 92, 45, 0.6) 50%, rgba(138, 92, 45, 0.4) 80%, transparent 100%);
+  margin: 6px 0;
+}
+
+/* ==========================================================================
+   DICE RESULT CALLOUT SEAL (Ấn triện kết quả xúc xắc)
+   ========================================================================== */
+
+@keyframes diceSealPop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3) rotate(-15deg);
+    opacity: 0;
+  }
+  65% {
+    transform: translate(-50%, -50%) scale(1.15) rotate(4deg);
+    opacity: 1;
+  }
+  85% {
+    transform: translate(-50%, -50%) scale(0.96) rotate(-1deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   DYNAMIC DICE TOSS & SHAKE RESULT ANIMATION (Tung từ nút gieo, rung lắc đẹp mắt)
+   ========================================================================== */
+
+@keyframes diceShootTumble {
+  0% {
+    transform: translate(-50%, 140px) scale(0.3) rotate(-45deg);
+    opacity: 0;
+  }
+  45% {
+    transform: translate(-50%, -60px) scale(1.18) rotate(20deg);
+    opacity: 1;
+  }
+  65% {
+    transform: translate(-50%, -46px) scale(0.95) rotate(-10deg);
+  }
+  85% {
+    transform: translate(-50%, -50px) scale(1.05) rotate(5deg);
+  }
+  100% {
+    transform: translate(-50%, -50px) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes diceShakeVibe {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.06) rotate(-7deg); }
+  50% { transform: scale(0.97) rotate(6deg); }
+  75% { transform: scale(1.04) rotate(-4deg); }
+}
+
+@keyframes numberGlowPop {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.22);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.dice-toss-burst-container {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: diceShootTumble 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.dice-toss-burst-number {
+  font-family: 'Fredoka', 'Baloo 2', sans-serif !important;
+  font-size: 58px;
+  font-weight: 900;
+  line-height: 1;
+  color: #fffbeb;
+  text-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.95),
+    0 0 25px rgba(245, 158, 11, 0.95),
+    0 0 45px rgba(234, 88, 12, 0.8),
+    -2.5px -2.5px 0 #92400e,
+    2.5px -2.5px 0 #92400e,
+    -2.5px 2.5px 0 #92400e,
+    2.5px 2.5px 0 #92400e;
+  animation: numberGlowPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   HEADER ICON BUTTONS (Sound & Setting)
+   ========================================================================== */
+
+.medieval-icon-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.15s ease;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+}
+
+.medieval-icon-btn:hover {
+  transform: scale(1.08);
+}
+
+.medieval-icon-btn:active {
+  transform: scale(0.92);
+}
+
+/* ==========================================================================
+   ENTRANCE PLAY BUTTON (No White Box, Clean Transparent Fit)
+   ========================================================================== */
+
+.medieval-play-btn {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s ease;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.6));
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.medieval-play-btn:hover {
+  transform: scale(1.06);
+  filter: drop-shadow(0 16px 36px rgba(234, 179, 8, 0.45)) drop-shadow(0 12px 24px rgba(0, 0, 0, 0.7));
+}
+
+.medieval-play-btn:active {
+  transform: scale(0.95);
+}
+
+/* ==========================================================================
+   ANIME GAME GPU KEYFRAMES (120 FPS Compositor Acceleration)
+   ========================================================================== */
+
+@keyframes animePopupScale {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   ANIME SLIM SCROLLBAR (Sleek 4px Translucent Mint Scrollbar)
+   ========================================================================== */
+
+.anime-slim-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(52, 211, 153, 0.45) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.anime-slim-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.anime-slim-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.anime-slim-scroll::-webkit-scrollbar-thumb {
+  background: rgba(52, 211, 153, 0.45);
+  border-radius: 9999px;
+}
+
+.anime-slim-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.8);
+}
+
+/* ==========================================================================
+   ARCADE GAMIFIED RULEBOOK & PARCHMENT SCROLL THEME
+   ========================================================================== */
+
+.arcade-scrollbar,
+.medieval-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #f59e0b rgba(254, 243, 199, 0.25);
+  -webkit-overflow-scrolling: touch;
+}
+
+.arcade-scrollbar::-webkit-scrollbar,
+.medieval-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.arcade-scrollbar::-webkit-scrollbar-track,
+.medieval-scrollbar::-webkit-scrollbar-track {
+  background: rgba(254, 243, 199, 0.25);
+  border-radius: 9999px;
+}
+
+.arcade-scrollbar::-webkit-scrollbar-thumb,
+.medieval-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f59e0b 0%, #ea580c 100%);
+  border-radius: 9999px;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);
+}
+
+.arcade-scrollbar::-webkit-scrollbar-thumb:hover,
+.medieval-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #d97706;
+}
+
+@keyframes arcadeGlowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.95)) drop-shadow(0 0 4px #ffffff);
+  }
+}
+
+.arcade-glow-pulse {
+  animation: arcadeGlowPulse 2s infinite ease-in-out;
+}
+
+
+

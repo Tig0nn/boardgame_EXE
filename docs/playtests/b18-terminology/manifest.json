@@ -1,0 +1,728 @@
+{
+  "format": "b18-terminology-ux-v1",
+  "date": "2026-10-19",
+  "branch": "codex/mvp-b18-terminology-ux",
+  "base": "17f2aa1dc4958306db90673620566a90b3b02fac",
+  "implementation": "670bee4c6fa74e476482800029ab6249de95a383",
+  "baseline": {
+    "productTests": 339,
+    "ssrTests": 3,
+    "replays": 77,
+    "researchGames": 13,
+    "researchSnapshots": 2306
+  },
+  "verified": {
+    "productTests": 343,
+    "ssrTests": 4,
+    "replays": 81,
+    "oldReplayHashesUnchanged": 77,
+    "newNaturalCheckpoints": 2,
+    "newDesktopFullGames": 2,
+    "researchGames": 13,
+    "researchSnapshots": 2306,
+    "lint": true,
+    "desktopBuild": true,
+    "mobileBuild": true,
+    "browserChecks": 40,
+    "desktopNineTileTypes": true,
+    "mobileNineTileTypes": [
+      320,
+      390
+    ],
+    "keyboardFocusReturned": true,
+    "financialStateUnchanged": true,
+    "jsErrors": 0,
+    "englishFindings": 0,
+    "intentionalEnglish": [
+      "START: tên ô, giải thích Ô Xuất phát",
+      "AI Coach: tên tính năng",
+      "JSON: định dạng xuất/nhập và dữ liệu kỹ thuật mở rộng",
+      "AA/B/CCC/D và mã cổ phiếu: giữ mã mô phỏng",
+      "Tên doanh nghiệp hư cấu: giữ nguyên",
+      "Tên tiếng Anh trong phần đối chiếu Sổ tay: dùng từ điển tập trung"
+    ],
+    "reviewedExceptions": [
+      {
+        "file": "src/components/glossary.ts",
+        "line": 11,
+        "text": "'Thời điểm thu nhập tăng thêm tích lũy đủ bù số tiền ban đầu đã bỏ ra. Đây là thời gian bù vốn, khác tỷ suất sinh lời (ROI); không phải cam kết lợi nhuận.'",
+        "matches": [
+          "ROI"
+        ],
+        "reason": "Phân biệt thời gian hoàn vốn với tỷ suất sinh lời; không dùng ROI làm đồng nghĩa với thời gian"
+      }
+    ],
+    "historicalArtifacts": [
+      {
+        "manifest": "docs/playtests/b18-beginner-ux/manifest.json",
+        "artifacts": 187
+      },
+      {
+        "manifest": "docs/playtests/core-mvp-b18-multi-course/manifest.json",
+        "artifacts": 115
+      }
+    ],
+    "screenshots": 52
+  },
+  "scope": {
+    "uiOnly": true,
+    "engineChanged": false,
+    "economicsChanged": false,
+    "rngChanged": false,
+    "saveReplaySchemasChanged": false,
+    "archivedLogTextChanged": false,
+    "researchRerun": false,
+    "humanPlaytest": false,
+    "merged": false,
+    "manuallyDeployed": false,
+    "productionAliasChanged": false,
+    "ownerReviewPending": true
+  },
+  "screenshotSources": {
+    "pairedSeed": "TERMS-1",
+    "mobileResult": "docs/playtests/core-mvp-b18-multi-course/browser-390-trades.json.gz",
+    "desktopResultBefore": "docs/playtests/b18-beginner-ux/after/desktop-result.png",
+    "desktopResultAfter": "Actual Desktop UI full game TRADING-AB-MAIN-0",
+    "creditCheckpoints": "Exact replay of BOND-V25-0 and BOND-V25-59 to first matching START summary; no injected status"
+  },
+  "hashing": "Source UTF8 normalized to LF. Evidence is raw-byte SHA256, protected by scoped -text attributes.",
+  "sourceFiles": [
+    {
+      "path": "docs/B18_MVP_TERMINOLOGY_UX_REPORT.md",
+      "bytes": 14111,
+      "sha256": "89f2b76bd63a798d813c0a0ca782b1bc3c9590e6df6e5b1ce0b21951c541900d"
+    },
+    {
+      "path": "mobile_app/src/App.tsx",
+      "bytes": 9363,
+      "sha256": "c0d08a03b8271a75acbc3994f34a1168eed7134adfd5554eecc240ab279a8cfe"
+    },
+    {
+      "path": "mobile_app/src/components/BondStartSummary.tsx",
+      "bytes": 4473,
+      "sha256": "ec057c601d62a90b8458c270174b6120f2aa2918216676fd426a7661a7e06fed"
+    },
+    {
+      "path": "mobile_app/src/components/CoreMvpBoard.tsx",
+      "bytes": 4005,
+      "sha256": "8cd7c0c4f7fb9c6475fb78aaa481c910ed8dff3e11b234668fb0c23dc9bce538"
+    },
+    {
+      "path": "mobile_app/src/components/EconomicEventModal.tsx",
+      "bytes": 5923,
+      "sha256": "5dfd7a2c41920df4bffe0336b5c8bfbe16ce5240ee80408925f58f15bc49d322"
+    },
+    {
+      "path": "mobile_app/src/components/EventModal.tsx",
+      "bytes": 3775,
+      "sha256": "c87d05fb11b94d27057ff40caf59c1ca57168aead4dba916efd2b10f8026711b"
+    },
+    {
+      "path": "mobile_app/src/components/GameResultModal.tsx",
+      "bytes": 3060,
+      "sha256": "dbba3b15093824e796569126d49fd510faf03d28f463deae95c2870ea53d6a1d"
+    },
+    {
+      "path": "mobile_app/src/components/GameSetup.tsx",
+      "bytes": 4518,
+      "sha256": "26d8e128b2b5b296161b4882768c3c226cf130fb6a640cd3742f4b494050023e"
+    },
+    {
+      "path": "mobile_app/src/components/LapSummaryModal.tsx",
+      "bytes": 4496,
+      "sha256": "98ae679fc503f5d6337430993c1c1f5b249535681434afe8daea33f50fc63b6a"
+    },
+    {
+      "path": "mobile_app/src/components/MarketNews.tsx",
+      "bytes": 8928,
+      "sha256": "4a1c20627284edacf10168d9cc80f0b8683370735d00fbb988044c5e9270b91f"
+    },
+    {
+      "path": "mobile_app/src/components/RulebookModal.tsx",
+      "bytes": 7533,
+      "sha256": "1a1134d3b61625d5590438552ce7118d3224f9320b97a5d47339d770170a895d"
+    },
+    {
+      "path": "mobile_app/src/components/Tutorial.tsx",
+      "bytes": 11498,
+      "sha256": "4e4c9f28c11cc7e7655317f545464a90537fb33c4bbfbeed3ed8fa107db58376"
+    },
+    {
+      "path": "mobile_app/src/game/market-news.ts",
+      "bytes": 9904,
+      "sha256": "e7279da3a88df80bf998b47cffcfad23d710d50b7df356faecffb38b9a586967"
+    },
+    {
+      "path": "scripts/diagnostics/audit-terminology.mjs",
+      "bytes": 2356,
+      "sha256": "bbcacfbe6e87eb7ebd79ea5f1bcaf6137d3bea737a5217217a6a91cafe37ec38"
+    },
+    {
+      "path": "scripts/diagnostics/multi-course-ui.test.ts",
+      "bytes": 3445,
+      "sha256": "6c52866d5d32b2f41289c80a0aaa922d8a2b064b20f0134e6d1af70ca0edd572"
+    },
+    {
+      "path": "scripts/diagnostics/terminology-browser.mjs",
+      "bytes": 10923,
+      "sha256": "5710b6700cc280b9d09a4b5e57607b41e477465df945808619ce729462dd515f"
+    },
+    {
+      "path": "scripts/diagnostics/terminology-checkpoints.ts",
+      "bytes": 2569,
+      "sha256": "2d187c08fabf1e35611d290e395f28b7f4508b2ecb43401f9df2440d4cbc0d65"
+    },
+    {
+      "path": "scripts/diagnostics/terminology-desktop-board.mjs",
+      "bytes": 4284,
+      "sha256": "ed354a800c58a58f864685bd2297c4435c2b961a13db2090efc1ca121ae701ef"
+    },
+    {
+      "path": "scripts/diagnostics/terminology-desktop.mjs",
+      "bytes": 5577,
+      "sha256": "46814759c6b493884482ca8b941fbd78e2e23c0dda98883ff24af941ac2050cc"
+    },
+    {
+      "path": "scripts/diagnostics/terminology-screens.mjs",
+      "bytes": 4130,
+      "sha256": "99851849b265c7a8bf7da5579ea782555a5db15abd56460b3063731d77e8ebff"
+    },
+    {
+      "path": "scripts/diagnostics/terminology-ui.test.ts",
+      "bytes": 2813,
+      "sha256": "0590b5c08bb6618f50af0646e6d94a707286f7986f7581b256abc76e912cc6c3"
+    },
+    {
+      "path": "scripts/diagnostics/verify-terminology-replays.ts",
+      "bytes": 2095,
+      "sha256": "26f008f454dab047583d865ce65fba8e0ffa87e587058aa353c6aa4f433133f6"
+    },
+    {
+      "path": "scripts/verify-b18-terminology-evidence.mjs",
+      "bytes": 6241,
+      "sha256": "49117757e3bef1d6bc69823f093dca1a61e58315b9208bd152e8722372d925ba"
+    },
+    {
+      "path": "src/App.tsx",
+      "bytes": 7675,
+      "sha256": "4c17a8b3c7ac03beb583ac8f8b9a2333a7e2fab3b2ae80a346e03179091555f0"
+    },
+    {
+      "path": "src/ai/AICoachPanel.tsx",
+      "bytes": 8300,
+      "sha256": "464abea097477207dd933d2ce4075af00c15b5181ad71dbc731f7544a5f175a3"
+    },
+    {
+      "path": "src/components/Board.tsx",
+      "bytes": 7565,
+      "sha256": "a227602d7068b377efe98b56d931613b1276ce8da493aa467b72e2fc9a493172"
+    },
+    {
+      "path": "src/components/BondCreditPanel.tsx",
+      "bytes": 5691,
+      "sha256": "b278cf7539bb64fe2a4a42e71ef02f6da84fe703f6c12adec499594cdb858c1a"
+    },
+    {
+      "path": "src/components/BondHoldings.tsx",
+      "bytes": 1974,
+      "sha256": "c63a1b4659067c17fcf8aae159fd9d93ac9a0ad0402c48a313ff669d413623fd"
+    },
+    {
+      "path": "src/components/CourseChoices.tsx",
+      "bytes": 3067,
+      "sha256": "4bb82af985753bf7bb02672fedd67e7505e8d2a0c58d9f1ea5bb25bbdff7cb47"
+    },
+    {
+      "path": "src/components/EventLog.tsx",
+      "bytes": 2412,
+      "sha256": "6b262af9ac24714ce7ce8be2e18714814822c4bcbd33ab8e8e9dd06534e203a0"
+    },
+    {
+      "path": "src/components/FinancialReview.tsx",
+      "bytes": 733,
+      "sha256": "29d96a86732d9def75cf4e27e29722a315484838b3712a1886e5a7d7896c677a"
+    },
+    {
+      "path": "src/components/FinancialTerm.css",
+      "bytes": 1953,
+      "sha256": "932452b39e6501a819e1594cda9702ca4d9f597958131cab20e71adc7e5edf4d"
+    },
+    {
+      "path": "src/components/FinancialTerm.tsx",
+      "bytes": 4565,
+      "sha256": "c7cc4b958b5911b345cda65c8beb8e0a7f0443920c6ef39fe33e7452c615352a"
+    },
+    {
+      "path": "src/components/Forecast.tsx",
+      "bytes": 1121,
+      "sha256": "ca42e3dc3c5425d6251f5d2d9c32c152c147e172a3ca695f156dba4f71613a97"
+    },
+    {
+      "path": "src/components/FundingDialog.tsx",
+      "bytes": 7759,
+      "sha256": "d59302b6a53ff01b7edf1ef00ff3252d281c6b4056c4c20484a013ef9effc3e9"
+    },
+    {
+      "path": "src/components/GameDialogs.tsx",
+      "bytes": 11680,
+      "sha256": "539e06eb9f5a0348c9121cf07c290a7e3ab64658a208ed3cc01939ddc30ab6c6"
+    },
+    {
+      "path": "src/components/GoalChecks.tsx",
+      "bytes": 1310,
+      "sha256": "9c88ab6782e05dcf14dd0d4bb17959930c9ca343a8d2b12efbc84efb3aa7233f"
+    },
+    {
+      "path": "src/components/InvestmentEncounter.tsx",
+      "bytes": 4419,
+      "sha256": "496bc8b153fab67e7f6e231d50c7a99bc9fef21c84a6415f8801304936c83c8e"
+    },
+    {
+      "path": "src/components/MarketDetails.tsx",
+      "bytes": 5549,
+      "sha256": "57e9ca5271c084343b251e892142c12f5fb198f3f022176aa6f98ae20a3e6e60"
+    },
+    {
+      "path": "src/components/Portfolio.tsx",
+      "bytes": 4149,
+      "sha256": "9e8e1dcc6b126ef08efd93caaf118db05070bcc92d9ccf392b6ffbd8b2e4a7b9"
+    },
+    {
+      "path": "src/components/RebalanceDialog.tsx",
+      "bytes": 5795,
+      "sha256": "b914e4253bc19ab233b64c0154fa0628ba736be37dcba01b24edeaec467cab89"
+    },
+    {
+      "path": "src/components/Setup.tsx",
+      "bytes": 4707,
+      "sha256": "bbd7d0bab98db2f952f88b5b27fefe43d74f334c6e001d60dce80dcc3c6ed8d8"
+    },
+    {
+      "path": "src/components/TradingPanel.tsx",
+      "bytes": 13680,
+      "sha256": "33f00a6e80a1fe0fd60e57bfa723b395c4aa591aa1b6504de7290ed0c9e00df3"
+    },
+    {
+      "path": "src/components/glossary.ts",
+      "bytes": 7637,
+      "sha256": "c1f3c9a7c22542e7b203b5b5f3629a16245730cabe2a331b12ba4f4fb4fec050"
+    },
+    {
+      "path": "src/components/tile-information.ts",
+      "bytes": 3806,
+      "sha256": "dc7da6a569445406874395746d1eeaaafcc9007f8c6cf405737627f9a07bc627"
+    },
+    {
+      "path": "tasks/b18-terminology.md",
+      "bytes": 1126,
+      "sha256": "d019e5154d7d10b8a6e72305f77207489cfbb4b9ce4fddc6626f64c26e1f5724"
+    },
+    {
+      "path": "tests/bond-credit-presentation.test.ts",
+      "bytes": 3826,
+      "sha256": "bddee8c7b291b516de716f72e37929a8f234fa1ab4e7f6cbf99f3c1c83eeefea"
+    },
+    {
+      "path": "tests/glossary.test.ts",
+      "bytes": 2676,
+      "sha256": "a3120bbc47ae4eae6d0d3b3ff9007283f4be192e96f4b9bf993b7237d60aeee8"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/playtests/b18-terminology/.gitattributes",
+      "bytes": 50,
+      "sha256": "a2ac69235fe7444c0a581f49b0d0d12898af661195abcd5a88edc289b67e895e"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after-desktop-build.txt",
+      "bytes": 423,
+      "sha256": "58db18d3847981584bcc217d17282f1be7a505c14b11fddb349f808d16a3cc71"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after-lint.txt",
+      "bytes": 49,
+      "sha256": "91526960bb95dcdaf6283bf94b32949ed4d61c703f06493d01f9b777a25401f1"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after-mobile-build.txt",
+      "bytes": 421,
+      "sha256": "2e52d6f24eeb4accff26a509d438a10391c521580585d298d5cc7b3d8bd10a90"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after-parity.txt",
+      "bytes": 250,
+      "sha256": "1a8ad0062ee63260b012b2918ba618da22359dfc295951188a8b790ff8c9215d"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after-replay-verification.json",
+      "bytes": 18594,
+      "sha256": "87bc0ff6673056689416e53bceaa6255f92286e42c6957d54e12bc0d31741a8a"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after-tests.txt",
+      "bytes": 79999,
+      "sha256": "4c7ee9e35802661ab4460d72585a5f7b9666308c25e2690265dc9ced6097f09d"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after-ui.txt",
+      "bytes": 1836,
+      "sha256": "805106ed4568ff27faf4053d91b660e0875408eb8b9771c916f674823d4ceb3d"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/320-bond-trade.png",
+      "bytes": 91175,
+      "sha256": "b04c6cd1d56ebe526470c480f0cfbebc547be9e57f65f80b523493e554204d11"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/320-bulletin.png",
+      "bytes": 100594,
+      "sha256": "c7c0bee242da6c7869f9a79f952a7953caa68464e72c61ba5e04a1b9c81a1640"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/320-glossary-scroll.png",
+      "bytes": 108448,
+      "sha256": "8c31f752904423a27b8040abc9ab38606f19fd7933d5f18deadeba748f7e57c6"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/320-glossary.png",
+      "bytes": 125969,
+      "sha256": "105f2b9d02f15dd863374266a665d687883ec34fc89fe4d240617c9ac2ddd3b0"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/320-handbook.png",
+      "bytes": 125463,
+      "sha256": "382a7df72450d97d62f73193b20762c6c2ca5c9ae4d51f68bc62bb91b2b09061"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/320-result.png",
+      "bytes": 79824,
+      "sha256": "e9630fd00e7c8cdd34dc4d8351524ac6b9bf301e4af1144a956a36d8314884bd"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/320-tooltip-bond.png",
+      "bytes": 82726,
+      "sha256": "2e0f8c66a873ab804f2f35cf65d6f2d5fd761983d575a689190d850067d1b91c"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/320-tooltip-bulletin.png",
+      "bytes": 99428,
+      "sha256": "b9009afbef506de4c15d5d4a2b8a4391b4bbbe46c77c29337f345795e5ab30ca"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/390-bond-trade.png",
+      "bytes": 103086,
+      "sha256": "d75b51843e0b1567d5e28970a7cbc58434e052d7aab491466248d2b53eedf359"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/390-bulletin.png",
+      "bytes": 102430,
+      "sha256": "4c211677d2014c2e0da5a139f2aa6ac085bc69f3d1759aa1c7f9005609320521"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/390-glossary-scroll.png",
+      "bytes": 125945,
+      "sha256": "206baeab31f4165533506ac5189e2ff8b3c781c94c97c19de1a8878f31ebb745"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/390-glossary.png",
+      "bytes": 145076,
+      "sha256": "9f68828502c2aab8b3d7c4e693fecab7fb6515117afa3920663c5ae013617d19"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/390-handbook.png",
+      "bytes": 142115,
+      "sha256": "ead0ccc8094312731225ba9771ed7e010be84cb3abff061f2c80f3b1f5b4fa20"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/390-result.png",
+      "bytes": 84392,
+      "sha256": "4cdb80fc3dbf95b9aacdca14ce235ead18b0ba9dcb3a88cd1999e6b184f8103f"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/390-tooltip-bond.png",
+      "bytes": 87652,
+      "sha256": "59c0a315b5533a32f8f08d15fda7697d57f4df1aeeb86b8a5f9216c219d9d5f3"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/390-tooltip-bulletin.png",
+      "bytes": 102627,
+      "sha256": "590c7c1a0f2ca371eff59e9958f8ed7b53ff2f24c640abeab77885ac419f9809"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/browser-checks.json",
+      "bytes": 9343,
+      "sha256": "f262c0f8d434d16799e0fa12e1d882ef8e26cbe93b6c209287420659eeff452a"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/browser-desktop-defeat.json.gz",
+      "bytes": 1390517,
+      "sha256": "141745e187d258e388bbf78fc0652f38df0b282adfcbb1871757d9b04a3d18c9"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/browser-desktop.json.gz",
+      "bytes": 1638427,
+      "sha256": "d23e52dd2ad8673dd67180920fa30d0c304c01dd1e5c8be831383c5cd857b4e7"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/defaulted-credit.png",
+      "bytes": 132353,
+      "sha256": "ce104b001402dc4bd84ef206d71cd8aff0ae0e3a60b2df97ea2d87762810fa34"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/delayed-credit.png",
+      "bytes": 124133,
+      "sha256": "b2a3f07f0a52089b58e7e920e62d6a0c636be92a2b5faf7979c0f773b3a9b4d1"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-board-verification.json",
+      "bytes": 1082,
+      "sha256": "5cf8884f741d435461b5c50083ef92f7b6dd423712da5d50052bd6638d2f531b"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-bond-trade.png",
+      "bytes": 309502,
+      "sha256": "f83b893a15ec2d7103bbc868ab6d2cf7d157ed4796cf694336954960f13bd3d3"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-browser-verification.json",
+      "bytes": 1618,
+      "sha256": "352e679b1c715b21da4f602f6a152248698afee9333ea9883623bb49d4f5dea2"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-bulletin.png",
+      "bytes": 285155,
+      "sha256": "928ece611664c96339e5ec440f137dd3faf13290476911ad559ddd6e5b12a197"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-course-both.png",
+      "bytes": 263916,
+      "sha256": "b44f7e27aec498513441ad8b47dfcec3ce1309eed071632769c5843525c21780"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-course-insufficient.png",
+      "bytes": 250873,
+      "sha256": "f21ea7c106eed634f1121b57bed1e2a27f809bd8bff8d80d883b353e7e73f923"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-course-one.png",
+      "bytes": 256628,
+      "sha256": "3723895544c96c927824ac91a262fb9f7bac3a6063c03d719aca76baf815cb40"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-course-unlearned.png",
+      "bytes": 256252,
+      "sha256": "c4bc7abbe5d4c82e6219f24751fe7d91770b4e04ef2446a4dd758048d34ce28b"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-game-board.png",
+      "bytes": 182538,
+      "sha256": "0dbc9641a3aa69b23383d7284a83a232363ce8e3c2c07656863313908b60c20a"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-handbook.png",
+      "bytes": 265232,
+      "sha256": "ee97acfce98ac0ff1edf731712ae0f15aa7f0a60f9e758e82d72a29fb10cf036"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-keyboard-tooltip.png",
+      "bytes": 301426,
+      "sha256": "846c126d2abe8b06b2fb2add728780dad4cfb008de6a085ca32603c41e41da8e"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-poor-board.png",
+      "bytes": 178947,
+      "sha256": "bf8c3cfe0bed9a7e16ca433cf416bdae0627877daee8331745b3a20a01804fbb"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-result-defeat.png",
+      "bytes": 257203,
+      "sha256": "66b9a95f6b9dc19df7b75661bf5ac03de5e23f6901c36d5f26f9452a58228f5e"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-result.png",
+      "bytes": 288006,
+      "sha256": "5e129b6f19eca851e47d307a90a9696cbd67179f0a19af81801d97e8e54aee5e"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-tile-1.png",
+      "bytes": 281104,
+      "sha256": "24cc17e358df8e7e8663df1b6dc6db62bfae15a6a32884e526761fc1ee158001"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-tile-11.png",
+      "bytes": 274107,
+      "sha256": "381d039f06833fd4acaacaecdf6957150d35c83efc07891361bfaec52af373db"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-tile-2.png",
+      "bytes": 275350,
+      "sha256": "72f63da190167c8103e416524ef06710d1a7f7de998b4f7235ec022b19316d43"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-tile-3.png",
+      "bytes": 276078,
+      "sha256": "a7f020b7ee4ab8a0961714e16b7d35d0ca7d052f6bdf4dfc2a1fba7a6997e1c1"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-tile-4.png",
+      "bytes": 278769,
+      "sha256": "afa4bcb0c4edbedc09902c7d3236e1e97f62d0b9b10e66fe7e40ef2e3abaabed"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-tile-5.png",
+      "bytes": 280787,
+      "sha256": "5d0d309e5362cac2a3877e57623f4a212dab17b062a092745f47dd129f00e3c4"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-tile-6.png",
+      "bytes": 273724,
+      "sha256": "af84631a3fb821b6a3e0a510d2512d3b7996fe2b225a9ff0b3ff3e23307722f3"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-tile-7.png",
+      "bytes": 273478,
+      "sha256": "ab7083245b750b8ed971f0628a71b86e5151deb979e49a19c813670a13ab7b0b"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/desktop-tile-9.png",
+      "bytes": 276566,
+      "sha256": "fd70f04bc6bd921a6ff41a135b44554ce0736faa28bf71a331a778e18d2dca21"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/mobile-wide-result.png",
+      "bytes": 148908,
+      "sha256": "27be8dfb38a383ff27438b76807b2df2ddf48482bbff47e4b811f4d4d9e9adfc"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/after/screens.json",
+      "bytes": 1135,
+      "sha256": "9070c7e0e0dac0aacfb882c735a8d64dcee992f5931cbaf36dd8751963c8033c"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/baseline-desktop-build.txt",
+      "bytes": 423,
+      "sha256": "5cd5e2d2735f85742cc55a549d8fd0179919c732e0ab78c39b8edb4ea8709ef7"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/baseline-lint.txt",
+      "bytes": 49,
+      "sha256": "91526960bb95dcdaf6283bf94b32949ed4d61c703f06493d01f9b777a25401f1"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/baseline-mobile-build.txt",
+      "bytes": 421,
+      "sha256": "c777b0c0bdbae2f780b6fcaf5a86c3635a361083b2b86a84de0cda4550e5ef87"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/baseline-parity.txt",
+      "bytes": 250,
+      "sha256": "ebf62a75391dd99c46b40dd2aeeed0a498dd0284e8a121936377fb9ee2a9e37a"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/baseline-replay-verification.json",
+      "bytes": 17705,
+      "sha256": "51cca4048fa00a4ac22c06b33bf06fd06ce6a7d8346426a588ddf997a460c658"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/baseline-tests.txt",
+      "bytes": 78819,
+      "sha256": "1911cc4bf0b8948a3952d84dafb876bc038bb46468faa908dea639101119c03f"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/baseline-ui.txt",
+      "bytes": 1620,
+      "sha256": "5b124e00582301a7a65e70cea34cb6ee0b4c8bcb05d740c843756bd5f0f97a9d"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/320-bond-trade.png",
+      "bytes": 89822,
+      "sha256": "c980f028f7105c61db013f09b224efb69907955d9854411ddd75fde1e0e2478b"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/320-bulletin.png",
+      "bytes": 99195,
+      "sha256": "06fc32013854a3e60af56abf2be68da517c3400927aba42e4bad7a46d9ad8967"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/320-handbook.png",
+      "bytes": 124978,
+      "sha256": "e65597f553764e48755180f72b98b38ed2f767b5f3d9bc6d3e372356482351d7"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/320-result.png",
+      "bytes": 80183,
+      "sha256": "773d7769d581a66b96127935022744267cafe9ac10d68ccc999a469edf632dba"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/390-bond-trade.png",
+      "bytes": 101660,
+      "sha256": "8271638385fbc628b75df657f8db9aa589657f4d5d6fd469e8c5d1c6a8db6377"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/390-bulletin.png",
+      "bytes": 101462,
+      "sha256": "37441010631f954fdeef410c32fa29bd287c4e9150e8acc9f10a78e1ac4be1c1"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/390-handbook.png",
+      "bytes": 143212,
+      "sha256": "420a81a2587dcd0d3a21ea993fa4419465a30a08287ce7bbbb816ae267aa47f2"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/390-result.png",
+      "bytes": 84970,
+      "sha256": "b62679eda0edffa0f143efb32b034be72a5b929516eb119123a39f74bd86e108"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/desktop-bond-trade.png",
+      "bytes": 292561,
+      "sha256": "016b8ad04dcfe5d358cbb9be1588fded37fde4705f6afd19f0c5cb99bd0f540b"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/desktop-bulletin.png",
+      "bytes": 265127,
+      "sha256": "bae7c0fca576cd26da176e27a9daf2ebde078bfd8f14a897c7c01badee66747a"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/desktop-handbook.png",
+      "bytes": 257741,
+      "sha256": "c30a2a18434541b97509c35ade34fbbcc4f00ad9f4a8d29b0a30fefe0bf87240"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/desktop-result.png",
+      "bytes": 286036,
+      "sha256": "b3bd63a4225f8c0f763660bed055c711b12aa749a6db74e46d725f125c3eba5e"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/before/screens.json",
+      "bytes": 976,
+      "sha256": "1ae1f931cbbeb6fdaa721bb920125b2fd2951bced01bd56cef3a7e0c9f745480"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/checkpoints.txt",
+      "bytes": 585,
+      "sha256": "e97bd84e05451d3763435fe56c77e66462af9523417cfaa8a218b769e8f443e4"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/defaulted-checkpoint.json",
+      "bytes": 6832338,
+      "sha256": "5dd54ed4fa7a4e9c691864fc98a11358193051118a42bce34f3e7b235e940029"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/delayed-checkpoint.json",
+      "bytes": 6657321,
+      "sha256": "7da5a25dd9c186420d7c97f5d2efd6e97055bd7e2862641c8e3ad830d192ce91"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/language-audit.json",
+      "bytes": 1015,
+      "sha256": "4b6935bea6d5fe2bb23ed11fa0f3e429181b2c4d3a589fc300081034b3f75cee"
+    },
+    {
+      "path": "docs/playtests/b18-terminology/language-audit.txt",
+      "bytes": 1038,
+      "sha256": "913e599b51593b2a3e7a84d9f183606586bb11d0e83873b79c6ac24eb77ecf48"
+    }
+  ]
+}

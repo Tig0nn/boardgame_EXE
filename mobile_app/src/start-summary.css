@@ -1,0 +1,54 @@
+.modal.start-summary { padding: 0; overflow: hidden; }
+.modal.start-summary[open] { display: flex; flex-direction: column; }
+.start-scroll { overflow-y: auto; min-height: 0; padding: 20px 16px 12px; overscroll-behavior: contain; scrollbar-width: none; -ms-overflow-style: none; }
+.start-scroll::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
+.start-scroll > .section-kicker { padding-right: 88px; min-height: 28px; }
+.start-summary h2 { margin: 0 0 12px; }
+.start-overview { padding-bottom: 12px; border-bottom: 1px solid #456275; }
+.start-totals { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; }
+.start-totals > div { display: grid; }
+.start-totals span { font-size: 12px; color: #cbd5e1; }
+.start-totals strong { font: 800 22px/1.4 'Baloo 2', sans-serif; white-space: nowrap; }
+.start-totals > div:last-child strong { font-size: 18px; }
+.start-money-rows { display: grid; gap: 4px; margin: 8px 0; font-size: 13px; }
+.start-money-rows > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 8px; align-items: baseline; }
+.start-money-rows dt { min-width: 0; overflow-wrap: anywhere; }
+.start-money-rows dd { margin: 0 0 0 auto; font-weight: 800; white-space: nowrap; }
+.start-summary .neutral { color: #cbd5e1; }
+.start-summary .start-amber { color: #fde68a; }
+.start-summary .start-caption { margin: 4px 0 0; font-size: 12px; line-height: 1.5; color: #cbd5e1; }
+.start-summary .start-cash-balance { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 8px; margin: 8px 0 0; font-size: 13px; }
+.start-cash-balance strong { white-space: nowrap; }
+.start-bonds { display: grid; gap: 8px; margin-top: 12px; }
+.start-issuer { padding: 12px; border: 1px solid #456275; border-radius: 12px; background: #162e4480; }
+.start-issuer.delayed, .start-issuer.loss { border-left: 3px solid #fbbf24; }
+.start-summary .start-issuer h3 { font: 800 15px/1.4 'Nunito', sans-serif; margin: 0; overflow-wrap: anywhere; }
+.start-issuer h3 small { display: block; font-size: 11px; font-weight: 600; }
+.start-summary .start-credit-status { margin: 4px 0; font-size: 12px; color: #bae6fd; }
+.start-issuer.delayed .start-credit-status, .start-issuer.loss .start-credit-status { color: #fde68a; }
+.start-summary .start-no-receipt { margin: 8px 0 0; font-size: 12px; }
+.start-claim, .start-loss { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 8px; font-size: 13px; margin-top: 8px; }
+.start-claim { color: #fde68a; }
+.start-loss { color: #fda4af; }
+.start-claim strong, .start-loss strong { white-space: nowrap; }
+.start-loss small { flex-basis: 100%; color: inherit; font-size: 11px; }
+.start-summary .start-market h3 { font: 800 16px/1.4 'Baloo 2', sans-serif; margin: 12px 0 4px; color: #fde68a; }
+.start-market > ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.start-market > ul li { display: flex; gap: 8px; font-size: 12px; }
+.start-summary details { margin-top: 8px; }
+.start-summary summary { font-size: 13px; padding-block: 10px; line-height: 1.5; }
+.start-lot { padding-block: 12px; border-bottom: 1px solid #456275; }
+.start-summary .start-lot h3 { font: 800 14px/1.5 'Nunito', sans-serif; overflow-wrap: anywhere; }
+.start-lot > p { margin-block: 4px; font-size: 12px; }
+.start-actions { flex-shrink: 0; padding: 8px 16px max(12px, env(safe-area-inset-bottom)); border-top: 1px solid #456275; background: #0f172a; }
+.start-actions .full-button { margin: 0; }
+.start-raw .summary-lines { font-size: 12px; }
+.start-raw .summary-lines > div { flex-wrap: wrap; }
+.start-raw .summary-lines strong { margin-left: auto; }
+@media (max-width: 360px) {
+  .start-scroll { padding-inline: 12px; }
+  .start-summary h2 { font-size: 23px; }
+  .start-issuer { padding: 8px 10px; }
+  .start-totals { gap: 4px 8px; }
+  .start-totals strong { font-size: 21px; }
+}

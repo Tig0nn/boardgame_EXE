@@ -1,0 +1,90 @@
+{
+  "sourceRef": "33de122",
+  "sourcePath": "docs/research/trading-ab/main/interaction-learning-liquidity.new.examples.json.gz",
+  "sourceSha256": "d642554b532a94bfea3923511a56669e94a7bb0581facc47397fac19b71cb3d0",
+  "games": 10,
+  "compared": "Every economic snapshot, final market/credit/RNG/proceeds/win. Only intentional version/board identity metadata excluded.",
+  "goalChange": "90M single equals80M+10M; no formula/balance change",
+  "results": [
+    {
+      "policy": "cash",
+      "seed": "TRADING-AB-MAIN-0",
+      "actions": 46,
+      "proceeds": 86000000,
+      "won": false,
+      "rng": 2477777051
+    },
+    {
+      "policy": "savings",
+      "seed": "TRADING-AB-MAIN-0",
+      "actions": 46,
+      "proceeds": 98896000,
+      "won": true,
+      "rng": 2477777051
+    },
+    {
+      "policy": "stocks",
+      "seed": "TRADING-AB-MAIN-0",
+      "actions": 48,
+      "proceeds": 100201056,
+      "won": true,
+      "rng": 2477777051
+    },
+    {
+      "policy": "gold",
+      "seed": "TRADING-AB-MAIN-0",
+      "actions": 48,
+      "proceeds": 90506537,
+      "won": true,
+      "rng": 2477777051
+    },
+    {
+      "policy": "bond-a",
+      "seed": "TRADING-AB-MAIN-0",
+      "actions": 46,
+      "proceeds": 95380633,
+      "won": true,
+      "rng": 2477777051
+    },
+    {
+      "policy": "bond-b",
+      "seed": "TRADING-AB-MAIN-0",
+      "actions": 46,
+      "proceeds": 97309987,
+      "won": true,
+      "rng": 2477777051
+    },
+    {
+      "policy": "business",
+      "seed": "TRADING-AB-MAIN-0",
+      "actions": 49,
+      "proceeds": 102168247,
+      "won": true,
+      "rng": 2477777051
+    },
+    {
+      "policy": "diversified",
+      "seed": "TRADING-AB-MAIN-0",
+      "actions": 51,
+      "proceeds": 100853554,
+      "won": true,
+      "rng": 2477777051
+    },
+    {
+      "policy": "liquidity",
+      "seed": "TRADING-AB-MAIN-0",
+      "actions": 51,
+      "proceeds": 94738242,
+      "won": true,
+      "rng": 2477777051
+    },
+    {
+      "policy": "novice",
+      "seed": "TRADING-AB-MAIN-0",
+      "actions": 51,
+      "proceeds": 83219754,
+      "won": false,
+      "rng": 2477777051
+    }
+  ]
+}

@@ -1,0 +1,1405 @@
+{
+  "results": [
+    {
+      "name": "mobile-trades",
+      "width": 390,
+      "seed": "B18-UI-TRADES",
+      "policy": "trades",
+      "url": "https://boardgame-exe-mobile-preview-7y72c042b-tris-projects-2888207c.vercel.app",
+      "actualUi": true,
+      "injectedState": false,
+      "result": {
+        "status": "defeat",
+        "won": false,
+        "lawfulProceeds": 84635118,
+        "termination": "completed"
+      },
+      "events": [
+        "gold",
+        "business",
+        "bonds",
+        "bank",
+        "stocks",
+        "course",
+        "credit-tightening"
+      ],
+      "courses": [
+        "course-basic",
+        "course-advanced"
+      ],
+      "reloaded": true,
+      "completed": true,
+      "endedLabelCorrect": true,
+      "logEntries": 95
+    },
+    {
+      "name": "mobile-basic-first",
+      "width": 320,
+      "seed": "TRADING-AB-MAIN-0",
+      "policy": "basic-first",
+      "url": "https://boardgame-exe-mobile-preview-7y72c042b-tris-projects-2888207c.vercel.app",
+      "actualUi": true,
+      "injectedState": false,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 94000000,
+        "termination": "completed"
+      },
+      "events": [
+        "demand-boom",
+        "course",
+        "gold",
+        "bank",
+        "business",
+        "stocks",
+        "bonds"
+      ],
+      "courses": [
+        "course-basic",
+        "course-advanced"
+      ],
+      "reloaded": true,
+      "completed": true,
+      "endedLabelCorrect": true,
+      "logEntries": 101
+    },
+    {
+      "name": "mobile-advanced-first",
+      "width": 390,
+      "seed": "TRADING-AB-MAIN-0",
+      "policy": "advanced-first",
+      "url": "https://boardgame-exe-mobile-preview-7y72c042b-tris-projects-2888207c.vercel.app",
+      "actualUi": true,
+      "injectedState": false,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 94000000,
+        "termination": "completed"
+      },
+      "events": [
+        "demand-boom",
+        "course",
+        "gold",
+        "bank",
+        "business",
+        "stocks",
+        "bonds"
+      ],
+      "courses": [
+        "course-advanced",
+        "course-basic"
+      ],
+      "reloaded": true,
+      "completed": true,
+      "endedLabelCorrect": true,
+      "logEntries": 101
+    },
+    {
+      "name": "mobile-withdrawal",
+      "width": 390,
+      "seed": "B18-MULTICOURSE-SCREEN-0",
+      "policy": "withdrawal",
+      "savings": 50000000,
+      "url": "https://boardgame-exe-mobile-preview-7y72c042b-tris-projects-2888207c.vercel.app",
+      "actualUi": true,
+      "injectedState": false,
+      "result": {
+        "status": "defeat",
+        "won": false,
+        "lawfulProceeds": 78000000,
+        "termination": "completed"
+      },
+      "events": [
+        "repair",
+        "course",
+        "stocks",
+        "business",
+        "bonds",
+        "bank"
+      ],
+      "courses": [],
+      "reloaded": true,
+      "completed": true,
+      "endedLabelCorrect": true,
+      "logEntries": 85
+    },
+    {
+      "name": "mobile-savings",
+      "width": 390,
+      "seed": "TRADING-AB-MAIN-0",
+      "policy": "savings",
+      "savings": 10000000,
+      "term": 1,
+      "url": "https://boardgame-exe-mobile-preview-7y72c042b-tris-projects-2888207c.vercel.app",
+      "actualUi": true,
+      "injectedState": false,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 95000000,
+        "termination": "completed"
+      },
+      "events": [
+        "demand-boom",
+        "course",
+        "gold",
+        "bank",
+        "business",
+        "stocks",
+        "bonds"
+      ],
+      "courses": [
+        "course-basic",
+        "course-advanced"
+      ],
+      "reloaded": true,
+      "completed": true,
+      "endedLabelCorrect": true,
+      "logEntries": 101
+    },
+    {
+      "name": "mobile-business",
+      "width": 768,
+      "seed": "TRADING-AB-MAIN-0",
+      "policy": "business",
+      "url": "https://boardgame-exe-mobile-preview-7y72c042b-tris-projects-2888207c.vercel.app",
+      "actualUi": true,
+      "injectedState": false,
+      "result": {
+        "status": "defeat",
+        "won": false,
+        "lawfulProceeds": 85500000,
+        "termination": "completed"
+      },
+      "events": [
+        "demand-boom",
+        "course",
+        "gold",
+        "bank",
+        "business",
+        "stocks",
+        "bonds"
+      ],
+      "courses": [
+        "course-basic",
+        "course-advanced"
+      ],
+      "reloaded": true,
+      "completed": true,
+      "endedLabelCorrect": true,
+      "logEntries": 103
+    },
+    {
+      "name": "mobile-credit-funding",
+      "width": 390,
+      "seed": "B18-MULTICOURSE-SCREEN-0",
+      "policy": "credit-funding",
+      "savings": 50000000,
+      "url": "https://boardgame-exe-mobile-preview-7y72c042b-tris-projects-2888207c.vercel.app",
+      "actualUi": true,
+      "injectedState": false,
+      "result": {
+        "status": "defeat",
+        "won": false,
+        "lawfulProceeds": 89329927,
+        "termination": "completed"
+      },
+      "events": [
+        "repair",
+        "course",
+        "stocks",
+        "business",
+        "bonds",
+        "bank"
+      ],
+      "courses": [],
+      "reloaded": true,
+      "completed": true,
+      "endedLabelCorrect": true,
+      "logEntries": 85
+    },
+    {
+      "name": "desktop-victory",
+      "completed": false,
+      "error": "Error: Unknown Desktop dialog: Biến cố tài chính\nVòng 1 · Ô 2 · Lượt 1\nNhu cầu khởi sắc\n\nCú sốc đã cập nhật ngay toàn thị trường và trạng thái kinh doanh, kể cả tài sản bạn chưa sở hữu. Không lặp tại ô Xuất phát.\n\nTiền mặt hiện có\n50.000.000 ₫\nBáo giá sau cú sốc\nĐã xem tác động\nTiếp tục từ giá sau cú sốc.\nTiền khả dụng: 50.000.000 ₫ → 50.000.000 ₫"
+    },
+    {
+      "name": "desktop-defeat",
+      "completed": false,
+      "error": "Error: Unknown Desktop dialog: Biến cố tài chính\nVòng 1 · Ô 2 · Lượt 1\nNhu cầu khởi sắc\n\nCú sốc đã cập nhật ngay toàn thị trường và trạng thái kinh doanh, kể cả tài sản bạn chưa sở hữu. Không lặp tại ô Xuất phát.\n\nTiền mặt hiện có\n0 ₫\nBáo giá sau cú sốc\nĐã xem tác động\nTiếp tục từ giá sau cú sốc.\nTiền khả dụng: 0 ₫ → 0 ₫"
+    }
+  ],
+  "errors": [],
+  "layout": [
+    {
+      "label": "mobile-trades-setup",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-setup",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-setup",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-event-gold",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-event-demand-boom",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-demand-boom",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-event-course",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-event-business",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-course",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-resumed",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "mobile-basic-first-resumed",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": []
+    },
+    {
+      "label": "mobile-advanced-first-resumed",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "mobile-trades-event-bonds",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-gold",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-event-gold",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-bank",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-event-bank",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-sale-bonds",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-summary-1",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-business",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-event-business",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-sale-gold",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-event-bank",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-event-stocks",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-summary-1",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-summary-1",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-event-course",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-event-stocks",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-stocks",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-summary-2",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-event-bonds",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-event-bonds",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-summary-2",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-summary-2",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-summary-3",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-event-credit-tightening",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-summary-3",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-summary-3",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-sale-gold",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-summary-4",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-start-sale-stocks",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-start-sale-bonds",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-trades-result",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-summary-4",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-summary-4",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-basic-first-result",
+      "viewport": 320,
+      "scroll": 320,
+      "dialogs": [
+        {
+          "client": 284,
+          "scroll": 284
+        }
+      ]
+    },
+    {
+      "label": "mobile-advanced-first-result",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-setup",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-setup",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-setup",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-event-demand-boom",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-event-repair",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-event-demand-boom",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-funding-0",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-funding-choice-0",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-event-course",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-event-course",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-event-course",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-resumed",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": []
+    },
+    {
+      "label": "mobile-savings-resumed",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "mobile-withdrawal-resumed",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "mobile-business-event-gold",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-event-gold",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-event-bank",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-event-bank",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-term-2",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-event-stocks",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-event-business",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-event-business",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-event-business",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-summary-1",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-event-bonds",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-event-bank",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-summary-1",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-summary-1",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-summary-2",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-event-stocks",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-event-stocks",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-event-bonds",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-event-bonds",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-summary-2",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-summary-2",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-summary-3",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-summary-4",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-withdrawal-result",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-summary-3",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-summary-3",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-summary-4",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-summary-4",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-savings-result",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-business-result",
+      "viewport": 768,
+      "scroll": 768,
+      "dialogs": [
+        {
+          "client": 458,
+          "scroll": 458
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-setup",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-event-repair",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-funding-0",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-funding-choice-0",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-event-course",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-resumed",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": []
+    },
+    {
+      "label": "mobile-credit-funding-event-stocks",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-event-business",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-summary-1",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-event-bonds",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-event-bank",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-summary-2",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-summary-3",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-summary-4",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "mobile-credit-funding-result",
+      "viewport": 390,
+      "scroll": 390,
+      "dialogs": [
+        {
+          "client": 352,
+          "scroll": 352
+        }
+      ]
+    },
+    {
+      "label": "desktop-victory-setup",
+      "viewport": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "desktop-victory-FAILURE",
+      "viewport": 1440,
+      "scroll": 1440,
+      "dialogs": [
+        {
+          "client": 505,
+          "scroll": 505
+        }
+      ]
+    },
+    {
+      "label": "desktop-defeat-setup",
+      "viewport": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "desktop-defeat-FAILURE",
+      "viewport": 1440,
+      "scroll": 1440,
+      "dialogs": [
+        {
+          "client": 505,
+          "scroll": 505
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "actualPreview": true,
+  "humanPlaytest": false
+}

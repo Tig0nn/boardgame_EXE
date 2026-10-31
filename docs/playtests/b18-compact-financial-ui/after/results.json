@@ -1,0 +1,2046 @@
+{
+  "stage": "after",
+  "browser": "149.0.7827.55",
+  "checks": [
+    {
+      "label": "320-family",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-family-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "320-family-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "320-repair",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-repair-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "320-repair-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "320-medical",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-medical-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "320-medical-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "320-bank",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-bank-1-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "320-bank-1-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "320-bank-2-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "320-bank-2-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "320-bank-3-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "320-bank-3-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "320-invalid-0",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "320-invalid-99999999",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "320-invalid-abc",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "320-bank-schedule",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-bank-interest",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-bank-cta",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-bank-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "320-bonds",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-bonds-details",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-bonds-market",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-bonds-cta",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-bonds-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "320-gold",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-gold-history",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-gold-market",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-gold-cta",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-gold-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "320-gold-sale",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-gold-sale-exact",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "320-bank-late",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "320-bonds-late",
+      "viewport": 320,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-family",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-family-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "390-family-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "390-repair",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-repair-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "390-repair-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "390-medical",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-medical-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "390-medical-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "390-bank",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-bank-1-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "390-bank-1-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "390-bank-2-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "390-bank-2-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "390-bank-3-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "390-bank-3-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "390-invalid-0",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "390-invalid-99999999",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "390-invalid-abc",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "390-bank-schedule",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-bank-interest",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-bank-cta",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-bank-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "390-bonds",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-bonds-details",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-bonds-market",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-bonds-cta",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-bonds-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "390-gold",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-gold-history",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-gold-market",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-gold-cta",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-gold-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "390-gold-sale",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-gold-sale-exact",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "390-bank-late",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "390-bonds-late",
+      "viewport": 390,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-family",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-family-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "430-family-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "430-repair",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-repair-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "430-repair-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "430-medical",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-medical-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "430-medical-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "430-bank",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-bank-1-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "430-bank-1-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "430-bank-2-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "430-bank-2-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "430-bank-3-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "430-bank-3-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "430-invalid-0",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "430-invalid-99999999",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "430-invalid-abc",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "430-bank-schedule",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-bank-interest",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-bank-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "430-bonds",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-bonds-details",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-bonds-market",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-bonds-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "430-gold",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-gold-history",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-gold-market",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-gold-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "430-gold-sale",
+      "viewport": 430,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "430-gold-sale-exact",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "768-family",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-family-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "768-family-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "768-repair",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-repair-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "768-repair-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "768-medical",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-medical-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "768-medical-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "768-bank",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-bank-1-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "768-bank-1-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "768-bank-2-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "768-bank-2-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "768-bank-3-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "768-bank-3-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "768-invalid-0",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "768-invalid-99999999",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "768-invalid-abc",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "768-bank-schedule",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-bank-interest",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-bank-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "768-bonds",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-bonds-details",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-bonds-market",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-bonds-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "768-gold",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-gold-history",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-gold-market",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-gold-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "768-gold-sale",
+      "viewport": 768,
+      "pageWidth": 768,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "768-gold-sale-exact",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "1440-family",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-family-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "1440-family-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "1440-repair",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-repair-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "1440-repair-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "1440-medical",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-medical-0",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "1440-medical-1",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "1440-bank",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-bank-1-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "1440-bank-1-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "1440-bank-2-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "1440-bank-2-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "1440-bank-3-10000000",
+      "exactPreview": true
+    },
+    {
+      "label": "1440-bank-3-2000000",
+      "exactPreview": true
+    },
+    {
+      "label": "1440-invalid-0",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "1440-invalid-99999999",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "1440-invalid-abc",
+      "noInvalidProjection": true
+    },
+    {
+      "label": "1440-bank-schedule",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-bank-interest",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-bank-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "1440-bonds",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-bonds-details",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-bonds-market",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-bonds-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "1440-gold",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-gold-history",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-gold-market",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-gold-buy",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    },
+    {
+      "label": "1440-gold-sale",
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "modalOverflow": false,
+      "nestedScroll": 0
+    },
+    {
+      "label": "1440-gold-sale-exact",
+      "exactEngineSnapshot": true,
+      "saveResumed": true
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:5216/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  ],
+  "physicalDevices": false,
+  "source": "Local Mobile UI, exact archived replay prefixes; actual UI actions and reload compared with engine snapshots."
+}

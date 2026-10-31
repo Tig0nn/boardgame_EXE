@@ -1,0 +1,87 @@
+TAP version 13
+# (node:32508) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Economic Event React popup presents observed market changes with one acknowledgement
+    # Subtest: credit-tightening: three market groups, real percentages, issuers and closed details
+    ok 1 - credit-tightening: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 21.7369
+      ...
+    # Subtest: demand-boom: three market groups, real percentages, issuers and closed details
+    ok 2 - demand-boom: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 9.0398
+      ...
+    # Subtest: supply-recovery: three market groups, real percentages, issuers and closed details
+    ok 3 - supply-recovery: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 8.4173
+      ...
+    # Subtest: zero movement is neutral, missing log unavailable and legacy single issuer supported
+    ok 4 - zero movement is neutral, missing log unavailable and legacy single issuer supported
+      ---
+      duration_ms: 12.4244
+      ...
+    # Subtest: business is excluded from three market groups, but observed personal capital change is explained
+    ok 5 - business is excluded from three market groups, but observed personal capital change is explained
+      ---
+      duration_ms: 5.9795
+      ...
+    # Subtest: B18 credit-tightening/0: price and issuer pressure, owned holdings, immutable render
+    ok 6 - B18 credit-tightening/0: price and issuer pressure, owned holdings, immutable render
+      ---
+      duration_ms: 13.3649
+      ...
+    # Subtest: B18 demand-boom/1: price and issuer pressure, owned holdings, immutable render
+    ok 7 - B18 demand-boom/1: price and issuer pressure, owned holdings, immutable render
+      ---
+      duration_ms: 9.8396
+      ...
+    # Subtest: B18 supply-recovery/0: price and issuer pressure, owned holdings, immutable render
+    ok 8 - B18 supply-recovery/0: price and issuer pressure, owned holdings, immutable render
+      ---
+      duration_ms: 10.1034
+      ...
+    # Subtest: B18 credit-tightening/2: price and issuer pressure, owned holdings, immutable render
+    ok 9 - B18 credit-tightening/2: price and issuer pressure, owned holdings, immutable render
+      ---
+      duration_ms: 9.5456
+      ...
+    1..9
+ok 1 - Economic Event React popup presents observed market changes with one acknowledgement
+  ---
+  duration_ms: 4479.1973
+  ...
+# (node:26788) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# WebSocket server error: Port 24678 is already in use
+# Subtest: shared glossary renders on Desktop and Mobile, escapes selector text, and leaves state untouched
+not ok 2 - shared glossary renders on Desktop and Mobile, escapes selector text, and leaves state untouched
+  ---
+  duration_ms: 4385.062
+  location: 'E:\\Fall25_Ki8\\EXE-boardgame\\xoay-vong-tien-lui\\scripts\\diagnostics\\terminology-ui.test.ts:8:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /aria-label="Nguồn tiền về đích · Giải thích: Nguồn tiền về đích"/. Input:
+    
+    '<span class="financial-term"><button type="button" class="financial-term-trigger" aria-label="Giải thích: Nguồn tiền về đích" aria-expanded="false" aria-controls="_R_0_">Nguồn tiền về đích<span class="term-info" aria-hidden="true">ⓘ</span></button><span id="_R_0_" popover="manual" role="tooltip" class="financial-term-popup"><strong>Nguồn tiền về đích</strong><span>Tiền mặt, gốc tiết kiệm rút hợp lệ và tiền bán tài sản tài chính sau phí, trừ nợ và khoản phải trả. Không tính quán chưa bán hoặc lãi chưa nhận; trò chơi không tự bán tài sản. Tên trong luật: giá trị huy động hợp lệ.</span></span></span>'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: '<span class="financial-term"><button type="button" class="financial-term-trigger" aria-label="Giải thích: Nguồn tiền về đích" aria-expanded="false" aria-controls="_R_0_">Nguồn tiền về đích<span class="term-info" aria-hidden="true">ⓘ</span></button><span id="_R_0_" popover="manual" role="tooltip" class="financial-term-popup"><strong>Nguồn tiền về đích</strong><span>Tiền mặt, gốc tiết kiệm rút hợp lệ và tiền bán tài sản tài chính sau phí, trừ nợ và khoản phải trả. Không tính quán chưa bán hoặc lãi chưa nhận; trò chơi không tự bán tài sản. Tên trong luật: giá trị huy động hợp lệ.</span></span></span>'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/Fall25_Ki8/EXE-boardgame/xoay-vong-tien-lui/scripts/diagnostics/terminology-ui.test.ts:26:12)
+    async Test.run (node:internal/test_runner/test:980:9)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..2
+# tests 11
+# suites 0
+# pass 10
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4944.9212

@@ -1,13 +1,15 @@
-import { ECONOMY, MACRO_EVENTS, SCENARIOS, STOCKS } from '../data/config.ts'
+import { ECONOMY, MACRO_EVENTS, SCENARIOS } from '../data/config.ts'
+import { stockCatalog } from '../data/stock-catalog.ts'
 import { hashSeed, random } from './random.ts'
 import { copyState, draw, record, snapshot } from './state.ts'
-import type { GameState, MarketInstrument, MarketState, PricePoint } from './types.ts'
+import { applyCreditMacro, creditBondLots, hasBondCredit, updateCreditMarket } from './bond-credit.ts'
+import type { GameState, MarketInstrument, MarketState, PricePoint, StockCatalogVersion } from './types.ts'
 
-export function initializeMarket(seed: string): MarketState {
+export function initializeMarket(seed: string, catalogVersion?: StockCatalogVersion): MarketState {
   const historySeed = hashSeed(`${seed}:history-v2`)
   let rng = historySeed
   const sample = () => { const result = random(rng); rng = result[1]; return result[0] }
-  const stocks = STOCKS.map(stock => ({ ...stock, currentPrice: ECONOMY.market.initialStockPrice, priceHistory: [] as PricePoint[] }))
+  const stocks = stockCatalog(catalogVersion).map(stock => ({ ...stock, currentPrice: ECONOMY.market.initialStockPrice, priceHistory: [] as PricePoint[] }))
   const gold: MarketInstrument = { currentPrice: ECONOMY.market.initialGoldPrice, priceHistory: [] }
   const bond: MarketInstrument = { currentPrice: ECONOMY.bond.facePrice, priceHistory: [] }
   const historicalChange = (instrument: MarketInstrument, rate: number, timestamp: number) => {
@@ -35,7 +37,7 @@ export function initializeMarket(seed: string): MarketState {
   }
   stocks.forEach(stock => rebase(stock, ECONOMY.market.initialStockPrice))
   rebase(gold, ECONOMY.market.initialGoldPrice); rebase(bond, ECONOMY.bond.facePrice)
-  return { historySeed, stocks, gold, bond, appliedShocks: [], normalLaps: [] }
+  return { ...(catalogVersion ? { catalogVersion } : {}), historySeed, stocks, gold, bond, appliedShocks: [], normalLaps: [] }
 }
 
 function change(instrument: MarketInstrument, rate: number, s: GameState, kind: 'normal' | 'shock', eventId?: string) {
@@ -49,7 +51,8 @@ function change(instrument: MarketInstrument, rate: number, s: GameState, kind: 
 export function syncValuations(s: GameState): GameState {
   s.portfolio.stocks = Math.round(s.market.stocks.reduce((sum, stock) => sum + stock.currentPrice * (s.stockHoldings[stock.id]?.units ?? 0), 0))
   s.portfolio.gold = Math.round(s.goldUnits * s.market.gold.currentPrice)
-  s.portfolio.bonds = Math.round(s.bondLots.filter(lot => lot.status === 'active').reduce((sum, lot) => sum + lot.units * s.market.bond.currentPrice, 0))
+  s.portfolio.bonds = hasBondCredit(s) ? creditBondLots(s).reduce((sum, item) => sum + item.quote.gross, 0)
+    : Math.round(s.bondLots.filter(lot => lot.status === 'active').reduce((sum, lot) => sum + lot.units * s.market.bond.currentPrice, 0))
   s.portfolio.savings = s.deposits.filter(lot => lot.status === 'active').reduce((sum, lot) => sum + lot.principal, 0)
   s.portfolio.business = Math.round(s.business.recoverableCapital)
   return s
@@ -63,7 +66,8 @@ export function applyMacroShock(state: GameState, eventId: string): GameState {
   const before = snapshot(state)
   const s = copyState(state)
   for (const stock of s.market.stocks) change(stock, event.stocks[stock.sector as keyof typeof event.stocks], s, 'shock', eventId)
-  change(s.market.bond, event.bonds, s, 'shock', eventId)
+  if (hasBondCredit(s)) applyCreditMacro(s, eventId)
+  else change(s.market.bond, event.bonds, s, 'shock', eventId)
   change(s.market.gold, event.gold, s, 'shock', eventId)
   s.business.economicMultiplier = Math.max(ECONOMY.business.minimumEconomicMultiplier,
     Math.min(ECONOMY.business.maximumEconomicMultiplier, s.business.economicMultiplier + event.business))
@@ -82,7 +86,10 @@ export function updateNormalMarket(state: GameState): GameState {
   const common = sample(scenario.ranges.stocks)
   const sectors = Object.fromEntries([...new Set(s.market.stocks.map(stock => stock.sector))].map(sector => [sector, (draw(s) * 2 - 1) * ECONOMY.market.sectorVolatility]))
   for (const stock of s.market.stocks) change(stock, common + sectors[stock.sector] + (draw(s) * 2 - 1) * stock.volatility, s, 'normal')
-  change(s.market.bond, sample(scenario.ranges.bonds), s, 'normal')
+  // Consume the historical draw to preserve every other instrument/dice sequence.
+  const bondRate = sample(scenario.ranges.bonds)
+  if (hasBondCredit(s)) updateCreditMarket(s)
+  else change(s.market.bond, bondRate, s, 'normal')
   change(s.market.gold, sample(scenario.ranges.gold), s, 'normal')
   const businessReturn = sample(scenario.ranges.business)
   s.business.recoverableCapital *= Math.max(0, 1 + businessReturn - ECONOMY.business.depreciation)

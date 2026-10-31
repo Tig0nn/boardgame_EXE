@@ -1,0 +1,7 @@
+.savings-preview { min-width: 0; margin-block: 12px; padding: 12px; border: 1px solid #648292; border-radius: 12px; }
+.savings-preview dl { margin: 0; }
+.savings-preview dl > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 8px; margin-block: 8px; }
+.savings-preview dt { min-width: 0; }
+.savings-preview dd { margin: 0; text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+.savings-preview .savings-total { padding-top: 8px; border-top: 1px solid #648292; }
+.savings-preview p { font-size: .85em; line-height: 1.5; }

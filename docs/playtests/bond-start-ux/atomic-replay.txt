@@ -1,0 +1,75 @@
+(node:34312) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "seed": "atomic-history-fixture",
+  "encounterRulesVersion": "v2.4-atomic-investments",
+  "laps": 4,
+  "diceRolls": 23,
+  "entries": 97,
+  "purchases": {
+    "stocks": 2,
+    "bonds": 4,
+    "gold": 2
+  },
+  "lawfulProceeds": 90107737,
+  "victory": {
+    "wealth": true,
+    "liquidity": true,
+    "won": true
+  },
+  "fullStateReplay": true,
+  "onePurchasePerTurn": true,
+  "exactPurchaseFinancials": true,
+  "unchangedPurchaseRngAndPrices": true,
+  "newsReadOnly": true,
+  "reviews": [
+    {
+      "lap": 1,
+      "forecastId": "uncertain"
+    },
+    {
+      "lap": 2,
+      "forecastId": "recovery"
+    },
+    {
+      "lap": 3,
+      "forecastId": "uncertain"
+    },
+    {
+      "lap": 4,
+      "forecastId": "growth"
+    }
+  ],
+  "historical": [
+    {
+      "file": "docs\\playtests\\atomic-investments-v24\\historical-multi-purchase.json.gz",
+      "encounterRulesVersion": "v2.4-business-purchase-complete",
+      "fullStateReplay": true,
+      "repeated": {
+        "gold": 2,
+        "bonds": 5
+      },
+      "sha256": "c57fd98b7f9500129b0a174840c15357eab31372cd0dbfd8802f77a0a4755b59"
+    },
+    {
+      "file": "docs/playtests/encounter-limits-v2_3/browser-game-log.json.gz",
+      "encounterRulesVersion": "v2.3-single-action",
+      "fullStateReplay": true,
+      "repeated": {
+        "gold": 0,
+        "bonds": 0
+      },
+      "sha256": "dd1e4e353cf6c82d7fab2a2838590f2498efd7645c69bb707e5457c5779ca336"
+    },
+    {
+      "file": "docs/playtests/economic-news-v1/browser-game-log.json.gz",
+      "encounterRulesVersion": "v2.4-business-purchase-complete",
+      "fullStateReplay": true,
+      "repeated": {
+        "gold": 0,
+        "bonds": 0
+      },
+      "sha256": "7feb4de915dcee387f656f5b33bf5cdb6a887754a457a4fd62f4affc05bb181e"
+    }
+  ]
+}

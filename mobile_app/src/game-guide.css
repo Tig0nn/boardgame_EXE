@@ -1,0 +1,574 @@
+/* GAME GUIDE MINIMALIST ANTIQUE PARCHMENT JOURNAL (Pure Handwritten Tome) */
+
+/* Dialog Backdrop with Blur & Margin around Mobile Viewport */
+dialog.modal.game-guide-modal-container {
+  width: min(340px, 86vw);
+  max-width: 340px;
+  height: min(540px, 78vh);
+  max-height: 540px;
+  padding: 0;
+  margin: auto;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+dialog.modal.game-guide-modal-container::backdrop {
+  background: rgba(10, 18, 30, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Hide default engine-ui modal buttons */
+dialog.modal.game-guide-modal-container > .modal-close,
+dialog.modal.game-guide-modal-container > .sheet-help {
+  display: none !important;
+}
+
+/* Master Wrapper */
+.guide-antique-journal-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Protruding Numbered Tabs Container (1, 2, 3, 4, 5) - Compact Mobile */
+.guide-protruding-tabs-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 4px;
+  width: 100%;
+  padding-left: 18px;
+  margin-bottom: -4px; /* overlap seamlessly with top edge of parchment */
+  z-index: 25;
+}
+
+.guide-num-tab-btn {
+  width: 34px;
+  height: 24px;
+  border: none;
+  border-radius: 7px 7px 0 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1.5px 1.5px rgba(255, 255, 255, 0.35), 0 -2px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), height 0.15s ease;
+  outline: none;
+}
+
+.guide-num-tab-btn.tab-red { background: linear-gradient(180deg, #f87171 0%, #dc2626 100%); border: 1.5px solid #fca5a5; border-bottom: none; }
+.guide-num-tab-btn.tab-green { background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%); border: 1.5px solid #86efac; border-bottom: none; }
+.guide-num-tab-btn.tab-blue { background: linear-gradient(180deg, #60a5fa 0%, #2563eb 100%); border: 1.5px solid #93c5fd; border-bottom: none; }
+.guide-num-tab-btn.tab-amber { background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%); border: 1.5px solid #fde68a; border-bottom: none; }
+.guide-num-tab-btn.tab-slate { background: linear-gradient(180deg, #94a3b8 0%, #475569 100%); border: 1.5px solid #cbd5e1; border-bottom: none; }
+
+.guide-num-tab-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+.guide-num-tab-btn.active {
+  height: 28px;
+  transform: translateY(-2px);
+  filter: brightness(1.2) drop-shadow(0 0 6px rgba(251, 191, 36, 0.6));
+  border-top-width: 2px;
+}
+
+/* Main Antique Parchment Paper Sheet (Pure layer-2-clean.png Background) */
+.guide-antique-parchment-sheet {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  background-image: url('/assets/guide/guide_parchment_bg.webp');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 16px;
+  padding: 16px 16px 10px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 12px rgba(0, 0, 0, 0.35));
+  z-index: 20;
+}
+
+/* Minimalist Header Row with Title Calligraphy & Close Button */
+.guide-antique-header-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 5px;
+  flex-shrink: 0;
+}
+
+.guide-title-calligraphy-group {
+  text-align: center;
+}
+
+.guide-title-calligraphy {
+  margin: 0;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  color: #2b1103;
+  letter-spacing: 0.8px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.guide-minimal-close-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.guide-minimal-close-btn img {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+}
+
+.guide-minimal-close-btn:hover {
+  transform: translateY(-50%) scale(1.15) rotate(5deg);
+  filter: brightness(1.2);
+}
+
+.guide-minimal-skip-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 3px 10px;
+  background: #22c55e;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  z-index: 40;
+  transition: transform 0.15s ease;
+}
+
+.guide-minimal-skip-btn:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* 16:9 Illustration Viewport Area */
+.guide-viewport-area-row {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+  flex-shrink: 0;
+}
+
+/* 16:9 Landscape Illustration Card (Full Width - Compact Mobile 95px Height) */
+.guide-illustration-card-169 {
+  position: relative;
+  width: 100%;
+  height: 95px;
+  border-radius: 10px;
+  border: 1px solid #d4c5a9;
+  background: #1e130a;
+  overflow: hidden;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.7),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Viewport Scenes */
+.viewport-cozy-goal-scene {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #38bdf8 0%, #7dd3fc 45%, #86efac 45%, #22c55e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 6px 8px;
+  box-sizing: border-box;
+}
+
+.goal-track-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 4px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.goal-node {
+  text-align: center;
+  color: #fff;
+}
+
+.goal-node small { display: block; font-size: 8.5px; color: #fde68a; font-weight: 700; }
+.goal-node strong { font-size: 11px; font-weight: 900; }
+.goal-node.target strong { color: #fef08a; text-shadow: 0 0 10px rgba(251, 191, 36, 0.8); }
+
+.goal-path-arrow {
+  font-size: 13px;
+  font-weight: 800;
+  color: #fbbf24;
+  letter-spacing: 1px;
+}
+
+.viewport-cozy-board-scene {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #164e63 0%, #082f49 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  gap: 5px;
+}
+
+.board-tag-pill {
+  font-size: 10px;
+  font-weight: 800;
+  color: #fef08a;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid #0284c7;
+  letter-spacing: 0.3px;
+}
+
+.board-overview-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.board-overview-chip {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid #38bdf8;
+  border-radius: 6px;
+  padding: 3px 6px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #e0f2fe;
+  text-align: center;
+  flex: 1;
+}
+
+.board-overview-chip strong {
+  display: block;
+  font-size: 10.5px;
+  color: #fde68a;
+}
+
+.viewport-cozy-turn-scene {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.cozy-turn-step {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #334155;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  padding: 3px 6px;
+  color: #f8fafc;
+  font-size: 9.5px;
+  font-weight: 800;
+}
+
+.step-num {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #38bdf8;
+  color: #0f172a;
+  font-size: 9px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.turn-arrow { font-size: 10px; color: #38bdf8; font-weight: 800; }
+
+.viewport-cozy-invest-scene {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #3f2e1e 0%, #1c130b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.invest-card-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  padding: 3px 6px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.invest-card-badge.bank { border-color: #34d399; }
+.invest-card-badge.stocks { border-color: #60a5fa; }
+.invest-card-badge.shop { border-color: #fb923c; }
+
+.invest-card-badge .badge-icon { font-size: 13px; }
+.invest-card-badge strong { font-size: 9.5px; margin-top: 1px; }
+.invest-card-badge small { font-size: 8px; color: #fde68a; }
+
+.viewport-cozy-risk-scene {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #4c0519 0%, #1f0208 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  text-align: center;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.risk-alert-title { font-size: 11px; font-weight: 800; color: #f87171; margin-bottom: 2px; }
+.risk-alert-desc { font-size: 9.5px; color: #fef08a; }
+
+/* Subtle Separator Line */
+.guide-subtle-divider {
+  width: 75%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #c4ab84 50%, transparent 100%);
+  margin: 3px auto 4px auto;
+  flex-shrink: 0;
+}
+
+/* Handwritten Narrative Content Area - Completely Invisible Scrollbar */
+.guide-antique-narrative-area {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 2px 4px 4px 4px;
+  box-sizing: border-box;
+  text-align: center;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.guide-antique-narrative-area::-webkit-scrollbar {
+  display: none;
+}
+
+.guide-chapter-heading-handwritten {
+  margin: 0 0 4px 0;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  color: #2b1103 !important;
+  text-align: center;
+  text-shadow: none !important;
+  line-height: 1.25;
+}
+
+/* 18-Tile Symmetrical Grid */
+.guide-b18-tile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5px;
+  width: 100%;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+.guide-b18-tile-card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid #c4ab84;
+  border-radius: 5px;
+  padding: 2.5px 5px;
+  font-size: 9.5px;
+  color: #2b1103;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.guide-b18-tile-card .tile-num {
+  font-weight: 900;
+  color: #b45309;
+  font-size: 9.5px;
+  min-width: 14px;
+}
+
+.guide-b18-tile-card .tile-name {
+  font-weight: 700;
+  color: #2b1103;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.guide-paragraph-handwritten {
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: #3e2723 !important;
+  margin: 0 auto 6px auto;
+  max-width: 98%;
+  text-align: center;
+}
+
+.guide-antique-narrative-area .goal-conditions {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #d4c5a9;
+  border-radius: 8px;
+  padding: 5px 8px;
+  margin: 4px auto;
+  text-align: left;
+  font-size: 10px;
+  color: #3e2723;
+  line-height: 1.35;
+}
+
+.guide-antique-narrative-area .goal-conditions p {
+  color: #3e2723;
+  margin: 2px 0;
+  font-size: 10px;
+}
+
+.guide-antique-narrative-area .goal-conditions strong {
+  color: #b45309;
+}
+
+.guide-antique-narrative-area details {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 6px;
+  padding: 3px 6px;
+  margin-top: 4px;
+  border: 1px solid #d4c5a9;
+  font-size: 10px;
+  color: #3e2723;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.guide-antique-narrative-area details dl,
+.guide-antique-narrative-area details dt,
+.guide-antique-narrative-area details dd {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+.guide-antique-narrative-area summary {
+  cursor: pointer;
+  font-weight: 800;
+  color: #78350f;
+  font-size: 10px;
+}
+
+/* Minimalist Centered Bottom Action Button */
+.guide-minimalist-bottom-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+
+.guide-action-next-btn {
+  width: 70%;
+  max-width: 180px;
+  padding: 6px 14px;
+  background: linear-gradient(180deg, #22c55e 0%, #15803d 100%);
+  border: 1.2px solid #bbf7d0;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s ease, filter 0.15s ease;
+  letter-spacing: 0.3px;
+}
+
+.guide-action-next-btn:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+
+/* Safe ultra-compact mobile adjustment for devices under 340px */
+@media (max-width: 340px) {
+  dialog.modal.game-guide-modal-container {
+    width: 90vw;
+    height: 80vh;
+  }
+}

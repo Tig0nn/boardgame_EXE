@@ -1,0 +1,45 @@
+TAP version 13
+# (node:3628) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 3:09:27 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 3:09:28 PM [vite] (client) [optimizer] scanning dependencies...
+# Subtest: Economic Event React popup presents observed market changes with one acknowledgement
+    # Subtest: credit-tightening: three market groups, real percentages, issuers and closed details
+    ok 1 - credit-tightening: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 34.4138
+      ...
+    # Subtest: demand-boom: three market groups, real percentages, issuers and closed details
+    ok 2 - demand-boom: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 13.3025
+      ...
+    # Subtest: supply-recovery: three market groups, real percentages, issuers and closed details
+    ok 3 - supply-recovery: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 10.1149
+      ...
+    # Subtest: zero movement is neutral, missing log unavailable and legacy single issuer supported
+    ok 4 - zero movement is neutral, missing log unavailable and legacy single issuer supported
+      ---
+      duration_ms: 13.0487
+      ...
+    # Subtest: business valuation only appears in optional portfolio disclosure, never main comparison
+    ok 5 - business valuation only appears in optional portfolio disclosure, never main comparison
+      ---
+      duration_ms: 6.2759
+      ...
+    1..5
+ok 1 - Economic Event React popup presents observed market changes with one acknowledgement
+  ---
+  duration_ms: 3950.7324
+  ...
+1..1
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4453.0314

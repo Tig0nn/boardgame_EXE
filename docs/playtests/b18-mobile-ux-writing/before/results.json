@@ -1,0 +1,593 @@
+{
+  "stage": "before",
+  "browser": "149.0.7827.55",
+  "checks": [
+    {
+      "label": "320-economic-event",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đã hiểu · Tiếp tục",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-economic-event-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-economic-event-details",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đã hiểu · Tiếp tục",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-bonds",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 50.390625
+        },
+        {
+          "text": "Bán",
+          "height": 50.390625
+        },
+        {
+          "text": "Mua trái phiếu 8.000.000 ₫",
+          "height": 48.390625
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-bonds-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-bonds-details",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 50.390625
+        },
+        {
+          "text": "Bán",
+          "height": 50.390625
+        },
+        {
+          "text": "Mua trái phiếu 8.000.000 ₫",
+          "height": 48.390625
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-stocks",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 50.390625
+        },
+        {
+          "text": "Bán",
+          "height": 50.390625
+        },
+        {
+          "text": "Mua 10.000.000 ₫",
+          "height": 48.390625
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-stocks-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-stocks-details",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 50.390625
+        },
+        {
+          "text": "Bán",
+          "height": 50.390625
+        },
+        {
+          "text": "Mua 10.000.000 ₫",
+          "height": 48.390625
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-result",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Chơi hành trình mới",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "320-result-cta",
+      "reachable": true
+    },
+    {
+      "label": "320-result-details",
+      "width": 320,
+      "height": 740,
+      "pageWidth": 320,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Chơi hành trình mới",
+          "height": 48.390625
+        },
+        {
+          "text": "Lưu nhật ký hành trình",
+          "height": 48.390625
+        }
+      ]
+    },
+    {
+      "label": "390-economic-event",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đã hiểu · Tiếp tục",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-economic-event-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-economic-event-details",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đã hiểu · Tiếp tục",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-bonds",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua trái phiếu 8.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-bonds-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-bonds-details",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua trái phiếu 8.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-stocks",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua 10.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-stocks-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-stocks-details",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua 10.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-result",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Chơi hành trình mới",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "390-result-cta",
+      "reachable": true
+    },
+    {
+      "label": "390-result-details",
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Chơi hành trình mới",
+          "height": 50
+        },
+        {
+          "text": "Lưu nhật ký hành trình",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-economic-event",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đã hiểu · Tiếp tục",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-economic-event-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-economic-event-details",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Đã hiểu · Tiếp tục",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-bonds",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua trái phiếu 8.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-bonds-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-bonds-details",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua trái phiếu 8.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-stocks",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua 10.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-stocks-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-stocks-details",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Mua",
+          "height": 52
+        },
+        {
+          "text": "Bán",
+          "height": 52
+        },
+        {
+          "text": "Mua 10.000.000 ₫",
+          "height": 50
+        },
+        {
+          "text": "Bỏ qua cơ hội",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-result",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Chơi hành trình mới",
+          "height": 50
+        }
+      ]
+    },
+    {
+      "label": "430-result-cta",
+      "reachable": true
+    },
+    {
+      "label": "430-result-details",
+      "width": 430,
+      "height": 932,
+      "pageWidth": 430,
+      "modalOverflow": false,
+      "actions": [
+        {
+          "text": "Chơi hành trình mới",
+          "height": 50
+        },
+        {
+          "text": "Lưu nhật ký hành trình",
+          "height": 50
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [
+    {
+      "width": 320,
+      "label": "economic-event",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "width": 320,
+      "label": "economic-event",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "width": 320,
+      "label": "bonds",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "width": 320,
+      "label": "stocks",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "width": 320,
+      "label": "result",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "width": 390,
+      "label": "economic-event",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "width": 390,
+      "label": "bonds",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "width": 390,
+      "label": "stocks",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "width": 390,
+      "label": "result",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "width": 430,
+      "label": "economic-event",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "width": 430,
+      "label": "bonds",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "width": 430,
+      "label": "stocks",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "width": 430,
+      "label": "result",
+      "error": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "httpErrors": [],
+  "source": "Local Mobile build, exact replay prefixes imported through product UI. Not a new full gameplay run.",
+  "physicalDevices": false
+}

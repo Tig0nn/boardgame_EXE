@@ -1,6 +1,9 @@
 import type { GameEvent } from '../game/types.ts'
 import { ECONOMY, RULES, MACRO_EVENTS } from './config.ts'
 import { money } from '../game/format.ts'
+import { isCoreMvp, isMultiCourse, rulesForGame } from '../game/rules-profile.ts'
+import { MULTI_COURSES } from './courses.ts'
+import type { GameplayProfile } from '../game/types.ts'
 
 const skip = { id: 'skip', label: 'Bỏ qua cơ hội', detail: 'Giữ tiền mặt, không thay đổi danh mục.' }
 const payment = (cost: number) => ({ id: 'pay', label: `Thanh toán ${money(cost)}`, detail: 'Nếu thiếu tiền, bạn chọn nguồn thanh toán.', cost })
@@ -26,3 +29,16 @@ export const EVENTS: GameEvent[] = [
     description: 'Cú sốc đã cập nhật ngay toàn thị trường và trạng thái kinh doanh, kể cả tài sản bạn chưa sở hữu. Không lặp tại START.',
     options: [{ id: 'acknowledge', label: 'Đã xem tác động', detail: 'Tiếp tục từ giá sau cú sốc.' }] })),
 ]
+
+export function eventsForGame(game: { gameplayProfile?: GameplayProfile }): GameEvent[] {
+  if (isMultiCourse(game)) return EVENTS.map(event => event.id !== 'course' ? event : {
+    ...event,title:'Đầu tư bản thân',description:'Hai khóa độc lập, học theo bất kỳ thứ tự nào. Mỗi lần ghé mua tối đa một khóa; lương tăng từ START kế tiếp.',
+    options:[...MULTI_COURSES.map(c => ({id:`course-${c.id}`,label:`Mua ${c.name.toLowerCase()}`,cost:c.cost,recurringIncomeIncrease:c.boost,
+      detail:`Học phí ${money(c.cost)} bằng tiền mặt; lương +${money(c.boost)}/START từ lần qua START tiếp theo. Không hoàn học phí.`})),skip],
+  })
+  if (!isCoreMvp(game)) return EVENTS
+  const rules = rulesForGame(game)
+  return EVENTS.map(event => event.id !== 'course' ? event : { ...event, options: [
+    { id:'upgrade',label:`Tham gia khóa học ${money(rules.courseCost!)}`,detail:`Lương +${money(rules.courseBoost!)}/vòng từ START kế tiếp.`,cost:rules.courseCost,recurringIncomeIncrease:rules.courseBoost },skip,
+  ] })
+}

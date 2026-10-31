@@ -1,0 +1,92 @@
+{
+  "results": [
+    {
+      "desktop": true,
+      "fullGame": true,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 94000000,
+        "termination": "completed"
+      }
+    },
+    {
+      "desktop": true,
+      "flow": "insufficient",
+      "partialFlow": true
+    }
+  ],
+  "layout": [
+    {
+      "label": "desktop-game-board",
+      "viewport": 1440,
+      "body": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "desktop-course-unlearned",
+      "viewport": 1440,
+      "body": 1440,
+      "dialogs": [
+        {
+          "width": 725,
+          "scroll": 725
+        }
+      ]
+    },
+    {
+      "label": "desktop-course-one",
+      "viewport": 1440,
+      "body": 1440,
+      "dialogs": [
+        {
+          "width": 725,
+          "scroll": 725
+        }
+      ]
+    },
+    {
+      "label": "desktop-course-both",
+      "viewport": 1440,
+      "body": 1440,
+      "dialogs": [
+        {
+          "width": 725,
+          "scroll": 725
+        }
+      ]
+    },
+    {
+      "label": "desktop-result",
+      "viewport": 1440,
+      "body": 1440,
+      "dialogs": [
+        {
+          "width": 505,
+          "scroll": 505
+        }
+      ]
+    },
+    {
+      "label": "desktop-poor-board",
+      "viewport": 1440,
+      "body": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "desktop-course-insufficient",
+      "viewport": 1440,
+      "body": 1440,
+      "dialogs": [
+        {
+          "width": 725,
+          "scroll": 725
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "actualUiActions": true,
+  "forcedStates": false,
+  "humanPlaytest": false
+}

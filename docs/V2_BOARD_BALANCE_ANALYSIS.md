@@ -1,3 +1,5 @@
+> **HISTORICAL** — Nghiên cứu bố trí bàn V2/V2.1; giữ nguyên bảng, seed và phương pháp, không coi đề xuất cũ là roadmap hiện tại. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # Phân tích cân bằng bàn cờ V2
 
 Ngày phân tích: **11/10/2026**. Chẩn đoán offline trên **4 vòng, mục tiêu huy động hợp lệ 90M**; không phải thay đổi luật đã phê duyệt.

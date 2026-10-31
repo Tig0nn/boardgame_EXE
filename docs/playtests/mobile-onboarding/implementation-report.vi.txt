@@ -1,0 +1,58 @@
+BÁO CÁO ONBOARDING & UI MOBILE — 14/10/2026
+
+Nhánh: codex/mobile-onboarding
+Nền: d0e66263485b5be4d041cdfbe348dbf0bdaee811 (PR #8 đã xử lý xung đột).
+Commit UI: d300479.
+
+ĐÃ TRIỂN KHAI
+- Hướng dẫn 6 thẻ: mục tiêu 50 → 90 triệu / 4 vòng, bàn cờ, lượt chơi,
+  kiếm tiền, thanh toán bắt buộc, điều kiện kết thúc. Có Quay lại, Tiếp theo,
+  Bỏ qua hướng dẫn; mở lại bằng Sổ tay tại thiết lập, HUD và các sheet chính.
+- Chỉ lưu marker xvtl:mobile:tutorial:v1 = seen trên thiết bị sau hoàn tất
+  hoặc bỏ qua. Không khởi tạo ván trước onboarding, không lưu snapshot game.
+- HUD giữ tiền mặt, tiến độ về đích, nợ khi có. Các chỉ số còn lại ở Ví.
+- Rút gọn Ngân hàng, Cổ phiếu, Quán, START, funding và Kết quả. Giữ số tiền,
+  báo giá, phí và CTA; chuyển giải thích dài vào Chi tiết / Sổ tay.
+- Giữ chi phí mất lãi / phí bán / lãi vay cạnh CTA funding khi cuộn.
+- Dùng lại board artwork, SVG icon và dialog native. Sổ tay mở phía trên
+  panel đang nhập, giữ số tiền/kỳ hạn và trả focus về nút mở khi đóng.
+
+KIỂM CHỨNG
+- npm test: 189/189 PASS, gồm 3 test mới cho persistence và storage bị chặn.
+- Diagnostics: 21/21 PASS. Lint, build Web, build Mobile: PASS.
+- Checker tài liệu: PASS, 26 Markdown, 367 liên kết, 0 liên kết hỏng.
+- Live browser: đủ 6 thẻ tại 320x640, 390x844, 430x932; không tràn ngang.
+  Hoàn tất/bỏ qua được ghi nhớ khi reload; chơi lại không lặp onboarding.
+  Mở Sổ tay giữ thiết lập và giao dịch; Enter/Escape và focus đã kiểm tra.
+- Ván thật mobile-browser-v24: 4 vòng, 26 lượt gieo, 107 log entries.
+  Nguồn tiền cuối 69.371.467 ₫; thua đúng điều kiện. Replay khớp toàn bộ
+  trạng thái xuất ra (replay-verification.json, browser-game-log.json.gz).
+- Fixture riêng: funding double tap chỉ rút 3 triệu một lần; kết hợp vàng
+  thực nhận 1.920.600 ₫ và vay 79.400 ₫ trả đủ. Rapid trade taps không khóa
+  vĩnh viễn. Nâng cấp quán một lần cho thu nhập 4.700.000 ₫/START.
+- Console error của tab ván thật và fixture: 0.
+- Script verify-mobile-engine.mjs được cập nhật selector và thêm kiểm tra
+  onboarding, node --check PASS; chưa chạy toàn bộ script Playwright này.
+  Kiểm tra browser trong lượt này thực hiện trực tiếp qua CUA.
+
+PHẠM VI & GIỚI HẠN
+Không sửa src/game, src/data, session dispatcher, RNG, công thức tài chính,
+victory/replay, dependency/lockfile, asset artwork, character/dice hoặc audio.
+Không chạy lại mô phỏng 180.000 ván. Không push, merge hay deploy.
+Đây là kiểm tra viewport browser, chưa kiểm tra điện thoại vật lý. Panel dài
+vẫn cuộn ở 320x640. Nếu storage bị chặn, có thể cần bỏ qua lại khi reload.
+Không thêm autosave ván; người quay lại đi thẳng đến thiết lập ván mới.
+Chưa thử yêu cầu AI provider thực; AI Coach vẫn ở Nhìn lại hành trình.
+
+BÀN GIAO
+- changed-files.txt: danh sách toàn bộ tệp thay đổi và tệp bằng chứng mới.
+- 22 ảnh JPG: tutorial, setup, board, bank, stocks, business, funding, result.
+- screenshot-dimensions.json: đã đối chiếu kích thước thực của đủ 22 ảnh.
+- browser-verification.json: các phép kiểm UI thực tế và giới hạn.
+- unit-tests.txt / diagnostics.txt: output kiểm thử local.
+
+CHẠY MOBILE
+Tại root repository: npm run dev --prefix mobile_app
+Mở http://localhost:5174. Nút ? / Sổ tay mở lại hướng dẫn.
+Máy mới: npm ci, rồi npm ci --prefix mobile_app trước khi khởi động dev server.
+AI Coach local dùng backend root ở cổng 5173 khi được cấu hình riêng.

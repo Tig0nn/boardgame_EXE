@@ -1,0 +1,361 @@
+/* Engine sheets use CSS pixels; the illustrated board keeps its designer canvas. */
+.modal {
+  position: fixed; inset: 0; margin: auto; width: min(460px, calc(100vw - 24px));
+  max-height: calc(100dvh - 32px); overflow: visible; padding: 0;
+  border: none !important; border-radius: 0 !important; color: #2c1808;
+  background: transparent !important; box-shadow: none !important;
+  font-size: 15px; line-height: 1.6; overscroll-behavior: contain;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.modal::-webkit-scrollbar, .modal *::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
+.modal::backdrop { background: rgba(12, 10, 8, 0.75) !important; backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important; }
+.modal h2 { font: 800 clamp(19px, 5.5vw, 24px)/1.25 'Fredoka', sans-serif; margin: 8px 0 16px; color: #451a03; overflow-wrap: break-word; word-break: break-word; }
+.modal h3 { font-size: clamp(15px, 4vw, 18px); margin-block: 8px; font-family: 'Fredoka', sans-serif; overflow-wrap: break-word; word-break: break-word; }
+.modal p { margin-block: 10px; overflow-wrap: break-word; word-break: break-word; }
+.modal label { display: block; margin-block: 10px 4px; font-family: 'Fredoka', sans-serif; }
+.modal select, .modal input:not([type='radio']) {
+  font: inherit; font-size: 15px; width: 100%; min-height: 40px; padding: 8px 10px;
+  color: #2c1808; background: rgba(254, 252, 243, 0.95); border: 1.5px solid #b8905b; border-radius: 3px;
+  user-select: text;
+}
+.modal select { text-overflow: ellipsis; }
+.modal input[type='radio'] { min-width: 18px; min-height: 18px; accent-color: #b45309; }
+.modal button, .modal summary { touch-action: manipulation; cursor: pointer; }
+.modal button { font: inherit; }
+.button, .decision-button, .funding-source {
+  min-height: 40px; padding: 8px 12px; border-radius: 3px; border: 1.5px solid #b8905b;
+  color: #2c1808; background: linear-gradient(180deg, #fefae0 0%, #ecd9b3 100%);
+  font-family: 'Fredoka', sans-serif;
+}
+.full-button { display: block; width: 100%; margin-top: 10px; }
+.primary { background: linear-gradient(180deg, #fefae0 0%, #ecd9b3 100%); color: #451a03; border-color: #b45309; font-weight: 800; }
+.secondary { background: transparent; color: #78350f; border-color: rgba(184, 144, 91, 0.6); }
+button:disabled { opacity: .5; cursor: default; }
+button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible, .modal:focus-visible {
+  outline: 2px solid #b45309; outline-offset: 2px;
+}
+.modal:focus-visible { outline: none; }
+.modal-close { float: right; min-width: 36px; min-height: 36px; background: transparent; color: #991b1b; border: 0; font-size: 18px; font-weight: 900; }
+.section-kicker { display: block; font-size: 11px; font-weight: 800; color: #b45309; letter-spacing: .05em; font-family: 'Fredoka', sans-serif; }
+.modal small, .inline-note { font-size: 12.5px; color: #5c3513; }
+.event-cash { padding-block: 6px; border-block: 1px dashed rgba(184, 144, 91, 0.45); }
+.decision-button { display: flex; flex-direction: column; text-align: left; width: 100%; gap: 4px; margin-top: 8px; }
+.decision-button span { font-size: 12px; }
+/* Financial sheets keep one native scroll surface, with scrollbar hidden for sleek touch immersion. */
+.modal.financial-modal { scrollbar-width: none; -ms-overflow-style: none; padding-bottom: max(20px, env(safe-area-inset-bottom)); }
+.financial-modal .decision-button { gap: 6px; padding: 10px 14px; }
+.financial-modal .decision-button strong { font-size: 15px; line-height: 1.4; color: #451a03; }
+.financial-modal .decision-button span { font-size: 12.5px; line-height: 1.4; color: #5c3513; }
+.financial-modal .payment-comparison { color: #991b1b; }
+.financial-modal .trade-facts strong { font-size: 16px; font-variant-numeric: tabular-nums; color: #2c1808; }
+.financial-modal .trade-facts > div { gap: 4px 12px; }
+.financial-modal .trade-risk { line-height: 1.5; }
+.financial-modal .savings-period-note { margin-block: 8px; }
+.money-input { position: relative; }
+.money-input input { padding-right: 36px !important; }
+.money-input > span { position: absolute; right: 14px; top: 12px; }
+.input-error, .negative { color: #991b1b; }
+.positive, .transaction-feedback { color: #15803d; }
+.trade-facts, .business-purchase-facts, .decision-preview, .summary-lines,
+.rebalance-balances, .debt-box, .asset-list, .forecast-assets { display: grid; gap: 8px; margin-block: 12px; }
+.trade-facts > div, .business-purchase-facts > div, .decision-preview > span,
+.summary-lines > div, .rebalance-balances > div, .debt-box > span, .forecast-assets > div {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; min-width: 0;
+  overflow-wrap: break-word; word-break: break-word;
+}
+.trade-facts > div { flex-wrap: wrap; }
+.trade-facts small { flex-basis: 100%; }
+.trade-remaining { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-block: 12px; }
+.decision-preview strong, .summary-lines strong { text-align: right; white-space: nowrap; margin-left: auto; }
+.modal fieldset { border: 0; padding: 0; margin-block: 14px; min-width: 0; }
+.funding-sources { display: grid; gap: 6px; }
+.funding-source { display: flex; align-items: center; gap: 8px; text-align: left; flex-wrap: wrap; }
+.funding-source strong { margin-left: auto; }
+.funding-source.selected, .specialization.selected { border-color: #b45309; background: #fef3c7; }
+.funding-progress { display: grid; gap: 6px; }
+.specialization { display: flex !important; align-items: center; gap: 12px; padding: 10px; border: 1px dashed rgba(184, 144, 91, 0.45); border-radius: 0; }
+.specialization span, .specialization small, .upgrade-benefits span { display: block; }
+.customer-preference { padding-block: 10px; border-block: 1px dashed rgba(184, 144, 91, 0.45); }
+.customer-preference > span { font-size: 11px; }
+.customer-preference > strong { display: block; color: #451a03; }
+.preference-summary { padding: 8px 10px; background: transparent; border: 1px dashed rgba(184, 144, 91, 0.45); border-radius: 0; }
+.customer-preference.preference-summary > span { font-size: 10px; color: #5c3513; }
+.tutorial-preference { margin-block: 10px; font-size: 12.5px; }
+.modal details { margin-top: 12px; border-top: 1px dashed rgba(184, 144, 91, 0.35); }
+.modal summary { min-height: 40px; padding-block: 10px; }
+.price-chart svg { width: 100%; max-height: 150px; color: #b45309; }
+.price-chart small { display: block; }
+.asset-row { display: flex; gap: 8px; align-items: center; }
+.asset-row > div { flex: 1; }
+.asset-row small { display: block; }
+.net-worth > span, .net-worth > small, .result-worth > span { display: block; }
+.net-worth > strong, .result-worth > strong { font-size: 24px; color: #2c1808; font-family: 'Fredoka', sans-serif; }
+.goal-track progress { width: 100%; accent-color: #b45309; }
+.goal-conditions, .cashflow { margin-block: 14px; }
+.goal-conditions > div { display: flex; align-items: baseline; gap: 8px; }
+.full-log pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 11px; user-select: text; }
+.game-error { position: fixed; z-index: 10000; bottom: 16px; left: 12px; right: 12px; margin: auto;
+  max-width: 460px; background: #4c1827; color: #fff; border: 1px solid #fda4af; padding: 12px; border-radius: 6px; }
+.game-error button { float: right; color: white; background: transparent; border: 0; min-width: 44px; min-height: 44px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.ai-coach-disclaimer { display: none; }
+.sheet-help, .text-button { background: none; border: 0; color: #78350f; min-height: 40px; padding: 0 6px; }
+.sheet-help { display: flex; align-items: center; gap: 4px; float: right; font-size: 12.5px !important; }
+.modal .sheet-actions { position: sticky; bottom: -16px; background: #fcf5e5; padding-block: 8px; }
+.compact-funding .funding-source { display: grid; grid-template-columns: 18px 1fr; gap: 0 8px; padding: 8px 12px; font-size: 13px; }
+.compact-funding .funding-source strong { grid-column: 2; margin: 0; font-size: 12px; }
+.compact-funding .sheet-actions small { display: block; font-size: 12px; color: #78350f; }
+
+/* HUD Header: Phẳng, Không Card Bo Hộp */
+.mobile-hud { position: absolute; top: max(40px, env(safe-area-inset-top)); left: 16px; right: 16px; z-index: 30;
+  padding: 6px 10px; border: none; border-radius: 0; background: transparent; box-shadow: none; }
+.hud-row, .hud-actions, .hud-goal { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.hud-wallet span { display: block; font-size: 10.5px; letter-spacing: .08em; color: #fde68a; font-family: 'Fredoka', sans-serif; }
+.hud-wallet strong { font: 800 22px/1.2 'Fredoka', sans-serif; color: #ffffff; }
+.hud-help { width: 40px; height: 40px; border: none; border-radius: 50%; background: transparent; color: white; font: 800 18px 'Fredoka', sans-serif; cursor: pointer; }
+.hud-goal { margin-top: 4px; font-size: 12px; color: #fef3c7; }
+.mobile-hud progress { display: block; width: 100%; height: 6px; margin-top: 4px; accent-color: #b45309; }
+.mobile-hud > small { display: block; margin-top: 3px; color: #fde68a; font-size: 10.5px; }
+
+.business-intro { display: flex; gap: 10px; align-items: center; color: #78350f; }
+.business-intro span { font-size: 11px; letter-spacing: .08em; }
+.business-intro h3 { color: #451a03; }
+.business-purchase-facts dd { font-weight: 800; text-align: right; }
+.business-purchase-facts { padding: 10px 0; border-block: 1px dashed rgba(184, 144, 91, 0.45); }
+.result-medal { font-size: 56px; text-align: center; clear: both; }
+.game-result h2, .game-result .result-worth { text-align: center; }
+.game-result .result-worth { padding-block: 14px; border-block: 1px dashed rgba(184, 144, 91, 0.45); }
+
+/* Loại Bỏ Hoàn Toàn Card Xanh Đậm SaaS Trong Sự Kiện & Giao Dịch */
+.mobile-event .trade-facts, .mobile-event .business-purchase-facts { padding: 8px; background: transparent !important; border: 1px dashed rgba(184, 144, 91, 0.45) !important; border-radius: 0 !important; }
+.mobile-event .trade-remaining { padding: 6px 8px; background: transparent !important; border-left: 2px solid #b45309 !important; border-radius: 0 !important; font-size: 12px; }
+.mobile-event .customer-preference { padding: 8px; background: transparent !important; border: 1px dashed rgba(184, 144, 91, 0.45) !important; border-radius: 0 !important; }
+
+.result-worth progress { display: block; width: 100%; height: 8px; accent-color: #b45309; margin-top: 14px; }
+.result-progress-labels { display: flex; justify-content: space-between; gap: 8px; font-size: 11.5px; color: #5c3513; margin-top: 6px; }
+.rulebook-board { padding-left: 20px; display: grid; gap: 6px; }
+.rulebook-board svg { vertical-align: middle; }
+.game-result .result-medal { animation: medal-arrive .4s ease-out; }
+@keyframes medal-arrive { from { transform: translateY(8px) scale(.9); opacity: 0; } to { transform: none; opacity: 1; } }
+
+@media (max-width: 350px), (max-height: 700px) {
+  .modal { font-size: 13.5px; }
+  .modal h2 { font-size: 21px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+.board-rule-marker { position: absolute; z-index: 21; transform: translate(-50%, -50%); width: 106px; height: 76px; border: 3px solid #fff3ba; border-radius: 12px; background: #7044bc; color: white; box-shadow: 0 5px 0 #412b75, 0 7px 12px #0005; text-align: center; display: flex; align-items: center; justify-content: center; flex-direction: column; pointer-events: none; }
+.board-rule-marker.marker-14 { background: #ffce43; color: #553306; box-shadow: 0 5px 0 #aa720c, 0 7px 12px #0005; }
+.board-rule-marker span { font: 900 38px/1 sans-serif; }
+.board-rule-marker b { font: 800 16px/1.25 sans-serif; white-space: nowrap; }
+
+/* ==========================================================================
+   SOFT ORGANIC STYLING FOR SAVINGS & BANK (NO HARD RIGID BOXES)
+   ========================================================================== */
+fieldset.savings-terms {
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  background: rgba(240, 253, 244, 0.45) !important;
+  border-radius: 18px !important;
+  padding: 12px !important;
+  margin: 10px 0 !important;
+}
+fieldset.savings-terms legend {
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  color: #1e1b4b !important;
+  padding: 0 6px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.3px !important;
+}
+fieldset.savings-terms > div {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  margin-top: 6px !important;
+}
+fieldset.savings-terms label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 10px 12px !important;
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid #d1fae5 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+fieldset.savings-terms label:hover,
+fieldset.savings-terms label.selected {
+  background: #ecfdf5 !important;
+  border-color: #34d399 !important;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.15) !important;
+}
+fieldset.savings-terms label input[type="radio"] {
+  width: 16px !important;
+  height: 16px !important;
+  accent-color: #059669 !important;
+  margin: 0 !important;
+}
+fieldset.savings-terms label span {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #1e1b4b !important;
+}
+fieldset.savings-terms label strong {
+  font-size: 12.5px !important;
+  color: #059669 !important;
+  margin-left: 4px !important;
+}
+fieldset.savings-terms label small {
+  font-size: 11.5px !important;
+  color: #64748b !important;
+  margin-left: auto !important;
+}
+.savings-preview {
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  background: rgba(240, 253, 244, 0.35) !important;
+  border-radius: 18px !important;
+  padding: 12px 14px !important;
+  box-shadow: none !important;
+}
+.savings-preview .savings-total {
+  border-top: 1px dashed rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Fallback utilities for savings term selection */
+.space-y-3 > * + * {
+  margin-top: 12px !important;
+}
+.space-x-3 > * + * {
+  margin-left: 12px !important;
+}
+
+/* ==========================================================================
+   GAME OVER RESULT SCREEN (V2.4 GAMIFIED MOBILE MODAL)
+   ========================================================================== */
+.game-result-container {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  font-family: 'Fredoka', 'Baloo 2', system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+}
+
+.result-accordion {
+  background: rgba(248, 250, 252, 0.85);
+  border: 1.5px solid rgba(226, 232, 240, 0.9);
+  border-radius: 14px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: #334155;
+  transition: all 0.2s ease;
+}
+
+.result-accordion[open] {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.result-accordion summary {
+  font-weight: 700;
+  cursor: pointer;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justifyContent: space-between;
+  list-style: none;
+  user-select: none;
+}
+
+.result-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.btn-glossy-orange {
+  background: linear-gradient(180deg, #fb923c 0%, #ea580c 50%, #c2410c 100%);
+  color: #ffffff;
+  border: 1.5px solid #fdba74;
+  border-bottom: 3.5px solid #9a3412;
+  border-radius: 16px;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35);
+  transition: transform 0.1s ease, filter 0.15s ease;
+  width: 100%;
+}
+
+.btn-glossy-orange:active {
+  transform: translateY(2px);
+  border-bottom-width: 1.5px;
+  box-shadow: 0 2px 6px rgba(234, 88, 12, 0.3);
+}
+
+.btn-pill-subtle {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1.5px solid #cbd5e1;
+  border-bottom: 2.5px solid #94a3b8;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-pill-subtle:active {
+  transform: translateY(1.5px);
+  border-bottom-width: 1.5px;
+  background: #e2e8f0;
+}
+
+.btn-outline-subtle {
+  background: transparent;
+  color: #475569;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-outline-subtle:active {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* ==========================================================================
+   UNIVERSAL FREDOKA FONT ENFORCEMENT & ENCOUNTER BUTTON GAMIFICATION
+   ========================================================================== */
+.mobile-app-root button,
+.mobile-trading-wrapper button,
+.mobile-trading-wrapper input,
+.mobile-trading-wrapper select,
+.mobile-trading-wrapper details summary,
+.gamified-modal-card button,
+.gamified-modal-card input,
+.gamified-modal-card select,
+.gamified-modal-card details summary,
+.business-modal button,
+.stock-modal button,
+.trading-panel button {
+  font-family: 'Fredoka', 'Baloo 2', system-ui, -apple-system, sans-serif !important;
+}
+
+
