@@ -31,6 +31,13 @@ import { UnifiedManagementSheet } from './components/UnifiedManagementSheet'
 import { SettingsModal } from './components/SettingsModal'
 import { MapScreen } from './components/MapScreen'
 import type { MapNodeConfig } from './game/map-progress'
+import { WhatIfModal } from './components/WhatIfModal'
+import type { RepairWhatIf } from '../../src/game/what-if'
+
+// Owner review only. Production builds cannot enable this via a URL.
+const whatIfEnabled = import.meta.env.DEV && typeof window !== 'undefined'
+  && (new URLSearchParams(window.location.search).get('whatIf') === '1'
+    || new URLSearchParams(window.location.search).get('whatIfDemo') === 'repair')
 
 // Coordinates are artwork metadata; category/order/labels come from the official C20 or B18 board.
 const coordinatesFor = (board: ReturnType<typeof boardFor>) => {
@@ -40,12 +47,13 @@ const coordinatesFor = (board: ReturnType<typeof boardFor>) => {
 const delay = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms))
 type Session = ReturnType<typeof createMobileSession>
 
-export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = false }: {
+export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = false, persist = true }: {
   session: Session;
   onRestart: () => void;
   onHome?: () => void;
   onHelp?: () => void;
   helpOpen?: boolean;
+  persist?: boolean;
 }) {
   // React subscribes to immutable engine snapshots: https://react.dev/reference/react/useSyncExternalStore
   const game = useSyncExternalStore(session.subscribe, session.getSnapshot)
@@ -59,6 +67,9 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
   const [particles, setParticles] = useState<MoneyParticle[]>([])
   const [diceSealValue, setDiceSealValue] = useState<number | null>(null)
   const [settingsOpen, setSettingsOpen] = useState(false)
+  const [whatIfFor, setWhatIfFor] = useState<RepairWhatIf | null>(null)
+  const comparison = session.getRepairWhatIf()
+  const whatIfOpen = !!comparison && whatIfFor === comparison
   const busy = useRef(false)
   const generation = useRef(0)
   const particleId = useRef(0)
@@ -66,13 +77,14 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
 
   useEffect(() => () => { generation.current++ }, [])
   useEffect(() => {
+    if (!persist) return
     const timer = window.setTimeout(() => {
       if (!saveGameLocally(game)) {
         setNotice('Không lưu tự động được trên trình duyệt này. Hãy xuất nhật ký trong Ví để giữ ván. Khi đóng hoặc tải lại trang, các lượt chưa lưu có thể mất.')
       }
     }, 0)
     return () => window.clearTimeout(timer)
-  }, [game])
+  }, [game, persist])
 
   useEffect(() => {
     const unlock = () => { sound.unlockAudio(); if (!sound.isMuted) sound.startBgm() }
@@ -81,7 +93,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
   }, [])
 
   const send = (command: MobileCommand): boolean => {
-    if (helpOpen || busy.current || Date.now() < nextActionAt.current) return false
+    if (helpOpen || whatIfOpen || busy.current || Date.now() < nextActionAt.current) return false
     try {
       if (!session.dispatch(command, game)) return false
       // Reject the second click of a double tap even if a same-phase sheet has already rerendered.
@@ -102,7 +114,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
   }
 
   const rollDice = async () => {
-    if (helpOpen || busy.current || Date.now() < nextActionAt.current || overlay || game.phase !== 'rolling') return
+    if (helpOpen || whatIfOpen || busy.current || Date.now() < nextActionAt.current || overlay || game.phase !== 'rolling') return
     busy.current = true
     const token = ++generation.current
     setAnimatedTile(game.position)
@@ -133,7 +145,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
     sound.playEventShow()
   }
 
-  const disabled = helpOpen || !!animation || !!overlay || game.phase !== 'rolling'
+  const disabled = helpOpen || whatIfOpen || !!animation || !!overlay || game.phase !== 'rolling'
   const goal = goalProgress(game)
   const pieces = (
     <>
@@ -208,7 +220,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
         </BoardView>
       </MobileContainer>
 
-      {!animation && !overlay && (!dismissResult || game.phase !== 'finished') && (
+      {!animation && !overlay && !whatIfOpen && (!dismissResult || game.phase !== 'finished') && (
         <GamePhase
           session={session}
           game={game}
@@ -219,6 +231,11 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
           onDismissResult={() => setDismissResult(true)}
         />
       )}
+
+      {whatIfEnabled && comparison && game.phase === 'rolling' && !animation && !overlay && !helpOpen && !settingsOpen && <>
+        <button className="whatif-launch" onClick={() => setWhatIfFor(comparison)}>✨ Nếu tôi chọn cách khác?</button>
+        {whatIfOpen && <WhatIfModal comparison={comparison} onClose={() => setWhatIfFor(null)} />}
+      </>}
 
       {dismissResult && game.phase === 'finished' && !overlay && (
         <div
@@ -311,7 +328,7 @@ export default function App() {
     const fresh = createMvpMobileGame(String(Date.now()), 0, 1)
     saveGameLocally(fresh)
     setSaved(fresh)
-    setSession(createMobileSession(fresh))
+    setSession(createMobileSession(fresh, { whatIf: whatIfEnabled }))
     setScreen('game')
   }
 
@@ -319,7 +336,7 @@ export default function App() {
     sound.playClick()
     void node.id
     if (saved && saved.phase !== 'finished') {
-      setSession(createMobileSession(saved))
+      setSession(createMobileSession(saved, { whatIf: whatIfEnabled }))
       setScreen('game')
     } else {
       handleStartFreshGame()
@@ -392,8 +409,8 @@ export default function App() {
             onHelp={openHelp}
             saved={saved}
             saveNotice={saveNotice}
-            onRestore={s => { setSession(createMobileSession(s)); setScreen('game') }}
-            onStart={(seed, savings, term) => { setSession(createMobileSession(createMvpMobileGame(seed, savings, term))); setScreen('game') }}
+            onRestore={s => { setSession(createMobileSession(s, { whatIf: whatIfEnabled })); setScreen('game') }}
+            onStart={(seed, savings, term) => { setSession(createMobileSession(createMvpMobileGame(seed, savings, term), { whatIf: whatIfEnabled })); setScreen('game') }}
           />
         </MobileContainer>
       ) : (

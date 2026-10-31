@@ -1,0 +1,262 @@
+{
+  "date": "2026-10-31",
+  "timezone": "Asia/Bangkok",
+  "branch": "feat/b18-whatif-demo",
+  "requestedBase": "883b64b09da312b57cffaa29a5fb119bb4196e36",
+  "requestedBaseStatus": "unavailable: GitHub 422 / Git upload-pack not our ref",
+  "verifiedBase": "dd4c1a1fb915b006d4bd86c8adec7b793a499641",
+  "sources": [
+    {
+      "path": "src/game/what-if.ts",
+      "bytes": 3768,
+      "sha256": "0ccf91670a97d3879b11aff0e4ee79fb08fa25bbaa3bba7b8bac37549cccf466"
+    },
+    {
+      "path": "mobile_app/src/game/session.ts",
+      "bytes": 2954,
+      "sha256": "525e88431e4c74e6e40a68b55aac567c6ae6fe7325e7cf85e9eb2f06085128e0"
+    },
+    {
+      "path": "mobile_app/src/App.tsx",
+      "bytes": 17000,
+      "sha256": "bc9c1b52e9d616e025b43e46d7c3a7d314532e8d1b139816837c778a55e22527"
+    },
+    {
+      "path": "mobile_app/src/main.tsx",
+      "bytes": 507,
+      "sha256": "9f43ddfa5209fcf41bf34e928989a60d65f79431d8c5f4a3029efb32c3c212c9"
+    },
+    {
+      "path": "mobile_app/src/components/WhatIfModal.tsx",
+      "bytes": 3433,
+      "sha256": "fb5f497f12bb39d27b2fec5576f22fe4c426f9b72ef7f6f89867b466007b5a08"
+    },
+    {
+      "path": "mobile_app/src/components/what-if.css",
+      "bytes": 3928,
+      "sha256": "9aff0dbe410a04df0726dce7623d620f3c968ccb0f53a7b9a35e28107ccde2fc"
+    },
+    {
+      "path": "mobile_app/src/dev/repair-fixture.ts",
+      "bytes": 493,
+      "sha256": "6295c04c41ee83110b3e142000e6f41ee36b9482672b04fbb2f34059da2a7557"
+    },
+    {
+      "path": "mobile_app/src/dev/WhatIfDemo.tsx",
+      "bytes": 1036,
+      "sha256": "bddacc20a32b717a2b7688a893a0e4097502eb112606fc2a6a28368608fe7449"
+    },
+    {
+      "path": "mobile_app/src/dev/what-if-demo.css",
+      "bytes": 404,
+      "sha256": "b33597a4ac66eed77b0b5282da278f5a4f6080aa671f7820da50697c3ff78b59"
+    },
+    {
+      "path": "tests/what-if.test.ts",
+      "bytes": 6250,
+      "sha256": "f6e53ab9aef8a2c7ae1fec33648e517413db9e714be07b415f2276310731008f"
+    },
+    {
+      "path": "scripts/diagnostics/what-if-browser.mjs",
+      "bytes": 12687,
+      "sha256": "6d602c6d4274702c7c98ca87c9a8291e19b396f9edb46ce6d80db6c00fa586e4"
+    },
+    {
+      "path": "scripts/diagnostics/what-if-replays.ts",
+      "bytes": 1694,
+      "sha256": "74ff05cad4b822ba13c0f46cc93c518f48ba22537e9fd8680139e165c2e3fa1b"
+    },
+    {
+      "path": "docs/EXE_WHATIF_DEMO_REPORT.md",
+      "bytes": 12907,
+      "sha256": "48de93db151af2834f9687a52435cf0efa37f64ded00855e5dbde691039b3957"
+    },
+    {
+      "path": "docs/EXE_WHATIF_VIDEO_WALKTHROUGH.md",
+      "bytes": 5074,
+      "sha256": "f90c6176bd087d8cb7c6511548a55e573460f78989539d53cd9de27a913dbc4a"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/320-full-01-event.png",
+      "bytes": 94411,
+      "sha256": "e9dac0c0cf11530eb034f4275276594a57c48f53c376234e195b96f42ef97aba"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/320-full-02-board.png",
+      "bytes": 475186,
+      "sha256": "94391064673caa57d800c33246df48fb8765ea1d17349b839f55cba28e6694f1"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/320-full-03-comparison.png",
+      "bytes": 59566,
+      "sha256": "ac1baf7fc30911b0e276210cca87c5db8a2956a02c154a4af5a5ad84341b66da"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/320-full-04-lesson.png",
+      "bytes": 83858,
+      "sha256": "2a7ac67e78dc1a1965cac2869b2b6d8620c9242a7a578cd9935d1b2761963afb"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/320-full-05-continue.png",
+      "bytes": 87930,
+      "sha256": "2489ace9f39b3972964e7545ccbf48329b11d4a7d26f51cf70d59715b0593f3a"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/320-shortfall.png",
+      "bytes": 58632,
+      "sha256": "fd5705854e8f1deba85b4f85db768772d4c444c856507a1acfd5609a3c93e648"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/320-temporary-01-event.png",
+      "bytes": 94411,
+      "sha256": "e9dac0c0cf11530eb034f4275276594a57c48f53c376234e195b96f42ef97aba"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/320-temporary-02-board.png",
+      "bytes": 475156,
+      "sha256": "4ce5ddfa85b96f903e9bf1b6b4df1e276ca7e72e64036aac228909a7e564ff5b"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/320-temporary-03-comparison.png",
+      "bytes": 59499,
+      "sha256": "8898cdc3c810492f15621b3a5a5a443bdad0a932f4b663ff2d2382f3db050838"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/320-temporary-04-lesson.png",
+      "bytes": 83821,
+      "sha256": "ac0b17194f30b7f9a65c6665206a3f1bda5f8b77ac933d9194ecb8e5a1b83c45"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/320-temporary-05-continue.png",
+      "bytes": 87927,
+      "sha256": "1f15d6b2e110b0a2c98315ab471261aa9cbb12bc79f7ed0b0f1a1bb9e987bea6"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/320x568-lesson.png",
+      "bytes": 45494,
+      "sha256": "7769eec2e015ff639427ce678464d1d075be0e6229148b373acc1610cfe600a3"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-actual-funding.png",
+      "bytes": 106249,
+      "sha256": "0bd9899deb08e3d64ab5ce6cd381f418267e9918eb3a9df1719e86bfa421673e"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-full-01-event.png",
+      "bytes": 100278,
+      "sha256": "451bc0425bb420a93a0769cbfc6fb3943ceceb8cb97ca286c606d3fb58e24e54"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-full-02-board.png",
+      "bytes": 626688,
+      "sha256": "073d763e7ab65eb9473f73e95015ed7f949335dca2686990dcd4af68d562266d"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-full-03-comparison.png",
+      "bytes": 67881,
+      "sha256": "0393125c356bbf2a013b8759b7bac33e8062c369ffde1392fc915b3c1b0ef0d5"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-full-04-lesson.png",
+      "bytes": 90532,
+      "sha256": "c6f086ca7760e4e42b58a28629959826fd86a686d6e6fc9210d563f97af2a68a"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-full-05-continue.png",
+      "bytes": 94766,
+      "sha256": "070fa79cc4a59139a48e0e04c791da2b3eb32a0d124108d894cdbec2a08148de"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-real-app-whatif.png",
+      "bytes": 67677,
+      "sha256": "8cceffa906913e268379520cdf31119ade3200f765aa316c0db66b25688af542"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-restart-no-stale.png",
+      "bytes": 446921,
+      "sha256": "2b1e8caef664814f0566599334086fc98d38c840845787b5949fc83a85707b37"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-temporary-01-event.png",
+      "bytes": 100278,
+      "sha256": "451bc0425bb420a93a0769cbfc6fb3943ceceb8cb97ca286c606d3fb58e24e54"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-temporary-02-board.png",
+      "bytes": 626638,
+      "sha256": "3486d114d23132019fbae4cfa4b75f9094b56ac4599471e930ef2e70ad8c35b2"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-temporary-03-comparison.png",
+      "bytes": 67953,
+      "sha256": "5800ca0adb363d330da9a9134017bc7c048db7b8b3105c245994ad14b5fb9e32"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-temporary-04-lesson.png",
+      "bytes": 90540,
+      "sha256": "dc36e06a6aeb6478e9d33b3c5c9d75ccb98beb9741b87f30cfb87b8950afdc89"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-temporary-05-continue.png",
+      "bytes": 94761,
+      "sha256": "8caafb0748c51fdd2c6ab8c65d62f17aa864a4ce14bd874bb588d7a94502896c"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/390-universal-companion-after-whatif.png",
+      "bytes": 503606,
+      "sha256": "928a6c14aa9d9d1f45912f271b5a24d7367c91c2e3f926b479bb34f88f4de218"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/browser-results.json",
+      "bytes": 1604,
+      "sha256": "f5cdb1f9425632098c99d1360e34f29057320268a50005100abc69bf66cf2303"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/browser.log",
+      "bytes": 976,
+      "sha256": "ce9fd31091828f5d8294a1cf400c624b7017f84ca09ca3caead3f7208b592295"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/companion-browser-results.json",
+      "bytes": 1991,
+      "sha256": "a740095696f7ef5b79bf1a6acf43052ec5745b3e838360b8e858cacf19891d2d"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/companion-browser.log",
+      "bytes": 1050,
+      "sha256": "dc5032bdb354db8ec2256f2986e87f43f160dae83f38d62ea0f1e97ab97ce2b3"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/diagnostic-tests.log",
+      "bytes": 11283,
+      "sha256": "e33a09a8a338fe1502be074136ad61df3b5bbcb9ac6dd8a8596dd61e765e0b23"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/lint.log",
+      "bytes": 143,
+      "sha256": "aa5b1f2eb693decc4cfecc5d5cb47cf9d7702284cd50e4bfd735addf1fa44600"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/mobile-build.log",
+      "bytes": 865,
+      "sha256": "43a3d0ed8b22e78bb3fcef9b8bde8b780d45ea534a7e4dbe53a361209200966f"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/product-tests.log",
+      "bytes": 62191,
+      "sha256": "cc78e4d1114caeb121bff73b268630bbe5e4e7767ee90e2ceee0a0dd54f60bf9"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/replays.json",
+      "bytes": 16712,
+      "sha256": "e04271c84eeb6426a46513ed9b36da61578ff6c52f60966eca08005791b02498"
+    },
+    {
+      "path": "docs/playtests/whatif-demo/2026-10-31/root-build.log",
+      "bytes": 508,
+      "sha256": "384efd2a6589c0bc18a63c322002c09819c56ac15a9956cae30aafc2f777eb82"
+    }
+  ]
+}

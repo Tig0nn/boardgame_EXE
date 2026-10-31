@@ -4,10 +4,14 @@ import App from './App';
 import './index.css';
 
 const rootElement = document.getElementById('root');
-if (rootElement) {
+async function mount() {
+  const Demo = import.meta.env.DEV && new URLSearchParams(location.search).get('whatIfDemo') === 'repair'
+    ? (await import('./dev/WhatIfDemo')).default : App
+  if (!rootElement) return
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
-      <App />
+      <Demo />
     </React.StrictMode>
   );
 }
+void mount()

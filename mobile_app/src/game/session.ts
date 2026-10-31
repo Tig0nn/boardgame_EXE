@@ -1,6 +1,8 @@
 import { advance, decide, fundPayment, roll, transact } from '../../../src/game/engine.ts'
 import { createPlayerGame, createMultiCourseGame } from '../../../src/game/new-game.ts'
 import { boardFor } from '../../../src/data/board.ts'
+import { simulateRepairWhatIf } from '../../../src/game/what-if.ts'
+import type { RepairWhatIf } from '../../../src/game/what-if.ts'
 import type { BondRulesVersion, FundingSource, GameState, LivingExpenseRulesVersion, Phase, RebalanceAction, Term } from '../../../src/game/types.ts'
 
 // Presentation mapping only. Every transition and financial value belongs to src/game.
@@ -17,11 +19,14 @@ export function createMobileGame(seed?: string, savings = 20_000_000, term: Term
 }
 export const createMvpMobileGame = createMultiCourseGame
 
-export function createMobileSession(initial: GameState) {
+export function createMobileSession(initial: GameState, { whatIf = false }: { whatIf?: boolean } = {}) {
   let game = initial
+  // Ephemeral review of the last accepted decision; never serialized into a save/replay.
+  let repairWhatIf: RepairWhatIf | null = null
   const listeners = new Set<() => void>()
   return {
     getSnapshot: () => game,
+    getRepairWhatIf: () => repairWhatIf,
     subscribe: (listener: () => void) => { listeners.add(listener); return () => { listeners.delete(listener) } },
     dispatch(command: MobileCommand, expected: GameState): boolean {
       // The rendered snapshot acts as a revision token, including for same-phase funding/trades.
@@ -35,6 +40,7 @@ export function createMobileSession(initial: GameState) {
         case 'fund': next = fundPayment(game, command.source, command.amount, command.lotId); break
       }
       if (next === game) return false
+      repairWhatIf = whatIf && command.type === 'choose' ? simulateRepairWhatIf(game, command.id) : null
       game = next
       listeners.forEach(listener => listener())
       return true

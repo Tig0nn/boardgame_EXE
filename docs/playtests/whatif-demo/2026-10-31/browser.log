@@ -1,0 +1,12 @@
+PASS 390px full: decision → comparison → lesson → close/reopen → continue
+PASS 390px temporary: decision → comparison → lesson → close/reopen → continue
+1:11:57 PM [vite] (client) [console.warn] rAF timed out in updateSource
+PASS 320px full: decision → comparison → lesson → close/reopen → continue
+PASS 320px temporary: decision → comparison → lesson → close/reopen → continue
+PASS low cash: paid temporary vs incomplete alternative; funding notice is honest
+PASS actual funding: no comparison button before or after financing from a different state
+PASS fixture reset/reload preserves owner save and forgets old review
+PASS real App integration: save unchanged during What-if, home/resume/new session clears review
+PASS universal Companion two tabs coexist with What-if and return intact
+PASS short 320x568 viewport: scroll and return stay reachable
+PASS production build ignores fixture and What-if query; real saved game continues normally

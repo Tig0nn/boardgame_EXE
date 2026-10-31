@@ -1,0 +1,18 @@
+PASS feature OFF preserves original decisions without AI tabs
+PASS default decision, no automatic ask; StrictMode one ask; retained answer and game
+PASS false premise remains canonical and unsupported stays honest
+PASS snapshot while decision tab clears retained answer
+PASS pending work invalidates while hidden on decision tab
+PASS unmount cancels pending tab work
+PASS edit supersedes pending question and clears old answer
+PASS feature disable while loading restores plain decision modal
+PASS poor cash keeps full funding condition and existing payment transition
+PASS restart/import selects decision and forgets old question
+PASS tabs roving focus and Escape return are accessible
+PASS safe error remains separate from fallback
+PASS fresh onboarding completes then Map node opens the board
+PASS Map roundtrip preserves game and clears old AI; payment then return and continue
+PASS Map locked nodes and utility modals remain available
+PASS responsive tabs screenshots 320
+PASS responsive tabs screenshots 375
+PASS responsive tabs screenshots 390

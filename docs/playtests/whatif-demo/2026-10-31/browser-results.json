@@ -1,0 +1,52 @@
+{
+  "results": [
+    {
+      "name": "390px full: decision → comparison → lesson → close/reopen → continue",
+      "passed": true
+    },
+    {
+      "name": "390px temporary: decision → comparison → lesson → close/reopen → continue",
+      "passed": true
+    },
+    {
+      "name": "320px full: decision → comparison → lesson → close/reopen → continue",
+      "passed": true
+    },
+    {
+      "name": "320px temporary: decision → comparison → lesson → close/reopen → continue",
+      "passed": true
+    },
+    {
+      "name": "low cash: paid temporary vs incomplete alternative; funding notice is honest",
+      "passed": true
+    },
+    {
+      "name": "actual funding: no comparison button before or after financing from a different state",
+      "passed": true
+    },
+    {
+      "name": "fixture reset/reload preserves owner save and forgets old review",
+      "passed": true
+    },
+    {
+      "name": "real App integration: save unchanged during What-if, home/resume/new session clears review",
+      "passed": true
+    },
+    {
+      "name": "universal Companion two tabs coexist with What-if and return intact",
+      "passed": true
+    },
+    {
+      "name": "short 320x568 viewport: scroll and return stay reachable",
+      "passed": true
+    },
+    {
+      "name": "production build ignores fixture and What-if query; real saved game continues normally",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "forbidden": [],
+  "physicalDevices": "NOT TESTED; Chromium mobile viewport emulation",
+  "screenshotDirectory": "docs/playtests/whatif-demo/2026-10-31"
+}

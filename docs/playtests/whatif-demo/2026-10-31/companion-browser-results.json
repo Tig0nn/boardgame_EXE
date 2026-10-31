@@ -1,0 +1,79 @@
+{
+  "results": [
+    {
+      "name": "feature OFF preserves original decisions without AI tabs",
+      "passed": true
+    },
+    {
+      "name": "default decision, no automatic ask; StrictMode one ask; retained answer and game",
+      "passed": true
+    },
+    {
+      "name": "false premise remains canonical and unsupported stays honest",
+      "passed": true
+    },
+    {
+      "name": "snapshot while decision tab clears retained answer",
+      "passed": true
+    },
+    {
+      "name": "pending work invalidates while hidden on decision tab",
+      "passed": true
+    },
+    {
+      "name": "unmount cancels pending tab work",
+      "passed": true
+    },
+    {
+      "name": "edit supersedes pending question and clears old answer",
+      "passed": true
+    },
+    {
+      "name": "feature disable while loading restores plain decision modal",
+      "passed": true
+    },
+    {
+      "name": "poor cash keeps full funding condition and existing payment transition",
+      "passed": true
+    },
+    {
+      "name": "restart/import selects decision and forgets old question",
+      "passed": true
+    },
+    {
+      "name": "tabs roving focus and Escape return are accessible",
+      "passed": true
+    },
+    {
+      "name": "safe error remains separate from fallback",
+      "passed": true
+    },
+    {
+      "name": "fresh onboarding completes then Map node opens the board",
+      "passed": true
+    },
+    {
+      "name": "Map roundtrip preserves game and clears old AI; payment then return and continue",
+      "passed": true
+    },
+    {
+      "name": "Map locked nodes and utility modals remain available",
+      "passed": true
+    },
+    {
+      "name": "responsive tabs screenshots 320",
+      "passed": true
+    },
+    {
+      "name": "responsive tabs screenshots 375",
+      "passed": true
+    },
+    {
+      "name": "responsive tabs screenshots 390",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "network": [],
+  "physicalKeyboard": "NOT TESTED; reduced viewport only"
+}
