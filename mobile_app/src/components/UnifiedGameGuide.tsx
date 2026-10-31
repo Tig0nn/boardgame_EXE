@@ -1,13 +1,26 @@
 import { useState, useRef } from 'react';
 import { GlossaryText, FinancialGlossary } from '../../../src/components/FinancialTerm';
-import { GoalChecks } from '../../../src/components/GoalChecks';
 import { CustomerPreferenceCard } from '../../../src/components/CustomerPreferenceCard';
 import { livingPresentation } from '../game/living-presentation';
-import { money } from '../../../src/game/format';
+import { goalForGame } from '../../../src/game/rules-profile';
+import { goalProgress } from '../../../src/game/selectors';
 import { boardFor, MULTI_COURSE_B18_BOARD } from '../../../src/data/board';
 import { tileDisplayLabel } from '../../../src/components/player-language';
 import type { GameState } from '../../../src/game/types';
 import { sound } from '../utils/audio';
+
+// Hàm rút gọn số tiền sang đơn vị M/k giúp tiết kiệm diện tích tối đa trên giao diện giấy kem
+export const formatCompactMoney = (value: number): string => {
+  if (value >= 1_000_000) {
+    const m = value / 1_000_000;
+    return `${Number.isInteger(m) ? m : m.toFixed(1).replace(/\.0$/, '')}M`;
+  }
+  if (value >= 1_000) {
+    const k = value / 1_000;
+    return `${Number.isInteger(k) ? k : k.toFixed(1).replace(/\.0$/, '')}k`;
+  }
+  return `${value} ₫`;
+};
 
 interface UnifiedGameGuideProps {
   firstTime?: boolean;
@@ -16,14 +29,50 @@ interface UnifiedGameGuideProps {
   initialTab?: number;
 }
 
+interface ChapterIconProps {
+  src: string;
+  alt: string;
+  size?: number;
+  glowColor?: string;
+  style?: React.CSSProperties;
+}
+
+const ChapterIcon: React.FC<ChapterIconProps> = ({
+  src,
+  alt,
+  size = 28,
+  glowColor,
+  style = {},
+}) => {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      style={{
+        width: `${size}px`,
+        height: `${size}px`,
+        objectFit: 'contain',
+        flexShrink: 0,
+        verticalAlign: 'middle',
+        filter: glowColor
+          ? `drop-shadow(0 3px 6px ${glowColor}) drop-shadow(0 1px 2px rgba(0,0,0,0.3))`
+          : 'drop-shadow(0 2px 4px rgba(0,0,0,0.25))',
+        transition: 'transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1)',
+        ...style,
+      }}
+    />
+  );
+};
+
 const chapters = [
   {
     id: 0,
     tabNum: '1',
     tabColorClass: 'tab-red',
-    title: 'Đích Đến 90 Triệu',
-    tag: 'CHƯƠNG 1 · MỤC TIÊU 90M',
+    chapterLabel: 'CHƯƠNG 1',
+    title: 'Đích Đến 90M',
     icon: '🏆',
+    iconAsset: '/assets/champion-icon.png',
     primaryColor: '#e11d48',
     gradient: 'linear-gradient(135deg, #ff2e93 0%, #e11d48 100%)',
     borderColor: '#fda4af',
@@ -34,9 +83,10 @@ const chapters = [
     id: 1,
     tabNum: '2',
     tabColorClass: 'tab-green',
-    title: 'Bàn Cờ 18 Ô Cơ Hội',
-    tag: 'CHƯƠNG 2 · QUY TẮC BÀN CỜ',
-    icon: '🎲',
+    chapterLabel: 'CHƯƠNG 2',
+    title: 'Bàn Cờ Cơ Hội',
+    icon: '🗺️',
+    iconAsset: '/assets/game-category-icon.png',
     primaryColor: '#059669',
     gradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
     borderColor: '#a7f3d0',
@@ -47,9 +97,10 @@ const chapters = [
     id: 2,
     tabNum: '3',
     tabColorClass: 'tab-blue',
+    chapterLabel: 'CHƯƠNG 3',
     title: 'Quy Trình Lượt Chơi',
-    tag: 'CHƯƠNG 3 · DI CHUYỂN & SỰ KIỆN',
     icon: '⚡',
+    iconAsset: '/assets/game-rule.png',
     primaryColor: '#2563eb',
     gradient: 'linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%)',
     borderColor: '#bae6fd',
@@ -60,9 +111,10 @@ const chapters = [
     id: 3,
     tabNum: '4',
     tabColorClass: 'tab-amber',
+    chapterLabel: 'CHƯƠNG 4',
     title: 'Phân Bổ Danh Mục',
-    tag: 'CHƯƠNG 4 · DANH MỤC TÀI CHÍNH',
-    icon: '💎',
+    icon: '📖',
+    iconAsset: '/assets/knowledge-icon.png',
     primaryColor: '#7c3aed',
     gradient: 'linear-gradient(135deg, #a855f7 0%, #7c3aed 100%)',
     borderColor: '#e9d5ff',
@@ -73,9 +125,10 @@ const chapters = [
     id: 4,
     tabNum: '5',
     tabColorClass: 'tab-slate',
+    chapterLabel: 'CHƯƠNG 5',
     title: 'Phòng Thủ & Về Đích',
-    tag: 'CHƯƠNG 5 · CHIẾN LƯỢC & THỊ TRƯỜNG',
     icon: '🔥',
+    iconAsset: '/assets/game-defense-icon.png',
     primaryColor: '#ea580c',
     gradient: 'linear-gradient(135deg, #f59e0b 0%, #ea580c 100%)',
     borderColor: '#fde68a',
@@ -143,7 +196,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
           backgroundPosition: 'top center',
           filter: 'drop-shadow(0 20px 45px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 16px rgba(245, 158, 11, 0.25))',
           boxSizing: 'border-box',
-          fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
+          fontFamily: "'Fredoka', sans-serif",
           animation: 'guideScaleUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)',
           display: 'flex',
           flexDirection: 'column',
@@ -154,53 +207,51 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
           pointerEvents: 'auto',
         }}
       >
-        {/* Nút Đóng (Exit) ở góc trên bên phải - asset nút exit.png */}
-        {!firstTime && (
-          <button
-            onClick={() => {
-              sound.playClick();
-              onClose();
+        {/* Nút Thoát / Bỏ Qua (Icon exit chính thức) hiển thị gọn gàng góc trên phải */}
+        <button
+          onClick={() => {
+            sound.playClick();
+            onClose();
+          }}
+          title={firstTime ? 'Bỏ qua hướng dẫn' : 'Đóng Sổ Tay'}
+          aria-label={firstTime ? 'Bỏ qua' : 'Đóng'}
+          style={{
+            position: 'absolute',
+            top: '5.2%',
+            right: '5.8%',
+            width: '40px',
+            height: '40px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            padding: 0,
+            zIndex: 40,
+            transition: 'transform 0.15s ease',
+          }}
+          onPointerDown={(e) => {
+            (e.currentTarget as HTMLElement).style.transform = 'scale(0.88)';
+          }}
+          onPointerUp={(e) => {
+            (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
+          }}
+        >
+          <img
+            src="/assets/nut-exit.png"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src = '/assets/cropped/exit-btn.png';
             }}
-            title="Đóng Sổ Tay"
-            aria-label="Đóng"
+            alt={firstTime ? 'Bỏ qua' : 'Đóng'}
             style={{
-              position: 'absolute',
-              top: '5.6%',
-              right: '6.2%',
-              width: '38px',
-              height: '38px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              background: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              padding: 0,
-              zIndex: 40,
-              transition: 'transform 0.15s ease',
+              width: '36px',
+              height: '36px',
+              objectFit: 'contain',
+              filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.45))',
             }}
-            onPointerDown={(e) => {
-              (e.currentTarget as HTMLElement).style.transform = 'scale(0.88)';
-            }}
-            onPointerUp={(e) => {
-              (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
-            }}
-          >
-            <img
-              src="/assets/cropped/exit-btn.png"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src = '/assets/nut-exit.png';
-              }}
-              alt="Đóng"
-              style={{
-                width: '32px',
-                height: '32px',
-                objectFit: 'contain',
-                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))',
-              }}
-            />
-          </button>
-        )}
+          />
+        </button>
 
         {/* Nút Mũi Tên Trái (Left Arrow) */}
         <button
@@ -299,7 +350,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
             boxSizing: 'border-box',
             overflow: 'hidden',
             padding: '2px 4px',
-            fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
+            fontFamily: "'Fredoka', sans-serif",
           }}
         >
           {/* Thanh Tab Đánh Số Chương (1, 2, 3, 4, 5) Phong Cách Arcade 3D Rực Rỡ */}
@@ -344,7 +395,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       : '0 1px 3px rgba(0,0,0,0.06)',
                     transform: active ? 'scale(1.08)' : 'scale(1)',
                     transition: 'all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                    fontFamily: "'Fredoka', 'Baloo 2', sans-serif",
+                    fontFamily: "'Fredoka', sans-serif",
                   }}
                 >
                   <span>{ch.tabNum}</span>
@@ -353,40 +404,53 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
             })}
           </div>
 
-          {/* Tiêu Đề Chương Nổi Bật Game Hóa */}
-          <div style={{ padding: '5px 0 3px', textAlign: 'center', flexShrink: 0 }}>
+          {/* Tiêu Đề Chương Phân Tầng: Title (Chương X) + Sub Title (Icon & Tựa Đề) */}
+          <div style={{ padding: '4px 0 2px', textAlign: 'center', flexShrink: 0 }}>
+            {/* Title: Chỉ hiện Chương x */}
             <span
               style={{
-                fontSize: 'clamp(9px, 2.4vw, 10px)',
+                fontSize: 'clamp(9.5px, 2.5vw, 11px)',
                 fontWeight: 900,
                 color: activeChapter.primaryColor,
-                letterSpacing: '0.08em',
+                letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 display: 'inline-block',
                 background: activeChapter.accentBg,
-                border: `1px solid ${activeChapter.borderColor}`,
+                border: `1.5px solid ${activeChapter.borderColor}`,
                 borderRadius: '999px',
-                padding: '1px 8px',
+                padding: '1.5px 10px',
                 boxShadow: `0 1px 4px ${activeChapter.glowColor}`,
-                fontFamily: "'Fredoka', 'Baloo 2', sans-serif",
+                fontFamily: "'Fredoka', sans-serif",
               }}
             >
-              {activeChapter.tag}
+              {activeChapter.chapterLabel}
             </span>
+
+            {/* Sub Title: Gồm icon và tựa đề */}
             <h2
               ref={headingRef}
               tabIndex={-1}
               style={{
-                margin: '3px 0 0',
-                fontSize: 'clamp(14px, 4vw, 16px)',
+                margin: '2px 0 0',
+                fontSize: 'clamp(14px, 4vw, 16.5px)',
                 fontWeight: 900,
                 color: '#1e1b4b',
                 lineHeight: 1.25,
                 textShadow: '0 1px 0 rgba(255, 255, 255, 0.8)',
-                fontFamily: "'Fredoka', 'Baloo 2', sans-serif",
+                fontFamily: "'Fredoka', sans-serif",
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
               }}
             >
-              {activeChapter.icon} {activeChapter.title}
+              <ChapterIcon
+                src={activeChapter.iconAsset}
+                alt={activeChapter.title}
+                size={28}
+                glowColor={activeChapter.glowColor}
+              />
+              <span>{activeChapter.title}</span>
             </h2>
           </div>
 
@@ -409,10 +473,10 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
               lineHeight: 1.45,
               wordBreak: 'break-word',
               overflowWrap: 'break-word',
-              fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
+              fontFamily: "'Fredoka', sans-serif",
             }}
           >
-            {/* CHƯƠNG 1: ĐÍCH ĐẾN 90 TRIỆU (90M GOAL) */}
+            {/* CHƯƠNG 1: ĐÍCH ĐẾN 90M (90M GOAL) */}
             {currentTab === 0 && (
               <>
                 <div
@@ -420,15 +484,12 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                     background: 'linear-gradient(135deg, rgba(255, 241, 242, 0.95) 0%, rgba(254, 205, 211, 0.9) 100%)',
                     border: '1.5px solid #ff2e93',
                     borderRadius: '10px',
-                    padding: '8px 10px',
+                    padding: '8px 12px',
                     textAlign: 'center',
                     boxShadow: '0 2px 8px rgba(255, 46, 147, 0.2)',
                   }}
                 >
-                  <strong style={{ fontSize: '13.5px', color: '#be123c', display: 'block' }}>
-                    🏆 MỤC TIÊU HUY ĐỘNG: 90.000.000 VND
-                  </strong>
-                  <p style={{ margin: '3px 0 0', fontSize: '11.5px', color: '#881337', fontWeight: 600 }}>
+                  <p style={{ margin: 0, fontSize: '12px', color: '#881337', fontWeight: 700, lineHeight: 1.45 }}>
                     Khởi đầu 50M · Đúng 4 vòng chơi · Mục tiêu 90M (80M tích lũy + 10M quỹ dự phòng).
                   </p>
                 </div>
@@ -456,13 +517,47 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                   </p>
                 </div>
 
-                <div style={{ marginTop: '2px' }}>
-                  <GoalChecks game={game} />
+                <div style={{ marginTop: '4px' }}>
+                  <div
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.9)',
+                      border: '1px solid rgba(225, 29, 72, 0.3)',
+                      borderRadius: '8px',
+                      padding: '6px 8px',
+                      fontSize: '11px',
+                      color: '#4c0519',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 800 }}>
+                      <span>🚩</span>
+                      <span>
+                        Tích lũy đủ{' '}
+                        <strong style={{ color: '#be123c' }}>
+                          {game ? formatCompactMoney(goalForGame(game).target) : '90M'}
+                        </strong>{' '}
+                        sau {game?.totalLaps ?? 4} vòng.
+                      </span>
+                    </div>
+                    {game && (() => {
+                      const progress = goalProgress(game);
+                      if (!progress) return null;
+                      return (
+                        <p style={{ margin: '4px 0 0', fontWeight: 600 }}>
+                          Hiện có thể huy động{' '}
+                          <strong style={{ color: '#059669' }}>{formatCompactMoney(progress.funds)}</strong> ·{' '}
+                          {progress.remaining > 0
+                            ? `Còn ${formatCompactMoney(progress.remaining)} để đạt mục tiêu.`
+                            : 'Đã đạt ngưỡng tài chính; hoàn thành các vòng để về đích!'}
+                        </p>
+                      );
+                    })()}
+                  </div>
                 </div>
               </>
             )}
 
-            {/* CHƯƠNG 2: BÀN CỜ 18 Ô CƠ HỘI (BOARD & RULES) */}
+            {/* CHƯƠNG 2: BÀN CỜ CƠ HỘI (BOARD & RULES) */}
             {currentTab === 1 && (
               <>
                 <div
@@ -476,12 +571,12 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                   }}
                 >
                   <p style={{ margin: 0, fontWeight: 800, color: '#065f46' }}>
-                    🎮 <b>Chuẩn bàn cờ B18 Isometric:</b>
+                    🎮 <b>Bàn cờ {game?.boardLayout ?? 'B18'} Isometric ({board.length} ô):</b>
                   </p>
                   <ul style={{ margin: '4px 0 0', paddingLeft: '16px', color: '#064e3b', fontWeight: 600 }}>
-                    <li>Bàn cờ khép kín 18 ô chạy theo chiều kim đồng hồ.</li>
+                    <li>Bàn cờ khép kín {board.length} ô chạy theo chiều kim đồng hồ.</li>
                     <li>
-                      Lương <b>14.000.000 đ</b> nhận tại ô Xuất phát mỗi khi hoàn thành một vòng.
+                      Lương <b>14M</b> nhận tại ô Xuất phát mỗi khi hoàn thành một vòng.
                     </li>
                     <li>Mỗi vòng chơi gieo xúc xắc 1 viên 6 mặt (1-6) không giới hạn lượt.</li>
                     <li>Chạm vào từng ô trên bàn cờ để tra cứu nhanh thông tin cơ hội.</li>
@@ -496,7 +591,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                     marginTop: '2px',
                   }}
                 >
-                  {board.slice(0, 18).map((t) => (
+                  {board.map((t) => (
                     <div
                       key={t.index}
                       style={{
@@ -609,9 +704,13 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       fontSize: '11px',
                       fontWeight: 600,
                       color: '#14532d',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
                     }}
                   >
-                    <b style={{ color: '#16a34a' }}>💵 Tiền mặt:</b> Dùng ngay, thanh toán sinh hoạt phí và chớp cơ hội mua tài sản giá tốt.
+                    <img src="/assets/money-icon.png" alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
+                    <span><b style={{ color: '#16a34a' }}>Tiền mặt:</b> Dùng ngay, thanh toán sinh hoạt phí và chớp cơ hội mua tài sản giá tốt.</span>
                   </div>
                   <div
                     style={{
@@ -622,9 +721,13 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       fontSize: '11px',
                       fontWeight: 600,
                       color: '#1e3a8a',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
                     }}
                   >
-                    <b style={{ color: '#2563eb' }}>🏦 Tiết kiệm:</b> Kỳ hạn 1 / 2 / 3 vòng, lãi suất 4% - 18%, an toàn tuyệt đối.
+                    <img src="/assets/wallet.png" alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
+                    <span><b style={{ color: '#2563eb' }}>Tiết kiệm:</b> Kỳ hạn 1 / 2 / 3 vòng, lãi suất 4% - 18%, an toàn tuyệt đối.</span>
                   </div>
                   <div
                     style={{
@@ -635,9 +738,13 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       fontSize: '11px',
                       fontWeight: 600,
                       color: '#581c87',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
                     }}
                   >
-                    <b style={{ color: '#9333ea' }}>📈 Cổ phiếu:</b> Sinh lời cao theo sóng thị trường, thanh khoản linh hoạt sau phí bán.
+                    <img src="/assets/stock-icon.png" alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
+                    <span><b style={{ color: '#9333ea' }}>Cổ phiếu:</b> Sinh lời cao theo sóng thị trường, thanh khoản linh hoạt sau phí bán.</span>
                   </div>
                   <div
                     style={{
@@ -648,9 +755,13 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       fontSize: '11px',
                       fontWeight: 600,
                       color: '#78350f',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
                     }}
                   >
-                    <b style={{ color: '#d97706' }}>📜 Trái phiếu:</b> Lãi coupon định kỳ tại ô Xuất phát, chú ý rủi ro tổ chức phát hành.
+                    <img src="/assets/bond-icon.png" alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
+                    <span><b style={{ color: '#d97706' }}>Trái phiếu:</b> Lãi coupon định kỳ tại ô Xuất phát, chú ý rủi ro tổ chức phát hành.</span>
                   </div>
                   <div
                     style={{
@@ -661,9 +772,13 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       fontSize: '11px',
                       fontWeight: 600,
                       color: '#7c2d12',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
                     }}
                   >
-                    <b style={{ color: '#ea580c' }}>🪙 Vàng:</b> Kênh trú ẩn phòng thủ an toàn khi kinh tế gặp cú sốc vĩ mô.
+                    <img src="/assets/gold-icon.png" alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
+                    <span><b style={{ color: '#ea580c' }}>Vàng:</b> Kênh trú ẩn phòng thủ an toàn khi kinh tế gặp cú sốc vĩ mô.</span>
                   </div>
                   <div
                     style={{
@@ -674,9 +789,13 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       fontSize: '11px',
                       fontWeight: 600,
                       color: '#831843',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
                     }}
                   >
-                    <b style={{ color: '#db2777' }}>🧋 Quán F&B:</b> Mua 20M, nâng cấp tối đa 6 tầng (+5M/tầng) đem lại dòng tiền thụ động lớn.
+                    <img src="/assets/shop-icon.png" alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
+                    <span><b style={{ color: '#db2777' }}>Quán F&B:</b> Mua 20M, nâng cấp tối đa 6 tầng (+5M/tầng) đem lại dòng tiền thụ động lớn.</span>
                   </div>
                 </div>
 
@@ -702,10 +821,10 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                     🛡️ Quản trị sinh hoạt phí & Nợ vay:
                   </p>
                   <p style={{ margin: '0 0 3px', color: '#78350f', fontWeight: 600 }}>
-                    Sinh hoạt phí định kỳ: <strong style={{ color: '#b91c1c' }}>{money(living.amount)}</strong>. Hãy luôn giữ tiền mặt dự phòng trước khi qua ô Xuất phát.
+                    Sinh hoạt phí định kỳ: <strong style={{ color: '#b91c1c' }}>{formatCompactMoney(living.amount)}</strong>. Hãy luôn giữ tiền mặt dự phòng trước khi qua ô Xuất phát.
                   </p>
                   <p style={{ margin: 0, color: '#78350f', fontWeight: 600 }}>
-                    Hạn mức vay khẩn cấp tối đa <b>30.000.000 đ</b> với lãi suất <b>10%/vòng</b>. Nếu hết hạn mức vay và không còn tài sản thanh lý, bạn sẽ rơi vào tình trạng vỡ nợ (Insolvency).
+                    Hạn mức vay khẩn cấp tối đa <b>30M</b> với lãi suất <b>10%/vòng</b>. Nếu hết hạn mức vay và không còn tài sản thanh lý, bạn sẽ rơi vào tình trạng vỡ nợ (Insolvency).
                   </p>
                 </div>
 
@@ -756,28 +875,37 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
             >
               <button
                 onClick={() => {
+                  sound.playClick();
                   if (currentTab === chapters.length - 1) {
-                    sound.playClick();
                     onClose();
                   } else {
                     navigateTo(currentTab + 1);
                   }
                 }}
                 style={{
-                  background: activeChapter.gradient,
-                  color: '#ffffff',
-                  border: '2px solid #ffffff',
+                  background:
+                    currentTab === chapters.length - 1
+                      ? 'linear-gradient(180deg, #FCD34D 0%, #F59E0B 45%, #D97706 100%)'
+                      : activeChapter.gradient,
+                  color: currentTab === chapters.length - 1 ? '#381F0B' : '#ffffff',
+                  border: currentTab === chapters.length - 1 ? '2px solid #FEF3C7' : '2px solid #ffffff',
                   borderRadius: '999px',
-                  padding: '7px 22px',
-                  fontSize: '12.5px',
+                  padding: currentTab === chapters.length - 1 ? '8px 28px' : '7px 22px',
+                  fontSize: currentTab === chapters.length - 1 ? '13.5px' : '12.5px',
                   fontWeight: 900,
                   cursor: 'pointer',
-                  boxShadow: `0 4px 10px ${activeChapter.glowColor}, 0 2px 4px rgba(0,0,0,0.25)`,
+                  boxShadow:
+                    currentTab === chapters.length - 1
+                      ? '0 4px 16px rgba(245, 158, 11, 0.6), 0 2px 6px rgba(0,0,0,0.3)'
+                      : `0 4px 10px ${activeChapter.glowColor}, 0 2px 4px rgba(0,0,0,0.25)`,
                   transition: 'transform 0.15s ease, box-shadow 0.15s ease',
                   textTransform: 'uppercase',
                   letterSpacing: '0.4px',
-                  textShadow: '0 1px 2px rgba(0,0,0,0.35)',
-                  fontFamily: "'Fredoka', 'Baloo 2', sans-serif",
+                  textShadow:
+                    currentTab === chapters.length - 1
+                      ? '0 1px 1px rgba(255,255,255,0.6)'
+                      : '0 1px 2px rgba(0,0,0,0.35)',
+                  fontFamily: "'Fredoka', sans-serif",
                 }}
                 onPointerDown={(e) => {
                   (e.currentTarget as HTMLElement).style.transform = 'scale(0.94)';
@@ -787,9 +915,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                 }}
               >
                 {currentTab === chapters.length - 1
-                  ? firstTime
-                    ? 'Sẵn Sàng Lên Đường! ➔'
-                    : 'Hoàn Thành'
+                  ? 'BƯỚC VÀO BÀN CỜ ➔'
                   : 'Chương Tiếp Theo ➔'}
               </button>
             </div>

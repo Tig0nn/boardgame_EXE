@@ -2,7 +2,7 @@
 import { createRoot } from 'react-dom/client'
 import { useState } from 'react'
 import { GameExperience } from './App'
-import { Tutorial } from './components/Tutorial'
+import { UnifiedGameGuide } from './components/UnifiedGameGuide'
 import { createMobileGame as createCandidateMobileGame, createMobileSession } from './game/session'
 import { decide, transact } from '../../src/game/engine'
 import { currentCustomerPreference } from '../../src/game/customer-preferences'
@@ -56,7 +56,7 @@ Object.assign(window, { mobileHarness: { getState: session.getSnapshot, preferen
 export function IntegrationHarness() {
   const [help, setHelp] = useState(false)
   return <><GameExperience session={session} onRestart={() => location.reload()} onHelp={() => setHelp(true)} helpOpen={help} />
-    {help && <Tutorial game={session.getSnapshot()} firstTime={false} onClose={() => setHelp(false)} />}</>
+    {help && <UnifiedGameGuide game={session.getSnapshot()} firstTime={false} onClose={() => setHelp(false)} />}</>
 }
 createRoot(document.getElementById('root')!).render(<IntegrationHarness />)
 declare global { interface Window { mobileHarness: { getState: () => GameState; preference: ReturnType<typeof currentCustomerPreference> } } }

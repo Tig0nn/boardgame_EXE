@@ -17,8 +17,7 @@ import { GamePhase } from './components/GamePhase'
 import { createMvpMobileGame, createMobileSession, movementPath } from './game/session'
 import type { MobileCommand } from './game/session'
 import { sound } from './utils/audio'
-import { hasSeenTutorial, rememberTutorial, isTutorialDisabled } from './game/onboarding'
-import { Tutorial } from './components/Tutorial'
+import { isAutoShowRulesEnabled } from './game/rules-settings'
 import './engine-ui.css'
 import './core-mvp.css'
 import './medieval-theme.css'
@@ -147,11 +146,9 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
       />
       <FloatingMoney particles={particles} />
       {diceSealValue !== null && (
-        <div className="medieval-dice-seal-container">
-          <div className="medieval-dice-seal">
-            <span className="seal-subtext">KẾT QUẢ</span>
-            <span className="seal-number">{diceSealValue}</span>
-            <span className="seal-unit">BƯỚC TIẾN</span>
+        <div className="dice-toss-burst-container">
+          <div className="dice-toss-burst-number">
+            <span>+{diceSealValue}</span>
           </div>
         </div>
       )}
@@ -231,7 +228,6 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
         >
           <button
             onClick={() => setDismissResult(false)}
-            className="medieval-ribbon-btn"
             style={{
               padding: '10px 22px',
               fontSize: '13.5px',
@@ -241,11 +237,33 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
               alignItems: 'center',
               gap: '8px',
               whiteSpace: 'nowrap',
-              border: '2px solid #b45309',
+              border: 'none',
+              borderRadius: '999px',
+              background: 'linear-gradient(180deg, #F59E0B 0%, #D97706 100%)',
+              color: '#FFFFFF',
+              boxShadow: '0 4px 16px rgba(217, 119, 6, 0.45), 0 1px 3px rgba(0,0,0,0.3)',
+              cursor: 'pointer',
+              fontFamily: "'Fredoka', sans-serif",
+              transition: 'transform 0.15s ease',
+            }}
+            onPointerDown={(e) => {
+              e.currentTarget.style.transform = 'scale(0.96)'
+            }}
+            onPointerUp={(e) => {
+              e.currentTarget.style.transform = 'scale(1)'
             }}
           >
-            <span>🏆</span>
-            <strong>Xem Kết Quả Ván Chơi</strong>
+            <img
+              src="/assets/champion-icon.png"
+              alt="Kết quả"
+              style={{
+                width: '22px',
+                height: '22px',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.25))',
+              }}
+            />
+            <span>Xem Kết Quả Ván Chơi</span>
           </button>
         </div>
       )}
@@ -314,19 +332,37 @@ export default function App() {
     setScreen('game')
   }
 
+  // Quản lý popup Luật chơi theo Chương (Chapter-specific rules)
+  const [chapterRulesTab, setChapterRulesTab] = useState<number | null>(null)
+  const [guideHelpOpen, setGuideHelpOpen] = useState(false)
+  const openHelp = () => setGuideHelpOpen(true)
+
+  // Chạm Node trên Bản Đồ (Chương 1)
   const handlePlayNode = (node: MapNodeConfig) => {
     sound.playClick()
     void node.id
     if (saved && saved.phase !== 'finished') {
       setSession(createMobileSession(saved))
-      setScreen('game')
     } else {
-      handleStartFreshGame()
+      const fresh = createMvpMobileGame(String(Date.now()), 0, 1)
+      saveGameLocally(fresh)
+      setSaved(fresh)
+      setSession(createMobileSession(fresh))
     }
-    // Chạm Node 1: nếu là tân binh, mở trực tiếp modal "Chào Tân Binh" trên bàn cờ
-    if (!isTutorialDisabled() && !hasSeenTutorial()) {
-      setTutorial('first')
+
+    if (isAutoShowRulesEnabled()) {
+      // Mở ngay Luật chơi Chương tương ứng (Chương 1: tab 0)
+      const tabIndex = Math.max(0, (node.stageNumber || 1) - 1)
+      setChapterRulesTab(tabIndex)
+    } else {
+      // Tắt tự động -> vào thẳng bàn cờ
+      setScreen('game')
     }
+  }
+
+  const handleCloseChapterRules = () => {
+    setChapterRulesTab(null)
+    setScreen('game')
   }
 
   const handleToggleSound = () => {
@@ -337,23 +373,10 @@ export default function App() {
     else { sound.unlockAudio(); sound.startBgm() }
   }
 
-  const [tutorial, setTutorial] = useState<'first' | 'help' | null>(() => hasSeenTutorial() ? null : 'first')
-  const openHelp = () => setTutorial('help')
-
-  // Bấm PLAY trên EntranceScreen: vào thẳng màn hình Bản Đồ 4 Vòng
+  // Bấm PLAY trên EntranceScreen: Vào thẳng màn hình Bản Đồ
   const handlePlayFromEntrance = () => {
     sound.playClick()
     setScreen('map')
-  }
-
-  const closeTutorial = () => {
-    if (tutorial === 'first') {
-      rememberTutorial()
-    }
-    setTutorial(null)
-    if (screen === 'entrance') {
-      setScreen('map')
-    }
   }
 
   return (
@@ -368,9 +391,7 @@ export default function App() {
             onHelp={openHelp}
             onOpenSettings={() => setSettingsOpen(true)}
           />
-          {tutorial !== 'first' && (
-            <div style={{ display: 'none' }} aria-hidden="true" id="initial-savings" />
-          )}
+          <div style={{ display: 'none' }} aria-hidden="true" id="initial-savings" />
         </MobileContainer>
       ) : screen === 'map' ? (
         <MobileContainer>
@@ -402,7 +423,7 @@ export default function App() {
             onRestart={handleStartFreshGame}
             onHome={returnToMap}
             onHelp={openHelp}
-            helpOpen={!!tutorial}
+            helpOpen={guideHelpOpen}
           />
         )
       )}
@@ -424,11 +445,24 @@ export default function App() {
         />
       )}
 
-      {tutorial === 'first' ? (
-        <Tutorial firstTime onClose={closeTutorial} />
-      ) : tutorial === 'help' ? (
-        <UnifiedGameGuide firstTime={false} onClose={closeTutorial} game={session?.getSnapshot()} />
-      ) : null}
+      {/* Popup Luật chơi theo Chương (Chương 1: tab 0) kích hoạt khi chạm Node Chương trên Bản đồ */}
+      {chapterRulesTab !== null && (
+        <UnifiedGameGuide
+          firstTime={true}
+          initialTab={chapterRulesTab}
+          onClose={handleCloseChapterRules}
+          game={session?.getSnapshot() || saved || undefined}
+        />
+      )}
+
+      {/* Tra cứu Sổ tay toàn thư từ nút Help */}
+      {guideHelpOpen && (
+        <UnifiedGameGuide
+          firstTime={false}
+          onClose={() => setGuideHelpOpen(false)}
+          game={session?.getSnapshot() || saved || undefined}
+        />
+      )}
 
       <SettingsModal
         isOpen={settingsOpen}

@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { Modal } from '../../../src/components/Modal'
 import { GoalChecks } from '../../../src/components/GoalChecks'
 import { CustomerPreferenceCard } from '../../../src/components/CustomerPreferenceCard'
-import { BoardGuide } from './Tutorial'
+import { Icon } from '../../../src/components/Icon'
+import { tileDisplayLabel } from '../../../src/components/player-language'
 import { rulesForGame, MULTI_COURSE_RULES, isCoreMvp, isMultiCourse } from '../../../src/game/rules-profile'
 import { livingPresentation } from '../game/living-presentation'
 import type { GameState } from '../../../src/game/types'
@@ -11,6 +12,19 @@ import { tileTradingEnabled } from '../../../src/game/encounters'
 import { boardFor, MULTI_COURSE_B18_BOARD } from '../../../src/data/board'
 import { money } from '../../../src/game/format'
 import { FinancialGlossary } from '../../../src/components/FinancialTerm'
+
+export function BoardGuide({ game }: { game?: GameState }) {
+  const board = game ? boardFor(game) : MULTI_COURSE_B18_BOARD
+  return (
+    <ol className="rulebook-board" style={{ margin: '6px 0', paddingLeft: '20px' }}>
+      {board.map((tile) => (
+        <li key={tile.index} value={tile.index + 1}>
+          <Icon name={tile.icon} size={16} /> {tileDisplayLabel(tile.label)}
+        </li>
+      ))}
+    </ol>
+  )
+}
 
 const tabs=['Mục tiêu','Bàn cờ','Lượt chơi','Đầu tư','Rủi ro','Xuất phát']
 export function RulebookModal({game,onClose}:{game?:GameState;onClose:()=>void}){

@@ -60,17 +60,17 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
       style={{
         position: 'absolute',
         inset: 0,
-        width: '940px',
-        height: '1672px',
+        width: '100%',
+        height: '100%',
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '36px 32px 140px 32px',
+        padding: 'max(36px, env(safe-area-inset-top)) 32px max(120px, env(safe-area-inset-bottom)) 32px',
         boxSizing: 'border-box',
         zIndex: 10,
-        fontFamily: "'Cinzel', 'Playfair Display', serif",
+        fontFamily: "'Fredoka', sans-serif",
         userSelect: 'none',
         writingMode: 'horizontal-tb',
         pointerEvents: 'auto',
@@ -127,6 +127,13 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
             border: 'none',
             outline: 'none',
             padding: 0,
+            transition: 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          }}
+          onPointerDown={(e) => {
+            (e.currentTarget as HTMLElement).style.transform = 'scale(0.88)';
+          }}
+          onPointerUp={(e) => {
+            (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
           }}
         >
           <img
@@ -137,7 +144,7 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
               width: '100%',
               height: '100%',
               objectFit: 'contain',
-              filter: isMuted ? 'grayscale(0.8) opacity(0.6)' : 'none',
+              filter: isMuted ? 'grayscale(0.8) opacity(0.6)' : 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4))',
               pointerEvents: 'none',
             }}
           />
@@ -146,11 +153,15 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
               className="pointer-events-none select-none"
               style={{
                 position: 'absolute',
-                fontSize: '32px',
-                color: '#991b1b',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                fontSize: '34px',
+                color: '#dc2626',
                 fontWeight: 900,
-                textShadow: '0 0 6px #ffffff',
+                textShadow: '0 0 8px #ffffff, 0 2px 4px rgba(0, 0, 0, 0.8)',
                 pointerEvents: 'none',
+                fontFamily: "'Fredoka', sans-serif",
               }}
             >
               ✕
@@ -176,6 +187,13 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
             border: 'none',
             outline: 'none',
             padding: 0,
+            transition: 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          }}
+          onPointerDown={(e) => {
+            (e.currentTarget as HTMLElement).style.transform = 'scale(0.88)';
+          }}
+          onPointerUp={(e) => {
+            (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
           }}
         >
           <img
@@ -186,13 +204,14 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
               width: '100%',
               height: '100%',
               objectFit: 'contain',
+              filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4))',
               pointerEvents: 'none',
             }}
           />
         </button>
       </div>
 
-      {/* 3. Nút "CHƠI" Play Icon Nổi Bật Ở Khu Vực Hành Động Phía Dưới (Không viền trắng, trong suốt 100%) */}
+      {/* 3. Nút "CHƠI" Play Icon Nổi Bật Ở Khu Vực Hành Động Phía Dưới (Kèm Hiệu Ứng Thở Breathing Glow) */}
       <div
         className="pointer-events-auto relative z-50 flex flex-col items-center w-full"
         style={{
@@ -203,6 +222,7 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
           flexDirection: 'column',
           alignItems: 'center',
           width: '100%',
+          gap: '8px',
         }}
       >
         <button
@@ -219,6 +239,14 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
             position: 'relative',
             zIndex: 50,
             pointerEvents: 'auto',
+            animation: 'entranceBreathingGlow 2.8s ease-in-out infinite',
+            transition: 'transform 0.15s ease',
+          }}
+          onPointerDown={(e) => {
+            (e.currentTarget as HTMLElement).style.transform = 'scale(0.93)';
+          }}
+          onPointerUp={(e) => {
+            (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
           }}
         >
           <img
@@ -226,16 +254,29 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
             alt="Bắt đầu chơi"
             className="pointer-events-none select-none"
             style={{
-              width: '480px',
+              width: 'clamp(280px, 52vw, 480px)',
               height: 'auto',
               maxHeight: '165px',
               objectFit: 'contain',
-              filter: 'drop-shadow(0 14px 28px rgba(0, 0, 0, 0.6))',
               pointerEvents: 'none',
             }}
           />
         </button>
       </div>
+
+      {/* Animation Styles */}
+      <style>{`
+        @keyframes entranceBreathingGlow {
+          0%, 100% {
+            transform: scale(1.0);
+            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 16px rgba(245, 158, 11, 0.45));
+          }
+          50% {
+            transform: scale(1.035);
+            filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 28px rgba(245, 158, 11, 0.8));
+          }
+        }
+      `}</style>
 
       {/* Fallback Cửa sổ Cài Đặt Trung Cổ nếu không có onOpenSettings từ App */}
       {!onOpenSettings && (

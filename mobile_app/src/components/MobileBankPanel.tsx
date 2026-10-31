@@ -61,36 +61,111 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
   }
 
   return (
-    <div className="flex flex-col gap-2.5 w-full">
-      {/* 1. HIGHLIGHT BOX: Tiền mặt hiện có (Warm yellow dashed border, soft organic UI) */}
-      <div className="flex justify-between items-center rounded-2xl border-2 border-dashed border-amber-300 bg-amber-50/50 p-2.5 px-3">
-        <span className="text-xs font-bold text-amber-800">Tiền mặt hiện có:</span>
-        <strong className="text-sm font-black text-amber-900">{money(game.portfolio.cash)}</strong>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '12px',
+        width: '100%',
+        boxSizing: 'border-box',
+        fontFamily: "'Fredoka', sans-serif",
+      }}
+    >
+      {/* 1. HIGHLIGHT BOX: Tiền mặt hiện có (Trang nhã, không dính chữ) */}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          background: 'rgba(254, 243, 199, 0.65)',
+          border: '1.5px dashed #F59E0B',
+          borderRadius: '16px',
+          padding: '10px 14px',
+          boxSizing: 'border-box',
+        }}
+      >
+        <span
+          style={{
+            fontSize: '12px',
+            fontWeight: 700,
+            color: '#92400E',
+            letterSpacing: '0.3px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+          }}
+        >
+          <img
+            src="/assets/money-icon.png"
+            alt=""
+            style={{
+              width: '18px',
+              height: '18px',
+              objectFit: 'contain',
+              filter: 'sepia(1) saturate(3.5) hue-rotate(335deg) brightness(1.05)',
+            }}
+          />
+          <span>Tiền mặt hiện có:</span>
+        </span>
+        <strong
+          style={{
+            fontSize: '15px',
+            fontWeight: 900,
+            color: '#78350F',
+            fontVariantNumeric: 'tabular-nums',
+          }}
+        >
+          {money(game.portfolio.cash)}
+        </strong>
       </div>
 
       {/* Thông báo kết quả giao dịch nếu vừa gửi xong */}
       {isTraded && (
-        <div className="p-2.5 rounded-2xl bg-emerald-100/70 border border-emerald-300 text-center">
-          <div className="text-xs font-extrabold text-emerald-800">
+        <div
+          style={{
+            padding: '10px 14px',
+            borderRadius: '16px',
+            background: 'rgba(209, 250, 229, 0.85)',
+            border: '1.5px solid #34D399',
+            textAlign: 'center',
+          }}
+        >
+          <div style={{ fontSize: '13px', fontWeight: 900, color: '#065F46' }}>
             ✓ Đã gửi tiết kiệm thành công!
           </div>
-          <div className="text-[11px] text-emerald-700 mt-0.5">
-            Tiền gốc và lãi sẽ được tất toán khi đến hạn.
+          <div style={{ fontSize: '11px', fontWeight: 600, color: '#047857', marginTop: '2px' }}>
+            Tiền gốc và lãi sẽ được tất toán khi đến hạn qua ô Xuất phát.
           </div>
         </div>
       )}
 
-      {/* 2. KỲ HẠN GỬI TIẾT KIỆM (3 Distinct Rows Vertical Layout) */}
-      <div className="rounded-2xl bg-emerald-50/40 border border-emerald-100/80 p-3">
-        <div className="text-xs font-black text-slate-800 mb-2 uppercase tracking-wide">
+      {/* 2. KỲ HẠN GỬI TIẾT KIỆM (3 Dòng độc lập rõ ràng) */}
+      <div
+        style={{
+          borderRadius: '18px',
+          background: 'rgba(236, 253, 245, 0.45)',
+          border: '1px solid rgba(16, 185, 129, 0.25)',
+          padding: '12px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+          boxSizing: 'border-box',
+        }}
+      >
+        <div
+          style={{
+            fontSize: '11px',
+            fontWeight: 900,
+            color: '#1e293b',
+            textTransform: 'uppercase',
+            letterSpacing: '0.5px',
+          }}
+        >
           Kỳ hạn gửi tiết kiệm
         </div>
 
-        {/* 3 Separate Rows Radio Selection Group - Mandatory Structured Layout */}
-        <div
-          className="flex flex-col space-y-3 my-2"
-          style={{ display: 'flex', flexDirection: 'column', gap: '10px', margin: '8px 0' }}
-        >
+        {/* 3 Separate Rows Radio Selection Group */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {([1, 2, 3] as Term[]).map((val) => {
             const isSelected = term === val
             const ratePct = Math.round(rates[val] * 100)
@@ -102,19 +177,18 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
                   sound.playClick()
                   setTerm(val)
                 }}
-                className={`flex items-start space-x-3 p-3 rounded-2xl bg-amber-50/60 border border-amber-200 cursor-pointer hover:bg-amber-100/70 transition-all shadow-sm ${
-                  isSelected ? 'border-amber-400 bg-amber-100/80 shadow' : ''
-                }`}
                 style={{
                   display: 'flex',
-                  alignItems: 'flex-start',
+                  alignItems: 'center',
                   gap: '12px',
-                  padding: '10px 12px',
-                  borderRadius: '16px',
-                  background: isSelected ? 'rgba(254, 243, 199, 0.85)' : 'rgba(254, 243, 199, 0.45)',
-                  border: isSelected ? '1.5px solid #f59e0b' : '1px solid #fde68a',
+                  padding: '10px 14px',
+                  borderRadius: '14px',
+                  background: isSelected ? 'rgba(254, 243, 199, 0.85)' : 'rgba(255, 255, 255, 0.8)',
+                  border: isSelected ? '1.5px solid #F59E0B' : '1px solid rgba(226, 232, 240, 0.9)',
                   cursor: 'pointer',
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+                  boxShadow: isSelected
+                    ? '0 2px 6px rgba(245, 158, 11, 0.2)'
+                    : '0 1px 3px rgba(0, 0, 0, 0.04)',
                   boxSizing: 'border-box',
                   width: '100%',
                   transition: 'all 0.15s ease',
@@ -126,18 +200,16 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
                   value={String(val)}
                   checked={isSelected}
                   onChange={() => setTerm(val)}
-                  className="mt-1 w-4 h-4 text-emerald-600 focus:ring-emerald-500 cursor-pointer flex-shrink-0"
                   style={{
-                    marginTop: '2px',
-                    width: '16px',
-                    height: '16px',
+                    width: '18px',
+                    height: '18px',
                     accentColor: '#059669',
                     flexShrink: 0,
                     cursor: 'pointer',
+                    margin: 0,
                   }}
                 />
                 <span
-                  className="text-sm font-bold text-slate-800 leading-snug"
                   style={{
                     fontSize: '13px',
                     fontWeight: 700,
@@ -154,21 +226,51 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
         </div>
 
         {/* Lưu ý rút trước hạn */}
-        <p className="text-[11px] font-semibold text-amber-800 mt-2">
+        <p
+          style={{
+            fontSize: '11px',
+            fontWeight: 600,
+            color: '#92400E',
+            margin: '4px 0 0 0',
+            lineHeight: 1.4,
+          }}
+        >
           Rút trước hạn để trả khoản bắt buộc: mất lãi chưa nhận.
         </p>
 
         {/* Accordion Cách Nhận Lãi */}
-        <details className="mt-1.5 text-xs text-slate-500">
-          <summary className="cursor-pointer font-bold text-emerald-700 hover:text-emerald-800 transition-colors">
+        <details style={{ marginTop: '2px', fontSize: '12px', color: '#64748b' }}>
+          <summary
+            style={{
+              cursor: 'pointer',
+              fontWeight: 800,
+              color: '#059669',
+              listStyle: 'none',
+              userSelect: 'none',
+            }}
+          >
             ▶ Cách nhận lãi
           </summary>
-          <div className="p-2.5 mt-1.5 rounded-xl bg-white/90 border border-emerald-100/70 text-[11px] text-slate-600 leading-relaxed space-y-1">
-            <p>
+          <div
+            style={{
+              padding: '8px 12px',
+              marginTop: '6px',
+              borderRadius: '12px',
+              background: 'rgba(255, 255, 255, 0.92)',
+              border: '1px solid rgba(16, 185, 129, 0.2)',
+              fontSize: '11px',
+              color: '#334155',
+              lineHeight: 1.5,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '4px',
+            }}
+          >
+            <p style={{ margin: 0 }}>
               Khi hết kỳ hạn, bạn nhận lại tiền đã gửi và toàn bộ tiền lãi. Lãi chỉ tính trên số
               tiền gửi ban đầu.
             </p>
-            <p>
+            <p style={{ margin: 0 }}>
               Nếu phải rút trước hạn để thanh toán khoản bắt buộc, bạn sẽ mất phần lãi chưa nhận. Rút
               toàn khoản; không tự tái tục.
             </p>
@@ -178,21 +280,46 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
 
       {!isTraded && (
         <>
-          {/* 3. SỐ TIỀN GỬI (Soft Organic Input Container) */}
-          <div className="rounded-2xl bg-slate-50/80 border border-slate-200/80 p-3 space-y-2">
-            <div className="flex justify-between items-center">
+          {/* 3. SỐ TIỀN GỬI */}
+          <div
+            style={{
+              borderRadius: '18px',
+              background: '#f8fafc',
+              border: '1px solid #e2e8f0',
+              padding: '12px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px',
+              boxSizing: 'border-box',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
               <label
                 htmlFor="mobile-bank-amount"
-                className="text-xs font-black text-slate-700 uppercase tracking-wide"
+                style={{
+                  fontSize: '11px',
+                  fontWeight: 900,
+                  color: '#334155',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                }}
               >
                 Số tiền gửi
               </label>
               {!preview.valid && amount > game.portfolio.cash && (
-                <span className="text-[11px] font-bold text-rose-600">Vượt quá tiền mặt!</span>
+                <span style={{ fontSize: '11px', fontWeight: 800, color: '#dc2626' }}>
+                  Vượt quá tiền mặt!
+                </span>
               )}
             </div>
 
-            <div className="relative flex items-center">
+            <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
               <input
                 id="mobile-bank-amount"
                 type="text"
@@ -200,15 +327,37 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
                 value={amount > 0 ? amount.toLocaleString('vi-VN') : ''}
                 placeholder="0"
                 onChange={handleAmountChange}
-                className="w-full text-base font-black text-slate-800 bg-white border border-slate-200 rounded-xl px-3 py-2 pr-8 focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none transition-all"
+                style={{
+                  width: '100%',
+                  fontSize: '16px',
+                  fontWeight: 900,
+                  color: '#1e293b',
+                  background: '#ffffff',
+                  border: '1.5px solid #cbd5e1',
+                  borderRadius: '12px',
+                  padding: '8px 36px 8px 12px',
+                  outline: 'none',
+                  boxSizing: 'border-box',
+                  fontFamily: "'Fredoka', sans-serif",
+                  fontVariantNumeric: 'tabular-nums',
+                }}
               />
-              <span className="absolute right-3 text-sm font-bold text-slate-400 pointer-events-none">
+              <span
+                style={{
+                  position: 'absolute',
+                  right: '12px',
+                  fontSize: '14px',
+                  fontWeight: 800,
+                  color: '#94a3b8',
+                  pointerEvents: 'none',
+                }}
+              >
                 ₫
               </span>
             </div>
 
             {/* Quick Percentage Chips */}
-            <div className="flex gap-1.5 pt-0.5">
+            <div style={{ display: 'flex', gap: '8px', marginTop: '2px' }}>
               {[0.25, 0.5, 1].map((ratio) => {
                 const targetVal = Math.floor((game.portfolio.cash * ratio) / 1000) * 1000
                 return (
@@ -219,7 +368,19 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
                       sound.playClick()
                       setAmount(Math.max(1000, targetVal))
                     }}
-                    className="flex-1 py-1 px-2 text-[11px] font-bold rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-700 transition-colors"
+                    style={{
+                      flex: 1,
+                      padding: '6px 8px',
+                      fontSize: '11.5px',
+                      fontWeight: 800,
+                      borderRadius: '10px',
+                      background: '#ffffff',
+                      border: '1px solid #cbd5e1',
+                      color: '#475569',
+                      cursor: 'pointer',
+                      transition: 'all 0.12s ease',
+                      boxShadow: '0 1px 2px rgba(0,0,0,0.04)',
+                    }}
                   >
                     {ratio === 1 ? 'Tối đa' : `${ratio * 100}%`}
                   </button>
@@ -228,45 +389,153 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
             </div>
           </div>
 
-          {/* 4. DỰ KIẾN KHI KHOẢN TIẾT KIỆM ĐẾN HẠN (Soft Organic Card) */}
-          <div className="rounded-2xl bg-emerald-50/50 border border-emerald-200/60 p-3 space-y-2">
-            <div className="flex justify-between items-center text-xs font-medium text-slate-600">
+          {/* 4. DỰ KIẾN KHI KHOẢN TIẾT KIỆM ĐẾN HẠN (Breakdown Ledger - Rõ ràng, không dính chữ) */}
+          <div
+            style={{
+              borderRadius: '18px',
+              background: 'rgba(236, 253, 245, 0.7)',
+              border: '1px solid rgba(16, 185, 129, 0.3)',
+              padding: '12px 14px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px',
+              boxSizing: 'border-box',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                fontSize: '12px',
+                color: '#475569',
+              }}
+            >
               <span>Tiền gửi ban đầu</span>
-              <strong className="text-sm font-bold text-slate-800">{money(amount)}</strong>
+              <strong
+                style={{
+                  fontSize: '13.5px',
+                  fontWeight: 800,
+                  color: '#1e293b',
+                  fontVariantNumeric: 'tabular-nums',
+                }}
+              >
+                {money(amount)}
+              </strong>
             </div>
-            <div className="flex justify-between items-center text-xs font-medium text-emerald-700">
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                fontSize: '12px',
+                color: '#059669',
+              }}
+            >
               <span>Tổng tiền lãi</span>
-              <strong className="text-sm font-bold text-emerald-600">
+              <strong
+                style={{
+                  fontSize: '13.5px',
+                  fontWeight: 800,
+                  color: '#059669',
+                  fontVariantNumeric: 'tabular-nums',
+                }}
+              >
                 +{money(depositInfo.interest)}
               </strong>
             </div>
-            <div className="border-t border-emerald-200/60 pt-2 flex justify-between items-center text-xs font-extrabold text-slate-900">
+            <div
+              style={{
+                borderTop: '1px solid rgba(16, 185, 129, 0.25)',
+                paddingTop: '8px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                fontSize: '12px',
+                fontWeight: 900,
+                color: '#0f172a',
+              }}
+            >
               <span>Tổng nhận khi đến hạn</span>
-              <strong className="text-sm font-black text-emerald-700">
+              <strong
+                style={{
+                  fontSize: '14.5px',
+                  fontWeight: 900,
+                  color: '#047857',
+                  fontVariantNumeric: 'tabular-nums',
+                }}
+              >
                 {money(amount + depositInfo.interest)}
               </strong>
             </div>
 
             {preview.valid && (
-              <div className="flex justify-between items-center text-[11px] text-slate-500 pt-1 border-t border-dashed border-emerald-100">
-                <span>Tiền mặt sau giao dịch:</span>
-                <span className="font-semibold text-slate-700">
+              <div
+                style={{
+                  borderTop: '1px dashed rgba(16, 185, 129, 0.2)',
+                  paddingTop: '8px',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  fontSize: '11.5px',
+                  color: '#64748b',
+                }}
+              >
+                <span>Tiền mặt sau giao dịch</span>
+                <strong
+                  style={{
+                    fontSize: '13px',
+                    fontWeight: 800,
+                    color: '#334155',
+                    fontVariantNumeric: 'tabular-nums',
+                  }}
+                >
                   {money(preview.cashAfter ?? 0)}
-                </span>
+                </strong>
               </div>
             )}
           </div>
 
-          {/* 5. NÚT HÀNH ĐỘNG GỬI TIẾT KIỆM (3D Orange Button) */}
+          {/* 5. NÚT HÀNH ĐỘNG GỬI TIẾT KIỆM (3D Gamified Button) */}
           <button
             type="button"
             disabled={!preview.valid || submitting}
             onClick={handleSubmit}
-            className={`w-full py-2.5 px-4 rounded-xl text-sm font-black uppercase tracking-wide text-white transition-all ${
-              !preview.valid
-                ? 'bg-slate-300 text-slate-500 cursor-not-allowed shadow-none'
-                : 'bg-gradient-to-b from-amber-400 via-orange-500 to-orange-600 shadow-[0_3.5px_0_#9a3412,0_5px_12px_rgba(234,88,12,0.35)] active:translate-y-0.5 active:shadow-[0_1.5px_0_#9a3412] cursor-pointer'
-            }`}
+            style={{
+              width: '100%',
+              padding: '12px 16px',
+              borderRadius: '16px',
+              fontSize: '14px',
+              fontWeight: 900,
+              textTransform: 'uppercase',
+              letterSpacing: '0.4px',
+              color: '#ffffff',
+              border: 'none',
+              cursor: !preview.valid || submitting ? 'not-allowed' : 'pointer',
+              background:
+                !preview.valid || submitting
+                  ? '#cbd5e1'
+                  : 'linear-gradient(180deg, #FBBF24 0%, #F97316 50%, #EA580C 100%)',
+              boxShadow:
+                !preview.valid || submitting
+                  ? 'none'
+                  : '0 4px 0 #9a3412, 0 6px 14px rgba(234, 88, 12, 0.35)',
+              transition: 'transform 0.1s ease, filter 0.1s ease',
+              fontFamily: "'Fredoka', sans-serif",
+            }}
+            onPointerDown={(e) => {
+              if (preview.valid && !submitting) {
+                e.currentTarget.style.transform = 'translateY(2px)'
+                e.currentTarget.style.boxShadow = '0 2px 0 #9a3412'
+              }
+            }}
+            onPointerUp={(e) => {
+              if (preview.valid && !submitting) {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow =
+                  '0 4px 0 #9a3412, 0 6px 14px rgba(234, 88, 12, 0.35)'
+              }
+            }}
           >
             Gửi tiết kiệm {preview.valid ? money(amount) : ''} →
           </button>
@@ -280,31 +549,59 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
           sound.playClick()
           onSkip()
         }}
-        className={`w-full py-2 text-xs font-bold transition-colors ${
-          isTraded
-            ? 'py-2.5 px-4 rounded-xl text-sm font-black uppercase tracking-wide text-white bg-gradient-to-b from-amber-400 via-orange-500 to-orange-600 shadow-[0_3.5px_0_#9a3412,0_5px_12px_rgba(234,88,12,0.35)] cursor-pointer'
-            : 'text-slate-500 hover:text-slate-700'
-        }`}
+        style={{
+          width: '100%',
+          padding: '10px 14px',
+          borderRadius: '14px',
+          fontSize: '13px',
+          fontWeight: 800,
+          color: isTraded ? '#ffffff' : '#64748b',
+          background: isTraded
+            ? 'linear-gradient(180deg, #10b981 0%, #059669 100%)'
+            : 'transparent',
+          border: isTraded ? 'none' : '1px solid rgba(148, 163, 184, 0.35)',
+          cursor: 'pointer',
+          boxShadow: isTraded ? '0 3px 0 #047857' : 'none',
+          transition: 'all 0.12s ease',
+          fontFamily: "'Fredoka', sans-serif",
+        }}
       >
         {isTraded ? 'Hoàn tất · Về bàn chơi →' : 'Bỏ qua cơ hội'}
       </button>
 
       {/* 6. CÁC KHOẢN GỬI ĐANG HOẠT ĐỘNG (NẾU CÓ) */}
       {activeLots.length > 0 && (
-        <details className="mt-1 text-xs text-slate-500">
-          <summary className="cursor-pointer font-bold text-slate-600 hover:underline">
+        <details style={{ marginTop: '2px', fontSize: '12px', color: '#64748b' }}>
+          <summary
+            style={{
+              cursor: 'pointer',
+              fontWeight: 800,
+              color: '#475569',
+              listStyle: 'none',
+              userSelect: 'none',
+            }}
+          >
             Các khoản gửi đang hoạt động ({activeLots.length})
           </summary>
-          <div className="space-y-1.5 mt-2">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '6px' }}>
             {activeLots.map((lot) => (
               <div
                 key={lot.id}
-                className="p-2 rounded-xl bg-slate-50 border border-slate-200/80 flex justify-between items-center text-[11px]"
+                style={{
+                  padding: '8px 12px',
+                  borderRadius: '12px',
+                  background: '#f8fafc',
+                  border: '1px solid #e2e8f0',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  fontSize: '11.5px',
+                }}
               >
-                <span className="font-semibold text-slate-700">
+                <span style={{ fontWeight: 700, color: '#334155' }}>
                   {investmentLotLabel('savings', lot.id)}
                 </span>
-                <span className="text-slate-600 font-bold">
+                <span style={{ fontWeight: 800, color: '#475569' }}>
                   {money(lot.principal)} • {maturityLabel(lot.maturityLap)}
                 </span>
               </div>

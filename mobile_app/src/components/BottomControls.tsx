@@ -79,30 +79,46 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
         boxSizing: 'border-box',
       }}
     >
-      {/* Badge hiển thị kết quả vừa gieo phong cách Retro Game Badge */}
+      {/* Hiển thị kết quả vừa gieo: Bỏ viền bo quanh xúc xắc và số, bỏ dấu ':' nằm giữa */}
       {lastDiceValue && (
         <div
           style={{
-            background: 'linear-gradient(180deg, #1e1b4b 0%, #0f172a 100%)',
-            color: '#fde68a',
-            padding: '4px 14px',
-            borderRadius: '999px',
-            fontSize: '13px',
-            fontWeight: 900,
-            border: '2px solid #f59e0b',
-            boxShadow: '0 4px 14px rgba(0, 0, 0, 0.65), 0 0 10px rgba(245, 158, 11, 0.4)',
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'center',
             gap: '8px',
-            marginBottom: '6px',
-            pointerEvents: 'auto',
-            animation: 'fadeIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
-            fontFamily: "'Fredoka', 'Baloo 2', sans-serif",
-            textShadow: '0 0 8px rgba(251, 191, 36, 0.8), 2px 2px 0px rgba(0,0,0,0.8)',
+            marginBottom: '4px',
+            pointerEvents: 'none',
+            animation: 'popIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            fontFamily: "'Fredoka', sans-serif",
           }}
         >
-          <span style={{ fontSize: '18px', display: 'inline-block', transform: 'rotate(-5deg)' }}>🎲</span>
-          <span style={{ letterSpacing: '1px', fontWeight: 800 }}>: {lastDiceValue}</span>
+          <img
+            src="/assets/dice-icon.png"
+            onError={(e) => {
+              e.currentTarget.src = '/assets/xucxac.PNG'
+            }}
+            alt="Xúc xắc"
+            style={{
+              width: '32px',
+              height: '32px',
+              objectFit: 'contain',
+              filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 10px rgba(245, 158, 11, 0.5))',
+            }}
+          />
+          <span
+            style={{
+              fontSize: '28px',
+              fontWeight: 900,
+              color: '#fef08a',
+              textShadow:
+                '0 3px 6px rgba(0,0,0,0.9), 0 0 12px rgba(245, 158, 11, 0.85), -1.5px -1.5px 0 #92400e, 1.5px -1.5px 0 #92400e, -1.5px 1.5px 0 #92400e, 1.5px 1.5px 0 #92400e',
+              lineHeight: 1,
+              fontVariantNumeric: 'tabular-nums',
+            }}
+          >
+            {lastDiceValue}
+          </span>
         </div>
       )}
 

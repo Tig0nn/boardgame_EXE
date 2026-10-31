@@ -90,17 +90,17 @@ export const MapScreen: React.FC<MapScreenProps> = ({
       style={{
         position: 'absolute',
         inset: 0,
-        width: '940px',
-        height: '1672px',
+        width: '100%',
+        height: '100%',
         overflow: 'hidden',
         background: '#0ea5e9',
-        fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
+        fontFamily: "'Fredoka', sans-serif",
         userSelect: 'none',
         boxSizing: 'border-box',
         pointerEvents: 'auto',
       }}
     >
-      {/* 1. KHUNG CUỘN DỌC BẢN ĐỒ (SCROLLABLE MAP CANVAS 940x2400px) */}
+      {/* 1. KHUNG CUỘN DỌC BẢN ĐỒ (SCROLLABLE MAP CANVAS 100% x 2400px) */}
       <div
         ref={scrollContainerRef}
         className="map-scroll-viewport select-none"
@@ -121,7 +121,8 @@ export const MapScreen: React.FC<MapScreenProps> = ({
           className="map-canvas-content relative"
           style={{
             position: 'relative',
-            width: '940px',
+            width: '100%',
+            minWidth: '100%',
             height: '2400px',
             background: '#0284c7',
           }}
@@ -185,43 +186,28 @@ export const MapScreen: React.FC<MapScreenProps> = ({
                   alignItems: 'center',
                 }}
               >
-                {/* Ghim Map Pin "BẠN ĐANG Ở ĐÂY" bồng bềnh trên Node Active */}
+                {/* Ghim Map Pin bồng bềnh trên Node Active */}
                 {isActive && (
                   <div
                     style={{
                       position: 'absolute',
-                      top: '-84px',
+                      top: '-68px',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
-                      animation: 'activePinFloat 1.2s infinite ease-in-out alternate',
+                      animation: 'activePinFloat 1.3s infinite ease-in-out alternate',
                       zIndex: 35,
                       pointerEvents: 'none',
                     }}
                   >
-                    <div
+                    <img
+                      src="/assets/pin-map.png"
+                      alt="Vị trí hiện tại"
                       style={{
-                        background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                        color: '#ffffff',
-                        fontSize: '18px',
-                        fontWeight: 900,
-                        padding: '5px 18px',
-                        borderRadius: '22px',
-                        border: '2.5px solid #a7f3d0',
-                        boxShadow: '0 6px 18px rgba(0,0,0,0.65), 0 0 12px rgba(16, 185, 129, 0.7)',
-                        whiteSpace: 'nowrap',
-                        letterSpacing: '0.6px',
-                      }}
-                    >
-                      BẠN ĐANG Ở ĐÂY
-                    </div>
-                    <div
-                      style={{
-                        width: 0,
-                        height: 0,
-                        borderLeft: '10px solid transparent',
-                        borderRight: '10px solid transparent',
-                        borderTop: '11px solid #059669',
+                        width: '64px',
+                        height: '64px',
+                        objectFit: 'contain',
+                        filter: 'drop-shadow(0 8px 14px rgba(0,0,0,0.75))',
                       }}
                     />
                   </div>
@@ -316,70 +302,38 @@ export const MapScreen: React.FC<MapScreenProps> = ({
                   )}
                 </div>
 
-                {/* Nhãn Tên Chương Dưới Node */}
-                <div
-                  style={{
-                    marginTop: '8px',
-                    background: isCompleted
-                      ? 'linear-gradient(180deg, #d97706 0%, #b45309 100%)'
-                      : isActive
-                        ? 'linear-gradient(180deg, #16a34a 0%, #15803d 100%)'
-                        : 'rgba(15, 23, 42, 0.88)',
-                    border: isCompleted
-                      ? '2px solid #fde68a'
-                      : isActive
-                        ? '2.5px solid #86efac'
-                        : '1.5px solid #334155',
-                    padding: isActive ? '3px 16px 4px 16px' : '4px 16px',
-                    borderRadius: '16px',
-                    boxShadow: isActive
-                      ? '0 4px 14px rgba(0,0,0,0.7), 0 0 10px rgba(34, 197, 94, 0.4)'
-                      : '0 4px 10px rgba(0,0,0,0.6)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: '1px',
-                  }}
-                >
-                  <span
+                {/* Badge trạng thái "Đang cập nhật" dưới Node bị khóa */}
+                {isLocked && (
+                  <div
                     style={{
-                      color: isCompleted ? '#fef3c7' : isActive ? '#ffffff' : '#64748b',
-                      fontSize: '18px',
-                      fontWeight: 900,
-                      whiteSpace: 'nowrap',
-                      letterSpacing: '0.4px',
-                      lineHeight: 1.2,
+                      marginTop: '6px',
+                      background: 'rgba(15, 23, 42, 0.88)',
+                      border: '1.5px solid rgba(148, 163, 184, 0.3)',
+                      padding: '3px 14px',
+                      borderRadius: '14px',
+                      boxShadow: '0 4px 10px rgba(0, 0, 0, 0.6)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backdropFilter: 'blur(4px)',
+                      pointerEvents: 'none',
                     }}
                   >
-                    Chương {node.stageNumber}
-                  </span>
-                  {isActive ? (
                     <span
                       style={{
-                        fontSize: '11px',
+                        fontSize: '12px',
                         fontWeight: 800,
-                        color: '#bbf7d0',
-                        letterSpacing: '0.5px',
-                        textTransform: 'uppercase',
-                        lineHeight: 1.1,
-                      }}
-                    >
-                      {activeGame && activeGame.lap > 0 ? `VÒNG ${activeGame.lap}/4` : '4 VÒNG'}
-                    </span>
-                  ) : isLocked ? (
-                    <span
-                      style={{
-                        fontSize: '11px',
-                        fontWeight: 700,
                         color: '#fbbf24',
-                        letterSpacing: '0.3px',
-                        lineHeight: 1.1,
+                        letterSpacing: '0.4px',
+                        lineHeight: 1.2,
+                        whiteSpace: 'nowrap',
+                        fontFamily: "'Fredoka', sans-serif",
                       }}
                     >
                       Đang cập nhật
                     </span>
-                  ) : null}
-                </div>
+                  </div>
+                )}
               </div>
             );
           })}
@@ -430,6 +384,7 @@ export const MapScreen: React.FC<MapScreenProps> = ({
             boxShadow: '0 12px 30px rgba(0,0,0,0.8)',
             fontSize: '20px',
             fontWeight: 800,
+            fontFamily: "'Fredoka', sans-serif",
             zIndex: 100,
             whiteSpace: 'nowrap',
             animation: 'fadeIn 0.2s ease',

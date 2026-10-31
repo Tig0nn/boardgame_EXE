@@ -51,8 +51,18 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
 
   const setPercentAmount = (pct: number) => {
     if (available <= 0) return
-    const calculated = Math.floor((available * pct) / 1000) * 1000
+    if (pct >= 100) {
+      setAmount(available)
+      return
+    }
+    const calculated = Math.floor((available * (pct / 100)) / 1000) * 1000
     setAmount(Math.max(1000, Math.min(available, calculated)))
+  }
+
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const rawVal = e.target.value.replace(/\D/g, '')
+    const num = rawVal ? Math.min(available, Number(rawVal)) : 0
+    setAmount(num)
   }
 
   const lastLog = game.log.at(-1)
@@ -62,6 +72,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
     <GamifiedModal
       badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · TÁI CÂN BẰNG`}
       title="Ghé ví tại ô Xuất phát"
+      titleIcon="/assets/wallet.png"
       onHelp={onHelp}
       primaryAction={{
         label: game.lap === game.totalLaps ? 'Xem kết quả hành trình →' : 'Bắt đầu vòng mới →',
@@ -78,9 +89,19 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
           fontSize: '11px',
           color: '#92400E',
           lineHeight: '1.3',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '6px',
         }}
       >
-        💡 <strong>Bán tài sản:</strong> Tùy chọn chuyển Cổ phiếu, Trái phiếu hoặc Vàng lấy tiền mặt.
+        <img
+          src="/assets/warning.png"
+          alt=""
+          style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }}
+        />
+        <span>
+          <strong>Bán tài sản:</strong> Tùy chọn chuyển Cổ phiếu, Trái phiếu hoặc Vàng lấy tiền mặt.
+        </span>
       </div>
 
       {/* Thông báo kết quả giao dịch vừa thực hiện (nếu có) */}
@@ -110,7 +131,11 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
           {(['stocks', 'bonds', 'gold'] as const).map((key) => {
             const isSelected = asset === key
             const val = game.portfolio[key]
-            const icons = { stocks: '📈', bonds: '📜', gold: '🪙' }
+            const assetIcons = {
+              stocks: '/assets/stock-icon.png',
+              bonds: '/assets/bond-icon.png',
+              gold: '/assets/gold-icon.png',
+            }
             return (
               <button
                 key={key}
@@ -129,11 +154,15 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: '1px',
+                  gap: '3px',
                   boxSizing: 'border-box',
                 }}
               >
-                <span style={{ fontSize: '16px' }}>{icons[key]}</span>
+                <img
+                  src={assetIcons[key]}
+                  alt={ASSETS[key].label}
+                  style={{ width: '22px', height: '22px', objectFit: 'contain' }}
+                />
                 <span
                   style={{
                     fontSize: '11px',
@@ -215,12 +244,10 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
 
         <div style={{ display: 'flex', gap: '4px', alignItems: 'center', marginBottom: '6px' }}>
           <input
-            type="number"
-            step={1000000}
-            min={0}
-            max={available}
-            value={amount || ''}
-            onChange={(e) => setAmount(Number(e.target.value))}
+            type="text"
+            inputMode="numeric"
+            value={amount > 0 ? amount.toLocaleString('vi-VN') : ''}
+            onChange={handleAmountChange}
             placeholder="0"
             style={{
               flex: 1,
@@ -232,6 +259,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
               color: '#0F172A',
               fontFamily: 'inherit',
               boxSizing: 'border-box',
+              fontVariantNumeric: 'tabular-nums',
             }}
           />
           <span style={{ fontSize: '12px', fontWeight: 800, color: '#64748B' }}>đ</span>
@@ -239,27 +267,35 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
 
         {/* Quick Percentage Chips */}
         <div style={{ display: 'flex', gap: '4px' }}>
-          {[25, 50, 100].map((pct) => (
-            <button
-              key={pct}
-              type="button"
-              disabled={available <= 0}
-              onClick={() => setPercentAmount(pct)}
-              style={{
-                flex: 1,
-                padding: '4px 0',
-                borderRadius: '8px',
-                border: '1px solid #CBD5E1',
-                background: '#F1F5F9',
-                color: '#334155',
-                fontSize: '10.5px',
-                fontWeight: 800,
-                cursor: available <= 0 ? 'not-allowed' : 'pointer',
-              }}
-            >
-              {pct === 100 ? 'Tất cả' : `${pct}%`}
-            </button>
-          ))}
+          {[25, 50, 100].map((pct) => {
+            const isMatch =
+              available > 0 &&
+              (pct === 100
+                ? amount === available
+                : amount === Math.floor((available * (pct / 100)) / 1000) * 1000)
+            return (
+              <button
+                key={pct}
+                type="button"
+                disabled={available <= 0}
+                onClick={() => setPercentAmount(pct)}
+                style={{
+                  flex: 1,
+                  padding: '4px 0',
+                  borderRadius: '8px',
+                  border: isMatch ? '1.5px solid #F59E0B' : '1px solid #CBD5E1',
+                  background: isMatch ? '#FEF3C7' : '#F1F5F9',
+                  color: isMatch ? '#B45309' : '#334155',
+                  fontSize: '10.5px',
+                  fontWeight: 800,
+                  cursor: available <= 0 ? 'not-allowed' : 'pointer',
+                  transition: 'all 0.15s ease',
+                }}
+              >
+                {pct === 100 ? 'Tất cả' : `${pct}%`}
+              </button>
+            )
+          })}
         </div>
       </div>
 

@@ -99,7 +99,7 @@ export const EconomicEventModal: React.FC<{
         </div>
 
         {impact.groups.map((group) => {
-          const icons: Record<string, string> = { stocks: '📈', bonds: '📜', gold: '🪙' }
+          const assetIcons: Record<string, string> = { stocks: '/assets/stock-icon.png', bonds: '/assets/bond-icon.png', gold: '/assets/gold-icon.png' }
           return (
             <div
               key={group.asset}
@@ -112,8 +112,9 @@ export const EconomicEventModal: React.FC<{
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: '13px', fontWeight: 900, color: '#1E1B4B' }}>
-                  {icons[group.asset] ?? '💎'} {group.label}
+                <span style={{ fontSize: '13px', fontWeight: 900, color: '#1E1B4B', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  {assetIcons[group.asset] && <img src={assetIcons[group.asset]} alt="" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />}
+                  <span>{group.label}</span>
                 </span>
                 {group.asset !== 'bonds' || !impact.credit ? (
                   <Movement rate={group.returnRate} />

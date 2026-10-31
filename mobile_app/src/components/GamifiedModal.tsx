@@ -3,7 +3,9 @@ import { sound } from '../utils/audio'
 
 export interface GamifiedModalProps {
   title?: string
+  titleIcon?: string
   badgeText?: string
+  lap?: number
   onClose?: () => void
   onHelp?: () => void
   primaryAction?: {
@@ -17,6 +19,82 @@ export interface GamifiedModalProps {
   }
   children: React.ReactNode
   className?: string
+}
+
+interface LapThemeConfig {
+  cardBorder: string
+  cardBg: string
+  cardShadow: string
+  ribbonBg: string
+  ribbonBorder: string
+  ribbonShadow: string
+  glowFilter: string
+}
+
+const getLapTheme = (lap?: number, badgeText?: string): LapThemeConfig => {
+  let detectedLap = lap
+  if (!detectedLap && badgeText) {
+    const match = badgeText.match(/VÒNG\s*(\d)/i)
+    if (match) detectedLap = parseInt(match[1], 10)
+  }
+
+  switch (detectedLap) {
+    case 1:
+      // VÒNG 1: Khởi động nhẹ nhàng, tươi mát (Emerald & Mint Jade Glow)
+      return {
+        cardBorder: '3px solid #86EFAC',
+        cardBg: 'linear-gradient(180deg, #A7F3D0 0%, #34D399 26%, #059669 70%, #064E3B 100%)',
+        cardShadow: '0 25px 60px rgba(0, 0, 0, 0.85), 0 0 26px rgba(16, 185, 129, 0.45)',
+        ribbonBg: 'linear-gradient(90deg, #064E3B 0%, #059669 25%, #10B981 50%, #059669 75%, #064E3B 100%)',
+        ribbonBorder: '1.5px solid #D1FAE5',
+        ribbonShadow: '0 4px 12px rgba(0, 0, 0, 0.5), 0 0 12px rgba(16, 185, 129, 0.55)',
+        glowFilter: 'drop-shadow(0 0 10px rgba(16, 185, 129, 0.4))',
+      }
+    case 2:
+      // VÒNG 2: Tăng tốc đậm đà, chiều sâu biển cả (Sapphire Ocean & Azure Glow)
+      return {
+        cardBorder: '3px solid #7DD3FC',
+        cardBg: 'linear-gradient(180deg, #BAE6FD 0%, #38BDF8 26%, #0284C7 70%, #082F49 100%)',
+        cardShadow: '0 25px 60px rgba(0, 0, 0, 0.85), 0 0 26px rgba(14, 165, 233, 0.45)',
+        ribbonBg: 'linear-gradient(90deg, #0C4A6E 0%, #0284C7 25%, #38BDF8 50%, #0284C7 75%, #0C4A6E 100%)',
+        ribbonBorder: '1.5px solid #E0F2FE',
+        ribbonShadow: '0 4px 12px rgba(0, 0, 0, 0.5), 0 0 12px rgba(14, 165, 233, 0.55)',
+        glowFilter: 'drop-shadow(0 0 10px rgba(14, 165, 233, 0.4))',
+      }
+    case 3:
+      // VÒNG 3: Thử thách áp lực, kịch tính thị trường (Royal Amethyst & Violet Glow)
+      return {
+        cardBorder: '3px solid #D8B4FE',
+        cardBg: 'linear-gradient(180deg, #E9D5FF 0%, #C084FC 26%, #7E22CE 70%, #3B0764 100%)',
+        cardShadow: '0 25px 60px rgba(0, 0, 0, 0.85), 0 0 28px rgba(168, 85, 247, 0.5)',
+        ribbonBg: 'linear-gradient(90deg, #4C1D95 0%, #7E22CE 25%, #A855F7 50%, #7E22CE 75%, #4C1D95 100%)',
+        ribbonBorder: '1.5px solid #F3E8FF',
+        ribbonShadow: '0 4px 12px rgba(0, 0, 0, 0.5), 0 0 14px rgba(168, 85, 247, 0.6)',
+        glowFilter: 'drop-shadow(0 0 10px rgba(168, 85, 247, 0.4))',
+      }
+    case 4:
+      // VÒNG 4: Nước rút bùng nổ, rực lửa gamification (Fiery Magma & Solar Gold Flame)
+      return {
+        cardBorder: '3px solid #FDBA74',
+        cardBg: 'linear-gradient(180deg, #FED7AA 0%, #FB923C 24%, #DC2626 68%, #7F1D1D 100%)',
+        cardShadow: '0 25px 60px rgba(0, 0, 0, 0.85), 0 0 32px rgba(239, 68, 68, 0.65)',
+        ribbonBg: 'linear-gradient(90deg, #7F1D1D 0%, #DC2626 25%, #F97316 50%, #DC2626 75%, #7F1D1D 100%)',
+        ribbonBorder: '1.5px solid #FEF3C7',
+        ribbonShadow: '0 4px 14px rgba(0, 0, 0, 0.6), 0 0 16px rgba(239, 68, 68, 0.7)',
+        glowFilter: 'drop-shadow(0 0 12px rgba(239, 68, 68, 0.5))',
+      }
+    default:
+      // Mặc định: Hoàng kim trung cổ (Classic Royal Amber)
+      return {
+        cardBorder: '3px solid #FCD34D',
+        cardBg: 'linear-gradient(180deg, #FDE68A 0%, #F59E0B 28%, #D97706 70%, #92400E 100%)',
+        cardShadow: '0 25px 60px rgba(0, 0, 0, 0.85), 0 0 24px rgba(245, 158, 11, 0.35)',
+        ribbonBg: 'linear-gradient(90deg, #9A3412 0%, #D97706 30%, #F59E0B 50%, #D97706 70%, #9A3412 100%)',
+        ribbonBorder: '1.5px solid #FEF3C7',
+        ribbonShadow: '0 4px 12px rgba(0, 0, 0, 0.5), 0 0 10px rgba(245, 158, 11, 0.5)',
+        glowFilter: 'drop-shadow(0 0 10px rgba(245, 158, 11, 0.35))',
+      }
+  }
 }
 
 export interface BookHelpButtonProps {
@@ -67,18 +145,17 @@ export const BookHelpButton: React.FC<BookHelpButtonProps> = ({
       }}
     >
       <img
-        src="/assets/cropped/sotay-full-icon.png"
+        src="/assets/guide-new-icon.png"
         alt="Sổ tay"
         onError={(e) => {
-          if (!e.currentTarget.src.includes('sotay.PNG')) {
-            e.currentTarget.src = '/assets/sotay.PNG'
-          }
+          e.currentTarget.src = '/assets/cropped/sotay-full-icon.png'
         }}
         style={{
           width: '100%',
           height: '100%',
           objectFit: 'contain',
           display: 'block',
+          filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
         }}
       />
     </button>
@@ -87,7 +164,9 @@ export const BookHelpButton: React.FC<BookHelpButtonProps> = ({
 
 export const GamifiedModal: React.FC<GamifiedModalProps> = ({
   title,
+  titleIcon,
   badgeText,
+  lap,
   onClose,
   onHelp,
   primaryAction,
@@ -95,6 +174,8 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
   children,
   className = '',
 }) => {
+  const theme = getLapTheme(lap, badgeText)
+
   return (
     <div
       className="gamified-modal-backdrop"
@@ -122,79 +203,79 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
         }
       }}
     >
-      {/* Khung Tinh Gọn Chuẩn Di Động (w-[90%] max-w-[360px] h-[80vh] max-h-[680px]) */}
+      {/* Khung Tinh Gọn Chuẩn Di Động Medieval Fantasy (w-[92%] max-w-[370px] h-[82vh] max-h-[690px]) */}
       <div
-        className={`gamified-modal-card w-[90%] max-w-[360px] h-[80vh] max-h-[680px] mx-auto rounded-[32px] border-4 border-emerald-400 shadow-2xl flex flex-col relative overflow-visible bg-white ${className}`}
+        className={`gamified-modal-card w-[92%] max-w-[370px] h-[82vh] max-h-[690px] mx-auto rounded-[28px] shadow-2xl flex flex-col relative overflow-visible ${className}`}
         style={{
           position: 'relative',
-          width: '90%',
-          maxWidth: '360px',
-          height: '80vh',
-          maxHeight: '680px',
+          width: '92%',
+          maxWidth: '370px',
+          height: '82vh',
+          maxHeight: '690px',
           display: 'flex',
           flexDirection: 'column',
-          background: 'linear-gradient(180deg, #6EE7B7 0%, #34D399 35%, #10B981 100%)',
-          border: '4px solid #34D399',
-          borderRadius: '32px',
-          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.75), 0 0 20px rgba(52, 211, 153, 0.35)',
-          fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
+          background: theme.cardBg,
+          border: theme.cardBorder,
+          borderRadius: '28px',
+          boxShadow: theme.cardShadow,
+          fontFamily: "'Fredoka', sans-serif",
           boxSizing: 'border-box',
           writingMode: 'horizontal-tb',
           textOrientation: 'mixed',
-          animation: 'animePopupScale 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          animation: 'animePopupScale 0.22s cubic-bezier(0.34, 1.56, 0.64, 1)',
           userSelect: 'none',
           overflow: 'visible',
           pointerEvents: 'auto',
         }}
       >
-        {/* Ruy Băng Hồng Nhỏ Nhắn Tinh Tế (Compact Ribbon) */}
+        {/* Ruy Băng Hoàng Kim Quý Phái (Royal Ribbon theo vòng) */}
         {badgeText && (
           <div
             style={{
               position: 'absolute',
-              top: '-12px',
+              top: '-13px',
               left: '50%',
               transform: 'translateX(-50%)',
               zIndex: 30,
-              background: 'linear-gradient(90deg, #F43F5E 0%, #EC4899 50%, #F43F5E 100%)',
+              background: theme.ribbonBg,
               color: '#FFFFFF',
               fontWeight: 900,
               fontSize: '11px',
-              padding: '3.5px 14px',
+              padding: '3px 16px',
               borderRadius: '9999px',
-              border: '1.5px solid #FFFFFF',
-              boxShadow: '0 3px 10px rgba(225, 29, 72, 0.45)',
-              letterSpacing: '0.4px',
+              border: theme.ribbonBorder,
+              boxShadow: theme.ribbonShadow,
+              letterSpacing: '0.6px',
               textTransform: 'uppercase',
               whiteSpace: 'nowrap',
               textAlign: 'center',
-              textShadow: '0 1px 2px rgba(0, 0, 0, 0.4)',
+              textShadow: '0 1px 2px rgba(0, 0, 0, 0.6)',
+              fontFamily: "'Fredoka', sans-serif",
             }}
           >
             {badgeText}
           </div>
         )}
 
-        {/* Lòng Thẻ Glassmorphic Anime Canvas (Khung Trắng Nội Dung) */}
+        {/* Lòng Thẻ Giấy Da Cừu Phong Hóa (Parchment Base Canvas) */}
         <div
-          className="flex-1 flex flex-col overflow-hidden bg-white/95 rounded-[26px] m-1 p-3 px-4 py-3"
+          className="flex-1 flex flex-col overflow-hidden rounded-[24px]"
           style={{
             position: 'relative',
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
-            borderRadius: '26px',
-            background: 'rgba(255, 255, 255, 0.98)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
+            borderRadius: '24px',
+            background: '#FAF6F0',
             margin: '4px',
             marginTop: badgeText ? '16px' : '4px',
-            padding: '12px 14px 10px 14px',
+            padding: '12px 14px 12px 14px',
             boxSizing: 'border-box',
-            border: '1.5px solid rgba(255, 255, 255, 0.9)',
-            boxShadow: 'inset 0 2px 5px rgba(0, 0, 0, 0.03)',
-            color: '#1E1B4B',
+            border: '1px solid rgba(180, 83, 9, 0.25)',
+            boxShadow: 'inset 0 2px 8px rgba(184, 144, 91, 0.15)',
+            color: '#381F0B',
+            fontFamily: "'Fredoka', sans-serif",
             writingMode: 'horizontal-tb',
             textOrientation: 'mixed',
           }}
@@ -238,9 +319,25 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
                   color: '#1E1B4B',
                   letterSpacing: '-0.2px',
                   writingMode: 'horizontal-tb',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '6px',
                 }}
               >
-                {title}
+                {titleIcon && (
+                  <img
+                    src={titleIcon}
+                    alt=""
+                    style={{
+                      width: '20px',
+                      height: '20px',
+                      objectFit: 'contain',
+                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.25))',
+                    }}
+                  />
+                )}
+                <span>{title}</span>
               </h2>
             </div>
           )}

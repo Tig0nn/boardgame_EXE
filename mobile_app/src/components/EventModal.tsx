@@ -2,7 +2,7 @@ import { eventsForGame } from '../../../src/data/events'
 import { canChoose } from '../../../src/game/engine'
 import { money } from '../../../src/game/format'
 import type { GameState, RebalanceAction } from '../../../src/game/types'
-import { TradingPanel } from '../../../src/components/TradingPanel'
+import { MobileTradingPanel } from './MobileTradingPanel'
 import { MarketSignal } from './MarketNews'
 import { investmentPurchasesComplete } from '../../../src/game/encounters'
 import { MACRO_EVENTS } from '../../../src/data/config'
@@ -39,6 +39,7 @@ export function EventModal({
       <GamifiedModal
         badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · Ô ${game.position + 1}`}
         title="Đầu tư bản thân"
+        titleIcon="/assets/knowledge-icon.png"
         onHelp={onHelp}
       >
         <MobileCourseChoices game={game} onChoose={onChoose} />
@@ -52,6 +53,7 @@ export function EventModal({
       <GamifiedModal
         badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · Ô ${game.position + 1}`}
         title="Ngân hàng"
+        titleIcon="/assets/bank-icon.png"
         onHelp={onHelp}
       >
         <MobileBankPanel
@@ -63,6 +65,15 @@ export function EventModal({
     )
   }
 
+  const titleIconMap: Record<string, string> = {
+    bank: '/assets/bank-icon.png',
+    stocks: '/assets/stock-icon.png',
+    bonds: '/assets/bond-icon.png',
+    gold: '/assets/gold-icon.png',
+    business: '/assets/shop-icon.png',
+    repair: '/assets/broken-bike.png',
+  }
+  const titleIcon = titleIconMap[event.id]
   const trading = ['stocks', 'bonds', 'gold', 'bank', 'business'].includes(event.id)
   const traded = game.log.some((entry) => entry.turn === game.turn && entry.kind === 'rebalancing')
   const panelOwnsSkip =
@@ -70,7 +81,7 @@ export function EventModal({
     (['gold', 'bonds'].includes(event.id) && investmentPurchasesComplete(game))
 
   const title =
-    ({ stocks: 'Cổ phiếu', bonds: 'Trái phiếu', gold: 'Vàng', business: 'Quán của bạn' } as Record<
+    ({ stocks: 'Cổ phiếu', bonds: 'Trái phiếu', gold: 'Vàng', business: 'Quán của bạn', repair: 'Chiếc xe cần sửa' } as Record<
       string,
       string
     >)[event.id] ?? event.title
@@ -79,29 +90,50 @@ export function EventModal({
     <GamifiedModal
       badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · Ô ${game.position + 1}`}
       title={title}
+      titleIcon={titleIcon}
       onHelp={onHelp}
     >
       {/* Narrative Mô Tả Tình Huống */}
       {!trading && (
         <div
           style={{
-            background: '#F0FDF4',
-            border: '1.5px solid #BBF7D0',
+            background: event.id === 'repair' ? '#FEF2F2' : '#F0FDF4',
+            border: event.id === 'repair' ? '1.5px solid #FECACA' : '1.5px solid #BBF7D0',
             borderRadius: '16px',
             padding: '10px 14px',
             fontSize: '13px',
-            color: '#166534',
+            color: event.id === 'repair' ? '#991B1B' : '#166534',
             lineHeight: '1.45',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
           }}
         >
-          {event.id === 'living'
-            ? 'Đến lúc chăm lo cho cuộc sống thường nhật.'
-            : event.id === 'course'
-              ? 'Học một lần, nâng cao tri thức và tăng thu nhập cho những chặng đường tiếp theo.'
-              : event.category === 'shock' &&
-                  !event.options.some((option) => option.cost || option.obligation)
-                ? 'Thị trường vừa xuất hiện biến động. Cơ hội mới đang chờ đón bạn!'
-                : localizeNarrative(event.description)}
+          {event.id === 'repair' && (
+            <img
+              src="/assets/broken-bike.png"
+              alt="Chiếc xe cần sửa"
+              style={{
+                width: '36px',
+                height: '36px',
+                objectFit: 'contain',
+                flexShrink: 0,
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.18))',
+              }}
+            />
+          )}
+          <div style={{ flex: 1 }}>
+            {event.id === 'living'
+              ? 'Đến lúc chăm lo cho cuộc sống thường nhật.'
+              : event.id === 'course'
+                ? 'Học một lần, nâng cao tri thức và tăng thu nhập cho những chặng đường tiếp theo.'
+                : event.id === 'repair'
+                  ? 'Chiếc xe gặp sự cố hỏng hóc cần sửa chữa. Chọn sửa ngay hoặc sửa tạm rồi thanh toán phần còn lại.'
+                  : event.category === 'shock' &&
+                    !event.options.some((option) => option.cost || option.obligation)
+                  ? 'Thị trường vừa xuất hiện biến động. Cơ hội mới đang chờ đón bạn!'
+                  : localizeNarrative(event.description)}
+          </div>
         </div>
       )}
 
@@ -119,7 +151,19 @@ export function EventModal({
           fontWeight: 700,
         }}
       >
-        <span style={{ color: '#92400E' }}>Tiền mặt hiện có:</span>
+        <span style={{ color: '#92400E', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+          <img
+            src="/assets/money-icon.png"
+            alt=""
+            style={{
+              width: '18px',
+              height: '18px',
+              objectFit: 'contain',
+              filter: 'sepia(1) saturate(3.5) hue-rotate(335deg) brightness(1.05)',
+            }}
+          />
+          <span>Tiền mặt hiện có:</span>
+        </span>
         <strong style={{ color: '#78350F', fontSize: '14.5px', fontWeight: 900 }}>
           {money(game.portfolio.cash)}
         </strong>
@@ -128,7 +172,7 @@ export function EventModal({
       {/* Trading Panel nếu thuộc nhóm giao dịch */}
       {trading && (
         <div style={{ width: '100%' }}>
-          <TradingPanel
+          <MobileTradingPanel
             key={`${game.turn}-${game.log.length}`}
             game={game}
             compact

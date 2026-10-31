@@ -284,16 +284,36 @@ export function GameResultModal({
           {/* Huy hiệu Medal Mascot */}
           <div
             style={{
-              fontSize: '28px',
-              lineHeight: 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               zIndex: 2,
-              filter: won
-                ? 'drop-shadow(0 3px 8px rgba(245, 158, 11, 0.45))'
-                : 'drop-shadow(0 3px 8px rgba(99, 102, 241, 0.35))',
-              margin: '1px 0 3px',
+              margin: '2px 0 4px',
             }}
           >
-            {won ? '🏆' : game.termination === 'insolvent' ? '🥀' : '🌱'}
+            {won ? (
+              <img
+                src="/assets/winner-goal-icon.png"
+                alt="Chiến thắng"
+                style={{
+                  width: '44px',
+                  height: '44px',
+                  objectFit: 'contain',
+                  filter: 'contrast(1.18) brightness(1.08) drop-shadow(0 4px 10px rgba(245, 158, 11, 0.65))',
+                }}
+              />
+            ) : (
+              <img
+                src="/assets/loser-icon.png"
+                alt="Thất bại"
+                style={{
+                  width: '38px',
+                  height: '38px',
+                  objectFit: 'contain',
+                  filter: 'contrast(1.15) drop-shadow(0 3px 8px rgba(99, 102, 241, 0.45))',
+                }}
+              />
+            )}
           </div>
 
           {/* Tiêu đề Banner dạng Huy hiệu */}
@@ -440,8 +460,17 @@ export function GameResultModal({
           {/* ACCORDION: NHẬN XÉT TỪ AI COACH */}
           <details className="result-accordion" style={{ margin: 0, padding: '7px 10px' }}>
             <summary>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '12px' }}>
-                <span>🤖</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 800 }}>
+                <img
+                  src="/assets/ai-coach-icon.png"
+                  alt="AI Coach"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.25))',
+                  }}
+                />
                 <span>AI Coach · Tùy chọn</span>
               </span>
               <span style={{ fontSize: '9.5px', color: '#94a3b8' }}>▼</span>
@@ -454,8 +483,17 @@ export function GameResultModal({
           {/* ACCORDION: CHI TIẾT KẾT QUẢ & LƯU NHẬT KÝ */}
           <details className="result-accordion" style={{ margin: 0, padding: '7px 10px' }}>
             <summary>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '12px' }}>
-                <span>📜</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 800 }}>
+                <img
+                  src="/assets/history-icon.png"
+                  alt="Nhật ký"
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.25))',
+                  }}
+                />
                 <span>Chi tiết số liệu & Lưu nhật ký</span>
               </span>
               <span style={{ fontSize: '9.5px', color: '#94a3b8' }}>▼</span>
@@ -514,7 +552,11 @@ export function GameResultModal({
                   gap: '4px',
                 }}
               >
-                <span>💾</span>
+                <img
+                  src="/assets/history-icon.png"
+                  alt="Lưu nhật ký"
+                  style={{ width: '14px', height: '14px', objectFit: 'contain' }}
+                />
                 <span>Lưu nhật ký hành trình (JSON)</span>
               </button>
             </div>
@@ -535,10 +577,18 @@ export function GameResultModal({
                   fontSize: '11px',
                   cursor: 'pointer',
                   fontWeight: 700,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
                   textDecoration: 'underline',
                 }}
               >
-                📖 Xem lại Sổ Tay Luật Chơi
+                <img
+                  src="/assets/guide-new-icon.png"
+                  alt="Sổ tay"
+                  style={{ width: '14px', height: '14px', objectFit: 'contain' }}
+                />
+                <span>Xem lại Sổ Tay Luật Chơi</span>
               </button>
             </div>
           )}
@@ -566,7 +616,14 @@ export function GameResultModal({
               onRestart()
             }}
           >
-            <span>{won ? 'Chơi Ván Mới 🏆' : 'Thử Lại Ván Mới 🔄'}</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+              <img
+                src={won ? '/assets/winner-goal-icon.png' : '/assets/reset-play.png'}
+                alt=""
+                style={{ width: '18px', height: '18px', objectFit: 'contain' }}
+              />
+              <span>{won ? 'Chơi Ván Mới' : 'Thử Lại Ván Mới'}</span>
+            </span>
           </button>
 
           {/* Hàng 2: Về màn hình chờ & Xem lại bàn cờ */}
@@ -580,7 +637,17 @@ export function GameResultModal({
                   onHome()
                 }}
               >
-                <span>🏠 Màn Hình Chờ</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}>
+                  <img
+                    src="/assets/nut-home.PNG"
+                    onError={(e) => {
+                      e.currentTarget.src = '/assets/nut-home-guide.png'
+                    }}
+                    alt="Màn hình chờ"
+                    style={{ width: '16px', height: '16px', objectFit: 'contain' }}
+                  />
+                  <span>Màn Hình Chờ</span>
+                </span>
               </button>
             )}
 
@@ -593,7 +660,19 @@ export function GameResultModal({
                   onClose()
                 }}
               >
-                <span>🔍 Xem Bàn Cờ</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                  <img
+                    src="/assets/search-board-icon.png"
+                    alt="Xem bàn cờ"
+                    style={{
+                      width: '15px',
+                      height: '15px',
+                      objectFit: 'contain',
+                      filter: 'contrast(1.2) brightness(1.05) drop-shadow(0 1px 2px rgba(0,0,0,0.3))',
+                    }}
+                  />
+                  <span>Xem Bàn Cờ</span>
+                </span>
               </button>
             )}
           </div>

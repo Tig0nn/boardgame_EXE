@@ -70,15 +70,111 @@ export function ForecastReality({ game, lap }: { game: GameState; lap: number })
 
 export function CompactForecastReality({ game, lap }: { game: GameState; lap: number }) {
   const review = roundMarketReview(game, lap)
-  return <section className="start-market" aria-label="Thị trường vòng này">
-    <h3>Thị trường vòng này</h3>
-    <ul>{review.assets.map(item => <li key={item.asset}><span>{item.label}</span>
-      <strong className={item.returnRate === null || item.returnRate === 0 ? 'neutral' : item.returnRate > 0 ? 'positive' : 'negative'}>
-        {item.returnRate === null ? 'Chưa đủ dữ liệu' : item.returnRate === -1 && item.asset === 'bonds' ? 'Ngừng giao dịch' : percent(item.returnRate)}
-      </strong></li>)}</ul>
-    <p className="start-caption">Cổ phiếu là trung bình đổi giá của tất cả mã, mỗi mã tính như nhau. Không phải lãi của bạn; chưa tính tiền lãi trái phiếu định kỳ hay phí.</p>
-    <details><summary>Xem dự báo và thực tế</summary><ForecastReality game={game} lap={lap} /></details>
-  </section>
+  const assetIconMap: Record<string, string> = {
+    stocks: '/assets/stock-icon.png',
+    bonds: '/assets/bond-icon.png',
+    gold: '/assets/gold-icon.png',
+  }
+
+  return (
+    <section
+      className="start-market"
+      aria-label="Thị trường vòng này"
+      style={{
+        background: '#ffffff',
+        border: '1px solid #e2e8f0',
+        borderRadius: '14px',
+        padding: '10px 12px',
+        margin: '6px 0',
+      }}
+    >
+      <h3
+        style={{
+          margin: '0 0 8px 0',
+          fontSize: '13px',
+          fontWeight: 900,
+          color: '#1e293b',
+          fontFamily: "'Fredoka', sans-serif",
+        }}
+      >
+        Thị trường vòng này
+      </h3>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+        {review.assets.map((item) => (
+          <div
+            key={item.asset}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '6px 10px',
+              background: '#f8fafc',
+              border: '1px solid #f1f5f9',
+              borderRadius: '10px',
+              fontSize: '12px',
+            }}
+          >
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontWeight: 700,
+                color: '#334155',
+              }}
+            >
+              {assetIconMap[item.asset] && (
+                <img
+                  src={assetIconMap[item.asset]}
+                  alt=""
+                  style={{ width: '18px', height: '18px', objectFit: 'contain' }}
+                />
+              )}
+              <span>{item.label}</span>
+            </span>
+            <strong
+              style={{
+                fontVariantNumeric: 'tabular-nums',
+                fontWeight: 900,
+                fontSize: '12.5px',
+                color:
+                  item.returnRate === null || item.returnRate === 0
+                    ? '#64748b'
+                    : item.returnRate > 0
+                      ? '#16a34a'
+                      : '#dc2626',
+              }}
+            >
+              {item.returnRate === null
+                ? 'Chưa đủ dữ liệu'
+                : item.returnRate === -1 && item.asset === 'bonds'
+                  ? 'Ngừng giao dịch'
+                  : percent(item.returnRate)}
+            </strong>
+          </div>
+        ))}
+      </div>
+      <p
+        style={{
+          margin: '8px 0 4px',
+          fontSize: '10.5px',
+          color: '#64748b',
+          lineHeight: 1.35,
+        }}
+      >
+        Cổ phiếu là trung bình đổi giá của tất cả mã, mỗi mã tính như nhau. Không phải lãi của bạn;
+        chưa tính tiền lãi trái phiếu định kỳ hay phí.
+      </p>
+      <details style={{ marginTop: '4px', fontSize: '11px', color: '#475569' }}>
+        <summary style={{ cursor: 'pointer', fontWeight: 700, color: '#b45309' }}>
+          Xem dự báo và thực tế
+        </summary>
+        <div style={{ marginTop: '6px' }}>
+          <ForecastReality game={game} lap={lap} />
+        </div>
+      </details>
+    </section>
+  )
 }
 
 export function MarketSignal({ game, asset, symbolId }: { game: GameState; asset: TradableAsset; symbolId?: string }) {

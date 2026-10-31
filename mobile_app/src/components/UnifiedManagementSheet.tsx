@@ -21,6 +21,47 @@ interface UnifiedManagementSheetProps {
   onHelp?: () => void;
 }
 
+interface MaskedIconProps {
+  src: string;
+  alt: string;
+  size?: number;
+  color: string;
+  style?: React.CSSProperties;
+}
+
+const MaskedIcon: React.FC<MaskedIconProps> = ({
+  src,
+  alt,
+  size = 18,
+  color,
+  style = {},
+}) => {
+  return (
+    <span
+      role="img"
+      aria-label={alt}
+      style={{
+        display: 'inline-block',
+        width: `${size}px`,
+        height: `${size}px`,
+        backgroundColor: color,
+        WebkitMaskImage: `url(${src})`,
+        WebkitMaskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center',
+        WebkitMaskSize: 'contain',
+        maskImage: `url(${src})`,
+        maskRepeat: 'no-repeat',
+        maskPosition: 'center',
+        maskSize: 'contain',
+        flexShrink: 0,
+        verticalAlign: 'middle',
+        transition: 'background-color 0.15s ease, transform 0.15s ease',
+        ...style,
+      }}
+    />
+  );
+};
+
 export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
   game,
   initialTab = 'portfolio',
@@ -79,21 +120,21 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
         }
       }}
     >
-      {/* Khung Sổ Quản Lý Bìa Giấy Da Cổ Điển (#F5EBE6 / #E3CCA9) — Chuẩn hóa kích thước đồng bộ: min(92%, 400px) x min(86vh, 700px) */}
+      {/* Khung Sổ Quản Lý Bìa Giấy Da Cổ Điển (#F5EBE6 / #E3CCA9) — Chuẩn hóa kích thước ôm sát nội dung: min(94%, 440px) x min(88vh, 760px) */}
       <div
-        className="w-[92%] max-w-[400px] mx-auto relative overflow-hidden flex flex-col shadow-2xl bg-transparent"
+        className="w-[94%] max-w-[440px] mx-auto relative overflow-hidden flex flex-col shadow-2xl bg-transparent"
         style={{
           position: 'relative',
-          width: 'min(92%, 400px)',
-          maxWidth: '400px',
-          height: 'min(86vh, 700px)',
-          maxHeight: '700px',
+          width: 'min(94%, 440px)',
+          maxWidth: '440px',
+          height: 'min(88vh, 760px)',
+          maxHeight: '760px',
           background: 'linear-gradient(175deg, #FDF8F3 0%, #F5EBE6 30%, #ECDCC2 75%, #E3CCA9 100%)',
           border: '3.5px solid #8C5828',
           outline: '2px solid #5C3513',
           borderRadius: '28px',
           boxShadow: '0 25px 60px rgba(0, 0, 0, 0.85), inset 0 0 25px rgba(184, 144, 91, 0.25)',
-          fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
+          fontFamily: "'Fredoka', sans-serif",
           boxSizing: 'border-box',
           overflow: 'hidden',
           display: 'flex',
@@ -114,10 +155,10 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
           aria-label="Đóng"
           style={{
             position: 'absolute',
-            top: '10px',
-            right: '12px',
-            width: '30px',
-            height: '30px',
+            top: '12px',
+            right: '14px',
+            width: '32px',
+            height: '32px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -129,7 +170,7 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
             transition: 'transform 0.15s ease',
           }}
           onPointerDown={(e) => {
-            (e.currentTarget as HTMLElement).style.transform = 'scale(0.9)';
+            (e.currentTarget as HTMLElement).style.transform = 'scale(0.88)';
           }}
           onPointerUp={(e) => {
             (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
@@ -145,35 +186,32 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
           />
         </button>
 
-        {/* Cặp nút mũi tên Trái & Phải đã được gỡ bỏ hoàn toàn theo yêu cầu UI mới */}
-        {/* Navigation arrows stripped per UI overhaul: disabled={activeTab === 'portfolio'}, disabled={activeTab === 'log'} */}
-
-        {/* VÙNG NỘI DUNG NẰM TRỌN TRONG PARCHMENT (Edge-to-Edge cân đối px-3.5) */}
+        {/* VÙNG NỘI DUNG NẰM TRỌN TRONG PARCHMENT (Edge-to-Edge ôm sát, padding chuẩn 12px 14px 10px 14px) */}
         <div
-          className="px-3.5 sm:px-4"
           style={{
             position: 'relative',
             width: '100%',
             height: '100%',
-            padding: '12px 14px 8px 14px',
+            padding: '12px 14px 10px 14px',
             display: 'flex',
             flexDirection: 'column',
             boxSizing: 'border-box',
             overflow: 'hidden',
           }}
         >
-          {/* Top Header: ONLY the two main tabs centered symmetrically */}
+          {/* Top Header: 2 Tab Chuyển Đổi Ví Tài Sản & Nhật Ký */}
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              paddingBottom: '5px',
-              borderBottom: '1.5px solid rgba(184, 144, 91, 0.4)',
-              marginBottom: '4px',
+              paddingBottom: '8px',
+              borderBottom: '1.5px solid rgba(140, 88, 40, 0.28)',
+              marginBottom: '6px',
               flexShrink: 0,
-              gap: '6px',
+              gap: '10px',
               width: '100%',
+              paddingRight: '36px', // Khoảng trống cho nút Exit
             }}
           >
             {/* Tab: Ví Tài Sản */}
@@ -181,23 +219,28 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
               onClick={() => switchTab('portfolio')}
               style={{
                 background: activeTab === 'portfolio' ? 'rgba(180, 83, 9, 0.16)' : 'transparent',
-                color: activeTab === 'portfolio' ? '#451a03' : '#8c5828',
+                color: activeTab === 'portfolio' ? '#381F0B' : '#8C5828',
                 border: 'none',
-                borderRadius: '8px',
-                borderBottom: activeTab === 'portfolio' ? '2.5px solid #b45309' : '2.5px solid transparent',
-                padding: '3px 10px',
-                fontSize: '12.5px',
-                fontWeight: activeTab === 'portfolio' ? 800 : 600,
+                borderRadius: '10px',
+                borderBottom: activeTab === 'portfolio' ? '3px solid #B45309' : '3px solid transparent',
+                padding: '4px 14px',
+                fontSize: '13.5px',
+                fontWeight: activeTab === 'portfolio' ? 700 : 500,
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '5px',
+                gap: '8px',
                 transition: 'all 0.15s ease',
-                fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
+                fontFamily: "'Fredoka', sans-serif",
                 whiteSpace: 'nowrap',
               }}
             >
-              <span>💼</span>
+              <MaskedIcon
+                src="/assets/wallet.png"
+                alt="Ví Tài Sản"
+                size={21}
+                color={activeTab === 'portfolio' ? '#381F0B' : '#8C5828'}
+              />
               <span>Ví Tài Sản</span>
             </button>
 
@@ -206,103 +249,113 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
               onClick={() => switchTab('log')}
               style={{
                 background: activeTab === 'log' ? 'rgba(180, 83, 9, 0.16)' : 'transparent',
-                color: activeTab === 'log' ? '#451a03' : '#8c5828',
+                color: activeTab === 'log' ? '#381F0B' : '#8C5828',
                 border: 'none',
-                borderRadius: '8px',
-                borderBottom: activeTab === 'log' ? '2.5px solid #b45309' : '2.5px solid transparent',
-                padding: '3px 10px',
-                fontSize: '12.5px',
-                fontWeight: activeTab === 'log' ? 800 : 600,
+                borderRadius: '10px',
+                borderBottom: activeTab === 'log' ? '3px solid #B45309' : '3px solid transparent',
+                padding: '4px 14px',
+                fontSize: '13.5px',
+                fontWeight: activeTab === 'log' ? 700 : 500,
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '5px',
+                gap: '8px',
                 transition: 'all 0.15s ease',
-                fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
+                fontFamily: "'Fredoka', sans-serif",
                 whiteSpace: 'nowrap',
               }}
             >
-              <span>📜</span>
+              <MaskedIcon
+                src="/assets/history-icon.png"
+                alt="Nhật Ký"
+                size={21}
+                color={activeTab === 'log' ? '#381F0B' : '#8C5828'}
+              />
               <span>Nhật Ký</span>
             </button>
           </div>
 
           {activeTab === 'portfolio' ? (
             <>
-              {/* KHU VỰC CỐ ĐỊNH: TỔNG TÀI SẢN RÒNG & TIẾN ĐỘ VỀ ĐÍCH */}
+              {/* KHU VỰC CỐ ĐỊNH: TỔNG TÀI SẢN RÒNG & TIẾN ĐỘ 90M VND (Thẻ bo góc ôm sát) */}
               <div
                 style={{
                   flexShrink: 0,
-                  paddingBottom: '4px',
-                  borderBottom: '1px solid rgba(184, 144, 91, 0.35)',
-                  marginBottom: '3px',
+                  background: 'rgba(255, 255, 255, 0.72)',
+                  border: '1.5px solid rgba(140, 88, 40, 0.22)',
+                  borderRadius: '14px',
+                  padding: '8px 12px',
+                  marginBottom: '6px',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '3px',
+                  gap: '4px',
+                  boxShadow: '0 2px 6px rgba(0, 0, 0, 0.04)',
                 }}
               >
                 {/* Net Worth */}
                 <div
                   style={{
                     display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'flex-start',
-                    gap: '1px',
+                    alignItems: 'baseline',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '4px',
                   }}
                 >
                   <span
                     style={{
                       fontSize: '11px',
-                      fontWeight: 800,
+                      fontWeight: 700,
                       letterSpacing: '0.04em',
-                      color: '#78350f',
+                      color: '#78350F',
                       textTransform: 'uppercase',
                     }}
                   >
                     <FinancialTerm term="netWorth">TỔNG TÀI SẢN RÒNG</FinancialTerm>
                   </span>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap' }}>
-                    <strong style={{ fontSize: '18px', color: '#2c1808', fontWeight: 900, lineHeight: 1.1 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
+                    <strong style={{ fontSize: '19px', color: '#381F0B', fontWeight: 700, lineHeight: 1.1, fontVariantNumeric: 'tabular-nums' }}>
                       {money(worth)}
                     </strong>
                     <small
                       style={{
                         fontSize: '11px',
-                        fontWeight: 700,
-                        color: worth >= RULES.startingCapital ? '#15803d' : '#b91c1c',
+                        fontWeight: 600,
+                        color: worth >= RULES.startingCapital ? '#047857' : '#B91C1C',
+                        fontVariantNumeric: 'tabular-nums',
                       }}
                     >
                       {worth >= RULES.startingCapital ? '+' : ''}
-                      {money(worth - RULES.startingCapital)} <span style={{ opacity: 0.85 }}>so với ban đầu</span>
+                      {money(worth - RULES.startingCapital)}
                     </small>
                   </div>
                 </div>
 
                 {/* Goal Track & Progress Bar */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '2px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', marginTop: '2px' }}>
                   <div
                     style={{
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'baseline',
-                      fontSize: '11px',
-                      color: '#5c3513',
+                      fontSize: '11.5px',
+                      color: '#451A03',
                     }}
                   >
                     <span>
-                      Nguồn tiền về đích: <strong>{money(funds)}</strong>
+                      Huy động về đích: <strong style={{ color: '#047857', fontVariantNumeric: 'tabular-nums' }}>{money(funds)}</strong> / <strong>90M</strong>
                     </span>
-                    <strong style={{ color: '#b45309', fontWeight: 800 }}>{Math.round(progress)}%</strong>
+                    <strong style={{ color: '#B45309', fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>{Math.round(progress)}%</strong>
                   </div>
 
                   {/* Stylized Antique Progress Bar */}
                   <div
                     style={{
                       width: '100%',
-                      height: '7px',
-                      background: 'rgba(184, 144, 91, 0.2)',
-                      border: '1px solid rgba(184, 144, 91, 0.5)',
-                      borderRadius: '3px',
+                      height: '8px',
+                      background: 'rgba(184, 144, 91, 0.25)',
+                      border: '1px solid rgba(140, 88, 40, 0.45)',
+                      borderRadius: '4px',
                       overflow: 'hidden',
                       boxSizing: 'border-box',
                     }}
@@ -316,14 +369,14 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                       style={{
                         width: `${progress}%`,
                         height: '100%',
-                        background: 'linear-gradient(90deg, #b45309 0%, #d97706 70%, #f59e0b 100%)',
-                        transition: 'width 0.3s ease',
+                        background: 'linear-gradient(90deg, #10B981 0%, #F59E0B 70%, #D97706 100%)',
+                        transition: 'width 0.35s ease',
                       }}
                     />
                   </div>
 
-                  <details style={{ marginTop: '2px', fontSize: '11px', color: '#78350f' }}>
-                    <summary style={{ cursor: 'pointer', fontWeight: 700 }}>Cách tính mục tiêu 90M</summary>
+                  <details style={{ marginTop: '2px', fontSize: '11px', color: '#78350F' }}>
+                    <summary style={{ cursor: 'pointer', fontWeight: 600 }}>Công thức tính mục tiêu 90M</summary>
                     <div style={{ marginTop: '3px', paddingLeft: '4px' }}>
                       <GoalChecks game={game} />
                     </div>
@@ -331,7 +384,7 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                 </div>
               </div>
 
-              {/* KHU VỰC CUỘN NỘI DUNG (FLAT LISTING 100% NẰM TRONG GIẤY TRẮNG) */}
+              {/* KHU VỰC CUỘN NỘI DUNG (LƯỚI THẺ TÀI SẢN GỌN GÀNG, KHÔNG KHOẢNG TRỐNG THỪA) */}
               <div
                 style={{
                   position: 'relative',
@@ -352,17 +405,17 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                     overflowY: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     overscrollBehavior: 'contain',
-                    paddingRight: '4px',
-                    paddingBottom: '10px',
+                    paddingRight: '3px',
+                    paddingBottom: '12px',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '3px',
-                    fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
-                    color: '#2c1808',
+                    gap: '5px',
+                    fontFamily: "'Fredoka', sans-serif",
+                    color: '#381F0B',
                   }}
                 >
-                  {/* DANH SÁCH TÀI SẢN (FLAT ASSET LIST) */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                  {/* DANH SÁCH 6 THẺ TÀI SẢN GỌN GÀNG (COMPACT ASSET CARDS) */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                     {Object.entries(ASSETS).map(([key, asset]) => {
                       const amount = game.portfolio[key as keyof typeof ASSETS];
                       const locked =
@@ -377,17 +430,20 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'space-between',
-                            padding: '3px 0',
-                            borderBottom: '1px dashed rgba(184, 144, 91, 0.22)',
-                            fontSize: '12px',
+                            padding: '6px 10px',
+                            background: locked ? 'rgba(255, 255, 255, 0.45)' : 'rgba(255, 255, 255, 0.85)',
+                            border: '1px solid rgba(140, 88, 40, 0.16)',
+                            borderRadius: '10px',
+                            fontSize: '12.5px',
                             opacity: locked ? 0.65 : 1,
+                            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.03)',
                           }}
                         >
                           <div
                             style={{
                               display: 'flex',
                               alignItems: 'center',
-                              gap: '6px',
+                              gap: '8px',
                               minWidth: 0,
                               flex: 1,
                               overflow: 'hidden',
@@ -398,13 +454,25 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                                 display: 'inline-flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                width: '20px',
-                                height: '20px',
-                                color: '#78350f',
+                                width: '32px',
+                                height: '32px',
+                                background: 'rgba(180, 83, 9, 0.1)',
+                                borderRadius: '8px',
+                                color: '#78350F',
                                 flexShrink: 0,
                               }}
                             >
-                              <Icon name={asset.icon} size={16} />
+                              {key === 'stocks' ? (
+                                <img src="/assets/stock-icon.png" alt="Cổ phiếu" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                              ) : key === 'bonds' ? (
+                                <img src="/assets/bond-icon.png" alt="Trái phiếu" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                              ) : key === 'gold' ? (
+                                <img src="/assets/gold-icon.png" alt="Vàng" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                              ) : key === 'cash' ? (
+                                <img src="/assets/money-icon.png" alt="Tiền mặt" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                              ) : (
+                                <Icon name={asset.icon} size={21} />
+                              )}
                             </span>
                             <div
                               style={{
@@ -416,39 +484,41 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                             >
                               <span
                                 style={{
-                                  fontWeight: 700,
-                                  color: '#451a03',
+                                  fontWeight: 600,
+                                  color: '#381F0B',
                                   whiteSpace: 'nowrap',
                                   overflow: 'hidden',
                                   textOverflow: 'ellipsis',
+                                  fontSize: '13px',
                                 }}
                               >
                                 {asset.label}
                               </span>
                               {key === 'cash' && (
-                                <small style={{ fontSize: '10.5px', color: '#6d4c41' }}>Tiền mặt dùng ngay</small>
+                                <small style={{ fontSize: '10.5px', color: '#047857', fontWeight: 500 }}>Tiền mặt sẵn sàng dùng ngay</small>
                               )}
                               {key === 'savings' && (
-                                <small style={{ fontSize: '10.5px', color: '#6d4c41' }}>
-                                  {activeDeposits.length} khoản chưa đáo hạn
+                                <small style={{ fontSize: '10.5px', color: '#6D4C41' }}>
+                                  {activeDeposits.length} khoản tiền gửi chưa đáo hạn
                                 </small>
                               )}
                               {key === 'business' && amount > 0 && (
-                                <small style={{ fontSize: '10.5px', color: '#6d4c41' }}>Chỉ bán tại ô Kinh doanh</small>
+                                <small style={{ fontSize: '10.5px', color: '#B45309' }}>Quán kinh doanh (Chỉ bán tại ô Shop)</small>
                               )}
                               {locked && (
-                                <small style={{ fontSize: '10.5px', color: '#8d6e63' }}>Chờ cơ hội trên bàn cờ</small>
+                                <small style={{ fontSize: '10.5px', color: '#8D6E63' }}>Chờ cơ hội giao dịch trên bàn cờ</small>
                               )}
                             </div>
                           </div>
                           <strong
                             style={{
-                              fontSize: '12.5px',
-                              color: locked ? '#8d6e63' : '#2c1808',
+                              fontSize: '13.5px',
+                              color: locked ? '#8D6E63' : '#381F0B',
                               fontVariantNumeric: 'tabular-nums',
                               whiteSpace: 'nowrap',
                               flexShrink: 0,
                               marginLeft: '8px',
+                              fontWeight: 700,
                             }}
                           >
                             {locked ? '—' : money(amount)}
@@ -462,35 +532,38 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                   {activeDeposits.length > 0 && (
                     <div
                       style={{
-                        padding: '4px 6px',
-                        background: 'rgba(184, 144, 91, 0.08)',
-                        borderRadius: '3px',
-                        border: '1px dashed rgba(184, 144, 91, 0.35)',
-                        marginTop: '2px',
+                        padding: '6px 10px',
+                        background: 'rgba(255, 255, 255, 0.75)',
+                        borderRadius: '10px',
+                        border: '1px solid rgba(140, 88, 40, 0.2)',
+                        marginTop: '4px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '4px',
                       }}
                     >
-                      <span style={{ fontSize: '11px', fontWeight: 800, color: '#78350f' }}>Khoản gửi tiết kiệm:</span>
+                      <span style={{ fontSize: '11.5px', fontWeight: 700, color: '#78350F', textTransform: 'uppercase' }}>
+                        Khoản gửi tiết kiệm đang hoạt động:
+                      </span>
                       {activeDeposits.map((lot) => (
                         <div
                           key={lot.id}
                           style={{
-                            fontSize: '11.5px',
+                            fontSize: '12px',
                             display: 'flex',
                             justifyContent: 'space-between',
-                            margin: '2px 0',
-                            flexWrap: 'wrap',
-                            gap: '4px',
-                            wordBreak: 'break-word',
-                            overflowWrap: 'break-word',
+                            padding: '3px 0',
+                            borderBottom: '1px dashed rgba(140, 88, 40, 0.15)',
+                            gap: '6px',
                           }}
                         >
-                          <span>{investmentLotLabel('savings', lot.id)}:</span>
-                          <strong style={{ marginLeft: 'auto', textAlign: 'right' }}>
+                          <span style={{ fontWeight: 500, color: '#451A03' }}>{investmentLotLabel('savings', lot.id)}:</span>
+                          <strong style={{ marginLeft: 'auto', textAlign: 'right', color: '#047857', fontVariantNumeric: 'tabular-nums' }}>
                             {money(lot.principal)} (lãi {Math.round(lot.rate * 100)}%, {maturityLabel(lot.maturityLap)})
                           </strong>
                         </div>
                       ))}
-                      <p style={{ margin: '2px 0 0', fontSize: '10.5px', color: '#78350f', fontStyle: 'italic' }}>
+                      <p style={{ margin: '2px 0 0', fontSize: '11px', color: '#78350F', fontStyle: 'italic' }}>
                         {savingsPeriodExplanation}
                       </p>
                     </div>
@@ -500,16 +573,19 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                   {hasBondCredit(game) && game.bondLots.length > 0 && (
                     <details
                       style={{
-                        fontSize: '11.5px',
-                        color: '#451a03',
-                        borderTop: '1px dashed rgba(184, 144, 91, 0.25)',
-                        paddingTop: '3px',
+                        fontSize: '12px',
+                        color: '#451A03',
+                        background: 'rgba(255, 255, 255, 0.7)',
+                        border: '1px solid rgba(140, 88, 40, 0.2)',
+                        borderRadius: '10px',
+                        padding: '6px 10px',
+                        marginTop: '4px',
                       }}
                     >
-                      <summary style={{ cursor: 'pointer', fontWeight: 700, color: '#78350f' }}>
-                        Chi tiết lô trái phiếu nắm giữ
+                      <summary style={{ cursor: 'pointer', fontWeight: 700, color: '#78350F' }}>
+                        Chi tiết lô trái phiếu nắm giữ ({game.bondLots.length} lô)
                       </summary>
-                      <div style={{ marginTop: '3px' }}>
+                      <div style={{ marginTop: '4px' }}>
                         <BondHoldings game={game} />
                       </div>
                     </details>
@@ -522,18 +598,19 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        padding: '4px 6px',
-                        background: 'rgba(239, 68, 68, 0.08)',
-                        border: '1px solid rgba(239, 68, 68, 0.35)',
-                        borderRadius: '4px',
+                        padding: '6px 10px',
+                        background: 'rgba(254, 226, 226, 0.9)',
+                        border: '1.5px solid rgba(239, 68, 68, 0.45)',
+                        borderRadius: '10px',
                         marginTop: '4px',
+                        boxShadow: '0 1px 3px rgba(239, 68, 68, 0.1)',
                       }}
                     >
                       <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <span style={{ fontSize: '12px', fontWeight: 800, color: '#991b1b' }}>Nợ vay khẩn cấp</span>
-                        <small style={{ fontSize: '10.5px', color: '#b91c1c' }}>Lãi suất 10%/vòng tại ô Xuất phát</small>
+                        <span style={{ fontSize: '12.5px', fontWeight: 700, color: '#991B1B' }}>Nợ vay khẩn cấp</span>
+                        <small style={{ fontSize: '11px', color: '#B91C1C' }}>Lãi suất 10%/vòng tại ô Xuất phát</small>
                       </div>
-                      <strong style={{ fontSize: '13px', color: '#991b1b', fontVariantNumeric: 'tabular-nums' }}>
+                      <strong style={{ fontSize: '14px', color: '#991B1B', fontVariantNumeric: 'tabular-nums', fontWeight: 700 }}>
                         -{money(game.portfolio.debt)}
                       </strong>
                     </div>
@@ -548,17 +625,28 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                           onHelp();
                         }}
                         style={{
-                          background: 'transparent',
-                          border: '1px dashed rgba(184, 144, 91, 0.5)',
-                          borderRadius: '4px',
-                          padding: '4px 10px',
-                          fontSize: '11.5px',
-                          color: '#78350f',
+                          background: 'rgba(255, 255, 255, 0.65)',
+                          border: '1.5px dashed rgba(140, 88, 40, 0.45)',
+                          borderRadius: '8px',
+                          padding: '6px 14px',
+                          fontSize: '12px',
+                          color: '#78350F',
                           cursor: 'pointer',
-                          fontWeight: 700,
+                          fontWeight: 600,
+                          fontFamily: "'Fredoka', sans-serif",
+                          transition: 'all 0.15s ease',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
                         }}
                       >
-                        📖 Xem Sổ Tay Chiến Lược & Luật Chơi
+                        <MaskedIcon
+                          src="/assets/read-icon.png"
+                          alt="Sổ Tay"
+                          size={20}
+                          color="#78350F"
+                        />
+                        <span>Xem Sổ Tay Chiến Lược & Luật Chơi</span>
                       </button>
                     </div>
                   )}
@@ -633,17 +721,28 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                     background: 'rgba(180, 83, 9, 0.1)',
                     border: '1px solid rgba(180, 83, 9, 0.35)',
                     borderRadius: '4px',
-                    padding: '2px 8px',
+                    padding: '3px 9px',
                     fontSize: '11px',
                     fontWeight: 700,
                     color: '#78350f',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '4px',
+                    gap: '5px',
                   }}
                 >
-                  <span>📥</span>
+                  <img
+                    src="/assets/export-globe.png"
+                    alt="Xuất Nhật Ký"
+                    style={{
+                      width: '18px',
+                      height: '18px',
+                      objectFit: 'contain',
+                      flexShrink: 0,
+                      verticalAlign: 'middle',
+                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.15))',
+                    }}
+                  />
                   <span>Xuất Nhật Ký</span>
                 </button>
               </div>
@@ -664,7 +763,7 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '4px',
-                  fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
+                  fontFamily: "'Fredoka', sans-serif",
                 }}
               >
                 {game.log.length === 0 ? (
@@ -696,14 +795,14 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                           alignItems: 'center',
                         }}
                       >
-                        <span style={{ fontFamily: "'Fredoka', 'Baloo 2', sans-serif", whiteSpace: 'nowrap' }}>
+                        <span style={{ fontFamily: "'Fredoka', sans-serif", whiteSpace: 'nowrap' }}>
                           #{entry.sequence} · Vòng {entry.before.lap}
                         </span>
                         <strong
                           style={{
                             marginLeft: '6px',
                             color: '#2b1103',
-                            fontFamily: "'Fredoka', 'Baloo 2', sans-serif",
+                            fontFamily: "'Fredoka', sans-serif",
                             whiteSpace: 'nowrap',
                             overflow: 'hidden',
                             textOverflow: 'ellipsis',

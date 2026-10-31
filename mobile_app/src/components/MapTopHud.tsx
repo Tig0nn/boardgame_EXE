@@ -19,15 +19,15 @@ export const MapTopHud: React.FC<MapTopHudProps> = ({
       className="map-top-bar w-full select-none"
       style={{
         position: 'absolute',
-        top: '28px',
+        top: 'max(24px, env(safe-area-inset-top, 24px))',
         left: 0,
         right: 0,
-        width: '940px',
+        width: '100%',
         zIndex: 50,
         padding: '0 36px',
         boxSizing: 'border-box',
         pointerEvents: 'auto',
-        fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
+        fontFamily: "'Fredoka', sans-serif",
       }}
     >
       <div

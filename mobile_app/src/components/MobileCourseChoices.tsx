@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { courseChoices } from '../../../src/game/courses'
-import { money, signedMoney } from '../../../src/game/format'
+import { money } from '../../../src/game/format'
 import type { GameState } from '../../../src/game/types'
 import { sound } from '../utils/audio'
 
@@ -26,7 +26,11 @@ export const MobileCourseChoices: React.FC<MobileCourseChoicesProps> = ({ game, 
           gap: '12px',
         }}
       >
-        <span style={{ fontSize: '36px' }}>🎓</span>
+        <img
+          src="/assets/winner-goal-icon.png"
+          alt="Hoàn thành"
+          style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+        />
         <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 900, color: '#1E293B' }}>
           Đã hoàn thành cả hai khóa
         </h3>
@@ -119,7 +123,11 @@ export const MobileCourseChoices: React.FC<MobileCourseChoicesProps> = ({ game, 
             {/* Header Thẻ: Tên Khóa Học + Status Pill */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                <span style={{ fontSize: '16px' }}>{choice.id === 'basic' ? '📘' : '🚀'}</span>
+                <img
+                  src={choice.id === 'basic' ? '/assets/basic-course.png' : '/assets/knowledge-icon.png'}
+                  alt=""
+                  style={{ width: '18px', height: '18px', objectFit: 'contain' }}
+                />
                 <span style={{ fontSize: '13px', fontWeight: 900, color: '#1E293B' }}>
                   {choice.name}
                 </span>
@@ -159,7 +167,7 @@ export const MobileCourseChoices: React.FC<MobileCourseChoicesProps> = ({ game, 
               <div>
                 <div style={{ fontSize: '10px', color: '#64748B', fontWeight: 700 }}>Lương tăng / vòng:</div>
                 <div style={{ fontSize: '12px', fontWeight: 900, color: '#16A34A', marginTop: '1px' }}>
-                  +{signedMoney(choice.boost)}
+                  +{money(choice.boost)}
                 </div>
               </div>
             </div>
@@ -184,7 +192,7 @@ export const MobileCourseChoices: React.FC<MobileCourseChoicesProps> = ({ game, 
                 }}
               >
                 <span>{isForecastOpen ? '▼' : '▶'}</span>
-                <span>📊 Xem chi tiết thu nhập dự kiến</span>
+                <span>Xem chi tiết thu nhập dự kiến</span>
               </button>
             )}
 
@@ -208,29 +216,37 @@ export const MobileCourseChoices: React.FC<MobileCourseChoicesProps> = ({ game, 
             {/* Nút Mua Khóa Học (3D Game Style) */}
             {!isCompleted && (
               <button
-                disabled={!canAfford}
+                disabled={!choice.canBuy}
                 onClick={() => {
                   sound.playClick()
-                  onChoose(choice.id)
+                  onChoose(`course-${choice.id}`)
                 }}
                 style={{
                   width: '100%',
-                  padding: '9px 12px',
-                  borderRadius: '12px',
-                  background: !canAfford
+                  padding: '10px 14px',
+                  borderRadius: '14px',
+                  background: !choice.canBuy
                     ? '#CBD5E1'
                     : 'linear-gradient(180deg, #FBBF24 0%, #F97316 48%, #EA580C 100%)',
                   color: '#FFFFFF',
-                  fontSize: '13px',
+                  fontSize: '13.5px',
                   fontWeight: 900,
                   border: 'none',
-                  boxShadow: !canAfford ? 'none' : '0 3.5px 8px rgba(234, 88, 12, 0.3)',
-                  cursor: !canAfford ? 'not-allowed' : 'pointer',
+                  boxShadow: !choice.canBuy ? 'none' : '0 4px 10px rgba(234, 88, 12, 0.35)',
+                  cursor: !choice.canBuy ? 'not-allowed' : 'pointer',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.2px',
+                  letterSpacing: '0.3px',
+                  transition: 'transform 0.12s ease',
+                  fontFamily: "'Fredoka', sans-serif",
+                }}
+                onPointerDown={(e) => {
+                  if (choice.canBuy) (e.currentTarget as HTMLElement).style.transform = 'scale(0.96)'
+                }}
+                onPointerUp={(e) => {
+                  if (choice.canBuy) (e.currentTarget as HTMLElement).style.transform = 'scale(1)'
                 }}
               >
-                {canAfford ? `Mua ${choice.name}` : 'Chưa đủ tiền mặt'}
+                {choice.canBuy ? `Mua ${choice.name}` : canAfford ? 'Không thể mua lượt này' : 'Chưa đủ tiền mặt'}
               </button>
             )}
           </div>
@@ -248,14 +264,15 @@ export const MobileCourseChoices: React.FC<MobileCourseChoicesProps> = ({ game, 
           border: 'none',
           color: '#64748B',
           fontSize: '13px',
-          fontWeight: 700,
-          padding: '6px 0',
+          fontWeight: 800,
+          padding: '8px 0',
           cursor: 'pointer',
           textAlign: 'center',
-          marginTop: '2px',
+          marginTop: '4px',
+          fontFamily: "'Fredoka', sans-serif",
         }}
       >
-        Bỏ qua khóa học (Tiếp tục lượt)
+        Bỏ qua cơ hội này (Tiếp tục lượt)
       </button>
     </div>
   )

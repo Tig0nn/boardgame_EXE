@@ -20,9 +20,9 @@ export const MapBottomDock: React.FC<MapBottomDockProps> = ({
         bottom: 0,
         left: 0,
         right: 0,
-        width: '940px',
+        width: '100%',
         zIndex: 50,
-        fontFamily: "'Fredoka', 'Baloo 2', system-ui, sans-serif",
+        fontFamily: "'Fredoka', sans-serif",
       }}
     >
       {/* NÚT TÚI ĐỒ (INVENTORY / PORTFOLIO) NEO GÓC DƯỚI CÙNG BÊN TRÁI - KHÔNG VIỀN THẺ HỘP THÔ CỨNG */}
@@ -36,7 +36,7 @@ export const MapBottomDock: React.FC<MapBottomDockProps> = ({
         className="pointer-events-auto"
         style={{
           position: 'absolute',
-          bottom: '32px',
+          bottom: 'max(32px, env(safe-area-inset-bottom, 32px))',
           left: '36px',
           background: 'none',
           border: 'none',
@@ -69,18 +69,6 @@ export const MapBottomDock: React.FC<MapBottomDockProps> = ({
             display: 'block',
           }}
         />
-        <span
-          style={{
-            marginTop: '4px',
-            fontSize: '22px',
-            fontWeight: 900,
-            color: '#fef3c7',
-            letterSpacing: '0.5px',
-            textShadow: '0 2px 6px rgba(0,0,0,0.95), 0 0 10px rgba(0,0,0,0.9)',
-          }}
-        >
-          Túi Đồ
-        </span>
       </button>
 
       {/* NÚT KIẾN THỨC (KNOWLEDGE / RULEBOOK) NEO GÓC DƯỚI CÙNG BÊN PHẢI - KHÔNG VIỀN THẺ HỘP THÔ CỨNG */}
@@ -94,7 +82,7 @@ export const MapBottomDock: React.FC<MapBottomDockProps> = ({
         className="pointer-events-auto"
         style={{
           position: 'absolute',
-          bottom: '32px',
+          bottom: 'max(32px, env(safe-area-inset-bottom, 32px))',
           right: '36px',
           background: 'none',
           border: 'none',
@@ -127,18 +115,6 @@ export const MapBottomDock: React.FC<MapBottomDockProps> = ({
             display: 'block',
           }}
         />
-        <span
-          style={{
-            marginTop: '4px',
-            fontSize: '22px',
-            fontWeight: 900,
-            color: '#d1fae5',
-            letterSpacing: '0.5px',
-            textShadow: '0 2px 6px rgba(0,0,0,0.95), 0 0 10px rgba(0,0,0,0.9)',
-          }}
-        >
-          Kiến Thức
-        </span>
       </button>
     </div>
   );

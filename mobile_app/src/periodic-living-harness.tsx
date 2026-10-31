@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { GameExperience } from './App'
-import { Tutorial } from './components/Tutorial'
+import { UnifiedGameGuide } from './components/UnifiedGameGuide'
 import { createMobileGame, createMobileSession } from './game/session'
 import { beginSettlement } from '../../src/game/settlement'
 import { decide, transact } from '../../src/game/engine'
@@ -28,7 +28,7 @@ const session = createMobileSession(game)
 export function Harness() {
   const [help, setHelp] = useState(false)
   return <><GameExperience session={session} onRestart={() => location.reload()} onHelp={() => setHelp(true)} helpOpen={help} />
-    {help && <Tutorial game={session.getSnapshot()} firstTime={false} onClose={() => setHelp(false)} />}
+    {help && <UnifiedGameGuide game={session.getSnapshot()} firstTime={false} onClose={() => setHelp(false)} />}
     <small style={{ position: 'fixed', bottom: 0, left: 0, zIndex: 200, background: '#10202e', color: '#fff', fontSize: 10 }}>DEV fixture · {key}{key === 'funding' || key === 'insolvent' ? ' · salary=0 (unreachable in legal gameplay)' : ''}</small>
   </>
 }

@@ -60,7 +60,7 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
               Tiền đã nhận
             </div>
             <div style={{ fontSize: '13.5px', fontWeight: 900, color: '#16A34A', marginTop: '1px' }}>
-              +{signedMoney(overview.received)}
+              +{money(overview.received)}
             </div>
           </div>
 
@@ -79,7 +79,7 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
               Tiền đã chi
             </div>
             <div style={{ fontSize: '13.5px', fontWeight: 900, color: '#DC2626', marginTop: '1px' }}>
-              -{signedMoney(overview.paid)}
+              -{money(overview.paid)}
             </div>
           </div>
         </div>
@@ -96,21 +96,21 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
             fontSize: '11.5px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '4px',
+            gap: '6px',
           }}
         >
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ color: '#64748B' }}>Lương khởi điểm:</span>
-            <strong style={{ color: '#16A34A' }}>+{signedMoney(overview.salary)}</strong>
+            <strong style={{ color: '#16A34A' }}>+{money(overview.salary)}</strong>
           </div>
           {overview.courseIncrease > 0 && (
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{ color: '#64748B' }}>Tăng lương từ khóa học:</span>
-              <strong style={{ color: '#16A34A' }}>+{signedMoney(overview.courseIncrease)}</strong>
+              <strong style={{ color: '#16A34A' }}>+{money(overview.courseIncrease)}</strong>
             </div>
           )}
           {(overview.businessRelevant || overview.businessCash !== 0) && (
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{ color: '#64748B' }}>Kinh doanh · Dòng tiền:</span>
               <strong style={{ color: overview.businessCash >= 0 ? '#16A34A' : '#DC2626' }}>
                 {signedMoney(overview.businessCash)}
@@ -118,26 +118,38 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
             </div>
           )}
           {overview.savingsReceived > 0 && (
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{ color: '#64748B' }}>Tiết kiệm đáo hạn:</span>
-              <strong style={{ color: '#16A34A' }}>+{signedMoney(overview.savingsReceived)}</strong>
+              <strong style={{ color: '#16A34A' }}>+{money(overview.savingsReceived)}</strong>
             </div>
           )}
           {overview.bondReceived > 0 && (
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{ color: '#64748B' }}>Trái phiếu đã nhận:</span>
-              <strong style={{ color: '#16A34A' }}>+{signedMoney(overview.bondReceived)}</strong>
+              <strong style={{ color: '#16A34A' }}>+{money(overview.bondReceived)}</strong>
             </div>
           )}
           {overview.livingPaid !== null && (
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{ color: '#64748B' }}>Chi phí sinh hoạt:</span>
-              <strong style={{ color: '#DC2626' }}>-{signedMoney(overview.livingPaid)}</strong>
+              <strong style={{ color: '#DC2626' }}>-{money(overview.livingPaid)}</strong>
             </div>
           )}
           <div style={{ height: '1px', background: '#F1F5F9', margin: '2px 0' }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontWeight: 800, color: '#1E293B' }}>Tiền mặt hiện có:</span>
+            <span style={{ fontWeight: 800, color: '#1E293B', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+              <img
+                src="/assets/money-icon.png"
+                alt=""
+                style={{
+                  width: '16px',
+                  height: '16px',
+                  objectFit: 'contain',
+                  filter: 'sepia(1) saturate(3.5) hue-rotate(335deg) brightness(1.05)',
+                }}
+              />
+              <span>Tiền mặt hiện có:</span>
+            </span>
             <strong style={{ fontSize: '14px', fontWeight: 900, color: '#D97706' }}>
               {money(overview.cashAfter)}
             </strong>
@@ -155,11 +167,16 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-          <span style={{ fontSize: '12px', fontWeight: 800, color: '#86198F' }}>
-            🎯 MỤC TIÊU HUY ĐỘNG: 90M
+          <span style={{ fontSize: '12px', fontWeight: 800, color: '#86198F', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <img
+              src="/assets/goal-icon.png"
+              alt="Mục tiêu"
+              style={{ width: '18px', height: '18px', objectFit: 'contain' }}
+            />
+            <span>MỤC TIÊU HUY ĐỘNG: 90M</span>
           </span>
           <span style={{ fontSize: '13px', fontWeight: 900, color: '#A21CAF' }}>
-            {progressPercent}%
+            {Math.round(progressPercent)}%
           </span>
         </div>
         <div
