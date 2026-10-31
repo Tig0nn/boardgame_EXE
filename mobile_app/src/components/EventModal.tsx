@@ -115,7 +115,7 @@ export function EventModal({
   const cash = (
     <>
       {/* Badge Tiền Mặt Hiện Có (Soft Organic UI) */}
-      <div
+      <div data-gameplay-cash
         style={{
           display: 'flex',
           justifyContent: 'space-between',

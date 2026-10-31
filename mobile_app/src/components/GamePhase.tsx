@@ -1,3 +1,8 @@
+import {useMemo,useSyncExternalStore} from 'react'
+import {GameplayAiContext} from './gameplay-ai-context'
+import {useGameplayAiSlots} from './use-gameplay-ai-slots'
+import {createGameplayBinding} from '../game/universal-ai'
+import {universalAiFeature,universalAiRequested} from '../game/universal-ai-feature'
 import { RoundChallengeModal } from './RoundChallengeModal'
 import { exportLog } from '../../../src/exportLog'
 import type { GameState } from '../../../src/game/types'
@@ -10,7 +15,7 @@ import { LapSummaryModal } from './LapSummaryModal'
 import { RebalanceModal } from './RebalanceModal'
 import { GameResultModal } from './GameResultModal'
 
-export function GamePhase({ game, session, send, onRestart, onHome, onHelp, onDismissResult }: {
+function GamePhaseContent({ game, session, send, onRestart, onHome, onHelp, onDismissResult }: {
   game: GameState;
   session?: RepairAiSession;
   send: (command: MobileCommand) => boolean;
@@ -26,6 +31,18 @@ export function GamePhase({ game, session, send, onRestart, onHome, onHelp, onDi
     case 'start-summary': return <LapSummaryModal game={game} onHelp={onHelp} onContinue={() => send({ type: 'advance' })} />
     case 'rebalancing': return <RebalanceModal key={game.log.length} game={game} compact onHelp={onHelp} onTransaction={action => send({ type: 'trade', action })} onContinue={() => send({ type: 'advance' })} />
     case 'finished': return <GameResultModal game={game} onHelp={onHelp} onRestart={onRestart} onHome={onHome} onClose={onDismissResult} onExport={() => exportLog(game)} />
-    default: return null
+    default: return game.phase === 'rolling' ? <RollingGameplayAi/> : null
   }
+}
+
+export function GamePhase(props:Parameters<typeof GamePhaseContent>[0]) {
+ const enabled=useSyncExternalStore(universalAiFeature.subscribe,universalAiFeature.isEnabled,()=>false)
+ const binding=useMemo(()=>props.session?createGameplayBinding(props.session,universalAiFeature):null,[props.session])
+ return <GameplayAiContext.Provider value={enabled&&props.game.phase!=='finished'?binding:null}>
+  <GamePhaseContent {...props} session={universalAiRequested?undefined:props.session}/>
+ </GameplayAiContext.Provider>
+}
+function RollingGameplayAi(){
+ const slots=useGameplayAiSlots(<p>Quan sát tiền mặt, nghĩa vụ và mục tiêu trước khi gieo xúc xắc.</p>)
+ return slots.available?<aside className="gameplay-overview" aria-label="Đồng hành tài chính">{slots.fixed}<div className="gameplay-overview-body">{slots.body}</div>{slots.footer}</aside>:null
 }

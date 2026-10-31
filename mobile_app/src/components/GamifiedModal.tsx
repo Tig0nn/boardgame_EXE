@@ -1,4 +1,5 @@
 import React from 'react'
+import { useGameplayAiSlots } from './use-gameplay-ai-slots'
 import { sound } from '../utils/audio'
 
 export interface GamifiedModalProps {
@@ -99,6 +100,7 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
   footerContent,
   className = '',
 }) => {
+  const aiSlots = useGameplayAiSlots(children, fixedContent, footerContent)
   return (
     <div
       className="gamified-modal-backdrop"
@@ -128,7 +130,7 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
     >
       {/* Khung Tinh Gọn Chuẩn Di Động (w-[90%] max-w-[360px] h-[80vh] max-h-[680px]) */}
       <div
-        className={`gamified-modal-card w-[90%] max-w-[360px] h-[80vh] max-h-[680px] mx-auto rounded-[32px] border-4 border-emerald-400 shadow-2xl flex flex-col relative overflow-visible bg-white ${className}`}
+        className={`gamified-modal-card w-[90%] max-w-[360px] h-[80vh] max-h-[680px] mx-auto rounded-[32px] border-4 border-emerald-400 shadow-2xl flex flex-col relative overflow-visible bg-white ${className} ${aiSlots.available ? 'gameplay-modal' : ''}`}
         style={{
           position: 'relative',
           width: '90%',
@@ -249,7 +251,7 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
             </div>
           )}
 
-          {fixedContent && <div style={{ flexShrink: 0 }}>{fixedContent}</div>}
+          {aiSlots.fixed && <div style={{ flexShrink: 0 }}>{aiSlots.fixed}</div>}
 
           {/* 2. BODY CONTENT (SCROLLABLE - flex-1 overflow-y-auto min-h-0) */}
           <div
@@ -268,13 +270,13 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
               textOrientation: 'mixed',
             }}
           >
-            {children}
+            {aiSlots.body}
           </div>
 
-          {footerContent && <div style={{ flexShrink: 0 }}>{footerContent}</div>}
+          {aiSlots.footer && <div style={{ flexShrink: 0 }}>{aiSlots.footer}</div>}
 
           {/* 3. FOOTER / CTA (FIXED - flex-shrink-0 pt-2) */}
-          {(primaryAction || secondaryAction) && (
+          {!aiSlots.active && (primaryAction || secondaryAction) && (
             <div
               className="flex-shrink-0 mt-1.5 pt-2 border-t border-dashed border-slate-200 flex flex-col items-center gap-1"
               style={{

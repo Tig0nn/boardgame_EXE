@@ -1,0 +1,13 @@
+# Universal B18 Companion implementation checkpoints
+
+Sync checkpoint: 4738c284d499c6cbd1a86511b190301ab20429e2 (UI f63a4354be7a26118b01d82e9563c11467170b3a; AI aeaae9521254d184ff1fdaffdf0d4062d0eca2dd). New worktree only; no universal commit was authorized at the implementation checkpoint (2026-10-30). Owner subsequently approved exactly one local commit after final review/QA (2026-10-31).
+
+Contract: separate b18-gameplay-context.v1 / b18-gameplay-question.v1, closed runtime schema, exact raw question digest, request/session/revision/context correlation. Local deterministic only; checksum identifies data, does not authenticate client state. Model and production remain OFF. No server route.
+
+A: bank/deposits, stocks, bonds, gold, business, course. Public selector facts, whole-holding sale quotes clearly distinguished from trades, conditional savings/course income. Domain-specific phrase bank and safe fallback. Unit/evaluation and real UI path checks before B.
+B: all three personal variants and all three revealed macro variants; rule-derived option costs, current/future obligations and legal funding availability. No future prices, seed/RNG or raw logs in DTO. Unit and browser checks before C.
+C: forecast, rolling overview, START summary and rebalancing, funding including settlement pause. Only actual processed settlement lines; no simulated transition. Finished stays with existing Coach. Lifecycle tests, full regression and browser acceptance.
+
+UI: read-only session provider scoped to GamePhase; existing GamifiedModal gets tabs within its own frame for each existing path. Original decision children remain mounted and hidden while asking, preserving local trade inputs. AI controls have no action dispatcher. Old repair opt-in and API remain available independently; universal opt-in supersedes its UI only when explicitly enabled. Common pinned cash and domain-specific suggestions; one scroll body; no stacked popup. Restart/import/unmount/feature disable cancel; same-phase snapshot change invalidates even with Decision selected. Tab switches never ask or dispatch.
+
+Acceptance: classify every actual B18 tile/variant/phase, distinguish core and multi-course, reject C20/First Job. Evaluate unfamiliar and multi-intent questions honestly. Preserve all tracked old AI/engine/golden files byte-for-byte except necessary UI paths. Run old repair browser suite as compatibility check. Physical IME/Safari/screen reader require device review.
