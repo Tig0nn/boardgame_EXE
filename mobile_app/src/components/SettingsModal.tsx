@@ -62,7 +62,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   isMuted,
   onToggleMute,
   onRestart,
-  onHelp,
 }) => {
   const [autoRules, setAutoRules] = useState(() => isAutoShowRulesEnabled());
   const [confirmingRestart, setConfirmingRestart] = useState(false);
@@ -339,90 +338,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           </div>
         </div>
 
-        {/* 3. THẺ HƯỚNG DẪN & SỔ TAY LUẬT CHƠI (WARM AMBER GOLD THEME) */}
-        {onHelp && (
-          <button
-            onClick={() => {
-              sound.playClick();
-              onClose();
-              onHelp();
-            }}
-            type="button"
-            aria-label="Mở Sổ Tay Luật Chơi & Chiến Lược"
-            style={{
-              background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)',
-              border: '1.5px solid #FDE68A',
-              borderRadius: '20px',
-              padding: '12px 14px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              boxShadow: '0 4px 12px rgba(217, 119, 6, 0.12)',
-              cursor: 'pointer',
-              textAlign: 'left',
-              transition: 'all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
-              fontFamily: "'Fredoka', sans-serif",
-            }}
-            onPointerDown={(e) => {
-              (e.currentTarget as HTMLElement).style.transform = 'scale(0.97)';
-            }}
-            onPointerUp={(e) => {
-              (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div
-                style={{
-                  width: '34px',
-                  height: '34px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                <MaskedSettingIcon
-                  src="/assets/guide-new-icon.png"
-                  alt="Sổ tay luật chơi"
-                  size={28}
-                  color="#B45309"
-                  glowColor="rgba(217, 119, 6, 0.45)"
-                />
-              </div>
-              <div>
-                <div style={{ fontSize: '14.5px', fontWeight: 900, color: '#78350F', letterSpacing: '0.2px' }}>
-                  Sổ Tay Luật Chơi
-                </div>
-                <div style={{ fontSize: '11.5px', color: '#92400E', fontWeight: 600 }}>
-                  Tra cứu quy tắc 20 ô cờ & mục tiêu 90M
-                </div>
-              </div>
-            </div>
-
-            {/* Mũi tên phong cách Badge Gamified */}
-            <div
-              style={{
-                width: '32px',
-                height: '32px',
-                borderRadius: '50%',
-                background: '#FDE68A',
-                border: '1px solid #F59E0B',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#78350F',
-                fontSize: '15px',
-                fontWeight: 900,
-                boxShadow: '0 2px 4px rgba(217, 119, 6, 0.2)',
-                flexShrink: 0,
-              }}
-            >
-              ➔
-            </div>
-          </button>
-        )}
-
-        {/* 4. THẺ KHỞI ĐỘNG LẠI VÁN CHƠI (RUBY CRIMSON VỚI XÁC NHẬN 2 BƯỚC AN TOÀN) */}
+        {/* 3. THẺ KHỞI ĐỘNG LẠI VÁN CHƠI (RUBY CRIMSON VỚI XÁC NHẬN 2 BƯỚC AN TOÀN) */}
         {onRestart && (
           <div
             onClick={handleRestartClick}

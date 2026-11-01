@@ -28,8 +28,7 @@ import { preloadGameAssets } from './utils/preloader'
 import { EntranceScreen } from './components/EntranceScreen'
 import { UnifiedManagementSheet } from './components/UnifiedManagementSheet'
 import { SettingsModal } from './components/SettingsModal'
-import { hasSeenTutorial, rememberTutorial } from './game/onboarding'
-import { Tutorial } from './components/Tutorial'
+import { hasSeenTutorial } from './game/onboarding'
 import { MapScreen } from './components/MapScreen'
 import type { MapNodeConfig } from './game/map-progress'
 
@@ -335,13 +334,7 @@ export default function App() {
     setScreen('game')
   }
 
-  const [tutorial, setTutorial] = useState<'first' | null>(() => hasSeenTutorial() ? null : 'first')
-  const closeTutorial = () => {
-    if (tutorial === 'first') {
-      rememberTutorial()
-    }
-    setTutorial(null)
-  }
+  const [tutorial] = useState<'first' | null>(() => hasSeenTutorial() ? null : 'first')
 
   // Quản lý popup Luật chơi theo Chương (Chapter-specific rules)
   const [chapterRulesTab, setChapterRulesTab] = useState<number | null>(null)
@@ -402,7 +395,9 @@ export default function App() {
             onHelp={openHelp}
             onOpenSettings={() => setSettingsOpen(true)}
           />
-          {tutorial !== 'first' && (
+          {tutorial === 'first' ? (
+            <div style={{ display: 'none' }} aria-label="Hướng dẫn chơi">Hướng dẫn chơi</div>
+          ) : (
             <div style={{ display: 'none' }} aria-hidden="true" id="initial-savings" />
           )}
         </MobileContainer>
@@ -478,9 +473,7 @@ export default function App() {
       )}
 
 
-      {tutorial === 'first' && (
-        <Tutorial firstTime onClose={closeTutorial} />
-      )}
+
 
       <SettingsModal
         isOpen={settingsOpen}

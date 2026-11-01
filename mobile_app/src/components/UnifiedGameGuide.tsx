@@ -404,29 +404,8 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
             })}
           </div>
 
-          {/* Tiêu Đề Chương Phân Tầng: Title (Chương X) + Sub Title (Icon & Tựa Đề) */}
+          {/* Tiêu Đề Chương: Icon & Tựa Đề */}
           <div style={{ padding: '4px 0 2px', textAlign: 'center', flexShrink: 0 }}>
-            {/* Title: Chỉ hiện Chương x */}
-            <span
-              style={{
-                fontSize: 'clamp(9.5px, 2.5vw, 11px)',
-                fontWeight: 900,
-                color: activeChapter.primaryColor,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                display: 'inline-block',
-                background: activeChapter.accentBg,
-                border: `1.5px solid ${activeChapter.borderColor}`,
-                borderRadius: '999px',
-                padding: '1.5px 10px',
-                boxShadow: `0 1px 4px ${activeChapter.glowColor}`,
-                fontFamily: "'Fredoka', sans-serif",
-              }}
-            >
-              {activeChapter.chapterLabel}
-            </span>
-
-            {/* Sub Title: Gồm icon và tựa đề */}
             <h2
               ref={headingRef}
               tabIndex={-1}
