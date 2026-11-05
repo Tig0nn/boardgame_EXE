@@ -20,6 +20,7 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
   const [term, setTerm] = useState<Term>(1)
   const defaultAmount = Math.min(10_000_000, game.portfolio.cash)
   const [amount, setAmount] = useState<number>(defaultAmount > 0 ? defaultAmount : 1_000_000)
+  const [activeRatio, setActiveRatio] = useState<number | null>(null)
   const [submitting, setSubmitting] = useState(false)
   const submitLock = useRef(false)
 
@@ -33,6 +34,7 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
   const activeLots = game.deposits.filter((l) => l.status === 'active')
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setActiveRatio(null)
     const raw = e.target.value.replace(/\D/g, '')
     const val = raw ? parseInt(raw, 10) : 0
     setAmount(val)
@@ -347,12 +349,12 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
                   position: 'absolute',
                   right: '12px',
                   fontSize: '14px',
-                  fontWeight: 800,
-                  color: '#94a3b8',
+                  fontWeight: 900,
+                  color: '#64748B',
                   pointerEvents: 'none',
                 }}
               >
-                ₫
+                đ
               </span>
             </div>
 
@@ -360,26 +362,33 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
             <div style={{ display: 'flex', gap: '8px', marginTop: '2px' }}>
               {[0.25, 0.5, 1].map((ratio) => {
                 const targetVal = Math.floor((game.portfolio.cash * ratio) / 1000) * 1000
+                const isAffordable = game.portfolio.cash >= 1000
+                const isSelected = isAffordable && (activeRatio === ratio || (amount > 0 && amount === targetVal))
                 return (
                   <button
                     key={ratio}
                     type="button"
+                    disabled={!isAffordable}
                     onClick={() => {
+                      if (!isAffordable) return
                       sound.playClick()
+                      setActiveRatio(ratio)
                       setAmount(Math.max(1000, targetVal))
                     }}
                     style={{
                       flex: 1,
-                      padding: '6px 8px',
+                      padding: '7px 8px',
                       fontSize: '11.5px',
-                      fontWeight: 800,
+                      fontWeight: isSelected ? 900 : 800,
                       borderRadius: '10px',
-                      background: '#ffffff',
-                      border: '1px solid #cbd5e1',
-                      color: '#475569',
-                      cursor: 'pointer',
-                      transition: 'all 0.12s ease',
-                      boxShadow: '0 1px 2px rgba(0,0,0,0.04)',
+                      background: isSelected ? '#FEF3C7' : isAffordable ? '#FFFFFF' : '#F1F5F9',
+                      border: isSelected ? '1.5px solid #D97706' : '1px solid #CBD5E1',
+                      color: isSelected ? '#92400E' : isAffordable ? '#334155' : '#94A3B8',
+                      cursor: isAffordable ? 'pointer' : 'not-allowed',
+                      opacity: isAffordable ? 1 : 0.6,
+                      boxShadow: isSelected ? '0 2px 6px rgba(217, 119, 6, 0.2)' : '0 1px 2px rgba(0,0,0,0.02)',
+                      transition: 'all 0.15s ease',
+                      fontFamily: "'Fredoka', sans-serif",
                     }}
                   >
                     {ratio === 1 ? 'Tối đa' : `${ratio * 100}%`}

@@ -85,8 +85,9 @@ function MobileBondCreditView({
   marketContext,
 }: MobileBondCreditViewProps) {
   const [issuerId, setIssuerId] = useState<BondIssuerId>('an-tam');
+  const canAffordAtLeastOne = game.portfolio.cash >= 8_000_000;
   const [amount, setAmount] = useState<number>(8_000_000);
-  const [selectedChip, setSelectedChip] = useState<string>('8M');
+  const [selectedChip, setSelectedChip] = useState<string | null>(canAffordAtLeastOne ? '8M' : null);
   const [detailsOpen, setDetailsOpen] = useState(false);
 
   const config = BOND_ISSUERS.find((item) => item.id === issuerId)!;
@@ -341,7 +342,7 @@ function MobileBondCreditView({
                 style={{
                   fontSize: '15px',
                   fontWeight: 900,
-                  color: '#92400E',
+                  color: canAffordAtLeastOne ? '#92400E' : '#DC2626',
                   fontVariantNumeric: 'tabular-nums',
                 }}
               >
@@ -349,8 +350,8 @@ function MobileBondCreditView({
               </strong>
             </div>
 
-            {/* Quick chips */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '5px' }}>
+            {/* Quick chips với trạng thái rõ ràng, không trùng highlight */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '6px' }}>
               {presets.map((p) => {
                 const canAfford = p.val > 0 && p.val <= game.portfolio.cash;
                 const isChipSelected = canAfford && selectedChip === p.label;
@@ -366,15 +367,17 @@ function MobileBondCreditView({
                       setAmount(p.val);
                     }}
                     style={{
-                      padding: '5px 0',
-                      borderRadius: '8px',
-                      border: isChipSelected ? '1.5px solid #D97706' : '1px solid #CBD5E1',
-                      background: isChipSelected ? '#FEF3C7' : canAfford ? '#F8FAFC' : '#F1F5F9',
+                      padding: '6px 0',
+                      borderRadius: '10px',
+                      border: isChipSelected ? '2px solid #D97706' : '1px solid #CBD5E1',
+                      background: isChipSelected ? '#FEF3C7' : canAfford ? '#FFFFFF' : '#F1F5F9',
                       color: isChipSelected ? '#92400E' : canAfford ? '#334155' : '#94A3B8',
-                      fontWeight: 800,
+                      fontWeight: isChipSelected ? 900 : 800,
                       fontSize: '11px',
                       cursor: canAfford ? 'pointer' : 'not-allowed',
-                      transition: 'all 0.12s ease',
+                      opacity: canAfford ? 1 : 0.6,
+                      boxShadow: isChipSelected ? '0 2px 6px rgba(217, 119, 6, 0.25)' : 'none',
+                      transition: 'all 0.15s ease',
                       fontFamily: "'Fredoka', sans-serif",
                     }}
                   >

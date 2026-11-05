@@ -25,6 +25,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
 }) => {
   const [asset, setAsset] = useState<TradableAsset>('stocks')
   const [amount, setAmount] = useState<number>(game.portfolio.stocks)
+  const [activePct, setActivePct] = useState<number | null>(100)
 
   const lots = hasBondCredit(game)
     ? creditBondLots(game).filter((item) => item.quote.executable)
@@ -42,6 +43,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
 
   const handleSelectAsset = (next: TradableAsset) => {
     setAsset(next)
+    setActivePct(100)
     if (next === 'bonds' && hasBondCredit(game)) {
       setAmount(lot?.quote.gross ?? 0)
     } else {
@@ -51,6 +53,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
 
   const setPercentAmount = (pct: number) => {
     if (available <= 0) return
+    setActivePct(pct)
     if (pct >= 100) {
       setAmount(available)
       return
@@ -60,6 +63,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
   }
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setActivePct(null)
     const rawVal = e.target.value.replace(/\D/g, '')
     const num = rawVal ? Math.min(available, Number(rawVal)) : 0
     setAmount(num)
@@ -226,23 +230,24 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
       <div
         style={{
           background: '#FFFFFF',
-          borderRadius: '14px',
-          border: '1px solid #E2E8F0',
-          padding: '8px 10px',
+          borderRadius: '16px',
+          border: '1.5px solid rgba(226, 232, 240, 0.9)',
+          padding: '10px 12px',
           boxSizing: 'border-box',
-          boxShadow: '0 1px 4px rgba(0,0,0,0.02)',
+          boxShadow: '0 2px 6px rgba(0,0,0,0.03)',
         }}
       >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-          <span style={{ fontSize: '11px', fontWeight: 800, color: '#334155' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+          <span style={{ fontSize: '11.5px', fontWeight: 800, color: '#334155' }}>
             Giá trị muốn bán:
           </span>
-          <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: 700 }}>
-            Tối đa: <strong style={{ color: '#0F172A' }}>{money(available)}</strong>
+          <span style={{ fontSize: '11px', color: '#64748B', fontWeight: 700 }}>
+            Tối đa: <strong style={{ color: '#0F172A', fontVariantNumeric: 'tabular-nums' }}>{money(available)}</strong>
           </span>
         </div>
 
-        <div style={{ display: 'flex', gap: '4px', alignItems: 'center', marginBottom: '6px' }}>
+        {/* Input với ký hiệu đ đặt an toàn bên trong */}
+        <div style={{ position: 'relative', display: 'flex', alignItems: 'center', width: '100%', marginBottom: '8px' }}>
           <input
             type="text"
             inputMode="numeric"
@@ -250,46 +255,65 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
             onChange={handleAmountChange}
             placeholder="0"
             style={{
-              flex: 1,
-              padding: '7px 10px',
-              borderRadius: '10px',
+              width: '100%',
+              padding: '8px 34px 8px 12px',
+              borderRadius: '12px',
               border: valid ? '1.5px solid #CBD5E1' : '1.5px solid #F87171',
-              fontSize: '13.5px',
+              fontSize: '14.5px',
               fontWeight: 900,
               color: '#0F172A',
-              fontFamily: 'inherit',
+              background: '#FFFFFF',
+              fontFamily: "'Fredoka', sans-serif",
               boxSizing: 'border-box',
               fontVariantNumeric: 'tabular-nums',
+              outline: 'none',
+              transition: 'border-color 0.15s ease',
             }}
           />
-          <span style={{ fontSize: '12px', fontWeight: 800, color: '#64748B' }}>đ</span>
+          <span
+            style={{
+              position: 'absolute',
+              right: '12px',
+              fontSize: '13.5px',
+              fontWeight: 900,
+              color: '#64748B',
+              pointerEvents: 'none',
+            }}
+          >
+            đ
+          </span>
         </div>
 
         {/* Quick Percentage Chips */}
-        <div style={{ display: 'flex', gap: '4px' }}>
+        <div style={{ display: 'flex', gap: '6px' }}>
           {[25, 50, 100].map((pct) => {
+            const isAffordable = available > 0
             const isMatch =
-              available > 0 &&
-              (pct === 100
-                ? amount === available
-                : amount === Math.floor((available * (pct / 100)) / 1000) * 1000)
+              isAffordable &&
+              (activePct === pct ||
+                (pct === 100
+                  ? amount === available
+                  : amount === Math.floor((available * (pct / 100)) / 1000) * 1000))
             return (
               <button
                 key={pct}
                 type="button"
-                disabled={available <= 0}
+                disabled={!isAffordable}
                 onClick={() => setPercentAmount(pct)}
                 style={{
                   flex: 1,
-                  padding: '4px 0',
-                  borderRadius: '8px',
-                  border: isMatch ? '1.5px solid #F59E0B' : '1px solid #CBD5E1',
-                  background: isMatch ? '#FEF3C7' : '#F1F5F9',
-                  color: isMatch ? '#B45309' : '#334155',
-                  fontSize: '10.5px',
+                  padding: '5.5px 0',
+                  borderRadius: '10px',
+                  border: isMatch ? '1.5px solid #D97706' : '1px solid #CBD5E1',
+                  background: isMatch ? '#FEF3C7' : isAffordable ? '#FFFFFF' : '#F1F5F9',
+                  color: isMatch ? '#92400E' : isAffordable ? '#334155' : '#94A3B8',
+                  fontSize: '11px',
                   fontWeight: 800,
-                  cursor: available <= 0 ? 'not-allowed' : 'pointer',
+                  cursor: isAffordable ? 'pointer' : 'not-allowed',
+                  opacity: isAffordable ? 1 : 0.6,
+                  boxShadow: isMatch ? '0 2px 6px rgba(217, 119, 6, 0.2)' : '0 1px 2px rgba(0,0,0,0.02)',
                   transition: 'all 0.15s ease',
+                  fontFamily: "'Fredoka', sans-serif",
                 }}
               >
                 {pct === 100 ? 'Tất cả' : `${pct}%`}
