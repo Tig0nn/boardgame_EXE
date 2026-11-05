@@ -13,7 +13,6 @@ const CRITICAL_ASSETS = [
   '/assets/layer-1-clean.webp',
   '/assets/oke-btn.png',
   '/assets/main-background.webp',
-  '/assets/luat-choi.webp',
   '/assets/playboard-4.PNG',
   '/assets/sectionplay.PNG',
   '/assets/nut-home.PNG',

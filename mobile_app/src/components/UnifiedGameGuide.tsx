@@ -139,6 +139,7 @@ const chapters = [
 
 export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab = 0 }: UnifiedGameGuideProps) {
   const [currentTab, setCurrentTab] = useState(initialTab);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const living = livingPresentation(game);
@@ -154,6 +155,22 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
     headingRef.current?.focus({ preventScroll: true });
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX;
+    setTouchStartX(null);
+    if (deltaX < -45 && currentTab < chapters.length - 1) {
+      navigateTo(currentTab + 1);
+    } else if (deltaX > 45 && currentTab > 0) {
+      navigateTo(currentTab - 1);
+    }
+  };
+
   return (
     <div
       style={{
@@ -163,9 +180,9 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'flex-start',
-        paddingTop: 0,
-        background: 'rgba(10, 18, 30, 0.78)',
+        justifyContent: 'center',
+        padding: '12px 10px',
+        background: 'rgba(10, 18, 30, 0.82)',
         backdropFilter: 'blur(10px)',
         WebkitBackdropFilter: 'blur(10px)',
         animation: 'fadeIn 0.2s ease',
@@ -180,21 +197,21 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
         }
       }}
     >
-      {/* Khung Sổ Tay / Bảng Gỗ Luật Chơi luat-choi.webp (Chuẩn hóa kích thước đồng bộ: min(92%, 400px) x min(86vh, 700px)) */}
+      {/* Khung Sổ Tay Kiến Thức Luật Chơi - Thiết Kế Code UI Fantasy Hoàng Gia */}
       <div
-        className="guide-board-wrapper w-[92%] max-w-[400px] mx-auto relative flex flex-col shadow-2xl bg-transparent"
+        className="guide-modal-card w-[94%] max-w-[430px] mx-auto relative flex flex-col shadow-2xl"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         style={{
           position: 'relative',
-          width: 'min(92%, 400px)',
-          maxWidth: '400px',
-          height: 'min(86vh, 700px)',
-          maxHeight: '700px',
-          marginTop: '-4px',
-          backgroundImage: 'url(/assets/luat-choi.webp)',
-          backgroundSize: '100% 100%',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'top center',
-          filter: 'drop-shadow(0 20px 45px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 16px rgba(245, 158, 11, 0.25))',
+          width: 'min(94%, 430px)',
+          maxWidth: '430px',
+          height: 'min(88vh, 720px)',
+          maxHeight: '720px',
+          background: 'linear-gradient(180deg, #FFFDF9 0%, #FEF9EC 35%, #FDF3DA 100%)',
+          borderRadius: '24px',
+          border: '2.5px solid #D97706',
+          boxShadow: '0 25px 60px rgba(0, 0, 0, 0.75), 0 0 25px rgba(217, 119, 6, 0.35), inset 0 0 0 2px rgba(254, 243, 199, 0.9)',
           boxSizing: 'border-box',
           fontFamily: "'Fredoka', sans-serif",
           animation: 'guideScaleUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)',
@@ -207,211 +224,201 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
           pointerEvents: 'auto',
         }}
       >
-        {/* Nút Thoát / Bỏ Qua (Icon exit chính thức) hiển thị gọn gàng góc trên phải */}
-        <button
-          onClick={() => {
-            sound.playClick();
-            onClose();
-          }}
-          title={firstTime ? 'Bỏ qua hướng dẫn' : 'Đóng Sổ Tay'}
-          aria-label={firstTime ? 'Bỏ qua' : 'Đóng'}
-          style={{
-            position: 'absolute',
-            top: '5.2%',
-            right: '5.8%',
-            width: '40px',
-            height: '40px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'transparent',
-            border: 'none',
-            cursor: 'pointer',
-            padding: 0,
-            zIndex: 40,
-            transition: 'transform 0.15s ease',
-          }}
-          onPointerDown={(e) => {
-            (e.currentTarget as HTMLElement).style.transform = 'scale(0.88)';
-          }}
-          onPointerUp={(e) => {
-            (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
-          }}
-        >
-          <img
-            src="/assets/nut-exit.png"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = '/assets/cropped/exit-btn.png';
-            }}
-            alt={firstTime ? 'Bỏ qua' : 'Đóng'}
-            style={{
-              width: '36px',
-              height: '36px',
-              objectFit: 'contain',
-              filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.45))',
-            }}
-          />
-        </button>
-
-        {/* Nút Mũi Tên Trái (Left Arrow) */}
-        <button
-          onClick={() => navigateTo(currentTab - 1)}
-          disabled={currentTab === 0}
-          title="Chương trước"
-          aria-label="Chương trước"
-          style={{
-            position: 'absolute',
-            left: '2%',
-            top: '49%',
-            transform: 'translateY(-50%)',
-            width: '36px',
-            height: '44px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'transparent',
-            border: 'none',
-            cursor: currentTab === 0 ? 'default' : 'pointer',
-            opacity: currentTab === 0 ? 0.2 : 0.95,
-            padding: 0,
-            zIndex: 35,
-            transition: 'opacity 0.2s ease, transform 0.15s ease',
-          }}
-          onPointerDown={(e) => {
-            if (currentTab > 0) (e.currentTarget as HTMLElement).style.transform = 'translateY(-50%) scale(0.9)';
-          }}
-          onPointerUp={(e) => {
-            (e.currentTarget as HTMLElement).style.transform = 'translateY(-50%) scale(1)';
-          }}
-        >
-          <img
-            src="/assets/cropped/left-btn.png"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = '/assets/left-button.PNG';
-            }}
-            alt="Trước"
-            style={{ width: '26px', height: '34px', objectFit: 'contain' }}
-          />
-        </button>
-
-        {/* Nút Mũi Tên Phải (Right Arrow) */}
-        <button
-          onClick={() => navigateTo(currentTab + 1)}
-          disabled={currentTab === chapters.length - 1}
-          title="Chương sau"
-          aria-label="Chương sau"
-          style={{
-            position: 'absolute',
-            right: '2%',
-            top: '49%',
-            transform: 'translateY(-50%)',
-            width: '36px',
-            height: '44px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'transparent',
-            border: 'none',
-            cursor: currentTab === chapters.length - 1 ? 'default' : 'pointer',
-            opacity: currentTab === chapters.length - 1 ? 0.2 : 0.95,
-            padding: 0,
-            zIndex: 35,
-            transition: 'opacity 0.2s ease, transform 0.15s ease',
-          }}
-          onPointerDown={(e) => {
-            if (currentTab < chapters.length - 1)
-              (e.currentTarget as HTMLElement).style.transform = 'translateY(-50%) scale(0.9)';
-          }}
-          onPointerUp={(e) => {
-            (e.currentTarget as HTMLElement).style.transform = 'translateY(-50%) scale(1)';
-          }}
-        >
-          <img
-            src="/assets/cropped/right-btn.png"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = '/assets/right-button.PNG';
-            }}
-            alt="Sau"
-            style={{ width: '26px', height: '34px', objectFit: 'contain' }}
-          />
-        </button>
-
-        {/* VÙNG NỘI DUNG NẰM HOÀN TOÀN TRONG PHẦN GIẤY PARCHMENT CỦA BẢNG - KHÔNG TRÀN RA NGOÀI */}
-        {/* Bounds: Top 16.5%, Bottom 26%, Left 13.5%, Right 13.5% */}
+        {/* Banner Ribbon Tiêu Đề Hoàng Gia & Nút Đóng */}
         <div
           style={{
-            position: 'absolute',
-            top: '16.5%',
-            bottom: '26%',
-            left: '13.5%',
-            right: '13.5%',
+            background: 'linear-gradient(180deg, #78350F 0%, #92400E 100%)',
+            borderBottom: '2px solid #F59E0B',
+            padding: '10px 14px',
             display: 'flex',
-            flexDirection: 'column',
-            boxSizing: 'border-box',
-            overflow: 'hidden',
-            padding: '2px 4px',
-            fontFamily: "'Fredoka', sans-serif",
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            boxShadow: '0 4px 12px rgba(120, 53, 15, 0.35)',
+            flexShrink: 0,
+            position: 'relative',
           }}
         >
-          {/* Thanh Tab Đánh Số Chương (1, 2, 3, 4, 5) Phong Cách Arcade 3D Rực Rỡ */}
-          <div
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '20px', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))' }}>📜</span>
+            <div>
+              <div
+                style={{
+                  fontSize: '13px',
+                  fontWeight: 900,
+                  color: '#FEF3C7',
+                  letterSpacing: '0.6px',
+                  textTransform: 'uppercase',
+                  textShadow: '0 1px 3px rgba(0,0,0,0.6)',
+                  lineHeight: 1.1,
+                }}
+              >
+                Sổ Tay Luật Chơi
+              </div>
+              <div
+                style={{
+                  fontSize: '10px',
+                  fontWeight: 600,
+                  color: '#FDE68A',
+                  opacity: 0.9,
+                  lineHeight: 1.1,
+                  marginTop: '1px',
+                }}
+              >
+                Chương 1: Cờ Tỷ Phú B18
+              </div>
+            </div>
+          </div>
+
+          {/* Nút Thoát / Bỏ Qua */}
+          <button
+            onClick={() => {
+              sound.playClick();
+              onClose();
+            }}
+            title={firstTime ? 'Bỏ qua hướng dẫn' : 'Đóng Sổ Tay'}
+            aria-label={firstTime ? 'Bỏ qua' : 'Đóng'}
             style={{
+              width: '32px',
+              height: '32px',
+              borderRadius: '50%',
+              background: 'rgba(254, 243, 199, 0.15)',
+              border: '1.5px solid rgba(254, 243, 199, 0.4)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: 'clamp(4px, 1.2vw, 8px)',
-              paddingBottom: '5px',
-              borderBottom: '1px solid rgba(184, 144, 91, 0.35)',
+              cursor: 'pointer',
+              padding: 0,
+              color: '#FEF3C7',
+              fontSize: '15px',
+              fontWeight: 900,
+              transition: 'transform 0.15s ease, background 0.15s ease',
+            }}
+            onPointerDown={(e) => {
+              (e.currentTarget as HTMLElement).style.transform = 'scale(0.88)';
+            }}
+            onPointerUp={(e) => {
+              (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
+            }}
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Thanh Tab 5 Chương (1, 2, 3, 4, 5) Phong Cách Arcade 3D Pills */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '6px',
+            padding: '8px 12px 6px',
+            background: 'rgba(217, 119, 6, 0.08)',
+            borderBottom: '1.5px solid rgba(217, 119, 6, 0.2)',
+            flexShrink: 0,
+          }}
+          role="tablist"
+          aria-label="Các chương luật chơi"
+        >
+          {chapters.map((ch, idx) => {
+            const active = currentTab === idx;
+            return (
+              <button
+                key={ch.id}
+                role="tab"
+                id={`guide-tab-${ch.id}`}
+                aria-selected={active}
+                onClick={() => navigateTo(idx)}
+                title={ch.title}
+                style={{
+                  flex: 1,
+                  height: '34px',
+                  borderRadius: '10px',
+                  border: active ? '2px solid #ffffff' : `1.5px solid ${ch.borderColor}`,
+                  background: active ? ch.gradient : 'rgba(255, 255, 255, 0.85)',
+                  color: active ? '#ffffff' : ch.primaryColor,
+                  fontWeight: 800,
+                  fontSize: '12px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '4px',
+                  boxShadow: active
+                    ? `0 3px 10px ${ch.glowColor}, 0 1px 3px rgba(0,0,0,0.2)`
+                    : '0 1px 2px rgba(0,0,0,0.05)',
+                  transform: active ? 'scale(1.04)' : 'scale(1)',
+                  transition: 'all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                  fontFamily: "'Fredoka', sans-serif",
+                }}
+              >
+                <span style={{ fontSize: '13px' }}>{ch.icon}</span>
+                <span style={{ fontSize: '11.5px', whiteSpace: 'nowrap' }}>{ch.tabNum}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Thanh Điều Hướng Chương Hiện Tại (◀ Tiêu Đề ▶) */}
+        <div
+          style={{
+            padding: '8px 14px 6px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '8px',
+            borderBottom: '1px dashed rgba(217, 119, 6, 0.25)',
+            flexShrink: 0,
+          }}
+        >
+          <button
+            onClick={() => navigateTo(currentTab - 1)}
+            disabled={currentTab === 0}
+            title="Chương trước"
+            aria-label="Chương trước"
+            style={{
+              width: '32px',
+              height: '32px',
+              borderRadius: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: currentTab === 0 ? 'rgba(0,0,0,0.04)' : 'rgba(217, 119, 6, 0.15)',
+              border: currentTab === 0 ? '1px solid rgba(0,0,0,0.06)' : '1.5px solid rgba(217, 119, 6, 0.35)',
+              color: currentTab === 0 ? '#9ca3af' : '#78350F',
+              cursor: currentTab === 0 ? 'default' : 'pointer',
+              fontWeight: 900,
+              fontSize: '13px',
+              transition: 'all 0.15s ease',
               flexShrink: 0,
             }}
-            role="tablist"
-            aria-label="Các chương luật chơi"
+            onPointerDown={(e) => {
+              if (currentTab > 0) (e.currentTarget as HTMLElement).style.transform = 'scale(0.9)';
+            }}
+            onPointerUp={(e) => {
+              (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
+            }}
           >
-            {chapters.map((ch, idx) => {
-              const active = currentTab === idx;
-              return (
-                <button
-                  key={ch.id}
-                  role="tab"
-                  id={`guide-tab-${ch.id}`}
-                  aria-selected={active}
-                  onClick={() => navigateTo(idx)}
-                  title={ch.title}
-                  style={{
-                    width: active ? 'clamp(32px, 7.8vw, 36px)' : 'clamp(26px, 6.2vw, 29px)',
-                    height: 'clamp(24px, 5.8vw, 27px)',
-                    borderRadius: '8px',
-                    border: active ? '2px solid #ffffff' : `1.5px solid ${ch.borderColor}`,
-                    background: active ? ch.gradient : 'rgba(255, 255, 255, 0.7)',
-                    color: active ? '#ffffff' : ch.primaryColor,
-                    fontWeight: 900,
-                    fontSize: 'clamp(11.5px, 3vw, 13px)',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    boxShadow: active
-                      ? `0 3px 8px ${ch.glowColor}, 0 0 10px ${ch.primaryColor}`
-                      : '0 1px 3px rgba(0,0,0,0.06)',
-                    transform: active ? 'scale(1.08)' : 'scale(1)',
-                    transition: 'all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                    fontFamily: "'Fredoka', sans-serif",
-                  }}
-                >
-                  <span>{ch.tabNum}</span>
-                </button>
-              );
-            })}
-          </div>
+            ◀
+          </button>
 
-          {/* Tiêu Đề Chương: Icon & Tựa Đề */}
-          <div style={{ padding: '4px 0 2px', textAlign: 'center', flexShrink: 0 }}>
+          <div style={{ textAlign: 'center', flex: 1, minWidth: 0 }}>
+            <div
+              style={{
+                fontSize: '10px',
+                fontWeight: 800,
+                color: activeChapter.primaryColor,
+                textTransform: 'uppercase',
+                letterSpacing: '0.8px',
+              }}
+            >
+              {activeChapter.chapterLabel} ({currentTab + 1}/{chapters.length})
+            </div>
             <h2
               ref={headingRef}
               tabIndex={-1}
               style={{
-                margin: '2px 0 0',
-                fontSize: 'clamp(14px, 4vw, 16.5px)',
+                margin: 0,
+                fontSize: 'clamp(14px, 4vw, 16px)',
                 fontWeight: 900,
                 color: '#1e1b4b',
                 lineHeight: 1.25,
@@ -420,41 +427,78 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '8px',
+                gap: '6px',
               }}
             >
               <ChapterIcon
                 src={activeChapter.iconAsset}
                 alt={activeChapter.title}
-                size={28}
+                size={24}
                 glowColor={activeChapter.glowColor}
               />
-              <span>{activeChapter.title}</span>
+              <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {activeChapter.title}
+              </span>
             </h2>
           </div>
 
-          {/* Vùng Cuộn Nội Dung Chính (Scrollable Narrative Content Area) */}
-          <div
-            ref={scrollRef}
-            className="arcade-scrollbar guide-antique-narrative-area"
+          <button
+            onClick={() => navigateTo(currentTab + 1)}
+            disabled={currentTab === chapters.length - 1}
+            title="Chương sau"
+            aria-label="Chương sau"
             style={{
-              flex: 1,
-              minHeight: 0,
-              overflowY: 'auto',
-              WebkitOverflowScrolling: 'touch',
-              overscrollBehavior: 'contain',
-              padding: '4px 2px 8px',
+              width: '32px',
+              height: '32px',
+              borderRadius: '8px',
               display: 'flex',
-              flexDirection: 'column',
-              gap: '6px',
-              color: '#2b1406',
-              fontSize: 'clamp(11.5px, 3.1vw, 12.5px)',
-              lineHeight: 1.45,
-              wordBreak: 'break-word',
-              overflowWrap: 'break-word',
-              fontFamily: "'Fredoka', sans-serif",
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: currentTab === chapters.length - 1 ? 'rgba(0,0,0,0.04)' : 'rgba(217, 119, 6, 0.15)',
+              border: currentTab === chapters.length - 1 ? '1px solid rgba(0,0,0,0.06)' : '1.5px solid rgba(217, 119, 6, 0.35)',
+              color: currentTab === chapters.length - 1 ? '#9ca3af' : '#78350F',
+              cursor: currentTab === chapters.length - 1 ? 'default' : 'pointer',
+              fontWeight: 900,
+              fontSize: '13px',
+              transition: 'all 0.15s ease',
+              flexShrink: 0,
+            }}
+            onPointerDown={(e) => {
+              if (currentTab < chapters.length - 1)
+                (e.currentTarget as HTMLElement).style.transform = 'scale(0.9)';
+            }}
+            onPointerUp={(e) => {
+              (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
             }}
           >
+            ▶
+          </button>
+        </div>
+
+        {/* Vùng Cuộn Nội Dung Chính - Chiếm trọn không gian, có animation chuyển mượt */}
+        <div
+          ref={scrollRef}
+          key={currentTab}
+          className="arcade-scrollbar guide-antique-narrative-area"
+          style={{
+            flex: 1,
+            minHeight: 0,
+            overflowY: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            overscrollBehavior: 'contain',
+            padding: '10px 14px 14px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+            color: '#2b1406',
+            fontSize: '12.5px',
+            lineHeight: 1.45,
+            wordBreak: 'break-word',
+            overflowWrap: 'break-word',
+            fontFamily: "'Fredoka', sans-serif",
+            animation: 'chapterSlideFade 0.22s cubic-bezier(0.2, 0.9, 0.4, 1.0)',
+          }}
+        >
             {/* CHƯƠNG 1: ĐÍCH ĐẾN 90M (90M GOAL) */}
             {currentTab === 0 && (
               <>
@@ -900,7 +944,6 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
             </div>
           </div>
         </div>
-      </div>
 
       <style>{`
         @keyframes fadeIn {
@@ -910,6 +953,24 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
         @keyframes guideScaleUp {
           from { transform: scale(0.92); opacity: 0; }
           to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes chapterSlideFade {
+          from { opacity: 0; transform: translateY(6px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .arcade-scrollbar::-webkit-scrollbar {
+          width: 5px;
+        }
+        .arcade-scrollbar::-webkit-scrollbar-track {
+          background: rgba(217, 119, 6, 0.08);
+          border-radius: 4px;
+        }
+        .arcade-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(217, 119, 6, 0.35);
+          border-radius: 4px;
+        }
+        .arcade-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(217, 119, 6, 0.6);
         }
       `}</style>
     </div>
