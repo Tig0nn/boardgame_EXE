@@ -1,3 +1,4 @@
+import {useFinancialDraft} from '../../../src/components/use-financial-draft.ts'
 import React, { useState } from 'react'
 import type { FundingSource, GameState } from '../../../src/game/types'
 import { ASSETS, RULES } from '../../../src/data/config'
@@ -56,6 +57,7 @@ export const MobileFundingDialog: React.FC<MobileFundingDialogProps> = ({
       ? saleQuote(game, source, valid ? amount : 0, creditSale ? bond?.lot.id : undefined)
       : { net: valid ? amount : 0, fee: 0, spread: 0 }
 
+  const draft=useFinancialDraft(game,{form:'funding',operation:'fund',source,amount,lotId:source==='savings'?lot?.id??null:creditSale?bond?.lot.id??null:null})
   const used = Math.min(payment.remaining, quote.net)
 
   const handleSelectSource = (s: FundingSource) => {
@@ -68,7 +70,7 @@ export const MobileFundingDialog: React.FC<MobileFundingDialogProps> = ({
           : s === 'bonds' && hasBondCredit(game)
             ? bond?.quote.gross ?? 0
             : game.portfolio[s]
-    setInput(nextAvail)
+    draft.publish({source:s,amount:nextAvail,lotId:s==='savings'?lot?.id??null:s==='bonds'?bond?.lot.id??null:null});setInput(nextAvail)
   }
 
   return (
@@ -192,7 +194,7 @@ export const MobileFundingDialog: React.FC<MobileFundingDialogProps> = ({
             onChange={(e) => {
               setBondId(e.target.value)
               const selectedBond = bondLots.find((item) => item.lot.id === e.target.value)
-              if (selectedBond) setInput(selectedBond.quote.gross)
+              if (selectedBond) {draft.publish({lotId:e.target.value,amount:selectedBond.quote.gross});setInput(selectedBond.quote.gross)}
             }}
             style={{
               width: '100%',
@@ -228,7 +230,7 @@ export const MobileFundingDialog: React.FC<MobileFundingDialogProps> = ({
           </div>
           <select
             value={lotId}
-            onChange={(e) => setLotId(e.target.value)}
+            onChange={(e) => {draft.publish({lotId:e.target.value,amount:lots.find(l=>l.id===e.target.value)?.principal??null});setLotId(e.target.value)}}
             style={{
               width: '100%',
               padding: '8px 10px',
@@ -278,7 +280,7 @@ export const MobileFundingDialog: React.FC<MobileFundingDialogProps> = ({
               min={0}
               max={available}
               value={input || ''}
-              onChange={(e) => setInput(Number(e.target.value))}
+              onChange={(e) => {draft.publish({amount:Number(e.target.value)});setInput(Number(e.target.value))}}
               style={{
                 flex: 1,
                 padding: '10px 12px',

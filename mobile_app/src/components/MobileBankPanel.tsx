@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import { useFinancialDraft } from '../../../src/components/use-financial-draft.ts'
 import type { GameState, RebalanceAction, Term } from '../../../src/game/types'
 import { money } from '../../../src/game/format'
 import { depositPreview, purchasePreview } from '../../../src/game/selectors'
@@ -21,6 +22,7 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
   const defaultAmount = Math.min(10_000_000, game.portfolio.cash)
   const [amount, setAmount] = useState<number>(defaultAmount > 0 ? defaultAmount : 1_000_000)
   const [submitting, setSubmitting] = useState(false)
+  useFinancialDraft(game, { form: 'bank', operation: 'deposit', amount, term })
   const submitLock = useRef(false)
 
   const rates = savingsProfileForGame(game).rates

@@ -1,0 +1,46 @@
+import type {GameState} from '../../../src/game/types.ts'
+import type {QuestionFeature} from '../../../src/ai/companion/question-feature.ts'
+import {runQuestionFeature} from '../../../src/ai/companion/question-feature.ts'
+import {projectDraftContext,createDraftRequest,answerDraft,validateDraftResponse} from '../../../src/ai/companion/draft-index.ts'
+import type {DraftContext,DraftRequest,DraftResponse} from '../../../src/ai/companion/draft-index.ts'
+import type {GameplaySession} from './universal-ai.ts'
+import type {DraftStore} from './draft-store.ts'
+export const draftAiOptIn=(development:boolean,search:string)=>development===true&&new URLSearchParams(search).get('universalAi')==='1'&&new URLSearchParams(search).get('draftAi')==='1'
+export type DraftTransport=(r:DraftRequest,signal:AbortSignal)=>Promise<unknown>
+export interface DraftView {context:DraftContext|null;status:'idle'|'loading'|'answered'|'fallback'|'error'|'disabled';response:DraftResponse|null;isCurrent:()=>boolean}
+function freeze<T>(v:T):T {if(v&&typeof v==='object'){Object.freeze(v);Object.values(v).forEach(freeze)}return v}
+/** No listeners or work until commit-time subscription; all delivery checks include the draft frame. */
+export function createDraftBinding(session:GameplaySession,feature:QuestionFeature,store:DraftStore,invalidateActual:()=>void,transport:DraftTransport=async(r,s)=>{s.throwIfAborted();return answerDraft(r)}){
+ const listeners=new Set<()=>void>()
+ let generation=0,revision=0,epoch='',started=false,previous:GameState|undefined,pending:AbortController|undefined
+ let stopSession=()=>{},stopFeature=()=>{},stopStore=()=>{}
+ let view:DraftView=freeze({context:null,status:'idle',response:null,isCurrent:()=>false})
+ const emit=()=>[...listeners].forEach(fn=>fn())
+ function context(){const frame=store.getSnapshot();try{return projectDraftContext(session.getSnapshot(),{sessionEpoch:epoch,revision,draftId:frame?.owner??'no-form',draftRevision:frame?.revision??generation},frame?.basis===session.getSnapshot()?frame.input:null)}catch{return null}}
+ function cancel(){generation++;const old=pending;pending=undefined;view=freeze({context:started?context():null,status:feature.isEnabled()?'idle':'disabled',response:null,isCurrent:()=>false});old?.abort();emit()}
+ function start(){if(started)return;started=true;epoch=crypto.randomUUID();previous=session.getSnapshot();revision=0
+  stopStore=store.subscribe(()=>{cancel();invalidateActual()})
+  stopSession=session.subscribe(()=>{if(session.getSnapshot()!==previous){previous=session.getSnapshot();revision++;store.clear();cancel()}})
+  stopFeature=feature.subscribe(()=>{cancel();invalidateActual()});cancel()
+ }
+ return {
+  getSnapshot:()=>view,
+  subscribe(fn:()=>void){listeners.add(fn);start();return()=>{listeners.delete(fn);if(!listeners.size){started=false;stopSession();stopStore();stopFeature();cancel()}}},
+  cancel,
+  async ask(question:string):Promise<DraftResponse|null>{
+   if(!started||!feature.isEnabled()||!question.trim())return null
+   cancel();const captured=view.context;if(!captured)return null
+   const mine=generation,frame=store.getSnapshot(),snapshot=session.getSnapshot(),abort=new AbortController();pending=abort
+   const current=()=>started&&feature.isEnabled()&&mine===generation&&!abort.signal.aborted&&snapshot===session.getSnapshot()&&frame===store.getSnapshot()
+   view=freeze({context:captured,status:'loading',response:null,isCurrent:current});emit()
+   try{
+    const response=await runQuestionFeature(feature,abort.signal,async signal=>{
+     const request=freeze(await createDraftRequest(captured,question,crypto.randomUUID()));signal.throwIfAborted();if(!current())throw Error('stale')
+     const raw=await transport(request,signal);signal.throwIfAborted();const result=await validateDraftResponse(raw,request);signal.throwIfAborted();return freeze(result)
+    })
+    if(!current())return null
+    view=freeze({context:captured,status:response.status,response,isCurrent:current});emit();return current()?response:null
+   }catch{if(current()){view=freeze({context:captured,status:'error',response:null,isCurrent:current});emit()}return null}
+  },
+ }
+}

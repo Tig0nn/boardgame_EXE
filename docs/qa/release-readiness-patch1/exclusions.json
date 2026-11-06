@@ -1,0 +1,2095 @@
+{
+  "localOnly": [
+    {
+      "file": "docs/EXE_AI_COMPANION_CLOSED_BETA_RELEASE_READINESS_REPORT.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/EXE_AI_COMPANION_CURATED_QUESTIONS_V2_REPORT.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/EXE_AI_COMPANION_EDUCATIONAL_ANSWERS_V3_REPORT.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/EXE_AI_COMPANION_GUIDED_FORM_V1_REPORT.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/EXE_AI_COMPANION_MVP_BETA_INTEGRATION_REPORT.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/EXE_AI_COMPANION_V3_FINAL_CONTENT_POLISH_REPORT.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/EXE_AI_COMPANION_V3_FINAL_OWNER_REVIEW.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/EXE_AI_COMPANION_V3_FINAL_TWO_ANSWERS_QA_REPORT.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/EXE_AI_COMPANION_V3_OWNER_CONTENT_REVIEW.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/V3_ACCEPTED_CHECKPOINT.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/artifact-manifest.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/browser-preview.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/browser-session.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/build-refused-no-approval.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/commands-first.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/commands.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/commit-files.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/curated-empty-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/curated-empty-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/diagnostics.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/excluded-files.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/gate-green.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/gate-red.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/git-status-before.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/git-status-final.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/historical-replays.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lifecycle-macro-compare-import-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lifecycle-macro-compare-import-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lifecycle-macro-compare-restart-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lifecycle-macro-compare-restart-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lifecycle-macro-compare-resume-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lifecycle-macro-compare-resume-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lifecycle-personal-rules-import-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lifecycle-personal-rules-import-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lifecycle-personal-rules-restart-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lifecycle-personal-rules-restart-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lifecycle-personal-rules-resume-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lifecycle-personal-rules-resume-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/lint.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/mobile-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/mobile-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/npm-audit-mobile-first.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/npm-audit-mobile.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/npm-audit-root-first.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/npm-audit-root.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/preservation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/preview-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/preview-macro-compare-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/preview-macro-compare-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/preview-personal-rules-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/preview-personal-rules-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/product-first.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/product.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/public-host-red.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/release-config-types-first.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/release-config-types-inference.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/release-config-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/release-manifest.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/replays.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/root-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/root-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/secret-scan.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/semantic-evaluation.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/source.diff",
+      "reason": "Redundant historical source copy; use Git diff and current manifest source hashes."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/tracked-diff-before.patch",
+      "reason": "Redundant historical source copy; use Git diff and current manifest source hashes."
+    },
+    {
+      "file": "docs/qa/closed-beta-release/uncommitted-inventory.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/QUESTION_CATALOG.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/adapter-first.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-bank-compare-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-bank-compare-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-bank-draft-cash-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-bank-draft-cash-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-bank-maturity-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-bank-maturity-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-course-compare-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-course-compare-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-finance-cash-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-finance-cash-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-gold-price-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-gold-price-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-gold-sale-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-gold-sale-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-personal-compare-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-personal-compare-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-stocks-price-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-stocks-price-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-stocks-sale-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/answer-stocks-sale-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/browser-first.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/browser-first.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/browser.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/catalog-first.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/catalog-verification.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/checkpoint.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/commands.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/curated-empty-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/curated-empty-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/diagnostics.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/empty-bank-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/empty-bank-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/failure.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/green.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/heldout-evaluation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/historical-replays.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/lifecycle-browser-first.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/lifecycle-browser-host-before.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/lifecycle-browser-import-before.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/lifecycle-browser.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/lifecycle-import-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/lifecycle-import-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/lifecycle-restart-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/lifecycle-restart-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/lifecycle-resume-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/lifecycle-resume-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/lint.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/missing-comparison-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/missing-comparison-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/mobile-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/mobile-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/preservation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/product.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/red.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/relevance.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/replays.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/review-files.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/root-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/root-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/semantic-evaluation.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/source-files.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/source.diff",
+      "reason": "Redundant historical source copy; use Git diff and current manifest source hashes."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-bank-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-bank-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-bonds-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-bonds-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-business-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-business-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-course-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-course-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-gold-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-gold-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-macro-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-macro-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-personal-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-personal-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-start-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-start-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-stocks-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/curated-questions-v2/tile-stocks-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/AFTER.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/BEFORE_AFTER.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/CONTENT_AUDIT.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/adapter-first.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-bank-compare-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-bank-compare-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-bank-draft-cash-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-bank-draft-cash-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-bank-maturity-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-bank-maturity-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-course-compare-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-course-compare-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-finance-cash-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-finance-cash-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-gold-price-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-gold-price-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-gold-sale-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-gold-sale-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-personal-compare-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-personal-compare-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-stocks-price-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-stocks-price-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-stocks-sale-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/answer-stocks-sale-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/browser.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/checkpoint.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/commands.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/course-example-details-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/course-example-details-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/course-example-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/course-example-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/curated-empty-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/curated-empty-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/diagnostics.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/empty-bank-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/empty-bank-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/green.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/heldout-evaluation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/historical-replays.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/lifecycle-browser.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/lifecycle-import-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/lifecycle-import-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/lifecycle-restart-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/lifecycle-restart-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/lifecycle-resume-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/lifecycle-resume-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/limits-red.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/lint.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/missing-comparison-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/missing-comparison-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/missing-context-red.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/mobile-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/mobile-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/owner-example-game.json",
+      "reason": "Full natural game export or paired owner sample; raw replay/save data unnecessary for GitHub review."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/owner-example.json",
+      "reason": "Full natural game export or paired owner sample; raw replay/save data unnecessary for GitHub review."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/preservation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/product.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/red.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/replays.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/review-files.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/root-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/root-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/semantic-evaluation.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/source-files.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/source.diff",
+      "reason": "Redundant historical source copy; use Git diff and current manifest source hashes."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-bank-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-bank-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-bonds-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-bonds-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-business-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-business-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-course-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-course-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-gold-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-gold-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-macro-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-macro-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-personal-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-personal-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-start-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-start-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-stocks-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/tile-stocks-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3/unreviewed-red.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/adapter-first.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/browser-red.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/browser.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/checkpoint.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/commands.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/diagnostics.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/finance-boundary-red.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/green.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/guided-bank-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/guided-bank-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/guided-empty-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/guided-empty-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/guided-finance-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/guided-finance-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/guided-form-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/guided-form-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/guided-medical-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/guided-medical-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/guided-medical-cost-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/guided-medical-cost-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/heldout-evaluation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/historical-replays.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/lint.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/mapping-boundary-observation.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/mobile-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/mobile-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/presentation-red.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/preservation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/product.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/red-old-form-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/red.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/red.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/relevance.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/replays.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/review-files.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/root-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/root-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/semantic-evaluation.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/source-files.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/guided-form-v1/source.diff",
+      "reason": "Redundant historical source copy; use Git diff and current manifest source hashes."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/bank-draft-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/bank-draft-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/beta-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/beta-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/browser.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/commands.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/commit-files.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/diagnostics.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/heldout-evaluation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/historical-replays.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/lint.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/mobile-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/mobile-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/preservation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/product.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/replays.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/root-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/root-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/semantic-evaluation.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/source-files.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/mvp-beta-integration/source.diff",
+      "reason": "Redundant historical source copy; use Git diff and current manifest source hashes."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/AFTER.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/BEFORE_AFTER.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bank-rules-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bank-rules-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bonds-compare-details-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bonds-compare-details-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bonds-compare-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bonds-compare-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bonds-coupon-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bonds-coupon-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bonds-risk-details-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bonds-risk-details-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bonds-risk-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bonds-risk-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bonds-rules-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/bonds-rules-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/browser-failure.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/browser-first.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/browser-second.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/browser.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/business-risk-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/business-risk-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/business-rules-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/business-rules-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/checkpoint.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/commands.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/course-cash-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/course-cash-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/course-compare-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/course-compare-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/course-rules-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/course-rules-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/diagnostics.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/finance-cash-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/finance-cash-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/gold-price-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/gold-price-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/green-final.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/green-first.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/heldout-evaluation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/historical-replays.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/lint.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/macro-compare-details-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/macro-compare-details-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/macro-compare-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/macro-compare-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/macro-risk-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/macro-risk-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/macro-rules-details-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/macro-rules-details-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/macro-rules-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/macro-rules-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/mobile-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/mobile-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/personal-compare-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/personal-compare-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/personal-cost-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/personal-cost-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/personal-rules-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/personal-rules-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/preservation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/product-first.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/product.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/red.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/replays.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/review-files.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/root-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/root-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/semantic-evaluation.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/source-files.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/source.diff",
+      "reason": "Redundant historical source copy; use Git diff and current manifest source hashes."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/start-forecast-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/start-forecast-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/start-summary-details-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/start-summary-details-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/start-summary-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/start-summary-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/stocks-price-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-content-polish/stocks-price-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/BEFORE_AFTER.md",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/browser-gates.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/browser.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/checkpoint.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/commands.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/curated-empty-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/curated-empty-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/diagnostics.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/green-first.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/green.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/heldout-evaluation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/historical-replays.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-browser.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-macro-compare-import-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-macro-compare-import-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-macro-compare-restart-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-macro-compare-restart-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-macro-compare-resume-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-macro-compare-resume-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-personal-rules-import-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-personal-rules-import-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-personal-rules-restart-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-personal-rules-restart-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-personal-rules-resume-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lifecycle-personal-rules-resume-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/lint.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/macro-compare-details-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/macro-compare-details-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/macro-compare-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/macro-compare-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/macro-compare-missing-domain-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/macro-compare-missing-domain-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/mobile-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/mobile-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/personal-rules-main-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/personal-rules-main-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/personal-rules-missing-domain-320.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/personal-rules-missing-domain-390.png",
+      "reason": "Historical viewport capture; superseded by four current compiled Preview screenshots. No need to publish all 219 images."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/preservation.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/product.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/red.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/replays.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/root-build.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/root-types.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/semantic-evaluation.txt",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/source-files.json",
+      "reason": "Superseded by Patch 1 report, structured current QA summary and file-level audit; preserve local evidence."
+    },
+    {
+      "file": "docs/qa/v3-final-two-answers/source.diff",
+      "reason": "Redundant historical source copy; use Git diff and current manifest source hashes."
+    },
+    {
+      "file": "scripts/diagnostics/beta-audit.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/beta-browser.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/beta-checks.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/beta-replays.ts",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/closed-beta-browser.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/closed-beta-checks.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/closed-beta-freeze.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/closed-beta-manifest.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/closed-beta-replays.ts",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/closed-beta-session-browser.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/content-polish-audit.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/content-polish-browser.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/content-polish-checkpoint.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/content-polish-checks.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/content-polish-replays.ts",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/content-polish-review.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/curated-v2-audit.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/curated-v2-browser.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/curated-v2-catalog.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/curated-v2-checks.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/curated-v2-lifecycle-browser.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/curated-v2-relevance.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/curated-v2-replays.ts",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/educational-v3-audit-before.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/educational-v3-audit.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/educational-v3-browser.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/educational-v3-checks.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/educational-v3-lifecycle-browser.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/educational-v3-replays.ts",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/educational-v3-review.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/final-two-browser.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/final-two-checks.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/final-two-evidence.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/final-two-lifecycle-browser.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/final-two-replays.ts",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/guided-form-audit.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/guided-form-browser.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/guided-form-checks.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/guided-form-relevance.mjs",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    },
+    {
+      "file": "scripts/diagnostics/guided-form-replays.ts",
+      "reason": "Historical stage-specific tool or manifest; current Patch 1 tools replace its release/replay/browser role."
+    }
+  ],
+  "additionalLocalOnly": [
+    {
+      "file": "docs/EXE_CLOSED_BETA_MANIFEST_OWNER_REVIEW_2026-11-05.md",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/educational-answers-v3.zip",
+      "reason": "Still excluded; contents not inspected and no need to publish transfer archive."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/audit-run.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/browser-preview.json",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/browser-session.json",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/checkpoint.json",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/commands.json",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/curated-empty-320.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/curated-empty-390.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/diagnostics.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/index.json",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-01.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-02.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-03.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-04.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-05.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-06.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-07.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-08.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-09.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-10.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-11.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-12.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-13.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-14.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-15.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-16.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-17.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-18.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gallery/sheet-19.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gate-green.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/gate-red.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/historical-replays.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lifecycle-macro-compare-import-320.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lifecycle-macro-compare-import-390.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lifecycle-macro-compare-restart-320.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lifecycle-macro-compare-restart-390.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lifecycle-macro-compare-resume-320.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lifecycle-macro-compare-resume-390.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lifecycle-personal-rules-import-320.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lifecycle-personal-rules-import-390.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lifecycle-personal-rules-restart-320.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lifecycle-personal-rules-restart-390.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lifecycle-personal-rules-resume-320.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lifecycle-personal-rules-resume-390.png",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/lint.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/manifest-run.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/mobile-build.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/mobile-types.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/npm-audit-mobile.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/npm-audit-root.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/preview-build.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/prior-candidates.json",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/product-proposal-closure.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/product.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/release-config-types.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/replays.json",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/root-build.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/root-types.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/semantic-evaluation.txt",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "docs/qa/release-readiness-patch1/source.diff",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "scripts/diagnostics/readiness-patch1-checkpoint.mjs",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    },
+    {
+      "file": "scripts/diagnostics/readiness-patch1-gallery.mjs",
+      "reason": "Raw/intermediate QA, visual-triage sheet or local checkpoint; structured current evidence is sufficient for review."
+    }
+  ],
+  "noFilesDeleted": true
+}

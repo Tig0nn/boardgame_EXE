@@ -1,0 +1,697 @@
+[
+  {
+    "file": "mobile_app/src/App.tsx",
+    "sha256": "dcf37d209b31abbc0413d25b6c8f08d01e4cc35593604d02e1689329af0539aa",
+    "bytes": 18430
+  },
+  {
+    "file": "mobile_app/src/components/AiAnswerContent.tsx",
+    "sha256": "7c43264251b4a18265b4d25b87acf836540da8df9f786ab897f21b54ab3e7096",
+    "bytes": 909
+  },
+  {
+    "file": "mobile_app/src/components/BetaCompanion.tsx",
+    "sha256": "ae7d3b13ae1b59bec526939d046e4540f1a2761b5944bbdc492833018a2bfee4",
+    "bytes": 4313
+  },
+  {
+    "file": "mobile_app/src/components/CuratedAiResult.tsx",
+    "sha256": "8d42746c76ecd5c2786dd152cabd56b556f55e3c51a26bc19060854015f8ab79",
+    "bytes": 1406
+  },
+  {
+    "file": "mobile_app/src/components/DraftAiResult.tsx",
+    "sha256": "fb8e09200c46c909ff366d9f79e65edae2abe80a25f1c06b68cd6bd17c926000",
+    "bytes": 1232
+  },
+  {
+    "file": "mobile_app/src/components/EducationalAnswerContent.tsx",
+    "sha256": "c12c995f0d4b772b8bc391eb49f84ec7d1536959564519b3019a391ec84f9960",
+    "bytes": 612
+  },
+  {
+    "file": "mobile_app/src/components/GameplayAi.tsx",
+    "sha256": "3c289b8df69fb0c3e907019ffa7cb5534bb0a5e5873e5b39a699d5c26b2d1976",
+    "bytes": 4556
+  },
+  {
+    "file": "mobile_app/src/components/GuidedAiResult.tsx",
+    "sha256": "1ed64b469273d9634a51fae0e3b7c0d8cf4079999cc9625148143b5bcc5f45d8",
+    "bytes": 1164
+  },
+  {
+    "file": "mobile_app/src/components/MobileBankPanel.tsx",
+    "sha256": "9f63f4e55eb409350d998bfde69dfc7ee3a29a5a7d9fda675a173116f76af35d",
+    "bytes": 21226
+  },
+  {
+    "file": "mobile_app/src/components/MobileFundingDialog.tsx",
+    "sha256": "2f747cf1abb240a2e3d448298f9b68e064a9f87377f17a6284fba38da1f2e020",
+    "bytes": 13292
+  },
+  {
+    "file": "mobile_app/src/components/MobileRebalanceModal.tsx",
+    "sha256": "f0ab050d6050327ea5569f459a919ef0cfd19884d07d7b75e1793ab27f4e54f8",
+    "bytes": 15580
+  },
+  {
+    "file": "mobile_app/src/components/SemanticAiResult.tsx",
+    "sha256": "dcbdc68e7e167ae5cc0d8d52ac7d706be5990e17fd2c2ead901192bfbd86460b",
+    "bytes": 1473
+  },
+  {
+    "file": "mobile_app/src/components/ai-answer-presentation.ts",
+    "sha256": "7c29f0b9c61747149845b4e5b2f5eaec196908129bfded84027e360c6f9b0898",
+    "bytes": 9856
+  },
+  {
+    "file": "mobile_app/src/components/ai-answer.css",
+    "sha256": "16a6b50b874ae53b19a20532281922f164c6981b98cb231fa68c3a2ba6143bae",
+    "bytes": 556
+  },
+  {
+    "file": "mobile_app/src/components/beta-companion.css",
+    "sha256": "4a3c9d58576cc8dc0d50bddf39d0e663d98fe5d23d1ca28537b0e6d1f3a0e0d4",
+    "bytes": 3044
+  },
+  {
+    "file": "mobile_app/src/components/curated-ai-presentation.ts",
+    "sha256": "1033e1e09840a339ee07dd3cc17381c80fc00ba07d35569fe36b798fd9261c5e",
+    "bytes": 1564
+  },
+  {
+    "file": "mobile_app/src/components/draft-ai-context.ts",
+    "sha256": "c169f79e222db1d937e0470f08e53fb1f48ae3672092c5f21464651d43e871ae",
+    "bytes": 404
+  },
+  {
+    "file": "mobile_app/src/components/draft-ai.css",
+    "sha256": "dfe0870f6275406a938c1dfca78656264548203cabd7c6ddd89fa14ce82e4760",
+    "bytes": 556
+  },
+  {
+    "file": "mobile_app/src/components/educational-ai-presentation.ts",
+    "sha256": "58ea29bc4f569612a19fc87ef3e7bff56caa228e8b97bb6cbc8d7642a8d64b54",
+    "bytes": 36863
+  },
+  {
+    "file": "mobile_app/src/components/educational-answer.css",
+    "sha256": "53f40d50271c490fe69f0d4f97b44e6a7173961e80144c01b60e825f4f66f13c",
+    "bytes": 670
+  },
+  {
+    "file": "mobile_app/src/components/guided-ai-presentation.ts",
+    "sha256": "5e24085e8b14d4e36c862fcbb706f799bf4e01295af6805474517f3a03749322",
+    "bytes": 2187
+  },
+  {
+    "file": "mobile_app/src/components/semantic-ai-context.ts",
+    "sha256": "30fe705c38f2bd0be01d5f1f112eefdafa4ab145b90cfd51d453df92fe3c812c",
+    "bytes": 434
+  },
+  {
+    "file": "mobile_app/src/components/universal-ai.css",
+    "sha256": "1f7635ad5e3948ada8caf91b2388d639ccf3e175d69f2a1a60dd6281bd250332",
+    "bytes": 2153
+  },
+  {
+    "file": "mobile_app/src/game/beta-feature.ts",
+    "sha256": "7647834d42b6c2d1dd31dbdcb4a650722d15211564b841ef9c28e212a3e09d42",
+    "bytes": 671
+  },
+  {
+    "file": "mobile_app/src/game/curated-ai.ts",
+    "sha256": "92d88000f43487b348a371c17e9475136fc04bda07477b00387e003fecf1718b",
+    "bytes": 4997
+  },
+  {
+    "file": "mobile_app/src/game/curated-catalog.ts",
+    "sha256": "4f79b267379c9d37f4b004ab151b6529ad48787df5bc96dc496c728b3f3c6a7d",
+    "bytes": 12601
+  },
+  {
+    "file": "mobile_app/src/game/draft-ai.ts",
+    "sha256": "145b38d7dd80a15fb0f1303da911afe063d54247eb0433cd3c0fd383dc7c5133",
+    "bytes": 4197
+  },
+  {
+    "file": "mobile_app/src/game/draft-store.ts",
+    "sha256": "4ce560a5008d07b393e0c433e58c7f467cc5775b02db47f68d4b7edd28ecba5f",
+    "bytes": 932
+  },
+  {
+    "file": "mobile_app/src/game/guided-ai.ts",
+    "sha256": "a169644866493118313c766b07ec40011f548da5e4065ea089a4ddabac726323",
+    "bytes": 8411
+  },
+  {
+    "file": "mobile_app/src/game/semantic-ai.ts",
+    "sha256": "8e567bac1517f111827b4db9f70fe38d0b3050287ebf7d6bd5c9197cf04be6df",
+    "bytes": 4627
+  },
+  {
+    "file": "mobile_app/src/game/universal-ai-feature.ts",
+    "sha256": "aced0f1b24f30a024349cde3d97c28baed859e98d0fc8c1ee3006a07eeef4f6b",
+    "bytes": 419
+  },
+  {
+    "file": "mobile_app/src/game/universal-ai.ts",
+    "sha256": "c17e6be40658914beecbc59ddfc17e59f00179360a4500f20de6bab24b66b4fc",
+    "bytes": 4806
+  },
+  {
+    "file": "release/beta/README.md",
+    "sha256": "526ff584fa259b80ffa04f2719665e56c2ea98ca137745758d91996c2aa75639",
+    "bytes": 6591
+  },
+  {
+    "file": "release/beta/build-policy.ts",
+    "sha256": "0d2ba0a8336aa4475e318a9564b410c3c9272d79e4d1ee923ba181ad0b40cf47",
+    "bytes": 783
+  },
+  {
+    "file": "release/beta/package.json",
+    "sha256": "dd35d70fc4ca5104fee648021559e643c7b4c447507f7a22825808114949f016",
+    "bytes": 258
+  },
+  {
+    "file": "release/beta/vercel.json",
+    "sha256": "f29d2007b30edaa5aaf0bb328d3dddc05fdea2c4043ba42cef258942fbe6a6de",
+    "bytes": 469
+  },
+  {
+    "file": "release/beta/vite.config.ts",
+    "sha256": "8f014c04d574ee4356598d809eaa055c3a02518a63271f200efe9868ba3d7ed1",
+    "bytes": 763
+  },
+  {
+    "file": "scripts/beta-local.mjs",
+    "sha256": "6cedae209faaf0f4bd7883922553d12bee7414ef65694b0d625b654ee3d59c2c",
+    "bytes": 877
+  },
+  {
+    "file": "scripts/build-companion-beta.mjs",
+    "sha256": "877abd002163f67d80bca46ce96afc30b91c541706613721e988191f9d9d1e32",
+    "bytes": 729
+  },
+  {
+    "file": "scripts/diagnostics/draft-ai-esm.test.ts",
+    "sha256": "bc8ad7b5522bb344bf64275ce02f210e3a9d2c5913144591ed43261b641e9b0c",
+    "bytes": 2506
+  },
+  {
+    "file": "scripts/diagnostics/readiness-patch1-audit.mjs",
+    "sha256": "d2ea3d66a753d021d346b73f7bbd75a2c0c143454f4b54d6a14407736391ac67",
+    "bytes": 9888
+  },
+  {
+    "file": "scripts/diagnostics/readiness-patch1-browser.mjs",
+    "sha256": "0293550c6553c77edef835ec5ad4a1629c1cd13c43f88685bf6c7c154b275b38",
+    "bytes": 8667
+  },
+  {
+    "file": "scripts/diagnostics/readiness-patch1-checks.mjs",
+    "sha256": "4285729293c40b1c02eb22a3aa8b7ae42d328225fe270ce5be4e410528cc97e1",
+    "bytes": 2331
+  },
+  {
+    "file": "scripts/diagnostics/readiness-patch1-manifest.mjs",
+    "sha256": "739aafa879f254700897a322a0c2f6760f8e99fffbc58c9beb62611f032a01e9",
+    "bytes": 12918
+  },
+  {
+    "file": "scripts/diagnostics/readiness-patch1-proposal-guard.mjs",
+    "sha256": "dadf09101856009013280687c2940561d88cd2d78b09e83ac168c03a5041d6b9",
+    "bytes": 808
+  },
+  {
+    "file": "scripts/diagnostics/readiness-patch1-replays.ts",
+    "sha256": "0f0589063e5bc203ac911b855e7575a5ae194299b33eecaf7bfb2a899354f6be",
+    "bytes": 1250
+  },
+  {
+    "file": "scripts/diagnostics/readiness-patch1-session-browser.mjs",
+    "sha256": "2264ef5c32859f0f13d7a081ef302dfb093a253a77aa73c530394be0589835cf",
+    "bytes": 9753
+  },
+  {
+    "file": "scripts/diagnostics/semantic-ai-esm.test.ts",
+    "sha256": "e4aa5f959f62f43ab7c3bdc7b39cc7b559aeaea391358e349c3952b15b36c9b4",
+    "bytes": 2686
+  },
+  {
+    "file": "scripts/diagnostics/semantic-evaluation.mjs",
+    "sha256": "3435db7b0ae77ab8f9c90be037416e6d0c7aee203ab460d3cf63795c0791d1ea",
+    "bytes": 3878
+  },
+  {
+    "file": "scripts/preview-companion-beta.mjs",
+    "sha256": "b3a204b53a6d91fb73ff3b290727665cb158acbde31d875839a4f1b87e28f1cd",
+    "bytes": 597
+  },
+  {
+    "file": "src/ai/companion/contracts.ts",
+    "sha256": "7cf757fdc18dd72b080aa8e5be870398d0a31160bbfb030277a43b3b17dd0338",
+    "bytes": 6649
+  },
+  {
+    "file": "src/ai/companion/draft-index.ts",
+    "sha256": "9530cc37f463e51c8d27dc832b63b382d08db23c2893303d6787f6fdb5b7d2ed",
+    "bytes": 401
+  },
+  {
+    "file": "src/ai/companion/draft/answer.ts",
+    "sha256": "068f1e96a70fa982b3a868566a53620d87aa0c882dafbb4220c6897891a00e31",
+    "bytes": 8355
+  },
+  {
+    "file": "src/ai/companion/draft/contract.ts",
+    "sha256": "a726a46cc8f4b6d9a7a5ebd71387ed8993fd73440853e2e4caeab5c67dab5a33",
+    "bytes": 9082
+  },
+  {
+    "file": "src/ai/companion/draft/projector.ts",
+    "sha256": "a265c786a05da1f0f274726a75cc5bf27796114810c0fa4bd8ea7fa67771344c",
+    "bytes": 3761
+  },
+  {
+    "file": "src/ai/companion/draft/types.ts",
+    "sha256": "9c318226d88d408d73ed6a2da339e1fc542f0df77d83dcb16538814e9a85dc68",
+    "bytes": 1931
+  },
+  {
+    "file": "src/ai/companion/errors.ts",
+    "sha256": "f39aec90ca50e34e18f4821c64674a278de3de4ed9437fe102ce278e0c0cfdf4",
+    "bytes": 2198
+  },
+  {
+    "file": "src/ai/companion/question-contract.ts",
+    "sha256": "0b5c4b1030d39e6136cd2f78dce19dfb4ae14a6d5f1392eab3e51559c7e5501b",
+    "bytes": 4251
+  },
+  {
+    "file": "src/ai/companion/question-errors.ts",
+    "sha256": "8fe0b452e21f92edb9c94010ed1f67513d9c13ba86b86b9356632e1179e09866",
+    "bytes": 3803
+  },
+  {
+    "file": "src/ai/companion/question-feature.ts",
+    "sha256": "b9d31dbb2eb4119f63796f61ff1463e4fe188476425215fd3b6b3e995e0caad7",
+    "bytes": 2596
+  },
+  {
+    "file": "src/ai/companion/question-types.ts",
+    "sha256": "e3e0b5c58b6fd4af6bf8232da08cd13f34bb3a688c7b3613aba892399153e939",
+    "bytes": 2412
+  },
+  {
+    "file": "src/ai/companion/questions/routing.ts",
+    "sha256": "ef112713135827698e2afb9a1b19033dd7f2b07681eb2779620539c2c60b1b97",
+    "bytes": 3199
+  },
+  {
+    "file": "src/ai/companion/repair-quotes.ts",
+    "sha256": "b0021f7d7ebb7cf645a3a9db63480c033b44e9dcc57277f732c591d70cc3c9c0",
+    "bytes": 2202
+  },
+  {
+    "file": "src/ai/companion/schema.ts",
+    "sha256": "77432b768c0a7b0a966d66aea0123305782765dc7d9c139c0bc356a24efda528",
+    "bytes": 2978
+  },
+  {
+    "file": "src/ai/companion/semantic-index.ts",
+    "sha256": "6caf41ca39835a8821c05f2450f346a082782799896be1a16eec91b2c4bef569",
+    "bytes": 307
+  },
+  {
+    "file": "src/ai/companion/semantic/answer.ts",
+    "sha256": "31a01510d76574074fe57ee44e0170bf9ac4fd4d5737ed59e473512cbd677cb2",
+    "bytes": 6959
+  },
+  {
+    "file": "src/ai/companion/semantic/clarification.ts",
+    "sha256": "01e2f69c47f404e291cf2ac7ce94f24961440cc96439095d64bd33ee6bc9de7b",
+    "bytes": 3360
+  },
+  {
+    "file": "src/ai/companion/semantic/contract.ts",
+    "sha256": "48105c426b9bb213d20743a9f288eaff4ddc380442c380790ab3417d21a645eb",
+    "bytes": 2575
+  },
+  {
+    "file": "src/ai/companion/semantic/question-signals.ts",
+    "sha256": "1d3c06a8b85e9a00d2dc3097a1c35d9e021cd3e716b00d1216b09512aecfebc8",
+    "bytes": 1858
+  },
+  {
+    "file": "src/ai/companion/semantic/routing.ts",
+    "sha256": "e5d3d5329d572ea157808a637ae18f2e2009de6227e7874eeb2a330139ba8519",
+    "bytes": 7454
+  },
+  {
+    "file": "src/ai/companion/semantic/safety-lexical.ts",
+    "sha256": "13be4c94437cb80927412111013c5449fd5d1a5bc631adb70278da1ea207bea5",
+    "bytes": 3460
+  },
+  {
+    "file": "src/ai/companion/semantic/safety.ts",
+    "sha256": "56edfd322a92acaeaa8f131914c431222c676acf97a15afdc83692f29db6926b",
+    "bytes": 10261
+  },
+  {
+    "file": "src/ai/companion/semantic/types.ts",
+    "sha256": "d3c844053e11b65c2022ad66ba85ffe12c4514c71ad7e2548ce139a1132b2fc0",
+    "bytes": 1659
+  },
+  {
+    "file": "src/ai/companion/serialization.ts",
+    "sha256": "2380822c46f423f5e16f7bc2ff95ce5a44faff296ed6926e2b0045a7a9fd930e",
+    "bytes": 1426
+  },
+  {
+    "file": "src/ai/companion/types.ts",
+    "sha256": "049e5e2d7b217e7c8fffa470b3da89812b5127dad765a9679f1b7f54c656de87",
+    "bytes": 4179
+  },
+  {
+    "file": "src/ai/companion/universal-index.ts",
+    "sha256": "ca87a4521cf611349e7ae8b013a239c31579a2768c76e158e638eb9849f38a9d",
+    "bytes": 570
+  },
+  {
+    "file": "src/ai/companion/universal/answer.ts",
+    "sha256": "f61d81467fc1239ee598742ec83f7b70e8e834df79c978c587e766286dbb41a4",
+    "bytes": 11215
+  },
+  {
+    "file": "src/ai/companion/universal/contract.ts",
+    "sha256": "ca0edb67e3271abc9059fca93f7fb785441c454742a3a63a8b5396046255a9c7",
+    "bytes": 4263
+  },
+  {
+    "file": "src/ai/companion/universal/copy.ts",
+    "sha256": "3403cd2b3b444d21184b9caa609df4911b9b852df0060edaab4ac49126e06fca",
+    "bytes": 4990
+  },
+  {
+    "file": "src/ai/companion/universal/facts.ts",
+    "sha256": "2b6285669ff5373bad27bf1fa1c13771fd0b5d3cb987ceaea605758733a562d5",
+    "bytes": 6220
+  },
+  {
+    "file": "src/ai/companion/universal/grounding.ts",
+    "sha256": "fd6774069eb27b6c4d2e612beb89768103bd1006dd723e32307895ba2af086ea",
+    "bytes": 8446
+  },
+  {
+    "file": "src/ai/companion/universal/projector.ts",
+    "sha256": "0141455a1999b3201d6ff79664810cbf8bae1669b6f4084c3da4fa2b250c4a8e",
+    "bytes": 10349
+  },
+  {
+    "file": "src/ai/companion/universal/questions.ts",
+    "sha256": "9fffc7ea1189a369ecaaaa6b54196cb84ecf6d39a5f17a77d8cbf7ec5f6353ca",
+    "bytes": 6520
+  },
+  {
+    "file": "src/ai/companion/universal/types.ts",
+    "sha256": "8c27dbab14006cc49221f60ad993bccf0f3cb3ad4de9aea22398f20c9dbd2066",
+    "bytes": 1862
+  },
+  {
+    "file": "src/components/BondCreditPanel.tsx",
+    "sha256": "e33f2576e3335b99b979de2bd608d6fcc4cb5451e82a57b22930160bd71ef21a",
+    "bytes": 7106
+  },
+  {
+    "file": "src/components/BusinessPanel.tsx",
+    "sha256": "6d1673784871836c3b6c9cb6b4a520ccfbb65a772b0a8586ba0cfa49ae1a89dd",
+    "bytes": 7410
+  },
+  {
+    "file": "src/components/InvestmentEncounter.tsx",
+    "sha256": "8c9a40384cd8a8f516fdd2d214ac2f0723f43820fbce0564b945131887bfa6f6",
+    "bytes": 5037
+  },
+  {
+    "file": "src/components/TradingPanel.tsx",
+    "sha256": "744c55a0d727dcb97748d6e7da3e96c3126a235b382197935223128740489313",
+    "bytes": 14331
+  },
+  {
+    "file": "src/components/financial-draft-context.ts",
+    "sha256": "4000630a3a7267bce9728a23ed0e67cf4cfc93bbe07759aa20ddd551ba2fbf1b",
+    "bytes": 184
+  },
+  {
+    "file": "src/components/use-financial-draft.ts",
+    "sha256": "f04260ecd5482a7300132aa21960c283fa7d4dec5058726f863f620b1c27718c",
+    "bytes": 992
+  },
+  {
+    "file": "tests/ai-answer-presentation.test.ts",
+    "sha256": "0edc98cc721bff9e0bb36077f69ce3e5571a4a11bacf7cc5ef04fe0b24f96048",
+    "bytes": 12008
+  },
+  {
+    "file": "tests/ai-answer-relevance.test.ts",
+    "sha256": "9fadbb5e6ae40506ce3491d4c644d59f969bde811618c616e42f2aa6a8e06e63",
+    "bytes": 9468
+  },
+  {
+    "file": "tests/ai-beta-integration.test.ts",
+    "sha256": "1b84be04df20a7a02f0f0f6129e214ae431dc34f3fb0e5bf6505522cf725dc24",
+    "bytes": 4671
+  },
+  {
+    "file": "tests/ai-closed-beta-release.test.ts",
+    "sha256": "2f5e9cbcd6b171c1bf662cb371c5f36fed337f6e0cd4aa7bca341aeba76240a0",
+    "bytes": 2819
+  },
+  {
+    "file": "tests/ai-content-polish.test.ts",
+    "sha256": "0d9c423fc6c0bc49ec45fe48819999d5dfa9320e663d1d2a30dea0a702bbf07c",
+    "bytes": 10229
+  },
+  {
+    "file": "tests/ai-curated-v2.test.ts",
+    "sha256": "f1dc13e00a1e51a39238a5ec72cab31a4a3c2089bab2513236b21e3431ed337a",
+    "bytes": 12948
+  },
+  {
+    "file": "tests/ai-draft-context.test.ts",
+    "sha256": "90534171fb45a54a21689eddfd6a160a40c326d48d1298495d8364f305e69bb4",
+    "bytes": 2315
+  },
+  {
+    "file": "tests/ai-draft-domains.test.ts",
+    "sha256": "0bd59364a0c7eb0868c9380f603c372a0e3af096c3afe504505a4f9793c50c95",
+    "bytes": 6666
+  },
+  {
+    "file": "tests/ai-draft-evaluation.test.ts",
+    "sha256": "a908f6d0d4eff0f4a1f8dfab0340c0bcf367aabff1b14875d3215f24e3e32c3e",
+    "bytes": 1315
+  },
+  {
+    "file": "tests/ai-draft-lifecycle.test.ts",
+    "sha256": "70a74a3e546b7b9769156c82c20ef6d17f49c35cb351c2d0097d3975adca1d54",
+    "bytes": 8348
+  },
+  {
+    "file": "tests/ai-educational-v3.test.ts",
+    "sha256": "c272e224253e6af005e1d165fac713315d2e4432f0a408d7d5b9aadb8b2104f3",
+    "bytes": 8302
+  },
+  {
+    "file": "tests/ai-final-two-answers.test.ts",
+    "sha256": "088c4c462293e6a52529dde1b20da015e175cb6ee9964f61bc4940807370238d",
+    "bytes": 6989
+  },
+  {
+    "file": "tests/ai-guided-form.test.ts",
+    "sha256": "275ab4489c9068ce81b3770cc2868653bbca57bf9bd6ed7d77f2a43228f439cf",
+    "bytes": 11906
+  },
+  {
+    "file": "tests/ai-release-patch1.test.ts",
+    "sha256": "9c772b5af3fc3f76ab28cb2a33381a09aad14c65205a975a135ba8b4622da694",
+    "bytes": 2032
+  },
+  {
+    "file": "tests/ai-semantic-development.test.ts",
+    "sha256": "a54c11792cc64749cc4a9406c01cdddee999f9a6965fe0296b8467dbe3c08d87",
+    "bytes": 1579
+  },
+  {
+    "file": "tests/ai-semantic-heldout.test.ts",
+    "sha256": "5eb9741520144064aae63be78da57ac40d2775567b3d7a14f57a6c76052bb170",
+    "bytes": 1300
+  },
+  {
+    "file": "tests/ai-semantic-lifecycle.test.ts",
+    "sha256": "630c7f6bdf174f05e337908d9fa085998b3d9beec1dcabbfd27a1c15a52848f2",
+    "bytes": 2473
+  },
+  {
+    "file": "tests/ai-semantic-p4-acceptance.test.ts",
+    "sha256": "70498de2648d7bd06c59cee543c005e4438fe7ee550353712827193ea7c5cd94",
+    "bytes": 1295
+  },
+  {
+    "file": "tests/ai-semantic-p4-consistency.test.ts",
+    "sha256": "7dcfa338f5c97e93b81c92c033809737dc1f672de3005aba06ecb6d94cf3780b",
+    "bytes": 1977
+  },
+  {
+    "file": "tests/ai-semantic-p4-tenor-boundaries.test.ts",
+    "sha256": "83237813c00946cbdb18ce40e9c9710434d4ad7df6e976c59f3a0a7da699fa37",
+    "bytes": 1939
+  },
+  {
+    "file": "tests/ai-semantic-p5-acceptance.test.ts",
+    "sha256": "8b4964c427a1c36dc104136bfd86d24510b61647c34ff28cc4392fd671dbab98",
+    "bytes": 7650
+  },
+  {
+    "file": "tests/ai-semantic-p5-hardening.test.ts",
+    "sha256": "6c5c16d01c3f496e4606a3d104c0d29bbc44cd4f136a1a4fec84f91471410f0a",
+    "bytes": 6141
+  },
+  {
+    "file": "tests/ai-semantic-p5-refinement.test.ts",
+    "sha256": "46f5e80f5e85409b4bc0cb922af4a3b27653d3648decad6d0390d8fcf28bf411",
+    "bytes": 7171
+  },
+  {
+    "file": "tests/ai-semantic-protocol.test.ts",
+    "sha256": "7e26c7f56b0af1071b7636c3ed81d0e6aba5dff585b8c6e957c3aa006e0a07bf",
+    "bytes": 1046
+  },
+  {
+    "file": "tests/ai-semantic-safety.test.ts",
+    "sha256": "90db51af3bece01462835b8b73132de165a7c79b075fd44f891a63829bef199e",
+    "bytes": 3663
+  },
+  {
+    "file": "tests/ai-universal-content.test.ts",
+    "sha256": "f7140c36016321bee5debde002ccb8162a9d2091ea63d27fe2ba046b1629be3e",
+    "bytes": 6320
+  },
+  {
+    "file": "tests/ai-universal-domains.test.ts",
+    "sha256": "996f75370fb8e566df9e4dfc8b4645c45f7d151bc9141aa772e3893c3634469d",
+    "bytes": 7952
+  },
+  {
+    "file": "tests/ai-universal-evaluation.test.ts",
+    "sha256": "52ca939e92169b864215128958ea11759c05b8918092f447a8e295de4236449a",
+    "bytes": 1387
+  },
+  {
+    "file": "tests/ai-universal-lifecycle.test.ts",
+    "sha256": "7be728ebc223f044974e7af879524b5f2f09299b3279ecd62029205ad9c56858",
+    "bytes": 6239
+  },
+  {
+    "file": "tests/ai-universal.test.ts",
+    "sha256": "39331fe71111ce6213f50546376c2532cd9c21cf2a1f9d5b5d596ebbdf3cadc6",
+    "bytes": 3415
+  },
+  {
+    "file": "tests/fixtures/ai-companion/draft-evaluation-v1.json",
+    "sha256": "149b1e8f9884de3925ab6412e2f9ad043e58c1a270aa0694b2e03039d5133aee",
+    "bytes": 1669
+  },
+  {
+    "file": "tests/fixtures/ai-companion/golden-v1.json",
+    "sha256": "3ed34c4f82302f8643c02b5d1916da0e9b9f81cd7768653a5e4e193369f31eab",
+    "bytes": 127751
+  },
+  {
+    "file": "tests/fixtures/ai-companion/question-policy-v1.json",
+    "sha256": "a3de248724148b05bf00479f9e84f1d3108896dc6f489a9e76315cea1f4086b1",
+    "bytes": 2691
+  },
+  {
+    "file": "tests/fixtures/ai-companion/question-wire-v1.json",
+    "sha256": "8adb7066fb406839bb88786e3ebb9e7d74d20e356c37f5e42434183da9f9457a",
+    "bytes": 81817
+  },
+  {
+    "file": "tests/fixtures/ai-companion/questions-p3.json",
+    "sha256": "0f025fb0549e2c8173a8b0b7e9eca567f4bcb9dced5f83ca32a1fb2f9ee8e588",
+    "bytes": 5168
+  },
+  {
+    "file": "tests/fixtures/ai-companion/release-historical-replays.json",
+    "sha256": "de28c9b0233bfdac7d06a884bd0c22ebb2e406e593d0fd2b1ea8bfac8b254341",
+    "bytes": 24588
+  },
+  {
+    "file": "tests/fixtures/ai-companion/semantic-p4/acceptance.protocol.json",
+    "sha256": "883fc57a5ab5647da40ac0fd3fadaddeb7ac4ccec9449f27aa5241bf98821f0f",
+    "bytes": 485
+  },
+  {
+    "file": "tests/fixtures/ai-companion/semantic-p4/context-acceptance.json",
+    "sha256": "a58978d275e513bf20feac33a79fa84d8a3d37e470d2f72779aaa2e6c1670168",
+    "bytes": 15443
+  },
+  {
+    "file": "tests/fixtures/ai-companion/semantic-v1/development.json",
+    "sha256": "bd83a74dc89e7d2af2987ff643ce447e7c8ab8c6bedb6f594b9e543d6a648578",
+    "bytes": 2778
+  },
+  {
+    "file": "tests/fixtures/ai-companion/semantic-v1/heldout.json",
+    "sha256": "877e8570cabbe192bcbb09b2cd71e1840555805b1cc1a3b9bce7d5a0aa0f6468",
+    "bytes": 18356
+  },
+  {
+    "file": "tests/fixtures/ai-companion/semantic-v1/protocol.json",
+    "sha256": "5fa0f1571dc2fcad972cda0308091611bfa5ac5b0a2863ef67c154ec49b1e9d4",
+    "bytes": 453
+  },
+  {
+    "file": "tests/fixtures/ai-companion/universal-evaluation-v1.json",
+    "sha256": "8c5811d800d1bf50b79ba5cac49f04f7d0807221f7f787a227b0ad50003b062b",
+    "bytes": 7421
+  },
+  {
+    "file": "tests/helpers/beta-natural.ts",
+    "sha256": "28878159481aca684881a32af4a72004d2bd1a242814c4c3103f28076d58c009",
+    "bytes": 1134
+  },
+  {
+    "file": "tests/helpers/curated-natural.ts",
+    "sha256": "dc149973897ba738d0e196b038cc101c227a4d5b8124856bc92fe6a91fcc113d",
+    "bytes": 4219
+  },
+  {
+    "file": "tests/helpers/draft.ts",
+    "sha256": "d7bac4d1aa0342f1194e00575ebfca8a0c1828fb4d4988c73dda439fb00e2c8c",
+    "bytes": 2222
+  },
+  {
+    "file": "tests/helpers/educational-natural.ts",
+    "sha256": "f9e4f4bc3aa0a6ea923d29658c23a2331e259270f089b9d30b9bd7b7b43e4d06",
+    "bytes": 1369
+  },
+  {
+    "file": "tests/helpers/semantic-p4.ts",
+    "sha256": "7ef61b5a1d38ca53d76fa61618993c66c777854e2e1746159d6f9b2036f7a519",
+    "bytes": 1639
+  },
+  {
+    "file": "tests/helpers/semantic.ts",
+    "sha256": "47320af596e25521b9b5929361c32484866b8fe0c43c400515813273df21a6f2",
+    "bytes": 1035
+  },
+  {
+    "file": "tests/helpers/universal.ts",
+    "sha256": "4bf4f6603265770da16ab9fc289372cb9d88db6102b64fe09ad36398ad5c9ce6",
+    "bytes": 1494
+  }
+]

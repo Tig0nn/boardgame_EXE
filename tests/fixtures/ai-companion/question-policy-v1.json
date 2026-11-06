@@ -1,0 +1,105 @@
+{
+  "questionPolicyVersion": "b18-repair-question.v1",
+  "supported": [
+    {
+      "intent": "rules",
+      "question": "Sửa tạm hoạt động thế nào"
+    },
+    {
+      "intent": "rules",
+      "question": "Bao giờ phải trả khoản hẹn sửa xe"
+    },
+    {
+      "intent": "rules",
+      "question": "Qua Xuất phát có phải trả tiền sửa tạm không"
+    },
+    {
+      "intent": "rules",
+      "question": "Nghĩa vụ sửa xe được ghi nhận khi nào"
+    },
+    {
+      "intent": "cost",
+      "question": "Sửa xe tốn bao nhiêu"
+    },
+    {
+      "intent": "cost",
+      "question": "Trả ngay mất bao nhiêu tiền"
+    },
+    {
+      "intent": "cost",
+      "question": "Sửa tạm trả bao nhiêu bây giờ"
+    },
+    {
+      "intent": "cost",
+      "question": "Sửa tạm miễn phí đúng không"
+    },
+    {
+      "intent": "cost",
+      "question": "Tổng chi phí sửa xe là bao nhiêu"
+    },
+    {
+      "intent": "compare",
+      "question": "So sánh trả ngay và sửa tạm"
+    },
+    {
+      "intent": "compare",
+      "question": "Hai cách sửa xe khác nhau thế nào"
+    },
+    {
+      "intent": "compare",
+      "question": "Sửa tạm hay trả ngay"
+    },
+    {
+      "intent": "compare",
+      "question": "Tôi muốn so sánh hai lựa chọn sửa xe"
+    },
+    {
+      "intent": "liquidity",
+      "question": "Thanh khoản là gì"
+    },
+    {
+      "intent": "liquidity",
+      "question": "Tại sao có tài sản vẫn thiếu tiền sửa xe"
+    },
+    {
+      "intent": "liquidity",
+      "question": "Tiền mặt khác tài sản ròng thế nào"
+    },
+    {
+      "intent": "liquidity",
+      "question": "Sửa xe ảnh hưởng tiền mặt thế nào"
+    },
+    {
+      "intent": "risk",
+      "question": "Sửa tạm có rủi ro gì"
+    },
+    {
+      "intent": "risk",
+      "question": "Khoản hẹn trả có ảnh hưởng gì"
+    },
+    {
+      "intent": "risk",
+      "question": "Trả ngay có đánh đổi gì"
+    },
+    {
+      "intent": "risk",
+      "question": "Rủi ro của hai lựa chọn sửa xe là gì"
+    },
+    {
+      "intent": "learning",
+      "question": "Tôi học được gì từ lựa chọn sửa xe"
+    },
+    {
+      "intent": "learning",
+      "question": "Làm sao lập kế hoạch cho khoản hẹn trả"
+    },
+    {
+      "intent": "learning",
+      "question": "Nên cân nhắc gì khi sửa xe"
+    },
+    {
+      "intent": "learning",
+      "question": "Bài học tài chính từ sửa xe là gì"
+    }
+  ]
+}

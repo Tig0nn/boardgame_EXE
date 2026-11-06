@@ -1,3 +1,4 @@
+import {useFinancialDraft} from './use-financial-draft.ts'
 import { investmentLotLabel, maturityLabel } from './player-language'
 import { useRef, useState } from 'react'
 import type { ReactNode } from 'react'
@@ -25,6 +26,7 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
   const [symbolId, setSymbolId] = useState(game.market.stocks[0].id)
   const [term, setTerm] = useState<Term>(1)
   const [trend, setTrend] = useState(game.scenarioId)
+  const draft=useFinancialDraft(game,{form:'investment',operation:'buy',asset:tile==='gold'?'gold':tile==='stocks'?'stocks':null,amount,symbolId:tile==='stocks'?symbolId:null},(tile==='gold'||tile==='stocks')&&buyOnly)
   const submitLock = useRef(false)
   const submit = (action: RebalanceAction) => {
     if (submitLock.current) return
@@ -87,7 +89,7 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
   }
   return <section className={`trading-panel ${tile === 'stocks' ? 'stock-trading' : ''}`}>{feedback}
     {tile === 'stocks' && <>
-      <label htmlFor="trade-symbol">Mã cổ phiếu · {SECTORS[quote.stock.sector]}</label><select id="trade-symbol" className="text-input" value={symbolId} onChange={event => setSymbolId(event.target.value)}>{game.market.stocks.map(stock => <option key={stock.id} value={stock.id}>{stock.id} · {stock.name}</option>)}</select>
+      <label htmlFor="trade-symbol">Mã cổ phiếu · {SECTORS[quote.stock.sector]}</label><select id="trade-symbol" className="text-input" value={symbolId} onChange={event => {draft.publish({symbolId:event.target.value});setSymbolId(event.target.value)}}>{game.market.stocks.map(stock => <option key={stock.id} value={stock.id}>{stock.id} · {stock.name}</option>)}</select>
       <div className="trade-facts"><div><span>Giá hiện tại</span><strong>{money(quote.stock.currentPrice)}</strong></div><div><span>Thay đổi gần nhất</span><strong>{percent(quote.recent.returnRate)}</strong>{!compact && <small>{quote.recent.kind === 'history' ? 'Lịch sử giả lập trước ván' : `Vòng ${quote.recent.lap} · Lượt ${quote.recent.timestamp}`}</small>}</div>{!compact && <div><span>Đang nắm giữ</span><strong>{quote.units.toLocaleString('vi-VN', { maximumFractionDigits: 4 })} đơn vị</strong></div>}</div>
     </>}
     {tile === 'bank' && <>{compact ? <SavingsTerms name="deposit-term" term={term} rates={rates} onChange={setTerm} /> : <><label htmlFor="deposit-term">Kỳ hạn</label><select id="deposit-term" className="text-input" value={term} onChange={event => setTerm(Number(event.target.value) as Term)}>{([1, 2, 3] as Term[]).map(value => <option key={value} value={value}>{value} kỳ · Lãi {Math.round(rates[value] * 100)}%/kỳ</option>)}</select><SavingsExplanation /></>}</>}
@@ -98,7 +100,7 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
       <div><span>Phí bán</span><strong>{ECONOMY.tradeFees.gold * 100}%</strong></div>
     </div><p className="trade-risk">Giá có thể giảm. Vàng không trả lãi định kỳ.</p></>}
     {tile !== 'bank' && marketContext?.(tile, symbolId)}
-    <label htmlFor="trade-amount">Số tiền {tile === 'bank' ? 'gửi' : 'mua'}</label><MoneyInput id="trade-amount" amount={amount} onChange={setAmount} invalid={!preview.valid} />
+    <label htmlFor="trade-amount">Số tiền {tile === 'bank' ? 'gửi' : 'mua'}</label><MoneyInput id="trade-amount" amount={amount} onChange={value=>{draft.publish({amount:value});setAmount(value)}} invalid={!preview.valid} />
     {tile === 'bank' && <SavingsPreview game={game} amount={amount} term={term} />}
     <div className="trade-remaining"><span>Tiền mặt sau giao dịch</span><strong>{preview.cashAfter === null ? '—' : money(preview.cashAfter)}</strong></div>
     {!preview.valid && <p className="input-error" role="status">{preview.error}</p>}

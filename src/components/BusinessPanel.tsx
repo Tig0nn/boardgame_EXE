@@ -1,3 +1,4 @@
+import {useFinancialDraft} from './use-financial-draft.ts'
 import { useState, type ReactNode } from 'react'
 import { ECONOMY } from '../data/config'
 import { CUSTOMER_PREFERENCES } from '../data/customer-preferences'
@@ -18,6 +19,7 @@ export function BusinessPanel({ game, onTransaction, feedback, compact = false }
   const config = ECONOMY.business
   const view = businessOverview(game, selected)
   const owned = view.locked > 0
+  const draft=useFinancialDraft(game,{form:'business',operation:'upgrade',amount:config.upgradeCost,preferenceId:selected},owned)
   const purchase = purchasePreview(game, config.cost)
   const selection = CUSTOMER_PREFERENCES.find(p => p.id === selected)!
   const upgradeReason = encounterActionUsed(game, 'upgrade') ? 'Đã nâng cấp một lần tại ô này. Gặp ô Kinh doanh ở lượt sau để nâng tiếp.'
@@ -44,7 +46,7 @@ export function BusinessPanel({ game, onTransaction, feedback, compact = false }
       </div>
       <fieldset className="business-specializations"><legend>Chọn hướng phát triển · {view.levels}/{config.maxUpgrades} tầng</legend>
         {CUSTOMER_PREFERENCES.map(p => <label key={p.id} className={`specialization ${selected === p.id ? 'selected' : ''}`}>
-          <input type="radio" name="business-preference" value={p.id} checked={selected === p.id} onChange={() => setSelected(p.id)} />
+          <input type="radio" name="business-preference" value={p.id} checked={selected === p.id} onChange={() => {draft.publish({preferenceId:p.id});setSelected(p.id)}} />
           <span><strong>{p.label}</strong>{!compact && <small>{p.example}</small>}<small>Đã có {game.business.upgrades[p.id] ?? 0} tầng{p.id === preference.id ? ' · Phù hợp vòng này' : ''}</small></span>
         </label>)}
       </fieldset>

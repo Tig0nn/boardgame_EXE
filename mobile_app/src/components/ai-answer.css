@@ -1,0 +1,9 @@
+.gameplay-ai .ai-answer{display:grid;gap:8px;min-width:0;overflow-wrap:anywhere;line-height:1.5}
+.gameplay-ai .ai-answer p,.gameplay-ai .ai-answer dl{margin:0}
+.ai-answer dl{display:grid;gap:6px;min-width:0}
+.ai-answer .gameplay-fact{margin:0;min-width:0}
+.ai-answer dd{overflow-wrap:anywhere}
+.ai-answer details{min-width:0}
+.ai-answer summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-weight:700}
+.ai-answer summary:focus-visible{outline:3px solid #b45309;outline-offset:2px}
+.ai-answer details[open] summary{margin-bottom:6px}

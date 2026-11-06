@@ -1,0 +1,120 @@
+[
+  {
+    "id": "dev-0",
+    "fixture": "bank",
+    "question": "Gửi ngân hàng có bị mất lãi không?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "risk"
+  },
+  {
+    "id": "dev-1",
+    "fixture": "stocks",
+    "question": "Cổ phiếu vận hành ra sao?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "explain"
+  },
+  {
+    "id": "dev-2",
+    "fixture": "bonds",
+    "question": "Coupon là khoản gì vậy?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "explain"
+  },
+  {
+    "id": "dev-3",
+    "fixture": "gold",
+    "question": "Ủa sao bán ngay lại mất tiền?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "risk"
+  },
+  {
+    "id": "dev-4",
+    "fixture": "business",
+    "question": "Nếu nâng cấp quán thì bao lâu lấy lại vốn?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "risk"
+  },
+  {
+    "id": "dev-5",
+    "fixture": "course",
+    "question": "Khóa học này có đáng cân nhắc không?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "compare"
+  },
+  {
+    "id": "dev-6",
+    "fixture": "personal",
+    "question": "Sửa tạm là miễn phí hả?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "risk"
+  },
+  {
+    "id": "dev-7",
+    "fixture": "macro",
+    "question": "Vì sao tin kinh tế làm giá đổi?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "explain"
+  },
+  {
+    "id": "dev-8",
+    "fixture": "funding",
+    "question": "Tôi đang thiếu tiền, có cách nào trả không?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "compare"
+  },
+  {
+    "id": "dev-9",
+    "fixture": "summary",
+    "question": "START vừa xử lý gì?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "explain"
+  },
+  {
+    "id": "dev-10",
+    "fixture": "rebalancing",
+    "question": "Tại ô này được làm gì?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "explain"
+  },
+  {
+    "id": "dev-11",
+    "fixture": "forecast",
+    "question": "Bản tin này nghĩa là sao?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "explain"
+  },
+  {
+    "id": "dev-12",
+    "fixture": "overview",
+    "question": "Ví hiện còn bao nhiêu?",
+    "status": "route",
+    "scope": "actual",
+    "intent": "cashflow"
+  },
+  {
+    "id": "dev-draft",
+    "fixture": "gold",
+    "draft": {
+      "form": "investment",
+      "operation": "buy",
+      "asset": "gold",
+      "amount": 2000000
+    },
+    "question": "Mua vàng này thì ví tôi còn nhiêu?",
+    "status": "route",
+    "scope": "draft",
+    "intent": "cashflow"
+  }
+]

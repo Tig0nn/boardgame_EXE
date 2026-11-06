@@ -1,0 +1,236 @@
+[
+  {
+    "id": "start-summary",
+    "question": "START vừa xử lý những gì?",
+    "verdict": "REVISE",
+    "instruction": "Bỏ câu về tài sản không liên quan; ngay phần chính nêu khoản thu 14 triệu và chi sinh hoạt 5 triệu từ các entries đã có, không tự tính số dư ròng."
+  },
+  {
+    "id": "start-actions",
+    "question": "Tại START tôi được làm gì?",
+    "verdict": "ACCEPT",
+    "instruction": "Quyền bán và trả nợ được nói rõ; ràng buộc quyền hiện có và chưa giao dịch vẫn giữ."
+  },
+  {
+    "id": "start-forecast",
+    "question": "Bản tin đầu vòng có nghĩa gì?",
+    "verdict": "REVISE",
+    "instruction": "Bỏ đoạn thu nhập/sinh hoạt ngoài trọng tâm; giải thích bản tin chỉ mô tả biến động đang công bố, không dự báo hoặc tiết lộ vòng tiếp."
+  },
+  {
+    "id": "bank-rules",
+    "question": "Gửi tiết kiệm hoạt động thế nào?",
+    "verdict": "ACCEPT",
+    "instruction": "Nói rõ tiền bị khóa, khi nhận lãi và rút sớm có điều kiện."
+  },
+  {
+    "id": "bank-risk",
+    "question": "Rút trước hạn ảnh hưởng đến lãi ra sao?",
+    "verdict": "ACCEPT",
+    "instruction": "Đã giải thích chính xác rút toàn khoản, mất lãi chưa nhận và trường hợp được rút."
+  },
+  {
+    "id": "bank-compare",
+    "question": "So sánh các kỳ hạn tiết kiệm",
+    "verdict": "ACCEPT",
+    "instruction": "Có mức lãi từng kỳ, thời gian khóa tiền và đánh đổi; giữ đơn vị lãi suất theo quy tắc."
+  },
+  {
+    "id": "bank-maturity",
+    "question": "Khi nào tiết kiệm đáo hạn?",
+    "verdict": "ACCEPT",
+    "instruction": "Nêu được lịch đáo hạn theo khoản gửi và điều kiện nhận gốc/lãi."
+  },
+  {
+    "id": "bank-draft-cash",
+    "question": "Gửi khoản đang nhập thì ví tôi còn bao nhiêu?",
+    "verdict": "ACCEPT",
+    "instruction": "Có số dư dự kiến 52,4 triệu từ quote, nhắc rõ chưa xác nhận; không tự trừ tiền."
+  },
+  {
+    "id": "stocks-rules",
+    "question": "Cổ phiếu hoạt động thế nào?",
+    "verdict": "ACCEPT",
+    "instruction": "Giải thích tiền mặt đổi thành cổ phiếu, giá thay đổi và bán nhận tiền sau phí."
+  },
+  {
+    "id": "stocks-price",
+    "question": "Giá cổ phiếu hiện tại là bao nhiêu?",
+    "verdict": "REVISE",
+    "instruction": "Câu hỏi hỏi giá nhiều mã nhưng lead chỉ có FPT; thêm chỉ dẫn “Xem thêm dữ kiện” để xem các mã, hoặc bảng ngắn chỉ chứa giá đã xác thực."
+  },
+  {
+    "id": "stocks-risk",
+    "question": "Cổ phiếu có rủi ro gì?",
+    "verdict": "ACCEPT",
+    "instruction": "Nêu giảm giá/phí và không tiên đoán; chưa sở hữu không bị dựng báo giá."
+  },
+  {
+    "id": "stocks-sale",
+    "question": "Tôi sẽ trả hoặc nhận bao nhiêu với giá trị đang nhập?",
+    "verdict": "ACCEPT",
+    "instruction": "Gồm giá trị bán, phí, tiền nhận ròng; nhấn mạnh đang dự kiến, chưa giao dịch."
+  },
+  {
+    "id": "stocks-draft-cash",
+    "question": "Mua khoản đang nhập thì ví tôi còn bao nhiêu?",
+    "verdict": "ACCEPT",
+    "instruction": "Số dư dự kiến đi từ validated quote và nói rõ chưa mua."
+  },
+  {
+    "id": "bonds-rules",
+    "question": "Trái phiếu hoạt động thế nào?",
+    "verdict": "REVISE",
+    "instruction": "Lời giải quá nhiều thông tin (lãi từng bên, chậm trả, bán); tóm tắt “mua trái phiếu = quyền nhận gốc/lãi có rủi ro tổ chức phát hành”, dời chi tiết sang mở rộng."
+  },
+  {
+    "id": "bonds-coupon",
+    "question": "Coupon là gì?",
+    "verdict": "REVISE",
+    "instruction": "Định nghĩa coupon đã đúng nhưng lặp cảnh báo của câu khác; nêu định nghĩa → mức lãi hai bên → chưa phải tiền đã nhận, giữ một câu cảnh báo trọng yếu."
+  },
+  {
+    "id": "bonds-risk",
+    "question": "Nếu trái phiếu bị chậm trả thì sao?",
+    "verdict": "REVISE",
+    "instruction": "Người hỏi “bị chậm trả thì sao” nhưng câu trả lời lặp lãi 4,5%/10%; phải giải thích tiền gốc/lãi chưa về ví, khoản chưa thu được theo dõi và khả năng mất tiền, hạn chế bán."
+  },
+  {
+    "id": "bonds-compare",
+    "question": "Hai tổ chức phát hành khác nhau thế nào?",
+    "verdict": "REVISE",
+    "instruction": "Cần so sánh thật: An Tâm 4,5% và Bứt Phá 10%, trạng thái tín dụng hiện tại của từng bên; không ngầm kết luận lãi cao tốt hơn hoặc chắc trả."
+  },
+  {
+    "id": "gold-rules",
+    "question": "Vàng trong game hoạt động thế nào?",
+    "verdict": "ACCEPT",
+    "instruction": "Rõ vàng là tài sản biến động, không sinh lãi định kỳ và có phí/chênh lệch khi bán."
+  },
+  {
+    "id": "gold-price",
+    "question": "Giá vàng hiện tại là bao nhiêu?",
+    "verdict": "ACCEPT",
+    "instruction": "Giá vàng được nêu trực tiếp, phân biệt giá thị trường với tiền bán ròng."
+  },
+  {
+    "id": "gold-risk",
+    "question": "Vàng có rủi ro gì?",
+    "verdict": "ACCEPT",
+    "instruction": "Nhắc đúng rủi ro giảm giá, phí và không dự báo."
+  },
+  {
+    "id": "gold-sale",
+    "question": "Tôi sẽ trả hoặc nhận bao nhiêu với giá trị đang nhập?",
+    "verdict": "ACCEPT",
+    "instruction": "Tách được chênh lệch mua–bán, phí và tiền bán ròng từ quote."
+  },
+  {
+    "id": "gold-draft-cash",
+    "question": "Mua khoản đang nhập thì ví tôi còn bao nhiêu?",
+    "verdict": "ACCEPT",
+    "instruction": "Lấy tiền mặt sau mua từ quote; chưa giao dịch và không bảo đảm lợi nhuận."
+  },
+  {
+    "id": "business-rules",
+    "question": "Kinh doanh hoạt động thế nào?",
+    "verdict": "REVISE",
+    "instruction": "Bốn đoạn đang lẫn luật mua, sở hữu, nâng cấp và thị hiếu; đưa cơ chế “bỏ vốn mua quán → có thể nhận thu nhập tại Xuất phát” lên trước, chia điều kiện nâng cấp và rủi ro ngắn hơn."
+  },
+  {
+    "id": "business-risk",
+    "question": "Kinh doanh có rủi ro gì?",
+    "verdict": "REVISE",
+    "instruction": "Lặp phần lớn business-rules, chưa nhấn rủi ro mất vốn/không hòa vốn; gom nội dung còn 2–3 câu trọng tâm và giữ hạn chế không bán huy động bắt buộc."
+  },
+  {
+    "id": "business-cash",
+    "question": "Mua quán ảnh hưởng tiền mặt thế nào?",
+    "verdict": "ACCEPT",
+    "instruction": "Nêu rõ vốn 20 triệu lấy từ tiền mặt 40 triệu, không bịa số dư sau mua khi thiếu quote."
+  },
+  {
+    "id": "course-rules",
+    "question": "Khóa học hoạt động thế nào?",
+    "verdict": "REVISE",
+    "instruction": "Hai mức tăng thu nhập 2/4 triệu trong một câu dài dễ hiểu nhầm thời điểm; trình bày tách từng khóa và nêu đều có hiệu lực từ Xuất phát kế tiếp."
+  },
+  {
+    "id": "course-compare",
+    "question": "Hai khóa học khác nhau thế nào?",
+    "verdict": "REVISE",
+    "instruction": "So sánh hai khóa bằng 2 dòng (học phí, tăng thu nhập/lần Xuất phát), rồi nói giới hạn; tránh câu ghép khiến người mới khó so."
+  },
+  {
+    "id": "course-risk",
+    "question": "Học phí có được hoàn lại không?",
+    "verdict": "ACCEPT",
+    "instruction": "Trả lời rõ học phí không hoàn lại và mức tăng thu nhập không bù ngay."
+  },
+  {
+    "id": "course-cash",
+    "question": "Học phí ảnh hưởng tiền mặt thế nào?",
+    "verdict": "ACCEPT",
+    "instruction": "Giải thích học phí trừ ngay và tăng thu nhập về sau; phân biệt trạng thái sở hữu theo case và không tự tạo số dư sau mua."
+  },
+  {
+    "id": "personal-rules",
+    "question": "Tình huống này yêu cầu gì?",
+    "verdict": "REVISE",
+    "instruction": "“Khoản hẹn chỉ ghi nhận khi hoàn tất khoản đầu” khó hiểu ở lựa chọn trả sau 0đ; dùng ngôn ngữ “mỗi phương án có khoản phải trả ngay và khoản hẹn trả về sau”, giữ caveat hoàn tất giao dịch."
+  },
+  {
+    "id": "personal-compare",
+    "question": "Thanh toán ngay hay trả sau khác nhau thế nào?",
+    "verdict": "REVISE",
+    "instruction": "“Cần 0 đ trước” không tự nhiên; so sánh trực tiếp “trả ngay 5 triệu” với “chưa phải trả lúc này nhưng nợ 6 triệu ở Xuất phát cuối vòng”, giữ điều kiện huy động."
+  },
+  {
+    "id": "personal-risk",
+    "question": "Trả sau có rủi ro gì?",
+    "verdict": "ACCEPT",
+    "instruction": "Đúng trọng tâm trả sau dồn nghĩa vụ; tách đã cam kết với phương án chưa thực hiện."
+  },
+  {
+    "id": "personal-cost",
+    "question": "Chi phí của tình huống này là gì?",
+    "verdict": "ACCEPT",
+    "instruction": "Nêu số tiền của hai lựa chọn, không gộp nghĩa vụ tương lai thành tiền đã trả."
+  },
+  {
+    "id": "macro-rules",
+    "question": "Tin kinh tế này có nghĩa gì?",
+    "verdict": "REVISE",
+    "instruction": "Giải thích “cú sốc” bằng tác động đã xảy ra: giá FPT trước 114.222đ và sau 130.213đ, không phải tiền cộng vào ví; tránh gọi “thay đổi” mơ hồ không hướng."
+  },
+  {
+    "id": "macro-compare",
+    "question": "Vì sao các tài sản phản ứng khác nhau?",
+    "verdict": "BLOCKED",
+    "instruction": "Câu hỏi “Vì sao” đòi nguyên nhân, nhưng canonical chỉ có kết quả biến động, không có dữ kiện nhân quả từng tài sản. Đổi thành “Các tài sản đã biến động khác nhau thế nào?” hoặc bổ sung bằng chứng luật/cơ chế qua impact review."
+  },
+  {
+    "id": "macro-risk",
+    "question": "Tin tốt có đảm bảo lợi nhuận không?",
+    "verdict": "REVISE",
+    "instruction": "Câu đầu trả lời đúng “không”; các câu sau lặp ví dụ giá FPT không cần thiết. Chốt rằng giá đã tăng không bảo đảm lãi thực nhận hoặc giá tương lai."
+  },
+  {
+    "id": "finance-cash",
+    "question": "Tiền mặt hiện có là bao nhiêu?",
+    "verdict": "ACCEPT",
+    "instruction": "Nêu số dư ngay, phân biệt tiền mặt với tài sản/thu nhập chưa nhận."
+  },
+  {
+    "id": "finance-obligations",
+    "question": "Nghĩa vụ đã cam kết là gì?",
+    "verdict": "ACCEPT",
+    "instruction": "Giải thích nghĩa vụ hẹn trả không phải khoản đã chi; chú ý câu chỉ bao trùm obligations trong source, không suy rộng sang mọi khoản nợ."
+  },
+  {
+    "id": "finance-income",
+    "question": "Thu nhập và sinh hoạt định kỳ là gì?",
+    "verdict": "ACCEPT",
+    "instruction": "Thu nhập và sinh hoạt được nói đúng theo chu kỳ, không ngầm hứa số dư ròng."
+  }
+]

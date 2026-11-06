@@ -1,0 +1,560 @@
+{
+  "results": [
+    {
+      "file": "docs/playtests/a-log.json",
+      "sha256": "c2dcab0ad2da86ddd65702e624fd4ccfefaeffee70e0c41450fc7ad31f764ef7"
+    },
+    {
+      "file": "docs/playtests/atomic-investments-v24/browser-game-log.json.gz",
+      "sha256": "a47e036373efe254f0cf95d9895f0f36e07c2030433ed677ba638d3d723935ee"
+    },
+    {
+      "file": "docs/playtests/atomic-investments-v24/historical-multi-purchase.json.gz",
+      "sha256": "edc25c255d7220b266175dd8d410c4e6e5d8f434284a0fb3870d3bb8d6f00d16"
+    },
+    {
+      "file": "docs/playtests/b-log.json",
+      "sha256": "2714eb509508656e941d6da00cea1d4b32dff39de410421c349407d3396eb266"
+    },
+    {
+      "file": "docs/playtests/b18-beginner-ux/after/browser-320-basic-first.json.gz",
+      "sha256": "311228b5fbfcf950671870eb002152f2008573e7c9b0b15bd9a8776ea0516acf"
+    },
+    {
+      "file": "docs/playtests/b18-beginner-ux/after/browser-390-advanced-first.json.gz",
+      "sha256": "6a7ee6bdd0045812a803f3262d6824897efc8cdce8f643376a74584b9e627a60"
+    },
+    {
+      "file": "docs/playtests/b18-beginner-ux/after/browser-390-trades.json.gz",
+      "sha256": "7be4b2f26432afb47f28eab1582f23937d6e02ce34467d28b44851c02414f241"
+    },
+    {
+      "file": "docs/playtests/b18-beginner-ux/after/browser-desktop-defeat.json.gz",
+      "sha256": "141745e187d258e388bbf78fc0652f38df0b282adfcbb1871757d9b04a3d18c9"
+    },
+    {
+      "file": "docs/playtests/b18-beginner-ux/after/browser-desktop.json.gz",
+      "sha256": "d23e52dd2ad8673dd67180920fa30d0c304c01dd1e5c8be831383c5cd857b4e7"
+    },
+    {
+      "file": "docs/playtests/b18-beginner-ux/after/browser-funding-debt.json.gz",
+      "sha256": "2a00596dbf1cad57e8d5855bf2d0f8d60545a331e27deb189c30aa5a6286a6d4"
+    },
+    {
+      "file": "docs/playtests/b18-beginner-ux/after/browser-funding-savings.json.gz",
+      "sha256": "9e666ce857ea55a189d61d1ddffed511207cda781a055dc049b59893f28e804f"
+    },
+    {
+      "file": "docs/playtests/b18-beginner-ux/after/browser-poor-320.json.gz",
+      "sha256": "476c6a135f5b94dbb9b8a36e03b3af1600f28c80ac12cdcd536b8e877dcd4a0a"
+    },
+    {
+      "file": "docs/playtests/b18-beginner-ux/after/browser-poor-390.json.gz",
+      "sha256": "476c6a135f5b94dbb9b8a36e03b3af1600f28c80ac12cdcd536b8e877dcd4a0a"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/checkpoints/bank-late.json.gz",
+      "sha256": "334e7164fb89204739e33a525f39180f320b60a2e492e552abaf28231b6fea6d"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/checkpoints/bank.json.gz",
+      "sha256": "510d923022d4056e2be9fc520a702a8979d865d5639e318feefefcec60367ae9"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/checkpoints/bonds-late.json.gz",
+      "sha256": "304131d0d1c4fa3f03f70e3e5ea840b6a823b663f2660afadd22e31ca463a191"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/checkpoints/bonds.json.gz",
+      "sha256": "6208ab59e5e790023c55e09a855aede7aaacdafb90415015fcb12df9042715d3"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/checkpoints/family.json.gz",
+      "sha256": "7cc5886432a28e850ca2272afc3bf5083909cd516f8a3f3af2ee0b17a0c23110"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/checkpoints/gold-owned.json.gz",
+      "sha256": "22b7a104986299918e65b9c0b17402a3bd7973ee5f97fafb80f8471689725e0e"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/checkpoints/gold.json.gz",
+      "sha256": "78477ff2fe022968f650bbbf15d86fbfeb85bfb5de2ec3790b5f175c74ff13be"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/checkpoints/medical.json.gz",
+      "sha256": "33d31baab16d415b0bb3dd2ab9750308cc8ea276e5fd5ef66629d8caab689bc1"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/checkpoints/repair.json.gz",
+      "sha256": "b0a4ee925443f50f45f2f28e679f25d0b01f3408249cfafb6ffd630e31550f96"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/settlement/bonds-an-tam.json.gz",
+      "sha256": "41b421a38a3c6f3f3f09e034febd4e10333c355d27e62cc512caee3af0e588b4"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/settlement/bonds-but-pha.json.gz",
+      "sha256": "28b928775c50e9b0a9fd98f883444ce5983a911587ca23dac47f265f89763ffc"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/settlement/family.json.gz",
+      "sha256": "48132458f8a1264093b781021c515d0c0a3c7388d4f99c22392459466c570981"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/settlement/gold-sale.json.gz",
+      "sha256": "24361903a1411ccc4042f3c45d478e120c0c6a8c3d0b62cca2fb8a81c8180715"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/settlement/repair.json.gz",
+      "sha256": "a0841281391b2545a0f2791e10d07b396091f417b3f646d87362c063310cb827"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/settlement/savings-1.json.gz",
+      "sha256": "10780ea228ebfff843925bd912a4d53c427b1eae18a3d62c7227915ee1a0a4a6"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/settlement/savings-2.json.gz",
+      "sha256": "02ff372020fa7c5aa2bb75f4c5b2602fda7b6ce4bb684fd1c3c59584a5f108c4"
+    },
+    {
+      "file": "docs/playtests/b18-compact-financial-ui/settlement/savings-3.json.gz",
+      "sha256": "5d97cbaf6059e7f4fae022dec924dc0ba183fb712ebf1d86f3488980d4f5edb5"
+    },
+    {
+      "file": "docs/playtests/b18-course-layout/checkpoints/advanced-learned.json.gz",
+      "sha256": "4c9461cd84af41d8761552cc635e83964d9291b6c830cf2ca9b028b493594dba"
+    },
+    {
+      "file": "docs/playtests/b18-course-layout/checkpoints/available.json.gz",
+      "sha256": "b9e9f64e19ac005fd03d9c95a22f2582af325be4b3e3350de1a244a3f5277078"
+    },
+    {
+      "file": "docs/playtests/b18-course-layout/checkpoints/basic-learned.json.gz",
+      "sha256": "cd94fa5322036fcea67dbc2b5e5a8ae2d69f94706573f05b86f5ab94a9209644"
+    },
+    {
+      "file": "docs/playtests/b18-course-layout/checkpoints/basic-only-affordable.json.gz",
+      "sha256": "9b4f003a664a8cdddc5783312d9bcfe7545746e5952d9e5671c1f2b807e145dc"
+    },
+    {
+      "file": "docs/playtests/b18-course-layout/checkpoints/both-learned.json.gz",
+      "sha256": "cb34a336381aa8ac5bef9feceeb6d1c68719ac26e4ab9a4c293733e007c23049"
+    },
+    {
+      "file": "docs/playtests/b18-course-layout/checkpoints/insufficient.json.gz",
+      "sha256": "d1ab6210fac60c62cd4e55b1a62a3cd407ce57b0df849ff5a650252d4fee95fa"
+    },
+    {
+      "file": "docs/playtests/b18-financial-decision-copy/checkpoints/bank.json.gz",
+      "sha256": "510d923022d4056e2be9fc520a702a8979d865d5639e318feefefcec60367ae9"
+    },
+    {
+      "file": "docs/playtests/b18-financial-decision-copy/checkpoints/family.json.gz",
+      "sha256": "7cc5886432a28e850ca2272afc3bf5083909cd516f8a3f3af2ee0b17a0c23110"
+    },
+    {
+      "file": "docs/playtests/b18-financial-decision-copy/checkpoints/medical.json.gz",
+      "sha256": "33d31baab16d415b0bb3dd2ab9750308cc8ea276e5fd5ef66629d8caab689bc1"
+    },
+    {
+      "file": "docs/playtests/b18-financial-decision-copy/checkpoints/repair.json.gz",
+      "sha256": "b0a4ee925443f50f45f2f28e679f25d0b01f3408249cfafb6ffd630e31550f96"
+    },
+    {
+      "file": "docs/playtests/b18-financial-decision-copy/checkpoints/stocks.json.gz",
+      "sha256": "a4c2f65f3818d8cd3083c9e3276c099871f44bbb36fa11ed89ddba08bcaa4818"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/bank.json.gz",
+      "sha256": "20f71123fb80cff491627b0e94fbbceef347553e3103523fcef25dbe3526a0fe"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/bonds.json.gz",
+      "sha256": "6208ab59e5e790023c55e09a855aede7aaacdafb90415015fcb12df9042715d3"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/business.json.gz",
+      "sha256": "a93d1652dfa8f3f4d92db8bcbc3347b2f6fd6d7fc593ae96c082a4f4e7c7f983"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/course.json.gz",
+      "sha256": "6770982d046d603fd5f6e9760d0dcee6c089f3e76bfbc539db23ee7a4c26f5ca"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/economic-empty.json.gz",
+      "sha256": "a6a9126005c10ccf9d20a0be2bbaba96cdcd53f2dae2eacc626d06487ef72b85"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/economic-event.json.gz",
+      "sha256": "3f469e60f3ff0973b4f42fd8d0d10e83d4235b1ea5d0299eeea860e527c787c8"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/economic-owned.json.gz",
+      "sha256": "905f33f9f2c72b781fc371fb11ab32e86038a5719af10b31924258fcfd311138"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/funding.json.gz",
+      "sha256": "0dbd888bf789fdcebc49ef5d8e3a0c6bfb8c1460f126ce47017157471bff2536"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/gold.json.gz",
+      "sha256": "78477ff2fe022968f650bbbf15d86fbfeb85bfb5de2ec3790b5f175c74ff13be"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/repair.json.gz",
+      "sha256": "08d28dd1eab81f182e708e74bb521d468c5c56fd7d637c953d360cc99ba34abb"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/result.json.gz",
+      "sha256": "0065c648fa85ab2ba74227ba0df75fab2c11b965b4206d9096990644689ba1f8"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/settlement.json.gz",
+      "sha256": "a6226d780cd96b3e9b0e46427271c357200d25b02784f30173ee5c456c914579"
+    },
+    {
+      "file": "docs/playtests/b18-mobile-ux-writing/checkpoints/stocks.json.gz",
+      "sha256": "dd7a5f4b2ed1bee14cbb54e8b4b19289f1c7e73057502bbcbb5be03cd0e96e87"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/desktop-defeat.json.gz",
+      "sha256": "6d379d1a1cd8cde9f201179af8e92535d2ca957ea2e67082fb6cac174d55da18"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/desktop-savings-victory.json.gz",
+      "sha256": "cb0a04800c1165b0e6b379b03052be6363e7fa794649c6e6f18a7c910da7de14"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/desktop-victory.json.gz",
+      "sha256": "d23e52dd2ad8673dd67180920fa30d0c304c01dd1e5c8be831383c5cd857b4e7"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first.json.gz",
+      "sha256": "cf8b8606ef3f2ebc59a35f7489ae476cbc8ff6f288c54a47477caa9f114295e2"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first.json.gz",
+      "sha256": "129d5bb9bb7e782f70256d57cb4939777ca10bca5d4c2380b413925163f65aff"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding.json.gz",
+      "sha256": "35b4037d8ce10a857c0e70e1898600442b2cdefe52b0ddb26be2749102a3d413"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first.json.gz",
+      "sha256": "cf8b8606ef3f2ebc59a35f7489ae476cbc8ff6f288c54a47477caa9f114295e2"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/mobile-business.json.gz",
+      "sha256": "7f6853de4ef06035d6e20a155da67a8e029a7e74f1376fcd9945b5105be80ab8"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding.json.gz",
+      "sha256": "ee28246e12192a47365f5e3c857f127c71c9dfa4f181e0188e5f42f08ef3e727"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/mobile-savings.json.gz",
+      "sha256": "bc259888d0e9d5e945258ee7c13fb6d9665439c06921f2d6b467ef3af607d035"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/mobile-trades.json.gz",
+      "sha256": "a533ab3f57255df8d5f0a01f929b59d349e29656e54fd37c3bacd17dc294d542"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal.json.gz",
+      "sha256": "96613675e6b325033d27889fe381b396fe7b17aa2e923eef06d10d3a9de6e4c5"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first.json.gz",
+      "sha256": "129d5bb9bb7e782f70256d57cb4939777ca10bca5d4c2380b413925163f65aff"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/stock-resale/stock-resale-after.json.gz",
+      "sha256": "e597d4d99b03c170c0ec2d3b83463a3fb2fd5221c20085197ac4179ab9146c09"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/stock-resale-checkpoint.json",
+      "sha256": "dc8a0a11de0e2372edc374fc4e33d845931a200a6b96fe766fd042e2fa471243"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/storage/desktop-before-reload.json.gz",
+      "sha256": "e6845a1fd8cc74e1e381cc8c6fec1cc5d1368b9dc47773f45d13aaa762c03587"
+    },
+    {
+      "file": "docs/playtests/b18-release-qa/storage/quota-recovery-export.json.gz",
+      "sha256": "2ddf51f33a997ef17dce3071b0d16b36b65c0685c3b241326077edae1578f4f9"
+    },
+    {
+      "file": "docs/playtests/b18-terminology/after/browser-desktop-defeat.json.gz",
+      "sha256": "141745e187d258e388bbf78fc0652f38df0b282adfcbb1871757d9b04a3d18c9"
+    },
+    {
+      "file": "docs/playtests/b18-terminology/after/browser-desktop.json.gz",
+      "sha256": "d23e52dd2ad8673dd67180920fa30d0c304c01dd1e5c8be831383c5cd857b4e7"
+    },
+    {
+      "file": "docs/playtests/b18-terminology/defaulted-checkpoint.json",
+      "sha256": "5dd54ed4fa7a4e9c691864fc98a11358193051118a42bce34f3e7b235e940029"
+    },
+    {
+      "file": "docs/playtests/b18-terminology/delayed-checkpoint.json",
+      "sha256": "7da5a25dd9c186420d7c97f5d2efd6e97055bd7e2862641c8e3ad830d192ce91"
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/browser-default-b.json.gz",
+      "sha256": "407e3add59c02cb01b281e430ec6c6af0a5ad7a64c4b5a9864c2ad81181a8023"
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/browser-default-recovery.json.gz",
+      "sha256": "d68471c4353b2979df0949f6ec90d851913795c4fa2e04fd8229e71a140dde1c"
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/browser-delayed.json.gz",
+      "sha256": "62cc8f4ce5c888a6395b7a4ed1ab08da48ce6df7004b77e269c60d1842a3bc58"
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/browser-normal-a.json.gz",
+      "sha256": "b781a097a3a007c632426ebc74c5241fc7447ed7ab6da3755da3fcc2449d7e98"
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/browser-normal-b.json.gz",
+      "sha256": "17d53596de1cc6a9abc6aa9aa2913d9427459b388cdcfd743649c28f9722bc1e"
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/simulation-coupon-delay.json.gz",
+      "sha256": "97a3cee4fb803fd83494610519ee210ec4e41d7365ffdb686b722fa6fc567ce3"
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/simulation-default-recovery.json.gz",
+      "sha256": "ec740bb46fde3574c74b4cfff590aa9ed778202936605b616d5ce09fa5f2ca3a"
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/simulation-defeat.json.gz",
+      "sha256": "096e528d97294392b61228bd59bf874acfadb1014dc0cba26c7b29d8d21d76b0"
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/simulation-normal-a.json.gz",
+      "sha256": "92937eac8969e6f3799f2b8575386a1283581b0decf9fb62ed9d8a168fa41b7a"
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/simulation-normal-b.json.gz",
+      "sha256": "e6fe93aa2a56d18604de3c92b67ff85f232bf221d067e3a2bbb66d6779ba3c59"
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/simulation-principal-delay.json.gz",
+      "sha256": "97a3cee4fb803fd83494610519ee210ec4e41d7365ffdb686b722fa6fc567ce3"
+    },
+    {
+      "file": "docs/playtests/bond-credit-v25/simulation-victory.json.gz",
+      "sha256": "97a3cee4fb803fd83494610519ee210ec4e41d7365ffdb686b722fa6fc567ce3"
+    },
+    {
+      "file": "docs/playtests/business-v2_3/browser-game-log.json.gz",
+      "sha256": "28397880de6b524894daf409607e954f0180b36ea516a3cbb911184742e5aaab"
+    },
+    {
+      "file": "docs/playtests/business-v2_4/preferences/browser-game-log.json.gz",
+      "sha256": "7218f87448502ad93284d2e717b9943d4280e3dd17989b751a8174c5b0bd0b33"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/browser-320-cash.json.gz",
+      "sha256": "a26da486c398a58525a5437a2e5a73074e3b10f5f123c64669c6be5b10321c5e"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/browser-390-savings.json.gz",
+      "sha256": "fb1215bbfc0eff47c9d31be19e27412533e8e25892cc6e776befdc2326991137"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/browser-390-trades.json.gz",
+      "sha256": "62ef6e0aef9815d8f04209a684e8d474f7b430c50dea7557adfb8fcab266ab7b"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/browser-funding-debt.json.gz",
+      "sha256": "4df7b6a7a97e361935652fb1e571999bb5dfd8374b96b6a48da6b0cffcec007d"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/browser-funding-savings.json.gz",
+      "sha256": "0ed86d787c8b65948997153353e995a385c6cacf3e5cc436e88014a78f7b62f0"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/browser-tile-sale-bonds.json.gz",
+      "sha256": "1f2a5155205d3da967b117a5db616c1a005edd5afcc98870706bb43ebb4f8316"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/browser-tile-sale-stocks.json.gz",
+      "sha256": "ac8c1c561ee3126af5d8f3ad5c6e45c1ba3a606fcdf9d6b7ee25526d09d8fc04"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/frozen-B-bond-a.json.gz",
+      "sha256": "b96808aed7c4b40f5b32b8cbe02cc5100b7e9839c39e8984f2b4d4030b0efafb"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/frozen-B-bond-b.json.gz",
+      "sha256": "95d35a1edce5affacdd7c8e7d30445ec955f0ea3ee4422413add0f05d4f5270e"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/frozen-B-business.json.gz",
+      "sha256": "00f971fde00c9537d5c542215979d3890801afb2000d506cc24d28cb9f7b4e57"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/frozen-B-cash.json.gz",
+      "sha256": "010c45bd98da5d2ab0414bd59eb2f2c83028663a22639dc583ae413768aa1a48"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/frozen-B-diversified.json.gz",
+      "sha256": "4e249306debe5d14f1fdf1152988b84544ea025131203355d64b3d917c53adef"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/frozen-B-gold.json.gz",
+      "sha256": "42ef7b39a169a5bcf80416f6746a56a400857931738feee50244b756f7aa7261"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/frozen-B-liquidity.json.gz",
+      "sha256": "039be7b387fbcfd3a47acaf688ba10e20f60723863cb00be17fd53f1677f5df0"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/frozen-B-novice.json.gz",
+      "sha256": "f4ad8d0888f05eac68859450c0dcdf996092a28a5a8e7651d6087f5477cf508f"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/frozen-B-savings.json.gz",
+      "sha256": "cc98744d4b2f612dffd0ee41a6bd30a3f33e0120ec28b5481b6401b8c982de30"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18/frozen-B-stocks.json.gz",
+      "sha256": "d13825a61edaeafcd3da02fc0b6f565060cdb728fa81fac04824548580571665"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/browser-320-basic-first.json.gz",
+      "sha256": "311228b5fbfcf950671870eb002152f2008573e7c9b0b15bd9a8776ea0516acf"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/browser-390-advanced-first.json.gz",
+      "sha256": "6a7ee6bdd0045812a803f3262d6824897efc8cdce8f643376a74584b9e627a60"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/browser-390-trades.json.gz",
+      "sha256": "7be4b2f26432afb47f28eab1582f23937d6e02ce34467d28b44851c02414f241"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/browser-desktop.json.gz",
+      "sha256": "d23e52dd2ad8673dd67180920fa30d0c304c01dd1e5c8be831383c5cd857b4e7"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/browser-poor-320.json.gz",
+      "sha256": "476c6a135f5b94dbb9b8a36e03b3af1600f28c80ac12cdcd536b8e877dcd4a0a"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/browser-poor-390.json.gz",
+      "sha256": "476c6a135f5b94dbb9b8a36e03b3af1600f28c80ac12cdcd536b8e877dcd4a0a"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-business-roi.json.gz",
+      "sha256": "5b6695deeb8284389165ba597d9b92a2cfec444939932bc9d382754c4ef550ed"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-cash-roi.json.gz",
+      "sha256": "076d201c55dde8575ee82715f84c659e46f6e0b3e097f9fc87918304d49b182d"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-diversified-roi.json.gz",
+      "sha256": "b49190afef1d9f04dda18ce53a680531a44da216e28129959a2c0577119a359e"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-novice.json.gz",
+      "sha256": "779c13b16defdb1df165e26b9ec2b5dd9d00fdce6fd0f396b6ec0b7776ab9d1a"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-risk-aware-roi.json.gz",
+      "sha256": "8787d7dff5179dd90737b5a8c028e5cb794d35d47486891b00011ca2161cf1aa"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-savings-all.json.gz",
+      "sha256": "4776ff0705795a4d8577df496a2515caed8affc1989013cf75179133f011b5ca"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-screen-cash-roi.json.gz",
+      "sha256": "8c2d4d43fccb175e16dee0fecdb2cef6f86584817fa5ea7f951279037894e8c7"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-business-roi.json.gz",
+      "sha256": "ab176a11ef66d5527c971e28f0b613f0441b239b3ab546b15b0e588ed097f069"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-cash-roi.json.gz",
+      "sha256": "1bd62b53c6642a5b887435f4205379634f7722f768e62cce9753828143f4d589"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-diversified-roi.json.gz",
+      "sha256": "490e6ba696d6f3bf4fbcd2dc453cd0a228dc35c565bfdadd3b6c41f8cbe4f3a4"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-novice.json.gz",
+      "sha256": "b252c03a2770f7f915b00a2ef7f8338ade35c6668dbb175a83774d7cbbfa849d"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-risk-aware-roi.json.gz",
+      "sha256": "92245d369337a37ece7352b527f19e49024edd6d68cc1246d19d25b77b8c0d9c"
+    },
+    {
+      "file": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-savings-all.json.gz",
+      "sha256": "65ae224cf69078cd073538069ff1197d97b3342d2d57d3addb1fab1bbb0d6091"
+    },
+    {
+      "file": "docs/playtests/economic-event-ux-v1/browser-full-game.json.gz",
+      "sha256": "35f1995c8f0e06436e937bea48740157c214b4acaa388e8ff1e722bf46043520"
+    },
+    {
+      "file": "docs/playtests/economic-news-v1/browser-game-log.json.gz",
+      "sha256": "b802135fd34de3ff904d675771fdf527b0b23083cce0540b6d5955becdf1962d"
+    },
+    {
+      "file": "docs/playtests/encounter-limits-v2_3/browser-game-log.json.gz",
+      "sha256": "ff7fd3f77a4f604c72fed4fb5dd74e4e1b0fcdb19e8ca71ba1fc597b8480e72a"
+    },
+    {
+      "file": "docs/playtests/gd-artwork/bank-stock-game-log.json.gz",
+      "sha256": "0078d4cf0f5b57d3016f3e44e94fb56c04e1d78a3ec664dac15abcb98fc57e34"
+    },
+    {
+      "file": "docs/playtests/gd-artwork/business-v2_4-game-log.json.gz",
+      "sha256": "7218f87448502ad93284d2e717b9943d4280e3dd17989b751a8174c5b0bd0b33"
+    },
+    {
+      "file": "docs/playtests/mobile-mvp/browser-game-log.json.gz",
+      "sha256": "d66a38d1e4e1ce9c5bb765f09bc61878d75321bd84d44d0b4964c1fd8d532c51"
+    },
+    {
+      "file": "docs/playtests/mobile-onboarding/browser-game-log.json.gz",
+      "sha256": "0206306b0de46e3369dcfaf545e97de689a51aa42db1af1db43ea7abea928168"
+    },
+    {
+      "file": "docs/playtests/mobile-ui-final/browser-game-log.json.gz",
+      "sha256": "0206306b0de46e3369dcfaf545e97de689a51aa42db1af1db43ea7abea928168"
+    },
+    {
+      "file": "docs/playtests/mobile-v2-4/browser-game-log.json.gz",
+      "sha256": "6184262ef4520fb1802ada4111b3c14fc006f4b582c1b4d2463941999a27af9e"
+    },
+    {
+      "file": "docs/playtests/original-log.json",
+      "sha256": "9952dc58cb48841c227440cf08721b3f419f32fdc6f65ba658d7dd560826dd00"
+    },
+    {
+      "file": "docs/playtests/periodic-living-v26/browser-defeat-full.json.gz",
+      "sha256": "b49fa1b5a42536f66ff3b9883925e828915ccea563660fc8212be491cb5ffb27"
+    },
+    {
+      "file": "docs/playtests/periodic-living-v26/browser-win-full.json.gz",
+      "sha256": "6b2bc97ae3317f59219861ee8393910243fb2f2d664d9eeb136af9c4020f37f2"
+    },
+    {
+      "file": "docs/playtests/transaction-ux/browser-game-log.json.gz",
+      "sha256": "d2a0bc09d7124cd5f31c252917cd0006505022c3a389f0921c15741618770315"
+    },
+    {
+      "file": "docs/playtests/v2_2-b-log.json",
+      "sha256": "a1f5626ee6557418d9a6c3aba4fe654d4d50f2dbc6e3723972f19f1986c117d9"
+    }
+  ]
+}
