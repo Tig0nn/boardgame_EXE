@@ -1,0 +1,68 @@
+[
+  {
+    "file": "package-lock.json",
+    "sha256": "99a8dc235ea2c8d420fcff309ba9ad3a5fde8d33750dd1dae48e5dc940153dff",
+    "bytes": 98980,
+    "change": "modified"
+  },
+  {
+    "file": "release/beta/legacy-ai-isolation.ts",
+    "sha256": "89e4546c813d9b680ee66ad907f7f2e3bae5fd60d161e2ba36bf0c71427b1558",
+    "bytes": 3144,
+    "change": "added"
+  },
+  {
+    "file": "release/beta/vite.config.ts",
+    "sha256": "082bf6a14902b1523673499c1d62f11f825aa21a6a5942d3e35db134e39de1ba",
+    "bytes": 845,
+    "change": "modified"
+  },
+  {
+    "file": "scripts/diagnostics/patch2-browser-preview.mjs",
+    "sha256": "20a1ef5b48df04e7852d3e92ba2930dc393006a42cab2df5cd09562f187b4381",
+    "bytes": 9180,
+    "change": "added"
+  },
+  {
+    "file": "scripts/diagnostics/patch2-browser-session.mjs",
+    "sha256": "afe76103874ecb71b266625bc01312301accf9a830a87c4e8c7d9e829bd6a4dc",
+    "bytes": 10643,
+    "change": "added"
+  },
+  {
+    "file": "scripts/diagnostics/patch2-legacy-browser.mjs",
+    "sha256": "3bbcaa94eea70130c96d5a2c4ed4c4874897c5085d38e4e50bc9745574ccf743",
+    "bytes": 4372,
+    "change": "added"
+  },
+  {
+    "file": "scripts/diagnostics/readiness-patch1-replays.ts",
+    "sha256": "d82ac6690daa5d2dbf3208e7e579eaaa42a78688e06a68a8e99cc8e0f04772e9",
+    "bytes": 1346,
+    "change": "modified"
+  },
+  {
+    "file": "scripts/diagnostics/replay-input-integrity.ts",
+    "sha256": "d054e24905d21bf5117099a1ec61defedd4b9f90215cef3ca6af4fd135374e64",
+    "bytes": 1121,
+    "change": "added"
+  },
+  {
+    "file": "tests/ai-release-patch2-isolation.test.ts",
+    "sha256": "e9da131a6b06e6cb4236d056bed5bacb1b9b3201ea67165b216ec816568c0ea0",
+    "bytes": 8034,
+    "change": "added"
+  },
+  {
+    "file": "tests/ai-release-patch2-replay.test.ts",
+    "sha256": "04951c4b666123868daac48e8d9ff0f7bb307b6cd497a3222ae215258d219b1a",
+    "bytes": 2321,
+    "change": "added"
+  },
+  {
+    "file": "tests/fixtures/ai-companion/release-historical-replays.json",
+    "sha256": "876a7273e16182cebddd890abed23965447006d1df51332669924d019a19a684",
+    "bytes": 25307,
+    "change": "modified"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "file": "docs/playtests/a-log.json",
+    "expectedSha256": "c2dcab0ad2da86ddd65702e624fd4ccfefaeffee70e0c41450fc7ad31f764ef7",
+    "committedBlobSha256": "9c211e051c0ba3cdd4a27e6febb4f49d7b67a27cb4a50854e518da04212bf0c5",
+    "worktreeCrlfWouldMatch": true
+  },
+  {
+    "file": "docs/playtests/b-log.json",
+    "expectedSha256": "2714eb509508656e941d6da00cea1d4b32dff39de410421c349407d3396eb266",
+    "committedBlobSha256": "422d69f21e0e28a0d8574ef263591cc987c1421ba476b0779e1926e79e9df477",
+    "worktreeCrlfWouldMatch": true
+  },
+  {
+    "file": "docs/playtests/original-log.json",
+    "expectedSha256": "9952dc58cb48841c227440cf08721b3f419f32fdc6f65ba658d7dd560826dd00",
+    "committedBlobSha256": "fe80ab162036a77b6aeb11cb193753aca92dc485d75f464d5b59beac6d2dff02",
+    "worktreeCrlfWouldMatch": true
+  },
+  {
+    "file": "docs/playtests/v2_2-b-log.json",
+    "expectedSha256": "a1f5626ee6557418d9a6c3aba4fe654d4d50f2dbc6e3723972f19f1986c117d9",
+    "committedBlobSha256": "def4500c782dd0f7cf175f396e7d7d2f3e4fa9ecaf044d740cffae56bda586fe",
+    "worktreeCrlfWouldMatch": true
+  }
+]

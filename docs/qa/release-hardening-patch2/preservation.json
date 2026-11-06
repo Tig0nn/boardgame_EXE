@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-06T05:38:16.712Z",
+  "head": "3817b7eb18d32a2909ec3648ccd79d10dd9e178f",
+  "branch": "feat/b18-ai-companion-release-hardening-patch2",
+  "frozenBetaBranchUnchanged": true,
+  "frozenExportFilesVerified": 768,
+  "frozenZipSha256": "f28ab6422821b5e51612856524a8e97af88b409ec7b0248522de12fe716c6809",
+  "oldCleanExportEvidenceFilesUnchanged": 54,
+  "preReconciliationBaselineFiles": 4364,
+  "trackedChanges": [
+    "package-lock.json",
+    "release/beta/vite.config.ts",
+    "scripts/diagnostics/readiness-patch1-replays.ts",
+    "tests/fixtures/ai-companion/release-historical-replays.json"
+  ],
+  "sourceChangeCount": 11,
+  "originalReplayLogHashesUnchanged": 139,
+  "protectedUiEngineWhatIfAndCompanionSourceUnchanged": true,
+  "checkpointManifestUnchanged": true,
+  "staged": false,
+  "commitCreated": false,
+  "remoteActions": [],
+  "productionChanged": false
+}

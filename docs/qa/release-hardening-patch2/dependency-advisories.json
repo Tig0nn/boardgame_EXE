@@ -1,0 +1,190 @@
+{
+  "at": "2026-11-06T05:39:25.737Z",
+  "before": {
+    "info": 0,
+    "low": 0,
+    "moderate": 10,
+    "high": 1,
+    "critical": 0,
+    "total": 11
+  },
+  "after": {
+    "info": 0,
+    "low": 0,
+    "moderate": 10,
+    "high": 0,
+    "critical": 0,
+    "total": 10
+  },
+  "rootRuntime": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "mobile": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "mobileRuntime": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "zod": {
+    "before": "4.6.5",
+    "after": "4.6.7",
+    "parent": "eslint-plugin-react-hooks@7.1.1",
+    "parentRange": "^3.25.0 || ^4.0.0",
+    "transitive": true,
+    "dev": true,
+    "shippedInBetaClient": false,
+    "advisory": "https://github.com/advisories/GHSA-mrhx-c7xc-m3w5"
+  },
+  "remaining": [
+    {
+      "name": "@eslint/config-array",
+      "version": "0.23.5",
+      "severity": "moderate",
+      "direct": false,
+      "dev": true,
+      "via": [
+        "minimatch"
+      ]
+    },
+    {
+      "name": "@eslint/js",
+      "version": "10.0.1",
+      "severity": "moderate",
+      "direct": true,
+      "dev": true,
+      "via": [
+        "eslint"
+      ]
+    },
+    {
+      "name": "@typescript-eslint/eslint-plugin",
+      "version": "8.71.1",
+      "severity": "moderate",
+      "direct": false,
+      "dev": true,
+      "via": [
+        "@typescript-eslint/parser",
+        "@typescript-eslint/type-utils",
+        "@typescript-eslint/utils"
+      ]
+    },
+    {
+      "name": "@typescript-eslint/parser",
+      "version": "8.71.1",
+      "severity": "moderate",
+      "direct": false,
+      "dev": true,
+      "via": [
+        "@typescript-eslint/typescript-estree"
+      ]
+    },
+    {
+      "name": "@typescript-eslint/type-utils",
+      "version": "8.71.1",
+      "severity": "moderate",
+      "direct": false,
+      "dev": true,
+      "via": [
+        "@typescript-eslint/typescript-estree",
+        "@typescript-eslint/utils"
+      ]
+    },
+    {
+      "name": "@typescript-eslint/typescript-estree",
+      "version": "8.71.1",
+      "severity": "moderate",
+      "direct": false,
+      "dev": true,
+      "via": [
+        "minimatch"
+      ]
+    },
+    {
+      "name": "@typescript-eslint/utils",
+      "version": "8.71.1",
+      "severity": "moderate",
+      "direct": false,
+      "dev": true,
+      "via": [
+        "@typescript-eslint/typescript-estree"
+      ]
+    },
+    {
+      "name": "eslint",
+      "version": "10.12.0",
+      "severity": "moderate",
+      "direct": true,
+      "dev": true,
+      "via": [
+        "@eslint/config-array",
+        "minimatch"
+      ]
+    },
+    {
+      "name": "minimatch",
+      "version": "10.2.6",
+      "severity": "moderate",
+      "direct": false,
+      "dev": true,
+      "via": [
+        "https://github.com/advisories/GHSA-g3hv-75wg-m249"
+      ]
+    },
+    {
+      "name": "typescript-eslint",
+      "version": "8.71.1",
+      "severity": "moderate",
+      "direct": true,
+      "dev": true,
+      "via": [
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/parser",
+        "@typescript-eslint/typescript-estree",
+        "@typescript-eslint/utils"
+      ]
+    }
+  ],
+  "remainingRootCause": {
+    "package": "minimatch",
+    "version": "10.2.6",
+    "advisory": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+    "affectedRange": ">=7.0.0 <11.0.1",
+    "parents": [
+      "@eslint/config-array@0.23.5 -> minimatch ^10.2.4",
+      "@typescript-eslint/typescript-estree@8.71.1 -> minimatch ^10.2.2",
+      "eslint@10.12.0 -> minimatch ^10.2.5"
+    ],
+    "compatibleRemediationNotAvailableInCurrentParentRanges": true
+  },
+  "assessment": "All ten remaining affected packages are development lint tooling; no Beta runtime dependency advisory. DoS risk remains for developer/CI glob processing of untrusted patterns/inputs. No forced override, major downgrade or broad upgrade performed. Owner risk decision or separately reviewed compatible toolchain patch required before release.",
+  "resolverPeerMetadataOnly": [
+    "node_modules/@babel/core",
+    "node_modules/@types/node",
+    "node_modules/@types/react",
+    "node_modules/@typescript-eslint/parser",
+    "node_modules/acorn",
+    "node_modules/browserslist",
+    "node_modules/eslint",
+    "node_modules/keyv",
+    "node_modules/picomatch",
+    "node_modules/react",
+    "node_modules/typescript",
+    "node_modules/vite"
+  ],
+  "packageJsonUnchanged": true
+}
