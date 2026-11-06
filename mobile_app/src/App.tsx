@@ -31,6 +31,9 @@ import { SettingsModal } from './components/SettingsModal'
 import { hasSeenTutorial } from './game/onboarding'
 import { MapScreen } from './components/MapScreen'
 import type { MapNodeConfig } from './game/map-progress'
+import { BetaCompanion } from './components/BetaCompanion'
+import { betaEnabled } from './game/beta-feature'
+import type { ReactNode } from 'react'
 
 // Coordinates are artwork metadata; category/order/labels come from the official C20 or B18 board.
 const coordinatesFor = (board: ReturnType<typeof boardFor>) => {
@@ -39,6 +42,12 @@ const coordinatesFor = (board: ReturnType<typeof boardFor>) => {
 }
 const delay = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms))
 type Session = ReturnType<typeof createMobileSession>
+
+function BetaHost({ session, busy, children }: { session: Session; busy: boolean; children: ReactNode }) {
+  return betaEnabled(import.meta.env.DEV, import.meta.env.MODE, import.meta.env.VITE_VERCEL_ENV, window.location.search, import.meta.env.VITE_AI_COMPANION_BETA, window.location.hostname)
+    ? <BetaCompanion session={session} busy={busy}>{children}</BetaCompanion>
+    : children
+}
 
 export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = false }: {
   session: Session;
@@ -165,7 +174,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
   }
 
   return (
-    <>
+    <BetaHost session={session} busy={!!animation}>
       <MobileContainer
         overlay={
           <>
@@ -293,7 +302,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
           <p role="alert">{localizeNarrative(notice)}</p>
         </Modal>
       )}
-    </>
+    </BetaHost>
   )
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useFinancialDraft } from '../../../src/components/use-financial-draft.ts'
 import type { GameState, RebalanceAction, TradableAsset } from '../../../src/game/types'
 import { ASSETS, RULES } from '../../../src/data/config'
 import { saleQuote } from '../../../src/game/selectors'
@@ -34,6 +35,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
   const lot = lots.find((item) => item.lot.id === lotId) ?? lots[0]
 
   const creditSale = asset === 'bonds' && hasBondCredit(game)
+  useFinancialDraft(game, { form: 'rebalancing', operation: 'sell', asset, amount, lotId: creditSale ? lot?.lot.id ?? null : null })
   const available = creditSale ? lot?.quote.gross ?? 0 : game.portfolio[asset]
   const valid = Number.isSafeInteger(amount) && amount > 0 && amount <= available
   const quote = saleQuote(game, asset, valid ? amount : 0, creditSale ? lot?.lot.id : undefined)

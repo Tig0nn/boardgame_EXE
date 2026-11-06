@@ -1,0 +1,345 @@
+{
+  "at": "2026-11-05T02:12:06.328Z",
+  "sourceCommit": "e4045125684a9fd3da30a911fd91cb6687c5c586",
+  "answersAcceptedExact": 39,
+  "commands": [
+    {
+      "name": "product",
+      "exitCode": 0,
+      "summary": [
+        "# tests 1044",
+        "# pass 1044",
+        "# fail 0",
+        "# cancelled 0",
+        "# skipped 0"
+      ],
+      "commandArgs": [
+        "--experimental-strip-types",
+        "--test",
+        "tests/ai-answer-presentation.test.ts",
+        "tests/ai-answer-relevance.test.ts",
+        "tests/ai-beta-integration.test.ts",
+        "tests/ai-closed-beta-release.test.ts",
+        "tests/ai-coach-facts.test.ts",
+        "tests/ai-coach-handler.test.ts",
+        "tests/ai-content-polish.test.ts",
+        "tests/ai-curated-v2.test.ts",
+        "tests/ai-draft-context.test.ts",
+        "tests/ai-draft-domains.test.ts",
+        "tests/ai-draft-evaluation.test.ts",
+        "tests/ai-draft-lifecycle.test.ts",
+        "tests/ai-educational-v3.test.ts",
+        "tests/ai-final-two-answers.test.ts",
+        "tests/ai-guided-form.test.ts",
+        "tests/ai-release-patch1.test.ts",
+        "tests/ai-semantic-development.test.ts",
+        "tests/ai-semantic-heldout.test.ts",
+        "tests/ai-semantic-lifecycle.test.ts",
+        "tests/ai-semantic-p4-acceptance.test.ts",
+        "tests/ai-semantic-p4-consistency.test.ts",
+        "tests/ai-semantic-p4-tenor-boundaries.test.ts",
+        "tests/ai-semantic-p5-acceptance.test.ts",
+        "tests/ai-semantic-p5-hardening.test.ts",
+        "tests/ai-semantic-p5-refinement.test.ts",
+        "tests/ai-semantic-protocol.test.ts",
+        "tests/ai-semantic-safety.test.ts",
+        "tests/ai-universal-content.test.ts",
+        "tests/ai-universal-domains.test.ts",
+        "tests/ai-universal-evaluation.test.ts",
+        "tests/ai-universal-lifecycle.test.ts",
+        "tests/ai-universal.test.ts",
+        "tests/atomic-investments.test.ts",
+        "tests/beginner-ux.test.ts",
+        "tests/board-scene.test.ts",
+        "tests/bond-credit-presentation.test.ts",
+        "tests/bond-credit.test.ts",
+        "tests/bond-start-summary.test.ts",
+        "tests/business-purchase-flow.test.ts",
+        "tests/core-mvp-b18.test.ts",
+        "tests/core-mvp-save.test.ts",
+        "tests/economic-event-impact.test.ts",
+        "tests/economic-news.test.ts",
+        "tests/encounter-limits.test.ts",
+        "tests/engine.test.ts",
+        "tests/financial-decision-copy.test.ts",
+        "tests/financial-gameplay.test.ts",
+        "tests/glossary.test.ts",
+        "tests/language-presentation.test.ts",
+        "tests/market-language.test.ts",
+        "tests/mobile-funding.test.ts",
+        "tests/mobile-integration.test.ts",
+        "tests/mobile-onboarding.test.ts",
+        "tests/multi-course.test.ts",
+        "tests/new-game-seed.test.ts",
+        "tests/periodic-living-integration.test.ts",
+        "tests/periodic-living-settlement.test.ts",
+        "tests/periodic-living-version.test.ts",
+        "tests/savings-policy-simulation.test.ts",
+        "tests/stock-catalog.test.ts",
+        "tests/transaction-ux.test.ts",
+        "tests/v2.test.ts",
+        "tests/v2_1.test.ts",
+        "tests/v2_2.test.ts",
+        "tests/v2_3-business.test.ts",
+        "tests/v2_4-business.test.ts"
+      ]
+    },
+    {
+      "name": "diagnostics",
+      "exitCode": 0,
+      "summary": [
+        "# tests 85",
+        "# pass 85",
+        "# fail 0",
+        "# cancelled 0",
+        "# skipped 0"
+      ],
+      "commandArgs": [
+        "--experimental-strip-types",
+        "--test",
+        "scripts/diagnostics/ai-coach-deployment.test.ts",
+        "scripts/diagnostics/atomic-investments-ui.test.ts",
+        "scripts/diagnostics/b18-ux-ui.test.ts",
+        "scripts/diagnostics/board-balance.test.ts",
+        "scripts/diagnostics/bond-credit-ui.test.ts",
+        "scripts/diagnostics/bond-start-ui.test.ts",
+        "scripts/diagnostics/business-preference-ui.test.ts",
+        "scripts/diagnostics/core-mvp-b18-ui.test.ts",
+        "scripts/diagnostics/draft-ai-esm.test.ts",
+        "scripts/diagnostics/economic-event-ui.test.ts",
+        "scripts/diagnostics/economic-news-ui.test.ts",
+        "scripts/diagnostics/financial-decision-ui.test.ts",
+        "scripts/diagnostics/game-length.test.ts",
+        "scripts/diagnostics/language-cleanup-ui.test.ts",
+        "scripts/diagnostics/mechanics.test.ts",
+        "scripts/diagnostics/mobile-build.test.ts",
+        "scripts/diagnostics/mobile-final-ui.test.ts",
+        "scripts/diagnostics/multi-course-ui.test.ts",
+        "scripts/diagnostics/semantic-ai-esm.test.ts",
+        "scripts/diagnostics/terminology-ui.test.ts"
+      ]
+    },
+    {
+      "name": "root-types",
+      "exitCode": 0,
+      "summary": [],
+      "commandArgs": [
+        "node_modules/typescript/bin/tsc",
+        "-b",
+        "--force"
+      ]
+    },
+    {
+      "name": "mobile-types",
+      "exitCode": 0,
+      "summary": [],
+      "commandArgs": [
+        "node_modules/typescript/bin/tsc",
+        "-p",
+        "mobile_app/tsconfig.json",
+        "--noEmit"
+      ]
+    },
+    {
+      "name": "lint",
+      "exitCode": 0,
+      "summary": [],
+      "commandArgs": [
+        "node_modules/eslint/bin/eslint.js",
+        "."
+      ]
+    },
+    {
+      "name": "root-build",
+      "exitCode": 0,
+      "summary": [],
+      "commandArgs": [
+        "node_modules/vite/bin/vite.js",
+        "build"
+      ]
+    },
+    {
+      "name": "mobile-build",
+      "exitCode": 0,
+      "summary": [],
+      "commandArgs": [
+        "node_modules/vite/bin/vite.js",
+        "build",
+        "mobile_app",
+        "--config",
+        "mobile_app/vite.config.ts"
+      ]
+    },
+    {
+      "name": "semantic-evaluation",
+      "exitCode": 0,
+      "summary": [],
+      "commandArgs": [
+        "--experimental-strip-types",
+        "scripts/diagnostics/semantic-evaluation.mjs"
+      ]
+    },
+    {
+      "name": "historical-replays",
+      "exitCode": 0,
+      "summary": [],
+      "commandArgs": [
+        "--experimental-strip-types",
+        "scripts/diagnostics/readiness-patch1-replays.ts"
+      ]
+    }
+  ],
+  "proposedInputClosure": {
+    "pass": true,
+    "result": "# tests 1044",
+    "note": "Product tests rerun with a preload guard rejecting reads of excluded docs/qa inputs; static relative source dependencies checked separately."
+  },
+  "compiledPreview": {
+    "cases": [
+      {
+        "id": "personal-rules",
+        "width": 320,
+        "compiledPreview": true,
+        "mode": "production",
+        "deployment": "preview",
+        "offlineDeterministicAnswer": true,
+        "noApi": true,
+        "mainMatchesValidatedP5": true,
+        "mobileLayout": true,
+        "pendingQuestionDiscarded": true,
+        "saveUnchanged": true,
+        "separateOriginStorage": true,
+        "productionQueryAttackOff": true,
+        "previewNeedsOptIn": true
+      },
+      {
+        "id": "macro-compare",
+        "width": 320,
+        "compiledPreview": true,
+        "mode": "production",
+        "deployment": "preview",
+        "offlineDeterministicAnswer": true,
+        "noApi": true,
+        "mainMatchesValidatedP5": true,
+        "mobileLayout": true,
+        "pendingQuestionDiscarded": true,
+        "saveUnchanged": true,
+        "separateOriginStorage": true,
+        "productionQueryAttackOff": true,
+        "previewNeedsOptIn": true
+      },
+      {
+        "id": "personal-rules",
+        "width": 390,
+        "compiledPreview": true,
+        "mode": "production",
+        "deployment": "preview",
+        "offlineDeterministicAnswer": true,
+        "noApi": true,
+        "mainMatchesValidatedP5": true,
+        "mobileLayout": true,
+        "pendingQuestionDiscarded": true,
+        "saveUnchanged": true,
+        "separateOriginStorage": true,
+        "productionQueryAttackOff": true,
+        "previewNeedsOptIn": true
+      },
+      {
+        "id": "macro-compare",
+        "width": 390,
+        "compiledPreview": true,
+        "mode": "production",
+        "deployment": "preview",
+        "offlineDeterministicAnswer": true,
+        "noApi": true,
+        "mainMatchesValidatedP5": true,
+        "mobileLayout": true,
+        "pendingQuestionDiscarded": true,
+        "saveUnchanged": true,
+        "separateOriginStorage": true,
+        "productionQueryAttackOff": true,
+        "previewNeedsOptIn": true
+      }
+    ],
+    "errors": [],
+    "apiRequests": [],
+    "externalFontsBlocked": true,
+    "scope": "Locally served compiled Preview artifact and ordinary Mobile production artifact on separate ports/origins; not a hosted Vercel URL."
+  },
+  "browserSession": {
+    "records": 13,
+    "errors": [],
+    "mainAppSettingsRestart": true,
+    "pendingRestartImportResume": "12 cases via QA component host; not complete main-app import navigation."
+  },
+  "replays": {
+    "total": 139,
+    "pass": 139,
+    "fail": 0
+  },
+  "dependencyAudit": {
+    "root": "UNVERIFIED: registry access failed",
+    "mobile": "UNVERIFIED: registry access failed"
+  },
+  "projectIdentityStatus": {
+    "actualProjectId": null,
+    "expectedProjectId": null,
+    "hostedConfigured": false
+  },
+  "historicalVisualTriage": {
+    "images": 219,
+    "contactSheetsViewed": 19,
+    "finding": "Gameplay/AI panels and test controls; no obvious account/credential UI observed in contact-sheet review. Not pixel-level OCR/PII certification. All historical images excluded.",
+    "publishedImages": 4
+  },
+  "candidateAudit": {
+    "scannedOriginalPaths": 594,
+    "originalDocs": 424,
+    "textSecretFindingFiles": [],
+    "localProfileIndicatorFiles": 54,
+    "proposedSourceAndDataFindings": []
+  },
+  "rawEvidenceLocalOnly": [
+    {
+      "file": "commands.json",
+      "sha256": "62cef2e6c7edf6a64483cd7a57bbf696b5f75f3c2889331f50928fa9489c72f6"
+    },
+    {
+      "file": "product-proposal-closure.txt",
+      "sha256": "2236adf4c1794d60a0fded88d2ffd90a0969971654b2c4cd029d9f09e925b6fa"
+    },
+    {
+      "file": "browser-preview.json",
+      "sha256": "f586f51a8bf6388e4387f1f0a0e0937e2613776472a5c13a2ea318bb0f067476"
+    },
+    {
+      "file": "browser-session.json",
+      "sha256": "ce23fea970b15c1696e71b33853d2f064b4c14ad103fbb9e950f8978bc07797b"
+    },
+    {
+      "file": "replays.json",
+      "sha256": "996212bdb9102bd8d1baf2f3ede2c39655ed1be42521d326eb2f7b623d12d622"
+    },
+    {
+      "file": "gate-red.txt",
+      "sha256": "3fad06f6a4cf06d84c10a97a36daa507961bb987ba806bd03f960b25c52261a4"
+    },
+    {
+      "file": "gate-green.txt",
+      "sha256": "3e56866b19dfddaea158961ba37a76bb2f7b0d8324fd68a12e9b93c7f613eb75"
+    },
+    {
+      "file": "npm-audit-root.txt",
+      "sha256": "76e7b8f1b1a03c643772a07e1281a605ca8a6cdfedd18d2328635bc017b0cbc7"
+    },
+    {
+      "file": "npm-audit-mobile.txt",
+      "sha256": "76e7b8f1b1a03c643772a07e1281a605ca8a6cdfedd18d2328635bc017b0cbc7"
+    }
+  ],
+  "limitations": [
+    "No hosted deployment/actual project ID.",
+    "No physical mobile devices.",
+    "No full main-app import navigation validation."
+  ]
+}

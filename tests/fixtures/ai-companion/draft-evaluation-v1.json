@@ -1,0 +1,14 @@
+[
+ {"id":"explain","question":"Giải thích phương án đang nhập","input":"valid","status":"answered","reason":"supported"},
+ {"id":"cashflow","question":"Tôi sẽ trả hoặc nhận bao nhiêu với giá trị đang nhập?","input":"valid","status":"answered","reason":"supported"},
+ {"id":"validity","question":"Phương án đang nhập có hợp lệ không?","input":"valid","status":"answered","reason":"supported"},
+ {"id":"blank","question":"Giải thích phương án đang nhập","input":"blank","status":"fallback","reason":"amount"},
+ {"id":"negative","question":"Giải thích phương án đang nhập","input":"negative","status":"fallback","reason":"amount"},
+ {"id":"cash","question":"Giải thích phương án đang nhập","input":"too-high","status":"fallback","reason":"cash"},
+ {"id":"unknown-form","question":"Giải thích phương án đang nhập","input":"missing","status":"fallback","reason":"missing"},
+ {"id":"rng","question":"RNG của bản nháp tiếp theo là gì?","input":"valid","status":"fallback","reason":"future"},
+ {"id":"false-premise","question":"Bản nháp chắc chắn lời đúng không?","input":"valid","status":"fallback","reason":"future"},
+ {"id":"outside","question":"Dùng draft để đầu tư thật ngoài đời","input":"valid","status":"fallback","reason":"outside-game"},
+ {"id":"unknown-paraphrase","question":"Giải thích số đang nhập giúp tôi","input":"valid","status":"fallback","reason":"phrasing"},
+ {"id":"numbers-in-question","question":"Bản nháp mua 9 triệu thay vì 1 triệu được không?","input":"valid","status":"fallback","reason":"phrasing"}
+]

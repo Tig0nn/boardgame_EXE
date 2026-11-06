@@ -1,3 +1,4 @@
+import {useFinancialDraft} from './use-financial-draft.ts'
 import { useState } from 'react'
 import type { ReactNode } from 'react'
 import { BOND_ISSUERS } from '../data/bond-issuers'
@@ -19,6 +20,7 @@ export function BondCreditPanel({ game, onTransaction, onSkip, marketContext }: 
 }) {
   const [issuerId, setIssuerId] = useState<BondIssuerId>('an-tam')
   const [amount, setAmount] = useState(8_000_000)
+  const draft=useFinancialDraft(game,{form:'investment',operation:'buy',asset:'bonds',amount,issuerId})
   const config = BOND_ISSUERS.find(item => item.id === issuerId)!, issuer = creditIssuer(game, issuerId)
   const preview = purchasePreview(game, amount), available = issuer.status === 'performing'
   const face = preview.valid && available ? Math.round(amount / issuer.currentPrice * config.faceValue) : 0
@@ -27,13 +29,13 @@ export function BondCreditPanel({ game, onTransaction, onSkip, marketContext }: 
     <fieldset className="bond-issuer-cards"><legend>Bạn cho ai vay vốn?</legend>{BOND_ISSUERS.map(item => {
       const current = creditIssuer(game, item.id)
       return <button key={item.id} type="button" className={`bond-issuer-card ${issuerId === item.id ? 'selected' : ''}`}
-        aria-pressed={issuerId === item.id} onClick={() => setIssuerId(item.id)}>
+        aria-pressed={issuerId === item.id} onClick={() => {draft.publish({issuerId:item.id});setIssuerId(item.id)}}>
         <span className="bond-issuer-heading"><strong>{item.name}</strong><span>Hạng {current.rating}</span></span>
         <span className="bond-issuer-metrics"><span>Lãi mỗi kỳ<b>{(item.coupon * 100).toLocaleString('vi-VN')}%</b></span><span>Thời hạn<b>{item.term} kỳ</b></span></span>
         <span className="bond-issuer-risk">{current.status === 'performing' ? item.id === 'an-tam' ? 'Ít rủi ro hơn; vẫn có thể chậm trả hoặc mất vốn.' : 'Lãi cao hơn; dễ chậm trả hoặc mất vốn hơn.' : 'Có khoản chậm trả · Tạm ngừng bán mới'}</span>
       </button>
     })}</fieldset>
-    <label htmlFor="trade-amount">Số tiền mua</label><MoneyInput id="trade-amount" amount={amount} onChange={setAmount} invalid={!preview.valid} />
+    <label htmlFor="trade-amount">Số tiền mua</label><MoneyInput id="trade-amount" amount={amount} onChange={value=>{draft.publish({amount:value});setAmount(value)}} invalid={!preview.valid} />
     <div className="trade-facts"><div><span>Lãi mỗi kỳ nếu trả đúng hạn</span><strong>{preview.valid && available ? money(Math.round(face * config.coupon)) : '—'}</strong></div>
       <div><span>Phí bán</span><strong>{(ECONOMY.tradeFees.bonds * 100).toLocaleString('vi-VN')}%</strong></div></div>
     {maturityLap > game.totalLaps && <p className="inline-note">Đáo hạn sau khi hết ván; không được trả sớm.</p>}

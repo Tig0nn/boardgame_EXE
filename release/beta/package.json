@@ -1,0 +1,10 @@
+{
+  "name": "exe-companion-beta-release",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "22.x" },
+  "scripts": {
+    "build": "node ../../scripts/build-companion-beta.mjs",
+    "preview": "node ../../scripts/preview-companion-beta.mjs"
+  }
+}

@@ -1,0 +1,7 @@
+.draft-general-samples {width:100%;}
+.draft-general-samples summary {min-height:44px;display:flex;align-items:center;padding:8px 10px;font-weight:700;cursor:pointer;border-radius:10px;border:1px solid #a7f3d0;}
+.draft-general-samples summary:focus-visible {outline:3px solid #d97706;outline-offset:2px;}
+.draft-general-samples p {font-size:.85em;}
+.draft-ai-result {scroll-margin-top:8px;overflow-wrap:anywhere;}
+.draft-ai-result h3 {font-size:1rem;line-height:1.45;}
+.draft-ai-result .gameplay-fact {padding:8px 0;border-bottom:1px solid #d1fae5;}

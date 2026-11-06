@@ -1,0 +1,35 @@
+import {parseDraftRequest} from './contract.ts'
+import {canonicalJson} from '../serialization.ts'
+import {object,literal,text,integer,array,enumeration,plainText,invalid} from '../schema.ts'
+import type {DraftRequest,DraftResponse,DraftLine} from './types.ts'
+export const DRAFT_QUESTIONS=['Giải thích phương án đang nhập','Tôi sẽ trả hoặc nhận bao nhiêu với giá trị đang nhập?','Phương án đang nhập có hợp lệ không?'] as const
+const normalize=(q:string)=>q.normalize('NFC').toLocaleLowerCase('vi').replace(/[?.!]+$/u,'').trim().replace(/\s+/gu,' ')
+export const isDraftQuestion=(q:string)=>/đang nhập|bản nháp|draft/iu.test(q)
+const reasons:Record<string,string>={amount:'Giá trị nhập chưa phải số tiền nguyên dương hợp lệ. Hãy nhập lại số tiền nguyên dương.',cash:'Giá trị nhập vượt tiền mặt hiện có; chưa thể thực hiện phương án này. Hãy giảm giá trị nhập rồi hỏi lại.',holding:'Giá trị muốn bán vượt tài sản được chọn đang nắm giữ. Hãy giảm giá trị bán hoặc kiểm tra tài sản đã chọn.',selection:'Chưa có lựa chọn tài sản hoặc kỳ hạn hợp lệ. Hãy quay lại Quyết định và chọn lại.',action:'Hiện không có quyền thực hiện giao dịch này.',unsupported:'Form hoặc phương án này chưa được draft-aware hỗ trợ.',missing:'Chưa có bản nháp đủ điều kiện. Hãy quay lại Quyết định để nhập giá trị.'}
+export const draftLineLabels:Record<DraftLine['code'],string>={entered:'Giá trị đang nhập',price:'Giá hiện tại / đơn vị',payNow:'Dự kiến trả ngay',cashAfter:'Dự kiến tiền mặt sau giao dịch',gross:'Giá trị muốn bán',spread:'Chênh lệch mua–bán',fee:'Phí bán',net:'Dự kiến thực nhận',interest:'Lãi danh nghĩa nếu giữ đủ kỳ hạn',maturity:'Đáo hạn ở START vòng',term:'Kỳ hạn đã chọn',principal:'Mệnh giá dự kiến mua',coupon:'Coupon danh nghĩa mỗi kỳ nếu trả đúng hạn',incremental:'Tăng thu nhập mỗi START với thị hiếu hiện tại',lost:'Lãi chưa nhận sẽ mất khi rút sớm',used:'Dùng trả khoản bắt buộc ở bước này',pendingAfter:'Còn thiếu sau riêng bước huy động này',cashAfterStep:'Tiền mặt sau riêng bước huy động/thanh toán',debtAfter:'Nợ gốc sau khoản vay đang nhập'}
+export async function answerDraft(raw:unknown):Promise<DraftResponse>{
+ const r=await parseDraftRequest(raw),c=r.context,p=c.preview,d=c.selection,q=normalize(r.question)
+ const questionIndex=DRAFT_QUESTIONS.findIndex(s=>normalize(s)===q),supported=questionIndex>=0
+ const future=/tương lai|rng|xúc xắc|chắc chắn|sẽ tăng|sự kiện tiếp/iu.test(r.question),outside=/ngoài đời|đầu tư thật/iu.test(r.question)
+ const reason=future?'future':outside?'outside-game':!supported?'phrasing':p.reason
+ const answered=supported&&!future&&!outside&&p.status==='quoted'
+ const response:DraftResponse={version:1,policy:r.policy,requestId:r.requestId,sessionEpoch:r.sessionEpoch,revision:r.revision,draftId:r.draftId,draftRevision:r.draftRevision,contextDigest:r.contextDigest,questionDigest:r.questionDigest,source:'deterministic',integrity:'client-state-unverified',status:answered?'answered':'fallback',reason,
+ conclusion:answered?(questionIndex===1?'Dòng tiền dự kiến của phương án đang nhập, chưa thực hiện':questionIndex===2?'Phương án đang nhập hợp lệ ở snapshot hiện tại, chưa thực hiện':'Báo giá cho phương án đang nhập, chưa thực hiện'):'Chưa giải đáp được phương án đang nhập',
+ explanation:answered?(d!.operation==='fund'?'Đây là riêng bước huy động và thanh toán dự kiến, chưa thực hiện. Tiền thực nhận sau phí/chênh lệch được dùng trả khoản bắt buộc. Chưa bao gồm bước tiếp tục sự kiện hoặc tất toán tự động sau đó.':d!.operation==='upgrade'?'Đây là hướng nâng cấp đã chọn, chưa thực hiện. Khoản tăng thu nhập dùng thị hiếu đang công khai của vòng này; thưởng có thể đổi khi thị hiếu vòng sau đổi. Không đảm bảo hòa vốn.':d!.asset==='bonds'&&d!.operation==='buy'?'Đây là khoản trái phiếu dự kiến mua, chưa thực hiện. Mệnh giá khác số tiền mua; coupon danh nghĩa chỉ nhận nếu bên phát hành trả. Có thể chậm trả hoặc mất vốn; không dự đoán trạng thái kỳ sau.':d!.operation==='deposit'?'Đây là khoản gửi dự kiến, chưa thực hiện. Tiền gốc rời tiền mặt khi bạn xác nhận. Lãi chỉ được nhận khi đủ kỳ hạn; rút sớm mất lãi chưa nhận.':d!.operation==='sell'?'Đây là báo giá bán đúng giá trị đang nhập, chưa thực hiện. Tiền thực nhận đã trừ chênh lệch và phí theo thứ tự; giá trị tài sản không đồng nghĩa tiền mặt.':'Đây là phương án mua đang nhập, chưa thực hiện. Khoản trả ngay giảm tiền mặt; mua tài sản không bảo đảm thu hồi vốn hoặc có lãi.'):(future?'Không biết kết quả tương lai, RNG hoặc thông tin ẩn.':outside?'Chỉ giải thích trong game; không đưa khuyến nghị đầu tư thật.':!supported?'Chưa hỗ trợ cách hỏi này. Hãy dùng câu hỏi mẫu; chưa có kết luận tài chính cho câu hỏi vừa nhập.':reasons[p.reason]),
+ lines:answered?p.lines:[],limitations:answered?['Báo giá dự kiến từ snapshot hiện tại; chỉ nút xác nhận của bạn mới thực hiện giao dịch.','Không dự đoán giá, lợi nhuận hoặc sự kiện tương lai. Không phải khuyến nghị đầu tư ngoài đời.',...(d!.operation==='fund'?['Chỉ giải thích nguồn, giá trị và khoản đang chọn. Không tự vay, bán hoặc rút; lãi vay tương lai chưa được tính vào bước này.']:[]),...(d!.asset==='bonds'&&d!.operation==='buy'?[c.actual.lap+1>c.actual.totalLaps?'Đáo hạn sau khi hết ván; không tự được trả sớm.':'Gốc và coupon có thể chậm trả hoặc mất; không phải tiết kiệm bảo đảm.']:[]),...(d!.operation==='deposit'?[c.actual.lap+d!.term!-1>c.actual.totalLaps?'Kỳ hạn vượt thời điểm kết thúc ván: không khẳng định bạn nhận được lãi trước khi ván kết thúc.':'Lãi và đáo hạn chỉ áp dụng nếu khoản gửi tồn tại tới đủ kỳ hạn.']:[])]:['Không có báo giá hay giao dịch mới được thực hiện.']}
+ if(answered&&questionIndex===1){
+  const flowCodes=d!.operation==='fund'?['spread','fee','net','lost','used','pendingAfter','cashAfterStep','debtAfter']:d!.operation==='sell'?['spread','fee','net','cashAfter']:['payNow','cashAfter']
+  // Present only validated preview values; do not calculate a second quote.
+  const flow=p.lines.filter(l=>flowCodes.includes(l.code)).map(l=>`${draftLineLabels[l.code]}: ${l.value.toLocaleString('vi-VN')} đồng`).join('; ')
+  response.explanation=flow+'. '+response.explanation
+ }
+ if(answered&&questionIndex===2)response.explanation='Hợp lệ theo lựa chọn, quyền giao dịch và tiền/tài sản của snapshot hiện tại; không phải khuyến nghị thực hiện. '+response.explanation
+ return response
+}
+const responseSchema=object({version:literal(1),policy:literal('b18-draft-question.v1'),requestId:text(),sessionEpoch:text(48),revision:integer(),draftId:text(),draftRevision:integer(),contextDigest:text(71,/^sha256:[0-9a-f]{64}$/),questionDigest:text(71,/^sha256:[0-9a-f]{64}$/),source:literal('deterministic'),integrity:literal('client-state-unverified'),status:enumeration(['answered','fallback']),reason:text(24),conclusion:plainText(180),explanation:plainText(700),lines:array(object({code:enumeration(Object.keys(draftLineLabels)),value:integer()}),0,12),limitations:array(plainText(400),1,8)})
+export async function validateDraftResponse(raw:unknown,request:DraftRequest):Promise<DraftResponse>{
+ const expected=await answerDraft(request)
+ const parsed=responseSchema(raw)
+ if(canonicalJson(parsed)!==canonicalJson(expected))invalid()
+ return expected
+}

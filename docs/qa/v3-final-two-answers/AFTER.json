@@ -1,0 +1,5604 @@
+{
+  "total": 39,
+  "preservedExact": 37,
+  "changed": 2,
+  "results": [
+    {
+      "id": "start-summary",
+      "question": "START vừa xử lý những gì?",
+      "before": {
+        "lead": "Lần qua Xuất phát này đã ghi nhận 14.000.000 đ thu nhập và 5.000.000 đ chi phí sinh hoạt.",
+        "paragraphs": [
+          "Các khoản nợ và nghĩa vụ khác, nếu có, nằm trong “Xem thêm dữ kiện”; đây là khoản đã ghi nhận, không phải dự báo."
+        ],
+        "details": [
+          {
+            "key": "received:overall",
+            "label": "Thu nhập đã ghi nhận tại lần Xuất phát này",
+            "value": "14.000.000 đ"
+          },
+          {
+            "key": "debtPaid:overall",
+            "label": "Nợ gốc đã trả tại lần Xuất phát này",
+            "value": "0 đ"
+          },
+          {
+            "key": "entry:0",
+            "label": "Lương cơ bản tại START",
+            "value": "14.000.000 đ"
+          },
+          {
+            "key": "entry:1",
+            "label": "Tăng lương từ khóa học",
+            "value": "0 đ"
+          },
+          {
+            "key": "entry:2",
+            "label": "Dòng tiền kinh doanh",
+            "value": "0 đ"
+          },
+          {
+            "key": "entry:3",
+            "label": "Chi phí sinh hoạt",
+            "value": "-5.000.000 đ"
+          },
+          {
+            "key": "entry:4",
+            "label": "Gốc nợ và lãi đến hạn",
+            "value": "0 đ"
+          },
+          {
+            "key": "entry:5",
+            "label": "Nghĩa vụ đã hẹn",
+            "value": "0 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "entry",
+            "code": "entry",
+            "subject": "3",
+            "value": -5000000
+          },
+          {
+            "kind": "fact",
+            "code": "received",
+            "subject": "overall",
+            "value": 14000000
+          },
+          {
+            "kind": "fact",
+            "code": "debtPaid",
+            "subject": "overall",
+            "value": 0
+          },
+          {
+            "kind": "entry",
+            "code": "entry",
+            "subject": "0",
+            "value": 14000000
+          },
+          {
+            "kind": "entry",
+            "code": "entry",
+            "subject": "1",
+            "value": 0
+          },
+          {
+            "kind": "entry",
+            "code": "entry",
+            "subject": "2",
+            "value": 0
+          },
+          {
+            "kind": "entry",
+            "code": "entry",
+            "subject": "4",
+            "value": 0
+          },
+          {
+            "kind": "entry",
+            "code": "entry",
+            "subject": "5",
+            "value": 0
+          }
+        ],
+        "rules": [
+          "canonical-explanation:summary"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Lần qua Xuất phát này đã ghi nhận 14.000.000 đ thu nhập và 5.000.000 đ chi phí sinh hoạt.",
+        "paragraphs": [
+          "Các khoản nợ và nghĩa vụ khác, nếu có, nằm trong “Xem thêm dữ kiện”; đây là khoản đã ghi nhận, không phải dự báo."
+        ],
+        "details": [
+          {
+            "key": "received:overall",
+            "label": "Thu nhập đã ghi nhận tại lần Xuất phát này",
+            "value": "14.000.000 đ"
+          },
+          {
+            "key": "debtPaid:overall",
+            "label": "Nợ gốc đã trả tại lần Xuất phát này",
+            "value": "0 đ"
+          },
+          {
+            "key": "entry:0",
+            "label": "Lương cơ bản tại START",
+            "value": "14.000.000 đ"
+          },
+          {
+            "key": "entry:1",
+            "label": "Tăng lương từ khóa học",
+            "value": "0 đ"
+          },
+          {
+            "key": "entry:2",
+            "label": "Dòng tiền kinh doanh",
+            "value": "0 đ"
+          },
+          {
+            "key": "entry:3",
+            "label": "Chi phí sinh hoạt",
+            "value": "-5.000.000 đ"
+          },
+          {
+            "key": "entry:4",
+            "label": "Gốc nợ và lãi đến hạn",
+            "value": "0 đ"
+          },
+          {
+            "key": "entry:5",
+            "label": "Nghĩa vụ đã hẹn",
+            "value": "0 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "entry",
+            "code": "entry",
+            "subject": "3",
+            "value": -5000000
+          },
+          {
+            "kind": "fact",
+            "code": "received",
+            "subject": "overall",
+            "value": 14000000
+          },
+          {
+            "kind": "fact",
+            "code": "debtPaid",
+            "subject": "overall",
+            "value": 0
+          },
+          {
+            "kind": "entry",
+            "code": "entry",
+            "subject": "0",
+            "value": 14000000
+          },
+          {
+            "kind": "entry",
+            "code": "entry",
+            "subject": "1",
+            "value": 0
+          },
+          {
+            "kind": "entry",
+            "code": "entry",
+            "subject": "2",
+            "value": 0
+          },
+          {
+            "kind": "entry",
+            "code": "entry",
+            "subject": "4",
+            "value": 0
+          },
+          {
+            "kind": "entry",
+            "code": "entry",
+            "subject": "5",
+            "value": 0
+          }
+        ],
+        "rules": [
+          "canonical-explanation:summary"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "start-actions",
+      "question": "Tại START tôi được làm gì?",
+      "before": {
+        "lead": "Ở bước này, bạn có thể quản lý việc bán tài sản tài chính và trả nợ theo quyền hiện có.",
+        "paragraphs": [
+          "Không mua mới tài sản tại bước này; quyền bán và trả nợ vẫn phụ thuộc tài sản và tiền đang có.",
+          "Báo giá hoặc phương án đang nhập chưa phải giao dịch đã thực hiện; trả nợ có thể còn phải trả lãi theo luật."
+        ],
+        "details": [
+          {
+            "key": "cash:overall",
+            "label": "Tiền mặt hiện có",
+            "value": "49.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "cash",
+            "subject": "overall",
+            "value": 49000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:rebalancing"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Ở bước này, bạn có thể quản lý việc bán tài sản tài chính và trả nợ theo quyền hiện có.",
+        "paragraphs": [
+          "Không mua mới tài sản tại bước này; quyền bán và trả nợ vẫn phụ thuộc tài sản và tiền đang có.",
+          "Báo giá hoặc phương án đang nhập chưa phải giao dịch đã thực hiện; trả nợ có thể còn phải trả lãi theo luật."
+        ],
+        "details": [
+          {
+            "key": "cash:overall",
+            "label": "Tiền mặt hiện có",
+            "value": "49.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "cash",
+            "subject": "overall",
+            "value": 49000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:rebalancing"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "start-forecast",
+      "question": "Bản tin đầu vòng có nghĩa gì?",
+      "before": {
+        "lead": "Bản tin đầu vòng mô tả biến động kinh tế đang được công bố để bạn quan sát.",
+        "paragraphs": [
+          "Bản tin không dự báo giá tiếp theo và không tiết lộ kết quả xúc xắc hoặc sự kiện chưa xảy ra."
+        ],
+        "details": [],
+        "sources": [],
+        "rules": [
+          "canonical-explanation:forecast"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Bản tin đầu vòng mô tả biến động kinh tế đang được công bố để bạn quan sát.",
+        "paragraphs": [
+          "Bản tin không dự báo giá tiếp theo và không tiết lộ kết quả xúc xắc hoặc sự kiện chưa xảy ra."
+        ],
+        "details": [],
+        "sources": [],
+        "rules": [
+          "canonical-explanation:forecast"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "bank-rules",
+      "question": "Gửi tiết kiệm hoạt động thế nào?",
+      "before": {
+        "lead": "Gửi tiết kiệm chuyển tiền mặt thành một khoản gửi có kỳ hạn riêng.",
+        "paragraphs": [
+          "Tiền đang gửi không còn sẵn để chi ngay; chỉ giữ đủ kỳ hạn mới nhận lãi và khoản gửi không tự tái tục.",
+          "Rút sớm chỉ dùng khi thiếu tiền cho khoản bắt buộc, phải rút cả khoản và mất lãi chưa nhận."
+        ],
+        "details": [
+          {
+            "key": "rate:term-1",
+            "label": "Kỳ hạn 1 START · Lãi suất mỗi kỳ",
+            "value": "4%"
+          },
+          {
+            "key": "rate:term-2",
+            "label": "Kỳ hạn 2 START · Lãi suất mỗi kỳ",
+            "value": "5%"
+          },
+          {
+            "key": "rate:term-3",
+            "label": "Kỳ hạn 3 START · Lãi suất mỗi kỳ",
+            "value": "6%"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "rate",
+            "subject": "term-1",
+            "value": 400
+          },
+          {
+            "kind": "fact",
+            "code": "rate",
+            "subject": "term-2",
+            "value": 500
+          },
+          {
+            "kind": "fact",
+            "code": "rate",
+            "subject": "term-3",
+            "value": 600
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bank"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Gửi tiết kiệm chuyển tiền mặt thành một khoản gửi có kỳ hạn riêng.",
+        "paragraphs": [
+          "Tiền đang gửi không còn sẵn để chi ngay; chỉ giữ đủ kỳ hạn mới nhận lãi và khoản gửi không tự tái tục.",
+          "Rút sớm chỉ dùng khi thiếu tiền cho khoản bắt buộc, phải rút cả khoản và mất lãi chưa nhận."
+        ],
+        "details": [
+          {
+            "key": "rate:term-1",
+            "label": "Kỳ hạn 1 START · Lãi suất mỗi kỳ",
+            "value": "4%"
+          },
+          {
+            "key": "rate:term-2",
+            "label": "Kỳ hạn 2 START · Lãi suất mỗi kỳ",
+            "value": "5%"
+          },
+          {
+            "key": "rate:term-3",
+            "label": "Kỳ hạn 3 START · Lãi suất mỗi kỳ",
+            "value": "6%"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "rate",
+            "subject": "term-1",
+            "value": 400
+          },
+          {
+            "kind": "fact",
+            "code": "rate",
+            "subject": "term-2",
+            "value": 500
+          },
+          {
+            "kind": "fact",
+            "code": "rate",
+            "subject": "term-3",
+            "value": 600
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bank"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "bank-risk",
+      "question": "Rút trước hạn ảnh hưởng đến lãi ra sao?",
+      "before": {
+        "lead": "Rút tiết kiệm sớm làm mất lãi chưa nhận của cả khoản rút.",
+        "paragraphs": [
+          "Trong game, chỉ được rút sớm để giải quyết khoản bắt buộc thiếu tiền và phải rút toàn khoản.",
+          "Giữ tiền có thể dùng ngay và giữ tiền tới đáo hạn là hai nhu cầu khác nhau; lịch và lãi của từng khoản nằm ở dữ kiện bên dưới."
+        ],
+        "details": [],
+        "sources": [],
+        "rules": [
+          "canonical-explanation:bank"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Rút tiết kiệm sớm làm mất lãi chưa nhận của cả khoản rút.",
+        "paragraphs": [
+          "Trong game, chỉ được rút sớm để giải quyết khoản bắt buộc thiếu tiền và phải rút toàn khoản.",
+          "Giữ tiền có thể dùng ngay và giữ tiền tới đáo hạn là hai nhu cầu khác nhau; lịch và lãi của từng khoản nằm ở dữ kiện bên dưới."
+        ],
+        "details": [],
+        "sources": [],
+        "rules": [
+          "canonical-explanation:bank"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "bank-compare",
+      "question": "So sánh các kỳ hạn tiết kiệm",
+      "before": {
+        "lead": "Kỳ hạn dài có lãi suất cao hơn, đổi lại tiền bị giữ lâu hơn.",
+        "paragraphs": [
+          "Lãi suất đang công bố: 1 kỳ là 4%; 2 kỳ là 5%; 3 kỳ là 6% mỗi kỳ.",
+          "Mỗi kỳ là một lần qua Xuất phát; chỉ giữ đủ kỳ hạn mới nhận lãi, còn rút sớm mất lãi chưa nhận."
+        ],
+        "details": [
+          {
+            "key": "rate:term-1",
+            "label": "Kỳ hạn 1 START · Lãi suất mỗi kỳ",
+            "value": "4%"
+          },
+          {
+            "key": "rate:term-2",
+            "label": "Kỳ hạn 2 START · Lãi suất mỗi kỳ",
+            "value": "5%"
+          },
+          {
+            "key": "rate:term-3",
+            "label": "Kỳ hạn 3 START · Lãi suất mỗi kỳ",
+            "value": "6%"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "rate",
+            "subject": "term-1",
+            "value": 400
+          },
+          {
+            "kind": "fact",
+            "code": "rate",
+            "subject": "term-2",
+            "value": 500
+          },
+          {
+            "kind": "fact",
+            "code": "rate",
+            "subject": "term-3",
+            "value": 600
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bank"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Kỳ hạn dài có lãi suất cao hơn, đổi lại tiền bị giữ lâu hơn.",
+        "paragraphs": [
+          "Lãi suất đang công bố: 1 kỳ là 4%; 2 kỳ là 5%; 3 kỳ là 6% mỗi kỳ.",
+          "Mỗi kỳ là một lần qua Xuất phát; chỉ giữ đủ kỳ hạn mới nhận lãi, còn rút sớm mất lãi chưa nhận."
+        ],
+        "details": [
+          {
+            "key": "rate:term-1",
+            "label": "Kỳ hạn 1 START · Lãi suất mỗi kỳ",
+            "value": "4%"
+          },
+          {
+            "key": "rate:term-2",
+            "label": "Kỳ hạn 2 START · Lãi suất mỗi kỳ",
+            "value": "5%"
+          },
+          {
+            "key": "rate:term-3",
+            "label": "Kỳ hạn 3 START · Lãi suất mỗi kỳ",
+            "value": "6%"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "rate",
+            "subject": "term-1",
+            "value": 400
+          },
+          {
+            "kind": "fact",
+            "code": "rate",
+            "subject": "term-2",
+            "value": 500
+          },
+          {
+            "kind": "fact",
+            "code": "rate",
+            "subject": "term-3",
+            "value": 600
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bank"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "bank-maturity",
+      "question": "Khi nào tiết kiệm đáo hạn?",
+      "before": {
+        "lead": "Khoản 1 có lịch đáo hạn ở lần qua Xuất phát của vòng 3.",
+        "paragraphs": [
+          "Khi giữ khoản gửi đến đủ kỳ hạn, bạn mới nhận lại gốc và lãi theo quy tắc của game.",
+          "Nếu rút sớm để giải quyết khoản bắt buộc, phải rút toàn khoản và mất lãi chưa nhận; các khoản khác có thể có lịch riêng."
+        ],
+        "details": [
+          {
+            "key": "principal:lot-1",
+            "label": "Khoản 1 · Tiền gốc đang gửi",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "maturity:lot-1",
+            "label": "Khoản 1 · Vòng đáo hạn theo lịch",
+            "value": "3"
+          },
+          {
+            "key": "interest:lot-1",
+            "label": "Khoản 1 · Lãi nếu giữ đủ kỳ hạn",
+            "value": "360.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "maturity",
+            "subject": "lot-1",
+            "value": 3
+          },
+          {
+            "kind": "fact",
+            "code": "principal",
+            "subject": "lot-1",
+            "value": 2000000
+          },
+          {
+            "kind": "fact",
+            "code": "interest",
+            "subject": "lot-1",
+            "value": 360000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bank"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Khoản 1 có lịch đáo hạn ở lần qua Xuất phát của vòng 3.",
+        "paragraphs": [
+          "Khi giữ khoản gửi đến đủ kỳ hạn, bạn mới nhận lại gốc và lãi theo quy tắc của game.",
+          "Nếu rút sớm để giải quyết khoản bắt buộc, phải rút toàn khoản và mất lãi chưa nhận; các khoản khác có thể có lịch riêng."
+        ],
+        "details": [
+          {
+            "key": "principal:lot-1",
+            "label": "Khoản 1 · Tiền gốc đang gửi",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "maturity:lot-1",
+            "label": "Khoản 1 · Vòng đáo hạn theo lịch",
+            "value": "3"
+          },
+          {
+            "key": "interest:lot-1",
+            "label": "Khoản 1 · Lãi nếu giữ đủ kỳ hạn",
+            "value": "360.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "maturity",
+            "subject": "lot-1",
+            "value": 3
+          },
+          {
+            "kind": "fact",
+            "code": "principal",
+            "subject": "lot-1",
+            "value": 2000000
+          },
+          {
+            "kind": "fact",
+            "code": "interest",
+            "subject": "lot-1",
+            "value": 360000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bank"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "bank-draft-cash",
+      "question": "Gửi khoản đang nhập thì ví tôi còn bao nhiêu?",
+      "before": {
+        "lead": "Theo phương án hiện tại, tiền mặt dự kiến còn 52.400.000 đ.",
+        "paragraphs": [
+          "Khoản 2.000.000 đ sẽ rời tiền mặt khi bạn xác nhận; hiện chưa gửi tiền.",
+          "Tiền gốc chuyển thành khoản gửi; chỉ giữ đủ kỳ hạn mới nhận lãi, còn rút sớm mất lãi chưa nhận."
+        ],
+        "details": [
+          {
+            "key": "line:entered",
+            "label": "Giá trị đang nhập",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:payNow",
+            "label": "Dự kiến trả ngay",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:cashAfter",
+            "label": "Dự kiến tiền mặt sau giao dịch",
+            "value": "52.400.000 đ"
+          },
+          {
+            "key": "line:term",
+            "label": "Kỳ hạn đã chọn",
+            "value": "1"
+          },
+          {
+            "key": "line:interest",
+            "label": "Lãi danh nghĩa nếu giữ đủ kỳ hạn",
+            "value": "80.000 đ"
+          },
+          {
+            "key": "line:maturity",
+            "label": "Đáo hạn ở START vòng",
+            "value": "2"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "line",
+            "code": "cashAfter",
+            "value": 52400000
+          },
+          {
+            "kind": "line",
+            "code": "payNow",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "entered",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "term",
+            "value": 1
+          },
+          {
+            "kind": "line",
+            "code": "interest",
+            "value": 80000
+          },
+          {
+            "kind": "line",
+            "code": "maturity",
+            "value": 2
+          }
+        ],
+        "rules": [
+          "canonical-explanation:deposit-selection"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Theo phương án hiện tại, tiền mặt dự kiến còn 52.400.000 đ.",
+        "paragraphs": [
+          "Khoản 2.000.000 đ sẽ rời tiền mặt khi bạn xác nhận; hiện chưa gửi tiền.",
+          "Tiền gốc chuyển thành khoản gửi; chỉ giữ đủ kỳ hạn mới nhận lãi, còn rút sớm mất lãi chưa nhận."
+        ],
+        "details": [
+          {
+            "key": "line:entered",
+            "label": "Giá trị đang nhập",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:payNow",
+            "label": "Dự kiến trả ngay",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:cashAfter",
+            "label": "Dự kiến tiền mặt sau giao dịch",
+            "value": "52.400.000 đ"
+          },
+          {
+            "key": "line:term",
+            "label": "Kỳ hạn đã chọn",
+            "value": "1"
+          },
+          {
+            "key": "line:interest",
+            "label": "Lãi danh nghĩa nếu giữ đủ kỳ hạn",
+            "value": "80.000 đ"
+          },
+          {
+            "key": "line:maturity",
+            "label": "Đáo hạn ở START vòng",
+            "value": "2"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "line",
+            "code": "cashAfter",
+            "value": 52400000
+          },
+          {
+            "kind": "line",
+            "code": "payNow",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "entered",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "term",
+            "value": 1
+          },
+          {
+            "kind": "line",
+            "code": "interest",
+            "value": 80000
+          },
+          {
+            "kind": "line",
+            "code": "maturity",
+            "value": 2
+          }
+        ],
+        "rules": [
+          "canonical-explanation:deposit-selection"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "stocks-rules",
+      "question": "Cổ phiếu hoạt động thế nào?",
+      "before": {
+        "lead": "Mua cổ phiếu là đổi tiền mặt lấy tài sản có giá thay đổi.",
+        "paragraphs": [
+          "Bạn chưa sở hữu cổ phiếu trong dữ kiện hiện tại.",
+          "Bán mới nhận tiền sau phí; giá có thể giảm nên mua không bảo đảm thu hồi vốn."
+        ],
+        "details": [
+          {
+            "key": "holding:stocks",
+            "label": "Cổ phiếu · Giá trị đang sở hữu trước phí",
+            "value": "0 đ"
+          },
+          {
+            "key": "price:FPT",
+            "label": "CTCP FPT · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:VCB",
+            "label": "Vietcombank · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:TCB",
+            "label": "Techcombank · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:HPG",
+            "label": "Tập đoàn Hòa Phát · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:BMP",
+            "label": "Nhựa Bình Minh · Giá đang công bố",
+            "value": "100.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "holding",
+            "subject": "stocks",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "FPT",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "CMG",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "VCB",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "TCB",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "HPG",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "BMP",
+            "value": 100000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:stocks"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Mua cổ phiếu là đổi tiền mặt lấy tài sản có giá thay đổi.",
+        "paragraphs": [
+          "Bạn chưa sở hữu cổ phiếu trong dữ kiện hiện tại.",
+          "Bán mới nhận tiền sau phí; giá có thể giảm nên mua không bảo đảm thu hồi vốn."
+        ],
+        "details": [
+          {
+            "key": "holding:stocks",
+            "label": "Cổ phiếu · Giá trị đang sở hữu trước phí",
+            "value": "0 đ"
+          },
+          {
+            "key": "price:FPT",
+            "label": "CTCP FPT · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:VCB",
+            "label": "Vietcombank · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:TCB",
+            "label": "Techcombank · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:HPG",
+            "label": "Tập đoàn Hòa Phát · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:BMP",
+            "label": "Nhựa Bình Minh · Giá đang công bố",
+            "value": "100.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "holding",
+            "subject": "stocks",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "FPT",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "CMG",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "VCB",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "TCB",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "HPG",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "BMP",
+            "value": 100000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:stocks"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "stocks-price",
+      "question": "Giá cổ phiếu hiện tại là bao nhiêu?",
+      "before": {
+        "lead": "Giá được công bố theo từng mã, chẳng hạn CTCP FPT đang ở 100.000 đ.",
+        "paragraphs": [
+          "Mở “Xem thêm dữ kiện” để xem giá đã công bố của các mã khác; đây là giá tham chiếu, chưa trừ chi phí bán.",
+          "Giá có thể thay đổi; các con số này không phải tín hiệu mua bán hay bảo đảm lợi nhuận."
+        ],
+        "details": [
+          {
+            "key": "price:FPT",
+            "label": "CTCP FPT · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:VCB",
+            "label": "Vietcombank · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:TCB",
+            "label": "Techcombank · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:HPG",
+            "label": "Tập đoàn Hòa Phát · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:BMP",
+            "label": "Nhựa Bình Minh · Giá đang công bố",
+            "value": "100.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "FPT",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "CMG",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "VCB",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "TCB",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "HPG",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "BMP",
+            "value": 100000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:stocks"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Giá được công bố theo từng mã, chẳng hạn CTCP FPT đang ở 100.000 đ.",
+        "paragraphs": [
+          "Mở “Xem thêm dữ kiện” để xem giá đã công bố của các mã khác; đây là giá tham chiếu, chưa trừ chi phí bán.",
+          "Giá có thể thay đổi; các con số này không phải tín hiệu mua bán hay bảo đảm lợi nhuận."
+        ],
+        "details": [
+          {
+            "key": "price:FPT",
+            "label": "CTCP FPT · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:VCB",
+            "label": "Vietcombank · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:TCB",
+            "label": "Techcombank · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:HPG",
+            "label": "Tập đoàn Hòa Phát · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "price:BMP",
+            "label": "Nhựa Bình Minh · Giá đang công bố",
+            "value": "100.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "FPT",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "CMG",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "VCB",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "TCB",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "HPG",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "BMP",
+            "value": 100000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:stocks"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "stocks-risk",
+      "question": "Cổ phiếu có rủi ro gì?",
+      "before": {
+        "lead": "Cổ phiếu có thể giảm giá; khi bán, bạn còn chịu phí giao dịch.",
+        "paragraphs": [
+          "Giá trị đang sở hữu chưa phải tiền mặt dùng được ngay, và chưa bán thì chưa nhận tiền.",
+          "Không biết giá tương lai; chỉ khi có tài sản và báo giá hợp lệ mới nêu được số tiền bán cụ thể."
+        ],
+        "details": [],
+        "sources": [],
+        "rules": [
+          "canonical-explanation:stocks"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Cổ phiếu có thể giảm giá; khi bán, bạn còn chịu phí giao dịch.",
+        "paragraphs": [
+          "Giá trị đang sở hữu chưa phải tiền mặt dùng được ngay, và chưa bán thì chưa nhận tiền.",
+          "Không biết giá tương lai; chỉ khi có tài sản và báo giá hợp lệ mới nêu được số tiền bán cụ thể."
+        ],
+        "details": [],
+        "sources": [],
+        "rules": [
+          "canonical-explanation:stocks"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "stocks-sale",
+      "question": "Tôi sẽ trả hoặc nhận bao nhiêu với giá trị đang nhập?",
+      "before": {
+        "lead": "Bạn dự kiến nhận 1.980.000 đ sau khi bán phần giá trị đang chọn.",
+        "paragraphs": [
+          "Báo giá này đã trừ chênh lệch mua–bán 0 đ và phí bán 20.000 đ, không phải toàn bộ giá trị tài sản biến thành tiền mặt.",
+          "Đây mới là phương án đang nhập, chưa bán thật; giá và tiền nhận có thể thay đổi khi dữ kiện thay đổi."
+        ],
+        "details": [
+          {
+            "key": "line:entered",
+            "label": "Giá trị đang nhập",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:gross",
+            "label": "Giá trị muốn bán",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:spread",
+            "label": "Chênh lệch mua–bán",
+            "value": "0 đ"
+          },
+          {
+            "key": "line:fee",
+            "label": "Phí bán",
+            "value": "20.000 đ"
+          },
+          {
+            "key": "line:net",
+            "label": "Dự kiến thực nhận",
+            "value": "1.980.000 đ"
+          },
+          {
+            "key": "line:cashAfter",
+            "label": "Dự kiến tiền mặt sau giao dịch",
+            "value": "59.980.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "line",
+            "code": "net",
+            "value": 1980000
+          },
+          {
+            "kind": "line",
+            "code": "spread",
+            "value": 0
+          },
+          {
+            "kind": "line",
+            "code": "fee",
+            "value": 20000
+          },
+          {
+            "kind": "line",
+            "code": "entered",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "gross",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "cashAfter",
+            "value": 59980000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:sell-selection"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Bạn dự kiến nhận 1.980.000 đ sau khi bán phần giá trị đang chọn.",
+        "paragraphs": [
+          "Báo giá này đã trừ chênh lệch mua–bán 0 đ và phí bán 20.000 đ, không phải toàn bộ giá trị tài sản biến thành tiền mặt.",
+          "Đây mới là phương án đang nhập, chưa bán thật; giá và tiền nhận có thể thay đổi khi dữ kiện thay đổi."
+        ],
+        "details": [
+          {
+            "key": "line:entered",
+            "label": "Giá trị đang nhập",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:gross",
+            "label": "Giá trị muốn bán",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:spread",
+            "label": "Chênh lệch mua–bán",
+            "value": "0 đ"
+          },
+          {
+            "key": "line:fee",
+            "label": "Phí bán",
+            "value": "20.000 đ"
+          },
+          {
+            "key": "line:net",
+            "label": "Dự kiến thực nhận",
+            "value": "1.980.000 đ"
+          },
+          {
+            "key": "line:cashAfter",
+            "label": "Dự kiến tiền mặt sau giao dịch",
+            "value": "59.980.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "line",
+            "code": "net",
+            "value": 1980000
+          },
+          {
+            "kind": "line",
+            "code": "spread",
+            "value": 0
+          },
+          {
+            "kind": "line",
+            "code": "fee",
+            "value": 20000
+          },
+          {
+            "kind": "line",
+            "code": "entered",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "gross",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "cashAfter",
+            "value": 59980000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:sell-selection"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "stocks-draft-cash",
+      "question": "Mua khoản đang nhập thì ví tôi còn bao nhiêu?",
+      "before": {
+        "lead": "Theo phương án hiện tại, tiền mặt dự kiến còn 38.000.000 đ.",
+        "paragraphs": [
+          "Khoản 2.000.000 đ sẽ rời tiền mặt khi bạn xác nhận; hiện chưa mua tài sản.",
+          "Bạn đổi tiền dùng ngay lấy tài sản có giá thay đổi; mua không bảo đảm thu hồi vốn hay có lãi."
+        ],
+        "details": [
+          {
+            "key": "line:entered",
+            "label": "Giá trị đang nhập",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:payNow",
+            "label": "Dự kiến trả ngay",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:cashAfter",
+            "label": "Dự kiến tiền mặt sau giao dịch",
+            "value": "38.000.000 đ"
+          },
+          {
+            "key": "line:price",
+            "label": "Giá hiện tại / đơn vị",
+            "value": "100.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "line",
+            "code": "cashAfter",
+            "value": 38000000
+          },
+          {
+            "kind": "line",
+            "code": "payNow",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "entered",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "price",
+            "value": 100000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:buy-selection"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Theo phương án hiện tại, tiền mặt dự kiến còn 38.000.000 đ.",
+        "paragraphs": [
+          "Khoản 2.000.000 đ sẽ rời tiền mặt khi bạn xác nhận; hiện chưa mua tài sản.",
+          "Bạn đổi tiền dùng ngay lấy tài sản có giá thay đổi; mua không bảo đảm thu hồi vốn hay có lãi."
+        ],
+        "details": [
+          {
+            "key": "line:entered",
+            "label": "Giá trị đang nhập",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:payNow",
+            "label": "Dự kiến trả ngay",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:cashAfter",
+            "label": "Dự kiến tiền mặt sau giao dịch",
+            "value": "38.000.000 đ"
+          },
+          {
+            "key": "line:price",
+            "label": "Giá hiện tại / đơn vị",
+            "value": "100.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "line",
+            "code": "cashAfter",
+            "value": 38000000
+          },
+          {
+            "kind": "line",
+            "code": "payNow",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "entered",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "price",
+            "value": 100000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:buy-selection"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "bonds-rules",
+      "question": "Trái phiếu hoạt động thế nào?",
+      "before": {
+        "lead": "Mua trái phiếu là nhận quyền được trả gốc và lãi theo hợp đồng của tổ chức phát hành.",
+        "paragraphs": [
+          "Tổ chức phát hành có thể chậm trả hoặc mất gốc, mất lãi; quyền nhận tiền không bảo đảm tiền đã về ví.",
+          "Chỉ lô có báo giá hợp lệ mới bán được; mức lãi và tình trạng từng bên nằm trong “Xem thêm dữ kiện”."
+        ],
+        "details": [
+          {
+            "key": "creditState:an-tam",
+            "label": "Hợp tác xã An Tâm · Tình trạng trả nợ hiện tại",
+            "value": "Đang trả đúng hạn"
+          },
+          {
+            "key": "coupon:an-tam",
+            "label": "Hợp tác xã An Tâm · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "4,5%"
+          },
+          {
+            "key": "creditState:but-pha",
+            "label": "Công ty Bứt Phá · Tình trạng trả nợ hiện tại",
+            "value": "Đang trả đúng hạn"
+          },
+          {
+            "key": "coupon:but-pha",
+            "label": "Công ty Bứt Phá · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "10%"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "creditState",
+            "subject": "an-tam",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "an-tam",
+            "value": 450
+          },
+          {
+            "kind": "fact",
+            "code": "creditState",
+            "subject": "but-pha",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "but-pha",
+            "value": 1000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bonds"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Mua trái phiếu là nhận quyền được trả gốc và lãi theo hợp đồng của tổ chức phát hành.",
+        "paragraphs": [
+          "Tổ chức phát hành có thể chậm trả hoặc mất gốc, mất lãi; quyền nhận tiền không bảo đảm tiền đã về ví.",
+          "Chỉ lô có báo giá hợp lệ mới bán được; mức lãi và tình trạng từng bên nằm trong “Xem thêm dữ kiện”."
+        ],
+        "details": [
+          {
+            "key": "creditState:an-tam",
+            "label": "Hợp tác xã An Tâm · Tình trạng trả nợ hiện tại",
+            "value": "Đang trả đúng hạn"
+          },
+          {
+            "key": "coupon:an-tam",
+            "label": "Hợp tác xã An Tâm · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "4,5%"
+          },
+          {
+            "key": "creditState:but-pha",
+            "label": "Công ty Bứt Phá · Tình trạng trả nợ hiện tại",
+            "value": "Đang trả đúng hạn"
+          },
+          {
+            "key": "coupon:but-pha",
+            "label": "Công ty Bứt Phá · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "10%"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "creditState",
+            "subject": "an-tam",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "an-tam",
+            "value": 450
+          },
+          {
+            "kind": "fact",
+            "code": "creditState",
+            "subject": "but-pha",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "but-pha",
+            "value": 1000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bonds"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "bonds-coupon",
+      "question": "Coupon là gì?",
+      "before": {
+        "lead": "Coupon là tiền lãi trái phiếu ghi trong hợp đồng, chưa phải tiền bạn đã nhận.",
+        "paragraphs": [
+          "Lãi hợp đồng đang công bố: Hợp tác xã An Tâm 4,5%; Công ty Bứt Phá 10%.",
+          "Tổ chức phát hành có thể chậm trả hoặc mất gốc, mất lãi; hợp đồng không bảo đảm số tiền thực nhận."
+        ],
+        "details": [
+          {
+            "key": "coupon:an-tam",
+            "label": "Hợp tác xã An Tâm · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "4,5%"
+          },
+          {
+            "key": "coupon:but-pha",
+            "label": "Công ty Bứt Phá · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "10%"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "an-tam",
+            "value": 450
+          },
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "but-pha",
+            "value": 1000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bonds"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Coupon là tiền lãi trái phiếu ghi trong hợp đồng, chưa phải tiền bạn đã nhận.",
+        "paragraphs": [
+          "Lãi hợp đồng đang công bố: Hợp tác xã An Tâm 4,5%; Công ty Bứt Phá 10%.",
+          "Tổ chức phát hành có thể chậm trả hoặc mất gốc, mất lãi; hợp đồng không bảo đảm số tiền thực nhận."
+        ],
+        "details": [
+          {
+            "key": "coupon:an-tam",
+            "label": "Hợp tác xã An Tâm · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "4,5%"
+          },
+          {
+            "key": "coupon:but-pha",
+            "label": "Công ty Bứt Phá · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "10%"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "an-tam",
+            "value": 450
+          },
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "but-pha",
+            "value": 1000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bonds"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "bonds-risk",
+      "question": "Nếu trái phiếu bị chậm trả thì sao?",
+      "before": {
+        "lead": "Khi trái phiếu chậm trả, khoản gốc hoặc lãi đến hạn chưa vào tiền mặt của bạn.",
+        "paragraphs": [
+          "Game theo dõi khoản còn phải thu; tùy tình trạng tín dụng, khoản này có thể tiếp tục chậm trả hoặc bị ghi nhận mất gốc, mất lãi.",
+          "Hợp đồng không bảo đảm thu đủ tiền; chỉ lô có báo giá bán hợp lệ mới bán được, một số trạng thái không thể bán."
+        ],
+        "details": [
+          {
+            "key": "creditState:an-tam",
+            "label": "Hợp tác xã An Tâm · Tình trạng trả nợ hiện tại",
+            "value": "Đang trả đúng hạn"
+          },
+          {
+            "key": "coupon:an-tam",
+            "label": "Hợp tác xã An Tâm · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "4,5%"
+          },
+          {
+            "key": "creditState:but-pha",
+            "label": "Công ty Bứt Phá · Tình trạng trả nợ hiện tại",
+            "value": "Đang trả đúng hạn"
+          },
+          {
+            "key": "coupon:but-pha",
+            "label": "Công ty Bứt Phá · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "10%"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "creditState",
+            "subject": "an-tam",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "an-tam",
+            "value": 450
+          },
+          {
+            "kind": "fact",
+            "code": "creditState",
+            "subject": "but-pha",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "but-pha",
+            "value": 1000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bonds"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Khi trái phiếu chậm trả, khoản gốc hoặc lãi đến hạn chưa vào tiền mặt của bạn.",
+        "paragraphs": [
+          "Game theo dõi khoản còn phải thu; tùy tình trạng tín dụng, khoản này có thể tiếp tục chậm trả hoặc bị ghi nhận mất gốc, mất lãi.",
+          "Hợp đồng không bảo đảm thu đủ tiền; chỉ lô có báo giá bán hợp lệ mới bán được, một số trạng thái không thể bán."
+        ],
+        "details": [
+          {
+            "key": "creditState:an-tam",
+            "label": "Hợp tác xã An Tâm · Tình trạng trả nợ hiện tại",
+            "value": "Đang trả đúng hạn"
+          },
+          {
+            "key": "coupon:an-tam",
+            "label": "Hợp tác xã An Tâm · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "4,5%"
+          },
+          {
+            "key": "creditState:but-pha",
+            "label": "Công ty Bứt Phá · Tình trạng trả nợ hiện tại",
+            "value": "Đang trả đúng hạn"
+          },
+          {
+            "key": "coupon:but-pha",
+            "label": "Công ty Bứt Phá · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "10%"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "creditState",
+            "subject": "an-tam",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "an-tam",
+            "value": 450
+          },
+          {
+            "kind": "fact",
+            "code": "creditState",
+            "subject": "but-pha",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "but-pha",
+            "value": 1000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bonds"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "bonds-compare",
+      "question": "Hai tổ chức phát hành khác nhau thế nào?",
+      "before": {
+        "lead": "Hợp tác xã An Tâm có lãi hợp đồng 4,5%, hiện đang trả đúng hạn.",
+        "paragraphs": [
+          "Công ty Bứt Phá có lãi hợp đồng 10%, hiện đang trả đúng hạn.",
+          "Lãi cao hơn không bảo đảm an toàn hơn: mỗi bên vẫn có thể chậm trả hoặc mất gốc, mất lãi; cam kết khác với tiền thực nhận."
+        ],
+        "details": [
+          {
+            "key": "creditState:an-tam",
+            "label": "Hợp tác xã An Tâm · Tình trạng trả nợ hiện tại",
+            "value": "Đang trả đúng hạn"
+          },
+          {
+            "key": "price:an-tam",
+            "label": "Hợp tác xã An Tâm · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "coupon:an-tam",
+            "label": "Hợp tác xã An Tâm · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "4,5%"
+          },
+          {
+            "key": "creditState:but-pha",
+            "label": "Công ty Bứt Phá · Tình trạng trả nợ hiện tại",
+            "value": "Đang trả đúng hạn"
+          },
+          {
+            "key": "price:but-pha",
+            "label": "Công ty Bứt Phá · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "coupon:but-pha",
+            "label": "Công ty Bứt Phá · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "10%"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "an-tam",
+            "value": 450
+          },
+          {
+            "kind": "fact",
+            "code": "creditState",
+            "subject": "an-tam",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "but-pha",
+            "value": 1000
+          },
+          {
+            "kind": "fact",
+            "code": "creditState",
+            "subject": "but-pha",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "an-tam",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "but-pha",
+            "value": 100000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bonds"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Hợp tác xã An Tâm có lãi hợp đồng 4,5%, hiện đang trả đúng hạn.",
+        "paragraphs": [
+          "Công ty Bứt Phá có lãi hợp đồng 10%, hiện đang trả đúng hạn.",
+          "Lãi cao hơn không bảo đảm an toàn hơn: mỗi bên vẫn có thể chậm trả hoặc mất gốc, mất lãi; cam kết khác với tiền thực nhận."
+        ],
+        "details": [
+          {
+            "key": "creditState:an-tam",
+            "label": "Hợp tác xã An Tâm · Tình trạng trả nợ hiện tại",
+            "value": "Đang trả đúng hạn"
+          },
+          {
+            "key": "price:an-tam",
+            "label": "Hợp tác xã An Tâm · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "coupon:an-tam",
+            "label": "Hợp tác xã An Tâm · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "4,5%"
+          },
+          {
+            "key": "creditState:but-pha",
+            "label": "Công ty Bứt Phá · Tình trạng trả nợ hiện tại",
+            "value": "Đang trả đúng hạn"
+          },
+          {
+            "key": "price:but-pha",
+            "label": "Công ty Bứt Phá · Giá đang công bố",
+            "value": "100.000 đ"
+          },
+          {
+            "key": "coupon:but-pha",
+            "label": "Công ty Bứt Phá · Lãi theo hợp đồng, chưa phải tiền đã nhận",
+            "value": "10%"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "an-tam",
+            "value": 450
+          },
+          {
+            "kind": "fact",
+            "code": "creditState",
+            "subject": "an-tam",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "coupon",
+            "subject": "but-pha",
+            "value": 1000
+          },
+          {
+            "kind": "fact",
+            "code": "creditState",
+            "subject": "but-pha",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "an-tam",
+            "value": 100000
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "but-pha",
+            "value": 100000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:bonds"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "gold-rules",
+      "question": "Vàng trong game hoạt động thế nào?",
+      "before": {
+        "lead": "Mua vàng là đổi tiền mặt lấy tài sản có giá thay đổi.",
+        "paragraphs": [
+          "Bạn chưa sở hữu vàng trong dữ kiện hiện tại.",
+          "Vàng không tạo lương hay lãi định kỳ; tiền nhận khi bán còn trừ chênh lệch mua–bán và phí."
+        ],
+        "details": [
+          {
+            "key": "holding:gold",
+            "label": "Vàng · Giá trị đang sở hữu trước phí",
+            "value": "0 đ"
+          },
+          {
+            "key": "price:gold",
+            "label": "Vàng · Giá đang công bố",
+            "value": "1.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "holding",
+            "subject": "gold",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "gold",
+            "value": 1000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:gold"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Mua vàng là đổi tiền mặt lấy tài sản có giá thay đổi.",
+        "paragraphs": [
+          "Bạn chưa sở hữu vàng trong dữ kiện hiện tại.",
+          "Vàng không tạo lương hay lãi định kỳ; tiền nhận khi bán còn trừ chênh lệch mua–bán và phí."
+        ],
+        "details": [
+          {
+            "key": "holding:gold",
+            "label": "Vàng · Giá trị đang sở hữu trước phí",
+            "value": "0 đ"
+          },
+          {
+            "key": "price:gold",
+            "label": "Vàng · Giá đang công bố",
+            "value": "1.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "holding",
+            "subject": "gold",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "gold",
+            "value": 1000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:gold"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "gold-price",
+      "question": "Giá vàng hiện tại là bao nhiêu?",
+      "before": {
+        "lead": "Giá vàng đang công bố là 1.000.000 đ.",
+        "paragraphs": [
+          "Đây là giá tham chiếu hiện tại, khác với số tiền thực nhận sau khi bán và trừ chi phí.",
+          "Giá có thể thay đổi; các con số này không phải tín hiệu mua bán hay bảo đảm lợi nhuận."
+        ],
+        "details": [
+          {
+            "key": "price:gold",
+            "label": "Vàng · Giá đang công bố",
+            "value": "1.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "gold",
+            "value": 1000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:gold"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Giá vàng đang công bố là 1.000.000 đ.",
+        "paragraphs": [
+          "Đây là giá tham chiếu hiện tại, khác với số tiền thực nhận sau khi bán và trừ chi phí.",
+          "Giá có thể thay đổi; các con số này không phải tín hiệu mua bán hay bảo đảm lợi nhuận."
+        ],
+        "details": [
+          {
+            "key": "price:gold",
+            "label": "Vàng · Giá đang công bố",
+            "value": "1.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "gold",
+            "value": 1000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:gold"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "gold-risk",
+      "question": "Vàng có rủi ro gì?",
+      "before": {
+        "lead": "Vàng có thể giảm giá; ngay cả khi giá chưa đổi, bán lại vẫn có thể mất tiền vì chênh lệch mua–bán và phí.",
+        "paragraphs": [
+          "Giá trị đang sở hữu chưa phải tiền mặt dùng được ngay, và chưa bán thì chưa nhận tiền.",
+          "Không biết giá tương lai; chỉ khi có tài sản và báo giá hợp lệ mới nêu được số tiền bán cụ thể."
+        ],
+        "details": [],
+        "sources": [],
+        "rules": [
+          "canonical-explanation:gold"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Vàng có thể giảm giá; ngay cả khi giá chưa đổi, bán lại vẫn có thể mất tiền vì chênh lệch mua–bán và phí.",
+        "paragraphs": [
+          "Giá trị đang sở hữu chưa phải tiền mặt dùng được ngay, và chưa bán thì chưa nhận tiền.",
+          "Không biết giá tương lai; chỉ khi có tài sản và báo giá hợp lệ mới nêu được số tiền bán cụ thể."
+        ],
+        "details": [],
+        "sources": [],
+        "rules": [
+          "canonical-explanation:gold"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "gold-sale",
+      "question": "Tôi sẽ trả hoặc nhận bao nhiêu với giá trị đang nhập?",
+      "before": {
+        "lead": "Bạn dự kiến nhận 1.920.600 đ sau khi bán phần giá trị đang chọn.",
+        "paragraphs": [
+          "Báo giá này đã trừ chênh lệch mua–bán 60.000 đ và phí bán 19.400 đ, không phải toàn bộ giá trị tài sản biến thành tiền mặt.",
+          "Đây mới là phương án đang nhập, chưa bán thật; giá và tiền nhận có thể thay đổi khi dữ kiện thay đổi."
+        ],
+        "details": [
+          {
+            "key": "line:entered",
+            "label": "Giá trị đang nhập",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:gross",
+            "label": "Giá trị muốn bán",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:spread",
+            "label": "Chênh lệch mua–bán",
+            "value": "60.000 đ"
+          },
+          {
+            "key": "line:fee",
+            "label": "Phí bán",
+            "value": "19.400 đ"
+          },
+          {
+            "key": "line:net",
+            "label": "Dự kiến thực nhận",
+            "value": "1.920.600 đ"
+          },
+          {
+            "key": "line:cashAfter",
+            "label": "Dự kiến tiền mặt sau giao dịch",
+            "value": "72.920.600 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "line",
+            "code": "net",
+            "value": 1920600
+          },
+          {
+            "kind": "line",
+            "code": "spread",
+            "value": 60000
+          },
+          {
+            "kind": "line",
+            "code": "fee",
+            "value": 19400
+          },
+          {
+            "kind": "line",
+            "code": "entered",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "gross",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "cashAfter",
+            "value": 72920600
+          }
+        ],
+        "rules": [
+          "canonical-explanation:sell-selection"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Bạn dự kiến nhận 1.920.600 đ sau khi bán phần giá trị đang chọn.",
+        "paragraphs": [
+          "Báo giá này đã trừ chênh lệch mua–bán 60.000 đ và phí bán 19.400 đ, không phải toàn bộ giá trị tài sản biến thành tiền mặt.",
+          "Đây mới là phương án đang nhập, chưa bán thật; giá và tiền nhận có thể thay đổi khi dữ kiện thay đổi."
+        ],
+        "details": [
+          {
+            "key": "line:entered",
+            "label": "Giá trị đang nhập",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:gross",
+            "label": "Giá trị muốn bán",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:spread",
+            "label": "Chênh lệch mua–bán",
+            "value": "60.000 đ"
+          },
+          {
+            "key": "line:fee",
+            "label": "Phí bán",
+            "value": "19.400 đ"
+          },
+          {
+            "key": "line:net",
+            "label": "Dự kiến thực nhận",
+            "value": "1.920.600 đ"
+          },
+          {
+            "key": "line:cashAfter",
+            "label": "Dự kiến tiền mặt sau giao dịch",
+            "value": "72.920.600 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "line",
+            "code": "net",
+            "value": 1920600
+          },
+          {
+            "kind": "line",
+            "code": "spread",
+            "value": 60000
+          },
+          {
+            "kind": "line",
+            "code": "fee",
+            "value": 19400
+          },
+          {
+            "kind": "line",
+            "code": "entered",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "gross",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "cashAfter",
+            "value": 72920600
+          }
+        ],
+        "rules": [
+          "canonical-explanation:sell-selection"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "gold-draft-cash",
+      "question": "Mua khoản đang nhập thì ví tôi còn bao nhiêu?",
+      "before": {
+        "lead": "Theo phương án hiện tại, tiền mặt dự kiến còn 38.000.000 đ.",
+        "paragraphs": [
+          "Khoản 2.000.000 đ sẽ rời tiền mặt khi bạn xác nhận; hiện chưa mua tài sản.",
+          "Bạn đổi tiền dùng ngay lấy tài sản có giá thay đổi; mua không bảo đảm thu hồi vốn hay có lãi."
+        ],
+        "details": [
+          {
+            "key": "line:entered",
+            "label": "Giá trị đang nhập",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:payNow",
+            "label": "Dự kiến trả ngay",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:cashAfter",
+            "label": "Dự kiến tiền mặt sau giao dịch",
+            "value": "38.000.000 đ"
+          },
+          {
+            "key": "line:price",
+            "label": "Giá hiện tại / đơn vị",
+            "value": "1.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "line",
+            "code": "cashAfter",
+            "value": 38000000
+          },
+          {
+            "kind": "line",
+            "code": "payNow",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "entered",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "price",
+            "value": 1000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:buy-selection"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Theo phương án hiện tại, tiền mặt dự kiến còn 38.000.000 đ.",
+        "paragraphs": [
+          "Khoản 2.000.000 đ sẽ rời tiền mặt khi bạn xác nhận; hiện chưa mua tài sản.",
+          "Bạn đổi tiền dùng ngay lấy tài sản có giá thay đổi; mua không bảo đảm thu hồi vốn hay có lãi."
+        ],
+        "details": [
+          {
+            "key": "line:entered",
+            "label": "Giá trị đang nhập",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:payNow",
+            "label": "Dự kiến trả ngay",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "line:cashAfter",
+            "label": "Dự kiến tiền mặt sau giao dịch",
+            "value": "38.000.000 đ"
+          },
+          {
+            "key": "line:price",
+            "label": "Giá hiện tại / đơn vị",
+            "value": "1.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "line",
+            "code": "cashAfter",
+            "value": 38000000
+          },
+          {
+            "kind": "line",
+            "code": "payNow",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "entered",
+            "value": 2000000
+          },
+          {
+            "kind": "line",
+            "code": "price",
+            "value": 1000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:buy-selection"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "business-rules",
+      "question": "Kinh doanh hoạt động thế nào?",
+      "before": {
+        "lead": "Bạn bỏ vốn mua quán để nhận thu nhập khi qua Xuất phát theo trạng thái kinh doanh hiện tại.",
+        "paragraphs": [
+          "Bạn chưa có quán; nâng cấp chỉ mở từ lần ghé sau khi mua và theo quyền hiện tại.",
+          "Thu nhập phụ thuộc thị hiếu, không bảo đảm hòa vốn; quán không được bán để huy động khoản bắt buộc."
+        ],
+        "details": [
+          {
+            "key": "businessIncome:overall",
+            "label": "Thu nhập quán theo trạng thái hiện tại",
+            "value": "0 đ"
+          },
+          {
+            "key": "capital:overall",
+            "label": "Vốn đang nằm trong quán",
+            "value": "0 đ"
+          },
+          {
+            "key": "purchaseCost:overall",
+            "label": "Vốn mua quán",
+            "value": "20.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "capital",
+            "subject": "overall",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "businessIncome",
+            "subject": "overall",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "purchaseCost",
+            "subject": "overall",
+            "value": 20000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:business"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Bạn bỏ vốn mua quán để nhận thu nhập khi qua Xuất phát theo trạng thái kinh doanh hiện tại.",
+        "paragraphs": [
+          "Bạn chưa có quán; nâng cấp chỉ mở từ lần ghé sau khi mua và theo quyền hiện tại.",
+          "Thu nhập phụ thuộc thị hiếu, không bảo đảm hòa vốn; quán không được bán để huy động khoản bắt buộc."
+        ],
+        "details": [
+          {
+            "key": "businessIncome:overall",
+            "label": "Thu nhập quán theo trạng thái hiện tại",
+            "value": "0 đ"
+          },
+          {
+            "key": "capital:overall",
+            "label": "Vốn đang nằm trong quán",
+            "value": "0 đ"
+          },
+          {
+            "key": "purchaseCost:overall",
+            "label": "Vốn mua quán",
+            "value": "20.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "capital",
+            "subject": "overall",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "businessIncome",
+            "subject": "overall",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "purchaseCost",
+            "subject": "overall",
+            "value": 20000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:business"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "business-risk",
+      "question": "Kinh doanh có rủi ro gì?",
+      "before": {
+        "lead": "Vốn có thể bị giữ trong quán; nâng cấp không bảo đảm hòa vốn trước khi hành trình kết thúc.",
+        "paragraphs": [
+          "Thu nhập phụ thuộc thị hiếu chưa biết của vòng sau, nên có thể không thu hồi đủ vốn đã bỏ ra.",
+          "Nâng cấp chỉ từ lần ghé sau khi mua và theo quyền hiện tại; quán không được bán để huy động khoản bắt buộc."
+        ],
+        "details": [
+          {
+            "key": "capital:overall",
+            "label": "Vốn đang nằm trong quán",
+            "value": "0 đ"
+          },
+          {
+            "key": "upgradeCost:overall",
+            "label": "Chi phí nâng cấp quán",
+            "value": "5.000.000 đ"
+          },
+          {
+            "key": "incremental:overall",
+            "label": "Mức tăng thu nhập theo thị hiếu hiện tại",
+            "value": "0 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "capital",
+            "subject": "overall",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "upgradeCost",
+            "subject": "overall",
+            "value": 5000000
+          },
+          {
+            "kind": "fact",
+            "code": "incremental",
+            "subject": "overall",
+            "value": 0
+          }
+        ],
+        "rules": [
+          "canonical-explanation:business"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Vốn có thể bị giữ trong quán; nâng cấp không bảo đảm hòa vốn trước khi hành trình kết thúc.",
+        "paragraphs": [
+          "Thu nhập phụ thuộc thị hiếu chưa biết của vòng sau, nên có thể không thu hồi đủ vốn đã bỏ ra.",
+          "Nâng cấp chỉ từ lần ghé sau khi mua và theo quyền hiện tại; quán không được bán để huy động khoản bắt buộc."
+        ],
+        "details": [
+          {
+            "key": "capital:overall",
+            "label": "Vốn đang nằm trong quán",
+            "value": "0 đ"
+          },
+          {
+            "key": "upgradeCost:overall",
+            "label": "Chi phí nâng cấp quán",
+            "value": "5.000.000 đ"
+          },
+          {
+            "key": "incremental:overall",
+            "label": "Mức tăng thu nhập theo thị hiếu hiện tại",
+            "value": "0 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "capital",
+            "subject": "overall",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "upgradeCost",
+            "subject": "overall",
+            "value": 5000000
+          },
+          {
+            "kind": "fact",
+            "code": "incremental",
+            "subject": "overall",
+            "value": 0
+          }
+        ],
+        "rules": [
+          "canonical-explanation:business"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "business-cash",
+      "question": "Mua quán ảnh hưởng tiền mặt thế nào?",
+      "before": {
+        "lead": "Vốn mua quán được công bố là 20.000.000 đ, trả bằng tiền mặt khi mua.",
+        "paragraphs": [
+          "Bạn hiện có 40.000.000 đ; chưa có số dư sau mua đã được xác nhận trong câu trả lời này.",
+          "Tiền bỏ vào quán không còn sẵn để chi; nâng cấp chỉ mở từ lần ghé sau khi mua và theo quyền hiện tại.",
+          "Thị hiếu vòng sau chưa biết, không bảo đảm hòa vốn; quán không dùng để bán huy động khoản bắt buộc."
+        ],
+        "details": [
+          {
+            "key": "cash:overall",
+            "label": "Tiền mặt hiện có",
+            "value": "40.000.000 đ"
+          },
+          {
+            "key": "purchaseCost:overall",
+            "label": "Vốn mua quán",
+            "value": "20.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "capital",
+            "subject": "overall",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "purchaseCost",
+            "subject": "overall",
+            "value": 20000000
+          },
+          {
+            "kind": "fact",
+            "code": "cash",
+            "subject": "overall",
+            "value": 40000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:business"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Vốn mua quán được công bố là 20.000.000 đ, trả bằng tiền mặt khi mua.",
+        "paragraphs": [
+          "Bạn hiện có 40.000.000 đ; chưa có số dư sau mua đã được xác nhận trong câu trả lời này.",
+          "Tiền bỏ vào quán không còn sẵn để chi; nâng cấp chỉ mở từ lần ghé sau khi mua và theo quyền hiện tại.",
+          "Thị hiếu vòng sau chưa biết, không bảo đảm hòa vốn; quán không dùng để bán huy động khoản bắt buộc."
+        ],
+        "details": [
+          {
+            "key": "cash:overall",
+            "label": "Tiền mặt hiện có",
+            "value": "40.000.000 đ"
+          },
+          {
+            "key": "purchaseCost:overall",
+            "label": "Vốn mua quán",
+            "value": "20.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "capital",
+            "subject": "overall",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "purchaseCost",
+            "subject": "overall",
+            "value": 20000000
+          },
+          {
+            "kind": "fact",
+            "code": "cash",
+            "subject": "overall",
+            "value": 40000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:business"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "course-rules",
+      "question": "Khóa học hoạt động thế nào?",
+      "before": {
+        "lead": "Bạn trả học phí một lần cho khóa chưa học để tăng thu nhập từ những lần qua Xuất phát sau đó.",
+        "paragraphs": [
+          "Khóa cơ bản: học phí 6.000.000 đ, tăng thu nhập 2.000.000 đ mỗi lần qua Xuất phát từ lần kế tiếp.",
+          "Khóa nâng cao: học phí 10.000.000 đ, tăng thu nhập 4.000.000 đ mỗi lần qua Xuất phát từ lần kế tiếp.",
+          "Mỗi lần ghé chỉ mua tối đa một khóa nếu đủ quyền và tiền; học phí không hoàn lại, thu nhập về sau chưa phải tiền đã nhận."
+        ],
+        "details": [
+          {
+            "key": "owned:basic",
+            "label": "Khóa cơ bản · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:basic",
+            "label": "Khóa cơ bản · Học phí niêm yết theo khóa",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "courseBoost:basic",
+            "label": "Khóa cơ bản · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "owned:advanced",
+            "label": "Khóa nâng cao · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:advanced",
+            "label": "Khóa nâng cao · Học phí niêm yết theo khóa",
+            "value": "10.000.000 đ"
+          },
+          {
+            "key": "courseBoost:advanced",
+            "label": "Khóa nâng cao · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "4.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "basic",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "advanced",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "basic",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "basic",
+            "value": 2000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "advanced",
+            "value": 10000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "advanced",
+            "value": 4000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:course"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Bạn trả học phí một lần cho khóa chưa học để tăng thu nhập từ những lần qua Xuất phát sau đó.",
+        "paragraphs": [
+          "Khóa cơ bản: học phí 6.000.000 đ, tăng thu nhập 2.000.000 đ mỗi lần qua Xuất phát từ lần kế tiếp.",
+          "Khóa nâng cao: học phí 10.000.000 đ, tăng thu nhập 4.000.000 đ mỗi lần qua Xuất phát từ lần kế tiếp.",
+          "Mỗi lần ghé chỉ mua tối đa một khóa nếu đủ quyền và tiền; học phí không hoàn lại, thu nhập về sau chưa phải tiền đã nhận."
+        ],
+        "details": [
+          {
+            "key": "owned:basic",
+            "label": "Khóa cơ bản · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:basic",
+            "label": "Khóa cơ bản · Học phí niêm yết theo khóa",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "courseBoost:basic",
+            "label": "Khóa cơ bản · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "owned:advanced",
+            "label": "Khóa nâng cao · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:advanced",
+            "label": "Khóa nâng cao · Học phí niêm yết theo khóa",
+            "value": "10.000.000 đ"
+          },
+          {
+            "key": "courseBoost:advanced",
+            "label": "Khóa nâng cao · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "4.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "basic",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "advanced",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "basic",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "basic",
+            "value": 2000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "advanced",
+            "value": 10000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "advanced",
+            "value": 4000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:course"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "course-compare",
+      "question": "Hai khóa học khác nhau thế nào?",
+      "before": {
+        "lead": "Hai khóa khác nhau ở số tiền học ngay và mức tăng thu nhập về sau.",
+        "paragraphs": [
+          "Khóa cơ bản: học phí 6.000.000 đ, tăng thu nhập 2.000.000 đ mỗi lần qua Xuất phát từ lần kế tiếp.",
+          "Khóa nâng cao: học phí 10.000.000 đ, tăng thu nhập 4.000.000 đ mỗi lần qua Xuất phát từ lần kế tiếp.",
+          "Mỗi lần ghé chỉ mua tối đa một khóa; học phí không hoàn lại và thu nhập về sau chưa phải tiền đã nhận hay lợi nhuận được bảo đảm."
+        ],
+        "details": [
+          {
+            "key": "owned:basic",
+            "label": "Khóa cơ bản · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:basic",
+            "label": "Khóa cơ bản · Học phí niêm yết theo khóa",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "courseBoost:basic",
+            "label": "Khóa cơ bản · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "owned:advanced",
+            "label": "Khóa nâng cao · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:advanced",
+            "label": "Khóa nâng cao · Học phí niêm yết theo khóa",
+            "value": "10.000.000 đ"
+          },
+          {
+            "key": "courseBoost:advanced",
+            "label": "Khóa nâng cao · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "4.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "basic",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "advanced",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "basic",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "basic",
+            "value": 2000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "advanced",
+            "value": 10000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "advanced",
+            "value": 4000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:course"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Hai khóa khác nhau ở số tiền học ngay và mức tăng thu nhập về sau.",
+        "paragraphs": [
+          "Khóa cơ bản: học phí 6.000.000 đ, tăng thu nhập 2.000.000 đ mỗi lần qua Xuất phát từ lần kế tiếp.",
+          "Khóa nâng cao: học phí 10.000.000 đ, tăng thu nhập 4.000.000 đ mỗi lần qua Xuất phát từ lần kế tiếp.",
+          "Mỗi lần ghé chỉ mua tối đa một khóa; học phí không hoàn lại và thu nhập về sau chưa phải tiền đã nhận hay lợi nhuận được bảo đảm."
+        ],
+        "details": [
+          {
+            "key": "owned:basic",
+            "label": "Khóa cơ bản · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:basic",
+            "label": "Khóa cơ bản · Học phí niêm yết theo khóa",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "courseBoost:basic",
+            "label": "Khóa cơ bản · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "owned:advanced",
+            "label": "Khóa nâng cao · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:advanced",
+            "label": "Khóa nâng cao · Học phí niêm yết theo khóa",
+            "value": "10.000.000 đ"
+          },
+          {
+            "key": "courseBoost:advanced",
+            "label": "Khóa nâng cao · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "4.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "basic",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "advanced",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "basic",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "basic",
+            "value": 2000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "advanced",
+            "value": 10000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "advanced",
+            "value": 4000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:course"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "course-risk",
+      "question": "Học phí có được hoàn lại không?",
+      "before": {
+        "lead": "Học phí không được hoàn lại và không phải tài sản có thể bán lấy tiền.",
+        "paragraphs": [
+          "Trong ván này, khóa cơ bản và khóa nâng cao chưa học.",
+          "Mỗi lần ghé chỉ mua tối đa một khóa; mức tăng thu nhập chỉ bắt đầu từ lần qua Xuất phát tiếp theo, không bù ngay tiền đã chi."
+        ],
+        "details": [
+          {
+            "key": "owned:basic",
+            "label": "Khóa cơ bản · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:basic",
+            "label": "Khóa cơ bản · Học phí niêm yết theo khóa",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "courseBoost:basic",
+            "label": "Khóa cơ bản · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "owned:advanced",
+            "label": "Khóa nâng cao · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:advanced",
+            "label": "Khóa nâng cao · Học phí niêm yết theo khóa",
+            "value": "10.000.000 đ"
+          },
+          {
+            "key": "courseBoost:advanced",
+            "label": "Khóa nâng cao · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "4.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "basic",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "advanced",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "basic",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "basic",
+            "value": 2000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "advanced",
+            "value": 10000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "advanced",
+            "value": 4000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:course"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Học phí không được hoàn lại và không phải tài sản có thể bán lấy tiền.",
+        "paragraphs": [
+          "Trong ván này, khóa cơ bản và khóa nâng cao chưa học.",
+          "Mỗi lần ghé chỉ mua tối đa một khóa; mức tăng thu nhập chỉ bắt đầu từ lần qua Xuất phát tiếp theo, không bù ngay tiền đã chi."
+        ],
+        "details": [
+          {
+            "key": "owned:basic",
+            "label": "Khóa cơ bản · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:basic",
+            "label": "Khóa cơ bản · Học phí niêm yết theo khóa",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "courseBoost:basic",
+            "label": "Khóa cơ bản · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "owned:advanced",
+            "label": "Khóa nâng cao · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:advanced",
+            "label": "Khóa nâng cao · Học phí niêm yết theo khóa",
+            "value": "10.000.000 đ"
+          },
+          {
+            "key": "courseBoost:advanced",
+            "label": "Khóa nâng cao · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "4.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "basic",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "advanced",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "basic",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "basic",
+            "value": 2000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "advanced",
+            "value": 10000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "advanced",
+            "value": 4000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:course"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "course-cash",
+      "question": "Học phí ảnh hưởng tiền mặt thế nào?",
+      "before": {
+        "lead": "Học phí được trừ ngay khỏi tiền mặt khi bạn mua một khóa chưa học.",
+        "paragraphs": [
+          "Bạn hiện có 54.400.000 đ; khóa cơ bản và khóa nâng cao chưa học.",
+          "Khóa cơ bản cần 6.000.000 đ, tăng thu nhập 2.000.000 đ; Khóa nâng cao cần 10.000.000 đ, tăng thu nhập 4.000.000 đ mỗi lần qua Xuất phát từ lần tiếp theo.",
+          "Mỗi lần ghé chỉ mua tối đa một khóa nếu đủ quyền và tiền; bạn đổi tiền dùng ngay lấy thu nhập về sau, học phí không hoàn lại."
+        ],
+        "details": [
+          {
+            "key": "owned:basic",
+            "label": "Khóa cơ bản · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:basic",
+            "label": "Khóa cơ bản · Học phí niêm yết theo khóa",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "courseBoost:basic",
+            "label": "Khóa cơ bản · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "owned:advanced",
+            "label": "Khóa nâng cao · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:advanced",
+            "label": "Khóa nâng cao · Học phí niêm yết theo khóa",
+            "value": "10.000.000 đ"
+          },
+          {
+            "key": "courseBoost:advanced",
+            "label": "Khóa nâng cao · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "4.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "basic",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "advanced",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "basic",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "basic",
+            "value": 2000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "advanced",
+            "value": 10000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "advanced",
+            "value": 4000000
+          },
+          {
+            "kind": "fact",
+            "code": "cash",
+            "subject": "overall",
+            "value": 54400000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:course"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Học phí được trừ ngay khỏi tiền mặt khi bạn mua một khóa chưa học.",
+        "paragraphs": [
+          "Bạn hiện có 54.400.000 đ; khóa cơ bản và khóa nâng cao chưa học.",
+          "Khóa cơ bản cần 6.000.000 đ, tăng thu nhập 2.000.000 đ; Khóa nâng cao cần 10.000.000 đ, tăng thu nhập 4.000.000 đ mỗi lần qua Xuất phát từ lần tiếp theo.",
+          "Mỗi lần ghé chỉ mua tối đa một khóa nếu đủ quyền và tiền; bạn đổi tiền dùng ngay lấy thu nhập về sau, học phí không hoàn lại."
+        ],
+        "details": [
+          {
+            "key": "owned:basic",
+            "label": "Khóa cơ bản · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:basic",
+            "label": "Khóa cơ bản · Học phí niêm yết theo khóa",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "courseBoost:basic",
+            "label": "Khóa cơ bản · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "2.000.000 đ"
+          },
+          {
+            "key": "owned:advanced",
+            "label": "Khóa nâng cao · Trạng thái khóa học",
+            "value": "Chưa sở hữu"
+          },
+          {
+            "key": "courseCost:advanced",
+            "label": "Khóa nâng cao · Học phí niêm yết theo khóa",
+            "value": "10.000.000 đ"
+          },
+          {
+            "key": "courseBoost:advanced",
+            "label": "Khóa nâng cao · Tăng thu nhập từ lần qua Xuất phát tiếp theo",
+            "value": "4.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "basic",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "owned",
+            "subject": "advanced",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "basic",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "basic",
+            "value": 2000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseCost",
+            "subject": "advanced",
+            "value": 10000000
+          },
+          {
+            "kind": "fact",
+            "code": "courseBoost",
+            "subject": "advanced",
+            "value": 4000000
+          },
+          {
+            "kind": "fact",
+            "code": "cash",
+            "subject": "overall",
+            "value": 54400000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:course"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "personal-rules",
+      "question": "Tình huống này yêu cầu gì?",
+      "before": {
+        "lead": "Mỗi phương án có khoản phải trả ngay và khoản hẹn trả về sau; bạn cần hoàn tất một lựa chọn hợp lệ.",
+        "paragraphs": [
+          "Xem số tiền của từng phương án trong “Xem thêm dữ kiện”; khoản hẹn chỉ thành nghĩa vụ khi hoàn tất lựa chọn, kể cả phương án chưa cần chi ngay.",
+          "Nếu thiếu tiền phải huy động thêm thì lựa chọn còn chưa hoàn tất; phí bán, lãi vay và lãi tiết kiệm mất chưa nằm trong tổng chi phí."
+        ],
+        "details": [
+          {
+            "key": "immediate:pay",
+            "label": "Trả ngay · Trả ngay nếu chọn phương án",
+            "value": "5.000.000 đ"
+          },
+          {
+            "key": "future:pay",
+            "label": "Trả ngay · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "0 đ"
+          },
+          {
+            "key": "immediate:defer",
+            "label": "Trả cuối vòng · Trả ngay nếu chọn phương án",
+            "value": "0 đ"
+          },
+          {
+            "key": "future:defer",
+            "label": "Trả cuối vòng · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "6.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "immediate",
+            "subject": "pay",
+            "value": 5000000
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "pay",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "immediate",
+            "subject": "defer",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "defer",
+            "value": 6000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:personal",
+          "validated-fact-definition:future-condition"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Bạn cần chọn một trong hai cách thanh toán: trả ngay 5.000.000 đ, hoặc chưa trả lúc này nhưng hẹn 6.000.000 đ vào Xuất phát cuối vòng.",
+        "paragraphs": [
+          "Khoản trả sau chỉ thành nghĩa vụ khi bạn hoàn tất lựa chọn.",
+          "Nếu phải huy động thêm tiền để thanh toán, chi phí phát sinh như phí bán, lãi vay và lãi tiết kiệm mất được tính riêng; lựa chọn chưa hoàn tất khi còn thiếu tiền."
+        ],
+        "details": [
+          {
+            "key": "immediate:pay",
+            "label": "Trả ngay · Trả ngay nếu chọn phương án",
+            "value": "5.000.000 đ"
+          },
+          {
+            "key": "future:pay",
+            "label": "Trả ngay · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "0 đ"
+          },
+          {
+            "key": "immediate:defer",
+            "label": "Trả cuối vòng · Trả ngay nếu chọn phương án",
+            "value": "0 đ"
+          },
+          {
+            "key": "future:defer",
+            "label": "Trả cuối vòng · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "6.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "immediate",
+            "subject": "pay",
+            "value": 5000000
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "pay",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "immediate",
+            "subject": "defer",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "defer",
+            "value": 6000000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:personal",
+          "validated-fact-definition:future-condition"
+        ],
+        "missing": false
+      },
+      "changed": true,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "PENDING"
+    },
+    {
+      "id": "personal-compare",
+      "question": "Thanh toán ngay hay trả sau khác nhau thế nào?",
+      "before": {
+        "lead": "Trả ngay: thanh toán 5.000.000 đ ở thời điểm này.",
+        "paragraphs": [
+          "Trả cuối vòng: chưa phải chi ngay, nhưng hẹn 6.000.000 đ ở Xuất phát cuối vòng nếu hoàn tất lựa chọn.",
+          "Nếu phải huy động thêm tiền, lựa chọn chỉ hoàn tất khi đủ thanh toán; phí bán, lãi vay và lãi tiết kiệm mất chưa nằm trong các khoản trên."
+        ],
+        "details": [
+          {
+            "key": "immediate:pay",
+            "label": "Trả ngay · Trả ngay nếu chọn phương án",
+            "value": "5.000.000 đ"
+          },
+          {
+            "key": "future:pay",
+            "label": "Trả ngay · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "0 đ"
+          },
+          {
+            "key": "total:pay",
+            "label": "Trả ngay · Tổng theo phương án, chưa tính huy động vốn",
+            "value": "5.000.000 đ"
+          },
+          {
+            "key": "after:pay",
+            "label": "Trả ngay · Tiền mặt sau khoản trả ngay nếu đủ tiền",
+            "value": "54.400.000 đ"
+          },
+          {
+            "key": "immediate:defer",
+            "label": "Trả cuối vòng · Trả ngay nếu chọn phương án",
+            "value": "0 đ"
+          },
+          {
+            "key": "future:defer",
+            "label": "Trả cuối vòng · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "total:defer",
+            "label": "Trả cuối vòng · Tổng theo phương án, chưa tính huy động vốn",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "after:defer",
+            "label": "Trả cuối vòng · Tiền mặt sau khoản trả ngay nếu đủ tiền",
+            "value": "59.400.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "immediate",
+            "subject": "pay",
+            "value": 5000000
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "defer",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "pay",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "total",
+            "subject": "pay",
+            "value": 5000000
+          },
+          {
+            "kind": "fact",
+            "code": "after",
+            "subject": "pay",
+            "value": 54400000
+          },
+          {
+            "kind": "fact",
+            "code": "immediate",
+            "subject": "defer",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "total",
+            "subject": "defer",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "after",
+            "subject": "defer",
+            "value": 59400000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:personal",
+          "validated-fact-definition:future-condition"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Trả ngay: thanh toán 5.000.000 đ ở thời điểm này.",
+        "paragraphs": [
+          "Trả cuối vòng: chưa phải chi ngay, nhưng hẹn 6.000.000 đ ở Xuất phát cuối vòng nếu hoàn tất lựa chọn.",
+          "Nếu phải huy động thêm tiền, lựa chọn chỉ hoàn tất khi đủ thanh toán; phí bán, lãi vay và lãi tiết kiệm mất chưa nằm trong các khoản trên."
+        ],
+        "details": [
+          {
+            "key": "immediate:pay",
+            "label": "Trả ngay · Trả ngay nếu chọn phương án",
+            "value": "5.000.000 đ"
+          },
+          {
+            "key": "future:pay",
+            "label": "Trả ngay · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "0 đ"
+          },
+          {
+            "key": "total:pay",
+            "label": "Trả ngay · Tổng theo phương án, chưa tính huy động vốn",
+            "value": "5.000.000 đ"
+          },
+          {
+            "key": "after:pay",
+            "label": "Trả ngay · Tiền mặt sau khoản trả ngay nếu đủ tiền",
+            "value": "54.400.000 đ"
+          },
+          {
+            "key": "immediate:defer",
+            "label": "Trả cuối vòng · Trả ngay nếu chọn phương án",
+            "value": "0 đ"
+          },
+          {
+            "key": "future:defer",
+            "label": "Trả cuối vòng · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "total:defer",
+            "label": "Trả cuối vòng · Tổng theo phương án, chưa tính huy động vốn",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "after:defer",
+            "label": "Trả cuối vòng · Tiền mặt sau khoản trả ngay nếu đủ tiền",
+            "value": "59.400.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "immediate",
+            "subject": "pay",
+            "value": 5000000
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "defer",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "pay",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "total",
+            "subject": "pay",
+            "value": 5000000
+          },
+          {
+            "kind": "fact",
+            "code": "after",
+            "subject": "pay",
+            "value": 54400000
+          },
+          {
+            "kind": "fact",
+            "code": "immediate",
+            "subject": "defer",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "total",
+            "subject": "defer",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "after",
+            "subject": "defer",
+            "value": 59400000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:personal",
+          "validated-fact-definition:future-condition"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "personal-risk",
+      "question": "Trả sau có rủi ro gì?",
+      "before": {
+        "lead": "Trả sau giữ tiền mặt lúc này nhưng dồn một khoản phải trả về cuối vòng.",
+        "paragraphs": [
+          "Theo phương án trả cuối vòng, khoản hẹn là 6.000.000 đ ở Xuất phát.",
+          "Nghĩa vụ chỉ ghi nhận sau khi hoàn tất khoản đầu; nếu còn huy động vốn thì lựa chọn chưa hoàn tất.",
+          "Phí bán, lãi vay hoặc lãi tiết kiệm mất khi huy động chưa nằm trong tổng chi phí của lựa chọn."
+        ],
+        "details": [
+          {
+            "key": "obligations:overall",
+            "label": "Nghĩa vụ đã cam kết",
+            "value": "0 đ"
+          },
+          {
+            "key": "future:pay",
+            "label": "Trả ngay · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "0 đ"
+          },
+          {
+            "key": "future:defer",
+            "label": "Trả cuối vòng · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "6.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "defer",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "obligations",
+            "subject": "overall",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "pay",
+            "value": 0
+          }
+        ],
+        "rules": [
+          "canonical-explanation:personal",
+          "validated-fact-definition:future-condition"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Trả sau giữ tiền mặt lúc này nhưng dồn một khoản phải trả về cuối vòng.",
+        "paragraphs": [
+          "Theo phương án trả cuối vòng, khoản hẹn là 6.000.000 đ ở Xuất phát.",
+          "Nghĩa vụ chỉ ghi nhận sau khi hoàn tất khoản đầu; nếu còn huy động vốn thì lựa chọn chưa hoàn tất.",
+          "Phí bán, lãi vay hoặc lãi tiết kiệm mất khi huy động chưa nằm trong tổng chi phí của lựa chọn."
+        ],
+        "details": [
+          {
+            "key": "obligations:overall",
+            "label": "Nghĩa vụ đã cam kết",
+            "value": "0 đ"
+          },
+          {
+            "key": "future:pay",
+            "label": "Trả ngay · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "0 đ"
+          },
+          {
+            "key": "future:defer",
+            "label": "Trả cuối vòng · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "6.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "defer",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "obligations",
+            "subject": "overall",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "pay",
+            "value": 0
+          }
+        ],
+        "rules": [
+          "canonical-explanation:personal",
+          "validated-fact-definition:future-condition"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "personal-cost",
+      "question": "Chi phí của tình huống này là gì?",
+      "before": {
+        "lead": "Trả ngay cần 5.000.000 đ thanh toán ngay theo phương án đó.",
+        "paragraphs": [
+          "Nếu chọn trả cuối vòng, phần hẹn cuối vòng là 6.000.000 đ ở Xuất phát.",
+          "Tiền trả ngay khác nghĩa vụ về sau; khoản hẹn chỉ ghi nhận khi bạn hoàn tất thanh toán ban đầu.",
+          "Nếu thiếu tiền phải huy động thêm, phí bán, lãi vay hoặc lãi tiết kiệm mất chưa được tính vào tổng chi phí lựa chọn."
+        ],
+        "details": [
+          {
+            "key": "immediate:pay",
+            "label": "Trả ngay · Trả ngay nếu chọn phương án",
+            "value": "5.000.000 đ"
+          },
+          {
+            "key": "future:pay",
+            "label": "Trả ngay · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "0 đ"
+          },
+          {
+            "key": "total:pay",
+            "label": "Trả ngay · Tổng theo phương án, chưa tính huy động vốn",
+            "value": "5.000.000 đ"
+          },
+          {
+            "key": "after:pay",
+            "label": "Trả ngay · Tiền mặt sau khoản trả ngay nếu đủ tiền",
+            "value": "54.400.000 đ"
+          },
+          {
+            "key": "immediate:defer",
+            "label": "Trả cuối vòng · Trả ngay nếu chọn phương án",
+            "value": "0 đ"
+          },
+          {
+            "key": "future:defer",
+            "label": "Trả cuối vòng · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "total:defer",
+            "label": "Trả cuối vòng · Tổng theo phương án, chưa tính huy động vốn",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "after:defer",
+            "label": "Trả cuối vòng · Tiền mặt sau khoản trả ngay nếu đủ tiền",
+            "value": "59.400.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "immediate",
+            "subject": "pay",
+            "value": 5000000
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "defer",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "pay",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "total",
+            "subject": "pay",
+            "value": 5000000
+          },
+          {
+            "kind": "fact",
+            "code": "after",
+            "subject": "pay",
+            "value": 54400000
+          },
+          {
+            "kind": "fact",
+            "code": "immediate",
+            "subject": "defer",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "total",
+            "subject": "defer",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "after",
+            "subject": "defer",
+            "value": 59400000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:personal",
+          "validated-fact-definition:future-condition"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Trả ngay cần 5.000.000 đ thanh toán ngay theo phương án đó.",
+        "paragraphs": [
+          "Nếu chọn trả cuối vòng, phần hẹn cuối vòng là 6.000.000 đ ở Xuất phát.",
+          "Tiền trả ngay khác nghĩa vụ về sau; khoản hẹn chỉ ghi nhận khi bạn hoàn tất thanh toán ban đầu.",
+          "Nếu thiếu tiền phải huy động thêm, phí bán, lãi vay hoặc lãi tiết kiệm mất chưa được tính vào tổng chi phí lựa chọn."
+        ],
+        "details": [
+          {
+            "key": "immediate:pay",
+            "label": "Trả ngay · Trả ngay nếu chọn phương án",
+            "value": "5.000.000 đ"
+          },
+          {
+            "key": "future:pay",
+            "label": "Trả ngay · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "0 đ"
+          },
+          {
+            "key": "total:pay",
+            "label": "Trả ngay · Tổng theo phương án, chưa tính huy động vốn",
+            "value": "5.000.000 đ"
+          },
+          {
+            "key": "after:pay",
+            "label": "Trả ngay · Tiền mặt sau khoản trả ngay nếu đủ tiền",
+            "value": "54.400.000 đ"
+          },
+          {
+            "key": "immediate:defer",
+            "label": "Trả cuối vòng · Trả ngay nếu chọn phương án",
+            "value": "0 đ"
+          },
+          {
+            "key": "future:defer",
+            "label": "Trả cuối vòng · Hẹn trả ở Xuất phát sau khi hoàn tất khoản đầu",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "total:defer",
+            "label": "Trả cuối vòng · Tổng theo phương án, chưa tính huy động vốn",
+            "value": "6.000.000 đ"
+          },
+          {
+            "key": "after:defer",
+            "label": "Trả cuối vòng · Tiền mặt sau khoản trả ngay nếu đủ tiền",
+            "value": "59.400.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "immediate",
+            "subject": "pay",
+            "value": 5000000
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "defer",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "future",
+            "subject": "pay",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "total",
+            "subject": "pay",
+            "value": 5000000
+          },
+          {
+            "kind": "fact",
+            "code": "after",
+            "subject": "pay",
+            "value": 54400000
+          },
+          {
+            "kind": "fact",
+            "code": "immediate",
+            "subject": "defer",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "total",
+            "subject": "defer",
+            "value": 6000000
+          },
+          {
+            "kind": "fact",
+            "code": "after",
+            "subject": "defer",
+            "value": 59400000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:personal",
+          "validated-fact-definition:future-condition"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "macro-rules",
+      "question": "Tin kinh tế này có nghĩa gì?",
+      "before": {
+        "lead": "Sự kiện đã ghi nhận giá CTCP FPT từ 114.222 đ lên 130.213 đ.",
+        "paragraphs": [
+          "Đây là biến động giá tài sản, không phải tiền tự cộng vào ví; không cho biết giá lần sau.",
+          "Sự kiện đã được áp dụng, không áp lại khi hỏi AI hoặc qua Xuất phát."
+        ],
+        "details": [
+          {
+            "key": "beforePrice:FPT",
+            "label": "CTCP FPT · Giá trước sự kiện đã công bố",
+            "value": "114.222 đ"
+          },
+          {
+            "key": "price:FPT",
+            "label": "CTCP FPT · Giá đang công bố",
+            "value": "130.213 đ"
+          },
+          {
+            "key": "change:FPT",
+            "label": "CTCP FPT · Biến động giá đã xảy ra",
+            "value": "15.991 đ"
+          },
+          {
+            "key": "beforePrice:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Giá trước sự kiện đã công bố",
+            "value": "114.426 đ"
+          },
+          {
+            "key": "price:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Giá đang công bố",
+            "value": "130.446 đ"
+          },
+          {
+            "key": "change:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Biến động giá đã xảy ra",
+            "value": "16.020 đ"
+          },
+          {
+            "key": "beforePrice:VCB",
+            "label": "Vietcombank · Giá trước sự kiện đã công bố",
+            "value": "111.921 đ"
+          },
+          {
+            "key": "price:VCB",
+            "label": "Vietcombank · Giá đang công bố",
+            "value": "120.875 đ"
+          },
+          {
+            "key": "change:VCB",
+            "label": "Vietcombank · Biến động giá đã xảy ra",
+            "value": "8.954 đ"
+          },
+          {
+            "key": "beforePrice:TCB",
+            "label": "Techcombank · Giá trước sự kiện đã công bố",
+            "value": "111.338 đ"
+          },
+          {
+            "key": "price:TCB",
+            "label": "Techcombank · Giá đang công bố",
+            "value": "120.245 đ"
+          },
+          {
+            "key": "change:TCB",
+            "label": "Techcombank · Biến động giá đã xảy ra",
+            "value": "8.907 đ"
+          },
+          {
+            "key": "beforePrice:HPG",
+            "label": "Tập đoàn Hòa Phát · Giá trước sự kiện đã công bố",
+            "value": "116.402 đ"
+          },
+          {
+            "key": "price:HPG",
+            "label": "Tập đoàn Hòa Phát · Giá đang công bố",
+            "value": "130.370 đ"
+          },
+          {
+            "key": "change:HPG",
+            "label": "Tập đoàn Hòa Phát · Biến động giá đã xảy ra",
+            "value": "13.968 đ"
+          },
+          {
+            "key": "beforePrice:BMP",
+            "label": "Nhựa Bình Minh · Giá trước sự kiện đã công bố",
+            "value": "121.937 đ"
+          },
+          {
+            "key": "price:BMP",
+            "label": "Nhựa Bình Minh · Giá đang công bố",
+            "value": "136.569 đ"
+          },
+          {
+            "key": "change:BMP",
+            "label": "Nhựa Bình Minh · Biến động giá đã xảy ra",
+            "value": "14.632 đ"
+          },
+          {
+            "key": "beforePrice:gold",
+            "label": "Vàng · Giá trước sự kiện đã công bố",
+            "value": "1.004.217 đ"
+          },
+          {
+            "key": "price:gold",
+            "label": "Vàng · Giá đang công bố",
+            "value": "954.006 đ"
+          },
+          {
+            "key": "change:gold",
+            "label": "Vàng · Biến động giá đã xảy ra",
+            "value": "-50.211 đ"
+          },
+          {
+            "key": "beforePrice:an-tam",
+            "label": "Hợp tác xã An Tâm · Giá trước sự kiện đã công bố",
+            "value": "100.812 đ"
+          },
+          {
+            "key": "price:an-tam",
+            "label": "Hợp tác xã An Tâm · Giá đang công bố",
+            "value": "99.812 đ"
+          },
+          {
+            "key": "change:an-tam",
+            "label": "Hợp tác xã An Tâm · Biến động giá đã xảy ra",
+            "value": "-1.000 đ"
+          },
+          {
+            "key": "beforePrice:but-pha",
+            "label": "Công ty Bứt Phá · Giá trước sự kiện đã công bố",
+            "value": "0 đ"
+          },
+          {
+            "key": "price:but-pha",
+            "label": "Công ty Bứt Phá · Giá đang công bố",
+            "value": "0 đ"
+          },
+          {
+            "key": "change:but-pha",
+            "label": "Công ty Bứt Phá · Biến động giá đã xảy ra",
+            "value": "0 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "observed",
+            "subject": "overall",
+            "value": 1
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "FPT",
+            "value": 114222
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "FPT",
+            "value": 130213
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "FPT",
+            "value": 15991
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "CMG",
+            "value": 114426
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "CMG",
+            "value": 130446
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "CMG",
+            "value": 16020
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "VCB",
+            "value": 111921
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "VCB",
+            "value": 120875
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "VCB",
+            "value": 8954
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "TCB",
+            "value": 111338
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "TCB",
+            "value": 120245
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "TCB",
+            "value": 8907
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "HPG",
+            "value": 116402
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "HPG",
+            "value": 130370
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "HPG",
+            "value": 13968
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "BMP",
+            "value": 121937
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "BMP",
+            "value": 136569
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "BMP",
+            "value": 14632
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "gold",
+            "value": 1004217
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "gold",
+            "value": 954006
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "gold",
+            "value": -50211
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "an-tam",
+            "value": 100812
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "an-tam",
+            "value": 99812
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "an-tam",
+            "value": -1000
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "but-pha",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "but-pha",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "but-pha",
+            "value": 0
+          }
+        ],
+        "rules": [
+          "canonical-explanation:macro"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Sự kiện đã ghi nhận giá CTCP FPT từ 114.222 đ lên 130.213 đ.",
+        "paragraphs": [
+          "Đây là biến động giá tài sản, không phải tiền tự cộng vào ví; không cho biết giá lần sau.",
+          "Sự kiện đã được áp dụng, không áp lại khi hỏi AI hoặc qua Xuất phát."
+        ],
+        "details": [
+          {
+            "key": "beforePrice:FPT",
+            "label": "CTCP FPT · Giá trước sự kiện đã công bố",
+            "value": "114.222 đ"
+          },
+          {
+            "key": "price:FPT",
+            "label": "CTCP FPT · Giá đang công bố",
+            "value": "130.213 đ"
+          },
+          {
+            "key": "change:FPT",
+            "label": "CTCP FPT · Biến động giá đã xảy ra",
+            "value": "15.991 đ"
+          },
+          {
+            "key": "beforePrice:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Giá trước sự kiện đã công bố",
+            "value": "114.426 đ"
+          },
+          {
+            "key": "price:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Giá đang công bố",
+            "value": "130.446 đ"
+          },
+          {
+            "key": "change:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Biến động giá đã xảy ra",
+            "value": "16.020 đ"
+          },
+          {
+            "key": "beforePrice:VCB",
+            "label": "Vietcombank · Giá trước sự kiện đã công bố",
+            "value": "111.921 đ"
+          },
+          {
+            "key": "price:VCB",
+            "label": "Vietcombank · Giá đang công bố",
+            "value": "120.875 đ"
+          },
+          {
+            "key": "change:VCB",
+            "label": "Vietcombank · Biến động giá đã xảy ra",
+            "value": "8.954 đ"
+          },
+          {
+            "key": "beforePrice:TCB",
+            "label": "Techcombank · Giá trước sự kiện đã công bố",
+            "value": "111.338 đ"
+          },
+          {
+            "key": "price:TCB",
+            "label": "Techcombank · Giá đang công bố",
+            "value": "120.245 đ"
+          },
+          {
+            "key": "change:TCB",
+            "label": "Techcombank · Biến động giá đã xảy ra",
+            "value": "8.907 đ"
+          },
+          {
+            "key": "beforePrice:HPG",
+            "label": "Tập đoàn Hòa Phát · Giá trước sự kiện đã công bố",
+            "value": "116.402 đ"
+          },
+          {
+            "key": "price:HPG",
+            "label": "Tập đoàn Hòa Phát · Giá đang công bố",
+            "value": "130.370 đ"
+          },
+          {
+            "key": "change:HPG",
+            "label": "Tập đoàn Hòa Phát · Biến động giá đã xảy ra",
+            "value": "13.968 đ"
+          },
+          {
+            "key": "beforePrice:BMP",
+            "label": "Nhựa Bình Minh · Giá trước sự kiện đã công bố",
+            "value": "121.937 đ"
+          },
+          {
+            "key": "price:BMP",
+            "label": "Nhựa Bình Minh · Giá đang công bố",
+            "value": "136.569 đ"
+          },
+          {
+            "key": "change:BMP",
+            "label": "Nhựa Bình Minh · Biến động giá đã xảy ra",
+            "value": "14.632 đ"
+          },
+          {
+            "key": "beforePrice:gold",
+            "label": "Vàng · Giá trước sự kiện đã công bố",
+            "value": "1.004.217 đ"
+          },
+          {
+            "key": "price:gold",
+            "label": "Vàng · Giá đang công bố",
+            "value": "954.006 đ"
+          },
+          {
+            "key": "change:gold",
+            "label": "Vàng · Biến động giá đã xảy ra",
+            "value": "-50.211 đ"
+          },
+          {
+            "key": "beforePrice:an-tam",
+            "label": "Hợp tác xã An Tâm · Giá trước sự kiện đã công bố",
+            "value": "100.812 đ"
+          },
+          {
+            "key": "price:an-tam",
+            "label": "Hợp tác xã An Tâm · Giá đang công bố",
+            "value": "99.812 đ"
+          },
+          {
+            "key": "change:an-tam",
+            "label": "Hợp tác xã An Tâm · Biến động giá đã xảy ra",
+            "value": "-1.000 đ"
+          },
+          {
+            "key": "beforePrice:but-pha",
+            "label": "Công ty Bứt Phá · Giá trước sự kiện đã công bố",
+            "value": "0 đ"
+          },
+          {
+            "key": "price:but-pha",
+            "label": "Công ty Bứt Phá · Giá đang công bố",
+            "value": "0 đ"
+          },
+          {
+            "key": "change:but-pha",
+            "label": "Công ty Bứt Phá · Biến động giá đã xảy ra",
+            "value": "0 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "observed",
+            "subject": "overall",
+            "value": 1
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "FPT",
+            "value": 114222
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "FPT",
+            "value": 130213
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "FPT",
+            "value": 15991
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "CMG",
+            "value": 114426
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "CMG",
+            "value": 130446
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "CMG",
+            "value": 16020
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "VCB",
+            "value": 111921
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "VCB",
+            "value": 120875
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "VCB",
+            "value": 8954
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "TCB",
+            "value": 111338
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "TCB",
+            "value": 120245
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "TCB",
+            "value": 8907
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "HPG",
+            "value": 116402
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "HPG",
+            "value": 130370
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "HPG",
+            "value": 13968
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "BMP",
+            "value": 121937
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "BMP",
+            "value": 136569
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "BMP",
+            "value": 14632
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "gold",
+            "value": 1004217
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "gold",
+            "value": 954006
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "gold",
+            "value": -50211
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "an-tam",
+            "value": 100812
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "an-tam",
+            "value": 99812
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "an-tam",
+            "value": -1000
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "but-pha",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "but-pha",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "but-pha",
+            "value": 0
+          }
+        ],
+        "rules": [
+          "canonical-explanation:macro"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "macro-compare",
+      "question": "Các tài sản đã biến động khác nhau thế nào sau sự kiện?",
+      "before": {
+        "lead": "CTCP FPT tăng 15.991 đ; Tập đoàn Công nghệ CMC tăng 16.020 đ trong sự kiện đã ghi nhận.",
+        "paragraphs": [
+          "Đây là so sánh kết quả đã xảy ra, không phải lời giải thích nguyên nhân hay dự báo giá; biến động giá không tự cộng tiền vào ví.",
+          "Sự kiện đã được áp dụng, không áp lại khi hỏi AI hoặc qua Xuất phát."
+        ],
+        "details": [
+          {
+            "key": "beforePrice:FPT",
+            "label": "CTCP FPT · Giá trước sự kiện đã công bố",
+            "value": "114.222 đ"
+          },
+          {
+            "key": "price:FPT",
+            "label": "CTCP FPT · Giá đang công bố",
+            "value": "130.213 đ"
+          },
+          {
+            "key": "change:FPT",
+            "label": "CTCP FPT · Biến động giá đã xảy ra",
+            "value": "15.991 đ"
+          },
+          {
+            "key": "beforePrice:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Giá trước sự kiện đã công bố",
+            "value": "114.426 đ"
+          },
+          {
+            "key": "price:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Giá đang công bố",
+            "value": "130.446 đ"
+          },
+          {
+            "key": "change:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Biến động giá đã xảy ra",
+            "value": "16.020 đ"
+          },
+          {
+            "key": "beforePrice:VCB",
+            "label": "Vietcombank · Giá trước sự kiện đã công bố",
+            "value": "111.921 đ"
+          },
+          {
+            "key": "price:VCB",
+            "label": "Vietcombank · Giá đang công bố",
+            "value": "120.875 đ"
+          },
+          {
+            "key": "change:VCB",
+            "label": "Vietcombank · Biến động giá đã xảy ra",
+            "value": "8.954 đ"
+          },
+          {
+            "key": "beforePrice:TCB",
+            "label": "Techcombank · Giá trước sự kiện đã công bố",
+            "value": "111.338 đ"
+          },
+          {
+            "key": "price:TCB",
+            "label": "Techcombank · Giá đang công bố",
+            "value": "120.245 đ"
+          },
+          {
+            "key": "change:TCB",
+            "label": "Techcombank · Biến động giá đã xảy ra",
+            "value": "8.907 đ"
+          },
+          {
+            "key": "beforePrice:HPG",
+            "label": "Tập đoàn Hòa Phát · Giá trước sự kiện đã công bố",
+            "value": "116.402 đ"
+          },
+          {
+            "key": "price:HPG",
+            "label": "Tập đoàn Hòa Phát · Giá đang công bố",
+            "value": "130.370 đ"
+          },
+          {
+            "key": "change:HPG",
+            "label": "Tập đoàn Hòa Phát · Biến động giá đã xảy ra",
+            "value": "13.968 đ"
+          },
+          {
+            "key": "beforePrice:BMP",
+            "label": "Nhựa Bình Minh · Giá trước sự kiện đã công bố",
+            "value": "121.937 đ"
+          },
+          {
+            "key": "price:BMP",
+            "label": "Nhựa Bình Minh · Giá đang công bố",
+            "value": "136.569 đ"
+          },
+          {
+            "key": "change:BMP",
+            "label": "Nhựa Bình Minh · Biến động giá đã xảy ra",
+            "value": "14.632 đ"
+          },
+          {
+            "key": "beforePrice:gold",
+            "label": "Vàng · Giá trước sự kiện đã công bố",
+            "value": "1.004.217 đ"
+          },
+          {
+            "key": "price:gold",
+            "label": "Vàng · Giá đang công bố",
+            "value": "954.006 đ"
+          },
+          {
+            "key": "change:gold",
+            "label": "Vàng · Biến động giá đã xảy ra",
+            "value": "-50.211 đ"
+          },
+          {
+            "key": "beforePrice:an-tam",
+            "label": "Hợp tác xã An Tâm · Giá trước sự kiện đã công bố",
+            "value": "100.812 đ"
+          },
+          {
+            "key": "price:an-tam",
+            "label": "Hợp tác xã An Tâm · Giá đang công bố",
+            "value": "99.812 đ"
+          },
+          {
+            "key": "change:an-tam",
+            "label": "Hợp tác xã An Tâm · Biến động giá đã xảy ra",
+            "value": "-1.000 đ"
+          },
+          {
+            "key": "beforePrice:but-pha",
+            "label": "Công ty Bứt Phá · Giá trước sự kiện đã công bố",
+            "value": "0 đ"
+          },
+          {
+            "key": "price:but-pha",
+            "label": "Công ty Bứt Phá · Giá đang công bố",
+            "value": "0 đ"
+          },
+          {
+            "key": "change:but-pha",
+            "label": "Công ty Bứt Phá · Biến động giá đã xảy ra",
+            "value": "0 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "observed",
+            "subject": "overall",
+            "value": 1
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "FPT",
+            "value": 114222
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "FPT",
+            "value": 130213
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "FPT",
+            "value": 15991
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "CMG",
+            "value": 114426
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "CMG",
+            "value": 130446
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "CMG",
+            "value": 16020
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "VCB",
+            "value": 111921
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "VCB",
+            "value": 120875
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "VCB",
+            "value": 8954
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "TCB",
+            "value": 111338
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "TCB",
+            "value": 120245
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "TCB",
+            "value": 8907
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "HPG",
+            "value": 116402
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "HPG",
+            "value": 130370
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "HPG",
+            "value": 13968
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "BMP",
+            "value": 121937
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "BMP",
+            "value": 136569
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "BMP",
+            "value": 14632
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "gold",
+            "value": 1004217
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "gold",
+            "value": 954006
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "gold",
+            "value": -50211
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "an-tam",
+            "value": 100812
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "an-tam",
+            "value": 99812
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "an-tam",
+            "value": -1000
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "but-pha",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "but-pha",
+            "value": 0
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "but-pha",
+            "value": 0
+          }
+        ],
+        "rules": [
+          "canonical-explanation:macro"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Sau sự kiện, CTCP FPT tăng 15.991 đ; Tập đoàn Công nghệ CMC tăng 16.020 đ; Vàng giảm 50.211 đ theo giá mỗi đơn vị được công bố.",
+        "paragraphs": [
+          "Có tài sản tăng và có tài sản giảm, không phải tài sản nào cũng biến động cùng chiều. Đây là thay đổi giá đã xảy ra, không phải lợi nhuận đã nhận hoặc dự báo cho vòng sau.",
+          "Sự kiện đã được áp dụng, không áp lại khi hỏi AI hoặc qua Xuất phát; biến động giá không tự cộng tiền vào ví."
+        ],
+        "details": [
+          {
+            "key": "beforePrice:FPT",
+            "label": "CTCP FPT · Giá trước sự kiện đã công bố",
+            "value": "114.222 đ"
+          },
+          {
+            "key": "price:FPT",
+            "label": "CTCP FPT · Giá đang công bố",
+            "value": "130.213 đ"
+          },
+          {
+            "key": "change:FPT",
+            "label": "CTCP FPT · Biến động giá đã xảy ra",
+            "value": "15.991 đ"
+          },
+          {
+            "key": "beforePrice:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Giá trước sự kiện đã công bố",
+            "value": "114.426 đ"
+          },
+          {
+            "key": "price:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Giá đang công bố",
+            "value": "130.446 đ"
+          },
+          {
+            "key": "change:CMG",
+            "label": "Tập đoàn Công nghệ CMC · Biến động giá đã xảy ra",
+            "value": "16.020 đ"
+          },
+          {
+            "key": "beforePrice:VCB",
+            "label": "Vietcombank · Giá trước sự kiện đã công bố",
+            "value": "111.921 đ"
+          },
+          {
+            "key": "price:VCB",
+            "label": "Vietcombank · Giá đang công bố",
+            "value": "120.875 đ"
+          },
+          {
+            "key": "change:VCB",
+            "label": "Vietcombank · Biến động giá đã xảy ra",
+            "value": "8.954 đ"
+          },
+          {
+            "key": "beforePrice:TCB",
+            "label": "Techcombank · Giá trước sự kiện đã công bố",
+            "value": "111.338 đ"
+          },
+          {
+            "key": "price:TCB",
+            "label": "Techcombank · Giá đang công bố",
+            "value": "120.245 đ"
+          },
+          {
+            "key": "change:TCB",
+            "label": "Techcombank · Biến động giá đã xảy ra",
+            "value": "8.907 đ"
+          },
+          {
+            "key": "beforePrice:HPG",
+            "label": "Tập đoàn Hòa Phát · Giá trước sự kiện đã công bố",
+            "value": "116.402 đ"
+          },
+          {
+            "key": "price:HPG",
+            "label": "Tập đoàn Hòa Phát · Giá đang công bố",
+            "value": "130.370 đ"
+          },
+          {
+            "key": "change:HPG",
+            "label": "Tập đoàn Hòa Phát · Biến động giá đã xảy ra",
+            "value": "13.968 đ"
+          },
+          {
+            "key": "beforePrice:BMP",
+            "label": "Nhựa Bình Minh · Giá trước sự kiện đã công bố",
+            "value": "121.937 đ"
+          },
+          {
+            "key": "price:BMP",
+            "label": "Nhựa Bình Minh · Giá đang công bố",
+            "value": "136.569 đ"
+          },
+          {
+            "key": "change:BMP",
+            "label": "Nhựa Bình Minh · Biến động giá đã xảy ra",
+            "value": "14.632 đ"
+          },
+          {
+            "key": "beforePrice:gold",
+            "label": "Vàng · Giá trước sự kiện đã công bố",
+            "value": "1.004.217 đ"
+          },
+          {
+            "key": "price:gold",
+            "label": "Vàng · Giá đang công bố",
+            "value": "954.006 đ"
+          },
+          {
+            "key": "change:gold",
+            "label": "Vàng · Biến động giá đã xảy ra",
+            "value": "-50.211 đ"
+          },
+          {
+            "key": "beforePrice:an-tam",
+            "label": "Hợp tác xã An Tâm · Giá trước sự kiện đã công bố",
+            "value": "100.812 đ"
+          },
+          {
+            "key": "price:an-tam",
+            "label": "Hợp tác xã An Tâm · Giá đang công bố",
+            "value": "99.812 đ"
+          },
+          {
+            "key": "change:an-tam",
+            "label": "Hợp tác xã An Tâm · Biến động giá đã xảy ra",
+            "value": "-1.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "observed",
+            "subject": "overall",
+            "value": 1
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "FPT",
+            "value": 114222
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "FPT",
+            "value": 130213
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "FPT",
+            "value": 15991
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "CMG",
+            "value": 114426
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "CMG",
+            "value": 130446
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "CMG",
+            "value": 16020
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "gold",
+            "value": 1004217
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "gold",
+            "value": 954006
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "gold",
+            "value": -50211
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "VCB",
+            "value": 111921
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "VCB",
+            "value": 120875
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "VCB",
+            "value": 8954
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "TCB",
+            "value": 111338
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "TCB",
+            "value": 120245
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "TCB",
+            "value": 8907
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "HPG",
+            "value": 116402
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "HPG",
+            "value": 130370
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "HPG",
+            "value": 13968
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "BMP",
+            "value": 121937
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "BMP",
+            "value": 136569
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "BMP",
+            "value": 14632
+          },
+          {
+            "kind": "fact",
+            "code": "beforePrice",
+            "subject": "an-tam",
+            "value": 100812
+          },
+          {
+            "kind": "fact",
+            "code": "price",
+            "subject": "an-tam",
+            "value": 99812
+          },
+          {
+            "kind": "fact",
+            "code": "change",
+            "subject": "an-tam",
+            "value": -1000
+          }
+        ],
+        "rules": [
+          "canonical-explanation:macro"
+        ],
+        "missing": false
+      },
+      "changed": true,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "PENDING"
+    },
+    {
+      "id": "macro-risk",
+      "question": "Tin tốt có đảm bảo lợi nhuận không?",
+      "before": {
+        "lead": "Không, tin tốt không bảo đảm bạn có lợi nhuận.",
+        "paragraphs": [
+          "Giá đã tăng không bảo đảm lãi thực nhận khi bán hoặc giá trong tương lai; biến động giá không tự cộng tiền vào ví."
+        ],
+        "details": [],
+        "sources": [],
+        "rules": [
+          "canonical-explanation:macro"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Không, tin tốt không bảo đảm bạn có lợi nhuận.",
+        "paragraphs": [
+          "Giá đã tăng không bảo đảm lãi thực nhận khi bán hoặc giá trong tương lai; biến động giá không tự cộng tiền vào ví."
+        ],
+        "details": [],
+        "sources": [],
+        "rules": [
+          "canonical-explanation:macro"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "finance-cash",
+      "question": "Tiền mặt hiện có là bao nhiêu?",
+      "before": {
+        "lead": "Bạn hiện có 54.400.000 đ tiền mặt dùng được ngay.",
+        "paragraphs": [
+          "Đây là tiền sẵn có trong ván đang chơi, khác với giá trị tài sản hoặc khoản thu nhập sẽ nhận.",
+          "Một khoản mua hay thanh toán mới có thể làm số này thay đổi; chưa có giao dịch nào được thực hiện khi hỏi AI."
+        ],
+        "details": [
+          {
+            "key": "cash:overall",
+            "label": "Tiền mặt hiện có",
+            "value": "54.400.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "cash",
+            "subject": "overall",
+            "value": 54400000
+          }
+        ],
+        "rules": [
+          "validated-fact-definitions:cash,obligations,salary,living"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Bạn hiện có 54.400.000 đ tiền mặt dùng được ngay.",
+        "paragraphs": [
+          "Đây là tiền sẵn có trong ván đang chơi, khác với giá trị tài sản hoặc khoản thu nhập sẽ nhận.",
+          "Một khoản mua hay thanh toán mới có thể làm số này thay đổi; chưa có giao dịch nào được thực hiện khi hỏi AI."
+        ],
+        "details": [
+          {
+            "key": "cash:overall",
+            "label": "Tiền mặt hiện có",
+            "value": "54.400.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "cash",
+            "subject": "overall",
+            "value": 54400000
+          }
+        ],
+        "rules": [
+          "validated-fact-definitions:cash,obligations,salary,living"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "finance-obligations",
+      "question": "Nghĩa vụ đã cam kết là gì?",
+      "before": {
+        "lead": "Hiện chưa có nghĩa vụ cuối vòng đã cam kết trong dữ kiện này.",
+        "paragraphs": [
+          "Đó là khoản phải thu xếp thanh toán theo lịch, không phải bằng chứng tiền đã được trả.",
+          "Tiền mặt hiện có và nghĩa vụ phải trả là hai số khác nhau; không suy ra số dư sau vòng từ riêng khoản này."
+        ],
+        "details": [
+          {
+            "key": "obligations:overall",
+            "label": "Nghĩa vụ đã cam kết",
+            "value": "0 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "obligations",
+            "subject": "overall",
+            "value": 0
+          }
+        ],
+        "rules": [
+          "validated-fact-definitions:cash,obligations,salary,living"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Hiện chưa có nghĩa vụ cuối vòng đã cam kết trong dữ kiện này.",
+        "paragraphs": [
+          "Đó là khoản phải thu xếp thanh toán theo lịch, không phải bằng chứng tiền đã được trả.",
+          "Tiền mặt hiện có và nghĩa vụ phải trả là hai số khác nhau; không suy ra số dư sau vòng từ riêng khoản này."
+        ],
+        "details": [
+          {
+            "key": "obligations:overall",
+            "label": "Nghĩa vụ đã cam kết",
+            "value": "0 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "obligations",
+            "subject": "overall",
+            "value": 0
+          }
+        ],
+        "rules": [
+          "validated-fact-definitions:cash,obligations,salary,living"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    },
+    {
+      "id": "finance-income",
+      "question": "Thu nhập và sinh hoạt định kỳ là gì?",
+      "before": {
+        "lead": "Thu nhập định kỳ hiện tại là 14.000.000 đ mỗi lần qua Xuất phát; sinh hoạt định kỳ là 5.000.000 đ.",
+        "paragraphs": [
+          "Đây là các khoản được xử lý theo chu kỳ của trò chơi, không phải tiền mặt được cộng ngay khi hỏi.",
+          "Các khoản nợ và nghĩa vụ khác còn được xử lý riêng, nên đây chưa phải số dư sau vòng."
+        ],
+        "details": [
+          {
+            "key": "salary:overall",
+            "label": "Thu nhập mỗi lần qua Xuất phát",
+            "value": "14.000.000 đ"
+          },
+          {
+            "key": "living:overall",
+            "label": "Sinh hoạt mỗi lần qua Xuất phát",
+            "value": "5.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "salary",
+            "subject": "overall",
+            "value": 14000000
+          },
+          {
+            "kind": "fact",
+            "code": "living",
+            "subject": "overall",
+            "value": 5000000
+          }
+        ],
+        "rules": [
+          "validated-fact-definitions:cash,obligations,salary,living"
+        ],
+        "missing": false
+      },
+      "after": {
+        "lead": "Thu nhập định kỳ hiện tại là 14.000.000 đ mỗi lần qua Xuất phát; sinh hoạt định kỳ là 5.000.000 đ.",
+        "paragraphs": [
+          "Đây là các khoản được xử lý theo chu kỳ của trò chơi, không phải tiền mặt được cộng ngay khi hỏi.",
+          "Các khoản nợ và nghĩa vụ khác còn được xử lý riêng, nên đây chưa phải số dư sau vòng."
+        ],
+        "details": [
+          {
+            "key": "salary:overall",
+            "label": "Thu nhập mỗi lần qua Xuất phát",
+            "value": "14.000.000 đ"
+          },
+          {
+            "key": "living:overall",
+            "label": "Sinh hoạt mỗi lần qua Xuất phát",
+            "value": "5.000.000 đ"
+          }
+        ],
+        "sources": [
+          {
+            "kind": "fact",
+            "code": "salary",
+            "subject": "overall",
+            "value": 14000000
+          },
+          {
+            "kind": "fact",
+            "code": "living",
+            "subject": "overall",
+            "value": 5000000
+          }
+        ],
+        "rules": [
+          "validated-fact-definitions:cash,obligations,salary,living"
+        ],
+        "missing": false
+      },
+      "changed": false,
+      "canonicalValidated": true,
+      "responseUnchanged": true,
+      "finalOwnerApproval": "Preserved Owner-reviewed case"
+    }
+  ]
+}

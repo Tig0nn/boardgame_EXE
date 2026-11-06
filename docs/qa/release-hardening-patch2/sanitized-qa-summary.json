@@ -1,0 +1,373 @@
+{
+  "at": "2026-11-06T05:44:02.835Z",
+  "node": {
+    "version": "22.23.4",
+    "zipSha256": "cbc74b5e0982c9dbb41525fd8fb5dcd32fbee237863f7829072f4639a1ce5f20",
+    "officialSource": "https://nodejs.org/dist/v22.23.4/"
+  },
+  "npm": "11.6.2",
+  "product": {
+    "pass": 1050,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "baselineRegressionCases": 1044,
+    "newPatch2Cases": 6,
+    "p4p5Included": true
+  },
+  "diagnostics": {
+    "pass": 85,
+    "fail": 0
+  },
+  "acceptedOutputs": {
+    "at": "2026-11-06T05:29:32.104Z",
+    "node": "22.23.4",
+    "acceptedExact": 39,
+    "networkAttempts": 0,
+    "presenterUnchanged": true,
+    "catalogUnchanged": true,
+    "afterFixtureSha256": "a1c4f4c6c1dc6f5553da357a89a4ff63d4ec8972c39cb25247fe6a7b1d8143d8"
+  },
+  "standardReplays": {
+    "worktree": {
+      "total": 139,
+      "pass": 139,
+      "fail": 0,
+      "committed": 135,
+      "verifiedCrlfCheckout": 4
+    },
+    "portable": {
+      "scope": "QA-only fixture workspace with exact frozen committed bytes plus Patch 2 integrity metadata/scripts; not a new release export.",
+      "node": "22.23.4",
+      "command": [
+        "--experimental-strip-types",
+        "scripts/diagnostics/readiness-patch1-replays.ts"
+      ],
+      "exitCode": 0,
+      "total": 139,
+      "pass": 139,
+      "fail": 0,
+      "representations": {
+        "committed": 139,
+        "crlfCheckout": 0
+      }
+    }
+  },
+  "lint": {
+    "pass": true,
+    "artifactVendorExclusions": [
+      "docs/qa/clean-export/npm-tool/**",
+      "docs/qa/release-hardening-patch2/node22-runtime/**",
+      "artifacts/clean-export/**"
+    ]
+  },
+  "typechecks": {
+    "root": true,
+    "mobile": true,
+    "releaseConfigStrict": true
+  },
+  "builds": {
+    "root": true,
+    "mobile": true,
+    "isolatedPreview": true,
+    "productionBetaRefused": true,
+    "ordinaryMobileJsCssUnchanged": true
+  },
+  "browser": {
+    "compiledPreviewCases": [
+      {
+        "id": "personal-rules",
+        "width": 320,
+        "compiledPreview": true,
+        "mode": "production",
+        "deployment": "preview",
+        "offlineDeterministicAnswer": true,
+        "noApi": true,
+        "mainMatchesValidatedP5": true,
+        "mobileLayout": true,
+        "pendingQuestionDiscarded": true,
+        "saveUnchanged": true,
+        "separateOriginStorage": true,
+        "productionQueryAttackOff": true,
+        "previewNeedsOptIn": true
+      },
+      {
+        "id": "macro-compare",
+        "width": 320,
+        "compiledPreview": true,
+        "mode": "production",
+        "deployment": "preview",
+        "offlineDeterministicAnswer": true,
+        "noApi": true,
+        "mainMatchesValidatedP5": true,
+        "mobileLayout": true,
+        "pendingQuestionDiscarded": true,
+        "saveUnchanged": true,
+        "separateOriginStorage": true,
+        "productionQueryAttackOff": true,
+        "previewNeedsOptIn": true
+      },
+      {
+        "id": "personal-rules",
+        "width": 390,
+        "compiledPreview": true,
+        "mode": "production",
+        "deployment": "preview",
+        "offlineDeterministicAnswer": true,
+        "noApi": true,
+        "mainMatchesValidatedP5": true,
+        "mobileLayout": true,
+        "pendingQuestionDiscarded": true,
+        "saveUnchanged": true,
+        "separateOriginStorage": true,
+        "productionQueryAttackOff": true,
+        "previewNeedsOptIn": true
+      },
+      {
+        "id": "macro-compare",
+        "width": 390,
+        "compiledPreview": true,
+        "mode": "production",
+        "deployment": "preview",
+        "offlineDeterministicAnswer": true,
+        "noApi": true,
+        "mainMatchesValidatedP5": true,
+        "mobileLayout": true,
+        "pendingQuestionDiscarded": true,
+        "saveUnchanged": true,
+        "separateOriginStorage": true,
+        "productionQueryAttackOff": true,
+        "previewNeedsOptIn": true
+      }
+    ],
+    "previewRouteProbes": [
+      {
+        "endpoint": "/api/ai-coach",
+        "status": 404,
+        "providerRequest": false
+      },
+      {
+        "endpoint": "/api/%61i-coach?preview=1",
+        "status": 404,
+        "providerRequest": false
+      },
+      {
+        "endpoint": "/api/ai-coach/",
+        "status": 404,
+        "providerRequest": false
+      }
+    ],
+    "sessionRecords": [
+      {
+        "scope": "Main app, actual Settings two-step restart",
+        "pass": true
+      },
+      {
+        "id": "personal-rules",
+        "width": 320,
+        "action": "restart",
+        "scope": "QA-only browser component host: unchanged GameExperience + real GameSetup file input / canonical save restore / new session. Not main app import navigation.",
+        "pendingOldRequestDiscarded": true,
+        "selectionsReset": true,
+        "header": "Xuất phát",
+        "pass": true
+      },
+      {
+        "id": "personal-rules",
+        "width": 320,
+        "action": "import",
+        "scope": "QA-only browser component host: unchanged GameExperience + real GameSetup file input / canonical save restore / new session. Not main app import navigation.",
+        "pendingOldRequestDiscarded": true,
+        "selectionsReset": true,
+        "header": "Sự kiện",
+        "pass": true
+      },
+      {
+        "id": "personal-rules",
+        "width": 320,
+        "action": "resume",
+        "scope": "QA-only browser component host: unchanged GameExperience + real GameSetup file input / canonical save restore / new session. Not main app import navigation.",
+        "pendingOldRequestDiscarded": true,
+        "selectionsReset": true,
+        "header": "Biến cố cá nhân",
+        "pass": true
+      },
+      {
+        "id": "macro-compare",
+        "width": 320,
+        "action": "restart",
+        "scope": "QA-only browser component host: unchanged GameExperience + real GameSetup file input / canonical save restore / new session. Not main app import navigation.",
+        "pendingOldRequestDiscarded": true,
+        "selectionsReset": true,
+        "header": "Xuất phát",
+        "pass": true
+      },
+      {
+        "id": "macro-compare",
+        "width": 320,
+        "action": "import",
+        "scope": "QA-only browser component host: unchanged GameExperience + real GameSetup file input / canonical save restore / new session. Not main app import navigation.",
+        "pendingOldRequestDiscarded": true,
+        "selectionsReset": true,
+        "header": "Sự kiện",
+        "pass": true
+      },
+      {
+        "id": "macro-compare",
+        "width": 320,
+        "action": "resume",
+        "scope": "QA-only browser component host: unchanged GameExperience + real GameSetup file input / canonical save restore / new session. Not main app import navigation.",
+        "pendingOldRequestDiscarded": true,
+        "selectionsReset": true,
+        "header": "Sự kiện",
+        "pass": true
+      },
+      {
+        "id": "personal-rules",
+        "width": 390,
+        "action": "restart",
+        "scope": "QA-only browser component host: unchanged GameExperience + real GameSetup file input / canonical save restore / new session. Not main app import navigation.",
+        "pendingOldRequestDiscarded": true,
+        "selectionsReset": true,
+        "header": "Xuất phát",
+        "pass": true
+      },
+      {
+        "id": "personal-rules",
+        "width": 390,
+        "action": "import",
+        "scope": "QA-only browser component host: unchanged GameExperience + real GameSetup file input / canonical save restore / new session. Not main app import navigation.",
+        "pendingOldRequestDiscarded": true,
+        "selectionsReset": true,
+        "header": "Sự kiện",
+        "pass": true
+      },
+      {
+        "id": "personal-rules",
+        "width": 390,
+        "action": "resume",
+        "scope": "QA-only browser component host: unchanged GameExperience + real GameSetup file input / canonical save restore / new session. Not main app import navigation.",
+        "pendingOldRequestDiscarded": true,
+        "selectionsReset": true,
+        "header": "Biến cố cá nhân",
+        "pass": true
+      },
+      {
+        "id": "macro-compare",
+        "width": 390,
+        "action": "restart",
+        "scope": "QA-only browser component host: unchanged GameExperience + real GameSetup file input / canonical save restore / new session. Not main app import navigation.",
+        "pendingOldRequestDiscarded": true,
+        "selectionsReset": true,
+        "header": "Xuất phát",
+        "pass": true
+      },
+      {
+        "id": "macro-compare",
+        "width": 390,
+        "action": "import",
+        "scope": "QA-only browser component host: unchanged GameExperience + real GameSetup file input / canonical save restore / new session. Not main app import navigation.",
+        "pendingOldRequestDiscarded": true,
+        "selectionsReset": true,
+        "header": "Sự kiện",
+        "pass": true
+      },
+      {
+        "id": "macro-compare",
+        "width": 390,
+        "action": "resume",
+        "scope": "QA-only browser component host: unchanged GameExperience + real GameSetup file input / canonical save restore / new session. Not main app import navigation.",
+        "pendingOldRequestDiscarded": true,
+        "selectionsReset": true,
+        "header": "Sự kiện",
+        "pass": true
+      }
+    ],
+    "legacyFinishedCases": [
+      {
+        "width": 320,
+        "legacyAccordionAbsent": true,
+        "legacyAnalyzeCtaAbsent": true,
+        "financialFactsPresent": true
+      },
+      {
+        "width": 390,
+        "legacyAccordionAbsent": true,
+        "legacyAnalyzeCtaAbsent": true,
+        "financialFactsPresent": true
+      }
+    ],
+    "legacyDevRouteProbes": [
+      {
+        "endpoint": "/api/ai-coach",
+        "status": 404,
+        "providerRequest": false
+      },
+      {
+        "endpoint": "/api/%61i-coach?preview=1",
+        "status": 404,
+        "providerRequest": false
+      },
+      {
+        "endpoint": "/api/ai-coach/",
+        "status": 404,
+        "providerRequest": false
+      }
+    ],
+    "apiRequests": [],
+    "providerRequests": [],
+    "pageErrors": [],
+    "externalFontsBlocked": true,
+    "scope": "Local compiled Preview/Mobile origins plus actual component hosts; no hosted deployment, physical device or full main-app pending import navigation claim."
+  },
+  "advisories": {
+    "root": {
+      "info": 0,
+      "low": 0,
+      "moderate": 10,
+      "high": 0,
+      "critical": 0,
+      "total": 10
+    },
+    "rootRuntime": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "mobile": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "mobileRuntime": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "allRemainingDev": true,
+    "ownerRiskDecisionRequired": true
+  },
+  "initialFailuresPreserved": {
+    "tdd": "Replay and legacy isolation RED logs retained.",
+    "lint": "Untracked downloaded npm CLI vendor was scanned; product-scoped lint excludes only artifact/vendor trees.",
+    "session": "First QA host lacked Preview defines after Preview set NODE_ENV; harness now uses build policy and same isolation plugin, 13 records pass."
+  },
+  "projectIdentity": {
+    "actualProjectId": null,
+    "expectedProjectId": null,
+    "hostedConfigured": false
+  },
+  "remoteActions": [],
+  "staged": false,
+  "commitCreated": false,
+  "productionChanged": false
+}
