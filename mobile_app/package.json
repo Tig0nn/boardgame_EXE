@@ -6,9 +6,15 @@
   "scripts": {
     "dev": "vite --port 5174",
     "build": "tsc -b && vite build",
-    "preview": "vite preview --port 5174"
+    "preview": "vite preview --port 5174",
+    "cap": "cap",
+    "cap:sync": "cap sync android",
+    "cap:build": "npm run build && cap sync android"
   },
   "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/cli": "^8.6.0",
+    "@capacitor/core": "^8.6.0",
     "@google/model-viewer": "^4.4.0",
     "@types/qrcode": "^1.5.6",
     "@types/three": "0.183.0",
