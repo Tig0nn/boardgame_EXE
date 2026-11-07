@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -22,9 +22,7 @@ concurrency:
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    name: Build & Deploy PWA for iOS
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -48,14 +46,38 @@ jobs:
       - name: Build Web Application for PWA
         run: npm --prefix mobile_app run build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Ensure .nojekyll in build output
+        run: touch mobile_app/dist/.nojekyll
 
-      - name: Upload Artifact
+      - name: Deploy to gh-pages Branch (Default Branch Source)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./mobile_app/dist
+          publish_branch: gh-pages
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Upload Build Artifact for Direct Download
+        uses: actions/upload-artifact@v4
+        with:
+          name: playboard-pwa-web-dist
+          path: mobile_app/dist
+          retention-days: 30
+
+      - name: Setup Pages (Actions-based fallback)
+        id: pages_setup
+        uses: actions/configure-pages@v5
+        continue-on-error: true
+
+      - name: Upload Pages Artifact
+        if: steps.pages_setup.outcome == 'success'
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'mobile_app/dist'
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (Actions-based)
+        if: steps.pages_setup.outcome == 'success'
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
