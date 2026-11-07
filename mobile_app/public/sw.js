@@ -1,5 +1,5 @@
 // Service Worker for PlayBoard Offline & PWA capability
-const CACHE_NAME = 'playboard-v1';
+const CACHE_NAME = 'playboard-v2';
 const STATIC_ASSETS = [
   './',
   './index.html',

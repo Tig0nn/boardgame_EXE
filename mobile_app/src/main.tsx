@@ -4,6 +4,8 @@ import '@google/model-viewer';
 import App from './App';
 import './index.css';
 
+import { assetUrl } from './utils/assets';
+
 const rootElement = document.getElementById('root');
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
@@ -16,7 +18,7 @@ if (rootElement) {
 // Register PWA Service Worker for offline iOS/Web caching
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
-    const swPath = import.meta.env.BASE_URL ? `${import.meta.env.BASE_URL}sw.js` : './sw.js';
+    const swPath = assetUrl('sw.js');
     navigator.serviceWorker.register(swPath).catch((err) => {
       console.warn('ServiceWorker registration failed: ', err);
     });

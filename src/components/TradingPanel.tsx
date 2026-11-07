@@ -69,9 +69,17 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
         <div><span>Vốn đã chi, chưa thu hồi</span><strong>{money(view.locked)}</strong></div>
         <div><span>Số lần qua ô Xuất phát còn lại</span><strong>{view.remainingStarts} kỳ</strong></div>
       </div>
-      <p className="financial-warning">Thu nhập vận hành dương không đảm bảo tổng lợi nhuận. Chỉ bán tại ô Kinh doanh; vốn chưa bán không tính vào mục tiêu 90 triệu và không dùng trả khoản thiếu bắt buộc.</p>
-      <p>{fixedIncome ? `Nền cố định ${money(config.baseIncome)} / lần qua ô Xuất phát khi sở hữu; không nhân theo xu hướng hoặc cú sốc kinh tế.` : `Luật lịch sử: nền ${money(config.baseIncome)} / lần qua ô Xuất phát × hệ số xu hướng, cộng điều chỉnh từ cú sốc kinh tế.`} Nâng cấp {money(config.upgradeCost)}/tầng: +{money(config.baseUplift)} cố định và +{money(config.matchingBonus)} mỗi tầng trùng xu hướng hiện tại.</p>
-      <p>Xu hướng hiện tại: <b>{SCENARIOS.find(scenario => scenario.id === game.scenarioId)!.label}</b>. {fixedIncome ? 'Chỉ phần thưởng trùng xu hướng thay đổi khi xu hướng đổi.' : 'Luật lịch sử còn điều chỉnh cả thu nhập nền theo xu hướng.'}</p>
+      {!compact && <p className="financial-warning">Thu nhập vận hành dương không đảm bảo tổng lợi nhuận. Chỉ bán tại ô Kinh doanh; vốn chưa bán không tính vào mục tiêu 90 triệu và không dùng trả khoản thiếu bắt buộc.</p>}
+      {!compact && <p>{fixedIncome ? `Nền cố định ${money(config.baseIncome)} / lần qua ô Xuất phát khi sở hữu; không nhân theo xu hướng hoặc cú sốc kinh tế.` : `Luật lịch sử: nền ${money(config.baseIncome)} / lần qua ô Xuất phát × hệ số xu hướng, cộng điều chỉnh từ cú sốc kinh tế.`} Nâng cấp {money(config.upgradeCost)}/tầng: +{money(config.baseUplift)} cố định và +{money(config.matchingBonus)} mỗi tầng trùng xu hướng hiện tại.</p>}
+      {!compact ? (
+        <p>Xu hướng hiện tại: <b>{SCENARIOS.find(scenario => scenario.id === game.scenarioId)!.label}</b>. {fixedIncome ? 'Chỉ phần thưởng trùng xu hướng thay đổi khi xu hướng đổi.' : 'Luật lịch sử còn điều chỉnh cả thu nhập nền theo xu hướng.'}</p>
+      ) : (
+        <details className="trade-details" style={{ margin: '6px 0', fontSize: '12px' }}>
+          <summary style={{ cursor: 'pointer', color: '#b45309', fontWeight: 700 }}>ℹ️ Chi tiết quy tắc & xu hướng ({SCENARIOS.find(scenario => scenario.id === game.scenarioId)!.label})</summary>
+          <p className="financial-warning" style={{ margin: '4px 0' }}>Thu nhập vận hành dương không đảm bảo tổng lợi nhuận. Chỉ bán tại ô Kinh doanh; vốn chưa bán không tính vào mục tiêu 90 triệu.</p>
+          <p style={{ margin: '4px 0' }}>Nâng cấp {money(config.upgradeCost)}/tầng: +{money(config.baseUplift)} cố định và +{money(config.matchingBonus)} khi trùng xu hướng.</p>
+        </details>
+      )}
       {!owned ? <><p>Đầu tư {money(config.cost)} · Giá thu hồi ban đầu {config.capitalRecovery * 100}% vốn, trước biến động và khấu hao.</p>
         {game.portfolio.cash < config.cost && <p className="input-error">Chưa đủ tiền mặt để mua cơ sở.</p>}
         <button className="button primary full-button" disabled={game.portfolio.cash < config.cost} onClick={() => submit({ kind: 'buy', asset: 'business', amount: config.cost })}>Đầu tư cơ sở {money(config.cost)}</button></> : <>

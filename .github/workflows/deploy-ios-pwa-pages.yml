@@ -44,6 +44,8 @@ jobs:
         run: npm --prefix mobile_app ci
 
       - name: Build Web Application for PWA
+        env:
+          VITE_BASE_PATH: /PlayBoard/
         run: npm --prefix mobile_app run build
 
       - name: Ensure .nojekyll in build output

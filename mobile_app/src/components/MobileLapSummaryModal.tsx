@@ -37,13 +37,53 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
         onClick: onContinue,
       }}
     >
+      {/* Banner Tổng Kết Dòng Tiền Ròng Vòng Chơi (Net Cash Flow Hero Banner) */}
+      {overview && (
+        <div
+          style={{
+            background: overview.received >= overview.paid
+              ? 'linear-gradient(135deg, #DCFCE7 0%, #BBF7D0 100%)'
+              : 'linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%)',
+            border: `1.5px solid ${overview.received >= overview.paid ? '#22C55E' : '#EF4444'}`,
+            borderRadius: '16px',
+            padding: '10px 14px',
+            textAlign: 'center',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
+            boxSizing: 'border-box',
+          }}
+        >
+          <div
+            style={{
+              fontSize: '11px',
+              fontWeight: 800,
+              color: overview.received >= overview.paid ? '#166534' : '#991B1B',
+              letterSpacing: '0.4px',
+              textTransform: 'uppercase',
+            }}
+          >
+            DÒNG TIỀN RÒNG VÒNG {summary.lap}
+          </div>
+          <div
+            style={{
+              fontSize: '20px',
+              fontWeight: 900,
+              color: overview.received >= overview.paid ? '#15803D' : '#DC2626',
+              marginTop: '2px',
+              fontVariantNumeric: 'tabular-nums',
+            }}
+          >
+            {overview.received >= overview.paid ? '+' : ''}{money(overview.received - overview.paid)}
+          </div>
+        </div>
+      )}
+
       {/* Dashboard Thu & Chi 2 Cột Đối Xứng */}
       {overview ? (
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
-            gap: '6px',
+            gap: '8px',
           }}
         >
           {/* Cột Tiền Đã Nhận */}
@@ -51,16 +91,15 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
             style={{
               background: '#F0FDF4',
               border: '1.5px solid #86EFAC',
-              borderRadius: '12px',
-              padding: '6px 8px',
+              borderRadius: '14px',
+              padding: '8px',
               textAlign: 'center',
-              boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
             }}
           >
             <div style={{ fontSize: '10px', fontWeight: 800, color: '#15803D', textTransform: 'uppercase' }}>
-              Tiền đã nhận
+              Thu Vào (+)
             </div>
-            <div style={{ fontSize: '13.5px', fontWeight: 900, color: '#16A34A', marginTop: '1px' }}>
+            <div style={{ fontSize: '15px', fontWeight: 900, color: '#16A34A', marginTop: '2px' }}>
               +{money(overview.received)}
             </div>
           </div>
@@ -70,16 +109,15 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
             style={{
               background: '#FEF2F2',
               border: '1.5px solid #FECACA',
-              borderRadius: '12px',
-              padding: '6px 8px',
+              borderRadius: '14px',
+              padding: '8px',
               textAlign: 'center',
-              boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
             }}
           >
             <div style={{ fontSize: '10px', fontWeight: 800, color: '#B91C1C', textTransform: 'uppercase' }}>
-              Tiền đã chi
+              Chi Ra (-)
             </div>
-            <div style={{ fontSize: '13.5px', fontWeight: 900, color: '#DC2626', marginTop: '1px' }}>
+            <div style={{ fontSize: '15px', fontWeight: 900, color: '#DC2626', marginTop: '2px' }}>
               -{money(overview.paid)}
             </div>
           </div>

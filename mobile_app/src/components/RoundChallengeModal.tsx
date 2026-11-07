@@ -34,230 +34,224 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
 
   return (
     <GamifiedModal
-      badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · BẢN TIN THỊ TRƯỜNG & THÁCH THỨC`}
-      title={news.headline}
+      badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · THÁCH THỨC VÒNG MỚI`}
+      title={news.headline || `Khởi đầu vòng ${game.lap}`}
       onHelp={onHelp}
       primaryAction={{
         label: `BẮT ĐẦU VÒNG ${game.lap} →`,
         onClick: handleContinue,
       }}
     >
-      {/* 1. THẺ CỔ PHIẾU (Medieval Parchment Ledger Row - Không viền bo card) */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '10px',
-          padding: '6px 2px',
-          borderBottom: '1px solid rgba(180, 83, 9, 0.15)',
-          boxSizing: 'border-box',
-        }}
-      >
-        <img
-          src={assetUrl('assets/stock-icon.png')}
-          alt="Cổ Phiếu"
+      {/* 3 THẺ XU HƯỚNG TÀI SẢN TRỰC QUAN (VISUAL-FIRST GAMIFIED CARDS) */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
+        {/* 1. THẺ CỔ PHIẾU */}
+        <div
           style={{
-            width: '32px',
-            height: '32px',
-            objectFit: 'contain',
-            flexShrink: 0,
-            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.18))',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            background: 'rgba(255, 255, 255, 0.95)',
+            border: '1.5px solid #E2E8F0',
+            borderRadius: '14px',
+            padding: '8px 12px',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+            boxSizing: 'border-box',
           }}
-        />
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
-            <span style={{ fontSize: '12.5px', fontWeight: 900, color: '#451a03' }}>
-              Cổ Phiếu
-            </span>
-            <small style={{ fontSize: '10px', fontWeight: 700, color: '#b45309' }}>
-              Kỳ vọng tăng trưởng
-            </small>
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <img
+              src={assetUrl('assets/stock-icon.png')}
+              alt="Cổ Phiếu"
+              style={{
+                width: '36px',
+                height: '36px',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))',
+              }}
+            />
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ fontSize: '13px', fontWeight: 900, color: '#1E293B' }}>Cổ Phiếu</span>
+                <span
+                  style={{
+                    fontSize: '9.5px',
+                    fontWeight: 900,
+                    padding: '1px 6px',
+                    borderRadius: '999px',
+                    background: '#DCFCE7',
+                    color: '#15803D',
+                    letterSpacing: '0.3px',
+                  }}
+                >
+                  TĂNG TRƯỞNG
+                </span>
+              </div>
+              <small style={{ fontSize: '10.5px', color: '#64748B', fontWeight: 600 }}>
+                Sinh lời cao theo sóng thị trường
+              </small>
+            </div>
           </div>
-          <div
-            style={{
-              fontSize: '11px',
-              color: '#5c3513',
-              fontWeight: 600,
-              marginTop: '1px',
-              lineHeight: 1.3,
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-            }}
-          >
-            {stocksNews?.forecast || 'Giá biến động theo chu kỳ doanh nghiệp và sóng thị trường.'}
+          <div style={{ textAlign: 'right' }}>
+            <strong style={{ fontSize: '14px', fontWeight: 900, color: '#16A34A', display: 'block' }}>
+              ▲ Hấp Dẫn
+            </strong>
+            <small style={{ fontSize: '9.5px', color: '#94A3B8', fontWeight: 700 }}>Thanh khoản cao</small>
+          </div>
+        </div>
+
+        {/* 2. THẺ TRÁI PHIẾU */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            background: 'rgba(255, 255, 255, 0.95)',
+            border: '1.5px solid #E2E8F0',
+            borderRadius: '14px',
+            padding: '8px 12px',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+            boxSizing: 'border-box',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <img
+              src={assetUrl('assets/bond-icon.png')}
+              alt="Trái Phiếu"
+              style={{
+                width: '36px',
+                height: '36px',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))',
+              }}
+            />
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ fontSize: '13px', fontWeight: 900, color: '#1E293B' }}>Trái Phiếu</span>
+                <span
+                  style={{
+                    fontSize: '9.5px',
+                    fontWeight: 900,
+                    padding: '1px 6px',
+                    borderRadius: '999px',
+                    background: '#DBEAFE',
+                    color: '#1D4ED8',
+                    letterSpacing: '0.3px',
+                  }}
+                >
+                  COUPON ĐỀU
+                </span>
+              </div>
+              <small style={{ fontSize: '10.5px', color: '#64748B', fontWeight: 600 }}>
+                Nhận lãi cố định tại ô Xuất phát
+              </small>
+            </div>
+          </div>
+          <div style={{ textAlign: 'right' }}>
+            <strong style={{ fontSize: '14px', fontWeight: 900, color: '#2563EB', display: 'block' }}>
+              +5.0%/kỳ
+            </strong>
+            <small style={{ fontSize: '9.5px', color: '#94A3B8', fontWeight: 700 }}>Thu nhập thụ động</small>
+          </div>
+        </div>
+
+        {/* 3. THẺ VÀNG TRÚ ẨN */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            background: 'rgba(255, 255, 255, 0.95)',
+            border: '1.5px solid #E2E8F0',
+            borderRadius: '14px',
+            padding: '8px 12px',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+            boxSizing: 'border-box',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <img
+              src={assetUrl('assets/gold-icon.png')}
+              alt="Vàng Trú Ẩn"
+              style={{
+                width: '36px',
+                height: '36px',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.15))',
+              }}
+            />
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ fontSize: '13px', fontWeight: 900, color: '#1E293B' }}>Vàng Trú Ẩn</span>
+                <span
+                  style={{
+                    fontSize: '9.5px',
+                    fontWeight: 900,
+                    padding: '1px 6px',
+                    borderRadius: '999px',
+                    background: '#FEF3C7',
+                    color: '#B45309',
+                    letterSpacing: '0.3px',
+                  }}
+                >
+                  PHÒNG THỦ
+                </span>
+              </div>
+              <small style={{ fontSize: '10.5px', color: '#64748B', fontWeight: 600 }}>
+                Bảo vệ tài sản trước biến động
+              </small>
+            </div>
+          </div>
+          <div style={{ textAlign: 'right' }}>
+            <strong style={{ fontSize: '14px', fontWeight: 900, color: '#D97706', display: 'block' }}>
+              Ổn Định
+            </strong>
+            <small style={{ fontSize: '9.5px', color: '#94A3B8', fontWeight: 700 }}>Lá chắn rủi ro</small>
           </div>
         </div>
       </div>
 
-      {/* 2. THẺ TRÁI PHIẾU (Medieval Parchment Ledger Row - Không viền bo card) */}
+      {/* 4. THANH TIẾN ĐỘ MỤC TIÊU 90M RỰC RỠ */}
       <div
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '10px',
-          padding: '6px 2px',
-          borderBottom: '1px solid rgba(180, 83, 9, 0.15)',
+          background: 'linear-gradient(135deg, rgba(254, 243, 199, 0.6) 0%, rgba(253, 230, 138, 0.4) 100%)',
+          border: '1.5px solid #FCD34D',
+          borderRadius: '14px',
+          padding: '10px 14px',
           boxSizing: 'border-box',
+          marginTop: '2px',
         }}
       >
-        <img
-          src={assetUrl('assets/bond-icon.png')}
-          alt="Trái Phiếu"
-          style={{
-            width: '32px',
-            height: '32px',
-            objectFit: 'contain',
-            flexShrink: 0,
-            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.18))',
-          }}
-        />
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
-            <span style={{ fontSize: '12.5px', fontWeight: 900, color: '#451a03' }}>
-              Trái Phiếu
-            </span>
-            <small style={{ fontSize: '10px', fontWeight: 700, color: '#b45309' }}>
-              Coupon định kỳ
-            </small>
-          </div>
-          <div
-            style={{
-              fontSize: '11px',
-              color: '#5c3513',
-              fontWeight: 600,
-              marginTop: '1px',
-              lineHeight: 1.3,
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-            }}
-          >
-            {bondsNews?.forecast || 'Thu nhập coupon tại ô Xuất phát; theo dõi rủi ro xếp hạng tín nhiệm.'}
-          </div>
-        </div>
-      </div>
-
-      {/* 3. THẺ VÀNG TRÚ ẨN (Medieval Parchment Ledger Row - Không viền bo card) */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '10px',
-          padding: '6px 2px',
-          borderBottom: '1px solid rgba(180, 83, 9, 0.15)',
-          boxSizing: 'border-box',
-        }}
-      >
-        <img
-          src={assetUrl('assets/gold-icon.png')}
-          alt="Vàng Trú Ẩn"
-          style={{
-            width: '32px',
-            height: '32px',
-            objectFit: 'contain',
-            flexShrink: 0,
-            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.18))',
-          }}
-        />
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
-            <span style={{ fontSize: '12.5px', fontWeight: 900, color: '#451a03' }}>
-              Vàng Trú Ẩn
-            </span>
-            <small style={{ fontSize: '10px', fontWeight: 700, color: '#b45309' }}>
-              Phòng thủ lạm phát
-            </small>
-          </div>
-          <div
-            style={{
-              fontSize: '11px',
-              color: '#5c3513',
-              fontWeight: 600,
-              marginTop: '1px',
-              lineHeight: 1.3,
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-            }}
-          >
-            {goldNews?.forecast || 'Bảo toàn tài sản khi thị trường biến động tiêu cực.'}
-          </div>
-        </div>
-      </div>
-
-      {/* 4. HỘP TIẾN ĐỘ MỤC TIÊU HUY ĐỘNG (Parchment Quest Target) */}
-      <div
-        style={{
-          background: 'rgba(255, 255, 255, 0.9)',
-          border: '1px solid rgba(180, 83, 9, 0.25)',
-          borderRadius: '12px',
-          padding: '8px 12px',
-          boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)',
-          boxSizing: 'border-box',
-        }}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <img
               src={assetUrl('assets/goal-icon.png')}
               alt="Mục tiêu"
-              style={{ width: '18px', height: '18px', objectFit: 'contain' }}
+              style={{ width: '20px', height: '20px', objectFit: 'contain' }}
             />
-            <span
-              style={{
-                fontSize: '11.5px',
-                fontWeight: 900,
-                color: '#451a03',
-                textTransform: 'uppercase',
-                letterSpacing: '0.4px',
-              }}
-            >
-              MỤC TIÊU HUY ĐỘNG: 90M
+            <span style={{ fontSize: '12px', fontWeight: 900, color: '#78350F', textTransform: 'uppercase' }}>
+              MỤC TIÊU VỀ ĐÍCH: 90M
             </span>
           </div>
-          <strong style={{ fontSize: '12px', color: '#b45309', fontWeight: 900 }}>
+          <strong style={{ fontSize: '14px', color: '#B45309', fontWeight: 900 }}>
             {Math.round(progress)}%
           </strong>
         </div>
 
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'baseline',
-            fontSize: '11px',
-            margin: '4px 0 2px 0',
-          }}
-        >
-          <span style={{ color: '#5c3513' }}>Nguồn tiền về đích:</span>
-          <strong style={{ color: '#2a1506', fontWeight: 900, fontVariantNumeric: 'tabular-nums' }}>
-            {money(funds)}
-          </strong>
-        </div>
-
-        {/* Thanh Tiến Độ */}
+        {/* Thanh Progress Động */}
         <div
           style={{
             width: '100%',
-            height: '6px',
-            background: 'rgba(180, 83, 9, 0.12)',
+            height: '8px',
+            background: 'rgba(180, 83, 9, 0.15)',
             borderRadius: '9999px',
             overflow: 'hidden',
-            margin: '4px 0',
           }}
         >
           <div
             style={{
               width: `${progress}%`,
               height: '100%',
-              background: 'linear-gradient(90deg, #F59E0B 0%, #D97706 50%, #B45309 100%)',
+              background: 'linear-gradient(90deg, #F59E0B 0%, #EA580C 100%)',
               borderRadius: '9999px',
               transition: 'width 0.4s ease',
             }}
@@ -268,43 +262,43 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
           style={{
             display: 'flex',
             justifyContent: 'space-between',
-            fontSize: '10px',
-            color: '#78350f',
+            alignItems: 'center',
+            fontSize: '11px',
+            marginTop: '6px',
             fontWeight: 700,
           }}
         >
-          <span>Cần tích lũy: {money(Math.max(0, goal.target - funds))}</span>
-          <span>Còn {game.totalLaps - game.lap + 1} vòng</span>
+          <span style={{ color: '#78350F' }}>
+            Đã có: <b style={{ color: '#0F172A' }}>{money(funds)}</b>
+          </span>
+          <span style={{ color: '#9A3412' }}>
+            Còn lại {game.totalLaps - game.lap + 1} vòng
+          </span>
         </div>
       </div>
 
-      {/* 5. HỘP LƯU Ý VÒNG CHƠI (Parchment Warning Container) */}
-      <div
+      {/* 5. KHỐI THU GỌN BẢN TIN VĨ MÔ DÀNH CHO NGƯỜI MUỐN ĐỌC SÂU */}
+      <details
         style={{
-          background: 'rgba(254, 243, 199, 0.75)',
-          border: '1.5px dashed #F59E0B',
+          background: 'rgba(241, 245, 249, 0.8)',
+          border: '1px solid #CBD5E1',
           borderRadius: '12px',
-          padding: '8px 10px',
+          padding: '6px 10px',
           fontSize: '11px',
-          color: '#78350f',
-          lineHeight: 1.35,
-          boxSizing: 'border-box',
-          display: 'flex',
-          alignItems: 'flex-start',
-          gap: '8px',
+          color: '#475569',
+          cursor: 'pointer',
+          lineHeight: 1.4,
         }}
       >
-        <img
-          src={assetUrl('assets/warning.png')}
-          alt="Lưu ý"
-          style={{ width: '18px', height: '18px', objectFit: 'contain', flexShrink: 0, marginTop: '1px' }}
-        />
-        <span>
-          <strong>Lưu ý vòng {game.lap}:</strong>{' '}
-          {news.headline ? `${news.headline}. ` : ''}
-          Theo dõi kỹ báo giá tại ô Xuất phát và chủ động cân đối danh mục trước các biến cố!
-        </span>
-      </div>
+        <summary style={{ fontWeight: 800, color: '#334155' }}>
+          ℹ️ Xem chi tiết dự báo vĩ mô vòng {game.lap}
+        </summary>
+        <div style={{ marginTop: '6px', paddingTop: '6px', borderTop: '1px dashed #CBD5E1', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          {stocksNews?.forecast && <div>• <b>Cổ phiếu:</b> {stocksNews.forecast}</div>}
+          {bondsNews?.forecast && <div>• <b>Trái phiếu:</b> {bondsNews.forecast}</div>}
+          {goldNews?.forecast && <div>• <b>Vàng:</b> {goldNews.forecast}</div>}
+        </div>
+      </details>
     </GamifiedModal>
   )
 }
