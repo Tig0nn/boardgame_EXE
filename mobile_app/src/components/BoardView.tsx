@@ -35,13 +35,6 @@ export const BoardView: React.FC<BoardViewProps> = ({
   const currentTile = tileCoordinates[currentTileIndex];
   const isDangerTile = currentTile?.category === 'shock' || currentTile?.category === 'obligation';
 
-  // Dynamic Cinematic 3D Camera: Zoom-in & bám theo linh vật khi di chuyển, Zoom-out lùi nhẹ khi dừng ô
-  const centerX = 470;
-  const centerY = 960;
-  const zoomScale = isPawnMoving ? 1.26 : 1.0;
-  const panX = isPawnMoving ? (centerX - currentCoord.x) * 0.45 : 0;
-  const panY = isPawnMoving ? (centerY - currentCoord.y) * 0.45 : 0;
-
   return (
     <div style={{
       position: 'absolute',
@@ -83,113 +76,96 @@ export const BoardView: React.FC<BoardViewProps> = ({
         }}
       />
 
-      {/* CAMERA STAGE: Nhóm toàn bộ bàn cờ & nhân vật 3D vào khung Camera điện ảnh động */}
-      <div
-        className="cinematic-camera-stage"
+      {/* 2. Bàn Cờ Isometric Playboard-4 Fit Bãi Cỏ (Layer 2 - Cố định 100% không di chuyển/zoom) */}
+      <img
+        src={assetUrl('assets/playboard-4.PNG')}
+        alt="Bàn cờ góc nhìn nghiêng"
         style={{
           position: 'absolute',
-          inset: 0,
+          top: 0,
+          left: 0,
           width: '940px',
           height: '1672px',
-          transform: `translate3d(${panX}px, ${panY}px, 0) scale(${zoomScale})`,
-          transformOrigin: `${currentCoord.x}px ${currentCoord.y}px`,
-          transition: isPawnMoving
-            ? 'transform 0.42s cubic-bezier(0.25, 1, 0.5, 1)'
-            : 'transform 0.65s cubic-bezier(0.25, 1, 0.5, 1)',
-          willChange: 'transform',
-        }}
-      >
-        {/* 2. Bàn Cờ Isometric Playboard-4 Fit Bãi Cỏ (Layer 2) */}
-        <img
-          src={assetUrl('assets/playboard-4.PNG')}
-          alt="Bàn cờ góc nhìn nghiêng"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '940px',
-            height: '1672px',
-            objectFit: 'contain',
-            pointerEvents: 'none',
-            filter: 'drop-shadow(0 20px 32px rgba(0, 0, 0, 0.4))',
-          }}
-        />
-
-        {/* 4-Lap Journey Layout Anchor: Ensures vertical clearance for 3D character pawns without distortion */}
-        <div
-          className="board-journey-indicator"
-          data-lap={lap}
-          data-total-laps={totalLaps}
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            top: '320px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            pointerEvents: 'none',
-            zIndex: 10,
-            opacity: 0,
-          }}
-        />
-
-        {/* 18 Ô Bàn Cờ Tương Tác & Đo Đạc (Interactive Tile Anchors for Accessibility & Inspection) */}
-        {tileCoordinates.map((tile, i) => (
-          <button
-            key={i}
-            data-b18-tile={i}
-            aria-label={`Ô ${i + 1}: ${tileDisplayLabel(tile.label)}`}
-            aria-current={currentTileIndex === i ? 'step' : undefined}
-            onClick={() => setSelectedTile(i)}
-            style={{
-              position: 'absolute',
-              left: `${tile.x}px`,
-              top: `${tile.y}px`,
-              transform: 'translate(-50%, -50%)',
-              width: '56px',
-              height: '40px',
-              background: 'transparent',
-              border: 'none',
-              borderRadius: '12px',
-              cursor: 'pointer',
-              zIndex: 21,
-              outline: 'none',
-            }}
-          />
-        ))}
-
-        {/* Vòng Hào Quang Tỏa Sáng Tại Tâm Ô Đang Dừng (Pulse Glow Ring) */}
-        <div style={{
-          position: 'absolute',
-          left: `${currentCoord.x}px`,
-          top: `${currentCoord.y}px`,
-          transform: 'translate(-50%, -50%)',
-          width: '68px',
-          height: '38px',
-          borderRadius: '50%',
-          background: isDangerTile 
-            ? 'radial-gradient(ellipse, rgba(239, 68, 68, 0.7) 0%, rgba(239, 68, 68, 0) 70%)'
-            : 'radial-gradient(ellipse, rgba(251, 191, 36, 0.8) 0%, rgba(251, 191, 36, 0) 70%)',
-          boxShadow: isDangerTile
-            ? '0 0 25px rgba(239, 68, 68, 0.6)'
-            : '0 0 30px rgba(251, 191, 36, 0.7)',
-          zIndex: 22,
+          objectFit: 'contain',
           pointerEvents: 'none',
-          animation: 'tilePulse 1.6s ease-in-out infinite',
-        }} />
+          filter: 'drop-shadow(0 20px 32px rgba(0, 0, 0, 0.4))',
+        }}
+      />
 
-        {/* Overlay Children (Dice3D, AnchorOverlay, FloatingMoney) */}
-        {children}
+      {/* 4-Lap Journey Layout Anchor: Ensures vertical clearance for 3D character pawns without distortion */}
+      <div
+        className="board-journey-indicator"
+        data-lap={lap}
+        data-total-laps={totalLaps}
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          top: '320px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          pointerEvents: 'none',
+          zIndex: 10,
+          opacity: 0,
+        }}
+      />
 
-        {/* Nhân Vật Hoạt Hình 3D Con Người (Bạn Nam Học Sinh Da Trắng Năng Động) */}
-        <Character3D
-          x={currentCoord.x}
-          y={currentCoord.y}
-          isMoving={isPawnMoving}
-          isDancing={isDancing}
-          currentTileIndex={currentTileIndex}
-          tileCoordinates={tileCoordinates}
+      {/* 18 Ô Bàn Cờ Tương Tác & Đo Đạc (Interactive Tile Anchors for Accessibility & Inspection) */}
+      {tileCoordinates.map((tile, i) => (
+        <button
+          key={i}
+          data-b18-tile={i}
+          aria-label={`Ô ${i + 1}: ${tileDisplayLabel(tile.label)}`}
+          aria-current={currentTileIndex === i ? 'step' : undefined}
+          onClick={() => setSelectedTile(i)}
+          style={{
+            position: 'absolute',
+            left: `${tile.x}px`,
+            top: `${tile.y}px`,
+            transform: 'translate(-50%, -50%)',
+            width: '56px',
+            height: '40px',
+            background: 'transparent',
+            border: 'none',
+            borderRadius: '12px',
+            cursor: 'pointer',
+            zIndex: 21,
+            outline: 'none',
+          }}
         />
-      </div>
+      ))}
+
+      {/* Vòng Hào Quang Tỏa Sáng Tại Tâm Ô Đang Dừng (Pulse Glow Ring) */}
+      <div style={{
+        position: 'absolute',
+        left: `${currentCoord.x}px`,
+        top: `${currentCoord.y}px`,
+        transform: 'translate(-50%, -50%)',
+        width: '68px',
+        height: '38px',
+        borderRadius: '50%',
+        background: isDangerTile 
+          ? 'radial-gradient(ellipse, rgba(239, 68, 68, 0.7) 0%, rgba(239, 68, 68, 0) 70%)'
+          : 'radial-gradient(ellipse, rgba(251, 191, 36, 0.8) 0%, rgba(251, 191, 36, 0) 70%)',
+        boxShadow: isDangerTile
+          ? '0 0 25px rgba(239, 68, 68, 0.6)'
+          : '0 0 30px rgba(251, 191, 36, 0.7)',
+        zIndex: 22,
+        pointerEvents: 'none',
+        animation: 'tilePulse 1.6s ease-in-out infinite',
+      }} />
+
+      {/* Overlay Children (Dice3D, AnchorOverlay, FloatingMoney) */}
+      {children}
+
+      {/* Nhân Vật Hoạt Hình 3D Con Người (Bạn Nam Học Sinh Da Trắng Năng Động) */}
+      <Character3D
+        x={currentCoord.x}
+        y={currentCoord.y}
+        isMoving={isPawnMoving}
+        isDancing={isDancing}
+        currentTileIndex={currentTileIndex}
+        tileCoordinates={tileCoordinates}
+      />
 
       {/* Modal Chi Tiết Ô Khi Bấm Vào (Tile Inspection Modal) */}
       {selectedTile !== null && (
