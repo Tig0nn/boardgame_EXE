@@ -1,0 +1,713 @@
+{
+  "url": "http://127.0.0.1:5185/",
+  "seed": "economic-news-browser-v1",
+  "productionBuild": true,
+  "events": [
+    {
+      "check": "newsHelpPreservesExpandedDetails",
+      "pass": true,
+      "focus": " Sổ tay"
+    },
+    {
+      "check": "returningPlayerBypassesTutorial",
+      "pass": true
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "Trái phiếu",
+      "before": 40000000,
+      "after": 39000000,
+      "pass": true
+    },
+    {
+      "title": "Trái phiếu",
+      "choice": "Hoàn tất · Về bàn chơi"
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "Cổ phiếu",
+      "before": 39000000,
+      "after": 38000000,
+      "pass": true
+    },
+    {
+      "title": "Quán của bạn",
+      "choice": "Mở quán 20.000.000 ₫"
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "Trái phiếu",
+      "before": 18000000,
+      "after": 17000000,
+      "pass": true
+    },
+    {
+      "title": "Trái phiếu",
+      "choice": "Hoàn tất · Về bàn chơi"
+    },
+    {
+      "bulletin": 2,
+      "headline": "Nhịp tăng trưởng"
+    },
+    {
+      "title": "Khóa học chuyên môn",
+      "choice": "Tham gia khóa học 6.000.000 ₫\nLương +3.000.000 ₫/vòng từ START kế tiếp."
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "Trái phiếu",
+      "before": 38500000,
+      "after": 37500000,
+      "pass": true
+    },
+    {
+      "title": "Trái phiếu",
+      "choice": "Hoàn tất · Về bàn chơi"
+    },
+    {
+      "title": "Ngân hàng",
+      "choice": "Bỏ qua cơ hội"
+    },
+    {
+      "title": "Quán của bạn",
+      "choice": "Bỏ qua cơ hội"
+    },
+    {
+      "bulletin": 3,
+      "headline": "Thị trường thận trọng"
+    },
+    {
+      "title": "Ngân hàng",
+      "choice": "Bỏ qua cơ hội"
+    },
+    {
+      "title": "Chuỗi cung ứng phục hồi",
+      "choice": "Đi tiếp"
+    },
+    {
+      "title": "Thưởng hợp đồng",
+      "choice": "Nhận thưởng\nTiền mặt +2.000.000 ₫."
+    },
+    {
+      "title": "Quán của bạn",
+      "choice": "Bỏ qua cơ hội"
+    },
+    {
+      "title": "Chi phí sinh hoạt",
+      "choice": "Thanh toán 7.000.000 ₫\nNếu thiếu tiền, bạn chọn nguồn thanh toán."
+    },
+    {
+      "bulletin": 4,
+      "headline": "Tín hiệu phục hồi"
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "Cổ phiếu",
+      "before": 75667950,
+      "after": 74667950,
+      "pass": true
+    },
+    {
+      "title": "Chuỗi cung ứng phục hồi",
+      "choice": "Đi tiếp"
+    },
+    {
+      "title": "Khoản phí hợp đồng",
+      "choice": "Thanh toán 1.500.000 ₫\nNếu thiếu tiền, bạn chọn nguồn thanh toán."
+    },
+    {
+      "title": "Khóa học chuyên môn",
+      "choice": "Bỏ qua cơ hội"
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "Trái phiếu",
+      "before": 73167950,
+      "after": 72167950,
+      "pass": true
+    },
+    {
+      "title": "Trái phiếu",
+      "choice": "Hoàn tất · Về bàn chơi"
+    },
+    {
+      "check": "round4MacroVisible",
+      "text": "Dự báo vs. Thực tế\n\nTín hiệu phục hồi · Giá đầu vòng → sau START\n\n Cổ phiếu\n+17,86%\nDự báo: Có cơ hội phục hồi\n Trái phiếu\n+4,7%\nDự báo: Tăng trưởng nhẹ\n Vàng\n-9,15%\nDự báo: Đi ngang\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\n1 sự kiện kinh tế đã tác động; xem bên dưới.\n\nĐiều bạn học được\n\nSự kiện đã tác động trong vòng; mức biến động trên đã gồm tác động này:\n\nChuỗi cung ứng phục hồi · Lượt 17\n\nCổ phiếu: Tín hiệu tích cực không loại bỏ rủi ro giảm giá. Đừng dùng tiền sắp cần chi.\n\nTrái phiếu: Coupon và biến động giá là hai phần khác nhau. Bán trước hạn có thể thu về ít hơn vốn.\n\nVàng: Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.\n\nCổ phiếu là bình quân biến động của tất cả mã với cùng trọng số, không theo số tiền bạn nắm giữ. Mỗi mã có thể khác nhau:\n\nFPT: +19,87%\nCMG: +19,47%\nVCB: +9,33%\nTCB: +11,42%\nHPG: +21,14%\nBMP: +25,95%\n\nSo sánh giá trước biến động đầu tiên của vòng với giá sau cập nhật START. Các đợt tăng/giảm nối tiếp đã được tính một lần, không cộng lại cú sốc. Coupon, thời điểm mua/bán và phí khiến kết quả đầu tư của bạn khác biến động giá.\n\nMột quyết định hợp lý vẫn có thể lỗ. Hãy nhìn cả khoản dự phòng, chi phí và thời gian còn lại."
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "Trái phiếu",
+      "before": 40000000,
+      "after": 39000000,
+      "pass": true
+    },
+    {
+      "title": "Trái phiếu",
+      "choice": "Hoàn tất · Về bàn chơi"
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "Cổ phiếu",
+      "before": 39000000,
+      "after": 38000000,
+      "pass": true
+    },
+    {
+      "title": "Quán của bạn",
+      "choice": "Mở quán 20.000.000 ₫"
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "Trái phiếu",
+      "before": 18000000,
+      "after": 17000000,
+      "pass": true
+    },
+    {
+      "title": "Trái phiếu",
+      "choice": "Hoàn tất · Về bàn chơi"
+    },
+    {
+      "check": "selectedStockAndAmountPreservedThroughHelp",
+      "pass": true
+    },
+    {
+      "check": "goldFixtureDoubleTap",
+      "pass": true,
+      "fixture": true
+    },
+    {
+      "check": "gold320CaptureCorrected",
+      "pass": true
+    }
+  ],
+  "layouts": [
+    {
+      "name": "result",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 640,
+        "width": 320
+      }
+    },
+    {
+      "name": "result",
+      "dialog": {
+        "height": 812,
+        "width": 354,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "name": "result",
+      "dialog": {
+        "height": 840.8359375,
+        "width": 394,
+        "x": 18,
+        "y": 45.578125
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "name": "bulletin",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 640,
+        "width": 320
+      }
+    },
+    {
+      "name": "bulletin",
+      "dialog": {
+        "height": 711.9140625,
+        "width": 354,
+        "x": 18,
+        "y": 66.0390625
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "name": "bulletin",
+      "dialog": {
+        "height": 674.21875,
+        "width": 394,
+        "x": 18,
+        "y": 128.890625
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "name": "bulletin-details",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 640,
+        "width": 320
+      }
+    },
+    {
+      "name": "bulletin-details",
+      "dialog": {
+        "height": 812,
+        "width": 354,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "name": "bulletin-details",
+      "dialog": {
+        "height": 900,
+        "width": 394,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "name": "bonds-signal",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 640,
+        "width": 320
+      }
+    },
+    {
+      "name": "bonds-signal",
+      "dialog": {
+        "height": 812,
+        "width": 354,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "name": "bonds-signal",
+      "dialog": {
+        "height": 854.8046875,
+        "width": 394,
+        "x": 18,
+        "y": 38.59375
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "name": "reality",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 640,
+        "width": 320
+      }
+    },
+    {
+      "name": "reality",
+      "dialog": {
+        "height": 812,
+        "width": 354,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "name": "reality",
+      "dialog": {
+        "height": 900,
+        "width": 394,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "name": "reality-details",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 640,
+        "width": 320
+      }
+    },
+    {
+      "name": "reality-details",
+      "dialog": {
+        "height": 812,
+        "width": 354,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "name": "reality-details",
+      "dialog": {
+        "height": 900,
+        "width": 394,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "name": "stocks-signal",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 640,
+        "width": 320
+      }
+    },
+    {
+      "name": "stocks-signal",
+      "dialog": {
+        "height": 812,
+        "width": 354,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "name": "stocks-signal",
+      "dialog": {
+        "height": 900,
+        "width": 394,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "name": "reality-macro",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 640,
+        "width": 320
+      }
+    },
+    {
+      "name": "reality-macro",
+      "dialog": {
+        "height": 812,
+        "width": 354,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "name": "reality-macro",
+      "dialog": {
+        "height": 832.9296875,
+        "width": 394,
+        "x": 18,
+        "y": 49.53125
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "name": "reality-macro-details",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 640,
+        "width": 320
+      }
+    },
+    {
+      "name": "reality-macro-details",
+      "dialog": {
+        "height": 812,
+        "width": 354,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "name": "reality-macro-details",
+      "dialog": {
+        "height": 900,
+        "width": 394,
+        "x": 18,
+        "y": 16
+      },
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "name": "gold-signal-dev-fixture",
+      "height": 640,
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "gold-signal-dev-fixture",
+      "height": 844,
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "gold-signal-dev-fixture",
+      "height": 932,
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    }
+  ],
+  "summaries": [
+    {
+      "lap": 1,
+      "text": "Dự báo vs. Thực tế\n\nTín hiệu phục hồi · Giá đầu vòng → sau START\n\n Cổ phiếu\n+19,69%\nDự báo: Có cơ hội phục hồi\n Trái phiếu\n+3%\nDự báo: Tăng trưởng nhẹ\n Vàng\n-4,83%\nDự báo: Đi ngang\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\nChưa ghi nhận cú sốc kinh tế trong dữ liệu vòng này.\n\nĐiều bạn học được",
+      "details": "Sổ tay\nSTART · 1/4\nKhép lại vòng 1\nLương cơ bản tại START\n+14.000.000 ₫\nTăng lương từ khóa học\n0 ₫\nDòng tiền kinh doanh\n+3.000.000 ₫\nĐáo hạn deposit-1 (gốc + lãi)\n+10.400.000 ₫\nCoupon bond-1\n+50.000 ₫\nCoupon bond-2\n+50.000 ₫\nGốc nợ và lãi đến hạn\n0 ₫\nNghĩa vụ đã hẹn\n0 ₫\n\nTài sản ròng sau quyết toán: 63.003.932 ₫\n\nDự báo vs. Thực tế\n\nTín hiệu phục hồi · Giá đầu vòng → sau START\n\n Cổ phiếu\n+19,69%\nDự báo: Có cơ hội phục hồi\n Trái phiếu\n+3%\nDự báo: Tăng trưởng nhẹ\n Vàng\n-4,83%\nDự báo: Đi ngang\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\nChưa ghi nhận cú sốc kinh tế trong dữ liệu vòng này.\n\nĐiều bạn học được\n\nKhông ghi nhận cú sốc kinh tế trong dữ liệu vòng này. Chênh lệch dự báo có thể đến từ biến động giá thông thường.\n\nCổ phiếu: Tín hiệu tích cực không loại bỏ rủi ro giảm giá. Đừng dùng tiền sắp cần chi.\n\nTrái phiếu: Coupon và biến động giá là hai phần khác nhau. Bán trước hạn có thể thu về ít hơn vốn.\n\nVàng: Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.\n\nCổ phiếu là bình quân biến động của tất cả mã với cùng trọng số, không theo số tiền bạn nắm giữ. Mỗi mã có thể khác nhau:\n\nFPT: +20,78%\nCMG: +25,17%\nVCB: +12,95%\nTCB: +21,12%\nHPG: +19,93%\nBMP: +18,22%\n\nSo sánh giá trước biến động đầu tiên của vòng với giá sau cập nhật START. Các đợt tăng/giảm nối tiếp đã được tính một lần, không cộng lại cú sốc. Coupon, thời điểm mua/bán và phí khiến kết quả đầu tư của bạn khác biến động giá.\n\nMột quyết định hợp lý vẫn có thể lỗ. Hãy nhìn cả khoản dự phòng, chi phí và thời gian còn lại.\n\nGhé ví tại START →"
+    },
+    {
+      "lap": 2,
+      "text": "Dự báo vs. Thực tế\n\nNhịp tăng trưởng · Giá đầu vòng → sau START\n\n Cổ phiếu\n+27,59%\nDự báo: Xu hướng tăng\n Trái phiếu\n+4,87%\nDự báo: Khá ổn định\n Vàng\n+5,27%\nDự báo: Có thể hạ nhiệt\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\nChưa ghi nhận cú sốc kinh tế trong dữ liệu vòng này.\n\nĐiều bạn học được",
+      "details": "Sổ tay\nSTART · 2/4\nKhép lại vòng 2\nLương cơ bản tại START\n+14.000.000 ₫\nTăng lương từ khóa học\n+3.000.000 ₫\nDòng tiền kinh doanh\n+3.000.000 ₫\nCoupon bond-1\n+50.000 ₫\nHoàn gốc bond-1\n+1.000.000 ₫\nCoupon bond-2\n+50.000 ₫\nHoàn gốc bond-2\n+1.000.000 ₫\nCoupon bond-3\n+48.543 ₫\nGốc nợ và lãi đến hạn\n0 ₫\nNghĩa vụ đã hẹn\n0 ₫\n\nTài sản ròng sau quyết toán: 83.585.814 ₫\n\nDự báo vs. Thực tế\n\nNhịp tăng trưởng · Giá đầu vòng → sau START\n\n Cổ phiếu\n+27,59%\nDự báo: Xu hướng tăng\n Trái phiếu\n+4,87%\nDự báo: Khá ổn định\n Vàng\n+5,27%\nDự báo: Có thể hạ nhiệt\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\nChưa ghi nhận cú sốc kinh tế trong dữ liệu vòng này.\n\nĐiều bạn học được\n\nKhông ghi nhận cú sốc kinh tế trong dữ liệu vòng này. Chênh lệch dự báo có thể đến từ biến động giá thông thường.\n\nCổ phiếu: Tín hiệu tích cực không loại bỏ rủi ro giảm giá. Đừng dùng tiền sắp cần chi.\n\nTrái phiếu: Coupon và biến động giá là hai phần khác nhau. Bán trước hạn có thể thu về ít hơn vốn.\n\nVàng: Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.\n\nCổ phiếu là bình quân biến động của tất cả mã với cùng trọng số, không theo số tiền bạn nắm giữ. Mỗi mã có thể khác nhau:\n\nFPT: +28,97%\nCMG: +33,42%\nVCB: +25,32%\nTCB: +31,16%\nHPG: +20,22%\nBMP: +26,42%\n\nSo sánh giá trước biến động đầu tiên của vòng với giá sau cập nhật START. Các đợt tăng/giảm nối tiếp đã được tính một lần, không cộng lại cú sốc. Coupon, thời điểm mua/bán và phí khiến kết quả đầu tư của bạn khác biến động giá.\n\nMột quyết định hợp lý vẫn có thể lỗ. Hãy nhìn cả khoản dự phòng, chi phí và thời gian còn lại.\n\nGhé ví tại START →"
+    },
+    {
+      "lap": 3,
+      "text": "Dự báo vs. Thực tế\n\nThị trường thận trọng · Giá đầu vòng → sau START\n\n Cổ phiếu\n+12,88%\nDự báo: Dễ biến động\n Trái phiếu\n+2,68%\nDự báo: Khá ổn định\n Vàng\n-2,04%\nDự báo: Được quan tâm\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\n1 sự kiện kinh tế đã tác động; xem bên dưới.\n\nĐiều bạn học được",
+      "details": "Sổ tay\nSTART · 3/4\nKhép lại vòng 3\nLương cơ bản tại START\n+14.000.000 ₫\nTăng lương từ khóa học\n+3.000.000 ₫\nDòng tiền kinh doanh\n+3.000.000 ₫\nCoupon bond-3\n+48.543 ₫\nHoàn gốc bond-3\n+970.864 ₫\nGốc nợ và lãi đến hạn\n0 ₫\nNghĩa vụ đã hẹn\n0 ₫\n\nTài sản ròng sau quyết toán: 98.303.934 ₫\n\nDự báo vs. Thực tế\n\nThị trường thận trọng · Giá đầu vòng → sau START\n\n Cổ phiếu\n+12,88%\nDự báo: Dễ biến động\n Trái phiếu\n+2,68%\nDự báo: Khá ổn định\n Vàng\n-2,04%\nDự báo: Được quan tâm\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\n1 sự kiện kinh tế đã tác động; xem bên dưới.\n\nĐiều bạn học được\n\nSự kiện đã tác động trong vòng; mức biến động trên đã gồm tác động này:\n\nChuỗi cung ứng phục hồi · Lượt 11\n\nCổ phiếu: Tín hiệu tích cực không loại bỏ rủi ro giảm giá. Đừng dùng tiền sắp cần chi.\n\nTrái phiếu: Coupon và biến động giá là hai phần khác nhau. Bán trước hạn có thể thu về ít hơn vốn.\n\nVàng: Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.\n\nCổ phiếu là bình quân biến động của tất cả mã với cùng trọng số, không theo số tiền bạn nắm giữ. Mỗi mã có thể khác nhau:\n\nFPT: +9,65%\nCMG: +17,92%\nVCB: +2,31%\nTCB: +6,11%\nHPG: +21,25%\nBMP: +20,02%\n\nSo sánh giá trước biến động đầu tiên của vòng với giá sau cập nhật START. Các đợt tăng/giảm nối tiếp đã được tính một lần, không cộng lại cú sốc. Coupon, thời điểm mua/bán và phí khiến kết quả đầu tư của bạn khác biến động giá.\n\nMột quyết định hợp lý vẫn có thể lỗ. Hãy nhìn cả khoản dự phòng, chi phí và thời gian còn lại.\n\nGhé ví tại START →"
+    },
+    {
+      "lap": 4,
+      "text": "Dự báo vs. Thực tế\n\nTín hiệu phục hồi · Giá đầu vòng → sau START\n\n Cổ phiếu\n+17,86%\nDự báo: Có cơ hội phục hồi\n Trái phiếu\n+4,7%\nDự báo: Tăng trưởng nhẹ\n Vàng\n-9,15%\nDự báo: Đi ngang\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\n1 sự kiện kinh tế đã tác động; xem bên dưới.\n\nĐiều bạn học được",
+      "details": "Sổ tay\nSTART · 4/4\nKhép lại vòng 4\nLương cơ bản tại START\n+14.000.000 ₫\nTăng lương từ khóa học\n+3.000.000 ₫\nDòng tiền kinh doanh\n+3.000.000 ₫\nCoupon bond-4\n+45.998 ₫\nGốc nợ và lãi đến hạn\n0 ₫\nNghĩa vụ đã hẹn\n0 ₫\n\nTài sản ròng sau quyết toán: 125.456.058 ₫\n\nDự báo vs. Thực tế\n\nTín hiệu phục hồi · Giá đầu vòng → sau START\n\n Cổ phiếu\n+17,86%\nDự báo: Có cơ hội phục hồi\n Trái phiếu\n+4,7%\nDự báo: Tăng trưởng nhẹ\n Vàng\n-9,15%\nDự báo: Đi ngang\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\n1 sự kiện kinh tế đã tác động; xem bên dưới.\n\nĐiều bạn học được\n\nSự kiện đã tác động trong vòng; mức biến động trên đã gồm tác động này:\n\nChuỗi cung ứng phục hồi · Lượt 17\n\nCổ phiếu: Tín hiệu tích cực không loại bỏ rủi ro giảm giá. Đừng dùng tiền sắp cần chi.\n\nTrái phiếu: Coupon và biến động giá là hai phần khác nhau. Bán trước hạn có thể thu về ít hơn vốn.\n\nVàng: Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.\n\nCổ phiếu là bình quân biến động của tất cả mã với cùng trọng số, không theo số tiền bạn nắm giữ. Mỗi mã có thể khác nhau:\n\nFPT: +19,87%\nCMG: +19,47%\nVCB: +9,33%\nTCB: +11,42%\nHPG: +21,14%\nBMP: +25,95%\n\nSo sánh giá trước biến động đầu tiên của vòng với giá sau cập nhật START. Các đợt tăng/giảm nối tiếp đã được tính một lần, không cộng lại cú sốc. Coupon, thời điểm mua/bán và phí khiến kết quả đầu tư của bạn khác biến động giá.\n\nMột quyết định hợp lý vẫn có thể lỗ. Hãy nhìn cả khoản dự phòng, chi phí và thời gian còn lại.\n\nGhé ví tại START →"
+    }
+  ],
+  "screenshots": [
+    "320-bulletin.jpg",
+    "390-bulletin.jpg",
+    "430-bulletin.jpg",
+    "320-bulletin-details.jpg",
+    "390-bulletin-details.jpg",
+    "430-bulletin-details.jpg",
+    "320-bonds-signal.jpg",
+    "390-bonds-signal.jpg",
+    "430-bonds-signal.jpg",
+    "320-stocks-signal.jpg",
+    "390-stocks-signal.jpg",
+    "430-stocks-signal.jpg",
+    "320-reality.jpg",
+    "390-reality.jpg",
+    "430-reality.jpg",
+    "320-reality-details.jpg",
+    "390-reality-details.jpg",
+    "430-reality-details.jpg",
+    "320-reality-macro.jpg",
+    "390-reality-macro.jpg",
+    "430-reality-macro.jpg",
+    "320-reality-macro-details.jpg",
+    "390-reality-macro-details.jpg",
+    "430-reality-macro-details.jpg",
+    "320-result.jpg",
+    "390-result.jpg",
+    "430-result.jpg",
+    "320-bonds-signal.jpg",
+    "390-bonds-signal.jpg",
+    "430-bonds-signal.jpg",
+    "320-stocks-signal.jpg",
+    "390-stocks-signal.jpg",
+    "430-stocks-signal.jpg",
+    "320-reality.jpg",
+    "390-reality.jpg",
+    "430-reality.jpg",
+    "320-reality-details.jpg",
+    "390-reality-details.jpg",
+    "430-reality-details.jpg",
+    "320-gold-signal.jpg",
+    "390-gold-signal.jpg",
+    "430-gold-signal.jpg"
+  ],
+  "consoleErrors": [],
+  "finalVisible": "Sổ tay\nVòng 4/4\n🏆\nBạn đã chạm đích!\nNguồn tiền về đích · Sau phí & nợ\n96.480.028 ₫\n100% mục tiêu\n90.000.000 ₫\n\nĐủ cho ước mơ và một khoản dự phòng!\n\nChơi hành trình mới\nNhìn lại hành trình\nChi tiết kết quả & nhật ký\n\nMón đồ 80.000.000 ₫ · Dự phòng 10.000.000 ₫\n\nTài sản ròng: 125.456.058 ₫ · Tiền mặt: 92.213.948 ₫\n\nVốn kinh doanh chưa bán và lãi tiết kiệm chưa trả không tính vào nguồn tiền về đích.\n\nLưu nhật ký hành trình",
+  "collectorNote": "Roll counts come from the exported game log; the browser helper counter is not used as evidence.",
+  "visualPassNote": "Re-captured after compositor stabilization; the same seed was played again for screenshots. Original four-round export and DOM comparisons are retained separately.",
+  "goldFixture": {
+    "url": "http://127.0.0.1:5176/integration-harness.html?fixture=gold",
+    "consoleErrors": []
+  }
+}

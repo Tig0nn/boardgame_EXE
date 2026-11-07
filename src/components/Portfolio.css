@@ -1,0 +1,17 @@
+.portfolio .deposit-card { padding: 12px 0; border-bottom: 1px solid #8a9f9959; }
+.portfolio .deposit-card h3 { margin: 0 0 10px; font-size: 13px; line-height: 1.5; }
+.portfolio .deposit-card dl, .portfolio .cashflow dl { margin: 0; }
+.portfolio .deposit-card dl > div, .portfolio .cashflow dl > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 8px 16px; margin: 8px 0; font-size: 12px; line-height: 1.5; }
+.portfolio .deposit-card dt, .portfolio .cashflow dt { min-width: 0; }
+.portfolio .deposit-card dd, .portfolio .cashflow dd { margin: 0; text-align: right; white-space: nowrap; font-weight: 600; font-variant-numeric: tabular-nums; }
+.portfolio .deposit-card p, .portfolio .savings-period-note { margin: 8px 0 0; font-size: 12px; line-height: 1.65; }
+.portfolio .cashflow .salary-remaining { font-size: 12px; color: inherit; margin: 10px 0; }
+.portfolio .cashflow h3 { margin: 0 0 12px; font-size: 13px; line-height: 1.5; }
+.portfolio .cashflow p { font-size: 12px; line-height: 1.65; color: inherit; }
+.portfolio .asset-row > div { min-width: 0; }
+.portfolio .asset-row > strong { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.portfolio .goal-track-summary { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 12px; }
+.portfolio .goal-track-summary > span { flex: 1 1 150px; min-width: 0; }
+.portfolio .goal-track-summary > strong { flex-shrink: 0; white-space: nowrap; }
+.portfolio .debt-box > span { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 14px; line-height: 1.5; }
+.portfolio .debt-box strong { margin-left: auto; white-space: nowrap; font-variant-numeric: tabular-nums; }

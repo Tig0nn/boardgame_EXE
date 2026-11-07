@@ -1,0 +1,21 @@
+{
+  "seed": "RELEASE-ASSET-FUND-3",
+  "candidatesChecked": 4,
+  "legalEngineOnly": true,
+  "notUiEvidence": true,
+  "policy": "Skip courses/business/bank; buy each available financial asset using all cash; pay personal immediately; use available assets in funding.",
+  "funding": [
+    {
+      "turn": 6,
+      "decision": "fund-bonds"
+    },
+    {
+      "turn": 13,
+      "decision": "fund-bonds"
+    },
+    {
+      "turn": 13,
+      "decision": "fund-bonds"
+    }
+  ]
+}

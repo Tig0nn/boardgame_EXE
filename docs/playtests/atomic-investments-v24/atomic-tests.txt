@@ -1,0 +1,117 @@
+TAP version 13
+# (node:21228) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: new player policy is explicit; historical createGame and stored sessions keep their old version
+ok 1 - new player policy is explicit; historical createGame and stored sessions keep their old version
+  ---
+  duration_ms: 14.1133
+  ...
+# Subtest: stocks: success ends encounter with one transaction, preserving price/units/fees and RNG
+ok 2 - stocks: success ends encounter with one transaction, preserving price/units/fees and RNG
+  ---
+  duration_ms: 7.6193
+  ...
+# Subtest: stocks: rapid calls and artificially reopened JSON encounter cannot buy twice
+ok 3 - stocks: rapid calls and artificially reopened JSON encounter cannot buy twice
+  ---
+  duration_ms: 7.9881
+  ...
+# Subtest: stocks: invalid purchases consume nothing; a subsequent valid purchase still works
+ok 4 - stocks: invalid purchases consume nothing; a subsequent valid purchase still works
+  ---
+  duration_ms: 2.7874
+  ...
+# Subtest: stocks: skip has no financial effects and later visit permits another purchase
+ok 5 - stocks: skip has no financial effects and later visit permits another purchase
+  ---
+  duration_ms: 2.0024
+  ...
+# Subtest: stocks: START and wrong tiles remain illegal purchase locations
+ok 6 - stocks: START and wrong tiles remain illegal purchase locations
+  ---
+  duration_ms: 0.8341
+  ...
+# Subtest: gold: success ends encounter with one transaction, preserving price/units/fees and RNG
+ok 7 - gold: success ends encounter with one transaction, preserving price/units/fees and RNG
+  ---
+  duration_ms: 3.1767
+  ...
+# Subtest: gold: rapid calls and artificially reopened JSON encounter cannot buy twice
+ok 8 - gold: rapid calls and artificially reopened JSON encounter cannot buy twice
+  ---
+  duration_ms: 5.396
+  ...
+# Subtest: gold: invalid purchases consume nothing; a subsequent valid purchase still works
+ok 9 - gold: invalid purchases consume nothing; a subsequent valid purchase still works
+  ---
+  duration_ms: 3.5568
+  ...
+# Subtest: gold: skip has no financial effects and later visit permits another purchase
+ok 10 - gold: skip has no financial effects and later visit permits another purchase
+  ---
+  duration_ms: 1.4009
+  ...
+# Subtest: gold: START and wrong tiles remain illegal purchase locations
+ok 11 - gold: START and wrong tiles remain illegal purchase locations
+  ---
+  duration_ms: 0.7318
+  ...
+# Subtest: bonds: success ends encounter with one transaction, preserving price/units/fees and RNG
+ok 12 - bonds: success ends encounter with one transaction, preserving price/units/fees and RNG
+  ---
+  duration_ms: 2.3119
+  ...
+# Subtest: bonds: rapid calls and artificially reopened JSON encounter cannot buy twice
+ok 13 - bonds: rapid calls and artificially reopened JSON encounter cannot buy twice
+  ---
+  duration_ms: 4.7538
+  ...
+# Subtest: bonds: invalid purchases consume nothing; a subsequent valid purchase still works
+ok 14 - bonds: invalid purchases consume nothing; a subsequent valid purchase still works
+  ---
+  duration_ms: 1.6178
+  ...
+# Subtest: bonds: skip has no financial effects and later visit permits another purchase
+ok 15 - bonds: skip has no financial effects and later visit permits another purchase
+  ---
+  duration_ms: 0.6337
+  ...
+# Subtest: bonds: START and wrong tiles remain illegal purchase locations
+ok 16 - bonds: START and wrong tiles remain illegal purchase locations
+  ---
+  duration_ms: 0.473
+  ...
+# Subtest: Bank, Customer Preferences and START sale/repayment retain their financial behavior
+ok 17 - Bank, Customer Preferences and START sale/repayment retain their financial behavior
+  ---
+  duration_ms: 4.6792
+  ...
+# Subtest: frozen pre-change V2.4 log with repeated Gold and Bonds purchases replays exactly
+ok 18 - frozen pre-change V2.4 log with repeated Gold and Bonds purchases replays exactly
+  ---
+  duration_ms: 1597.4707
+  ...
+# Subtest: V2.3 historical replay remains exact and legacy Gold/Bonds explicit completion is rejected
+ok 19 - V2.3 historical replay remains exact and legacy Gold/Bonds explicit completion is rejected
+  ---
+  duration_ms: 682.7551
+  ...
+# Subtest: new policy still leaves all Economic News selectors read-only
+ok 20 - new policy still leaves all Economic News selectors read-only
+  ---
+  duration_ms: 4.0507
+  ...
+# Subtest: new four-round game records all three completed asset buys and replays full state exactly
+ok 21 - new four-round game records all three completed asset buys and replays full state exactly
+  ---
+  duration_ms: 613.3298
+  ...
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3542.3373

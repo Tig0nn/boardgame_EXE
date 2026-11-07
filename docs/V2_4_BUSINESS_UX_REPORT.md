@@ -1,3 +1,5 @@
+> **HISTORICAL** — Bằng chứng Business V2.4 trên root Web trước tích hợp illustrated Mobile; cơ chế hiện hành được tổng hợp riêng. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # Business V2.4 — Luồng mua và sở thích khách hàng
 
 Nhánh `codex/business-v2-4-customer-preferences`, tạo từ `origin/main` mới nhất `661bcf6` (đã merge V2.3). Không merge hoặc deploy.

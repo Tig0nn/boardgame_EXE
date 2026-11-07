@@ -1,0 +1,10 @@
+{
+  "freshFinalPage": [],
+  "resolvedDevelopmentIssue": "Initial dev harness attempted to decompress Vite-decoded JSON. Loader now detects raw gzip vs decoded JSON; all final checkpoint checks pass.",
+  "initialDevelopmentErrors": [
+    {
+      "message": "TypeError: Failed to fetch",
+      "resolved": true
+    }
+  ]
+}

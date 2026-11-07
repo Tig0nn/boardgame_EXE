@@ -1,0 +1,63 @@
+> **CURRENT** — Bàn giao kỹ thuật illustrated Mobile, cập nhật 13/10/2026. Nguồn mô tả MVP chuẩn: [CURRENT_MVP.md](docs/CURRENT_MVP.md).
+
+# Mobile App — bàn giao V2.4
+
+## Candidate sinh hoạt tại START — 15/10/2026
+
+Nhánh đang bàn giao: `codex/periodic-living-expenses` từ `34f91ea`. Mobile mới chọn policy periodic 7M/START và boardRevision C20 A (ô4 Stocks/15 Gold), không thu setup; phiên cũ thiếu metadata vẫn on-landing. [Báo cáo](docs/PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md) có 304 tests/57 diagnostics, hai ván browser bốn vòng replay exact và ảnh320/390/430. [Thiết kế](docs/PERIODIC_LIVING_EXPENSES_DESIGN.md) ghi handoff designer, marker tạm và giới hạn funding sinh hoạt. Artwork/character/dice/audio và AI giữ nguyên. 7M/A cần owner duyệt cân bằng; chưa merge/deploy candidate. Các URL/CI/nhánh trong phần mốc cũ bên dưới không chứng minh candidate đã online.
+
+Candidate Bond V2.5 ngày15/10: `codex/bond-credit-v2-5` từ `f3a03cb`. Player factory trên nhánh mới chọn `v2.5-credit-risk`, hai issuer và credit RNG riêng; saved sessions không migrate. UI vẫn dùng root engine, thêm cards/lot sales/funding/payment-status và news; assets/3D/dice/audio/dependency fixes giữ nguyên. [Báo cáo](docs/BOND_V2_5_IMPLEMENTATION_REPORT.md) và [cân bằng](docs/BOND_V2_5_BALANCE_REPORT.md) tách local verification khỏi hosting lịch sử; tham số mới đang chờ owner approval, chưa deploy/merge.
+
+Candidate Atomic Investments ngày 15/10: `codex/atomic-investment-encounters` từ `d990244`. Player factory mới dùng `v2.4-atomic-investments`: một lần mua Stocks/Gold/Bonds mỗi lượt ghé, tự về bàn; handler/session, giá/phí, Bank và Customer Preferences không đổi. Phiên đang chạy và replay giữ version cũ, không migrate tự động. [Bảng policy và verification](docs/ATOMIC_INVESTMENT_ENCOUNTERS_REPORT.md) ghi đầy đủ; chưa deploy/merge candidate. Ván local đủ 4 vòng/23 rolls đã export và replay exact, khác các mốc hosting lịch sử bên dưới.
+
+Candidate mới ngày 14/10: `codex/mobile-ui-final` giữ foundation `13faa21`, thích ứng visual chọn lọc từ `277d2dc`. [Báo cáo tổng hợp](docs/MOBILE_UI_FINAL_REPORT.md) và [roadmap](tasks/current.md) tách kiểm chứng local mới khỏi các mốc hosting/CI lịch sử bên dưới. Chưa deploy candidate.
+
+Mốc bàn giao hosting 13/10/2026 dùng nhánh `feat/mobile-v2-4-engine-integration`, [PR #8](https://github.com/Tig0nn/boardgame_EXE/pull/8) chưa merge. URL: https://boardgame-exe-mobile-preview.vercel.app. Đây là ứng dụng trong `mobile_app/`, khác root Web responsive/SVG. Canvas thiết kế 940 × 1672 được co theo viewport; không phải chứng nhận đã thử trên điện thoại thật.
+
+## Kiến trúc và các file có thật
+
+| File/thư mục (từ root) | Vai trò |
+| --- | --- |
+| [mobile_app/src/App.tsx](mobile_app/src/App.tsx) | Setup/session, subscribe snapshot, animation hiển thị; không tái tính tài chính |
+| [mobile_app/src/game/session.ts](mobile_app/src/game/session.ts) | Thin dispatcher tới engine root, kiểm snapshot identity, ánh xạ phase |
+| [src/game/new-game.ts](src/game/new-game.ts) | Factory người chơi: B/C20, V2.4, `vn-v1`, crypto seed khi trường seed trống |
+| [mobile_app/src/components/GamePhase.tsx](mobile_app/src/components/GamePhase.tsx) | Render phase/panel theo engine |
+| [mobile_app/src/components/BoardView.tsx](mobile_app/src/components/BoardView.tsx), [Character3D.tsx](mobile_app/src/components/Character3D.tsx), [Dice3D.tsx](mobile_app/src/components/Dice3D.tsx) | Bàn minh họa, model/animation, xúc xắc hiển thị giá trị engine |
+| [BottomControls.tsx](mobile_app/src/components/BottomControls.tsx), [TopHud.tsx](mobile_app/src/components/TopHud.tsx), [PortfolioDrawer.tsx](mobile_app/src/components/PortfolioDrawer.tsx) | Điều khiển; HUD cash, debt khi có, tiến độ lawful proceeds; net worth ở Ví |
+| [GameResultModal.tsx](mobile_app/src/components/GameResultModal.tsx) | Result theo selector, export/restart, gắn shared AI Coach |
+| [mobile_app/src/data/tiles.json](mobile_app/src/data/tiles.json) | Tọa độ artwork; loại/nhãn/thứ tự dùng boardFor của phiên active từ root |
+| [mobile_app/src/utils/audio.ts](mobile_app/src/utils/audio.ts) | Procedural audio/BGM; khả năng unlock/WebGL/touch cần test thiết bị thật |
+
+Financial panels tái dùng code `src/components/` và selectors/transactions root. Không còn economy/events JSON riêng của Mobile. Các tên `BottomBar`, `PortfolioModal`, `HistoryModal`, `Toast` trong bàn giao ban đầu không phải file implementation hiện tại. Lịch sử bản cũ vẫn ở [Git trước audit](https://github.com/Tig0nn/boardgame_EXE/blob/13c9c7c5fa932e50a3ba23da4b316e1dff4cdda9/MOBILE_APP_HANDOFF.md).
+
+Assets giữ nguyên: [main-background.png](mobile_app/public/assets/main-background.png), [playboard.PNG](mobile_app/public/assets/playboard.PNG), [sectionplay.PNG](mobile_app/public/assets/sectionplay.PNG), [character.glb](mobile_app/public/assets/character.glb), [xucxac.PNG](mobile_app/public/assets/xucxac.PNG), [model-viewer.min.js](mobile_app/public/model-viewer.min.js). Root Web dùng [city-background.webp](public/art/city-background.webp), không phải playboard Mobile. Icon ghép trong playboard còn lệch C20; danh sách chính xác ở [báo cáo tích hợp lịch sử](docs/MOBILE_V2_4_FINANCIAL_INTEGRATION_REPORT.md).
+
+## Chạy/build và backend
+
+Từ root, cài **cả hai** lockfile trước khi chạy:
+
+```sh
+npm ci
+npm ci --prefix mobile_app
+npm run dev --prefix mobile_app
+```
+
+Mobile mặc định http://localhost:5174. Chạy thêm `npm run dev` ở root terminal khác nếu cần local API tại 5173. [Vite config](mobile_app/vite.config.ts) proxy `/api` tới 5173 và dedupe React/React DOM; bỏ dedupe làm component root dùng React instance khác và gây trắng trang ở production bundle.
+
+```sh
+npm run build --prefix mobile_app
+npm run preview --prefix mobile_app
+```
+
+Output `mobile_app/dist`; static preview không chạy Function. [Vercel Mobile riêng](https://boardgame-exe-mobile-preview.vercel.app) dùng repository root `.`, install `npm ci && npm ci --prefix mobile_app`, build `npm run build --prefix mobile_app`, output `mobile_app/dist`; giữ root shared source và API. Deployment hiện gắn **Production của project Mobile**, không phải Web production và không phải bằng chứng PR đã merge. Không đổi output project Web gốc để chuyển sang Mobile.
+
+Key AI chỉ ở backend/project environment đúng mục đích; không đưa vào frontend hoặc `VITE_*`. Xem [AI handoff](AI_COACH_HANDOFF.md). Không khẳng định key/provider đã hoạt động vì GET route qua.
+
+## Kiểm chứng và việc còn lại
+
+- [CI tại 13c9c7c](https://github.com/Tig0nn/boardgame_EXE/actions/runs/38421516083): 186 product tests, 21 diagnostics, lint, hai build và hai `npm ci` qua. Số 168 của bàn giao cũ là lịch sử, không phải số test hiện tại.
+- [Browser evidence local](docs/playtests/mobile-v2-4/browser-verification.json): full game, state parity/replay, funding, nhiều lot, recovery sau rapid trade tap; AI lỗi 503 được mock. Giữ nguyên bằng chứng, không chuyển thành kết quả online.
+- Online: user đã nhìn thấy setup/board/HUD/3D/dice; audit xác nhận HTTP 200/title Mobile và GET API 405 JSON. Chưa có full online game tới Result/export/replay, successful provider response hoặc physical-phone playtest.
+- Không cam kết “100% mọi đường gameplay/thiết bị/animation đã đúng”. Regression bảo vệ các đường đã có bằng chứng; model/audio/touch cần thử Android/iOS thật.
+
+[Roadmap hiện tại](tasks/current.md) theo dõi full online gameplay, Android/iOS, icon C20, AI provider thật và final merge decision. [PR8 follow-up](docs/PR8_FINAL_REVIEW.md) giữ chronology triển khai và giới hạn mới nhất. Audit này không đổi source, rule, assets hoặc simulation.

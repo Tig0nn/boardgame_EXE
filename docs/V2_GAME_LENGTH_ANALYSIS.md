@@ -1,3 +1,5 @@
+> **HISTORICAL** — Thí nghiệm thời hạn V2; các horizon mở rộng không phải mode sản phẩm hiện hành. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # Phân tích độ dài màn chơi V2
 
 Ngày phân tích: **11/10/2026**. Đây là chẩn đoán trên cấu hình THỬ NGHIỆM, không phải thay đổi gameplay hay phê duyệt cân bằng.

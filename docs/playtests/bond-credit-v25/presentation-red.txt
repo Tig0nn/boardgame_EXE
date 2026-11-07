@@ -1,0 +1,76 @@
+TAP version 13
+# (node:24408) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: new player sessions select Bond V2.5 explicitly; stored historical sessions keep original bond version
+not ok 1 - new player sessions select Bond V2.5 explicitly; stored historical sessions keep original bond version
+  ---
+  duration_ms: 3.1172
+  location: 'E:\\Fall25_Ki8\\EXE-boardgame\\xoay-vong-tien-lui\\tests\\bond-credit-presentation.test.ts:10:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+
+    + undefined
+    - 'v2.5-credit-risk'
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'v2.5-credit-risk'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/Fall25_Ki8/EXE-boardgame/xoay-vong-tien-lui/tests/bond-credit-presentation.test.ts:12:10)
+    Test.runInAsyncScope (node:async_hooks:211:14)
+    Test.run (node:internal/test_runner/test:979:25)
+    Test.start (node:internal/test_runner/test:877:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: public news/cards never reveal future or draw RNG; insufficient data stays explicit
+ok 2 - public news/cards never reveal future or draw RNG; insufficient data stays explicit
+  ---
+  duration_ms: 4.6051
+  ...
+# Subtest: START credit review reports only that lap, separating due/paid/claims/loss from price returns
+ok 3 - START credit review reports only that lap, separating due/paid/claims/loss from price returns
+  ---
+  duration_ms: 17.6918
+  ...
+# Subtest: AI facts include grounded credit outcomes and purchase warning, fit existing size/schema limits
+not ok 4 - AI facts include grounded credit outcomes and purchase warning, fit existing size/schema limits
+  ---
+  duration_ms: 22.1614
+  location: 'E:\\Fall25_Ki8\\EXE-boardgame\\xoay-vong-tien-lui\\tests\\bond-credit-presentation.test.ts:37:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+
+      assert.ok(facts.evidence.some(e => e.kind === 'bond-credit'))
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///E:/Fall25_Ki8/EXE-boardgame/xoay-vong-tien-lui/tests/bond-credit-presentation.test.ts:40:10)
+    Test.runInAsyncScope (node:async_hooks:211:14)
+    Test.run (node:internal/test_runner/test:979:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:677:18)
+    Test.postRun (node:internal/test_runner/test:1090:19)
+    Test.run (node:internal/test_runner/test:1018:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)
+  ...
+# Subtest: V2.5 rapid Mobile bond taps are atomic across different issuer choices
+ok 5 - V2.5 rapid Mobile bond taps are atomic across different issuer choices
+  ---
+  duration_ms: 1.1224
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 3
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 297.0309

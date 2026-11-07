@@ -1,0 +1,1049 @@
+{
+  "layouts": [
+    {
+      "label": "390-summary",
+      "buttons": [
+        {
+          "bottom": 693.609375,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 567,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 569.2265625,
+            "width": 354,
+            "x": 18,
+            "y": 137.3828125
+          },
+          "scrollHeight": 567
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "390-next-forecast",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 749,
+          "label": "Bản tin thị trường vòng 2",
+          "rect": {
+            "height": 750.90625,
+            "width": 354,
+            "x": 18,
+            "y": 46.546875
+          },
+          "scrollHeight": 749
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "390-funding-before",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 810,
+          "label": "Chọn nguồn thanh toán",
+          "rect": {
+            "height": 812,
+            "width": 354,
+            "x": 18,
+            "y": 16
+          },
+          "scrollHeight": 857
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "390-funded-summary",
+      "buttons": [
+        {
+          "bottom": 706.0078125,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 592,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 594.0234375,
+            "width": 354,
+            "x": 18,
+            "y": 124.984375
+          },
+          "scrollHeight": 592
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "case": "summary",
+      "viewport": "390",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 37.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 57 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 1\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 1/4\n  - heading \"Khép lại vòng 1\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +14.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-7.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 37.000.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +4,95%\n      - generic: Trái phiếu\n      - strong: \"-0,55%\"\n      - generic: Vàng\n      - strong: +8,21%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\"\n- generic: DEV fixture · summary"
+    },
+    {
+      "label": "390-summary",
+      "buttons": [
+        {
+          "bottom": 693.609375,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 567,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 569.2265625,
+            "width": 354,
+            "x": 18,
+            "y": 137.3828125
+          },
+          "scrollHeight": 567
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "case": "bond-delay",
+      "viewport": "390",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 32.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 55,7 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 1\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 1/4\n  - heading \"Khép lại vòng 1\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +14.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-7.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 32.000.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - article \"Trái phiếu · Hợp tác xã An Tâm\":\n    - heading \"Trái phiếu Hợp tác xã An Tâm\" [level=3]:\n      - generic: Trái phiếu\n      - text: Hợp tác xã An Tâm\n    - paragraph: Đang chậm trả\n    - paragraph: Chưa nhận tiền tại START này · 0 ₫\n    - generic: Khoản còn chờ\n    - strong: 225.000 ₫\n    - paragraph: Các khoản chưa nhận chưa được cộng vào tiền mặt.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +4,95%\n      - generic: Trái phiếu\n      - strong: \"-13,05%\"\n      - generic: Vàng\n      - strong: +8,21%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết các khoản trái phiếu\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\"\n- generic: DEV fixture · bond-delay"
+    },
+    {
+      "label": "390-bond-delay",
+      "buttons": [
+        {
+          "bottom": 805.90625,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 792,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 793.8125,
+            "width": 354,
+            "x": 18,
+            "y": 25.09375
+          },
+          "scrollHeight": 792
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "case": "deferred",
+      "viewport": "390",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 31.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 51 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 1\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 1/4\n  - heading \"Khép lại vòng 1\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +14.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-13.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 31.000.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +4,95%\n      - generic: Trái phiếu\n      - strong: \"-0,55%\"\n      - generic: Vàng\n      - strong: +8,21%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\"\n- generic: DEV fixture · deferred"
+    },
+    {
+      "label": "390-deferred",
+      "buttons": [
+        {
+          "bottom": 693.609375,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 567,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 569.2265625,
+            "width": 354,
+            "x": 18,
+            "y": 137.3828125
+          },
+          "scrollHeight": 567
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "case": "funding",
+      "viewport": "390",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 0 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 15 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Chọn nguồn thanh toán\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - heading \"Bạn còn thiếu 5.000.000 ₫.\" [level=2]\n  - paragraph: Chi phí sinh hoạt\n  - generic: \"Tổng cần trả: 7.000.000 ₫\"\n  - generic: \"Đã dùng tiền mặt: 2.000.000 ₫\"\n  - group \"Nguồn tiền hợp lệ\":\n    - generic: Nguồn tiền hợp lệ\n    - button \"Rút toàn khoản tiết kiệm 20.000.000 ₫\" [pressed]:\n      - generic: Rút toàn khoản tiết kiệm\n      - strong: 20.000.000 ₫\n    - button \"Vay phần còn thiếu 30.000.000 ₫\":\n      - generic: Vay phần còn thiếu\n      - strong: 30.000.000 ₫\n  - generic: Khoản gửi rút toàn bộ\n  - combobox \"Khoản gửi rút toàn bộ\":\n    - option \"deposit-1 · 20.000.000 ₫ · Đáo hạn vòng 3\" [selected]\n  - paragraph: Rút toàn khoản 20.000.000 ₫ · Mất 3.600.000 ₫ lãi chưa nhận.\n  - text: Phí & chênh lệch\n  - strong: 0 ₫\n  - text: Thực nhận\n  - strong: 20.000.000 ₫\n  - text: Còn thiếu sau trả\n  - strong: 0 ₫\n  - text: Tiền dư giữ lại\n  - strong: 15.000.000 ₫\n  - generic: Rút toàn khoản · Mất lãi 3.600.000 ₫\n  - button \"Dùng nguồn tiền này\":\n    - text: Dùng nguồn tiền này\n  - generic \"Cách xoay tiền\"\n- generic: DEV fixture · funding · salary=0 (unreachable in legal gameplay)"
+    },
+    {
+      "label": "390-funding",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 810,
+          "label": "Chọn nguồn thanh toán",
+          "rect": {
+            "height": 812,
+            "width": 354,
+            "x": 18,
+            "y": 16
+          },
+          "scrollHeight": 857
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "case": "insolvent",
+      "viewport": "390",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 0 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: \"-5 / 90 triệu\"\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Kết quả hành trình\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: Vòng 1/4\n  - generic: 🌱\n  - heading \"Hẹn một hành trình mới!\" [level=2]\n  - paragraph: Còn thiếu 5.000.000 ₫; không còn nguồn hợp lệ.\n  - generic: Nguồn tiền về đích · Sau phí & nợ\n  - strong: \"-5.000.000 ₫\"\n  - progressbar \"Tiến độ nguồn tiền về đích\"\n  - generic: 0% mục tiêu\n  - generic: 90.000.000 ₫\n  - paragraph: Hành trình dừng vì không còn nguồn thanh toán.\n  - button \"Chơi hành trình mới\"\n  - generic \"Nhìn lại hành trình\"\n  - generic \"Chi tiết kết quả & nhật ký\"\n- generic: DEV fixture · insolvent · salary=0 (unreachable in legal gameplay)"
+    },
+    {
+      "label": "390-insolvent",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 705,
+          "label": "Kết quả hành trình",
+          "rect": {
+            "height": 706.8359375,
+            "width": 354,
+            "x": 18,
+            "y": 68.578125
+          },
+          "scrollHeight": 705
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "case": "board",
+      "viewport": "390",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 30.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 50 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\"\n- button \"📜\"\n- generic: DEV fixture · board"
+    },
+    {
+      "label": "390-board",
+      "buttons": [],
+      "dialogs": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "case": "summary",
+      "viewport": "320",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 37.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 57 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 1\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 1/4\n  - heading \"Khép lại vòng 1\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +14.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-7.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 37.000.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +4,95%\n      - generic: Trái phiếu\n      - strong: \"-0,55%\"\n      - generic: Vàng\n      - strong: +8,21%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\"\n- generic: DEV fixture · summary"
+    },
+    {
+      "label": "320-summary",
+      "buttons": [
+        {
+          "bottom": 601.0859375,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 586,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 588.171875,
+            "width": 286,
+            "x": 17,
+            "y": 25.9140625
+          },
+          "scrollHeight": 586
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "case": "bond-delay",
+      "viewport": "320",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 32.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 55,7 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 1\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 1/4\n  - heading \"Khép lại vòng 1\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +14.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-7.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 32.000.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - article \"Trái phiếu · Hợp tác xã An Tâm\":\n    - heading \"Trái phiếu Hợp tác xã An Tâm\" [level=3]:\n      - generic: Trái phiếu\n      - text: Hợp tác xã An Tâm\n    - paragraph: Đang chậm trả\n    - paragraph: Chưa nhận tiền tại START này · 0 ₫\n    - generic: Khoản còn chờ\n    - strong: 225.000 ₫\n    - paragraph: Các khoản chưa nhận chưa được cộng vào tiền mặt.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +4,95%\n      - generic: Trái phiếu\n      - strong: \"-13,05%\"\n      - generic: Vàng\n      - strong: +8,21%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết các khoản trái phiếu\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\"\n- generic: DEV fixture · bond-delay"
+    },
+    {
+      "label": "320-bond-delay",
+      "buttons": [
+        {
+          "bottom": 611,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 606,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 608,
+            "width": 286,
+            "x": 17,
+            "y": 16
+          },
+          "scrollHeight": 606
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "case": "deferred",
+      "viewport": "320",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 31.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 51 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 1\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 1/4\n  - heading \"Khép lại vòng 1\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +14.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-13.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 31.000.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +4,95%\n      - generic: Trái phiếu\n      - strong: \"-0,55%\"\n      - generic: Vàng\n      - strong: +8,21%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\"\n- generic: DEV fixture · deferred"
+    },
+    {
+      "label": "320-deferred",
+      "buttons": [
+        {
+          "bottom": 601.0859375,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 586,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 588.171875,
+            "width": 286,
+            "x": 17,
+            "y": 25.9140625
+          },
+          "scrollHeight": 586
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "case": "funding",
+      "viewport": "320",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 0 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 15 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Chọn nguồn thanh toán\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - heading \"Bạn còn thiếu 5.000.000 ₫.\" [level=2]\n  - paragraph: Chi phí sinh hoạt\n  - generic: \"Tổng cần trả: 7.000.000 ₫\"\n  - generic: \"Đã dùng tiền mặt: 2.000.000 ₫\"\n  - group \"Nguồn tiền hợp lệ\":\n    - generic: Nguồn tiền hợp lệ\n    - button \"Rút toàn khoản tiết kiệm 20.000.000 ₫\" [pressed]:\n      - generic: Rút toàn khoản tiết kiệm\n      - strong: 20.000.000 ₫\n    - button \"Vay phần còn thiếu 30.000.000 ₫\":\n      - generic: Vay phần còn thiếu\n      - strong: 30.000.000 ₫\n  - generic: Khoản gửi rút toàn bộ\n  - combobox \"Khoản gửi rút toàn bộ\":\n    - option \"deposit-1 · 20.000.000 ₫ · Đáo hạn vòng 3\" [selected]\n  - paragraph: Rút toàn khoản 20.000.000 ₫ · Mất 3.600.000 ₫ lãi chưa nhận.\n  - text: Phí & chênh lệch\n  - strong: 0 ₫\n  - text: Thực nhận\n  - strong: 20.000.000 ₫\n  - text: Còn thiếu sau trả\n  - strong: 0 ₫\n  - text: Tiền dư giữ lại\n  - strong: 15.000.000 ₫\n  - generic: Rút toàn khoản · Mất lãi 3.600.000 ₫\n  - button \"Dùng nguồn tiền này\":\n    - text: Dùng nguồn tiền này\n  - generic \"Cách xoay tiền\"\n- generic: DEV fixture · funding · salary=0 (unreachable in legal gameplay)"
+    },
+    {
+      "label": "320-funding",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 606,
+          "label": "Chọn nguồn thanh toán",
+          "rect": {
+            "height": 608,
+            "width": 286,
+            "x": 17,
+            "y": 16
+          },
+          "scrollHeight": 822
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "case": "insolvent",
+      "viewport": "320",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 0 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: \"-5 / 90 triệu\"\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Kết quả hành trình\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: Vòng 1/4\n  - generic: 🌱\n  - heading \"Hẹn một hành trình mới!\" [level=2]\n  - paragraph: Còn thiếu 5.000.000 ₫; không còn nguồn hợp lệ.\n  - generic: Nguồn tiền về đích · Sau phí & nợ\n  - strong: \"-5.000.000 ₫\"\n  - progressbar \"Tiến độ nguồn tiền về đích\"\n  - generic: 0% mục tiêu\n  - generic: 90.000.000 ₫\n  - paragraph: Hành trình dừng vì không còn nguồn thanh toán.\n  - button \"Chơi hành trình mới\"\n  - generic \"Nhìn lại hành trình\"\n  - generic \"Chi tiết kết quả & nhật ký\"\n- generic: DEV fixture · insolvent · salary=0 (unreachable in legal gameplay)"
+    },
+    {
+      "label": "320-insolvent",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 606,
+          "label": "Kết quả hành trình",
+          "rect": {
+            "height": 608,
+            "width": 286,
+            "x": 17,
+            "y": 16
+          },
+          "scrollHeight": 705
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "case": "board",
+      "viewport": "320",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 30.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 50 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\"\n- button \"📜\"\n- generic: DEV fixture · board"
+    },
+    {
+      "label": "320-board",
+      "buttons": [],
+      "dialogs": [],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "case": "summary",
+      "viewport": "430",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 37.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 57 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 1\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 1/4\n  - heading \"Khép lại vòng 1\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +14.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-7.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 37.000.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +4,95%\n      - generic: Trái phiếu\n      - strong: \"-0,55%\"\n      - generic: Vàng\n      - strong: +8,21%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\"\n- generic: DEV fixture · summary"
+    },
+    {
+      "label": "430-summary",
+      "buttons": [
+        {
+          "bottom": 737.609375,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 567,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 569.2265625,
+            "width": 394,
+            "x": 18,
+            "y": 181.3828125
+          },
+          "scrollHeight": 567
+        }
+      ],
+      "height": 932,
+      "scrollWidth": 430,
+      "width": 430
+    },
+    {
+      "case": "bond-delay",
+      "viewport": "430",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 32.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 55,7 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 1\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 1/4\n  - heading \"Khép lại vòng 1\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +14.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-7.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 32.000.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - article \"Trái phiếu · Hợp tác xã An Tâm\":\n    - heading \"Trái phiếu Hợp tác xã An Tâm\" [level=3]:\n      - generic: Trái phiếu\n      - text: Hợp tác xã An Tâm\n    - paragraph: Đang chậm trả\n    - paragraph: Chưa nhận tiền tại START này · 0 ₫\n    - generic: Khoản còn chờ\n    - strong: 225.000 ₫\n    - paragraph: Các khoản chưa nhận chưa được cộng vào tiền mặt.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +4,95%\n      - generic: Trái phiếu\n      - strong: \"-13,05%\"\n      - generic: Vàng\n      - strong: +8,21%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết các khoản trái phiếu\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\"\n- generic: DEV fixture · bond-delay"
+    },
+    {
+      "label": "430-bond-delay",
+      "buttons": [
+        {
+          "bottom": 849.90625,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 792,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 793.8125,
+            "width": 394,
+            "x": 18,
+            "y": 69.09375
+          },
+          "scrollHeight": 792
+        }
+      ],
+      "height": 932,
+      "scrollWidth": 430,
+      "width": 430
+    },
+    {
+      "case": "deferred",
+      "viewport": "430",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 31.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 51 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 1\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 1/4\n  - heading \"Khép lại vòng 1\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +14.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-13.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 31.000.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +4,95%\n      - generic: Trái phiếu\n      - strong: \"-0,55%\"\n      - generic: Vàng\n      - strong: +8,21%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\"\n- generic: DEV fixture · deferred"
+    },
+    {
+      "label": "430-deferred",
+      "buttons": [
+        {
+          "bottom": 737.609375,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 567,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 569.2265625,
+            "width": 394,
+            "x": 18,
+            "y": 181.3828125
+          },
+          "scrollHeight": 567
+        }
+      ],
+      "height": 932,
+      "scrollWidth": 430,
+      "width": 430
+    },
+    {
+      "case": "funding",
+      "viewport": "430",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 0 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 15 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Chọn nguồn thanh toán\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - heading \"Bạn còn thiếu 5.000.000 ₫.\" [level=2]\n  - paragraph: Chi phí sinh hoạt\n  - generic: \"Tổng cần trả: 7.000.000 ₫\"\n  - generic: \"Đã dùng tiền mặt: 2.000.000 ₫\"\n  - group \"Nguồn tiền hợp lệ\":\n    - generic: Nguồn tiền hợp lệ\n    - button \"Rút toàn khoản tiết kiệm 20.000.000 ₫\" [pressed]:\n      - generic: Rút toàn khoản tiết kiệm\n      - strong: 20.000.000 ₫\n    - button \"Vay phần còn thiếu 30.000.000 ₫\":\n      - generic: Vay phần còn thiếu\n      - strong: 30.000.000 ₫\n  - generic: Khoản gửi rút toàn bộ\n  - combobox \"Khoản gửi rút toàn bộ\":\n    - option \"deposit-1 · 20.000.000 ₫ · Đáo hạn vòng 3\" [selected]\n  - paragraph: Rút toàn khoản 20.000.000 ₫ · Mất 3.600.000 ₫ lãi chưa nhận.\n  - text: Phí & chênh lệch\n  - strong: 0 ₫\n  - text: Thực nhận\n  - strong: 20.000.000 ₫\n  - text: Còn thiếu sau trả\n  - strong: 0 ₫\n  - text: Tiền dư giữ lại\n  - strong: 15.000.000 ₫\n  - generic: Rút toàn khoản · Mất lãi 3.600.000 ₫\n  - button \"Dùng nguồn tiền này\":\n    - text: Dùng nguồn tiền này\n  - generic \"Cách xoay tiền\"\n- generic: DEV fixture · funding · salary=0 (unreachable in legal gameplay)"
+    },
+    {
+      "label": "430-funding",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 857,
+          "label": "Chọn nguồn thanh toán",
+          "rect": {
+            "height": 859.2734375,
+            "width": 394,
+            "x": 18,
+            "y": 36.359375
+          },
+          "scrollHeight": 857
+        }
+      ],
+      "height": 932,
+      "scrollWidth": 430,
+      "width": 430
+    },
+    {
+      "case": "insolvent",
+      "viewport": "430",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 0 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: \"-5 / 90 triệu\"\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Kết quả hành trình\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: Vòng 1/4\n  - generic: 🌱\n  - heading \"Hẹn một hành trình mới!\" [level=2]\n  - paragraph: Còn thiếu 5.000.000 ₫; không còn nguồn hợp lệ.\n  - generic: Nguồn tiền về đích · Sau phí & nợ\n  - strong: \"-5.000.000 ₫\"\n  - progressbar \"Tiến độ nguồn tiền về đích\"\n  - generic: 0% mục tiêu\n  - generic: 90.000.000 ₫\n  - paragraph: Hành trình dừng vì không còn nguồn thanh toán.\n  - button \"Chơi hành trình mới\"\n  - generic \"Nhìn lại hành trình\"\n  - generic \"Chi tiết kết quả & nhật ký\"\n- generic: DEV fixture · insolvent · salary=0 (unreachable in legal gameplay)"
+    },
+    {
+      "label": "430-insolvent",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 657,
+          "label": "Kết quả hành trình",
+          "rect": {
+            "height": 658.8359375,
+            "width": 394,
+            "x": 18,
+            "y": 136.578125
+          },
+          "scrollHeight": 657
+        }
+      ],
+      "height": 932,
+      "scrollWidth": 430,
+      "width": 430
+    },
+    {
+      "case": "board",
+      "viewport": "430",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 30.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 50 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\"\n- button \"📜\"\n- generic: DEV fixture · board"
+    },
+    {
+      "label": "430-board",
+      "buttons": [],
+      "dialogs": [],
+      "height": 932,
+      "scrollWidth": 430,
+      "width": 430
+    },
+    {
+      "label": "430-rulebook-board",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 898,
+          "label": "Sổ tay hành trình",
+          "rect": {
+            "height": 900,
+            "width": 394,
+            "x": 18,
+            "y": 16
+          },
+          "scrollHeight": 1425
+        }
+      ],
+      "height": 932,
+      "scrollWidth": 430,
+      "width": 430
+    },
+    {
+      "label": "430-help-living",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 732,
+          "label": "Sổ tay hành trình",
+          "rect": {
+            "height": 734.09375,
+            "width": 394,
+            "x": 18,
+            "y": 98.953125
+          },
+          "scrollHeight": 732
+        }
+      ],
+      "height": 932,
+      "scrollWidth": 430,
+      "width": 430
+    },
+    {
+      "label": "320-help-living",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 606,
+          "label": "Sổ tay hành trình",
+          "rect": {
+            "height": 608,
+            "width": 286,
+            "x": 17,
+            "y": 16
+          },
+          "scrollHeight": 680
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "label": "390-help-living",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 732,
+          "label": "Sổ tay hành trình",
+          "rect": {
+            "height": 734.09375,
+            "width": 354,
+            "x": 18,
+            "y": 54.953125
+          },
+          "scrollHeight": 732
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "390-legacy-help",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 732,
+          "label": "Sổ tay hành trình",
+          "rect": {
+            "height": 734.09375,
+            "width": 354,
+            "x": 18,
+            "y": 54.953125
+          },
+          "scrollHeight": 732
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "390-first-tutorial",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 655,
+          "label": "Hướng dẫn chơi",
+          "rect": {
+            "height": 657.390625,
+            "width": 354,
+            "x": 18,
+            "y": 93.3046875
+          },
+          "scrollHeight": 655
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "390-first-tutorial-living",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 716,
+          "label": "Hướng dẫn chơi",
+          "rect": {
+            "height": 718.09375,
+            "width": 354,
+            "x": 18,
+            "y": 62.953125
+          },
+          "scrollHeight": 716
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "win-start-1",
+      "buttons": [
+        {
+          "bottom": 706.0078125,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 592,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 594.0234375,
+            "width": 354,
+            "x": 18,
+            "y": 124.984375
+          },
+          "scrollHeight": 592
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "win-start-2",
+      "buttons": [
+        {
+          "bottom": 706.0078125,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 592,
+          "label": "Khép lại vòng 2",
+          "rect": {
+            "height": 594.0234375,
+            "width": 354,
+            "x": 18,
+            "y": 124.984375
+          },
+          "scrollHeight": 592
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "390-production-board",
+      "buttons": [],
+      "dialogs": [],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "win-start-3",
+      "buttons": [
+        {
+          "bottom": 718.40625,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 617,
+          "label": "Khép lại vòng 3",
+          "rect": {
+            "height": 618.8203125,
+            "width": 354,
+            "x": 18,
+            "y": 112.5859375
+          },
+          "scrollHeight": 617
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "390-production-tile15",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 618,
+          "label": "Vàng",
+          "rect": {
+            "height": 619.6328125,
+            "width": 354,
+            "x": 18,
+            "y": 112.1796875
+          },
+          "scrollHeight": 618
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "win-start-4",
+      "buttons": [
+        {
+          "bottom": 730.0078125,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 640,
+          "label": "Khép lại vòng 4",
+          "rect": {
+            "height": 642.015625,
+            "width": 354,
+            "x": 18,
+            "y": 100.9921875
+          },
+          "scrollHeight": 640
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "390-production-win",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 621,
+          "label": "Kết quả hành trình",
+          "rect": {
+            "height": 622.8359375,
+            "width": 354,
+            "x": 18,
+            "y": 110.578125
+          },
+          "scrollHeight": 621
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "label": "320-personal-4",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 428,
+          "label": "Một hóa đơn bất ngờ",
+          "rect": {
+            "height": 429.578125,
+            "width": 286,
+            "x": 17,
+            "y": 105.2109375
+          },
+          "scrollHeight": 428
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "label": "defeat-start-1",
+      "buttons": [
+        {
+          "bottom": 611,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 606,
+          "label": "Khép lại vòng 1",
+          "rect": {
+            "height": 608,
+            "width": 286,
+            "x": 17,
+            "y": 16
+          },
+          "scrollHeight": 606
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "label": "defeat-start-2",
+      "buttons": [
+        {
+          "bottom": 611,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 606,
+          "label": "Khép lại vòng 2",
+          "rect": {
+            "height": 608,
+            "width": 286,
+            "x": 17,
+            "y": 16
+          },
+          "scrollHeight": 606
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "label": "320-personal-12",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 428,
+          "label": "Một hóa đơn bất ngờ",
+          "rect": {
+            "height": 429.578125,
+            "width": 286,
+            "x": 17,
+            "y": 105.2109375
+          },
+          "scrollHeight": 428
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "label": "defeat-start-3",
+      "buttons": [
+        {
+          "bottom": 611,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 606,
+          "label": "Khép lại vòng 3",
+          "rect": {
+            "height": 608,
+            "width": 286,
+            "x": 17,
+            "y": 16
+          },
+          "scrollHeight": 606
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "label": "320-personal-21",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 428,
+          "label": "Gia đình cần hỗ trợ",
+          "rect": {
+            "height": 429.578125,
+            "width": 286,
+            "x": 17,
+            "y": 105.2109375
+          },
+          "scrollHeight": 428
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "label": "defeat-start-4",
+      "buttons": [
+        {
+          "bottom": 611,
+          "text": "Ghé ví tại START →"
+        }
+      ],
+      "dialogs": [
+        {
+          "clientHeight": 606,
+          "label": "Khép lại vòng 4",
+          "rect": {
+            "height": 608,
+            "width": 286,
+            "x": 17,
+            "y": 16
+          },
+          "scrollHeight": 606
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "label": "320-production-defeat",
+      "buttons": [],
+      "dialogs": [
+        {
+          "clientHeight": 606,
+          "label": "Kết quả hành trình",
+          "rect": {
+            "height": 608,
+            "width": 286,
+            "x": 17,
+            "y": 16
+          },
+          "scrollHeight": 848
+        }
+      ],
+      "height": 640,
+      "scrollWidth": 320,
+      "width": 320
+    }
+  ],
+  "interactions": [
+    {
+      "case": "summary",
+      "action": "double tap summary CTA",
+      "cashInWallet": true,
+      "noForecastYet": true
+    },
+    {
+      "case": "funding",
+      "fixture": true,
+      "action": "double tap full savings withdrawal",
+      "snapshot": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- generic: +15.000.000 ₫\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 15.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 15 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 1\":\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 1/4\n  - heading \"Khép lại vòng 1\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +20.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-7.000.000 ₫\"\n    - term: Lương\n    - definition: 0 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - term: Tiền huy động · gồm cả vay nếu có\n    - definition: +20.000.000 ₫\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 15.000.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +4,95%\n      - generic: Trái phiếu\n      - strong: \"-0,55%\"\n      - generic: Vàng\n      - strong: +8,21%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\" [active]\n- generic: DEV fixture · funding · salary=0 (unreachable in legal gameplay)"
+    },
+    {
+      "case": "new-help",
+      "snapshot": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 30.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 50 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Sổ tay hành trình\":\n  - button \"Đóng\":\n  - generic: SỔ TAY HÀNH TRÌNH\n  - progressbar \"Tiến độ hướng dẫn\"\n  - generic: XOAY VÒNG TIẾN LUI\n  - generic: 5 / 6 · KHI CẦN THANH TOÁN\n  - heading \"Chủ động cho mỗi vòng mới\" [active] [level=2]\n  - paragraph: Mỗi khi hoàn thành một vòng và qua START, bạn nhận lương và tự động thanh toán 7 triệu tiền sinh hoạt.\n  - generic: Sinh hoạt mỗi START\n  - strong: 7.000.000 ₫\n  - paragraph: Chừa tiền sinh hoạt · Dự phòng biến cố cá nhân\n  - generic \"Luật chi tiết\"\n  - contentinfo:\n    - button \"Quay lại\"\n    - button \"Tiếp theo →\"\n- generic: DEV fixture · board"
+    },
+    {
+      "case": "legacy-help",
+      "snapshot": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 50.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 50 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Sổ tay hành trình\":\n  - button \"Đóng\":\n  - generic: SỔ TAY HÀNH TRÌNH\n  - progressbar \"Tiến độ hướng dẫn\"\n  - generic: XOAY VÒNG TIẾN LUI\n  - generic: 5 / 6 · KHI CẦN THANH TOÁN\n  - heading \"Chủ động cho mỗi vòng mới\" [active] [level=2]\n  - paragraph: Dừng ở ô Sinh hoạt 4 hoặc 15 cần trả 7 triệu. Đi ngang qua và qua START không thu khoản này.\n  - generic: Sinh hoạt khi dừng đúng ô\n  - strong: 7.000.000 ₫\n  - paragraph: Chừa tiền sinh hoạt · Dự phòng biến cố cá nhân\n  - generic \"Luật chi tiết\"\n  - contentinfo:\n    - button \"Quay lại\"\n    - button \"Tiếp theo →\"\n- generic: DEV fixture · legacy"
+    }
+  ],
+  "console": [
+    {
+      "tab": "dev",
+      "logs": []
+    }
+  ]
+}

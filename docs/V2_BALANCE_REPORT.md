@@ -1,3 +1,5 @@
+> **HISTORICAL** — Mô phỏng heuristic V2 (55.000 ván), không phải số đo người chơi hoặc cân bằng production V2.4. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # Báo cáo cân bằng V2 — cấu hình THỬ NGHIỆM
 
 ## Tái hiện

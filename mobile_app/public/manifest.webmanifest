@@ -1,0 +1,25 @@
+{
+  "name": "PlayBoard - Cờ Tỷ Phú Tài Chính",
+  "short_name": "PlayBoard",
+  "description": "Game giáo dục tài chính cá nhân đa chương trình",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a121e",
+  "theme_color": "#78350F",
+  "icons": [
+    {
+      "src": "./assets/cropped/app-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/cropped/app-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

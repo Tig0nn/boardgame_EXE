@@ -1,0 +1,169 @@
+{
+  "seed": "PERIODIC-V26-39",
+  "strategy": "bank-first",
+  "rolls": 23,
+  "trace": [
+    {
+      "kind": "roll",
+      "number": 1,
+      "screen": "Cổ phiếu"
+    },
+    {
+      "kind": "roll",
+      "number": 2,
+      "screen": "Khóa học chuyên môn"
+    },
+    {
+      "kind": "course"
+    },
+    {
+      "kind": "roll",
+      "number": 3,
+      "screen": "Quán của bạn"
+    },
+    {
+      "kind": "roll",
+      "number": 4,
+      "screen": "Thưởng hợp đồng"
+    },
+    {
+      "kind": "roll",
+      "number": 5,
+      "screen": "Quán của bạn"
+    },
+    {
+      "kind": "roll",
+      "number": 6,
+      "screen": "Quán của bạn"
+    },
+    {
+      "kind": "roll",
+      "number": 7,
+      "screen": "Khép lại vòng 1"
+    },
+    {
+      "kind": "summary",
+      "screen": "Khép lại vòng 1",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 01 / 04\n- generic: 🎲 6 Bước\n- generic: +2.000.000 ₫\n- img \"3D Young Student Mascot. Use mouse, touch or arrow keys to move.\"\n- region \"Live announcements\":\n  - status\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 36.000.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 56 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- generic: \"🎲 Vừa Gieo: 6\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 1\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 1/4\n  - heading \"Khép lại vòng 1\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +17.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-7.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Tăng lương từ khóa học\n    - definition: +3.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 36.000.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: \"-0,06%\"\n      - generic: Trái phiếu\n      - strong: \"-23,25%\"\n      - generic: Vàng\n      - strong: +10,21%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\""
+    },
+    {
+      "kind": "deposit",
+      "cash": 36000000,
+      "lap": 2,
+      "term": 3,
+      "amount": 22100000
+    },
+    {
+      "kind": "roll",
+      "number": 8,
+      "screen": "Cổ phiếu"
+    },
+    {
+      "kind": "roll",
+      "number": 9,
+      "screen": "Cổ phiếu"
+    },
+    {
+      "kind": "roll",
+      "number": 10,
+      "screen": "Chuỗi cung ứng phục hồi"
+    },
+    {
+      "kind": "macro",
+      "title": "Chuỗi cung ứng phục hồi"
+    },
+    {
+      "kind": "roll",
+      "number": 11,
+      "screen": "Trái phiếu"
+    },
+    {
+      "kind": "roll",
+      "number": 12,
+      "screen": "Vàng"
+    },
+    {
+      "kind": "roll",
+      "number": 13,
+      "screen": "Quán của bạn"
+    },
+    {
+      "kind": "roll",
+      "number": 14,
+      "screen": "Khép lại vòng 2"
+    },
+    {
+      "kind": "summary",
+      "screen": "Khép lại vòng 2",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 02 / 04\n- generic: 🎲 5 Bước\n- generic: \"-22.100.000 ₫\"\n- img \"3D Young Student Mascot. Use mouse, touch or arrow keys to move.\"\n- region \"Live announcements\":\n  - status\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 23.900.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 66 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- generic: \"🎲 Vừa Gieo: 5\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 2\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 2/4\n  - heading \"Khép lại vòng 2\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +17.000.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-7.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Tăng lương từ khóa học\n    - definition: +3.000.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 23.900.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +0,87%\n      - generic: Trái phiếu\n      - strong: \"-2,61%\"\n      - generic: Vàng\n      - strong: +12,41%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\""
+    },
+    {
+      "kind": "roll",
+      "number": 15,
+      "screen": "Khóa học chuyên môn"
+    },
+    {
+      "kind": "roll",
+      "number": 16,
+      "screen": "Vàng"
+    },
+    {
+      "kind": "roll",
+      "number": 17,
+      "screen": "Ngân hàng"
+    },
+    {
+      "kind": "deposit",
+      "cash": 23900000,
+      "lap": 3,
+      "term": 2,
+      "amount": 11815000
+    },
+    {
+      "kind": "roll",
+      "number": 18,
+      "screen": "Khóa học chuyên môn"
+    },
+    {
+      "kind": "roll",
+      "number": 19,
+      "screen": "Khép lại vòng 3"
+    },
+    {
+      "kind": "summary",
+      "screen": "Khép lại vòng 3",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 03 / 04\n- generic: 🎲 6 Bước\n- generic: \"-11.815.000 ₫\"\n- img \"3D Young Student Mascot. Use mouse, touch or arrow keys to move.\"\n- region \"Live announcements\":\n  - status\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 45.685.000 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 79,6 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- generic: \"🎲 Vừa Gieo: 6\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 3\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 3/4\n  - heading \"Khép lại vòng 3\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +40.600.000 ₫\n    - generic: Tiền đã chi\n    - strong: \"-7.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Tăng lương từ khóa học\n    - definition: +3.000.000 ₫\n    - term: Tiết kiệm đáo hạn · gốc + lãi\n    - definition: +23.600.000 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 45.685.000 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +8,04%\n      - generic: Trái phiếu\n      - strong: \"-49,43%\"\n      - generic: Vàng\n      - strong: +0,99%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\""
+    },
+    {
+      "kind": "roll",
+      "number": 20,
+      "screen": "Quán của bạn"
+    },
+    {
+      "kind": "roll",
+      "number": 21,
+      "screen": "Vàng"
+    },
+    {
+      "kind": "roll",
+      "number": 22,
+      "screen": "Vàng"
+    },
+    {
+      "kind": "roll",
+      "number": 23,
+      "screen": "Khép lại vòng 4"
+    },
+    {
+      "kind": "summary",
+      "screen": "Khép lại vòng 4",
+      "dom": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- 'generic \"Ô 4: Cổ phiếu\"':\n  - generic: ↗\n  - generic: 4 · Cổ phiếu\n- 'generic \"Ô 15: Vàng\"':\n  - generic: ◆\n  - generic: 15 · Vàng\n- img \"Section Play Board\"\n- generic: 04 / 04\n- generic: 🎲 2 Bước\n- generic: \"-11.815.000 ₫\"\n- img \"3D Young Student Mascot. Use mouse, touch or arrow keys to move.\"\n- region \"Live announcements\":\n  - status\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 94.759.500 ₫\n  - button \"Mở sổ tay\": \"?\"\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 94,8 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- generic: \"🎲 Vừa Gieo: 2\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Khép lại vòng 4\" [active]:\n  - button \"Mở sổ tay\":\n    - text: Sổ tay\n  - generic: START · 4/4\n  - heading \"Khép lại vòng 4\" [level=2]\n  - region \"Tiền thực nhận và đã chi tại START\":\n    - generic: Tiền đã nhận\n    - strong: +56.074.500 ₫\n    - generic: Tiền đã chi\n    - strong: \"-7.000.000 ₫\"\n    - term: Lương\n    - definition: +14.000.000 ₫\n    - term: Tăng lương từ khóa học\n    - definition: +3.000.000 ₫\n    - term: Tiết kiệm đáo hạn · gốc + lãi\n    - definition: +39.074.500 ₫\n    - term: Chi phí sinh hoạt\n    - definition: \"-7.000.000 ₫\"\n    - paragraph:\n      - text: Tiền mặt hiện có\n      - strong: 94.759.500 ₫\n    - paragraph: Đã xử lý các khoản chi tại START.\n  - region \"Thị trường vòng này\":\n    - heading \"Thị trường vòng này\" [level=3]\n    - list:\n      - generic: Cổ phiếu\n      - strong: +25,86%\n      - generic: Trái phiếu\n      - strong: Chưa đủ dữ liệu\n      - generic: Vàng\n      - strong: +9,68%\n    - paragraph: Biến động giá; không gồm coupon hay phí.\n    - generic \"Xem dự báo vs. thực tế\"\n  - generic \"Chi tiết giao dịch\"\n  - contentinfo:\n    - button \"Ghé ví tại START →\""
+    }
+  ],
+  "module": "/assets/index-CxPvW0KK.js",
+  "console": [],
+  "modelEvidence": {
+    "status": "ready",
+    "loaded": "true"
+  }
+}

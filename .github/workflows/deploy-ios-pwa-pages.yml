@@ -1,0 +1,83 @@
+name: Deploy iOS PWA to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - codex/b18-compact-financial-ui
+    paths:
+      - 'mobile_app/**'
+      - 'src/**'
+      - '.github/workflows/deploy-ios-pwa-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build & Deploy PWA for iOS
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'mobile_app/package-lock.json'
+
+      - name: Install Root Dependencies
+        run: npm ci
+
+      - name: Install Mobile App Dependencies
+        run: npm --prefix mobile_app ci
+
+      - name: Build Web Application for PWA
+        run: npm --prefix mobile_app run build
+
+      - name: Ensure .nojekyll in build output
+        run: touch mobile_app/dist/.nojekyll
+
+      - name: Deploy to gh-pages Branch (Default Branch Source)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./mobile_app/dist
+          publish_branch: gh-pages
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Upload Build Artifact for Direct Download
+        uses: actions/upload-artifact@v4
+        with:
+          name: playboard-pwa-web-dist
+          path: mobile_app/dist
+          retention-days: 30
+
+      - name: Setup Pages (Actions-based fallback)
+        id: pages_setup
+        uses: actions/configure-pages@v5
+        continue-on-error: true
+
+      - name: Upload Pages Artifact
+        if: steps.pages_setup.outcome == 'success'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'mobile_app/dist'
+
+      - name: Deploy to GitHub Pages (Actions-based)
+        if: steps.pages_setup.outcome == 'success'
+        id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true

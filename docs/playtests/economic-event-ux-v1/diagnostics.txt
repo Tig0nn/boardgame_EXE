@@ -1,0 +1,337 @@
+TAP version 13
+# (node:21508) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: AI Coach emitted ESM function loads shared modules and rejects GET without provider credentials
+ok 1 - AI Coach emitted ESM function loads shared modules and rejects GET without provider credentials
+  ---
+  duration_ms: 1791.8398
+  ...
+# (node:30248) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 3:25:55 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 3:26:01 PM [vite] (client) [optimizer] scanning dependencies...
+# 3:26:35 PM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: atomic investment UI preserves prices/news and follows the saved encounter policy
+    # Subtest: new Mobile and Web panels offer one buy and one skip, keeping fees and market context
+    ok 1 - new Mobile and Web panels offer one buy and one skip, keeping fees and market context
+      ---
+      duration_ms: 141.6284
+      ...
+    # Subtest: successful purchases leave no encounter modal or second form
+    ok 2 - successful purchases leave no encounter modal or second form
+      ---
+      duration_ms: 10.1734
+      ...
+    # Subtest: reopened same-turn encounter does not show another purchase form
+    ok 3 - reopened same-turn encounter does not show another purchase form
+      ---
+      duration_ms: 10.6684
+      ...
+    # Subtest: saved historical Gold/Bonds sessions keep their multi-purchase forms
+    ok 4 - saved historical Gold/Bonds sessions keep their multi-purchase forms
+      ---
+      duration_ms: 17.2585
+      ...
+    1..4
+ok 2 - atomic investment UI preserves prices/news and follows the saved encounter policy
+  ---
+  duration_ms: 50339.5607
+  ...
+# (node:16368) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: experimental boards restore shared data, including after a failure
+ok 3 - experimental boards restore shared data, including after a failure
+  ---
+  duration_ms: 47.7199
+  ...
+# Subtest: B/C replace exactly one category; D preserves every count
+ok 4 - B/C replace exactly one category; D preserves every count
+  ---
+  duration_ms: 0.5552
+  ...
+# Subtest: control reproduces the old runner; diagnostics count encounters before transactions
+ok 5 - control reproduces the old runner; diagnostics count encounters before transactions
+  ---
+  duration_ms: 74.9529
+  ...
+# Subtest: same-size layouts retain paired dice paths; 16/24 preserve engine terminal semantics
+ok 6 - same-size layouts retain paired dice paths; 16/24 preserve engine terminal semantics
+  ---
+  duration_ms: 222.8303
+  ...
+# Subtest: renewal calculation agrees with an analytically enumerable single six-tile circuit
+ok 7 - renewal calculation agrees with an analytically enumerable single six-tile circuit
+  ---
+  duration_ms: 1.2668
+  ...
+# (node:11692) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# WebSocket server error: Port 24678 is already in use
+# 3:25:55 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 3:25:58 PM [vite] (client) [optimizer] scanning dependencies...
+# 3:26:35 PM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: Bond V2.5 real React panels expose issuer choice, executable lot sales and credit status
+    # Subtest: two issuer cards retain one CTA/skip and conditional contract copy
+    ok 1 - two issuer cards retain one CTA/skip and conditional contract copy
+      ---
+      duration_ms: 105.5205
+      ...
+    # Subtest: funding chooses the specific issuer lot and displays actual net proceeds
+    ok 2 - funding chooses the specific issuer lot and displays actual net proceeds
+      ---
+      duration_ms: 16.8141
+      ...
+    # Subtest: default holdings show claims/loss and do not become eligible funding assets
+    ok 3 - default holdings show claims/loss and do not become eligible funding assets
+      ---
+      duration_ms: 18.662
+      ...
+    # Subtest: historical single issuer panel keeps its original terms
+    ok 4 - historical single issuer panel keeps its original terms
+      ---
+      duration_ms: 13.2345
+      ...
+    1..4
+ok 8 - Bond V2.5 real React panels expose issuer choice, executable lot sales and credit status
+  ---
+  duration_ms: 49304.2268
+  ...
+# (node:13580) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# WebSocket server error: Port 24678 is already in use
+# Subtest: START React UI separates received cash, claims and losses with hidden accounting
+    # Subtest: multiple lots yield one default-visible issuer, amounts reconcile and all details start closed
+    ok 1 - multiple lots yield one default-visible issuer, amounts reconcile and all details start closed
+      ---
+      duration_ms: 239.2968
+      ...
+    # Subtest: delayed principal/coupon is amber, zero receipt neutral, no realized loss
+    ok 2 - delayed principal/coupon is amber, zero receipt neutral, no realized loss
+      ---
+      duration_ms: 76.0975
+      ...
+    # Subtest: default recovery claim is separate from permanent write-down and cash
+    ok 3 - default recovery claim is separate from permanent write-down and cash
+      ---
+      duration_ms: 78.1136
+      ...
+    # Subtest: rendering preserves serialized engine log and news/credit calculations
+    ok 4 - rendering preserves serialized engine log and news/credit calculations
+      ---
+      duration_ms: 266.0116
+      ...
+    # Subtest: no holdings and legacy metadata render gracefully, with raw legacy records
+    ok 5 - no holdings and legacy metadata render gracefully, with raw legacy records
+      ---
+      duration_ms: 187.1819
+      ...
+    1..5
+ok 9 - START React UI separates received cash, claims and losses with hidden accounting
+  ---
+  duration_ms: 44257.3541
+  ...
+# (node:6016) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# WebSocket server error: Port 24678 is already in use
+# 3:25:55 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 3:25:57 PM [vite] (client) [optimizer] scanning dependencies...
+# 3:26:33 PM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: Economic Event React popup presents observed market changes with one acknowledgement
+    # Subtest: credit-tightening: three market groups, real percentages, issuers and closed details
+    ok 1 - credit-tightening: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 251.3474
+      ...
+    # Subtest: demand-boom: three market groups, real percentages, issuers and closed details
+    ok 2 - demand-boom: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 115.4698
+      ...
+    # Subtest: supply-recovery: three market groups, real percentages, issuers and closed details
+    ok 3 - supply-recovery: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 69.8723
+      ...
+    # Subtest: zero movement is neutral, missing log unavailable and legacy single issuer supported
+    ok 4 - zero movement is neutral, missing log unavailable and legacy single issuer supported
+      ---
+      duration_ms: 158.9964
+      ...
+    # Subtest: business valuation only appears in optional portfolio disclosure, never main comparison
+    ok 5 - business valuation only appears in optional portfolio disclosure, never main comparison
+      ---
+      duration_ms: 91.2019
+      ...
+    1..5
+ok 10 - Economic Event React popup presents observed market changes with one acknowledgement
+  ---
+  duration_ms: 48528.1388
+  ...
+# (node:30176) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# WebSocket server error: Port 24678 is already in use
+# 3:25:55 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 3:25:57 PM [vite] (client) [optimizer] scanning dependencies...
+# 3:26:33 PM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: Mobile economic news renders through real phase and transaction components
+    # Subtest: all scenarios show bulletin, three assets and a single start CTA
+    ok 1 - all scenarios show bulletin, three assets and a single start CTA
+      ---
+      duration_ms: 95.1336
+      ...
+    # Subtest: market context appears only on Stocks/Bonds/Gold, with legal buy actions intact
+    ok 2 - market context appears only on Stocks/Bonds/Gold, with legal buy actions intact
+      ---
+      duration_ms: 124.144
+      ...
+    # Subtest: summary renders realized prices, observed shock and educational distinction
+    ok 3 - summary renders realized prices, observed shock and educational distinction
+      ---
+      duration_ms: 94.2985
+      ...
+    # Subtest: missing observations show unavailable; gold fees and quote remain explicit
+    ok 4 - missing observations show unavailable; gold fees and quote remain explicit
+      ---
+      duration_ms: 20.8369
+      ...
+    1..4
+ok 11 - Mobile economic news renders through real phase and transaction components
+  ---
+  duration_ms: 49380.9051
+  ...
+# (node:32328) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: diagnostic horizon is process-local and restores official rules after success or failure
+ok 12 - diagnostic horizon is process-local and restores official rules after success or failure
+  ---
+  duration_ms: 80.3622
+  ...
+# Subtest: diagnostic cash baseline matches the published 5000-seed representative outcome
+ok 13 - diagnostic cash baseline matches the published 5000-seed representative outcome
+  ---
+  duration_ms: 44.3467
+  ...
+# Subtest: six-lap runs settle once per lap, reconcile money, and keep paired dice paths
+ok 14 - six-lap runs settle once per lap, reconcile money, and keep paired dice paths
+  ---
+  duration_ms: 37.9169
+  ...
+# Subtest: deposits opened after lap three mature once at the correct START
+ok 15 - deposits opened after lap three mature once at the correct START
+  ---
+  duration_ms: 4.0437
+  ...
+# Subtest: post-lap-three trend changes preserve upgrades and deterministic macro histories
+ok 16 - post-lap-three trend changes preserve upgrades and deterministic macro histories
+  ---
+  duration_ms: 2.4798
+  ...
+# Subtest: sixth-lap debt is capitalized once and terminal proceeds use lawful quotes
+ok 17 - sixth-lap debt is capitalized once and terminal proceeds use lawful quotes
+  ---
+  duration_ms: 5.3312
+  ...
+# Subtest: final sixth-lap overshoot discards its destination while earlier overshoot resolves once
+ok 18 - final sixth-lap overshoot discards its destination while earlier overshoot resolves once
+  ---
+  duration_ms: 11.5486
+  ...
+# Subtest: twelve-lap replay is deterministic and does not persist experimental horizon
+ok 19 - twelve-lap replay is deterministic and does not persist experimental horizon
+  ---
+  duration_ms: 83.1518
+  ...
+# Subtest: savings control excludes course spending and uses the same legal seeded path
+ok 20 - savings control excludes course spending and uses the same legal seeded path
+  ---
+  duration_ms: 60.2871
+  ...
+# Subtest: bonds bought after lap three receive coupons and principal exactly once
+ok 21 - bonds bought after lap three receive coupons and principal exactly once
+  ---
+  duration_ms: 5.6151
+  ...
+# (node:34920) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: explicit C20 mode is audited using C20 encounters, with identical cash result to A20
+ok 22 - explicit C20 mode is audited using C20 encounters, with identical cash result to A20
+  ---
+  duration_ms: 68.4985
+  ...
+# Subtest: versioned rate policies never mutate config; all focused policies reconcile and replay exactly
+ok 23 - versioned rate policies never mutate config; all focused policies reconcile and replay exactly
+  ---
+  duration_ms: 3075.1542
+  ...
+# Subtest: default hooks preserve every historical run field; policy can override initial allocation
+ok 24 - default hooks preserve every historical run field; policy can override initial allocation
+  ---
+  duration_ms: 24.1582
+  ...
+# Subtest: conditional diagnostic metrics exclude null and do not depend on the first seed
+ok 25 - conditional diagnostic metrics exclude null and do not depend on the first seed
+  ---
+  duration_ms: 2.7402
+  ...
+# (node:16584) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Mobile production bundle shares one React instance across root and Mobile components
+ok 26 - Mobile production bundle shares one React instance across root and Mobile components
+  ---
+  duration_ms: 2248.0509
+  ...
+# (node:14512) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# WebSocket server error: Port 24678 is already in use
+# 3:25:58 PM [vite] (client) [optimizer] scanning dependencies...
+# 3:26:34 PM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: Mobile final UI contracts use the official engine, board and financial previews
+    # Subtest: fresh player sees onboarding without creating a game; returning player sees setup
+    ok 1 - fresh player sees onboarding without creating a game; returning player sees setup
+      ---
+      duration_ms: 99.8571
+      ...
+    # Subtest: term cards show per-START and total simple interest correctly
+    ok 2 - term cards show per-START and total simple interest correctly
+      ---
+      duration_ms: 3.0792
+      ...
+    # Subtest: purchase tiles never offer voluntary selling even when holdings exist
+    ok 3 - purchase tiles never offer voluntary selling even when holdings exist
+      ---
+      duration_ms: 92.6026
+      ...
+    # Subtest: result uses lawful proceeds and never liquidates or claims four laps for insolvency
+    ok 4 - result uses lawful proceeds and never liquidates or claims four laps for insolvency
+      ---
+      duration_ms: 19.1491
+      ...
+    # Subtest: tutorial keeps six steps and rulebook displays every official C20 tile
+    ok 5 - tutorial keeps six steps and rulebook displays every official C20 tile
+      ---
+      duration_ms: 33.7584
+      ...
+    # Subtest: stock completion and Bank lots remain atomic through the Mobile controller
+    ok 6 - stock completion and Bank lots remain atomic through the Mobile controller
+      ---
+      duration_ms: 3.4906
+      ...
+    # Subtest: Business purchase ends encounter; same-turn sale/upgrade blocked, later upgrade allowed once
+    ok 7 - Business purchase ends encounter; same-turn sale/upgrade blocked, later upgrade allowed once
+      ---
+      duration_ms: 28.9497
+      ...
+    1..7
+ok 27 - Mobile final UI contracts use the official engine, board and financial previews
+  ---
+  duration_ms: 51002.8905
+  ...
+1..27
+# tests 56
+# suites 0
+# pass 56
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 54008.0088

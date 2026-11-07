@@ -1,3 +1,5 @@
+> **HISTORICAL** — Nghiên cứu và cập nhật phê duyệt V2.2; các câu chờ phê duyệt bên dưới ghi lại trình tự cũ, không phải trạng thái hiện tại. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # V2.2 — Rà soát và chốt cơ chế gameplay
 
 Ngày: **11/10/2026**. Chủ dự án là người playtest duy nhất. Phạm vi: cơ chế, kế toán, thí nghiệm offline và hướng dẫn solo; chưa làm lại UX hoặc giao diện.

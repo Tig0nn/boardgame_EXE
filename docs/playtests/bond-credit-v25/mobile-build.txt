@@ -1,0 +1,14 @@
+
+> xvtl-mobile-app@1.0.0 build
+> tsc -b && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 83 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.83 kB │ gzip:   0.46 kB
+dist/assets/index-WDjR5XgC.css   21.51 kB │ gzip:   5.64 kB
+dist/assets/index-Qdizf_3O.js   391.99 kB │ gzip: 118.39 kB
+
+✓ built in 814ms

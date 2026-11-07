@@ -1,0 +1,810 @@
+{
+  "format": "b18-language-cleanup-v1",
+  "date": "2026-10-20",
+  "branch": "codex/mvp-b18-language-cleanup",
+  "base": "10cdaa984bcdeddc8337eab945a98c939b405fec",
+  "implementation": "b9606a905b84465f6e648770916961e498d57bfd",
+  "verified": {
+    "productTests": 349,
+    "requiredB18SsrTests": 5,
+    "allSsrTests": 46,
+    "topLevelSsrTests": 12,
+    "replays": 81,
+    "oldReplayHashesUnchanged": 81,
+    "researchGames": 13,
+    "researchSnapshots": 2306,
+    "lintDesktopAndMobile": true,
+    "buildDesktopAndMobile": true,
+    "browserChecks": 61,
+    "jsErrors": 0,
+    "screenshots": 24,
+    "staticFilesAudited": 59,
+    "baselineFindings": 138,
+    "remainingFindings": 0,
+    "renderedSurfaces": 15,
+    "pairedStates": [
+      {
+        "width": 320,
+        "stateHash": "27297a0e665e90f68dfd91875eee3dcf319524ab19857023b7792462de4848c3",
+        "unchangedFromBase": true
+      },
+      {
+        "width": 390,
+        "stateHash": "27297a0e665e90f68dfd91875eee3dcf319524ab19857023b7792462de4848c3",
+        "unchangedFromBase": true
+      }
+    ],
+    "historical": [
+      {
+        "manifest": {
+          "path": "docs/playtests/b18-terminology/manifest.json",
+          "bytes": 26427,
+          "sha256": "f46b439beb1c107f1dd2453d0c85b80c99c00013f927ea5f4a0a8dbcdabe1379"
+        },
+        "artifacts": 79
+      },
+      {
+        "manifest": {
+          "path": "docs/playtests/b18-beginner-ux/manifest.json",
+          "bytes": 42692,
+          "sha256": "2042d948efca3c53cbc7e884d88c1a83dac2d9216b6ba5268f754034d2c6f4ed"
+        },
+        "artifacts": 187
+      },
+      {
+        "manifest": {
+          "path": "docs/playtests/core-mvp-b18-multi-course/manifest.json",
+          "bytes": 30280,
+          "sha256": "74d4bfb77a163c2a7bf650edbe45035698bb5b2bf3d403508e7d8fbaf1e6ef71"
+        },
+        "artifacts": 115
+      }
+    ]
+  },
+  "intentionalExceptions": [
+    "Tên thương hiệu, tên doanh nghiệp và mã cổ phiếu giữ nguyên.",
+    "JSON là tên định dạng tải/nhập; payload xuất/nhập nguyên bản.",
+    "AA/B/CCC/D là mã xếp hạng mô phỏng; B18/C20 và phiên bản xác định ván lịch sử.",
+    "Tên tiếng Anh đối chiếu trong mục glossary mở rộng. START chỉ là tên kỹ thuật trong giải thích từ điển, không phải nhãn ô.",
+    "IDs trong key/value/DOM hooks/callback không phải nhãn hiển thị; dữ liệu engine/log/replay không được dịch."
+  ],
+  "reviewedExceptions": [
+    {
+      "file": "src/components/glossary.ts",
+      "line": 12,
+      "text": "'Thời điểm thu nhập tăng thêm tích lũy đủ bù số tiền ban đầu đã bỏ ra. Đây là thời gian bù vốn, khác tỷ suất sinh lời (ROI); không phải cam kết lợi nhuận.'",
+      "matches": [
+        "ROI"
+      ],
+      "reason": "Explicit technical explanation / ROI distinction in shared glossary"
+    },
+    {
+      "file": "src/components/glossary.ts",
+      "line": 14,
+      "text": "'Mốc quyết toán vòng: thị trường, lương và các khoản đến hạn. Đi ngang ô này cũng quyết toán theo luật của ván. START là tên kỹ thuật trong dữ liệu.'",
+      "matches": [
+        "START"
+      ],
+      "reason": "Explicit technical explanation / ROI distinction in shared glossary"
+    }
+  ],
+  "scope": {
+    "uiOnly": true,
+    "engineChanged": false,
+    "economicsChanged": false,
+    "rngChanged": false,
+    "saveReplaySchemasChanged": false,
+    "archivedLogsChanged": false,
+    "researchRerun": false,
+    "humanPlaytest": false,
+    "merged": false,
+    "manuallyDeployed": false,
+    "productionPromoted": false,
+    "ownerReviewPending": true
+  },
+  "provenance": {
+    "before": "Exact Owner base; actual UI, LANG-0, initial 10M/term3 then bank 6M/term2.",
+    "after": "Same actual UI actions and viewport; no injected browser state. SSR fixtures are rendering-only.",
+    "viewports": [
+      "320x844",
+      "390x844",
+      "1440x1000"
+    ],
+    "browser": "Local Chromium headless via Playwright; physical devices/screen readers not evaluated."
+  },
+  "hashing": "Source UTF8 normalized to LF; artifacts raw-byte SHA256. Scoped -text attributes preserve evidence bytes.",
+  "sourceFiles": [
+    {
+      "path": "docs/B18_MVP_LANGUAGE_CLEANUP_REPORT.md",
+      "bytes": 12883,
+      "sha256": "300202b30bd99ce112f2a60f7761791ebf51ac3c126b7fd92317b3beccd3c120"
+    },
+    {
+      "path": "mobile_app/src/components/BoardView.tsx",
+      "bytes": 5844,
+      "sha256": "d132779348626b48041176cb3ecf11ec23aa1fcc3da65d53b3319ce16090b6bf"
+    },
+    {
+      "path": "mobile_app/src/components/BondStartSummary.tsx",
+      "bytes": 4679,
+      "sha256": "f87de43d8ef357f4b177b798be8238f504e3134d35745fdf45d4b96be6d1f3ee"
+    },
+    {
+      "path": "mobile_app/src/components/Character3D.tsx",
+      "bytes": 7052,
+      "sha256": "b0416ae8630f88e472f7c75413539e99a76143bba639d40b675ed9c4ad7ba05c"
+    },
+    {
+      "path": "mobile_app/src/components/CoreMvpBoard.tsx",
+      "bytes": 4153,
+      "sha256": "07181e6433f0e33a008d4821af25acd0a780786ffcc29303ae7f169f4fbac50f"
+    },
+    {
+      "path": "mobile_app/src/components/GameResultModal.tsx",
+      "bytes": 3070,
+      "sha256": "df15bfcde527fce2213183037ce28354bb43346472da89a5f06c0d8d5d697c95"
+    },
+    {
+      "path": "mobile_app/src/components/LapSummaryModal.tsx",
+      "bytes": 4526,
+      "sha256": "1f29183e495094812f61c1c299f21f3d0a196e222735db551d11bd6b8b060560"
+    },
+    {
+      "path": "mobile_app/src/components/MarketNews.tsx",
+      "bytes": 8988,
+      "sha256": "d4c0de9c9094dce37c39432dd3b39c1c9e005194ba651d4f264e8ae9f2752c54"
+    },
+    {
+      "path": "mobile_app/src/components/RulebookModal.tsx",
+      "bytes": 7873,
+      "sha256": "485cd16224fd8ee016bd5c0e8a23e7e21cd117a175f54cd4677e652490f292fc"
+    },
+    {
+      "path": "mobile_app/src/components/Tutorial.tsx",
+      "bytes": 11841,
+      "sha256": "580e3da1c07ab85f2ff9feb5999dfde8c183ef20b81af97704b87a635c62f5ec"
+    },
+    {
+      "path": "mobile_app/src/game/living-presentation.ts",
+      "bytes": 1997,
+      "sha256": "2d90979f4924f46813d594b115cc3f1717fcc49a2d4f82a42a5fbed5c4b131fb"
+    },
+    {
+      "path": "scripts/diagnostics/audit-player-language.mjs",
+      "bytes": 4446,
+      "sha256": "1d112a367768b4c874794a8b8c59102ae3309c9c3b961b232b079c8a5de24b31"
+    },
+    {
+      "path": "scripts/diagnostics/b18-ux-ui.test.ts",
+      "bytes": 2809,
+      "sha256": "189337f194c3515caa588c4f6650a50daa6795623c7b6c1a983f60a226b78fd1"
+    },
+    {
+      "path": "scripts/diagnostics/bond-start-ui.test.ts",
+      "bytes": 5922,
+      "sha256": "2d94122f3159b3d93f06a801cda14a8018aeec87e0714d0e16b823b2f06200e0"
+    },
+    {
+      "path": "scripts/diagnostics/business-preference-ui.test.ts",
+      "bytes": 6473,
+      "sha256": "71d431ca827fb34ae3f87e4f7022fd31eba3a341db44c5ff6e1cda479adbc255"
+    },
+    {
+      "path": "scripts/diagnostics/economic-news-ui.test.ts",
+      "bytes": 4126,
+      "sha256": "0d22a5f9ae173dd423c13ec85c4af6876398d4ffc101294ba44fa369aaac176a"
+    },
+    {
+      "path": "scripts/diagnostics/language-cleanup-browser.mjs",
+      "bytes": 8143,
+      "sha256": "66d9388ac9af360a44aa8f3287e44937c4822df8c2bf2136768cd7115241a5bc"
+    },
+    {
+      "path": "scripts/diagnostics/language-cleanup-ui.test.ts",
+      "bytes": 6709,
+      "sha256": "f7c9382be9c0e8d901427c775a7f3e16e7ce28c5197cfba0974f3600a70266e5"
+    },
+    {
+      "path": "scripts/diagnostics/mobile-final-ui.test.ts",
+      "bytes": 8436,
+      "sha256": "74a9c70aa25cfefcb297bf6e598117e68b2f8723a8bcc73f03c13dea061cf21e"
+    },
+    {
+      "path": "scripts/diagnostics/multi-course-ui.test.ts",
+      "bytes": 3470,
+      "sha256": "ca34ccf035a36f2544c01ca748fd455b8b9954ed43087438f4d88c985ccc7a7d"
+    },
+    {
+      "path": "scripts/diagnostics/verify-language-replays.ts",
+      "bytes": 2100,
+      "sha256": "3e117f788e4896ec0defd4ebf6daa083398c7a80d7ec96f774deec66aad1f9d5"
+    },
+    {
+      "path": "scripts/verify-b18-language-cleanup-evidence.mjs",
+      "bytes": 7426,
+      "sha256": "5c55d523f60d9c39b246e9d4d047258cb32a3b9fb5cc7e33fa4de34e4b81171a"
+    },
+    {
+      "path": "src/App.tsx",
+      "bytes": 7820,
+      "sha256": "fdc388854145494991e5083bbfac17b28a6b125c79d45418c431d67b7c5d98ef"
+    },
+    {
+      "path": "src/ai/AICoachPanel.tsx",
+      "bytes": 8386,
+      "sha256": "fd4076481febe058cbcb00ed5911d062dce6d32b8f1b37621ac74d78574ee1d5"
+    },
+    {
+      "path": "src/components/Board.tsx",
+      "bytes": 7747,
+      "sha256": "614a1274b39647db22412da14f460e348a080249d18de02a3bccc24f929c062c"
+    },
+    {
+      "path": "src/components/BondCreditPanel.tsx",
+      "bytes": 5798,
+      "sha256": "f0c2193921ef91b5d87bec54a776f4e96640753c4a60acf65aff0de59d3a11e6"
+    },
+    {
+      "path": "src/components/BondHoldings.tsx",
+      "bytes": 2088,
+      "sha256": "8191b789bf2799d11d21eb73fb1b225441a8f528ca7a33385b5f22667f04a017"
+    },
+    {
+      "path": "src/components/BusinessPanel.tsx",
+      "bytes": 7019,
+      "sha256": "050ae1c1d83401e87b2c4e3f9e05419394b5e3e32b68101d00826a083c2fbaf1"
+    },
+    {
+      "path": "src/components/CourseChoices.tsx",
+      "bytes": 3195,
+      "sha256": "0b0d4e3ddb7611bd8a0bdec2941cd4f92a66b3d7e6493580d6f48a39f8b9d2f9"
+    },
+    {
+      "path": "src/components/CustomerPreferenceCard.tsx",
+      "bytes": 1422,
+      "sha256": "8394f578aa5dd6dbdcefe0b6d99f654f814393f1845fed94af828a95e56800e1"
+    },
+    {
+      "path": "src/components/EventLog.tsx",
+      "bytes": 2315,
+      "sha256": "69230176dc53587a53abc96d065727d517bc8f6adb46a0354f09eafc3f51dac3"
+    },
+    {
+      "path": "src/components/FinancialTerm.tsx",
+      "bytes": 4592,
+      "sha256": "bd724cbbbe9357b6b39c853fd8ba795ba4cb176f6d0920daf1e524d46ac3f2d3"
+    },
+    {
+      "path": "src/components/Forecast.tsx",
+      "bytes": 1131,
+      "sha256": "e5177a0709345d6e1a29ab57ad5270b6771b43f0458f0635977ebfe7d5a1ca3e"
+    },
+    {
+      "path": "src/components/FundingDialog.tsx",
+      "bytes": 7956,
+      "sha256": "2f7a10c4089a860bae01e2e77d8f4d346e64ec571bbd3ed4db983e44138e2f75"
+    },
+    {
+      "path": "src/components/GameDialogs.tsx",
+      "bytes": 11730,
+      "sha256": "1fb8a68b28e34cb1df0ac934c17aefd1f88bb9bdbfe21286e36c6b46e2cd2adb"
+    },
+    {
+      "path": "src/components/InvestmentEncounter.tsx",
+      "bytes": 4513,
+      "sha256": "c3dd3020bb98de322b0deb7ebfa535d9a780e9ffa813e6e884bc92fb2d50aacb"
+    },
+    {
+      "path": "src/components/MarketDetails.tsx",
+      "bytes": 5778,
+      "sha256": "989fd4f58cd4713821e2512ecf010ac9ff203277b6b3b1fa10009aff996aabdc"
+    },
+    {
+      "path": "src/components/Portfolio.css",
+      "bytes": 1742,
+      "sha256": "b6428e3cdb64db386d98f5e190c18a49f468aa0e480c3ab5bba6b934d87e26b8"
+    },
+    {
+      "path": "src/components/Portfolio.tsx",
+      "bytes": 4740,
+      "sha256": "2b82f49359738654d469fecc3219bf6ca045c78aba35bb1998378215d760de52"
+    },
+    {
+      "path": "src/components/RebalanceDialog.tsx",
+      "bytes": 5926,
+      "sha256": "ed5e4a67c0d4e8c6b415178f050bed50765d4e35eb897b1e4076a30b8705af86"
+    },
+    {
+      "path": "src/components/SavingsTerms.tsx",
+      "bytes": 1116,
+      "sha256": "d28a475f42e790db2ea3953240deb6edb03bac4783e38e6f9c380b309d11db2c"
+    },
+    {
+      "path": "src/components/Setup.tsx",
+      "bytes": 4829,
+      "sha256": "2e1a65b023513302b303137c056a98b82399aea094368628c040b01317492802"
+    },
+    {
+      "path": "src/components/TradingPanel.tsx",
+      "bytes": 13972,
+      "sha256": "14f9c157cc0d51205fa00db6d1c6566a50b653b384ef075839c0db3fa6a25579"
+    },
+    {
+      "path": "src/components/glossary.ts",
+      "bytes": 7755,
+      "sha256": "f75a2879dd572eb2568b67380ec454b3e6936668ff191762160a991900341c22"
+    },
+    {
+      "path": "src/components/player-language.ts",
+      "bytes": 1586,
+      "sha256": "4b085dd871ef3c51fd53be2fc68f9e03471c01ecc1e6d4bb469ad50ab6f230e2"
+    },
+    {
+      "path": "src/components/tile-information.ts",
+      "bytes": 3991,
+      "sha256": "fa89ef2cfd239c01d783607c88e658e7e32455a82e58e6ce8d95178de4601fa2"
+    },
+    {
+      "path": "tasks/b18-language-cleanup.md",
+      "bytes": 946,
+      "sha256": "5dff329fcbe71124dff0e31c8e3ce15f92c8e944b5d3b09c92d672ab0475e486"
+    },
+    {
+      "path": "tests/language-presentation.test.ts",
+      "bytes": 3094,
+      "sha256": "0a19313cbe4b7038b42f8d73b320e71eb201c6e38e66f7a201f0a0b00e669bf4"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/playtests/b18-language-cleanup/.gitattributes",
+      "bytes": 64,
+      "sha256": "928b5a1904f2f9c65000ad275f029da5d4fe0d7b7a2d3e446268358ca621a663"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after-browser.txt",
+      "bytes": 43,
+      "sha256": "f76dafc486cb6d173a86d758e2628c9cfa4cf01fc7b711a5ec1102341ec59699"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after-build-desktop.txt",
+      "bytes": 423,
+      "sha256": "75050014f013f38941007f72ff5db5c92a6cf47d07a20264807012554c481731"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after-build-mobile.txt",
+      "bytes": 421,
+      "sha256": "2c96b9f29ea1199989a6e4bf3bc2954f69fbceb986b333d31b8e982898ed0456"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after-lint-desktop.txt",
+      "bytes": 49,
+      "sha256": "91526960bb95dcdaf6283bf94b32949ed4d61c703f06493d01f9b777a25401f1"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after-lint-mobile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after-parity.txt",
+      "bytes": 250,
+      "sha256": "bb62e0e1b3cc70f6e7961cf9116b0a128d20d28be72d4817f7a7b851399a2641"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after-product-tests.txt",
+      "bytes": 81497,
+      "sha256": "adfa841568718757cf17accdc53904197159d270b8ff5ce5025cf56cd8398151"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after-replay-verification.json",
+      "bytes": 18594,
+      "sha256": "87bc0ff6673056689416e53bceaa6255f92286e42c6957d54e12bc0d31741a8a"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after-replay.txt",
+      "bytes": 205,
+      "sha256": "d818227e580754a2a94ce52f099b1e6e81e9b2d59da3ee5f6b97aa9b34389d1b"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after-ssr-tests.txt",
+      "bytes": 14239,
+      "sha256": "cb9c115368df0d6af117da997c0cc82480e6f17dae7752cdcd04e69696ff07f8"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-bank-terms.png",
+      "bytes": 84478,
+      "sha256": "65341dbe31b81f183a10cda859117025fee916d22b6d93771dc77180d2b9af4d"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-bank-visible.txt",
+      "bytes": 1116,
+      "sha256": "5c97de20e46838b970597de4e8e743245adccff64856f68d0144da79839b5b60"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-bulletin-visible.txt",
+      "bytes": 2405,
+      "sha256": "aca9a727f92e1f6c0252a0530329cf4ff85a02030ef5585ef104106f6a28b178"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-handbook-rule-tab-0-visible.txt",
+      "bytes": 870,
+      "sha256": "5284ea159f9f0ca173c2dac8bbc6e804c125e7d92fe95a33e926e28fa478db5f"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-handbook-rule-tab-1-visible.txt",
+      "bytes": 570,
+      "sha256": "3f8d0e12a5ed2f3775e6870519799e70f0fdcb326f355bb7c45e947071f27aa9"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-handbook-rule-tab-2-visible.txt",
+      "bytes": 569,
+      "sha256": "452c740a2c17b55d61054527b1a370191af1032f057e1dba9637a5b91d2cae3a"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-handbook-rule-tab-3-visible.txt",
+      "bytes": 2026,
+      "sha256": "d2bb2a44ca1eb049af63b2e479526db6859850cc87776ca6fffd728de6871791"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-handbook-rule-tab-4-visible.txt",
+      "bytes": 993,
+      "sha256": "03134a4e52decf6336961f188ba743b140a0489f3c2824911614f3d0d77688e4"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-handbook-rule-tab-5-visible.txt",
+      "bytes": 689,
+      "sha256": "fdb833568d812cfbfebf7e2bea183212662c8c8bdee8528af581d07ebca8e6a6"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-setup-terms.png",
+      "bytes": 94253,
+      "sha256": "b5a08089ffede55110d70d2ef2fbdfa0400a7aeeac779123102526fb6b78a49b"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-setup-visible.txt",
+      "bytes": 1228,
+      "sha256": "238b33df2b47f32aa68484f2bd9af123ddb1a2e5f7e7d0eb8f6584ebdf6dfd60"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-tile-1-visible.txt",
+      "bytes": 336,
+      "sha256": "dd912b0ae3ca0905d0d143071a77d9758b5ecbd9f36cee5ad918c04852ae2e4a"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-tile-2-visible.txt",
+      "bytes": 262,
+      "sha256": "6ae50291403555614143d167654b8ecc349a65803d6f276cd9cf980a70904c99"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-tile-3-visible.txt",
+      "bytes": 361,
+      "sha256": "4aedb5ab05ade58f740c17ed2e946d2b48c86bfa6c4833bd5a996e2b0a64f349"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-tile-4-visible.txt",
+      "bytes": 349,
+      "sha256": "29c33310cd75a10daaeaec8700a1923910c767c58dbd6bc1a25799005f8a45d0"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-tile-5-visible.txt",
+      "bytes": 353,
+      "sha256": "b3b70cee2802bebf8b68e9343cfe588ee14a953b7dd1ef1049a56847df5d1fc8"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-tile-6-visible.txt",
+      "bytes": 222,
+      "sha256": "649a1f97de3cb1fbc2132d8d89f9f9888d23f837ad75492236d672ab2eab1333"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-tile-7-visible.txt",
+      "bytes": 294,
+      "sha256": "6200b9c22696efae4bb930a072bff2f4a069f6babf2fa4f6fe8dad89495a3b69"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-tile-8-visible.txt",
+      "bytes": 289,
+      "sha256": "ba9f33b4ba6065c9be49af32b44e294797379d1c4f62897563e2cadf5f77c36b"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-tile-9-visible.txt",
+      "bytes": 222,
+      "sha256": "bbf95828819794c1d786f976d3dce57df5f02e5418ab91de2b9f443d38ecd168"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-wallet-cashflow.png",
+      "bytes": 87023,
+      "sha256": "3e5836e63895a3f41422799c3e1bc67f934798a186ed3b7b8a217151a435d63f"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-wallet-deposits.png",
+      "bytes": 94791,
+      "sha256": "69cc4a8b1fb9e00132b232b160c0dbb2c76f169341202153ae158692ab816ef3"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/320-wallet-visible.txt",
+      "bytes": 3137,
+      "sha256": "391bf71ce951c0561f449342899689923ce21104999dfee800b42e1fc0ff7d07"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-bank-terms.png",
+      "bytes": 92336,
+      "sha256": "2e1a5a68aab43f71db901abd119ed56bc00a17d74656131bf82bc2a5f6666686"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-bank-visible.txt",
+      "bytes": 1116,
+      "sha256": "5c97de20e46838b970597de4e8e743245adccff64856f68d0144da79839b5b60"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-bulletin-visible.txt",
+      "bytes": 2405,
+      "sha256": "aca9a727f92e1f6c0252a0530329cf4ff85a02030ef5585ef104106f6a28b178"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-handbook-rule-tab-0-visible.txt",
+      "bytes": 870,
+      "sha256": "5284ea159f9f0ca173c2dac8bbc6e804c125e7d92fe95a33e926e28fa478db5f"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-handbook-rule-tab-1-visible.txt",
+      "bytes": 570,
+      "sha256": "3f8d0e12a5ed2f3775e6870519799e70f0fdcb326f355bb7c45e947071f27aa9"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-handbook-rule-tab-2-visible.txt",
+      "bytes": 569,
+      "sha256": "452c740a2c17b55d61054527b1a370191af1032f057e1dba9637a5b91d2cae3a"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-handbook-rule-tab-3-visible.txt",
+      "bytes": 2026,
+      "sha256": "d2bb2a44ca1eb049af63b2e479526db6859850cc87776ca6fffd728de6871791"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-handbook-rule-tab-4-visible.txt",
+      "bytes": 993,
+      "sha256": "03134a4e52decf6336961f188ba743b140a0489f3c2824911614f3d0d77688e4"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-handbook-rule-tab-5-visible.txt",
+      "bytes": 689,
+      "sha256": "fdb833568d812cfbfebf7e2bea183212662c8c8bdee8528af581d07ebca8e6a6"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-setup-terms.png",
+      "bytes": 103358,
+      "sha256": "1f47a78fb0d5b2d0d1867a93fc72a7746020ce5aff68dbd0f28f482c472a1986"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-setup-visible.txt",
+      "bytes": 1228,
+      "sha256": "238b33df2b47f32aa68484f2bd9af123ddb1a2e5f7e7d0eb8f6584ebdf6dfd60"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-tile-1-visible.txt",
+      "bytes": 336,
+      "sha256": "dd912b0ae3ca0905d0d143071a77d9758b5ecbd9f36cee5ad918c04852ae2e4a"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-tile-2-visible.txt",
+      "bytes": 262,
+      "sha256": "6ae50291403555614143d167654b8ecc349a65803d6f276cd9cf980a70904c99"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-tile-3-visible.txt",
+      "bytes": 361,
+      "sha256": "4aedb5ab05ade58f740c17ed2e946d2b48c86bfa6c4833bd5a996e2b0a64f349"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-tile-4-visible.txt",
+      "bytes": 349,
+      "sha256": "29c33310cd75a10daaeaec8700a1923910c767c58dbd6bc1a25799005f8a45d0"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-tile-5-visible.txt",
+      "bytes": 353,
+      "sha256": "b3b70cee2802bebf8b68e9343cfe588ee14a953b7dd1ef1049a56847df5d1fc8"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-tile-6-visible.txt",
+      "bytes": 222,
+      "sha256": "649a1f97de3cb1fbc2132d8d89f9f9888d23f837ad75492236d672ab2eab1333"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-tile-7-visible.txt",
+      "bytes": 294,
+      "sha256": "6200b9c22696efae4bb930a072bff2f4a069f6babf2fa4f6fe8dad89495a3b69"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-tile-8-visible.txt",
+      "bytes": 289,
+      "sha256": "ba9f33b4ba6065c9be49af32b44e294797379d1c4f62897563e2cadf5f77c36b"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-tile-9-visible.txt",
+      "bytes": 222,
+      "sha256": "bbf95828819794c1d786f976d3dce57df5f02e5418ab91de2b9f443d38ecd168"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-wallet-cashflow.png",
+      "bytes": 91839,
+      "sha256": "f3acb29f02f8ea53c81de383ad83b19b815ccd89a96f02fe3e1c6c7ea41d6be4"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-wallet-deposits.png",
+      "bytes": 97881,
+      "sha256": "d2c4a4566c0616f88bc53744188f5a72311929f37e5e42d4360b396870efeac3"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/390-wallet-visible.txt",
+      "bytes": 3137,
+      "sha256": "391bf71ce951c0561f449342899689923ce21104999dfee800b42e1fc0ff7d07"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/browser-checks.json",
+      "bytes": 7448,
+      "sha256": "e2505848c3e928ff19b97e77eec530d2840e7746696ebe21a19dd52ca44cd89e"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/desktop-bank-terms.png",
+      "bytes": 288652,
+      "sha256": "c790c3844543a5c870938e7eaf21ae21145686cd561db0ca1b13409ac2dbd744"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/desktop-bank-visible.txt",
+      "bytes": 1256,
+      "sha256": "b618d18f83da1a092cd121df9943f506e203ebbc7e17a2f4c5d0ded1bc1c1526"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/desktop-setup-terms.png",
+      "bytes": 125248,
+      "sha256": "d3ebd3b7db0898e5d87ab5598b4f7981c372ab0faeec822d07714e6de0c72642"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/desktop-setup-visible.txt",
+      "bytes": 2018,
+      "sha256": "b35d7e72cc835a042aed29698d769d0da3777e8a270c99efec6dc8552d90ad75"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/desktop-wallet-cashflow.png",
+      "bytes": 109591,
+      "sha256": "f21cd540a3d7e5e894a105ad9b4e77e4ab1ff65867fd4ec8a2f53a1f350fbbb5"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/desktop-wallet-deposits.png",
+      "bytes": 110880,
+      "sha256": "476f7d2c9ad19e5e239c7dbf8b3d0371756a09ec29011b566681b18132daaacc"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/after/desktop-wallet-visible.txt",
+      "bytes": 4822,
+      "sha256": "6d20dcc655c312e7e4c0a3b84462b43fe796f78a8bca42007093693addcaa053"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before-language-audit.json",
+      "bytes": 34982,
+      "sha256": "23ecedde773ae27deb08541a27cb7f5d81aadda7f93a0dcb73719bb415c1fce3"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/320-bank-terms.png",
+      "bytes": 82585,
+      "sha256": "839d21098546b10c9598c4e54a1934cbd95841d6717fdb733e54b8cc8df5cac4"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/320-bank-visible.txt",
+      "bytes": 631,
+      "sha256": "035be36be78f690c1b12bfb02da369fbba44bdc8c6e67fdc0b66d561340147f9"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/320-setup-terms.png",
+      "bytes": 85921,
+      "sha256": "5fb8cc5918ef795636714c2f7e351c2ef32bae95668088cb30110b1f2006afeb"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/320-setup-visible.txt",
+      "bytes": 783,
+      "sha256": "009eedeb263bd50a853bb7071c7a8a21d46c41af31d0fd99f5c61c0b18d958b9"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/320-wallet-cashflow.png",
+      "bytes": 86281,
+      "sha256": "7ce58b8770abcb1269bebae542e7d3890d6ef9cc0aaf088a43634b0c58ee4109"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/320-wallet-deposits.png",
+      "bytes": 92498,
+      "sha256": "9a909eb814aca3ac06970d9b7f7d2f0405b5caa1716af773a5eb34c9840ce55b"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/320-wallet-visible.txt",
+      "bytes": 2448,
+      "sha256": "aa5e552503bbd28a8ec6fc9c324122823e767d035e40d358e50336e8e3fabf4e"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/390-bank-terms.png",
+      "bytes": 87947,
+      "sha256": "fd46c36fc6f178f08a595ed45078638cbf3b9f13e9fff1a87e0173af233550b3"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/390-bank-visible.txt",
+      "bytes": 631,
+      "sha256": "035be36be78f690c1b12bfb02da369fbba44bdc8c6e67fdc0b66d561340147f9"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/390-setup-terms.png",
+      "bytes": 93853,
+      "sha256": "53b64d0e4ff257af7e1be54a5afae379883bf332ad11ff6d6acbcc4b433ac09b"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/390-setup-visible.txt",
+      "bytes": 783,
+      "sha256": "009eedeb263bd50a853bb7071c7a8a21d46c41af31d0fd99f5c61c0b18d958b9"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/390-wallet-cashflow.png",
+      "bytes": 94237,
+      "sha256": "a0430c3dacd7395019ec474f2c48230b028715e72bb2bf8f2fcfb975d1a96b31"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/390-wallet-deposits.png",
+      "bytes": 99626,
+      "sha256": "c99b38a58b081ae5422eca970a4821281cf7a4e02f1fbdd4a4301a9b8d1f77e0"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/390-wallet-visible.txt",
+      "bytes": 2448,
+      "sha256": "aa5e552503bbd28a8ec6fc9c324122823e767d035e40d358e50336e8e3fabf4e"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/browser-checks.json",
+      "bytes": 3330,
+      "sha256": "f130df2c8b4e49dfd03835cf58a22fb1d6ac8cfc64c1cb9b19e4781ef516ab9b"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/desktop-bank-terms.png",
+      "bytes": 287345,
+      "sha256": "aee8ff90ad288a7dd8f255ed3368c8350fa94d53956d7d9dd1d1a5d8add778bf"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/desktop-bank-visible.txt",
+      "bytes": 993,
+      "sha256": "2b3c93a0c952b3c4ea51ca532827e48a7f3829f8c290ec5a61eb472ec4547b21"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/desktop-setup-terms.png",
+      "bytes": 98301,
+      "sha256": "37adc1ef5efda2225a980914dc198ee49eeba2cab269b1fde0d2409a781916e0"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/desktop-setup-visible.txt",
+      "bytes": 1767,
+      "sha256": "d8cf659099fec159649ff9ba147f43177b82a9e5de10d6b11d16bf31deee21fb"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/desktop-wallet-cashflow.png",
+      "bytes": 132959,
+      "sha256": "3e3f8b74ea8f490a6ebd4af6725795004de260c7765ade5af2f1bf13603b1ce9"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/desktop-wallet-deposits.png",
+      "bytes": 132959,
+      "sha256": "3e3f8b74ea8f490a6ebd4af6725795004de260c7765ade5af2f1bf13603b1ce9"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/before/desktop-wallet-visible.txt",
+      "bytes": 3747,
+      "sha256": "f4be60e3be0d4f521055af880bb4991e1f0c72a97d8d4a08876ead76ccd9b810"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/language-audit.json",
+      "bytes": 1744,
+      "sha256": "a82f41075b3604712e259b102728073053bd34b0d47b02762b0c37f3239a70fb"
+    },
+    {
+      "path": "docs/playtests/b18-language-cleanup/rendered-language-audit.json",
+      "bytes": 2241,
+      "sha256": "508118f1112bb6d973145ff6499128d04f0a7027865927597de097e4cece7a9e"
+    }
+  ]
+}

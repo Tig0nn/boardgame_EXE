@@ -1,0 +1,445 @@
+{
+  "checks": [
+    {
+      "label": "320-invalid-import-vietnamese",
+      "friendlyError": true
+    },
+    {
+      "label": "320-bulletin-tap",
+      "width": 320,
+      "scroll": 320,
+      "tip": {
+        "x": 12,
+        "y": 416.546875,
+        "right": 312,
+        "bottom": 549.546875,
+        "height": 133,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-issuer-tap",
+      "width": 320,
+      "scroll": 320,
+      "tip": {
+        "x": 12,
+        "y": 438.734375,
+        "right": 312,
+        "bottom": 529.734375,
+        "height": 91,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-tile-Xuất phát",
+      "width": 320,
+      "scroll": 320,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-tile-Sự kiện",
+      "width": 320,
+      "scroll": 320,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-tile-Trái phiếu",
+      "width": 320,
+      "scroll": 320,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-tile-Biến cố cá nhân",
+      "width": 320,
+      "scroll": 320,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-tile-Đầu tư bản thân",
+      "width": 320,
+      "scroll": 320,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-tile-Vàng",
+      "width": 320,
+      "scroll": 320,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-tile-Ngân hàng",
+      "width": 320,
+      "scroll": 320,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-tile-Kinh doanh",
+      "width": 320,
+      "scroll": 320,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-tile-Cổ phiếu",
+      "width": 320,
+      "scroll": 320,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-all-nine-tile-types",
+      "types": [
+        "Xuất phát",
+        "Sự kiện",
+        "Trái phiếu",
+        "Biến cố cá nhân",
+        "Đầu tư bản thân",
+        "Vàng",
+        "Ngân hàng",
+        "Kinh doanh",
+        "Cổ phiếu"
+      ],
+      "unchangedState": true
+    },
+    {
+      "label": "320-bond-face-value",
+      "width": 320,
+      "scroll": 320,
+      "tip": {
+        "x": 12,
+        "y": 443.203125,
+        "right": 312,
+        "bottom": 534.203125,
+        "height": 91,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-bond-scroll-rating",
+      "width": 320,
+      "scroll": 320,
+      "tip": {
+        "x": 12,
+        "y": 482.625,
+        "right": 312,
+        "bottom": 573.625,
+        "height": 91,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-tooltip-on-scroll",
+      "width": 320,
+      "scroll": 320,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "320-full-glossary",
+      "width": 320,
+      "scroll": 320,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-invalid-import-vietnamese",
+      "friendlyError": true
+    },
+    {
+      "label": "390-bulletin-tap",
+      "width": 390,
+      "scroll": 390,
+      "tip": {
+        "x": 82,
+        "y": 416.796875,
+        "right": 382,
+        "bottom": 549.796875,
+        "height": 133,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-issuer-tap",
+      "width": 390,
+      "scroll": 390,
+      "tip": {
+        "x": 82,
+        "y": 416.796875,
+        "right": 382,
+        "bottom": 507.796875,
+        "height": 91,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-tile-Xuất phát",
+      "width": 390,
+      "scroll": 390,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-tile-Sự kiện",
+      "width": 390,
+      "scroll": 390,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-tile-Trái phiếu",
+      "width": 390,
+      "scroll": 390,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-tile-Biến cố cá nhân",
+      "width": 390,
+      "scroll": 390,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-tile-Đầu tư bản thân",
+      "width": 390,
+      "scroll": 390,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-tile-Vàng",
+      "width": 390,
+      "scroll": 390,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-tile-Ngân hàng",
+      "width": 390,
+      "scroll": 390,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-tile-Kinh doanh",
+      "width": 390,
+      "scroll": 390,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-tile-Cổ phiếu",
+      "width": 390,
+      "scroll": 390,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-all-nine-tile-types",
+      "types": [
+        "Xuất phát",
+        "Sự kiện",
+        "Trái phiếu",
+        "Biến cố cá nhân",
+        "Đầu tư bản thân",
+        "Vàng",
+        "Ngân hàng",
+        "Kinh doanh",
+        "Cổ phiếu"
+      ],
+      "unchangedState": true
+    },
+    {
+      "label": "390-bond-face-value",
+      "width": 390,
+      "scroll": 390,
+      "tip": {
+        "x": 52,
+        "y": 444.125,
+        "right": 352,
+        "bottom": 535.125,
+        "height": 91,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-bond-scroll-rating",
+      "width": 390,
+      "scroll": 390,
+      "tip": {
+        "x": 39,
+        "y": 501.515625,
+        "right": 339,
+        "bottom": 592.515625,
+        "height": 91,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-tooltip-on-scroll",
+      "width": 390,
+      "scroll": 390,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "390-full-glossary",
+      "width": 390,
+      "scroll": 390,
+      "tip": null,
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "desktop-hover",
+      "width": 1440,
+      "scroll": 1440,
+      "tip": {
+        "x": 737.5,
+        "y": 547.65625,
+        "right": 1037.5,
+        "bottom": 680.65625,
+        "height": 133,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "desktop-tab-focus",
+      "width": 1440,
+      "scroll": 1440,
+      "tip": {
+        "x": 737.5,
+        "y": 547.65625,
+        "right": 1037.5,
+        "bottom": 680.65625,
+        "height": 133,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "desktop-bond-modal",
+      "width": 1440,
+      "scroll": 1440,
+      "tip": {
+        "x": 500,
+        "y": 773.625,
+        "right": 800,
+        "bottom": 906.625,
+        "height": 133,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "delayed-credit-summary",
+      "width": 390,
+      "scroll": 390,
+      "tip": {
+        "x": 35,
+        "y": 471.25,
+        "right": 335,
+        "bottom": 604.25,
+        "height": 133,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "defaulted-credit-summary",
+      "width": 390,
+      "scroll": 390,
+      "tip": {
+        "x": 35,
+        "y": 599.875,
+        "right": 335,
+        "bottom": 732.875,
+        "height": 133,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    },
+    {
+      "label": "wide-mobile-result-glossary",
+      "width": 1440,
+      "scroll": 1440,
+      "tip": {
+        "x": 601.5625,
+        "y": 392.234375,
+        "right": 901.5625,
+        "bottom": 546.234375,
+        "height": 154,
+        "font": "14px",
+        "color": "rgb(23, 61, 56)"
+      },
+      "overlaps": 0,
+      "dialogOverflow": false
+    }
+  ],
+  "errors": [],
+  "realUi": true,
+  "financialStateUnchanged": true
+}

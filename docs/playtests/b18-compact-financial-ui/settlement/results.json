@@ -1,0 +1,133 @@
+{
+  "method": "Legal engine continuation from archived UI checkpoints. No injected state, no economy changes.",
+  "results": [
+    {
+      "id": "family",
+      "seed": "RELEASE-ASSET-FUND-3",
+      "lap": 1,
+      "replayMatched": true,
+      "paidNow": 0,
+      "paidAtEndOfCurrentLoop": 3500000,
+      "notChargedTwice": true
+    },
+    {
+      "id": "repair",
+      "seed": "RELEASE-ASSET-FUND-3",
+      "lap": 4,
+      "replayMatched": true,
+      "paidNow": 1000000,
+      "paidAtEndOfCurrentLoop": 4000000,
+      "notChargedTwice": true
+    },
+    {
+      "id": "savings-1",
+      "seed": "TRADING-AB-MAIN-0",
+      "lap": 1,
+      "replayMatched": true,
+      "term": 1,
+      "maturityLap": 1,
+      "principal": 10000000,
+      "interest": 400000,
+      "received": 10400000
+    },
+    {
+      "id": "savings-2",
+      "seed": "TRADING-AB-MAIN-0",
+      "lap": 2,
+      "replayMatched": true,
+      "term": 2,
+      "maturityLap": 2,
+      "principal": 10000000,
+      "interest": 1000000,
+      "received": 11000000
+    },
+    {
+      "id": "savings-3",
+      "seed": "TRADING-AB-MAIN-0",
+      "lap": 3,
+      "replayMatched": true,
+      "term": 3,
+      "maturityLap": 3,
+      "principal": 10000000,
+      "interest": 1800000,
+      "received": 11800000
+    },
+    {
+      "id": "bonds-an-tam",
+      "seed": "B18-UI-TRADES",
+      "lap": 2,
+      "replayMatched": true,
+      "maturityLap": 2,
+      "principalContract": 8000000,
+      "history": [
+        {
+          "lap": 1,
+          "couponDue": 360000,
+          "couponPaid": 360000,
+          "principalDue": 0,
+          "principalPaid": 0,
+          "couponLost": 0,
+          "principalLost": 0,
+          "status": "performing"
+        },
+        {
+          "lap": 2,
+          "couponDue": 360000,
+          "couponPaid": 360000,
+          "principalDue": 8000000,
+          "principalPaid": 8000000,
+          "couponLost": 0,
+          "principalLost": 0,
+          "status": "resolved"
+        }
+      ],
+      "principalPaid": 8000000,
+      "paymentStatus": "resolved"
+    },
+    {
+      "id": "bonds-but-pha",
+      "seed": "B18-UI-TRADES",
+      "lap": 2,
+      "replayMatched": true,
+      "maturityLap": 2,
+      "principalContract": 8000000,
+      "history": [
+        {
+          "lap": 1,
+          "couponDue": 800000,
+          "couponPaid": 800000,
+          "principalDue": 0,
+          "principalPaid": 0,
+          "couponLost": 0,
+          "principalLost": 0,
+          "status": "performing"
+        },
+        {
+          "lap": 2,
+          "couponDue": 800000,
+          "couponPaid": 0,
+          "principalDue": 8000000,
+          "principalPaid": 0,
+          "couponLost": 800000,
+          "principalLost": 4000000,
+          "status": "defaulted"
+        }
+      ],
+      "principalPaid": 0,
+      "paymentStatus": "defaulted"
+    },
+    {
+      "id": "gold-sale",
+      "seed": "B18-UI-TRADES",
+      "lap": 2,
+      "replayMatched": true,
+      "quote": {
+        "gross": 1974376,
+        "spread": 59231,
+        "fee": 19151,
+        "net": 1895994
+      },
+      "cashIncrease": 1895994
+    }
+  ]
+}

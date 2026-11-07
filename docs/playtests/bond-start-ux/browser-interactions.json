@@ -1,0 +1,68 @@
+[
+  {
+    "viewport": {
+      "width": 320,
+      "height": 640
+    },
+    "keyboardDisclosure": true,
+    "focus": {
+      "inside": true,
+      "tag": "SUMMARY",
+      "text": "Chi tiết các khoản trái phiếu"
+    },
+    "tabFocus": {
+      "inside": true,
+      "text": "Chi tiết giao dịch"
+    },
+    "doubleTapStayedInWallet": true,
+    "nextRound": 3
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "keyboardDisclosure": true,
+    "focus": {
+      "inside": true,
+      "tag": "SUMMARY",
+      "text": "Chi tiết các khoản trái phiếu"
+    },
+    "tabFocus": {
+      "inside": true,
+      "text": "Chi tiết giao dịch"
+    },
+    "doubleTapStayedInWallet": true,
+    "nextRound": 3
+  },
+  {
+    "viewport": {
+      "width": 430,
+      "height": 932
+    },
+    "keyboardDisclosure": true,
+    "focus": {
+      "inside": true,
+      "tag": "SUMMARY",
+      "text": "Chi tiết các khoản trái phiếu"
+    },
+    "tabFocus": {
+      "inside": true,
+      "text": "Chi tiết giao dịch"
+    },
+    "doubleTapStayedInWallet": true,
+    "nextRound": 3
+  },
+  {
+    "viewport": {
+      "width": 430,
+      "height": 932
+    },
+    "finalLap": 4,
+    "doubleTapStayedInWallet": true,
+    "resultText": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- img \"Section Play Board\"\n- generic: 04 / 04\n- generic: 🎲 4 Bước\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 72.250.000 ₫\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 72,3 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- generic: \"🎲 Vừa Gieo: 4\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"\n- dialog \"Kết quả hành trình\" [active]:\n  - generic: Vòng 4/4\n  - generic: 🌱\n  - heading \"Thêm một bước trưởng thành\" [level=2]\n  - generic: Nguồn tiền về đích · Sau phí & nợ\n  - strong: 72.250.000 ₫\n  - progressbar \"Tiến độ nguồn tiền về đích\"\n  - generic: 80% mục tiêu\n  - generic: 90.000.000 ₫\n  - paragraph: Còn 17.750.000 ₫ để chạm đích. Thử một chiến lược mới nhé!\n  - button \"Chơi hành trình mới\"\n  - generic \"Nhìn lại hành trình\"\n  - generic \"Chi tiết kết quả & nhật ký\"",
+    "escapeKeepsSummary": true,
+    "forecastDisclosure": true,
+    "rawRecordsDisclosure": true
+  }
+]

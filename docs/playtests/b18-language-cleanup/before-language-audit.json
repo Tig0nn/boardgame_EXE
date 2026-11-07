@@ -1,0 +1,1123 @@
+{
+  "scope": "All UI JSX text, human literals, accessibility copy, read-only presentation selectors and direct rendered lot IDs. Includes English-only alt/title labels; excludes imports, code identifiers, native select values and React keys.",
+  "files": 59,
+  "findings": [
+    {
+      "file": "src/components/Board.tsx",
+      "line": 77,
+      "text": "'Ô Xuất phát (START)'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BondCreditPanel.tsx",
+      "line": 29,
+      "text": "% / START ·",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BondCreditPanel.tsx",
+      "line": 29,
+      "text": "START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BondCreditPanel.tsx",
+      "line": 35,
+      "text": "mỗi START nếu trả đúng hạn",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BondCreditPanel.tsx",
+      "line": 36,
+      "text": "START vòng",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BondCreditPanel.tsx",
+      "line": 48,
+      "text": "START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BondCreditPanel.tsx",
+      "line": 49,
+      "text": "% ở START tiếp theo, có thể sau khi hết ván. Bán từng khoản tại START hoặc khi cần trả chi phí; giá bán có thể thấp hơn vốn. Khoản vỡ nợ tạm ngừng bán.",
+      "matches": [
+        "START",
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BondHoldings.tsx",
+      "line": 15,
+      "text": "lot.id",
+      "reason": "Direct internal lot ID in rendered text"
+    },
+    {
+      "file": "src/components/BondHoldings.tsx",
+      "line": 15,
+      "text": "START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BusinessPanel.tsx",
+      "line": 33,
+      "text": "Thu nhập nền mỗi START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BusinessPanel.tsx",
+      "line": 36,
+      "text": "'Nhận thu nhập tại START. Bán quán khi ghé lại ô Kinh doanh.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BusinessPanel.tsx",
+      "line": 36,
+      "text": "'Nhận thu nhập khi qua START. Chỉ bán toàn quán khi gặp lại ô Kinh doanh ở lượt sau.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BusinessPanel.tsx",
+      "line": 42,
+      "text": "Thu nhập mỗi START hiện tại",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BusinessPanel.tsx",
+      "line": 51,
+      "text": "/START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BusinessPanel.tsx",
+      "line": 53,
+      "text": "/START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BusinessPanel.tsx",
+      "line": 54,
+      "text": "/START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BusinessPanel.tsx",
+      "line": 55,
+      "text": "/START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BusinessPanel.tsx",
+      "line": 64,
+      "text": "kỳ START. Vốn chưa bán không tính vào mục tiêu 90 triệu và không dùng trả khoản thiếu bắt buộc.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/BusinessPanel.tsx",
+      "line": 65,
+      "text": "mỗi tầng trùng sở thích khách hàng. Thu nhập chỉ nhận tại START; thưởng trùng có thể mất khi sở thích đổi.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/CourseChoices.tsx",
+      "line": 11,
+      "text": "/ START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/CourseChoices.tsx",
+      "line": 21,
+      "text": "Lương tăng / START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/CourseChoices.tsx",
+      "line": 23,
+      "text": "START còn lại",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/CourseChoices.tsx",
+      "line": 25,
+      "text": "START nhận lương thêm để bù học phí theo phép tính danh nghĩa.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/CourseChoices.tsx",
+      "line": 26,
+      "text": "Tính danh nghĩa nếu tới đủ START còn lại; chưa cộng lương đã nhận hay chi phí cơ hội/bất ngờ. Đây không phải lợi nhuận bảo đảm hoặc khuyến nghị chọn khóa.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/CourseChoices.tsx",
+      "line": 30,
+      "text": "Không vay mới để học. Lương tăng từ START kế tiếp; học phí không hoàn lại.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/CustomerPreferenceCard.tsx",
+      "line": 18,
+      "text": "/tầng tại START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/Forecast.tsx",
+      "line": 12,
+      "text": "Dự báo gợi ý xu hướng, không đảm bảo. Giá cập nhật tại START và ngay khi có sự kiện kinh tế.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/FundingDialog.tsx",
+      "line": 43,
+      "text": "item.lot.id",
+      "reason": "Direct internal lot ID in rendered text"
+    },
+    {
+      "file": "src/components/FundingDialog.tsx",
+      "line": 44,
+      "text": "lot.id",
+      "reason": "Direct internal lot ID in rendered text"
+    },
+    {
+      "file": "src/components/FundingDialog.tsx",
+      "line": 47,
+      "text": "}% ở kỳ trả kế tiếp; vay tại START cuối cộng lãi ngay vào nợ.`",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/FundingDialog.tsx",
+      "line": 47,
+      "text": "}% tại kỳ trả kế tiếp; vay tại START cuối cộng lãi vào nợ cuối màn.`",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/FundingDialog.tsx",
+      "line": 48,
+      "text": "Kinh doanh không được bán khẩn cấp. Báo giá bán giống tại START. Nếu hết nguồn và hạn mức vay, hành trình kết thúc do mất khả năng thanh toán.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/FundingDialog.tsx",
+      "line": 52,
+      "text": "Vay tại START cuối cộng lãi vào nợ cuối ván; các khoản vay khác chịu lãi ở kỳ trả kế tiếp.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/GameDialogs.tsx",
+      "line": 54,
+      "text": "'Học tự nguyện, chỉ mua một lần. Lương tăng từ START kế tiếp; học phí không hoàn lại.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/GameDialogs.tsx",
+      "line": 55,
+      "text": "'Bạn chọn thời điểm thanh toán; hoãn sẽ tạo nghĩa vụ tại START. '",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/GameDialogs.tsx",
+      "line": 67,
+      "text": "Thứ tự: thị trường → lương → kinh doanh → đáo hạn/lãi trái phiếu định kỳ → nợ/nghĩa vụ → bán tại START → dự báo hoặc kết quả. Cả vòng cuối đều có quyền bán.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/GameDialogs.tsx",
+      "line": 69,
+      "text": "Mở quyền bán tại START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/glossary.ts",
+      "line": 13,
+      "text": "'Ô Xuất phát (START)'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/glossary.ts",
+      "line": 13,
+      "text": "'Mốc quyết toán vòng: lương, thị trường và các khoản đến hạn. Đi ngang START cũng quyết toán theo luật của ván đang chơi.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/glossary.ts",
+      "line": 13,
+      "text": "'Ô Xuất phát (START)'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/InvestmentEncounter.tsx",
+      "line": 23,
+      "text": "Một giao dịch thành công mỗi lần ghé. Giao dịch lỗi không mất lượt; giá chỉ đổi tại START hoặc Sự kiện.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/InvestmentEncounter.tsx",
+      "line": 27,
+      "text": "x.lot.id",
+      "reason": "Direct internal lot ID in rendered text"
+    },
+    {
+      "file": "src/components/MarketDetails.tsx",
+      "line": 43,
+      "text": "START.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/MarketDetails.tsx",
+      "line": 44,
+      "text": "Khoản mua mới: lãi trái phiếu định kỳ tại START vòng",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/MarketDetails.tsx",
+      "line": 44,
+      "text": "; hoàn gốc tại START vòng",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/MarketDetails.tsx",
+      "line": 45,
+      "text": "lot.id",
+      "reason": "Direct internal lot ID in rendered text"
+    },
+    {
+      "file": "src/components/MarketDetails.tsx",
+      "line": 45,
+      "text": "/START đến vòng",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/Portfolio.tsx",
+      "line": 27,
+      "text": "lot.id",
+      "reason": "Direct internal lot ID in rendered text"
+    },
+    {
+      "file": "src/components/Portfolio.tsx",
+      "line": 27,
+      "text": "% lãi mô phỏng/vòng · đáo hạn START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/Portfolio.tsx",
+      "line": 28,
+      "text": "Mua/bán tại ô tài chính theo phiên bản ván; vẫn bán tại START. Khi thiếu tiền bắt buộc, bạn chọn nguồn thanh toán.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/Portfolio.tsx",
+      "line": 30,
+      "text": "Khi qua START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/Portfolio.tsx",
+      "line": 30,
+      "text": "'mỗi START hoàn thành'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/Portfolio.tsx",
+      "line": 30,
+      "text": ". Giá thay đổi tại START và khi có cú sốc kinh tế.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/RebalanceDialog.tsx",
+      "line": 27,
+      "text": "'Ghé ví tại START'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/RebalanceDialog.tsx",
+      "line": 27,
+      "text": "'Quyền bán tại START'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/RebalanceDialog.tsx",
+      "line": 28,
+      "text": "START SAU VÒNG",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/RebalanceDialog.tsx",
+      "line": 29,
+      "text": "'Ghé ví tại START'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/RebalanceDialog.tsx",
+      "line": 29,
+      "text": "'Quyền bán tại START'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/RebalanceDialog.tsx",
+      "line": 33,
+      "text": "item.lot.id",
+      "reason": "Direct internal lot ID in rendered text"
+    },
+    {
+      "file": "src/components/SavingsTerms.tsx",
+      "line": 7,
+      "text": "Kỳ hạn (lần qua START)",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/SavingsTerms.tsx",
+      "line": 10,
+      "text": "}% mỗi START · ${",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/SavingsTerms.tsx",
+      "line": 11,
+      "text": "START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/SavingsTerms.tsx",
+      "line": 11,
+      "text": "% / START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/Setup.tsx",
+      "line": 40,
+      "text": "lần qua START ·",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/Setup.tsx",
+      "line": 41,
+      "text": "Đáo hạn tại START vòng",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/tile-information.ts",
+      "line": 10,
+      "text": "'Mua tại ô; bán tại START hoặc khi cần huy động tiền thanh toán.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/tile-information.ts",
+      "line": 12,
+      "text": "`Qua START nhận lương, cập nhật thị trường và xử lý khoản đến hạn${",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/tile-information.ts",
+      "line": 12,
+      "text": "} START thì xét mục tiêu.`",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/tile-information.ts",
+      "line": 13,
+      "text": "}, chọn kỳ hạn 1/2/3 START. Rút sớm khi thiếu tiền mất lãi chưa nhận; giữ tiền mặt cho nhu cầu trước hạn.`",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/tile-information.ts",
+      "line": 17,
+      "text": "'Hai khóa độc lập: 6 triệu / +2 triệu và 10 triệu / +4 triệu lương mỗi START. Mỗi lần ghé học một khóa bằng tiền mặt, tăng lương từ START kế tiếp; phí không hoàn lại. Có thể bỏ qua.'",
+      "matches": [
+        "START",
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/tile-information.ts",
+      "line": 17,
+      "text": "} triệu lương mỗi START kế tiếp. Chỉ dùng tiền mặt; học phí không hoàn lại. Đã học thì tiếp tục.`",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/tile-information.ts",
+      "line": 18,
+      "text": "'Sự kiện đổi giá thị trường và giá trị quán ngay, kể cả tài sản chưa sở hữu. Xem tác động rồi tiếp tục; cú sốc không lặp lại tại START.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/tile-information.ts",
+      "line": 20,
+      "text": "} Quán tạo dòng tiền tại START nhưng giá bán có thể giảm. Chỉ bán tại ô Kinh doanh; vốn chưa bán không tính vào đích.`",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/tile-information.ts",
+      "line": 22,
+      "text": "'Gặp khoản thu hoặc khoản phải trả theo ván đã lưu. Đọc lựa chọn và thời hạn trước khi quyết định; khoản hẹn được xử lý tại START.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/TradingPanel.tsx",
+      "line": 66,
+      "text": "Thu nhập tại START theo hiện trạng",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/TradingPanel.tsx",
+      "line": 69,
+      "text": "Số START còn lại",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/TradingPanel.tsx",
+      "line": 72,
+      "text": "}/START khi sở hữu; không nhân theo xu hướng hoặc cú sốc kinh tế.`",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/TradingPanel.tsx",
+      "line": 72,
+      "text": "}/START × hệ số xu hướng, cộng điều chỉnh từ cú sốc kinh tế.`",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/TradingPanel.tsx",
+      "line": 78,
+      "text": "; thu nhập START tăng",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/TradingPanel.tsx",
+      "line": 92,
+      "text": "Kỳ hạn (lần qua START)",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/TradingPanel.tsx",
+      "line": 93,
+      "text": "Đến hạn: START vòng",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/TradingPanel.tsx",
+      "line": 96,
+      "text": "START · Phí bán",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/components/TradingPanel.tsx",
+      "line": 107,
+      "text": "lot.id",
+      "reason": "Direct internal lot ID in rendered text"
+    },
+    {
+      "file": "mobile_app/src/components/BoardView.tsx",
+      "line": 57,
+      "text": "\"Main Background\"",
+      "matches": [
+        "Background"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/BoardView.tsx",
+      "line": 72,
+      "text": "\"Playboard Isometric\"",
+      "matches": [
+        "Playboard"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/BondStartSummary.tsx",
+      "line": 28,
+      "text": "Chưa nhận tiền tại START này ·",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/BondStartSummary.tsx",
+      "line": 32,
+      "text": "' từ START trước'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/BondStartSummary.tsx",
+      "line": 42,
+      "text": "lot.id",
+      "reason": "Direct internal lot ID in rendered text"
+    },
+    {
+      "file": "mobile_app/src/components/BondStartSummary.tsx",
+      "line": 45,
+      "text": "đến hạn tại START này",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/BondStartSummary.tsx",
+      "line": 47,
+      "text": "Gốc đến hạn tại START này",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/BondStartSummary.tsx",
+      "line": 53,
+      "text": "Mất được xác nhận tại START này",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/Character3D.tsx",
+      "line": 185,
+      "text": "\"3D Young Student Mascot\"",
+      "matches": [
+        "Student",
+        "Mascot"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/CoreMvpBoard.tsx",
+      "line": 10,
+      "text": "'START'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/CoreMvpBoard.tsx",
+      "line": 38,
+      "text": "'Ô Xuất phát (START)'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/GameResultModal.tsx",
+      "line": 24,
+      "text": "'Đã hoàn thành đủ START và đạt mục tiêu.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/LapSummaryModal.tsx",
+      "line": 20,
+      "text": "\"Tiền thực nhận và đã chi tại START\"",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/LapSummaryModal.tsx",
+      "line": 33,
+      "text": "Đã xử lý các khoản chi tại START.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/LapSummaryModal.tsx",
+      "line": 48,
+      "text": "Ghé ví tại START →",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/MarketNews.tsx",
+      "line": 26,
+      "text": "lần qua START còn lại.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/MarketNews.tsx",
+      "line": 29,
+      "text": "Dự báo không bảo đảm giá tăng. Giá đổi tại START và khi gặp sự kiện kinh tế. Những tình huống dưới đây có thể xuất hiện trong trò chơi, chưa phải sự kiện sắp xảy ra:",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/MarketNews.tsx",
+      "line": 40,
+      "text": "'Giá đầu vòng → sau START'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/MarketNews.tsx",
+      "line": 64,
+      "text": "So sánh giá trước biến động đầu tiên của vòng với giá sau cập nhật START. Các đợt tăng/giảm nối tiếp đã được tính một lần, không cộng lại cú sốc. Lãi trái phiếu định kỳ, thời điểm mua/bán và phí khiến kết quả đầu tư của bạn khác biến động giá.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/MarketNews.tsx",
+      "line": 90,
+      "text": "lần qua START. Bán tại START hoặc để trả khoản thiếu bắt buộc.",
+      "matches": [
+        "START",
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 15,
+      "text": "'START'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 24,
+      "text": "Qua START để quyết toán vòng.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 24,
+      "text": "'Ván lịch sử: mua tại ô, bán tại START hoặc huy động tiền thanh toán hợp lệ.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 25,
+      "text": "Tiết kiệm kỳ hạn 1 / 2 / 3 START: lãi",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 25,
+      "text": "% mỗi START. Khóa học",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 26,
+      "text": "Ngân hàng: gửi một khoản mới mỗi lần ghé, kỳ hạn 1 / 2 / 3 START. Lãi",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 26,
+      "text": "% mỗi START, lãi đơn nhận cuối kỳ; không tự tái tục. Rút sớm khi huy động tiền thanh toán phải rút cả khoản, mất lãi chưa nhận.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 26,
+      "text": "Trái phiếu hiện tại: An Tâm lãi trái phiếu định kỳ 4,5%, Bứt Phá 10%, kỳ hạn 2 START; lãi trái phiếu định kỳ cao đi cùng rủi ro chậm trả/mất vốn. Lãi trái phiếu định kỳ/gốc chưa nhận chưa phải tiền mặt; vỡ nợ không có giá bán; phí bán 1,5%.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 26,
+      "text": "Hai khóa độc lập: cơ bản 6M / +2M và nâng cao 10M / +4M mỗi START, bất kỳ thứ tự. Mỗi khóa học một lần; mỗi lần ghé mua tối đa một khóa bằng tiền mặt hiện có, không vay mới để học. Tăng lương từ START kế tiếp, cộng dồn tới 20M; học phí không hoàn lại. Có thể bỏ qua. Ô Đầu tư bản thân: 5/8/13; ô 16 là Trái phiếu.",
+      "matches": [
+        "START",
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 26,
+      "text": "/START từ lần qua START tiếp theo. Sau mua, ghé lại chỉ tiếp tục.",
+      "matches": [
+        "START",
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 26,
+      "text": "Kinh doanh: mở 20M, nâng 5M/tầng từ lần ghé tiếp theo, tối đa 6 tầng. Nền 3M + 700 nghìn/tầng + 1M/tầng hợp sở thích tại START. Chỉ bán tại ô Kinh doanh; giá chịu thị trường/khấu hao, không tự thanh lý cuối ván.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 27,
+      "text": "Tiền mặt dùng trước; thiếu thì chọn rút tiết kiệm, bán tài sản tài chính hoặc vay phần thiếu trong hạn mức 30M. Vay lãi 10%; vay ở START cuối cộng lãi vào nợ ngay. Kinh doanh không dùng huy động tiền thanh toán. Hết nguồn hợp lệ thì phá sản.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 28,
+      "text": "Thị trường, lương, kinh doanh, đáo hạn/lãi trái phiếu định kỳ và các khoản đến hạn được xử lý theo phiên bản của ván. START vẫn cho bán tài sản tài chính; quán chỉ bán tại ô Kinh doanh. Giá trị huy động hợp lệ trừ nợ và nghĩa vụ; không tự thanh lý tài sản.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 28,
+      "text": "→ nợ/nghĩa vụ → quyền bán tại START.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/RulebookModal.tsx",
+      "line": 28,
+      "text": "START cuối vẫn cho bán tài sản tài chính; Kinh doanh chỉ bán ở ô Kinh doanh. Sau đó xét mục tiêu 90M, không tự bán tài sản, không tính khoản phải thu chưa chắc chắn. Bản tin và báo cáo cuối vòng dùng dữ liệu đã xảy ra, không hứa lợi nhuận.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/Tutorial.tsx",
+      "line": 16,
+      "text": "'Bắt đầu với 50 triệu. Sau 4 START, cần gom đủ 90 triệu sau phí và nợ.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/Tutorial.tsx",
+      "line": 20,
+      "text": "'Qua START nhận lương và các khoản đến hạn. Ô Kinh doanh cho mua, nâng cấp hoặc bán quán. Ô thị trường cho mua hoặc bán đúng loại tài sản. Biến cố có thể đổi giá thị trường hoặc tạo khoản cần thanh toán.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/Tutorial.tsx",
+      "line": 26,
+      "text": "'Ngân hàng: một khoản gửi mới mỗi lần ghé, kỳ hạn 1 / 2 / 3 lần qua START với lãi 4/5/6% mỗi kỳ, lãi đơn nhận cuối hạn; các khoản độc lập, không tự tái tục. Cổ phiếu, vàng, trái phiếu được bán ở ô tương ứng, tại START và huy động tiền thanh toán. Quán chỉ được nâng cấp hoặc bán từ lần ghé ô Kinh doanh sau lượt mua; mỗi lần ghé nâng tối đa một tầng. Quán nhận 3 triệu + 700 nghìn mỗi tầng + 1 triệu mỗi tầng hợp sở thích khách tại START; giá bán chịu thị trường và khấu hao. Giá tài sản có thể giảm. Các mức giá trong trò chơi là mô phỏng, không phải dữ liệu giao dịch thực tế.'",
+      "matches": [
+        "START",
+        "START",
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/Tutorial.tsx",
+      "line": 29,
+      "text": "'Tiền mặt được dùng trước. Phần còn thiếu có thể kết hợp rút toàn khoản tiết kiệm, bán cổ phiếu/trái phiếu/vàng và vay trong hạn mức 30 triệu. Rút sớm mất toàn bộ lãi kỳ hạn chưa trả; tiền thừa vẫn ở ví. Vay chịu lãi 10% ở kỳ trả kế tiếp; vay tại START cuối được cộng lãi vào nợ ngay. Không bán khẩn cấp quán kinh doanh. Hết nguồn thanh toán thì hành trình kết thúc.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/Tutorial.tsx",
+      "line": 61,
+      "text": "'START'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/Tutorial.tsx",
+      "line": 63,
+      "text": "Mua/Bán ở ô · Vẫn bán START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/Tutorial.tsx",
+      "line": 63,
+      "text": "/ START",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/Tutorial.tsx",
+      "line": 63,
+      "text": "'6M / +2M · 10M / +4M mỗi START'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/Tutorial.tsx",
+      "line": 68,
+      "text": "Kỳ hạn 1 / 2 / 3 START: lãi đơn cuối kỳ lần lượt 4% / 10% / 18% tiền gốc. Giá thị trường là dữ liệu hư cấu trong trò chơi; không phải giá giao dịch thực tế.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/components/Tutorial.tsx",
+      "line": 70,
+      "text": "Trái phiếu hiện tại: An Tâm hạng AA, lãi trái phiếu định kỳ 4,5%; Bứt Phá hạng B, lãi trái phiếu định kỳ 10% mỗi START; hai START tới hạn. Xếp hạng tín nhiệm chỉ có trong trò chơi. Giá mua khác mệnh giá; lãi trái phiếu định kỳ tính trên mệnh giá còn giữ. Chậm trả là khoản chờ nhận, chưa vào ví; mất vốn là phần không thu hồi. Nếu vỡ nợ, lãi trái phiếu định kỳ chưa trả mất toàn bộ, gốc chỉ thu hồi 80% / 50% ở START tiếp theo. Bán từng khoản chịu phí 1,5%; tổ chức phát hành vỡ nợ không có giá bán. Cuối vòng 4 chỉ tính tiền đã nhận và giá bán khả dụng, không hứa trả sớm hoặc thu hồi sau ván. Phiên V2.4 đã lưu giữ trái phiếu cũ: lãi trái phiếu định kỳ 5%, không có vỡ nợ ngẫu nhiên.",
+      "matches": [
+        "START",
+        "START",
+        "START"
+      ]
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 46,
+      "text": "Chỉ ô dừng kích hoạt. Sinh hoạt 5 triệu thanh toán khi hoàn thành mỗi START. Tại START: thị trường → lương 14 triệu (+2 triệu cơ bản, +4 triệu nâng cao) → kinh doanh → đáo hạn/lãi trái phiếu định kỳ → sinh hoạt → nợ/nghĩa vụ → quyền bán → dự báo hoặc kết quả.",
+      "matches": [
+        "START",
+        "START"
+      ]
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 46,
+      "text": "Mua hoặc bán tại ô Cổ phiếu, Trái phiếu, Vàng; tối đa một giao dịch thành công mỗi lần ghé. Vẫn được bán tài sản tài chính tại START và huy động tiền thanh toán. Gửi mới tại Ngân hàng. Kinh doanh chỉ bán tại ô Kinh doanh và không bán khẩn cấp. Nâng cấp mở từ lần gặp ô Kinh doanh tiếp theo sau khi mua.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 46,
+      "text": "Hai khóa độc lập: cơ bản 6 triệu / +2 triệu và nâng cao 10 triệu / +4 triệu mỗi START. Mỗi khóa học một lần, mỗi lần ghé mua một khóa bằng tiền mặt hiện có, không vay mới để học. Lương tăng từ START kế tiếp; học phí không hoàn lại. Tiết kiệm mỗi khoản kỳ hạn 1 / 2 / 3 START, lãi mô phỏng 4/5/6% theo kỳ hạn, trả cuối kỳ; rút sớm toàn khoản mất lãi chưa trả.",
+      "matches": [
+        "START",
+        "START",
+        "START"
+      ]
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 46,
+      "text": "Trải nghiệm thị trường tài chính được mô phỏng trong trò chơi. Cú sốc đổi giá ngay; START tính biến động thường từ giá sau cú sốc.",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/game/living-presentation.ts",
+      "line": 8,
+      "text": "'Sinh hoạt mỗi START'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/game/living-presentation.ts",
+      "line": 8,
+      "text": "'Mỗi khi hoàn thành một vòng qua START, nhận lương rồi thanh toán 5 triệu sinh hoạt.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/game/living-presentation.ts",
+      "line": 8,
+      "text": "'Thu cả START vòng 4; không thu lúc bắt đầu ván. Biến cố cá nhân tại ô 4 là chi phí bất ngờ riêng. Bạn tự chọn mức dự phòng phù hợp.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/game/living-presentation.ts",
+      "line": 11,
+      "text": "'Sinh hoạt mỗi START'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/game/living-presentation.ts",
+      "line": 12,
+      "text": "'Mỗi khi hoàn thành một vòng và qua START, bạn nhận lương và tự động thanh toán 7 triệu tiền sinh hoạt.'",
+      "matches": [
+        "START"
+      ]
+    },
+    {
+      "file": "mobile_app/src/game/living-presentation.ts",
+      "line": 16,
+      "text": "'Dừng ở ô Sinh hoạt 4 hoặc 15 cần trả 7 triệu. Đi ngang qua và qua START không thu khoản này.'",
+      "matches": [
+        "START"
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "file": "src/components/glossary.ts",
+      "line": 11,
+      "text": "'Thời điểm thu nhập tăng thêm tích lũy đủ bù số tiền ban đầu đã bỏ ra. Đây là thời gian bù vốn, khác tỷ suất sinh lời (ROI); không phải cam kết lợi nhuận.'",
+      "matches": [
+        "ROI"
+      ],
+      "reason": "Explicit technical explanation / ROI distinction in shared glossary"
+    }
+  ],
+  "intentional": [
+    "Tên thương hiệu, tên doanh nghiệp và mã cổ phiếu giữ nguyên.",
+    "JSON là tên định dạng tải/nhập; payload xuất/nhập nguyên bản.",
+    "AA/B/CCC/D là mã xếp hạng mô phỏng; B18/C20 và phiên bản xác định ván lịch sử.",
+    "Tên tiếng Anh đối chiếu trong mục glossary mở rộng. START chỉ là tên kỹ thuật trong giải thích từ điển, không phải nhãn ô.",
+    "IDs trong key/value/DOM hooks/callback không phải nhãn hiển thị; dữ liệu engine/log/replay không được dịch."
+  ]
+}

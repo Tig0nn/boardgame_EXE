@@ -1,0 +1,39 @@
+{
+  "format": "b18-mobile-only-addendum-integrity-v1",
+  "date": "2026-10-20",
+  "originalQaCommit": "6cebf7df0b07f1de15601444066f388c949dc280",
+  "candidateSourceSha": "927e53e2189bd6d901ed494791d9dc7e912358a6",
+  "verdict": "CONDITIONAL GO",
+  "preserved": [
+    {
+      "path": "docs/B18_MVP_RELEASE_READINESS_REPORT.md",
+      "bytes": 18317,
+      "sha256": "32c2c8f70e0d006fde3d223ca04e057145cf53a55505cf11645f971a34151803"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/manifest.json",
+      "bytes": 176647,
+      "sha256": "f8e6f90ddda7c08075de65992afdf70a3e91959041c77c0c032c92f4a68395b3"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "docs/B18_MVP_MOBILE_ONLY_RELEASE_ADDENDUM.md",
+      "bytes": 15541,
+      "sha256": "68a42b7cc020b401abc54cd2f168e2f4c553a9b7cc79af801a1745c059e8b202"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/playtests/b18-mobile-only-readiness/assessment.json",
+      "bytes": 3363,
+      "sha256": "30efdb9ca317fa1044306f17b4607f9f75381d5f0ffd489aee36e4d2daa6e477"
+    },
+    {
+      "path": "docs/playtests/b18-mobile-only-readiness/evidence-integrity.txt",
+      "bytes": 123,
+      "sha256": "46c258f3afeda9b414f08dcdc9643192f80cde9d10efcaaf08bdd0d60372c485"
+    }
+  ],
+  "hashing": "Addendum source UTF8 LF-normalized; artifacts and preserved files raw SHA256. Original QA verifier checks all 827 archived QA artifacts and 471 earlier artifacts."
+}

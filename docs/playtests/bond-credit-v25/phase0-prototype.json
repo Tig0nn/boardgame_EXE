@@ -1,0 +1,183 @@
+{
+  "model": "instrument-only-two-START-v1",
+  "seedPrefix": "bond-prototype-v1:",
+  "seeds": 50000,
+  "bank": {
+    "term1TwoStarts": 0.08,
+    "term2": 0.1,
+    "earlyWithdrawalInterest": 0
+  },
+  "candidates": [
+    {
+      "id": "initial-3-8",
+      "coupons": [
+        0.03,
+        0.08
+      ]
+    },
+    {
+      "id": "liquidity-4.5-9",
+      "coupons": [
+        0.045,
+        0.09
+      ]
+    },
+    {
+      "id": "liquidity-4.5-10",
+      "coupons": [
+        0.045,
+        0.1
+      ]
+    },
+    {
+      "id": "moderate-credit-4.5-10",
+      "coupons": [
+        0.045,
+        0.1
+      ],
+      "moderate": true
+    }
+  ],
+  "risks": [
+    {
+      "delay": 0.035,
+      "default": 0.005,
+      "recover": 0.8,
+      "cure": 0.75
+    },
+    {
+      "delay": 0.16,
+      "default": 0.045,
+      "recover": 0.5,
+      "cure": 0.55
+    }
+  ],
+  "rows": [
+    {
+      "candidate": "initial-3-8",
+      "issuer": "A",
+      "seeds": 50000,
+      "coupon": 0.03,
+      "meanReturn": 0.032582599999966,
+      "medianReturn": 0.06000000000000005,
+      "p05": -0.23124999999999996,
+      "lossRate": 0.06858,
+      "delayRate": 0.07938,
+      "defaultRate": 0.01994,
+      "meanCouponReceived": 0.05732580000007314,
+      "illiquidAtMaturity": 0.01006,
+      "recoveryFractionNextStart": 0.8
+    },
+    {
+      "candidate": "initial-3-8",
+      "issuer": "B",
+      "seeds": 50000,
+      "coupon": 0.08,
+      "meanReturn": -0.05714595000005189,
+      "medianReturn": 0.15999999999999992,
+      "p05": -0.92,
+      "lossRate": 0.31362,
+      "delayRate": 0.30566,
+      "defaultRate": 0.12342,
+      "meanCouponReceived": 0.12416319999991304,
+      "illiquidAtMaturity": 0.06488,
+      "recoveryFractionNextStart": 0.5
+    },
+    {
+      "candidate": "liquidity-4.5-9",
+      "issuer": "A",
+      "seeds": 50000,
+      "coupon": 0.045,
+      "meanReturn": 0.06124550000001852,
+      "medianReturn": 0.09000000000000008,
+      "p05": -0.21624999999999994,
+      "lossRate": 0.06858,
+      "delayRate": 0.07938,
+      "defaultRate": 0.01994,
+      "meanCouponReceived": 0.08598870000009662,
+      "illiquidAtMaturity": 0.01006,
+      "recoveryFractionNextStart": 0.8
+    },
+    {
+      "candidate": "liquidity-4.5-9",
+      "issuer": "B",
+      "seeds": 50000,
+      "coupon": 0.09,
+      "meanReturn": -0.04162554999993868,
+      "medianReturn": 0.17999999999999994,
+      "p05": -0.91,
+      "lossRate": 0.31362,
+      "delayRate": 0.30566,
+      "defaultRate": 0.12342,
+      "meanCouponReceived": 0.13968360000013327,
+      "illiquidAtMaturity": 0.06488,
+      "recoveryFractionNextStart": 0.5
+    },
+    {
+      "candidate": "liquidity-4.5-10",
+      "issuer": "A",
+      "seeds": 50000,
+      "coupon": 0.045,
+      "meanReturn": 0.06124550000001852,
+      "medianReturn": 0.09000000000000008,
+      "p05": -0.21624999999999994,
+      "lossRate": 0.06858,
+      "delayRate": 0.07938,
+      "defaultRate": 0.01994,
+      "meanCouponReceived": 0.08598870000009662,
+      "illiquidAtMaturity": 0.01006,
+      "recoveryFractionNextStart": 0.8
+    },
+    {
+      "candidate": "liquidity-4.5-10",
+      "issuer": "B",
+      "seeds": 50000,
+      "coupon": 0.1,
+      "meanReturn": -0.026105150000124075,
+      "medianReturn": 0.19999999999999996,
+      "p05": -0.9,
+      "lossRate": 0.31362,
+      "delayRate": 0.30566,
+      "defaultRate": 0.12342,
+      "meanCouponReceived": 0.15520400000017437,
+      "illiquidAtMaturity": 0.06488,
+      "recoveryFractionNextStart": 0.5
+    },
+    {
+      "candidate": "moderate-credit-4.5-10",
+      "issuer": "A",
+      "seeds": 50000,
+      "coupon": 0.045,
+      "meanReturn": 0.06124550000001852,
+      "medianReturn": 0.09000000000000008,
+      "p05": -0.21624999999999994,
+      "lossRate": 0.06858,
+      "delayRate": 0.07938,
+      "defaultRate": 0.01994,
+      "meanCouponReceived": 0.08598870000009662,
+      "illiquidAtMaturity": 0.01006,
+      "recoveryFractionNextStart": 0.8
+    },
+    {
+      "candidate": "moderate-credit-4.5-10",
+      "issuer": "B",
+      "seeds": 50000,
+      "coupon": 0.1,
+      "meanReturn": 0.044990004999916657,
+      "medianReturn": 0.19999999999999996,
+      "p05": -0.5,
+      "lossRate": 0.21834,
+      "delayRate": 0.20894,
+      "defaultRate": 0.08028,
+      "meanCouponReceived": 0.16929600000023948,
+      "illiquidAtMaturity": 0.0418,
+      "recoveryFractionNextStart": 0.5
+    }
+  ],
+  "limitations": [
+    "No board, salaries, course, debt, trading timing, partial sales or macro tiles.",
+    "Default assets conservatively valued at zero at two-START boundary; next-START recovery reported separately.",
+    "Scenario is equally weighted and common by seed; not empirical credit data.",
+    "Candidate choice must be checked again with the implemented full game."
+  ]
+}

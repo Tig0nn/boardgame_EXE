@@ -1,0 +1,117 @@
+{
+  "type": "development-only-injected-fixture",
+  "url": "http://127.0.0.1:5189/integration-harness.html?fixture=bond-credit-funding",
+  "screenshots": [
+    "320-fixture-funding.jpg",
+    "390-fixture-funding.jpg",
+    "430-fixture-funding.jpg",
+    "320-fixture-funding-debt.jpg",
+    "390-fixture-funding-debt.jpg",
+    "430-fixture-funding-debt.jpg",
+    "320-fixture-funding-complete.jpg",
+    "390-fixture-funding-complete.jpg",
+    "430-fixture-funding-complete.jpg"
+  ],
+  "layouts": [
+    {
+      "name": "funding",
+      "dialogs": [
+        {
+          "clientWidth": 269,
+          "scrollWidth": 269
+        }
+      ],
+      "documentWidth": 320,
+      "height": 640,
+      "width": 320
+    },
+    {
+      "name": "funding",
+      "dialogs": [
+        {
+          "clientWidth": 337,
+          "scrollWidth": 337
+        }
+      ],
+      "documentWidth": 390,
+      "height": 844,
+      "width": 390
+    },
+    {
+      "name": "funding",
+      "dialogs": [
+        {
+          "clientWidth": 377,
+          "scrollWidth": 377
+        }
+      ],
+      "documentWidth": 430,
+      "height": 932,
+      "width": 430
+    },
+    {
+      "name": "funding-debt",
+      "dialogs": [
+        {
+          "clientWidth": 269,
+          "scrollWidth": 269
+        }
+      ],
+      "documentWidth": 320,
+      "height": 640,
+      "width": 320
+    },
+    {
+      "name": "funding-debt",
+      "dialogs": [
+        {
+          "clientWidth": 352,
+          "scrollWidth": 352
+        }
+      ],
+      "documentWidth": 390,
+      "height": 844,
+      "width": 390
+    },
+    {
+      "name": "funding-debt",
+      "dialogs": [
+        {
+          "clientWidth": 392,
+          "scrollWidth": 392
+        }
+      ],
+      "documentWidth": 430,
+      "height": 932,
+      "width": 430
+    },
+    {
+      "name": "funding-complete",
+      "dialogs": [],
+      "documentWidth": 320,
+      "height": 640,
+      "width": 320
+    },
+    {
+      "name": "funding-complete",
+      "dialogs": [],
+      "documentWidth": 390,
+      "height": 844,
+      "width": 390
+    },
+    {
+      "name": "funding-complete",
+      "dialogs": [],
+      "documentWidth": 430,
+      "height": 932,
+      "width": 430
+    }
+  ],
+  "checks": {
+    "invalidDisabled": true,
+    "doubleTapSingle": true,
+    "defaultExcluded": true,
+    "combinedFundingPaid": true,
+    "finalDebt": 374750
+  }
+}

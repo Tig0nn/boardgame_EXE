@@ -1,0 +1,950 @@
+{
+  "seedCount": 10000,
+  "totalGames": 180000,
+  "elapsedSeconds": 257.829,
+  "seedPattern": "XVTL-LOTS-V24-0..N-1",
+  "rules": "V2.4 / Experimental B / C20 / vn-v1",
+  "comparison": "A minus B; B only suppresses a new Bank deposit while any lot is active; production rules unchanged",
+  "initialTerm": 3,
+  "cashSampling": "before each roll",
+  "confidenceIntervals": "paired normal 95%, descriptive; no multiple-comparison adjustment",
+  "globalConfigUnchanged": true,
+  "results": [
+    {
+      "strategy": "reserve-saver",
+      "initialSavings": 0,
+      "seedCount": 10000,
+      "identicalPaths": 10000,
+      "A": {
+        "won": 0.5374,
+        "insolvent": 0,
+        "lawfulProceeds": 90602949.2204,
+        "earlyWithdrawals": 0.089,
+        "interestForfeited": 530568.0552,
+        "averageUninvestedCash": 31652989.05776933,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 2.0464,
+        "choices": 25.5724,
+        "depositOpportunities": 2.1781,
+        "bankUtilization": 0.9394481935454253
+      },
+      "B": {
+        "won": 0.5209,
+        "insolvent": 0,
+        "lawfulProceeds": 89981556.4057,
+        "earlyWithdrawals": 0.0251,
+        "interestForfeited": 152501.5158,
+        "averageUninvestedCash": 35528474.67672626,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 1.1285,
+        "choices": 25.5085,
+        "depositOpportunities": 1.1285,
+        "bankUtilization": 0.5180645457466831
+      },
+      "paired": {
+        "won": {
+          "meanDelta": 0.0165,
+          "normal95": [
+            0.01325381790254752,
+            0.01974618209745248
+          ]
+        },
+        "insolvent": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "lawfulProceeds": {
+          "meanDelta": 621392.8147,
+          "normal95": [
+            589869.5491281878,
+            652916.0802718122
+          ]
+        },
+        "earlyWithdrawals": {
+          "meanDelta": 0.0639,
+          "normal95": [
+            0.059010869974561876,
+            0.06878913002543811
+          ]
+        },
+        "interestForfeited": {
+          "meanDelta": 378066.5394,
+          "normal95": [
+            348859.7669765728,
+            407273.3118234272
+          ]
+        },
+        "averageUninvestedCash": {
+          "meanDelta": -3875485.6189568792,
+          "normal95": [
+            -3965679.8755039247,
+            -3785291.362409834
+          ]
+        },
+        "bankEncounters": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "bankDeposits": {
+          "meanDelta": 0.9179,
+          "normal95": [
+            0.9008915937053801,
+            0.93490840629462
+          ]
+        },
+        "choices": {
+          "meanDelta": 0.0639,
+          "normal95": [
+            0.059010869974561876,
+            0.06878913002543811
+          ]
+        },
+        "depositOpportunities": {
+          "meanDelta": 1.0496,
+          "normal95": [
+            1.0301926555800094,
+            1.0690073444199908
+          ]
+        }
+      }
+    },
+    {
+      "strategy": "reserve-saver",
+      "initialSavings": 20000000,
+      "seedCount": 10000,
+      "identicalPaths": 10000,
+      "A": {
+        "won": 0.5779,
+        "insolvent": 0,
+        "lawfulProceeds": 91914617.372,
+        "earlyWithdrawals": 0.1155,
+        "interestForfeited": 410724.8942,
+        "averageUninvestedCash": 25755778.80483942,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 2.0216,
+        "choices": 25.5989,
+        "depositOpportunities": 2.1778,
+        "bankUtilization": 0.9280631685259148
+      },
+      "B": {
+        "won": 0.4889,
+        "insolvent": 0,
+        "lawfulProceeds": 89196807.38,
+        "earlyWithdrawals": 0.0018,
+        "interestForfeited": 3905.18,
+        "averageUninvestedCash": 37311850.335777305,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 0.4874,
+        "choices": 25.4852,
+        "depositOpportunities": 0.4874,
+        "bankUtilization": 0.22375246752054354
+      },
+      "paired": {
+        "won": {
+          "meanDelta": 0.089,
+          "normal95": [
+            0.08339813042509257,
+            0.09460186957490742
+          ]
+        },
+        "insolvent": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "lawfulProceeds": {
+          "meanDelta": 2717809.992,
+          "normal95": [
+            2679240.671527183,
+            2756379.312472817
+          ]
+        },
+        "earlyWithdrawals": {
+          "meanDelta": 0.1137,
+          "normal95": [
+            0.10720582198854971,
+            0.12019417801145028
+          ]
+        },
+        "interestForfeited": {
+          "meanDelta": 406819.7142,
+          "normal95": [
+            383647.53509402764,
+            429991.89330597233
+          ]
+        },
+        "averageUninvestedCash": {
+          "meanDelta": -11556071.530937843,
+          "normal95": [
+            -11694458.34273091,
+            -11417684.719144776
+          ]
+        },
+        "bankEncounters": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "bankDeposits": {
+          "meanDelta": 1.5342,
+          "normal95": [
+            1.515097033648411,
+            1.553302966351589
+          ]
+        },
+        "choices": {
+          "meanDelta": 0.1137,
+          "normal95": [
+            0.10720582198854971,
+            0.12019417801145028
+          ]
+        },
+        "depositOpportunities": {
+          "meanDelta": 1.6904,
+          "normal95": [
+            1.6685948647193634,
+            1.7122051352806364
+          ]
+        }
+      }
+    },
+    {
+      "strategy": "reserve-saver",
+      "initialSavings": 40000000,
+      "seedCount": 10000,
+      "identicalPaths": 10000,
+      "A": {
+        "won": 0.5613,
+        "insolvent": 0,
+        "lawfulProceeds": 91314900.6908,
+        "earlyWithdrawals": 0.4082,
+        "interestForfeited": 2883341.96,
+        "averageUninvestedCash": 22475501.10970444,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 1.5806,
+        "choices": 25.8916,
+        "depositOpportunities": 2.1687,
+        "bankUtilization": 0.725611715558004
+      },
+      "B": {
+        "won": 0.5566,
+        "insolvent": 0,
+        "lawfulProceeds": 90991845.8887,
+        "earlyWithdrawals": 0.3209,
+        "interestForfeited": 2298662.1056,
+        "averageUninvestedCash": 25852822.88912173,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 0.6162,
+        "choices": 25.8043,
+        "depositOpportunities": 0.6162,
+        "bankUtilization": 0.28288114584767937
+      },
+      "paired": {
+        "won": {
+          "meanDelta": 0.0047,
+          "normal95": [
+            0.0011784773154497811,
+            0.008221522684550219
+          ]
+        },
+        "insolvent": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "lawfulProceeds": {
+          "meanDelta": 323054.8021,
+          "normal95": [
+            286286.3823882019,
+            359823.22181179805
+          ]
+        },
+        "earlyWithdrawals": {
+          "meanDelta": 0.0873,
+          "normal95": [
+            0.08165033548743729,
+            0.09294966451256272
+          ]
+        },
+        "interestForfeited": {
+          "meanDelta": 584679.8544,
+          "normal95": [
+            546568.6125508622,
+            622791.0962491377
+          ]
+        },
+        "averageUninvestedCash": {
+          "meanDelta": -3377321.779417338,
+          "normal95": [
+            -3455076.1066664997,
+            -3299567.452168176
+          ]
+        },
+        "bankEncounters": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "bankDeposits": {
+          "meanDelta": 0.9644,
+          "normal95": [
+            0.9481024876783852,
+            0.9806975123216148
+          ]
+        },
+        "choices": {
+          "meanDelta": 0.0873,
+          "normal95": [
+            0.08165033548743729,
+            0.09294966451256272
+          ]
+        },
+        "depositOpportunities": {
+          "meanDelta": 1.5525,
+          "normal95": [
+            1.5303219111336757,
+            1.5746780888663243
+          ]
+        }
+      }
+    },
+    {
+      "strategy": "mixed-investor",
+      "initialSavings": 0,
+      "seedCount": 10000,
+      "identicalPaths": 10000,
+      "A": {
+        "won": 0.5535,
+        "insolvent": 0,
+        "lawfulProceeds": 91632898.1464,
+        "earlyWithdrawals": 0.0123,
+        "interestForfeited": 14779.5792,
+        "averageUninvestedCash": 26608155.07900922,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 2.1338,
+        "choices": 29.5027,
+        "depositOpportunities": 2.1783,
+        "bankUtilization": 0.9795712252674104
+      },
+      "B": {
+        "won": 0.543,
+        "insolvent": 0,
+        "lawfulProceeds": 91295294.7491,
+        "earlyWithdrawals": 0.0074,
+        "interestForfeited": 8505.8328,
+        "averageUninvestedCash": 27831615.902432006,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 1.3595,
+        "choices": 29.6209,
+        "depositOpportunities": 1.3678,
+        "bankUtilization": 0.6241105449203508
+      },
+      "paired": {
+        "won": {
+          "meanDelta": 0.0105,
+          "normal95": [
+            0.008231890480580973,
+            0.012768109519419028
+          ]
+        },
+        "insolvent": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "lawfulProceeds": {
+          "meanDelta": 337603.3973,
+          "normal95": [
+            324907.68922616413,
+            350299.1053738359
+          ]
+        },
+        "earlyWithdrawals": {
+          "meanDelta": 0.0049,
+          "normal95": [
+            0.0034762630084520137,
+            0.006323736991547986
+          ]
+        },
+        "interestForfeited": {
+          "meanDelta": 6273.7464,
+          "normal95": [
+            4277.498606281524,
+            8269.994193718476
+          ]
+        },
+        "averageUninvestedCash": {
+          "meanDelta": -1223460.8234227868,
+          "normal95": [
+            -1258011.9810347075,
+            -1188909.665810866
+          ]
+        },
+        "bankEncounters": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "bankDeposits": {
+          "meanDelta": 0.7743,
+          "normal95": [
+            0.7576777273708937,
+            0.7909222726291063
+          ]
+        },
+        "choices": {
+          "meanDelta": -0.1182,
+          "normal95": [
+            -0.12560254984556143,
+            -0.11079745015443856
+          ]
+        },
+        "depositOpportunities": {
+          "meanDelta": 0.8105,
+          "normal95": [
+            0.7934033857216706,
+            0.8275966142783294
+          ]
+        }
+      }
+    },
+    {
+      "strategy": "mixed-investor",
+      "initialSavings": 20000000,
+      "seedCount": 10000,
+      "identicalPaths": 10000,
+      "A": {
+        "won": 0.5787,
+        "insolvent": 0,
+        "lawfulProceeds": 92080523.5675,
+        "earlyWithdrawals": 0.0338,
+        "interestForfeited": 121680,
+        "averageUninvestedCash": 23670553.280516006,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 2.0884,
+        "choices": 28.7565,
+        "depositOpportunities": 2.1783,
+        "bankUtilization": 0.958729284304274
+      },
+      "B": {
+        "won": 0.5586,
+        "insolvent": 0,
+        "lawfulProceeds": 91466750.9294,
+        "earlyWithdrawals": 0.0138,
+        "interestForfeited": 49680,
+        "averageUninvestedCash": 26067813.57401197,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 0.4933,
+        "choices": 29.1169,
+        "depositOpportunities": 0.4933,
+        "bankUtilization": 0.22646100169857228
+      },
+      "paired": {
+        "won": {
+          "meanDelta": 0.0201,
+          "normal95": [
+            0.016802838395549198,
+            0.0233971616044508
+          ]
+        },
+        "insolvent": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "lawfulProceeds": {
+          "meanDelta": 613772.6381,
+          "normal95": [
+            588544.32207991,
+            639000.95412009
+          ]
+        },
+        "earlyWithdrawals": {
+          "meanDelta": 0.02,
+          "normal95": [
+            0.017040316913519753,
+            0.022959683086480248
+          ]
+        },
+        "interestForfeited": {
+          "meanDelta": 72000,
+          "normal95": [
+            61345.140888671114,
+            82654.85911132889
+          ]
+        },
+        "averageUninvestedCash": {
+          "meanDelta": -2397260.293495995,
+          "normal95": [
+            -2443072.368661795,
+            -2351448.218330195
+          ]
+        },
+        "bankEncounters": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "bankDeposits": {
+          "meanDelta": 1.5951,
+          "normal95": [
+            1.5741539338565187,
+            1.6160460661434812
+          ]
+        },
+        "choices": {
+          "meanDelta": -0.3604,
+          "normal95": [
+            -0.3744651454057869,
+            -0.3463348545942131
+          ]
+        },
+        "depositOpportunities": {
+          "meanDelta": 1.685,
+          "normal95": [
+            1.6631699721710782,
+            1.706830027828922
+          ]
+        }
+      }
+    },
+    {
+      "strategy": "mixed-investor",
+      "initialSavings": 40000000,
+      "seedCount": 10000,
+      "identicalPaths": 10000,
+      "A": {
+        "won": 0.5685,
+        "insolvent": 0,
+        "lawfulProceeds": 91712305.3347,
+        "earlyWithdrawals": 0.3547,
+        "interestForfeited": 2542273.6813,
+        "averageUninvestedCash": 21145601.711601164,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 1.5982,
+        "choices": 28.0402,
+        "depositOpportunities": 2.1683,
+        "bankUtilization": 0.7336914107331405
+      },
+      "B": {
+        "won": 0.5647,
+        "insolvent": 0,
+        "lawfulProceeds": 91557130.0931,
+        "earlyWithdrawals": 0.3293,
+        "interestForfeited": 2365845.4973,
+        "averageUninvestedCash": 22276153.947457485,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 0.6802,
+        "choices": 28.2166,
+        "depositOpportunities": 0.681,
+        "bankUtilization": 0.3122618555754487
+      },
+      "paired": {
+        "won": {
+          "meanDelta": 0.0038,
+          "normal95": [
+            0.0012909551099619552,
+            0.006309044890038045
+          ]
+        },
+        "insolvent": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "lawfulProceeds": {
+          "meanDelta": 155175.2416,
+          "normal95": [
+            132105.84234887979,
+            178244.64085112023
+          ]
+        },
+        "earlyWithdrawals": {
+          "meanDelta": 0.0254,
+          "normal95": [
+            0.022146305793870804,
+            0.028653694206129194
+          ]
+        },
+        "interestForfeited": {
+          "meanDelta": 176428.184,
+          "normal95": [
+            153434.94717538275,
+            199421.42082461726
+          ]
+        },
+        "averageUninvestedCash": {
+          "meanDelta": -1130552.2358562963,
+          "normal95": [
+            -1160334.4569433187,
+            -1100770.0147692738
+          ]
+        },
+        "bankEncounters": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "bankDeposits": {
+          "meanDelta": 0.918,
+          "normal95": [
+            0.9012612220628661,
+            0.934738777937134
+          ]
+        },
+        "choices": {
+          "meanDelta": -0.1764,
+          "normal95": [
+            -0.18803715716956246,
+            -0.16476284283043754
+          ]
+        },
+        "depositOpportunities": {
+          "meanDelta": 1.4873,
+          "normal95": [
+            1.4652505203510633,
+            1.5093494796489368
+          ]
+        }
+      }
+    },
+    {
+      "strategy": "aggressive-saver",
+      "initialSavings": 0,
+      "seedCount": 10000,
+      "identicalPaths": 10000,
+      "A": {
+        "won": 0.4046,
+        "insolvent": 0,
+        "lawfulProceeds": 86821539.16,
+        "earlyWithdrawals": 1.2446,
+        "interestForfeited": 8455395.12,
+        "averageUninvestedCash": 36936943.80493924,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 2.0405,
+        "choices": 26.728,
+        "depositOpportunities": 2.168,
+        "bankUtilization": 0.9367396593673966
+      },
+      "B": {
+        "won": 0.4524,
+        "insolvent": 0,
+        "lawfulProceeds": 87994995.72,
+        "earlyWithdrawals": 0.9699,
+        "interestForfeited": 6602805.12,
+        "averageUninvestedCash": 37610693.89032747,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 1.582,
+        "choices": 26.4533,
+        "depositOpportunities": 1.582,
+        "bankUtilization": 0.7262544185832989
+      },
+      "paired": {
+        "won": {
+          "meanDelta": -0.0478,
+          "normal95": [
+            -0.05219670387518839,
+            -0.04340329612481161
+          ]
+        },
+        "insolvent": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "lawfulProceeds": {
+          "meanDelta": -1173456.56,
+          "normal95": [
+            -1228038.863717094,
+            -1118874.256282906
+          ]
+        },
+        "earlyWithdrawals": {
+          "meanDelta": 0.2747,
+          "normal95": [
+            0.26369478872110447,
+            0.28570521127889553
+          ]
+        },
+        "interestForfeited": {
+          "meanDelta": 1852590,
+          "normal95": [
+            1780232.3433083224,
+            1924947.6566916776
+          ]
+        },
+        "averageUninvestedCash": {
+          "meanDelta": -673750.0853882602,
+          "normal95": [
+            -761728.7626555513,
+            -585771.4081209691
+          ]
+        },
+        "bankEncounters": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "bankDeposits": {
+          "meanDelta": 0.4585,
+          "normal95": [
+            0.44416743753983023,
+            0.4728325624601698
+          ]
+        },
+        "choices": {
+          "meanDelta": 0.2747,
+          "normal95": [
+            0.26369478872110447,
+            0.28570521127889553
+          ]
+        },
+        "depositOpportunities": {
+          "meanDelta": 0.586,
+          "normal95": [
+            0.5693864608945547,
+            0.6026135391054452
+          ]
+        }
+      }
+    },
+    {
+      "strategy": "aggressive-saver",
+      "initialSavings": 20000000,
+      "seedCount": 10000,
+      "identicalPaths": 10000,
+      "A": {
+        "won": 0.4959,
+        "insolvent": 0,
+        "lawfulProceeds": 89593628.32,
+        "earlyWithdrawals": 1.2445,
+        "interestForfeited": 4843928.68,
+        "averageUninvestedCash": 23618288.962984763,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 2.0406,
+        "choices": 26.7279,
+        "depositOpportunities": 2.1679,
+        "bankUtilization": 0.9367855667263463
+      },
+      "B": {
+        "won": 0.4708,
+        "insolvent": 0,
+        "lawfulProceeds": 88693050,
+        "earlyWithdrawals": 0.3293,
+        "interestForfeited": 984558.8,
+        "averageUninvestedCash": 38353916.13228501,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 0.5322,
+        "choices": 25.8127,
+        "depositOpportunities": 0.5322,
+        "bankUtilization": 0.2443189643299821
+      },
+      "paired": {
+        "won": {
+          "meanDelta": 0.0251,
+          "normal95": [
+            0.019978552716211163,
+            0.030221447283788838
+          ]
+        },
+        "insolvent": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "lawfulProceeds": {
+          "meanDelta": 900578.32,
+          "normal95": [
+            846004.9872625368,
+            955151.6527374631
+          ]
+        },
+        "earlyWithdrawals": {
+          "meanDelta": 0.9152,
+          "normal95": [
+            0.8985794673285051,
+            0.9318205326714949
+          ]
+        },
+        "interestForfeited": {
+          "meanDelta": 3859369.88,
+          "normal95": [
+            3786634.1385790333,
+            3932105.6214209665
+          ]
+        },
+        "averageUninvestedCash": {
+          "meanDelta": -14735627.169300228,
+          "normal95": [
+            -14920446.388624704,
+            -14550807.949975753
+          ]
+        },
+        "bankEncounters": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "bankDeposits": {
+          "meanDelta": 1.5084,
+          "normal95": [
+            1.4890383443620825,
+            1.5277616556379174
+          ]
+        },
+        "choices": {
+          "meanDelta": 0.9152,
+          "normal95": [
+            0.8985794673285051,
+            0.9318205326714949
+          ]
+        },
+        "depositOpportunities": {
+          "meanDelta": 1.6357,
+          "normal95": [
+            1.6143953890867206,
+            1.6570046109132792
+          ]
+        }
+      }
+    },
+    {
+      "strategy": "aggressive-saver",
+      "initialSavings": 40000000,
+      "seedCount": 10000,
+      "identicalPaths": 10000,
+      "A": {
+        "won": 0.4624,
+        "insolvent": 0,
+        "lawfulProceeds": 88439415.68,
+        "earlyWithdrawals": 1.5026,
+        "interestForfeited": 8364436.32,
+        "averageUninvestedCash": 23261317.10772008,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 2.0119,
+        "choices": 26.986,
+        "depositOpportunities": 2.1584,
+        "bankUtilization": 0.9236101547077996
+      },
+      "B": {
+        "won": 0.5396,
+        "insolvent": 0,
+        "lawfulProceeds": 90194181.72,
+        "earlyWithdrawals": 0.7842,
+        "interestForfeited": 4411930.24,
+        "averageUninvestedCash": 27284933.055039328,
+        "bankEncounters": 2.1783,
+        "bankDeposits": 0.7651,
+        "choices": 26.2676,
+        "depositOpportunities": 0.7651,
+        "bankUtilization": 0.3512372033236928
+      },
+      "paired": {
+        "won": {
+          "meanDelta": -0.0772,
+          "normal95": [
+            -0.08305541872614128,
+            -0.07134458127385873
+          ]
+        },
+        "insolvent": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "lawfulProceeds": {
+          "meanDelta": -1754766.04,
+          "normal95": [
+            -1821485.5570389132,
+            -1688046.5229610868
+          ]
+        },
+        "earlyWithdrawals": {
+          "meanDelta": 0.7184,
+          "normal95": [
+            0.7013967690077204,
+            0.7354032309922797
+          ]
+        },
+        "interestForfeited": {
+          "meanDelta": 3952506.08,
+          "normal95": [
+            3857179.4274365003,
+            4047832.7325635
+          ]
+        },
+        "averageUninvestedCash": {
+          "meanDelta": -4023615.9473192147,
+          "normal95": [
+            -4183607.5859110313,
+            -3863624.308727398
+          ]
+        },
+        "bankEncounters": {
+          "meanDelta": 0,
+          "normal95": [
+            0,
+            0
+          ]
+        },
+        "bankDeposits": {
+          "meanDelta": 1.2468,
+          "normal95": [
+            1.2267122010621319,
+            1.266887798937868
+          ]
+        },
+        "choices": {
+          "meanDelta": 0.7184,
+          "normal95": [
+            0.7013967690077204,
+            0.7354032309922797
+          ]
+        },
+        "depositOpportunities": {
+          "meanDelta": 1.3933,
+          "normal95": [
+            1.3712106858767086,
+            1.4153893141232914
+          ]
+        }
+      }
+    }
+  ]
+}

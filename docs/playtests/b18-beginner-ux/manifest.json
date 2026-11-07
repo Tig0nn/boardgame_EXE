@@ -1,0 +1,1129 @@
+{
+  "format": "b18-beginner-ux-technical-qa-v1",
+  "date": "2026-10-17",
+  "branch": "codex/mvp-b18-ux-polish",
+  "base": "ba1c8115aa241143053085089132807c48f0bc10",
+  "implementation": "0dc4c40d095f79034e78fcb86ad81c3d209bc80f",
+  "baseline": {
+    "productTests": 334,
+    "ssrTests": 2,
+    "replays": 68,
+    "researchGames": 13,
+    "researchSnapshots": 2306,
+    "lint": true,
+    "desktopBuild": true,
+    "mobileBuild": true
+  },
+  "verified": {
+    "productTests": 339,
+    "ssrTests": 3,
+    "replays": 77,
+    "newUiReplays": 9,
+    "researchGames": 13,
+    "researchSnapshots": 2306,
+    "researchActions": 492,
+    "lint": true,
+    "desktopBuild": true,
+    "mobileBuild": true,
+    "fullUiGames": 5,
+    "sameSessionSaveRegressions": 2,
+    "oldProfilesImported": [
+      "C20/schema5",
+      "B18 single/schema6",
+      "B18 multi/schema7"
+    ],
+    "quotaFailureTest": true,
+    "previousArtifactsUnchanged": 115,
+    "existingReplayHashesUnchanged": 68,
+    "jsErrors": 0,
+    "screenshots": 157,
+    "layoutChecks": 130
+  },
+  "scope": {
+    "engineChanged": false,
+    "economicsChanged": false,
+    "historicalSchemasChanged": false,
+    "technicalQA": true,
+    "humanPlaytest": false,
+    "balanceResearchRerun": false,
+    "merged": false,
+    "deployed": false,
+    "previewReleased": false,
+    "ownerApprovalPending": true
+  },
+  "hashing": "Source UTF8 normalized to LF; artifacts hashed as original bytes, protected by scoped -text attributes",
+  "sourceFiles": [
+    {
+      "path": "docs/B18_MVP_BEGINNER_UX_QA_REPORT.md",
+      "bytes": 12768,
+      "sha256": "0a4b56b8f481df1cba4c0c2176a94ba7dd6b4a31fc22d472b508c482e7db8378"
+    },
+    {
+      "path": "mobile_app/src/App.tsx",
+      "bytes": 9278,
+      "sha256": "1a76a8d51a8deedcd5e6c7e88adc32f1e57787b9a450b1b5e1bad814632541c7"
+    },
+    {
+      "path": "mobile_app/src/components/CoreMvpBoard.tsx",
+      "bytes": 3857,
+      "sha256": "5a2b7ecdad724210e30d7c294bd2a7266c544da1b744148997e25d9fc5acc7b4"
+    },
+    {
+      "path": "mobile_app/src/components/GameResultModal.tsx",
+      "bytes": 2901,
+      "sha256": "6112313cc6efc0cb792fb0776478b4ac2fc3d79d5a0ca14fff09cda5a9aa7bd2"
+    },
+    {
+      "path": "mobile_app/src/components/GameSetup.tsx",
+      "bytes": 4313,
+      "sha256": "283f11ee4f49d777bbb46be12344ea0f84ba01f9c5441270820e5584171b80fe"
+    },
+    {
+      "path": "mobile_app/src/components/TopHud.tsx",
+      "bytes": 1524,
+      "sha256": "3434cbed76c563206206e7e5d7f00d149f7cc58972f4f1c110149d715e795138"
+    },
+    {
+      "path": "mobile_app/src/components/Tutorial.tsx",
+      "bytes": 11112,
+      "sha256": "526bcfa95467ec51773aaea5daa444a5fa73c57b5fd84cdc058303faa308833c"
+    },
+    {
+      "path": "scripts/diagnostics/b18-ux-compat-funding.mjs",
+      "bytes": 7154,
+      "sha256": "761287a2433db8a27c21ddea85260301350998d3ec01612faeecb4ada4e6915b"
+    },
+    {
+      "path": "scripts/diagnostics/b18-ux-desktop-board.mjs",
+      "bytes": 4284,
+      "sha256": "253328bafe6f980b27f50c3698239bec906838e2f26715c03211a820382f22b8"
+    },
+    {
+      "path": "scripts/diagnostics/b18-ux-desktop.mjs",
+      "bytes": 5577,
+      "sha256": "9c0ad28144ce5a0a6db8150ffd1233f5a9e781ae8afc35a35cdf5245999256d0"
+    },
+    {
+      "path": "scripts/diagnostics/b18-ux-games.mjs",
+      "bytes": 14054,
+      "sha256": "da6b3b73792f61b6afed8333dd50510774ae47fe69dfed5432670bd2d36389cb"
+    },
+    {
+      "path": "scripts/diagnostics/b18-ux-screens.mjs",
+      "bytes": 5754,
+      "sha256": "5d2c78d22a1afdf00220f8877e4707f66d2f75b81168e2e696f4ddeb534bd33a"
+    },
+    {
+      "path": "scripts/diagnostics/b18-ux-ui.test.ts",
+      "bytes": 2784,
+      "sha256": "9cff1790e1d0a9a57f66c275d4859ecfd9191967ed75f254716129d55ef6bb12"
+    },
+    {
+      "path": "scripts/diagnostics/multi-course-ui.test.ts",
+      "bytes": 3179,
+      "sha256": "6d7116a094ec39dd7737a39d069230de9a25549bf7864291b26759f0341353bf"
+    },
+    {
+      "path": "scripts/diagnostics/verify-ux-replays.ts",
+      "bytes": 2095,
+      "sha256": "faf9e62ee81b336c9f1208d61a73a8bbb39dea88296aaebf66418651a1dacce6"
+    },
+    {
+      "path": "scripts/verify-b18-ux-evidence.mjs",
+      "bytes": 5571,
+      "sha256": "65e767e5396ce38fb83a3ceafee02f1448ebdc6e42a329fd96b7c56b6e01a717"
+    },
+    {
+      "path": "src/components/Board.tsx",
+      "bytes": 7450,
+      "sha256": "9613b2eb8096108041fd5ff4191e728ba004141d1b9d195fc68eb92c717a7a04"
+    },
+    {
+      "path": "src/components/CourseChoices.tsx",
+      "bytes": 2985,
+      "sha256": "a531c60eeca985a1bf1a252e5f6439fd021c78972ecdb0be7b209464c98a321e"
+    },
+    {
+      "path": "src/components/FinancialReview.tsx",
+      "bytes": 642,
+      "sha256": "eb66ea18a6981dd9d135aebbbd0245e12526ec506255cc3573efd4d010dbcf28"
+    },
+    {
+      "path": "src/components/GameDialogs.tsx",
+      "bytes": 11406,
+      "sha256": "2b7967d419fb315ba8a00e498f2fd9362f093882c61bf1685e70b3ddfccc5ad5"
+    },
+    {
+      "path": "src/components/GoalChecks.tsx",
+      "bytes": 1237,
+      "sha256": "3429f9b32f2af9015d469f8a586ef1b783d74c24b837f555959aa04918bda603"
+    },
+    {
+      "path": "src/components/Modal.tsx",
+      "bytes": 1338,
+      "sha256": "769b5c52ecc760bec14c57c914187b682fabe7a08888366cec115f615e537c8c"
+    },
+    {
+      "path": "src/components/course-choices.css",
+      "bytes": 2119,
+      "sha256": "f01e4f6b507ad64e30336e79d6c1be2146e90d11bde23871f94fa2a23297bdac"
+    },
+    {
+      "path": "src/components/financial-review.ts",
+      "bytes": 2483,
+      "sha256": "2bedea3badf47c8161b428767e9e8b26ecbacf345ceedf2f520e254a19d9ba92"
+    },
+    {
+      "path": "src/components/tile-information.ts",
+      "bytes": 3685,
+      "sha256": "c31ecf1fba223832b1d735ca1fb2bb35aa023a4e467f616250714bfa287c51e6"
+    },
+    {
+      "path": "tasks/b18-beginner-ux.md",
+      "bytes": 1034,
+      "sha256": "e29f29f63dcb79177acc1362b2abc57a9922eb0f6b3aa7e625de0dcc2f39aa2c"
+    },
+    {
+      "path": "tests/beginner-ux.test.ts",
+      "bytes": 4191,
+      "sha256": "29d71fdc90f4a5e592e4a52e344f27e1b80d5ddeea318b76a9a905fd0e57be7b"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/playtests/b18-beginner-ux/.gitattributes",
+      "bytes": 66,
+      "sha256": "723ec213b6256078163d4dbc5fc150999a959aab72aeb0335f6a3e728ba05273"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after-desktop-build.txt",
+      "bytes": 409,
+      "sha256": "2db08d33b8d42ac168487ec166726fe22112f564ed3ca3a1919c0e233916e422"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after-lint.txt",
+      "bytes": 44,
+      "sha256": "ef8252592ca3b6a4f85d52de44c1220549496c4de3c245ec80fbde759bcbd0db"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after-mobile-build.txt",
+      "bytes": 407,
+      "sha256": "a094061aa78452e82ba30e73c7458ad88eb657ad53cb9e8087027c757ffc38c5"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after-parity.txt",
+      "bytes": 247,
+      "sha256": "a709c25d9a4b0f16b2d271ca8c3ee085d9d7099abb6e03d5e8048ebd9e11c80f"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after-replay-verification.json",
+      "bytes": 17705,
+      "sha256": "51cca4048fa00a4ac22c06b33bf06fd06ce6a7d8346426a588ddf997a460c658"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after-tests.txt",
+      "bytes": 77034,
+      "sha256": "3300e2944be3265f7b7f9f4190174a0ad6fba8d543e03b3be3aa9603b77f6026"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after-ui.txt",
+      "bytes": 1430,
+      "sha256": "7199ec984408edea458d7ee3f5d4e1408f84795778cb5556ca4a3113a2e82911"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-START1.png",
+      "bytes": 79065,
+      "sha256": "43e1cb4c12c5fd953ee73a5809e3e02a27ea61bcec8d27d7a81f623e4618c210"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-START2.png",
+      "bytes": 78920,
+      "sha256": "6ffae58048057d1685c53275f3ccca94bbab485e0ccbd0a75e6954667082c4e9"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-START3.png",
+      "bytes": 79124,
+      "sha256": "cc19c080770070245a5fc09dd20a41b451232675d8da995290b30edc8d9a612a"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-START4.png",
+      "bytes": 78729,
+      "sha256": "75f144ad278cd823bd2c1113c04f8c7fcfcd249bbb97efa7842f9edb7ada8a5f"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-board.png",
+      "bytes": 109770,
+      "sha256": "cbb7166f16f36822f9c0207dbfad59d4502eae6197552e4478ee77e02daafd31"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-course-both.png",
+      "bytes": 88456,
+      "sha256": "ba86ca329ff5845f00ef72471c0867f05418b7be24261403f5610c1c4fa2d7d7"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-course-one.png",
+      "bytes": 70122,
+      "sha256": "c7df6a33714d1795dd8c97cab209df986b5ab8d9e515dfce824b76bdd12de871"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-course-unlearned.png",
+      "bytes": 69870,
+      "sha256": "e00feb70bb48496053fff4fc9dc92452f5ef0af42599aef93d8c682971952bca"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-event-bank.png",
+      "bytes": 68374,
+      "sha256": "81a8a2c638f93f23bf97dbd0d6b8a7fa8fe084843f61d5c17270be5cd38d323d"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-event-bonds.png",
+      "bytes": 85874,
+      "sha256": "2a72ddaad8223f19b506e7f5b6db4f0a074e49650037eb53f7e16ce975ce339a"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-event-business.png",
+      "bytes": 76840,
+      "sha256": "8f2ec0db55c15c9ed1d7b3ee499e775a1d7d4634af43c6ed9a077a3c364ca7ea"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-event-course.png",
+      "bytes": 69870,
+      "sha256": "e00feb70bb48496053fff4fc9dc92452f5ef0af42599aef93d8c682971952bca"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-event-demand-boom.png",
+      "bytes": 90509,
+      "sha256": "edbf244689fdffe3362d5d45fe689f814dcb0b7e1f4fef9faf390ca2aa47c384"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-event-gold.png",
+      "bytes": 69441,
+      "sha256": "93bc0905217baa997c1d9065d5f113fdd32d8ec07101ecbf707e5123c8968217"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-event-stocks.png",
+      "bytes": 71677,
+      "sha256": "44d9050a2ecc892e4b6f0ed2211981d12b0b99b10126d8541cfa53af0d57a6ea"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-result.png",
+      "bytes": 67801,
+      "sha256": "d6d187e9d13d24ae315f80224dc5d090673ca78aa42e053f591f1574fbcd608d"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-setup.png",
+      "bytes": 79830,
+      "sha256": "9f60ab0c3324b73da89bfd482e20e4e7e1a88f7e93807f6814d3ff60b1592415"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-basic-first-wallet.png",
+      "bytes": 75013,
+      "sha256": "5d377a0aa67a1e1890bef6c7cd1ed7874dbe9a347fb76b297d78aa0da04bd160"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-course-expanded.png",
+      "bytes": 82105,
+      "sha256": "307cdc2b3c900465cfa5feab76b468d75f7e622cb3563cf38d52177886c98724"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-course-insufficient.png",
+      "bytes": 77288,
+      "sha256": "38da3ee3d978e4bf7ef86f27beabd566a3938a522feb913c0829e43e82a82085"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-course.png",
+      "bytes": 76900,
+      "sha256": "3924ced28f777326f538aab7b4fadb59d48b14d8a416642a213a58fdfd4f4757"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-funding-savings.png",
+      "bytes": 84486,
+      "sha256": "5fbfa72c403fac9e0162a55c020630678ac545dcc347b3fdb76954b6cba0a0fe"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-multi-rulebook-0.png",
+      "bytes": 91106,
+      "sha256": "e2ab4356b1ffb52bd03d282cdc864c7a30c7a1dd0dae98206bd15332a215f3b0"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-multi-rulebook-1.png",
+      "bytes": 65934,
+      "sha256": "f3efae5f807a23efa72652acb4ef284fbfe9f72e4990f8fdbb30869077d62150"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-multi-rulebook-2.png",
+      "bytes": 90026,
+      "sha256": "e1a356d423260d0c49c25baf33331efd19f594e95760131861f49b9c2c7aaab5"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-multi-rulebook-3.png",
+      "bytes": 124974,
+      "sha256": "fd87f06cb318c2c58855eafc5cd1dd1be17e526c853bbf0907ec56d98626fae2"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-multi-rulebook-4.png",
+      "bytes": 99467,
+      "sha256": "52be24e24126345ab94dabd83c6a238196ebd70865faeb01e82d9c58b611e26c"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-multi-rulebook-5.png",
+      "bytes": 89537,
+      "sha256": "1ab664354e93cc49f7e8904ee3829eb2bb9083b4bd7daae671523852ec21eedf"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-onboarding.png",
+      "bytes": 101455,
+      "sha256": "aff20a9532d1b0a671745fcfd8ef1ff42763e5ba180791dc00c9ecd17825bff5"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-personal.png",
+      "bytes": 86457,
+      "sha256": "3e234fdfd0b734918871130ca67df7031815f2f5455d608cf5e2f0bb6a57dce0"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-result-defeat.png",
+      "bytes": 79902,
+      "sha256": "a14009a090c60f37fd318997ccafa53a2bd6b48779d58b26fdf2951862e44bff"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-saved-after-result.png",
+      "bytes": 85958,
+      "sha256": "9d69d9de9453f9b2c8bf3f84c191bdc053a04c7a6c94e8edb961b2531f305075"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-setup-zero.png",
+      "bytes": 97781,
+      "sha256": "fa655d1daabd467ddf37b9f09fc0d37246887bb82df04bcfd90cbac16e8a2bd3"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-tile-1.png",
+      "bytes": 97283,
+      "sha256": "d6532dd3d57218aaebf69e64a45e68f2f23137610988ba3bb376ddc688337805"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-tile-11.png",
+      "bytes": 95442,
+      "sha256": "879d4f6f02f89c95c48cdf03c8f297389416d33f62f5013a02da7f98299eebbd"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-tile-2.png",
+      "bytes": 93118,
+      "sha256": "ceb3eff47438047009483d470986a9eae9fd5ab1aaa3f2963a24c98378e633e8"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-tile-3.png",
+      "bytes": 94008,
+      "sha256": "f1cc0c778b6aab9ec5b0161a458b8959656c7ef273a63fa5789a7f125e3731d6"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-tile-4.png",
+      "bytes": 93655,
+      "sha256": "984bf063a39ae554ab561f9c4926684266d4b184885c62626675c152a00a9f5f"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-tile-5.png",
+      "bytes": 97891,
+      "sha256": "6972ba99a9ae171d170c2210824d7f741531d7f97ef56d32a76e0ef7083f4367"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-tile-6.png",
+      "bytes": 93626,
+      "sha256": "74cdfd4550b94c8deceef17fd57b6263cf48b0b0f021489ac689a81fbb3da6de"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-tile-7.png",
+      "bytes": 95186,
+      "sha256": "acdc91069fb2bc954436ee770912dbe1391dbc30af2513a0177c1d1ceed697d6"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-tile-9.png",
+      "bytes": 93558,
+      "sha256": "bcdad284ca4e4f59af8d9608fff832dea9b6321053f8609a6bb9ef77d51c6d48"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/320-tile16-bonds-details.png",
+      "bytes": 94625,
+      "sha256": "4db88e33f3daafdd72a9dc2b009547dbc78ec8743e66a94ddef4427cdb17dd44"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-START1.png",
+      "bytes": 101006,
+      "sha256": "a35a3ae10cb50350e636a543dd3ae33e68712886051d66aad28dc122e426e477"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-START2.png",
+      "bytes": 96457,
+      "sha256": "e7caf7bdf973bd2a1420cea5a2db060fffccaa21a62a5c7157fedae6671ce908"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-START3.png",
+      "bytes": 101104,
+      "sha256": "fd256e978516e8a0e5f2648aba9cd87a0a2af87ddecee3d60084034d35088589"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-START4.png",
+      "bytes": 100749,
+      "sha256": "6c1081d76faf8f2113f5b32fbfa0dbb4aac916ae98cda1c27704cbc83d78c958"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-board.png",
+      "bytes": 135263,
+      "sha256": "8bc12e54b3df78267ea16d56ecd3ed06b6fd2d012a948f4f45d95b9e710b6ddf"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-course-both.png",
+      "bytes": 108884,
+      "sha256": "5235bf49e8a8612bd89b8e39451ce250e0394bbc11c842c8ee2e623a22421273"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-course-one.png",
+      "bytes": 79581,
+      "sha256": "1002d9492372ebb679acdc537444381419410205944e4112874de70e2ef720f7"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-course-unlearned.png",
+      "bytes": 79635,
+      "sha256": "66d48a3fcb18ee84ec76279b83840142b437faa8aa42ca8f5941894e9185246d"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-event-bank.png",
+      "bytes": 89588,
+      "sha256": "463418bed26c8920b3a3864926b4a4da34b8d5ae0e61da3c2ea0fcb92a729fb0"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-event-bonds.png",
+      "bytes": 103822,
+      "sha256": "077ba0664b6390c783db6754f006bf6e324d915ab731ea032569a4a8daffae1d"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-event-business.png",
+      "bytes": 89014,
+      "sha256": "a2ddf99a2b7b592d0b787e90652fd68681e9ebee61ae1893c66f7250c77094c9"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-event-course.png",
+      "bytes": 79635,
+      "sha256": "66d48a3fcb18ee84ec76279b83840142b437faa8aa42ca8f5941894e9185246d"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-event-demand-boom.png",
+      "bytes": 98990,
+      "sha256": "648dea70a244c694d4614b9567ac9153e2a8794ddc29fa78184672049d823e7f"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-event-gold.png",
+      "bytes": 81191,
+      "sha256": "fffd87b1fe2fb33b16ae7fea938bd5f732f2ed4cb600ef7e640c2d1e49054664"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-event-stocks.png",
+      "bytes": 82510,
+      "sha256": "ee16d1dc4420c317f76d9bf9259d2935814f13377121cb65f4c783ddd397a14e"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-result.png",
+      "bytes": 83232,
+      "sha256": "205b61d9631f4ac374b14b178ad4b6fe2ac9b798f57c702d0666b6c87fe16151"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-setup.png",
+      "bytes": 91743,
+      "sha256": "accaf76458b20eecf3aeb714503806efa8edd85fb0532974e073fd435802ebd9"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-advanced-first-wallet.png",
+      "bytes": 92347,
+      "sha256": "38e78d8423d7cf69d4c27bad73b9c24d00601e3bbbcd2f530ab6d091567e7b8f"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-course-expanded.png",
+      "bytes": 86916,
+      "sha256": "8307dcea27acc7777dfb7a9b227a6b1991c4e6c26224ecd4dedfef121ba4d6c9"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-course-insufficient.png",
+      "bytes": 80195,
+      "sha256": "74c046dc2d43d01e73f141d7ece7be36b2c988fd02e528e7932dccae38970803"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-course.png",
+      "bytes": 79773,
+      "sha256": "48fff4bc92a94a5747ac78664a393befb659c57a24de7472fbd4f2683a15b652"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-funding-debt.png",
+      "bytes": 88565,
+      "sha256": "daa85b49283697b97f8291a567127c3ccb994befb22cb7f6107030709db99f53"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-multi-rulebook-0.png",
+      "bytes": 99201,
+      "sha256": "fb9e9a6a4915f3781510f4661728e921b9085eef68f76cde1be1171bd031c008"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-multi-rulebook-1.png",
+      "bytes": 67877,
+      "sha256": "e5e21f6707a1d0f73fee58422a04ab82bf163881e9801724e0ac3d57659827a9"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-multi-rulebook-2.png",
+      "bytes": 99570,
+      "sha256": "876e9ecd079e1f9f0a9d1cd92bfdfb9c3b68e17e7dc9290f04e6be5751473b57"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-multi-rulebook-3.png",
+      "bytes": 143212,
+      "sha256": "420a81a2587dcd0d3a21ea993fa4419465a30a08287ce7bbbb816ae267aa47f2"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-multi-rulebook-4.png",
+      "bytes": 116102,
+      "sha256": "8f513774a73b4235948b0f677e0fb02a9844235de72891c5360eb45461646433"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-multi-rulebook-5.png",
+      "bytes": 100619,
+      "sha256": "4b9cd742fc3610a1a8e26d28dc14865bd085a24f739ef4e80b3844366cbc665b"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-onboarding.png",
+      "bytes": 148113,
+      "sha256": "bb09ad2d9e3bc2fcf0e8a10ac1902d115cb0897fae0123d034eccf17560d0212"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-personal.png",
+      "bytes": 101745,
+      "sha256": "81a4b3b1f38b98062b113f4f22a2319b87dd7f7a1eb62f4eb6bf0b881877e44b"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-result-defeat.png",
+      "bytes": 84725,
+      "sha256": "2adc3e21099b1e3895464ba7bae767bccaa6336c5cdac03cf03cdf44234fd97e"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-sale-preview-bonds.png",
+      "bytes": 91769,
+      "sha256": "dd0ee12005350290e71a15800434d6eeeb34d9cae27993065c480e0bf3336755"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-sale-preview-gold.png",
+      "bytes": 92723,
+      "sha256": "bcedbfebadff30772354a6d5aa2372dca2b94b040f0d975c93fc0e6c3135df5a"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-saved-after-result.png",
+      "bytes": 93823,
+      "sha256": "2a313c71f4c2841ce6e2cb7af0643709eb3bbff64dc5c1c2c112391440303e9b"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-setup-zero.png",
+      "bytes": 103367,
+      "sha256": "4a04d7e789355a81134ffcb0fc2d739acd3a241b66a5e2ec7d309700ec4bd60b"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-tile-1.png",
+      "bytes": 115367,
+      "sha256": "8d414385d0d96212290ed65386e4c55a2258cae92202a2451e3572b3b8fbd2ed"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-tile-11.png",
+      "bytes": 114911,
+      "sha256": "ae50cf519c6b278fe813ed456ca5bb37a0c4b55d102ce2a1b7f67c462ddf6caa"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-tile-2.png",
+      "bytes": 115412,
+      "sha256": "3f46cc256839a4166745bd3b6022cd98aa8bec48c7e7e9f741fbf2661309e7e2"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-tile-3.png",
+      "bytes": 114063,
+      "sha256": "36ab932abcd3641c8fc2bf0d8a486d6f32e4d150ec54b5dac48be718ccc47263"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-tile-4.png",
+      "bytes": 114676,
+      "sha256": "684fc0e7bb5cb73e596b004908e686f678cacf4471107eb43438e6a463161dcf"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-tile-5.png",
+      "bytes": 120251,
+      "sha256": "58bb2762fecbff0e12ef62f66e90de9358d2876e9a15ecfdd236437af27169a3"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-tile-6.png",
+      "bytes": 112997,
+      "sha256": "53cbf130e02f21d1ecce702cf2426689c3bcecfa7a69c408685f2e8ae3621387"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-tile-7.png",
+      "bytes": 115278,
+      "sha256": "4cef7b85d3d3d77a53981847acaf121ecf288b8770682f8507e6f92386d25ba4"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-tile-9.png",
+      "bytes": 115858,
+      "sha256": "689c8bc56a13a4f2b3f094705344dfe35d06a40ebfa75fe71d04e25c9f96f1b8"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-tile16-bonds-details.png",
+      "bytes": 113609,
+      "sha256": "4bb5d41d6221bd1548b94569eda5dfe35c6aa03ec3288053fab2420ab5330d84"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-START1.png",
+      "bytes": 99797,
+      "sha256": "10133fa090f6fd05b315f6344ac28ac07e82f88cc9a0ae5570cadf74cd501632"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-START2.png",
+      "bytes": 95705,
+      "sha256": "d2f153e3ab77d3ecabb411567184df991729cb51f3c9f768607cda0c78a82f22"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-START3.png",
+      "bytes": 97912,
+      "sha256": "3222b2de8d24d32429e3827f5c7473b789ea5df3d53623805eeccd6a932b79a8"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-START4.png",
+      "bytes": 97001,
+      "sha256": "181a966d58a134a36867cff7d1ef12facfece2221bd426c67a014121bdae5ed4"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-board.png",
+      "bytes": 135270,
+      "sha256": "48160b278a97027e212e6e1a5ef371289e9aa2c65708d133f01e6de9b607ee45"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-course-both.png",
+      "bytes": 108523,
+      "sha256": "89f668de7a62072ccd0aed57633742b01772bcbcbcead41edb55da32c7ac760c"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-course-one.png",
+      "bytes": 80113,
+      "sha256": "84bf1f032f2df7cb8eeba382ee01bb68d0d3996cd1d0924e06d810956e1489f4"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-course-unlearned.png",
+      "bytes": 80393,
+      "sha256": "539b83364eb127efd24838a2e70a03e30339500d3061599be27711f440879827"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-event-bank.png",
+      "bytes": 90829,
+      "sha256": "f35a7f15c128aa5470d4f64c566d6a558489cf1265eaed43827de0597bc3f7a5"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-event-bonds.png",
+      "bytes": 101878,
+      "sha256": "1ed744b22d2025216e7d75a841d55eb41263abdf05386dfef8847c7e65921d16"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-event-business.png",
+      "bytes": 88963,
+      "sha256": "219b8dd4324022b922e2058a0022a84ba692d6658b9a7302cdbcc59eddfa6ab2"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-event-course.png",
+      "bytes": 80393,
+      "sha256": "539b83364eb127efd24838a2e70a03e30339500d3061599be27711f440879827"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-event-credit-tightening.png",
+      "bytes": 103026,
+      "sha256": "c8a5d2bcf5c7d364ad9f11b087d0ecb53869b73567eca562f6039fe181fc7139"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-event-gold.png",
+      "bytes": 80846,
+      "sha256": "4c1c2364910d17161fea3d6e9e8ba41fac8edcf7ba80b3df348e65910095342e"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-event-stocks.png",
+      "bytes": 83311,
+      "sha256": "58bd2995d27ce243340b3b07e758ecbf844e736ea0da066f8b37e875515f91c6"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-result.png",
+      "bytes": 84456,
+      "sha256": "2c2a1a40d2fb8bfcf893347dde36d43d9c47ed32b73bc2ca89ac279cfe9f5243"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-setup.png",
+      "bytes": 91748,
+      "sha256": "58a0cd917ebca8987112983b663e642445b7f82f358b64f37ad25fd82098bc9f"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/390-trades-wallet.png",
+      "bytes": 92345,
+      "sha256": "15cc48c2adcc6dfa16ddc127c05634c412f6671b6912df062096cfffb08db6e6"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/browser-320-basic-first.json.gz",
+      "bytes": 1637365,
+      "sha256": "311228b5fbfcf950671870eb002152f2008573e7c9b0b15bd9a8776ea0516acf"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/browser-390-advanced-first.json.gz",
+      "bytes": 1638136,
+      "sha256": "6a7ee6bdd0045812a803f3262d6824897efc8cdce8f643376a74584b9e627a60"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/browser-390-trades.json.gz",
+      "bytes": 1574115,
+      "sha256": "7be4b2f26432afb47f28eab1582f23937d6e02ce34467d28b44851c02414f241"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/browser-desktop-defeat.json.gz",
+      "bytes": 1390517,
+      "sha256": "141745e187d258e388bbf78fc0652f38df0b282adfcbb1871757d9b04a3d18c9"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/browser-desktop.json.gz",
+      "bytes": 1638427,
+      "sha256": "d23e52dd2ad8673dd67180920fa30d0c304c01dd1e5c8be831383c5cd857b4e7"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/browser-funding-debt.json.gz",
+      "bytes": 39546,
+      "sha256": "2a00596dbf1cad57e8d5855bf2d0f8d60545a331e27deb189c30aa5a6286a6d4"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/browser-funding-savings.json.gz",
+      "bytes": 39637,
+      "sha256": "9e666ce857ea55a189d61d1ddffed511207cda781a055dc049b59893f28e804f"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/browser-poor-320.json.gz",
+      "bytes": 90110,
+      "sha256": "476c6a135f5b94dbb9b8a36e03b3af1600f28c80ac12cdcd536b8e877dcd4a0a"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/browser-poor-390.json.gz",
+      "bytes": 90110,
+      "sha256": "476c6a135f5b94dbb9b8a36e03b3af1600f28c80ac12cdcd536b8e877dcd4a0a"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/browser-verification.json",
+      "bytes": 15438,
+      "sha256": "f6310077d15e484064fde6c2c9545779c5c877cc0f61a0733764e39fa2933683"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/compat-funding-verification.json",
+      "bytes": 2739,
+      "sha256": "6ceaa46cd1550d5b6fd5c230511b8bc20ec945696575917f84cf40263e8f27fa"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-board-verification.json",
+      "bytes": 1082,
+      "sha256": "5cf8884f741d435461b5c50083ef92f7b6dd423712da5d50052bd6638d2f531b"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-browser-verification.json",
+      "bytes": 1618,
+      "sha256": "352e679b1c715b21da4f602f6a152248698afee9333ea9883623bb49d4f5dea2"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-course-both.png",
+      "bytes": 263160,
+      "sha256": "37fec44b342d8c8ee40ed911d269e2d6b3a52046b152000c76027406d9db458f"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-course-insufficient.png",
+      "bytes": 249245,
+      "sha256": "f46a6f106c4e50caa5f76800a9d93458fbfe0585753f6a2eaede5f1becbe619b"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-course-one.png",
+      "bytes": 254022,
+      "sha256": "e7848aa2d6aadaaf749ebfec21525799558c58f5940a68c4aade49f6be5b8552"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-course-unlearned.png",
+      "bytes": 253572,
+      "sha256": "07363e21eef537d676cc762a2aceb28ccc6af673934cf8e1fabd3df0c1f9d94c"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-game-board.png",
+      "bytes": 180950,
+      "sha256": "7ffd32bd0d5efc57ab5777b7c3c8aca17e48b39f4a27f443c8529b835eb66d8f"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-poor-board.png",
+      "bytes": 178388,
+      "sha256": "777a7030af1ee82358d4206039673b44bd60e93632f806bcd8804de7747d6895"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-result-defeat.png",
+      "bytes": 284015,
+      "sha256": "b74005b42685362572b3abe106b34d814a539f55fac486ab715ce67c2dcd8c84"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-result.png",
+      "bytes": 286036,
+      "sha256": "b3bd63a4225f8c0f763660bed055c711b12aa749a6db74e46d725f125c3eba5e"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-tile-1.png",
+      "bytes": 277225,
+      "sha256": "e054f94517551ecfbf1e526ebb0970085df9666315ea02b0fa2240bf09810d1b"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-tile-11.png",
+      "bytes": 273210,
+      "sha256": "72a7423cf4e4105ad51ce60ed2df2cfce917305c0932d5f4fa2a1bbe392694e6"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-tile-2.png",
+      "bytes": 274562,
+      "sha256": "87ead29d3fddcf38cd8aabc4a885a566f312b18c2d6db9529df356f142c24be9"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-tile-3.png",
+      "bytes": 275624,
+      "sha256": "8dc0535d0cb17fc2401632a8cf87fabbd74623261e94fb214b58510368da499e"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-tile-4.png",
+      "bytes": 278792,
+      "sha256": "76bf9a5c7bc9c42666077d1978a029eaba75a16390534616d315eb09f0f5ff07"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-tile-5.png",
+      "bytes": 279904,
+      "sha256": "c42ae14d5d1534b044fb7d4b898842ab885242f181ad4fe4b9e20247dcedb3f7"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-tile-6.png",
+      "bytes": 272926,
+      "sha256": "b80bf4cac97cff0eca67d857d69ee4059292fb4de33d34769b31a44ec2309ae5"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-tile-7.png",
+      "bytes": 272619,
+      "sha256": "2921bce7918d74a780a81678bebda2c60072ec1878801e5855d2130c1ac5faa9"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/desktop-tile-9.png",
+      "bytes": 277322,
+      "sha256": "675c561f209d0ca51968dec2bbb3a50d39450556e781016dd7232ddf831f1e49"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/import-B18-multi.png",
+      "bytes": 84660,
+      "sha256": "5a8fce9bf8e91eac2d12f9d1305dd57928bece6b774ea00d588fe282549b7c01"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/import-B18-single.png",
+      "bytes": 139671,
+      "sha256": "0afc0312253cca745a16711d879c5f7fe64fba27b44992f5a0d6305593ce7b1b"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/import-C20.png",
+      "bytes": 95405,
+      "sha256": "e91477597272f9e2722fc7f06d13a09db7ad877873cacf374a9d1b3c48607d77"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/rulebook-browser-verification.json",
+      "bytes": 4405,
+      "sha256": "c489657102e60cbd353ea8defebaa3c2f58036dcac8f5c767a07c692cbf39b07"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/save-failed-return-to-setup.png",
+      "bytes": 103276,
+      "sha256": "b420c31d704e32788c467e0f05c20f2705a9fdb09657c49a34718c581949f82e"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/after/screens-verification.json",
+      "bytes": 6631,
+      "sha256": "dfd16410c00af5caf636bb7599b6cfd1e393d098a4b6df131934745b51b470cb"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/baseline-desktop-build.txt",
+      "bytes": 867,
+      "sha256": "648fb28aea9b3d3d8a98668c021152b671ab0f828a28f20b0da7076392822062"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/baseline-lint.txt",
+      "bytes": 44,
+      "sha256": "ef8252592ca3b6a4f85d52de44c1220549496c4de3c245ec80fbde759bcbd0db"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/baseline-mobile-build.txt",
+      "bytes": 407,
+      "sha256": "a1de6ed3c365389adc0842226c3154f0f15b00ef31be62ecd1b9df9a7e166c8d"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/baseline-replay-verification.json",
+      "bytes": 15654,
+      "sha256": "6996ffd871b44a2251cb924972625509361263dc8d9ad2a5f6dc6f9dc360ba6c"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/baseline-tests.txt",
+      "bytes": 75586,
+      "sha256": "709827b95ce3866b2d3f4042f8b734961a578819e8421141d73a3f6bce5a15ea"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/baseline-ui.txt",
+      "bytes": 1167,
+      "sha256": "647912df9dddc1971ea6305eaae72e72728de6fb4e84ff8a12709d0a3d0a552a"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-course.png",
+      "bytes": 78719,
+      "sha256": "131bbfcff462c1626371903169889dbe091a7f65c1bc0553fa53ec14690c9540"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-onboarding.png",
+      "bytes": 100383,
+      "sha256": "9f7755dec92f899c6d8d6870006293cf95ddec2d23cd83ef381e007e2e748cc8"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-result-defeat.png",
+      "bytes": 80931,
+      "sha256": "05de70efb5f5c8b7bbaffdd61dddf3245845ecdba2215a936cd67484b249e3e3"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-saved-after-result.png",
+      "bytes": 87060,
+      "sha256": "3f4ef9ffa040ac03125f578564a656f2a418b5f04a2e39864e5d55d5abbaf999"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-setup-zero.png",
+      "bytes": 85762,
+      "sha256": "409110216d6c88ca1e7194b260b1fd49dc813fea992d4efa708118db55ed8c05"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-tile-1.png",
+      "bytes": 93901,
+      "sha256": "f77b2c9fdafc361fdee69ff3ac1138aeff24958a77946c0cc54f54364e7cb3d6"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-tile-11.png",
+      "bytes": 90883,
+      "sha256": "d26a9588051a77fd3bdad25ea76d003687aab71f15586e28781ba8958ebb1869"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-tile-2.png",
+      "bytes": 89230,
+      "sha256": "6b0c9fa7f815dc847f67901507fb498175bd25f9bf921445ff643e67f6d501d5"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-tile-3.png",
+      "bytes": 89058,
+      "sha256": "426180da30057ab41012260ee00744ebcfe1c916af50f13f03470185b9747d12"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-tile-4.png",
+      "bytes": 89060,
+      "sha256": "238037bcad1fa945aad3b7365b73ba70e734e4f84eca4885b43bd22bb649ba75"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-tile-5.png",
+      "bytes": 90014,
+      "sha256": "633fe2b422f23fd62a9c7e2c6f20b0f491c1949c8b28fc98038d1d18f1a39da5"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-tile-6.png",
+      "bytes": 90210,
+      "sha256": "da3d6a98782f09281a16a8aa4f4897a080ccfa2e8a5a4f0deb1c179ecdf894d8"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-tile-7.png",
+      "bytes": 91186,
+      "sha256": "ba853d83f9611b06fe0bb4c01d86c1d2a2e081e26f5ce87609c2c209f7384c99"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/320-tile-9.png",
+      "bytes": 89478,
+      "sha256": "9010a0c7a4ceb38df3a4f150ac924b2d3e5309b4bba4c9b9f7b1a6e2d9220baa"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-course.png",
+      "bytes": 89004,
+      "sha256": "5072ddcb73ee7b49203b7eb6ccf28e8e8570736c2e3123f570fd82ea5b902590"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-onboarding.png",
+      "bytes": 146769,
+      "sha256": "335ea538758d42701573b47686db9cda8412f7078f47d77fc3a8202885abe3d5"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-result-defeat.png",
+      "bytes": 83022,
+      "sha256": "4cf58cbad1431d7820b79f797130edc0735c06515f62a953a00b27cc878d6ef3"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-saved-after-result.png",
+      "bytes": 95091,
+      "sha256": "db95d0a04c08a498a2d5703170140a3d51ee7539a6ef3d3ad2e9bb41ae42f5e4"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-setup-zero.png",
+      "bytes": 93942,
+      "sha256": "927ab8b919ae6e08e525989336de6d77083fe6c1ee083b98c96a32789b9387ef"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-tile-1.png",
+      "bytes": 112532,
+      "sha256": "021be21e9aa8fb1f27787ab15b6f86e36b2af0e9efe722f69c89efea3ff29f05"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-tile-11.png",
+      "bytes": 108877,
+      "sha256": "49cc2b9229306196851f5173669475fa4fe35c785d86c760a990035f3ba10b86"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-tile-2.png",
+      "bytes": 107953,
+      "sha256": "0c0d6ab0d7152f12c3be548a9db26e5055a50ac3bf45983df8e97cd9e3e754a5"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-tile-3.png",
+      "bytes": 107187,
+      "sha256": "47e4d82fb9743f423e87411a41952d839f99374a35856e28b2f7ef0135de9e38"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-tile-4.png",
+      "bytes": 106901,
+      "sha256": "c10dbda5aa22acab2a89d23e468ad18ec0b5ec519541b50043c78781d6959736"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-tile-5.png",
+      "bytes": 108504,
+      "sha256": "d2273ed6200c7b52a143dd63db00f2a0994342e7138314877406dbd3029c9492"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-tile-6.png",
+      "bytes": 107442,
+      "sha256": "feb27b5f6d0dd0475b1b643a420bfa99e48bdf23350134455b79da996bd9a0d0"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-tile-7.png",
+      "bytes": 108960,
+      "sha256": "39c35c390f1178d020872ae7ce40c88fb4a8d88cc9fc5d2c4e4c07a25dc2f994"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/390-tile-9.png",
+      "bytes": 107098,
+      "sha256": "42015a20007641609541f5b79a18c39a8f16863a01b3a5b0f3726bc195deb93a"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/desktop-course-unlearned.png",
+      "bytes": 277455,
+      "sha256": "b24085bf7c9fbb5aac84ceb145d29d58ffdf629418c32fbc624a2184352b616d"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/desktop-result.png",
+      "bytes": 305204,
+      "sha256": "df5ae5752ce222997d0655cd20963ff282640e1c4ea8a85075bff8073f197ff0"
+    },
+    {
+      "path": "docs/playtests/b18-beginner-ux/before/screens-verification.json",
+      "bytes": 6332,
+      "sha256": "da7d5f77e05d272be8dc63ea7cb106d6566591265acab59ebe5cd319de98eb3a"
+    }
+  ]
+}

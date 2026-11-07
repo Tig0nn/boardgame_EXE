@@ -3,12 +3,48 @@ import { createGame, advance, decide, roll, transact, fundPayment, snapshot } fr
 import { createSavingsProfile } from '../../src/game/savings.ts'
 import { businessRulesForGame } from '../../src/game/business.ts'
 import { encounterRulesForGame } from '../../src/game/encounters.ts'
+import { stockCatalog } from '../../src/data/stock-catalog.ts'
+import type { BondRulesVersion, BoardRevision, LivingExpenseRulesVersion, StockCatalogVersion } from '../../src/game/types.ts'
+import { boardFor } from '../../src/data/board.ts'
+import { hasPeriodicLiving, livingCostForGame, validateLivingBoard } from '../../src/game/living-expenses.ts'
+import { isCoreMvp, isMultiCourse, rulesForGame } from '../../src/game/rules-profile.ts'
+import type { GameplayProfile, GoalRulesVersion } from '../../src/game/types.ts'
+import { validateCourseState } from '../../src/game/courses.ts'
+import { MULTI_COURSES } from '../../src/data/courses.ts'
+import { bondRulesForGame } from '../../src/game/bond-credit.ts'
+import { BOND_ISSUERS } from '../../src/data/bond-issuers.ts'
 import type { Asset, BusinessRulesVersion, CustomerPreferenceId, EncounterRulesVersion, FundingSource, GameState, LogEntry, RebalanceAction, SavingsProfile, Term } from '../../src/game/types.ts'
 
-export interface ReplayLog { schemaVersion: number; seed: string; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
+export interface ReplayLog { schemaVersion: number; courseRulesVersion?: GameState['courseRulesVersion']; courseConfig?: unknown; seed: string; gameplayProfile?: GameplayProfile; goalRulesVersion?: GoalRulesVersion; financialConfig?: {RULES:unknown}; livingExpenseRulesVersion?: LivingExpenseRulesVersion; boardRevision?: BoardRevision; livingExpenseConfig?: unknown; board?: unknown; bondRulesVersion?: BondRulesVersion; bondCreditConfig?: unknown; stockCatalogVersion?: StockCatalogVersion; savingsProfile?: SavingsProfile; businessRulesVersion?: BusinessRulesVersion; encounterRulesVersion?: EncounterRulesVersion; customerPreferenceId?: CustomerPreferenceId; entries: LogEntry[]; state: GameState }
 export function replayGameLog(data: ReplayLog): GameState {
-  assert.ok(data.schemaVersion === 4 || data.schemaVersion === 5, 'Only V2.1/schema4 and V2.2/schema5 are supported')
+  assert.ok([4,5,6,7].includes(data.schemaVersion), 'Unsupported replay schema')
+  assert.equal(data.gameplayProfile,data.state.gameplayProfile,'Gameplay profile metadata must agree')
+  assert.equal(data.goalRulesVersion,data.state.goalRulesVersion,'Goal metadata must agree')
+  assert.equal([6,7].includes(data.schemaVersion),isCoreMvp(data.state),'B18 schema requires an explicit B18 profile')
+  assert.equal(data.schemaVersion === 7,isMultiCourse(data.state),'Schema7 is reserved for multi-course B18')
+  assert.equal(data.courseRulesVersion,data.state.courseRulesVersion)
+  validateCourseState(data.state)
+  if(isMultiCourse(data.state)) assert.deepEqual(data.courseConfig,MULTI_COURSES)
+  if (isCoreMvp(data.state)) assert.deepEqual(data.financialConfig?.RULES,JSON.parse(JSON.stringify(rulesForGame(data.state))),'B18 rules must match frozen profile')
   const historical = data.schemaVersion === 4
+  assert.equal(data.livingExpenseRulesVersion, data.state.livingExpenseRulesVersion, 'Living rules metadata must agree')
+  assert.equal(data.boardRevision, data.state.boardRevision, 'Board revision metadata must agree')
+  validateLivingBoard(data.state)
+  if (hasPeriodicLiving(data.state)) {
+    assert.deepEqual(data.livingExpenseConfig, { amount: livingCostForGame(data.state), timing: 'completed-start' }, 'Living parameters must match the frozen candidate')
+    assert.deepEqual(data.board, boardFor(data.state), 'Versioned board must match candidate')
+  }
+  for (const snapshot of data.entries.flatMap(entry => [entry.before, entry.after])) {
+    validateCourseState(snapshot)
+    assert.equal(snapshot.courseRulesVersion,data.courseRulesVersion)
+    assert.equal(snapshot.gameplayProfile,data.gameplayProfile,'Gameplay profile cannot change mid-game')
+    assert.equal(snapshot.goalRulesVersion,data.goalRulesVersion,'Goal version cannot change mid-game')
+    assert.equal(snapshot.livingExpenseRulesVersion, data.livingExpenseRulesVersion, 'Living policy cannot change mid-game')
+    assert.equal(snapshot.boardRevision, data.boardRevision, 'Board revision cannot change mid-game')
+  }
+  assert.equal(data.bondRulesVersion, data.state.bondRulesVersion, 'Bond rules metadata must agree')
+  bondRulesForGame(data.state)
+  if (data.bondRulesVersion === 'v2.5-credit-risk') assert.deepEqual(data.bondCreditConfig, BOND_ISSUERS, 'Bond credit parameters must match the frozen version')
   if (data.customerPreferenceId) assert.equal(data.state.customerPreferenceId, data.customerPreferenceId, 'Customer preference metadata must agree')
   const legacyEncounters = data.encounterRulesVersion === undefined && data.state.encounterRulesVersion === undefined
   const encounterRulesVersion = encounterRulesForGame({ encounterRulesVersion: data.encounterRulesVersion ?? data.state.encounterRulesVersion })
@@ -22,8 +58,12 @@ export function replayGameLog(data: ReplayLog): GameState {
   // Historical logs have no profile fields; every original financial value must still match.
   const comparable = (value: unknown) => JSON.parse(JSON.stringify(value, (key, v) => (historical && key === 'savingsProfile') || (legacyBusiness && key === 'businessRulesVersion') || (legacyEncounters && key === 'encounterRulesVersion') ? undefined : v))
   const initial = data.entries[0].after
+  const catalogVersion = initial.market.catalogVersion
+  stockCatalog(catalogVersion)
+  assert.equal(data.stockCatalogVersion, data.state.market.catalogVersion, 'Catalog metadata must agree')
+  assert.equal(catalogVersion, data.state.market.catalogVersion, 'Catalog cannot change during a game')
   const term = initial.deposits[0] ? initial.deposits[0].maturityLap - initial.deposits[0].startLap + 1 : 1
-  let s = createGame(data.seed, initial.portfolio.savings, term as Term, data.state.gameMode, profile.id, businessRulesVersion, encounterRulesVersion)
+  let s = createGame(data.seed, initial.portfolio.savings, term as Term, data.state.gameMode, profile.id, businessRulesVersion, encounterRulesVersion, catalogVersion, data.bondRulesVersion, data.livingExpenseRulesVersion,data.gameplayProfile)
   for (const entry of data.entries) {
     if (!['roll', 'decision', 'rebalancing', 'funding'].includes(entry.kind)) continue
     for (let i = 0; i < 4 && (s.phase !== entry.before.phase || s.lap !== entry.before.lap); i++) s = advance(s)
@@ -33,8 +73,13 @@ export function replayGameLog(data: ReplayLog): GameState {
     else if (entry.kind === 'funding') {
       const source = entry.decisionId!.slice(5) as FundingSource
       const lot = entry.before.deposits.find(lot => lot.status === 'active' && entry.after.deposits.find(after => after.id === lot.id)?.status === 'withdrawn')
-      s = fundPayment(s, source, source === 'debt' ? entry.after.portfolio.debt - entry.before.portfolio.debt : source === 'savings' ? lot!.principal : entry.forcedAssetSaleAmount, lot?.id)
+      s = fundPayment(s, source, source === 'debt' ? entry.after.portfolio.debt - entry.before.portfolio.debt : source === 'savings' ? lot!.principal : entry.forcedAssetSaleAmount, source === 'bonds' ? entry.fundingLotId : lot?.id)
     } else {
+      if (data.bondRulesVersion === 'v2.5-credit-risk') {
+        assert.ok(entry.action, `V2.5 action metadata required at ${entry.sequence}`)
+        s = transact(s, entry.action)
+        continue
+      }
       const [kind, asset, completion] = entry.decisionId!.split('-')
       const after = entry.after; const before = entry.before
       const action: RebalanceAction = { kind: kind as RebalanceAction['kind'], asset: asset === 'bank' ? undefined : asset as Asset,
@@ -42,7 +87,7 @@ export function replayGameLog(data: ReplayLog): GameState {
       if (kind === 'deposit') action.term = (after.deposits.at(-1)!.maturityLap - after.lap + 1) as Term
       if (kind === 'buy' && asset === 'stocks') action.symbolId = Object.keys(after.stockHoldings).find(id => after.stockHoldings[id].units > (before.stockHoldings[id]?.units ?? 0))
       if (completion === 'complete') {
-        assert.equal(entry.decisionId, 'buy-stocks-complete', 'Only stock purchases support atomic completion')
+        assert.ok(kind === 'buy' && ['stocks', 'gold', 'bonds'].includes(asset) && entry.decisionId === `buy-${asset}-complete`, 'Only financial asset purchases support atomic completion')
         action.completeEncounter = true
       }
       if (kind === 'upgrade') {

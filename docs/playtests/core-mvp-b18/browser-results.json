@@ -1,0 +1,135 @@
+[
+  {
+    "name": "390-savings",
+    "seed": "TRADING-AB-MAIN-0",
+    "phase": "finished",
+    "turns": 25,
+    "completedStarts": 4,
+    "proceeds": 95088000,
+    "status": "victory",
+    "purchases": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    },
+    "sales": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    }
+  },
+  {
+    "name": "320-cash",
+    "seed": "TRADING-AB-MAIN-0",
+    "phase": "finished",
+    "turns": 25,
+    "completedStarts": 4,
+    "proceeds": 86000000,
+    "status": "defeat",
+    "purchases": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    },
+    "sales": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    }
+  },
+  {
+    "name": "390-trades",
+    "seed": "B18-UI-TRADES",
+    "phase": "finished",
+    "turns": 21,
+    "completedStarts": 4,
+    "proceeds": 94444551,
+    "status": "victory",
+    "purchases": {
+      "stocks": 1,
+      "bonds": 1,
+      "gold": 2
+    },
+    "sales": {
+      "stocks": 0,
+      "bonds": 1,
+      "gold": 2
+    }
+  },
+  {
+    "name": "funding-savings",
+    "seed": "B18-FUND-11",
+    "phase": "rolling",
+    "turns": 1,
+    "completedStarts": 0,
+    "proceeds": 45000000,
+    "status": "in-progress",
+    "purchases": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    },
+    "sales": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    }
+  },
+  {
+    "name": "funding-debt",
+    "seed": "B18-FUND-11",
+    "phase": "rolling",
+    "turns": 1,
+    "completedStarts": 0,
+    "proceeds": 45000000,
+    "status": "in-progress",
+    "purchases": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    },
+    "sales": {
+      "stocks": 0,
+      "bonds": 0,
+      "gold": 0
+    }
+  },
+  {
+    "name": "tile-sale-stocks",
+    "seed": "B18-TILE-56",
+    "phase": "rolling",
+    "turns": 5,
+    "completedStarts": 0,
+    "proceeds": 49980000,
+    "status": "in-progress",
+    "purchases": {
+      "stocks": 1,
+      "bonds": 0,
+      "gold": 0
+    },
+    "sales": {
+      "stocks": 1,
+      "bonds": 0,
+      "gold": 0
+    }
+  },
+  {
+    "name": "tile-sale-bonds",
+    "seed": "B18-TILE-45",
+    "phase": "rolling",
+    "turns": 3,
+    "completedStarts": 0,
+    "proceeds": 49970000,
+    "status": "in-progress",
+    "purchases": {
+      "stocks": 0,
+      "bonds": 1,
+      "gold": 0
+    },
+    "sales": {
+      "stocks": 0,
+      "bonds": 1,
+      "gold": 0
+    }
+  }
+]

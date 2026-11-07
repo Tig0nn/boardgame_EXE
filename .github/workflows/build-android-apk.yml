@@ -1,0 +1,100 @@
+name: Build Android APK (PlayBoard)
+
+on:
+  push:
+    branches:
+      - main
+      - codex/b18-compact-financial-ui
+    paths:
+      - 'mobile_app/**'
+      - 'src/**'
+      - '.github/workflows/build-android-apk.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-apk:
+    name: Build & Release Android APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'mobile_app/package-lock.json'
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4
+        with:
+          packages: 'platform-tools cmdline-tools;latest platforms;android-36 build-tools;36.0.0'
+
+      - name: Install Root Dependencies
+        run: npm ci
+
+      - name: Install Mobile App Dependencies
+        run: npm --prefix mobile_app ci
+
+      - name: Build Web Application
+        run: npm --prefix mobile_app run build
+
+      - name: Sync Capacitor Android
+        run: |
+          cd mobile_app
+          npx cap sync android
+
+      - name: Build Debug APK with Gradle
+        run: |
+          cd mobile_app/android
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace
+
+      - name: Prepare APK Output
+        run: |
+          mkdir -p dist-apk
+          cp mobile_app/android/app/build/outputs/apk/debug/app-debug.apk dist-apk/PlayBoard-debug.apk
+
+      - name: Upload APK to Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: PlayBoard-debug-apk
+          path: dist-apk/PlayBoard-debug.apk
+          retention-days: 30
+
+      - name: Create or Update GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        with:
+          tag_name: android-latest
+          name: 'PlayBoard Mobile Android APK (Latest Build)'
+          body: |
+            ## 📱 PlayBoard Android Mobile App (.APK)
+            
+            Bản đóng gói tự động mới nhất của trò chơi PlayBoard dành cho điện thoại Android.
+            
+            ### Cách cài đặt:
+            1. Tải file `PlayBoard-debug.apk` đính kèm bên dưới về điện thoại.
+            2. Mở file APK đã tải về và chọn **Cài đặt** (Cho phép cài đặt từ nguồn không xác định nếu Android yêu cầu).
+            3. Mở game và tận hưởng trải nghiệm Board Game cờ tỷ phú tài chính mượt mà trên di động!
+            
+            - **Commit:** `${{ github.sha }}`
+            - **Nhánh:** `${{ github.ref_name }}`
+            - **Tên app:** PlayBoard (`com.philipsgn.playboard`)
+          files: dist-apk/PlayBoard-debug.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

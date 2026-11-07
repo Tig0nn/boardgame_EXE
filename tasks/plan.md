@@ -1,3 +1,5 @@
+> **SUPERSEDED** — Kế hoạch V2.2 đã hoàn tất, không phải roadmap đang hoạt động. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](../docs/CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này. Roadmap hiện tại: [tasks/current.md](current.md).
+
 # V2.2 — chốt cơ chế (11/10/2026)
 
 Phạm vi được chủ dự án giao: review + thí nghiệm offline + hướng dẫn solo; chỉ sửa production nếu chứng minh được lỗi tài chính. Cấu hình chính 4/C20/50M/90M, baseline 3/A20 giữ nguyên. Không deploy, không đổi cân bằng chưa duyệt.

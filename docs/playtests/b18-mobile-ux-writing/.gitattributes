@@ -1,0 +1,4 @@
+# Evidence hashes use raw bytes, including after Windows checkout.
+** -text
+*.txt whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol
+*.json whitespace=cr-at-eol

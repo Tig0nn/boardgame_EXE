@@ -1,0 +1,2109 @@
+{
+  "seedsPerStrategy": 500,
+  "games": 18000,
+  "sourceHashes": {
+    "src/game/living-expenses.ts": "8d49a4087a2312b0fa0a06710ee998a682628c6590f9ad34175324c6b766d310",
+    "src/data/board.ts": "e4730c1510af0efcf838f1f3900c9cc426d1454141810e8b18311ea0e86509da",
+    "src/data/bond-issuers.ts": "779e0577db4539227e65fee60d0d6f78627808382751641ad54504d6502db135",
+    "scripts/diagnostics/periodic-living-model.ts": "ba4c65975f46c9fa44f5c27e8bdcafd90ed1dfc2ff44c300c707c671fd0a153c"
+  },
+  "normalizedSourceHashes": {
+    "src/game/living-expenses.ts": "8d49a4087a2312b0fa0a06710ee998a682628c6590f9ad34175324c6b766d310",
+    "src/data/board.ts": "e4730c1510af0efcf838f1f3900c9cc426d1454141810e8b18311ea0e86509da",
+    "src/data/bond-issuers.ts": "779e0577db4539227e65fee60d0d6f78627808382751641ad54504d6502db135",
+    "scripts/diagnostics/periodic-living-model.ts": "ba4c65975f46c9fa44f5c27e8bdcafd90ed1dfc2ff44c300c707c671fd0a153c"
+  },
+  "conditions": {
+    "initialSavings": 20000000,
+    "term": 3,
+    "capital": 50000000,
+    "goal": 90000000,
+    "laps": 4,
+    "bond": "v2.5-credit-risk",
+    "seedPrefix": "PERIODIC-V26-"
+  },
+  "configs": [
+    {
+      "id": "legacy",
+      "policy": "v2.4-on-landing",
+      "amount": 7000000,
+      "layout": "historical",
+      "researchOnly": false,
+      "aggregate": {
+        "n": 3000,
+        "wins": 1510,
+        "winRate": 0.5033333333333333,
+        "wilson95": [
+          0.4854489701109927,
+          0.5212091708975052
+        ],
+        "seedCluster95": [
+          0.463987037450715,
+          0.5426796292159516
+        ],
+        "funds": {
+          "mean": 90056880.919,
+          "median": 90190746
+        },
+        "insolvencyRate": 0,
+        "metrics": {
+          "cash": 74699741.758,
+          "meanTurnCash": 30975220.555766042,
+          "livingPaid": 15820000,
+          "livingFunding": 0.017333333333333333,
+          "emergencyPaid": 9002000,
+          "borrowing": 0,
+          "savingsWithdrawals": 0.04066666666666666,
+          "latePurchaseCost": 12726169.885333333,
+          "terminalFinancialExposure": 15725331.224666666,
+          "unmaturedBondFace": 1722157.383,
+          "completedStarts": 4
+        },
+        "livingFundingGameRate": 0.017333333333333333,
+        "borrowingGameRate": 0,
+        "savingsWithdrawalGameRate": 0.03933333333333333,
+        "opportunities": {
+          "bank": 2.204,
+          "stocks": 2.146,
+          "bonds": 2.42,
+          "gold": 2.334,
+          "business": 3.462,
+          "course": 2.26,
+          "personal": 2.26
+        },
+        "lateOpportunities": {
+          "stocks": 1.132,
+          "bonds": 1.126,
+          "gold": 1.136
+        }
+      },
+      "strategies": {
+        "bank-first": {
+          "n": 500,
+          "wins": 279,
+          "winRate": 0.558,
+          "wilson95": [
+            0.5141915296492833,
+            0.6009240468571767
+          ],
+          "seedCluster95": [
+            0.5144261381298608,
+            0.6015738618701393
+          ],
+          "funds": {
+            "mean": 91736780.604,
+            "median": 92119030
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 91736780.604,
+            "meanTurnCash": 25737789.09297893,
+            "livingPaid": 15820000,
+            "livingFunding": 0.058,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.102,
+            "latePurchaseCost": 0,
+            "terminalFinancialExposure": 0,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0.058,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.094,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 2.146,
+            "bonds": 2.42,
+            "gold": 2.334,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.132,
+            "bonds": 1.126,
+            "gold": 1.136
+          }
+        },
+        "stocks": {
+          "n": 500,
+          "wins": 257,
+          "winRate": 0.514,
+          "wilson95": [
+            0.47025151158007206,
+            0.5575350068870044
+          ],
+          "seedCluster95": [
+            0.47014718141458717,
+            0.5578528185854128
+          ],
+          "funds": {
+            "mean": 90915833.392,
+            "median": 90775456
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 59801600,
+            "meanTurnCash": 28716068.968192518,
+            "livingPaid": 15820000,
+            "livingFunding": 0.032,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.06,
+            "latePurchaseCost": 15244400,
+            "terminalFinancialExposure": 31428518.576,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0.032,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.06,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 2.146,
+            "bonds": 2.42,
+            "gold": 2.334,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.132,
+            "bonds": 1.126,
+            "gold": 1.136
+          }
+        },
+        "gold": {
+          "n": 500,
+          "wins": 241,
+          "winRate": 0.482,
+          "wilson95": [
+            0.4385065876245351,
+            0.5257678886320809
+          ],
+          "seedCluster95": [
+            0.43815841798408056,
+            0.5258415820159195
+          ],
+          "funds": {
+            "mean": 89131515.206,
+            "median": 89462425.5
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 60342800,
+            "meanTurnCash": 30635723.269439436,
+            "livingPaid": 15820000,
+            "livingFunding": 0.002,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.03,
+            "latePurchaseCost": 14851200,
+            "terminalFinancialExposure": 29978876.634,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0.002,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.03,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 2.146,
+            "bonds": 2.42,
+            "gold": 2.334,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.132,
+            "bonds": 1.126,
+            "gold": 1.136
+          }
+        },
+        "bonds": {
+          "n": 500,
+          "wins": 244,
+          "winRate": 0.488,
+          "wilson95": [
+            0.4444452370209479,
+            0.5317377471501294
+          ],
+          "seedCluster95": [
+            0.4441426173805689,
+            0.531857382619431
+          ],
+          "funds": {
+            "mean": 89412297.008,
+            "median": 89575798
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 81669714.628,
+            "meanTurnCash": 34640051.295847386,
+            "livingPaid": 15820000,
+            "livingFunding": 0.008,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.03,
+            "latePurchaseCost": 14707086.406,
+            "terminalFinancialExposure": 7860489.708,
+            "unmaturedBondFace": 7740791.836,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0.008,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.03,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 2.146,
+            "bonds": 2.42,
+            "gold": 2.334,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.132,
+            "bonds": 1.126,
+            "gold": 1.136
+          }
+        },
+        "diversified": {
+          "n": 500,
+          "wins": 266,
+          "winRate": 0.532,
+          "wilson95": [
+            0.48818610813244,
+            0.5753259340780207
+          ],
+          "seedCluster95": [
+            0.48821991898511813,
+            0.5757800810148819
+          ],
+          "funds": {
+            "mean": 90790332.098,
+            "median": 91416139.5
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 66293028.11,
+            "meanTurnCash": 27193605.917420827,
+            "livingPaid": 15820000,
+            "livingFunding": 0.004,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.022,
+            "latePurchaseCost": 15633108.974,
+            "terminalFinancialExposure": 25084102.43,
+            "unmaturedBondFace": 2575901.382,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0.004,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.022,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 2.146,
+            "bonds": 2.42,
+            "gold": 2.334,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.132,
+            "bonds": 1.126,
+            "gold": 1.136
+          }
+        },
+        "liquidity": {
+          "n": 500,
+          "wins": 223,
+          "winRate": 0.446,
+          "wilson95": [
+            0.4030063915853302,
+            0.4898170371845176
+          ],
+          "seedCluster95": [
+            0.40238658138747996,
+            0.48961341861252006
+          ],
+          "funds": {
+            "mean": 88354527.206,
+            "median": 88639096.5
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 88354527.206,
+            "meanTurnCash": 38928084.790717445,
+            "livingPaid": 15820000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0,
+            "latePurchaseCost": 15921223.932,
+            "terminalFinancialExposure": 0,
+            "unmaturedBondFace": 16251.08,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 2.146,
+            "bonds": 2.42,
+            "gold": 2.334,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.132,
+            "bonds": 1.126,
+            "gold": 1.136
+          }
+        }
+      },
+      "sameDicePathAsLegacy": 3000,
+      "sameEncounterPathAsLegacy": 3000
+    },
+    {
+      "id": "7m-a",
+      "policy": "v2.6-periodic-start",
+      "amount": 7000000,
+      "layout": "A",
+      "researchOnly": false,
+      "aggregate": {
+        "n": 3000,
+        "wins": 162,
+        "winRate": 0.054,
+        "wilson95": [
+          0.046467649316585216,
+          0.06267308374640554
+        ],
+        "seedCluster95": [
+          0.04180879964762543,
+          0.06619120035237457
+        ],
+        "funds": {
+          "mean": 78262945.99,
+          "median": 78495223.5
+        },
+        "insolvencyRate": 0,
+        "metrics": {
+          "cash": 58711558.334,
+          "meanTurnCash": 26883896.632212076,
+          "livingPaid": 28000000,
+          "livingFunding": 0,
+          "emergencyPaid": 9002000,
+          "borrowing": 0,
+          "savingsWithdrawals": 0.005333333333333333,
+          "latePurchaseCost": 15467873.134666666,
+          "terminalFinancialExposure": 20019239.863333333,
+          "unmaturedBondFace": 1719216.4103333333,
+          "completedStarts": 4
+        },
+        "livingFundingGameRate": 0,
+        "borrowingGameRate": 0,
+        "savingsWithdrawalGameRate": 0.005333333333333333,
+        "opportunities": {
+          "bank": 2.204,
+          "stocks": 3.266,
+          "bonds": 2.42,
+          "gold": 3.474,
+          "business": 3.462,
+          "course": 2.26,
+          "personal": 2.26
+        },
+        "lateOpportunities": {
+          "stocks": 1.716,
+          "bonds": 1.126,
+          "gold": 1.692
+        }
+      },
+      "strategies": {
+        "bank-first": {
+          "n": 500,
+          "wins": 26,
+          "winRate": 0.052,
+          "wilson95": [
+            0.035730265115705276,
+            0.07510114393784553
+          ],
+          "seedCluster95": [
+            0.03251934035381815,
+            0.07148065964618185
+          ],
+          "funds": {
+            "mean": 79459703.23,
+            "median": 79643200
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 79459703.23,
+            "meanTurnCash": 25436372.574216366,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.01,
+            "latePurchaseCost": 0,
+            "terminalFinancialExposure": 0,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.01,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "stocks": {
+          "n": 500,
+          "wins": 74,
+          "winRate": 0.148,
+          "wilson95": [
+            0.1195614053892054,
+            0.18180613029572734
+          ],
+          "seedCluster95": [
+            0.11684351373821414,
+            0.17915648626178585
+          ],
+          "funds": {
+            "mean": 79792765.032,
+            "median": 79527145
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 39971800,
+            "meanTurnCash": 21605101.26246032,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.016,
+            "latePurchaseCost": 19169600,
+            "terminalFinancialExposure": 40223197.014,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.016,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "gold": {
+          "n": 500,
+          "wins": 16,
+          "winRate": 0.032,
+          "wilson95": [
+            0.019791513626571118,
+            0.051344869045441784
+          ],
+          "seedCluster95": [
+            0.01655775331030849,
+            0.04744224668969151
+          ],
+          "funds": {
+            "mean": 77377997.994,
+            "median": 77405420.5
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 40769400,
+            "meanTurnCash": 25013845.23487404,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.002,
+            "latePurchaseCost": 18561400,
+            "terminalFinancialExposure": 38122043.142,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.002,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "bonds": {
+          "n": 500,
+          "wins": 8,
+          "winRate": 0.016,
+          "wilson95": [
+            0.008129253033388314,
+            0.03125110853339426
+          ],
+          "seedCluster95": [
+            0.00499081020847812,
+            0.02700918979152188
+          ],
+          "funds": {
+            "mean": 77400569.834,
+            "median": 77937652
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 69640478.586,
+            "meanTurnCash": 32248358.26754234,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.002,
+            "latePurchaseCost": 14666224.364,
+            "terminalFinancialExposure": 7878265.208,
+            "unmaturedBondFace": 7740791.836,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.002,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "diversified": {
+          "n": 500,
+          "wins": 32,
+          "winRate": 0.064,
+          "wilson95": [
+            0.04569601604478943,
+            0.08895240883768415
+          ],
+          "seedCluster95": [
+            0.04252536803514956,
+            0.08547463196485044
+          ],
+          "funds": {
+            "mean": 79199991.63,
+            "median": 79568478
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 46081319.968,
+            "meanTurnCash": 21809026.639820036,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.002,
+            "latePurchaseCost": 19161688.172,
+            "terminalFinancialExposure": 33891933.816,
+            "unmaturedBondFace": 2558255.546,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.002,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "liquidity": {
+          "n": 500,
+          "wins": 6,
+          "winRate": 0.012,
+          "wilson95": [
+            0.005510995174027703,
+            0.025930361116447292
+          ],
+          "seedCluster95": [
+            0.0024464030865717253,
+            0.021553596913428275
+          ],
+          "funds": {
+            "mean": 76346648.22,
+            "median": 76781539
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 76346648.22,
+            "meanTurnCash": 35190675.81435941,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0,
+            "latePurchaseCost": 21248326.272,
+            "terminalFinancialExposure": 0,
+            "unmaturedBondFace": 16251.08,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        }
+      },
+      "sameDicePathAsLegacy": 3000,
+      "sameEncounterPathAsLegacy": 210
+    },
+    {
+      "id": "5m-a",
+      "policy": "v2.6-periodic-start",
+      "amount": 5000000,
+      "layout": "A",
+      "researchOnly": true,
+      "aggregate": {
+        "n": 3000,
+        "wins": 945,
+        "winRate": 0.315,
+        "wilson95": [
+          0.29862335261740114,
+          0.3318498214109694
+        ],
+        "seedCluster95": [
+          0.28368453549829875,
+          0.34631546450170125
+        ],
+        "funds": {
+          "mean": 86427225.23,
+          "median": 86607423.5
+        },
+        "insolvencyRate": 0,
+        "metrics": {
+          "cash": 65755014.98966666,
+          "meanTurnCash": 28950191.48029657,
+          "livingPaid": 20000000,
+          "livingFunding": 0,
+          "emergencyPaid": 9002000,
+          "borrowing": 0,
+          "savingsWithdrawals": 0.004666666666666667,
+          "latePurchaseCost": 16280943.379666667,
+          "terminalFinancialExposure": 21170781.052666668,
+          "unmaturedBondFace": 1720342.6803333333,
+          "completedStarts": 4
+        },
+        "livingFundingGameRate": 0,
+        "borrowingGameRate": 0,
+        "savingsWithdrawalGameRate": 0.004666666666666667,
+        "opportunities": {
+          "bank": 2.204,
+          "stocks": 3.266,
+          "bonds": 2.42,
+          "gold": 3.474,
+          "business": 3.462,
+          "course": 2.26,
+          "personal": 2.26
+        },
+        "lateOpportunities": {
+          "stocks": 1.716,
+          "bonds": 1.126,
+          "gold": 1.692
+        }
+      },
+      "strategies": {
+        "bank-first": {
+          "n": 500,
+          "wins": 195,
+          "winRate": 0.39,
+          "wilson95": [
+            0.3482413304011046,
+            0.43343602450043706
+          ],
+          "seedCluster95": [
+            0.3472048020822907,
+            0.4327951979177093
+          ],
+          "funds": {
+            "mean": 87810581.06,
+            "median": 87980597.5
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 87810581.06,
+            "meanTurnCash": 26884098.38343431,
+            "livingPaid": 20000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.01,
+            "latePurchaseCost": 0,
+            "terminalFinancialExposure": 0,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.01,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "stocks": {
+          "n": 500,
+          "wins": 202,
+          "winRate": 0.404,
+          "wilson95": [
+            0.36187922469306827,
+            0.44758464867554987
+          ],
+          "seedCluster95": [
+            0.36094618596256106,
+            0.447053814037439
+          ],
+          "funds": {
+            "mean": 88039526.156,
+            "median": 87665457
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 45697000,
+            "meanTurnCash": 23359118.291973703,
+            "livingPaid": 20000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.014,
+            "latePurchaseCost": 20609600,
+            "terminalFinancialExposure": 42770228.442,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.014,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "gold": {
+          "n": 500,
+          "wins": 143,
+          "winRate": 0.286,
+          "wilson95": [
+            0.24814005321609287,
+            0.3271231645014515
+          ],
+          "seedCluster95": [
+            0.2463512097640245,
+            0.3256487902359755
+          ],
+          "funds": {
+            "mean": 85496613.658,
+            "median": 85278910
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 46242200,
+            "meanTurnCash": 26886447.70009936,
+            "livingPaid": 20000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.002,
+            "latePurchaseCost": 20132600,
+            "terminalFinancialExposure": 40877240.09,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.002,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "bonds": {
+          "n": 500,
+          "wins": 129,
+          "winRate": 0.258,
+          "wilson95": [
+            0.2215962002228131,
+            0.29809398056057823
+          ],
+          "seedCluster95": [
+            0.21961075032541072,
+            0.2963892496745893
+          ],
+          "funds": {
+            "mean": 85477135.394,
+            "median": 86108305
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 77703413.762,
+            "meanTurnCash": 34881365.537950136,
+            "livingPaid": 20000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.002,
+            "latePurchaseCost": 14966643.632,
+            "terminalFinancialExposure": 7892103.164,
+            "unmaturedBondFace": 7740791.836,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.002,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "diversified": {
+          "n": 500,
+          "wins": 182,
+          "winRate": 0.364,
+          "wilson95": [
+            0.32301143591892645,
+            0.4070623846866158
+          ],
+          "seedCluster95": [
+            0.32178400129399465,
+            0.40621599870600533
+          ],
+          "funds": {
+            "mean": 87383603.53,
+            "median": 87624844.5
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 52721003.534,
+            "meanTurnCash": 23682363.98207413,
+            "livingPaid": 20000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0,
+            "latePurchaseCost": 20161859.946,
+            "terminalFinancialExposure": 35485114.62,
+            "unmaturedBondFace": 2565013.166,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "liquidity": {
+          "n": 500,
+          "wins": 94,
+          "winRate": 0.188,
+          "wilson95": [
+            0.15617996413496654,
+            0.22457762431304207
+          ],
+          "seedCluster95": [
+            0.153718899329366,
+            0.222281100670634
+          ],
+          "funds": {
+            "mean": 84355891.582,
+            "median": 84706739
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 84355891.582,
+            "meanTurnCash": 38007754.9862474,
+            "livingPaid": 20000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0,
+            "latePurchaseCost": 21814956.7,
+            "terminalFinancialExposure": 0,
+            "unmaturedBondFace": 16251.08,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        }
+      },
+      "sameDicePathAsLegacy": 3000,
+      "sameEncounterPathAsLegacy": 210
+    },
+    {
+      "id": "6m-a",
+      "policy": "v2.6-periodic-start",
+      "amount": 6000000,
+      "layout": "A",
+      "researchOnly": true,
+      "aggregate": {
+        "n": 3000,
+        "wins": 432,
+        "winRate": 0.144,
+        "wilson95": [
+          0.13189170058240915,
+          0.15701883971002292
+        ],
+        "seedCluster95": [
+          0.12218472171403849,
+          0.1658152782859615
+        ],
+        "funds": {
+          "mean": 82346453.68433334,
+          "median": 82560244
+        },
+        "insolvencyRate": 0,
+        "metrics": {
+          "cash": 62217529.027666666,
+          "meanTurnCash": 27905848.912113108,
+          "livingPaid": 24000000,
+          "livingFunding": 0,
+          "emergencyPaid": 9002000,
+          "borrowing": 0,
+          "savingsWithdrawals": 0.005,
+          "latePurchaseCost": 15900054.912333334,
+          "terminalFinancialExposure": 20612522.848,
+          "unmaturedBondFace": 1719591.9686666667,
+          "completedStarts": 4
+        },
+        "livingFundingGameRate": 0,
+        "borrowingGameRate": 0,
+        "savingsWithdrawalGameRate": 0.005,
+        "opportunities": {
+          "bank": 2.204,
+          "stocks": 3.266,
+          "bonds": 2.42,
+          "gold": 3.474,
+          "business": 3.462,
+          "course": 2.26,
+          "personal": 2.26
+        },
+        "lateOpportunities": {
+          "stocks": 1.716,
+          "bonds": 1.126,
+          "gold": 1.692
+        }
+      },
+      "strategies": {
+        "bank-first": {
+          "n": 500,
+          "wins": 83,
+          "winRate": 0.166,
+          "wilson95": [
+            0.13595774323101012,
+            0.2011353161973068
+          ],
+          "seedCluster95": [
+            0.13335363081771692,
+            0.1986463691822831
+          ],
+          "funds": {
+            "mean": 83634985.092,
+            "median": 83766397.5
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 83634985.092,
+            "meanTurnCash": 26160694.55758696,
+            "livingPaid": 24000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.01,
+            "latePurchaseCost": 0,
+            "terminalFinancialExposure": 0,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.01,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "stocks": {
+          "n": 500,
+          "wins": 129,
+          "winRate": 0.258,
+          "wilson95": [
+            0.2215962002228131,
+            0.29809398056057823
+          ],
+          "seedCluster95": [
+            0.21961075032541072,
+            0.2963892496745893
+          ],
+          "funds": {
+            "mean": 83918829.052,
+            "median": 83600656
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 42799800,
+            "meanTurnCash": 22460763.895944767,
+            "livingPaid": 24000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.014,
+            "latePurchaseCost": 19922800,
+            "terminalFinancialExposure": 41534372.79,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.014,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "gold": {
+          "n": 500,
+          "wins": 61,
+          "winRate": 0.122,
+          "wilson95": [
+            0.0961592783150937,
+            0.15360472307383977
+          ],
+          "seedCluster95": [
+            0.09328393078191888,
+            0.15071606921808112
+          ],
+          "funds": {
+            "mean": 81438248.716,
+            "median": 81306852
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 43476000,
+            "meanTurnCash": 25940677.961806074,
+            "livingPaid": 24000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.002,
+            "latePurchaseCost": 19377800,
+            "terminalFinancialExposure": 39531655.446,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.002,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "bonds": {
+          "n": 500,
+          "wins": 45,
+          "winRate": 0.09,
+          "wilson95": [
+            0.0679425478891394,
+            0.11830941128933344
+          ],
+          "seedCluster95": [
+            0.06489040146264567,
+            0.11510959853735432
+          ],
+          "funds": {
+            "mean": 81439847.114,
+            "median": 82029819
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 73673175.382,
+            "meanTurnCash": 33561421.07488785,
+            "livingPaid": 24000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.002,
+            "latePurchaseCost": 14829642.08,
+            "terminalFinancialExposure": 7884945.904,
+            "unmaturedBondFace": 7740791.836,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.002,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "diversified": {
+          "n": 500,
+          "wins": 91,
+          "winRate": 0.182,
+          "wilson95": [
+            0.1506464452041556,
+            0.2182026353293916
+          ],
+          "seedCluster95": [
+            0.14814598642332316,
+            0.21585401357667683
+          ],
+          "funds": {
+            "mean": 83291793.874,
+            "median": 83554335.5
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 49366195.434,
+            "meanTurnCash": 22718866.89794312,
+            "livingPaid": 24000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.002,
+            "latePurchaseCost": 19692359.26,
+            "terminalFinancialExposure": 34724162.948,
+            "unmaturedBondFace": 2560508.896,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.002,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        },
+        "liquidity": {
+          "n": 500,
+          "wins": 23,
+          "winRate": 0.046,
+          "wilson95": [
+            0.030845108370816204,
+            0.06807779276827323
+          ],
+          "seedCluster95": [
+            0.02761977085503213,
+            0.06438022914496787
+          ],
+          "funds": {
+            "mean": 80355018.258,
+            "median": 80712685
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 80355018.258,
+            "meanTurnCash": 36592669.084509514,
+            "livingPaid": 24000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0,
+            "latePurchaseCost": 21577728.134,
+            "terminalFinancialExposure": 0,
+            "unmaturedBondFace": 16251.08,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0,
+          "opportunities": {
+            "bank": 2.204,
+            "stocks": 3.266,
+            "bonds": 2.42,
+            "gold": 3.474,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.716,
+            "bonds": 1.126,
+            "gold": 1.692
+          }
+        }
+      },
+      "sameDicePathAsLegacy": 3000,
+      "sameEncounterPathAsLegacy": 210
+    },
+    {
+      "id": "7m-b",
+      "policy": "v2.6-periodic-start",
+      "amount": 7000000,
+      "layout": "B",
+      "researchOnly": true,
+      "aggregate": {
+        "n": 3000,
+        "wins": 163,
+        "winRate": 0.05433333333333333,
+        "wilson95": [
+          0.046777164892545124,
+          0.06302938227129541
+        ],
+        "seedCluster95": [
+          0.04213599528456728,
+          0.06653067138209938
+        ],
+        "funds": {
+          "mean": 78430334.069,
+          "median": 78713195.5
+        },
+        "insolvencyRate": 0,
+        "metrics": {
+          "cash": 61070566.35366666,
+          "meanTurnCash": 27218510.74652701,
+          "livingPaid": 28000000,
+          "livingFunding": 0,
+          "emergencyPaid": 9002000,
+          "borrowing": 0,
+          "savingsWithdrawals": 0.004666666666666667,
+          "latePurchaseCost": 13900771.094333334,
+          "terminalFinancialExposure": 17745239.178333335,
+          "unmaturedBondFace": 1718363.776,
+          "completedStarts": 4
+        },
+        "livingFundingGameRate": 0,
+        "borrowingGameRate": 0,
+        "savingsWithdrawalGameRate": 0.004666666666666667,
+        "opportunities": {
+          "bank": 3.324,
+          "stocks": 3.286,
+          "bonds": 2.42,
+          "gold": 2.334,
+          "business": 3.462,
+          "course": 2.26,
+          "personal": 2.26
+        },
+        "lateOpportunities": {
+          "stocks": 1.688,
+          "bonds": 1.126,
+          "gold": 1.136
+        }
+      },
+      "strategies": {
+        "bank-first": {
+          "n": 500,
+          "wins": 39,
+          "winRate": 0.078,
+          "wilson95": [
+            0.05758139347616159,
+            0.10485354987338852
+          ],
+          "seedCluster95": [
+            0.054470614775643744,
+            0.10152938522435626
+          ],
+          "funds": {
+            "mean": 80471439.348,
+            "median": 80812835
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 80471439.348,
+            "meanTurnCash": 20277381.059920773,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.022,
+            "latePurchaseCost": 0,
+            "terminalFinancialExposure": 0,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.022,
+          "opportunities": {
+            "bank": 3.324,
+            "stocks": 3.286,
+            "bonds": 2.42,
+            "gold": 2.334,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.688,
+            "bonds": 1.126,
+            "gold": 1.136
+          }
+        },
+        "stocks": {
+          "n": 500,
+          "wins": 71,
+          "winRate": 0.142,
+          "wilson95": [
+            0.114129360445696,
+            0.1753296673247754
+          ],
+          "seedCluster95": [
+            0.11137432747855212,
+            0.17262567252144784
+          ],
+          "funds": {
+            "mean": 79952529.226,
+            "median": 79843232
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 41048400,
+            "meanTurnCash": 23694530.566435095,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.004,
+            "latePurchaseCost": 18711200,
+            "terminalFinancialExposure": 39297100.22,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.004,
+          "opportunities": {
+            "bank": 3.324,
+            "stocks": 3.286,
+            "bonds": 2.42,
+            "gold": 2.334,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.688,
+            "bonds": 1.126,
+            "gold": 1.136
+          }
+        },
+        "gold": {
+          "n": 500,
+          "wins": 12,
+          "winRate": 0.024,
+          "wilson95": [
+            0.013781314655496986,
+            0.041477057463900756
+          ],
+          "seedCluster95": [
+            0.010571473891048247,
+            0.037428526108951754
+          ],
+          "funds": {
+            "mean": 77105792.62,
+            "median": 77166794.5
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 48391800,
+            "meanTurnCash": 28038470.138779495,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0,
+            "latePurchaseCost": 14137200,
+            "terminalFinancialExposure": 29901064.928,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0,
+          "opportunities": {
+            "bank": 3.324,
+            "stocks": 3.286,
+            "bonds": 2.42,
+            "gold": 2.334,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.688,
+            "bonds": 1.126,
+            "gold": 1.136
+          }
+        },
+        "bonds": {
+          "n": 500,
+          "wins": 8,
+          "winRate": 0.016,
+          "wilson95": [
+            0.008129253033388314,
+            0.03125110853339426
+          ],
+          "seedCluster95": [
+            0.00499081020847812,
+            0.02700918979152188
+          ],
+          "funds": {
+            "mean": 77400569.834,
+            "median": 77937652
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 69640478.586,
+            "meanTurnCash": 32248358.26754234,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.002,
+            "latePurchaseCost": 14666224.364,
+            "terminalFinancialExposure": 7878265.208,
+            "unmaturedBondFace": 7740791.836,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.002,
+          "opportunities": {
+            "bank": 3.324,
+            "stocks": 3.286,
+            "bonds": 2.42,
+            "gold": 2.334,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.688,
+            "bonds": 1.126,
+            "gold": 1.136
+          }
+        },
+        "diversified": {
+          "n": 500,
+          "wins": 28,
+          "winRate": 0.056,
+          "wilson95": [
+            0.03902562068315149,
+            0.0797447936467069
+          ],
+          "seedCluster95": [
+            0.035826659038089806,
+            0.0761733409619102
+          ],
+          "funds": {
+            "mean": 79282721.108,
+            "median": 79618011
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 50502327.91,
+            "meanTurnCash": 22759033.724733952,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0,
+            "latePurchaseCost": 17224800.974,
+            "terminalFinancialExposure": 29395004.714,
+            "unmaturedBondFace": 2553139.74,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0,
+          "opportunities": {
+            "bank": 3.324,
+            "stocks": 3.286,
+            "bonds": 2.42,
+            "gold": 2.334,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.688,
+            "bonds": 1.126,
+            "gold": 1.136
+          }
+        },
+        "liquidity": {
+          "n": 500,
+          "wins": 5,
+          "winRate": 0.01,
+          "wilson95": [
+            0.004278753896590496,
+            0.023193099755730702
+          ],
+          "seedCluster95": [
+            0.0012699764449178915,
+            0.01873002355508211
+          ],
+          "funds": {
+            "mean": 76368952.278,
+            "median": 76820836.5
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 76368952.278,
+            "meanTurnCash": 36293290.721750505,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0,
+            "latePurchaseCost": 18665201.228,
+            "terminalFinancialExposure": 0,
+            "unmaturedBondFace": 16251.08,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0,
+          "opportunities": {
+            "bank": 3.324,
+            "stocks": 3.286,
+            "bonds": 2.42,
+            "gold": 2.334,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.688,
+            "bonds": 1.126,
+            "gold": 1.136
+          }
+        }
+      },
+      "sameDicePathAsLegacy": 3000,
+      "sameEncounterPathAsLegacy": 210
+    },
+    {
+      "id": "7m-c",
+      "policy": "v2.6-periodic-start",
+      "amount": 7000000,
+      "layout": "C",
+      "researchOnly": true,
+      "aggregate": {
+        "n": 3000,
+        "wins": 126,
+        "winRate": 0.042,
+        "wilson95": [
+          0.03538857323595209,
+          0.04978285219644649
+        ],
+        "seedCluster95": [
+          0.031209441721374694,
+          0.05279055827862531
+        ],
+        "funds": {
+          "mean": 78168261.934,
+          "median": 78600000
+        },
+        "insolvencyRate": 0,
+        "metrics": {
+          "cash": 60974467.93266667,
+          "meanTurnCash": 27314748.37670422,
+          "livingPaid": 28000000,
+          "livingFunding": 0,
+          "emergencyPaid": 9002000,
+          "borrowing": 0,
+          "savingsWithdrawals": 0.005,
+          "latePurchaseCost": 13980154.544,
+          "terminalFinancialExposure": 17649826.026333332,
+          "unmaturedBondFace": 1719784.7683333333,
+          "completedStarts": 4
+        },
+        "livingFundingGameRate": 0,
+        "borrowingGameRate": 0,
+        "savingsWithdrawalGameRate": 0.005,
+        "opportunities": {
+          "bank": 3.344,
+          "stocks": 2.146,
+          "bonds": 2.42,
+          "gold": 3.454,
+          "business": 3.462,
+          "course": 2.26,
+          "personal": 2.26
+        },
+        "lateOpportunities": {
+          "stocks": 1.132,
+          "bonds": 1.126,
+          "gold": 1.72
+        }
+      },
+      "strategies": {
+        "bank-first": {
+          "n": 500,
+          "wins": 34,
+          "winRate": 0.068,
+          "wilson95": [
+            0.04906650742490687,
+            0.0935209227338743
+          ],
+          "seedCluster95": [
+            0.045911804845778774,
+            0.09008819515422123
+          ],
+          "funds": {
+            "mean": 80435775.072,
+            "median": 80795897.5
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 80435775.072,
+            "meanTurnCash": 22919720.748631258,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.01,
+            "latePurchaseCost": 0,
+            "terminalFinancialExposure": 0,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.01,
+          "opportunities": {
+            "bank": 3.344,
+            "stocks": 2.146,
+            "bonds": 2.42,
+            "gold": 3.454,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.132,
+            "bonds": 1.126,
+            "gold": 1.72
+          }
+        },
+        "stocks": {
+          "n": 500,
+          "wins": 45,
+          "winRate": 0.09,
+          "wilson95": [
+            0.0679425478891394,
+            0.11830941128933344
+          ],
+          "seedCluster95": [
+            0.06489040146264566,
+            0.11510959853735434
+          ],
+          "funds": {
+            "mean": 78811773.078,
+            "median": 78933794
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 49478000,
+            "meanTurnCash": 27059494.789914694,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.004,
+            "latePurchaseCost": 14119600,
+            "terminalFinancialExposure": 29630073.81,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.004,
+          "opportunities": {
+            "bank": 3.344,
+            "stocks": 2.146,
+            "bonds": 2.42,
+            "gold": 3.454,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.132,
+            "bonds": 1.126,
+            "gold": 1.72
+          }
+        },
+        "gold": {
+          "n": 500,
+          "wins": 17,
+          "winRate": 0.034,
+          "wilson95": [
+            0.02133451980853219,
+            0.053771365501634506
+          ],
+          "seedCluster95": [
+            0.01809894865483669,
+            0.049901051345163316
+          ],
+          "funds": {
+            "mean": 77338726.55,
+            "median": 77417016
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 40442800,
+            "meanTurnCash": 23408758.841358002,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.012,
+            "latePurchaseCost": 18886000,
+            "terminalFinancialExposure": 38421250.204,
+            "unmaturedBondFace": 0,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.012,
+          "opportunities": {
+            "bank": 3.344,
+            "stocks": 2.146,
+            "bonds": 2.42,
+            "gold": 3.454,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.132,
+            "bonds": 1.126,
+            "gold": 1.72
+          }
+        },
+        "bonds": {
+          "n": 500,
+          "wins": 8,
+          "winRate": 0.016,
+          "wilson95": [
+            0.008129253033388314,
+            0.03125110853339426
+          ],
+          "seedCluster95": [
+            0.00499081020847812,
+            0.02700918979152188
+          ],
+          "funds": {
+            "mean": 77400569.834,
+            "median": 77937652
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 69640478.586,
+            "meanTurnCash": 32248358.26754234,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.002,
+            "latePurchaseCost": 14666224.364,
+            "terminalFinancialExposure": 7878265.208,
+            "unmaturedBondFace": 7740791.836,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.002,
+          "opportunities": {
+            "bank": 3.344,
+            "stocks": 2.146,
+            "bonds": 2.42,
+            "gold": 3.454,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.132,
+            "bonds": 1.126,
+            "gold": 1.72
+          }
+        },
+        "diversified": {
+          "n": 500,
+          "wins": 19,
+          "winRate": 0.038,
+          "wilson95": [
+            0.024460118055830385,
+            0.05858477253064388
+          ],
+          "seedCluster95": [
+            0.021224435137632818,
+            0.054775564862367176
+          ],
+          "funds": {
+            "mean": 78855505.226,
+            "median": 79424123
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 49682532.094,
+            "meanTurnCash": 22768292.823177326,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0.002,
+            "latePurchaseCost": 17457396.624,
+            "terminalFinancialExposure": 29969366.936,
+            "unmaturedBondFace": 2561665.694,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0.002,
+          "opportunities": {
+            "bank": 3.344,
+            "stocks": 2.146,
+            "bonds": 2.42,
+            "gold": 3.454,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.132,
+            "bonds": 1.126,
+            "gold": 1.72
+          }
+        },
+        "liquidity": {
+          "n": 500,
+          "wins": 3,
+          "winRate": 0.006,
+          "wilson95": [
+            0.0020425962719602363,
+            0.01749025210405338
+          ],
+          "seedCluster95": [
+            0,
+            0.01277589450226698
+          ],
+          "funds": {
+            "mean": 76167221.844,
+            "median": 76720202
+          },
+          "insolvencyRate": 0,
+          "metrics": {
+            "cash": 76167221.844,
+            "meanTurnCash": 35483864.78960155,
+            "livingPaid": 28000000,
+            "livingFunding": 0,
+            "emergencyPaid": 9002000,
+            "borrowing": 0,
+            "savingsWithdrawals": 0,
+            "latePurchaseCost": 18751706.276,
+            "terminalFinancialExposure": 0,
+            "unmaturedBondFace": 16251.08,
+            "completedStarts": 4
+          },
+          "livingFundingGameRate": 0,
+          "borrowingGameRate": 0,
+          "savingsWithdrawalGameRate": 0,
+          "opportunities": {
+            "bank": 3.344,
+            "stocks": 2.146,
+            "bonds": 2.42,
+            "gold": 3.454,
+            "business": 3.462,
+            "course": 2.26,
+            "personal": 2.26
+          },
+          "lateOpportunities": {
+            "stocks": 1.132,
+            "bonds": 1.126,
+            "gold": 1.72
+          }
+        }
+      },
+      "sameDicePathAsLegacy": 3000,
+      "sameEncounterPathAsLegacy": 210
+    }
+  ]
+}

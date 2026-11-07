@@ -1,0 +1,778 @@
+{
+  "version": "v2.5-credit-risk",
+  "seedPrefix": "BOND-V25-",
+  "seedsPerStrategy": 2000,
+  "games": 12000,
+  "parameters": [
+    {
+      "id": "an-tam",
+      "name": "Hợp tác xã An Tâm",
+      "rating": "AA",
+      "riskLabel": "Thận trọng",
+      "coupon": 0.045,
+      "faceValue": 100000,
+      "term": 2,
+      "delay": 0.035,
+      "default": 0.005,
+      "cure": 0.75,
+      "recovery": 0.8,
+      "uncertainPenalty": 0.015,
+      "stressPenalty": 0.01,
+      "volatility": 0.015,
+      "distressedPrice": 0.75,
+      "description": "Coupon thấp hơn, khả năng trả đúng hạn cao hơn. Vẫn có thể chậm trả hoặc mất vốn."
+    },
+    {
+      "id": "but-pha",
+      "name": "Công ty Bứt Phá",
+      "rating": "B",
+      "riskLabel": "Mạo hiểm",
+      "coupon": 0.1,
+      "faceValue": 100000,
+      "term": 2,
+      "delay": 0.1,
+      "default": 0.025,
+      "cure": 0.55,
+      "recovery": 0.5,
+      "uncertainPenalty": 0.04,
+      "stressPenalty": 0.03,
+      "volatility": 0.035,
+      "distressedPrice": 0.55,
+      "description": "Coupon cao hơn, dễ chịu áp lực trả nợ. Có thể chậm trả hoặc chỉ thu hồi một phần gốc."
+    }
+  ],
+  "aggregates": {
+    "bank-first": {
+      "games": 2000,
+      "winRate": 0.5465,
+      "win95CI": [
+        0.5246815044010821,
+        0.5683184955989179
+      ],
+      "insolvencyRate": 0,
+      "funds": {
+        "mean": 90962928.637,
+        "median": 91424404,
+        "p05": 70251000,
+        "p95": 109865000,
+        "mean95CI": [
+          90430836.7569147,
+          91495020.51708528
+        ],
+        "p99": 116477000,
+        "max": 123784500
+      },
+      "creditLoss": {
+        "mean": 0,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          0,
+          0
+        ],
+        "p99": 0,
+        "max": 0
+      },
+      "couponReceived": {
+        "mean": 0,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          0,
+          0
+        ],
+        "p99": 0,
+        "max": 0
+      },
+      "holdingDelayRate": 0,
+      "holdingDefaultRate": 0,
+      "recoveries": {
+        "mean": 0,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          0,
+          0
+        ],
+        "p99": 0,
+        "max": 0
+      },
+      "illiquidPrincipal": {
+        "mean": 0,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          0,
+          0
+        ],
+        "p99": 0,
+        "max": 0
+      },
+      "unpaidCoupon": {
+        "mean": 0,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          0,
+          0
+        ],
+        "p99": 0,
+        "max": 0
+      },
+      "meanBondBuys": 0,
+      "pairedProceedsVsBank": {
+        "mean": 0,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          0,
+          0
+        ],
+        "p99": 0,
+        "max": 0
+      },
+      "lossRate": 0,
+      "meanLossWhenLoss": 0
+    },
+    "issuer-a": {
+      "games": 2000,
+      "winRate": 0.397,
+      "win95CI": [
+        0.3755565340301527,
+        0.41844346596984733
+      ],
+      "insolvencyRate": 0,
+      "funds": {
+        "mean": 86208679.1875,
+        "median": 86794923,
+        "p05": 67000000,
+        "p95": 103866244,
+        "mean95CI": [
+          85702589.3135607,
+          86714769.0614393
+        ],
+        "p99": 110515652,
+        "max": 118960928
+      },
+      "creditLoss": {
+        "mean": 166218.1365,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          120611.99731401843,
+          211824.27568598156
+        ],
+        "p99": 7197754,
+        "max": 13842746
+      },
+      "couponReceived": {
+        "mean": 2549724.033,
+        "median": 2697130,
+        "p05": 0,
+        "p95": 5332998,
+        "mean95CI": [
+          2484124.8375712913,
+          2615323.2284287084
+        ],
+        "p99": 6090958,
+        "max": 7357740
+      },
+      "holdingDelayRate": 0.1115,
+      "holdingDefaultRate": 0.0305,
+      "recoveries": {
+        "mean": 306215.517,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          193613.36727561385,
+          418817.66672438616
+        ],
+        "p99": 12147962,
+        "max": 36610809
+      },
+      "illiquidPrincipal": {
+        "mean": 233192.124,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          135931.64114129252,
+          330452.6068587075
+        ],
+        "p99": 12090680,
+        "max": 45200795
+      },
+      "unpaidCoupon": {
+        "mean": 40636.3105,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          30763.316479882982,
+          50509.30452011702
+        ],
+        "p99": 1359773,
+        "max": 2753920
+      },
+      "meanBondBuys": 2.232,
+      "pairedProceedsVsBank": {
+        "mean": -4754249.4495,
+        "median": -4448557,
+        "p05": -10539430,
+        "p95": 724508,
+        "mean95CI": [
+          -4946047.319250402,
+          -4562451.579749598
+        ],
+        "p99": 2980901,
+        "max": 6358663
+      },
+      "lossRate": 0.0305,
+      "meanLossWhenLoss": 5449774.967213115
+    },
+    "issuer-b": {
+      "games": 2000,
+      "winRate": 0.418,
+      "win95CI": [
+        0.39638323472857234,
+        0.4396167652714276
+      ],
+      "insolvencyRate": 0,
+      "funds": {
+        "mean": 86198254.8925,
+        "median": 86863345,
+        "p05": 63396255,
+        "p95": 107148062,
+        "mean95CI": [
+          85609677.04706962,
+          86786832.73793037
+        ],
+        "p99": 114593117,
+        "max": 125808930
+      },
+      "creditLoss": {
+        "mean": 1648002.324,
+        "median": 0,
+        "p05": 0,
+        "p95": 10500000,
+        "mean95CI": [
+          1435918.115153822,
+          1860086.5328461782
+        ],
+        "p99": 21000000,
+        "max": 31328188
+      },
+      "couponReceived": {
+        "mean": 4572050.268,
+        "median": 4501652,
+        "p05": 0,
+        "p95": 10631537,
+        "mean95CI": [
+          4421812.022158781,
+          4722288.513841219
+        ],
+        "p99": 13245956,
+        "max": 16560133
+      },
+      "holdingDelayRate": 0.266,
+      "holdingDefaultRate": 0.123,
+      "recoveries": {
+        "mean": 968979.568,
+        "median": 0,
+        "p05": 0,
+        "p95": 7624198,
+        "mean95CI": [
+          820647.1205681163,
+          1117312.0154318837
+        ],
+        "p99": 15921878,
+        "max": 23387713
+      },
+      "illiquidPrincipal": {
+        "mean": 384076.6505,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          285840.36836910824,
+          482312.93263089174
+        ],
+        "p99": 15195485,
+        "max": 23479558
+      },
+      "unpaidCoupon": {
+        "mean": 278672.864,
+        "median": 0,
+        "p05": 0,
+        "p95": 2906526,
+        "mean95CI": [
+          237554.88525691227,
+          319790.84274308773
+        ],
+        "p99": 4632286,
+        "max": 7878139
+      },
+      "meanBondBuys": 1.9555,
+      "pairedProceedsVsBank": {
+        "mean": -4764673.7445,
+        "median": -3311336,
+        "p05": -20525427,
+        "p95": 5353777,
+        "mean95CI": [
+          -5117455.516130026,
+          -4411891.972869974
+        ],
+        "p99": 8826060,
+        "max": 12826617
+      },
+      "lossRate": 0.123,
+      "meanLossWhenLoss": 13398392.878048781
+    },
+    "mixed-bonds": {
+      "games": 2000,
+      "winRate": 0.392,
+      "win95CI": [
+        0.37060383705427535,
+        0.4133961629457247
+      ],
+      "insolvencyRate": 0,
+      "funds": {
+        "mean": 86034338.693,
+        "median": 86500000,
+        "p05": 65683672,
+        "p95": 104468764,
+        "mean95CI": [
+          85514935.95994963,
+          86553741.42605038
+        ],
+        "p99": 112033026,
+        "max": 122236988
+      },
+      "creditLoss": {
+        "mean": 714451.1235,
+        "median": 0,
+        "p05": 0,
+        "p95": 9000000,
+        "mean95CI": [
+          604556.7866651444,
+          824345.4603348556
+        ],
+        "p99": 10334340,
+        "max": 19259712
+      },
+      "couponReceived": {
+        "mean": 3166886.435,
+        "median": 2874456,
+        "p05": 0,
+        "p95": 7305338,
+        "mean95CI": [
+          3066575.8137572054,
+          3267197.0562427947
+        ],
+        "p99": 8957366,
+        "max": 11651657
+      },
+      "holdingDelayRate": 0.1995,
+      "holdingDefaultRate": 0.086,
+      "recoveries": {
+        "mean": 529906.1235,
+        "median": 0,
+        "p05": 0,
+        "p95": 7316502,
+        "mean95CI": [
+          426044.8204830342,
+          633767.4265169657
+        ],
+        "p99": 12003721,
+        "max": 24496205
+      },
+      "illiquidPrincipal": {
+        "mean": 281423.9525,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          209929.4585225836,
+          352918.44647741644
+        ],
+        "p99": 8005722,
+        "max": 18397303
+      },
+      "unpaidCoupon": {
+        "mean": 147155.6595,
+        "median": 0,
+        "p05": 0,
+        "p95": 1505027,
+        "mean95CI": [
+          123851.41268814882,
+          170459.9063118512
+        ],
+        "p99": 3022548,
+        "max": 4729425
+      },
+      "meanBondBuys": 2.0295,
+      "pairedProceedsVsBank": {
+        "mean": -4928589.944,
+        "median": -4305751,
+        "p05": -14612213,
+        "p95": 2278627,
+        "mean95CI": [
+          -5155306.09590389,
+          -4701873.79209611
+        ],
+        "p99": 4746448,
+        "max": 8474755
+      },
+      "lossRate": 0.086,
+      "meanLossWhenLoss": 8307571.203488372
+    },
+    "liquidity": {
+      "games": 2000,
+      "winRate": 0.337,
+      "win95CI": [
+        0.31628367154151105,
+        0.357716328458489
+      ],
+      "insolvencyRate": 0,
+      "funds": {
+        "mean": 84657170.7,
+        "median": 85055290,
+        "p05": 65859110,
+        "p95": 101900382,
+        "mean95CI": [
+          84171987.46474263,
+          85142353.93525738
+        ],
+        "p99": 108092167,
+        "max": 115070469
+      },
+      "creditLoss": {
+        "mean": 83828.088,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          57521.3700399957,
+          110134.8059600043
+        ],
+        "p99": 3718958,
+        "max": 7531278
+      },
+      "couponReceived": {
+        "mean": 1401468.6205,
+        "median": 1354799,
+        "p05": 0,
+        "p95": 2732112,
+        "mean95CI": [
+          1364306.2440743612,
+          1438630.9969256388
+        ],
+        "p99": 3414350,
+        "max": 4321099
+      },
+      "holdingDelayRate": 0.078,
+      "holdingDefaultRate": 0.0205,
+      "recoveries": {
+        "mean": 182616.948,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          111617.61270332779,
+          253616.28329667222
+        ],
+        "p99": 12000000,
+        "max": 24050748
+      },
+      "illiquidPrincipal": {
+        "mean": 91107.428,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          42099.63035754686,
+          140115.22564245312
+        ],
+        "p99": 0,
+        "max": 24591928
+      },
+      "unpaidCoupon": {
+        "mean": 0,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          0,
+          0
+        ],
+        "p99": 0,
+        "max": 0
+      },
+      "meanBondBuys": 2.236,
+      "pairedProceedsVsBank": {
+        "mean": -6305757.937,
+        "median": -6276278,
+        "p05": -11378188,
+        "p95": -1578273,
+        "mean95CI": [
+          -6453767.307410942,
+          -6157748.566589057
+        ],
+        "p99": 636157,
+        "max": 4304194
+      },
+      "lossRate": 0.0205,
+      "meanLossWhenLoss": 4089175.024390244
+    },
+    "balanced": {
+      "games": 2000,
+      "winRate": 0.47,
+      "win95CI": [
+        0.44812601362348414,
+        0.4918739863765158
+      ],
+      "insolvencyRate": 0,
+      "funds": {
+        "mean": 89120583.356,
+        "median": 89081912,
+        "p05": 68790477,
+        "p95": 109173531,
+        "mean95CI": [
+          88576354.40739158,
+          89664812.30460843
+        ],
+        "p99": 119473090,
+        "max": 145119041
+      },
+      "creditLoss": {
+        "mean": 213364.3585,
+        "median": 0,
+        "p05": 0,
+        "p95": 2947736,
+        "mean95CI": [
+          178630.4194091932,
+          248098.29759080682
+        ],
+        "p99": 3201605,
+        "max": 6419903
+      },
+      "couponReceived": {
+        "mean": 951241.384,
+        "median": 776160,
+        "p05": 0,
+        "p95": 2397554,
+        "mean95CI": [
+          918645.7175159869,
+          983837.050484013
+        ],
+        "p99": 3103044,
+        "max": 3783885
+      },
+      "holdingDelayRate": 0.188,
+      "holdingDefaultRate": 0.0785,
+      "recoveries": {
+        "mean": 148154.5165,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          115894.82101467253,
+          180414.21198532745
+        ],
+        "p99": 4000000,
+        "max": 10452783
+      },
+      "illiquidPrincipal": {
+        "mean": 97500.0805,
+        "median": 0,
+        "p05": 0,
+        "p95": 0,
+        "mean95CI": [
+          73061.74735951381,
+          121938.41364048618
+        ],
+        "p99": 2709000,
+        "max": 6620443
+      },
+      "unpaidCoupon": {
+        "mean": 48587.807,
+        "median": 0,
+        "p05": 0,
+        "p95": 501238,
+        "mean95CI": [
+          40848.37855979075,
+          56327.23544020925
+        ],
+        "p99": 1007668,
+        "max": 1576476
+      },
+      "meanBondBuys": 1.8955,
+      "pairedProceedsVsBank": {
+        "mean": -1842345.281,
+        "median": -2148073,
+        "p05": -10136719,
+        "p95": 7473654,
+        "mean95CI": [
+          -2086610.6553090352,
+          -1598079.9066909647
+        ],
+        "p99": 14293857,
+        "max": 45817283
+      },
+      "lossRate": 0.0785,
+      "meanLossWhenLoss": 2718017.305732484
+    }
+  },
+  "examples": {
+    "coupon-delay": {
+      "seed": "BOND-V25-0",
+      "won": true,
+      "insolvent": false,
+      "funds": 95957458,
+      "creditLoss": 0,
+      "couponReceived": 4075446,
+      "delay": true,
+      "default": false,
+      "recoveries": 0,
+      "illiquidPrincipal": 0,
+      "unpaidCoupon": 673001,
+      "bondBuys": 4,
+      "couponDelay": true,
+      "principalDelay": true,
+      "strategy": "issuer-a",
+      "file": "simulation-coupon-delay.json.gz",
+      "fullStateReplay": true
+    },
+    "principal-delay": {
+      "seed": "BOND-V25-0",
+      "won": true,
+      "insolvent": false,
+      "funds": 95957458,
+      "creditLoss": 0,
+      "couponReceived": 4075446,
+      "delay": true,
+      "default": false,
+      "recoveries": 0,
+      "illiquidPrincipal": 0,
+      "unpaidCoupon": 673001,
+      "bondBuys": 4,
+      "couponDelay": true,
+      "principalDelay": true,
+      "strategy": "issuer-a",
+      "file": "simulation-principal-delay.json.gz",
+      "fullStateReplay": true
+    },
+    "victory": {
+      "seed": "BOND-V25-0",
+      "won": true,
+      "insolvent": false,
+      "funds": 95957458,
+      "creditLoss": 0,
+      "couponReceived": 4075446,
+      "delay": true,
+      "default": false,
+      "recoveries": 0,
+      "illiquidPrincipal": 0,
+      "unpaidCoupon": 673001,
+      "bondBuys": 4,
+      "couponDelay": true,
+      "principalDelay": true,
+      "strategy": "issuer-a",
+      "file": "simulation-victory.json.gz",
+      "fullStateReplay": true
+    },
+    "normal-a": {
+      "seed": "BOND-V25-1",
+      "won": true,
+      "insolvent": false,
+      "funds": 91407512,
+      "creditLoss": 0,
+      "couponReceived": 4065126,
+      "delay": false,
+      "default": false,
+      "recoveries": 0,
+      "illiquidPrincipal": 0,
+      "unpaidCoupon": 0,
+      "bondBuys": 4,
+      "couponDelay": false,
+      "principalDelay": false,
+      "strategy": "issuer-a",
+      "file": "simulation-normal-a.json.gz",
+      "fullStateReplay": true
+    },
+    "defeat": {
+      "seed": "BOND-V25-2",
+      "won": false,
+      "insolvent": false,
+      "funds": 84949922,
+      "creditLoss": 0,
+      "couponReceived": 1340708,
+      "delay": false,
+      "default": false,
+      "recoveries": 0,
+      "illiquidPrincipal": 0,
+      "unpaidCoupon": 0,
+      "bondBuys": 2,
+      "couponDelay": false,
+      "principalDelay": false,
+      "strategy": "issuer-a",
+      "file": "simulation-defeat.json.gz",
+      "fullStateReplay": true
+    },
+    "default-recovery": {
+      "seed": "BOND-V25-59",
+      "won": false,
+      "insolvent": false,
+      "funds": 83316939,
+      "creditLoss": 7393469,
+      "couponReceived": 675000,
+      "delay": false,
+      "default": true,
+      "recoveries": 24141939,
+      "illiquidPrincipal": 0,
+      "unpaidCoupon": 0,
+      "bondBuys": 2,
+      "couponDelay": false,
+      "principalDelay": false,
+      "strategy": "issuer-a",
+      "file": "simulation-default-recovery.json.gz",
+      "fullStateReplay": true
+    },
+    "normal-b": {
+      "seed": "BOND-V25-1",
+      "won": true,
+      "insolvent": false,
+      "funds": 96112622,
+      "creditLoss": 0,
+      "couponReceived": 9220456,
+      "delay": false,
+      "default": false,
+      "recoveries": 0,
+      "illiquidPrincipal": 0,
+      "unpaidCoupon": 0,
+      "bondBuys": 4,
+      "couponDelay": false,
+      "principalDelay": false,
+      "strategy": "issuer-b",
+      "file": "simulation-normal-b.json.gz",
+      "fullStateReplay": true
+    }
+  },
+  "methodology": "Same deterministic seeds, six observable-state policies; C20 four laps; normal engine, no forced rolls/outcomes. Face/coupon/nonnegative/at-most-once invariants checked every game. Seven full-state replay examples.",
+  "limitations": [
+    "Policies are fixed heuristics, not optimal play or human behavior.",
+    "Bank starts 30M term2; balanced starts15M term2; others start0. Strategies include different timing/exposure, not isolated asset causal effects.",
+    "Win CIs normal approximation; paired proceeds CI estimates seed sampling only, not model uncertainty.",
+    "No parameter fit to real issuers; not approval or production evidence."
+  ],
+  "metadataCorrection": "Example strategy label corrected from seed to policy after run; financial outputs and exported states unchanged.",
+  "aggregationFollowUp": "p99/max and conditional loss mean derived from the saved 12000 rows; engine simulation not rerun."
+}

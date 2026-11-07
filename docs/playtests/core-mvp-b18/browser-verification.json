@@ -1,0 +1,734 @@
+{
+  "results": [
+    {
+      "width": 390,
+      "policy": "savings",
+      "seed": "TRADING-AB-MAIN-0",
+      "turns": 25,
+      "events": [
+        "demand-boom",
+        "course",
+        "gold",
+        "bank",
+        "business",
+        "stocks",
+        "bonds"
+      ],
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 95088000,
+        "termination": "completed"
+      }
+    },
+    {
+      "width": 320,
+      "policy": "cash",
+      "seed": "TRADING-AB-MAIN-0",
+      "turns": 25,
+      "events": [
+        "demand-boom",
+        "course",
+        "gold",
+        "bank",
+        "business",
+        "stocks",
+        "bonds"
+      ],
+      "result": {
+        "status": "defeat",
+        "won": false,
+        "lawfulProceeds": 86000000,
+        "termination": "completed"
+      }
+    },
+    {
+      "width": 390,
+      "policy": "trades",
+      "seed": "B18-UI-TRADES",
+      "turns": 21,
+      "events": [
+        "gold",
+        "business",
+        "bonds",
+        "course",
+        "bank",
+        "stocks",
+        "credit-tightening"
+      ],
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 94444551,
+        "termination": "completed"
+      }
+    }
+  ],
+  "layout": [
+    {
+      "label": "390-savings-setup",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-board",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": []
+    },
+    {
+      "label": "390-savings-wallet",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-event-demand-boom",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-event-course",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-event-gold",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-event-bank",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-event-business",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-START1",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-event-stocks",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-START2",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-event-bonds",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-START3",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-START4",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-savings-result",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "320-cash-setup",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-rulebook-goal",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        },
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-rulebook-board",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        },
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-rulebook-turn",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        },
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-rulebook-investments",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        },
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-rulebook-risk",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        },
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-rulebook-start",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        },
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-board",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": []
+    },
+    {
+      "label": "320-cash-wallet",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-event-demand-boom",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-event-course",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-event-gold",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-event-bank",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-event-business",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-START1",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-event-stocks",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-START2",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-event-bonds",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-START3",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-START4",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-cash-result",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "390-trades-setup",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-board",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": []
+    },
+    {
+      "label": "390-trades-wallet",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-event-gold",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-event-business",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-event-bonds",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-event-course",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-START1",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-sale-preview-gold",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-event-bank",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-sale-preview-bonds",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-event-stocks",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-START2",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-START3",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-event-credit-tightening",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-sale-preview-gold",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-START4",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "label": "390-trades-result",
+      "viewport": 390,
+      "body": 390,
+      "dialogs": [
+        {
+          "width": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "actualUiActions": true,
+  "forcedStates": false,
+  "headless": true,
+  "humanPlaytest": false
+}

@@ -1,3 +1,5 @@
+> **SUPERSEDED** — Guide solo V2.2 theo seed/mode/luật tại thời điểm đó; không dùng làm hướng dẫn mặc định V2.4. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # Hướng dẫn solo — playtest lãi tiết kiệm V2.2 đã được duyệt
 
 Mục tiêu: chủ dự án đánh giá quyết định tài chính có dễ hiểu và có hậu quả hợp lý. **Chơi 6 ván**, có thể chia 2 buổi; không cần chạy mô phỏng hoặc kiểm tra visual polish. Experimental B hiện dùng **4/5/6%** theo kỳ hạn; Original và Experimental A giữ **6/7/8%**. Chỉ profile lãi của Experimental B thay đổi.

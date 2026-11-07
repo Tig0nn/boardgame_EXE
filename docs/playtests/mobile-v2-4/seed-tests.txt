@@ -1,0 +1,44 @@
+TAP version 13
+# (node:15592) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: mobile controller matches web after every decision and replays four laps: mobile-parity-1
+ok 1 - mobile controller matches web after every decision and replays four laps: mobile-parity-1
+  ---
+  duration_ms: 1469.6659
+  ...
+# Subtest: mobile controller matches web after every decision and replays four laps: mobile-parity-2
+ok 2 - mobile controller matches web after every decision and replays four laps: mobile-parity-2
+  ---
+  duration_ms: 1513.325
+  ...
+# Subtest: mobile controller matches web after every decision and replays four laps: mobile-parity-3
+ok 3 - mobile controller matches web after every decision and replays four laps: mobile-parity-3
+  ---
+  duration_ms: 1022.2941
+  ...
+# Subtest: animation path crosses START without mutating engine or drawing randomness
+ok 4 - animation path crosses START without mutating engine or drawing randomness
+  ---
+  duration_ms: 1.9418
+  ...
+# (node:5196) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: every player game gets fresh cryptographic entropy, including mobile restarts
+ok 5 - every player game gets fresh cryptographic entropy, including mobile restarts
+  ---
+  duration_ms: 25.9448
+  ...
+# Subtest: explicit developer seeds preserve full web/mobile deterministic state
+ok 6 - explicit developer seeds preserve full web/mobile deterministic state
+  ---
+  duration_ms: 4.9032
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4367.6925

@@ -1,0 +1,72 @@
+{
+  "stage": "after",
+  "checks": [
+    {
+      "label": "320-handbook",
+      "w": 320,
+      "scroll": 320
+    },
+    {
+      "label": "320-glossary",
+      "w": 320,
+      "scroll": 320
+    },
+    {
+      "label": "320-bulletin",
+      "w": 320,
+      "scroll": 320
+    },
+    {
+      "label": "320-bond-trade",
+      "w": 320,
+      "scroll": 320
+    },
+    {
+      "label": "320-result",
+      "w": 320,
+      "scroll": 320
+    },
+    {
+      "label": "390-handbook",
+      "w": 390,
+      "scroll": 390
+    },
+    {
+      "label": "390-glossary",
+      "w": 390,
+      "scroll": 390
+    },
+    {
+      "label": "390-bulletin",
+      "w": 390,
+      "scroll": 390
+    },
+    {
+      "label": "390-bond-trade",
+      "w": 390,
+      "scroll": 390
+    },
+    {
+      "label": "390-result",
+      "w": 390,
+      "scroll": 390
+    },
+    {
+      "label": "desktop-handbook",
+      "w": 1440,
+      "scroll": 1440
+    },
+    {
+      "label": "desktop-bulletin",
+      "w": 1440,
+      "scroll": 1440
+    },
+    {
+      "label": "desktop-bond-trade",
+      "w": 1440,
+      "scroll": 1440
+    }
+  ],
+  "errors": [],
+  "realUi": true
+}

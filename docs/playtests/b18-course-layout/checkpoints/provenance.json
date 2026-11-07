@@ -1,0 +1,75 @@
+[
+  {
+    "label": "available",
+    "path": "docs/playtests/b18-course-layout/checkpoints/available.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first.json.gz",
+    "seed": "TRADING-AB-MAIN-0",
+    "lap": 1,
+    "turn": 2,
+    "cash": 50000000,
+    "owned": [],
+    "method": "Exact legal replay prefix of an archived game. Imported through UI; no injected save fields and no new balance simulation."
+  },
+  {
+    "label": "advanced-learned",
+    "path": "docs/playtests/b18-course-layout/checkpoints/advanced-learned.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first.json.gz",
+    "seed": "TRADING-AB-MAIN-0",
+    "lap": 1,
+    "turn": 5,
+    "cash": 40000000,
+    "owned": [
+      "advanced"
+    ],
+    "method": "Exact legal replay prefix of an archived game. Imported through UI; no injected save fields and no new balance simulation."
+  },
+  {
+    "label": "both-learned",
+    "path": "docs/playtests/b18-course-layout/checkpoints/both-learned.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first.json.gz",
+    "seed": "TRADING-AB-MAIN-0",
+    "lap": 2,
+    "turn": 11,
+    "cash": 49000000,
+    "owned": [
+      "advanced",
+      "basic"
+    ],
+    "method": "Exact legal replay prefix of an archived game. Imported through UI; no injected save fields and no new balance simulation."
+  },
+  {
+    "label": "insufficient",
+    "path": "docs/playtests/b18-course-layout/checkpoints/insufficient.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding.json.gz",
+    "seed": "RELEASE-ASSET-FUND-3",
+    "lap": 4,
+    "turn": 20,
+    "cash": 5355471,
+    "owned": [],
+    "method": "Exact legal replay prefix of an archived game. Imported through UI; no injected save fields and no new balance simulation."
+  },
+  {
+    "label": "basic-learned",
+    "path": "docs/playtests/b18-course-layout/checkpoints/basic-learned.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first.json.gz",
+    "seed": "TRADING-AB-MAIN-0",
+    "lap": 1,
+    "turn": 5,
+    "cash": 44000000,
+    "owned": [
+      "basic"
+    ],
+    "method": "Exact legal replay prefix of an archived game. Imported through UI; no injected save fields and no new balance simulation."
+  },
+  {
+    "label": "basic-only-affordable",
+    "path": "docs/playtests/b18-course-layout/checkpoints/basic-only-affordable.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding.json.gz",
+    "seed": "B18-MULTICOURSE-SCREEN-0",
+    "lap": 3,
+    "turn": 10,
+    "cash": 9211401,
+    "owned": [],
+    "method": "Exact legal replay prefix of an archived game. Imported through UI; no injected save fields and no new balance simulation."
+  }
+]

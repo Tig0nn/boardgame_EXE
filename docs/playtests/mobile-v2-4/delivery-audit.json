@@ -1,0 +1,25 @@
+{
+  "baseline": "b410b20",
+  "checkedPaths": [
+    "mobile_app/public",
+    "mobile_app/src/utils/audio.ts",
+    "mobile_app/src/components/Character3D.tsx",
+    "mobile_app/src/components/BoardView.tsx",
+    "src/game/transactions.ts",
+    "src/game/settlement.ts",
+    "src/game/business.ts",
+    "src/game/savings.ts",
+    "src/game/selectors.ts",
+    "src/game/customer-preferences.ts",
+    "src/data/config.ts",
+    "src/data/modes.ts"
+  ],
+  "changedProtectedPaths": [],
+  "protectedSourcesUnchanged": true,
+  "engineReview": "Only optional catalog initialization/types/export metadata changed; no formula or balance changes",
+  "productionSavingsPolicy": "A: independent multiple lots",
+  "policyB": "Simulation-only restriction",
+  "rapidTapFixCommit": "7fb3ac2",
+  "rapidTapBrowserEvidence": "browser-verification.json: tradingUnlockAfterRejectedTap=true",
+  "supplementalStartEvidence": "rebalancing-verification.json"
+}

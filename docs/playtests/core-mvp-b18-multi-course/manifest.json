@@ -1,0 +1,780 @@
+{
+  "format": "b18-multi-course-implementation-evidence-v1",
+  "date": "2026-10-16",
+  "branch": "codex/mvp-b18-multi-course",
+  "baseProduction": "00e77a19691c109e8cb7079b83591463c3eb6136",
+  "implementation": "db33c9cc8fafd911156aa51a2a66ec41c378cd21",
+  "approvedResearch": "a44686e988540fdee04498d547b0703c221e7b24",
+  "runtime": {
+    "node": "v22.14.0",
+    "platform": "win32",
+    "desktopVite": "8.3.3",
+    "mobileVite": "8.3.4",
+    "browser": "Chromium1228 via Playwright; headless"
+  },
+  "verification": {
+    "rootTests": 334,
+    "uiTests": 2,
+    "lint": true,
+    "desktopBuild": true,
+    "mobileBuild": true,
+    "replays": 68,
+    "legacyReplaysPreserved": 49,
+    "frozenResearchGames": 13,
+    "frozenSnapshots": 2306,
+    "frozenActions": 492,
+    "fullUiGames": 4,
+    "insufficientCashUiFlows": 3,
+    "screenshots": 79,
+    "layoutChecks": 80,
+    "jsErrors": 0
+  },
+  "scope": {
+    "historicalDataModified": false,
+    "researchRerun": false,
+    "humanPlaytest": false,
+    "finalQA": false,
+    "merged": false,
+    "deployed": false
+  },
+  "sourceHashing": "UTF8 normalized to LF; artifacts hashed as original bytes and kept -text by scoped .gitattributes",
+  "sourceFiles": [
+    {
+      "path": "docs/CORE_MVP_B18_MULTI_COURSE_IMPLEMENTATION_REPORT.md",
+      "bytes": 11963,
+      "sha256": "f97c7483060fe376155c7665883026f41ebb972c32c7b5b93a8496fc2edcce1d"
+    },
+    {
+      "path": "mobile_app/src/App.tsx",
+      "bytes": 8778,
+      "sha256": "87dff413ff7996cde0d6f8b875930be3cb54b87a5014a0dca89fbfa5a2b194a7"
+    },
+    {
+      "path": "mobile_app/src/components/CoreMvpBoard.tsx",
+      "bytes": 3931,
+      "sha256": "52caff59d7fdc32ec943d05d6893c0e53fd111252be9f07341537183796ad813"
+    },
+    {
+      "path": "mobile_app/src/components/EventModal.tsx",
+      "bytes": 3668,
+      "sha256": "51f4508f526510bfb59f526e600730ab9eabcf27bc4a9996055e8c50b7cecb1b"
+    },
+    {
+      "path": "mobile_app/src/components/RulebookModal.tsx",
+      "bytes": 7035,
+      "sha256": "22d328e97796dbe116e617428a65e14b58e5fe07b34c5220151263a011c55a10"
+    },
+    {
+      "path": "mobile_app/src/components/Tutorial.tsx",
+      "bytes": 11002,
+      "sha256": "4f26cbb36108d3fcb877a6c349f789c098a5f7d07f4f3c0e8946889d63a52d7d"
+    },
+    {
+      "path": "mobile_app/src/game/session.ts",
+      "bytes": 2491,
+      "sha256": "702f17622fcd1555f8dff51d40f6b29c0f8805ec1c6d31473398aea955b68cd3"
+    },
+    {
+      "path": "scripts/diagnostics/multi-course-browser.mjs",
+      "bytes": 13282,
+      "sha256": "c527fa450ec10a769bb5f4a824b1c66ba149cc11b95e9950641a4c60149234ab"
+    },
+    {
+      "path": "scripts/diagnostics/multi-course-desktop-browser.mjs",
+      "bytes": 5581,
+      "sha256": "828eccbfbf1274b2990969ece2a985aff8dccd1156e2a3b1a7386fc52030361e"
+    },
+    {
+      "path": "scripts/diagnostics/multi-course-ui.test.ts",
+      "bytes": 3178,
+      "sha256": "fc0308400c6e29847d5c54cf20822b7c3d31308ca4c1c43678d778ce878bb05f"
+    },
+    {
+      "path": "scripts/diagnostics/replay-game-log.ts",
+      "bytes": 9655,
+      "sha256": "12ebcf1b9c074cc5053e6c5c7c3f3016bb0f33bb00f43eecccc588c93f7f3a1e"
+    },
+    {
+      "path": "scripts/diagnostics/verify-multi-course-replays.ts",
+      "bytes": 2047,
+      "sha256": "34d389f2d499bc5d7bbcdb6c976e65824f6121640d8357595dfdcd50e087b793"
+    },
+    {
+      "path": "scripts/manifest-multi-course.mjs",
+      "bytes": 4331,
+      "sha256": "3787a5041e0abb8ee04e16c322e93493f90c3698bdd73a3a45a50bc586a978a7"
+    },
+    {
+      "path": "scripts/verify-multi-course-parity.ts",
+      "bytes": 7670,
+      "sha256": "a5bf85f43ca4d4c25fcd74b280879312d7f74dd61746c9dcc2be096107150052"
+    },
+    {
+      "path": "src/App.tsx",
+      "bytes": 7525,
+      "sha256": "48bc8c6d548358210530ba5a75a40177399fe417431622d72e25f686335b1f8c"
+    },
+    {
+      "path": "src/ai/facts.ts",
+      "bytes": 10968,
+      "sha256": "51bf71cccea1c28490f644d332fae59dca9c0f322ae0bff9512ca1907439aafa"
+    },
+    {
+      "path": "src/components/CourseChoices.tsx",
+      "bytes": 2789,
+      "sha256": "b0be0758ee06bda7c852d1690f0d62ac71186c443ce45e023e7babc483dbd740"
+    },
+    {
+      "path": "src/components/GameDialogs.tsx",
+      "bytes": 11248,
+      "sha256": "eff32f028fc65a3adfb4b2ade8ab7a0a56f684fd8650f2c9416582b84dfbf01a"
+    },
+    {
+      "path": "src/components/course-choices.css",
+      "bytes": 1763,
+      "sha256": "0cd95addd3a73cabc2421cbf0304621da692cb81d23884882e764a303a9051b4"
+    },
+    {
+      "path": "src/data/board.ts",
+      "bytes": 3669,
+      "sha256": "3133c990048f43db021769c9f82ca24ccdc1fed8ea39c2766289d410cf714389"
+    },
+    {
+      "path": "src/data/courses.ts",
+      "bytes": 341,
+      "sha256": "6474f86de50b34b64f09a7b40938862dd952da9c80c60b9a35db902288321b91"
+    },
+    {
+      "path": "src/data/events.ts",
+      "bytes": 5304,
+      "sha256": "2e5d0f5976a1972af9ebde41b8877b87669e7bd210bd40dfbf93bbd67ade249b"
+    },
+    {
+      "path": "src/game/courses.ts",
+      "bytes": 2063,
+      "sha256": "5788d5dcf7ed49e99eef1f15795325e8c70938d545c949cba7b379a9d344bdb1"
+    },
+    {
+      "path": "src/game/engine.ts",
+      "bytes": 11902,
+      "sha256": "45c7e8cfb9da5a5b97d962ed9c7d97113ec92d911fa3efde0db9c25692be4da7"
+    },
+    {
+      "path": "src/game/living-expenses.ts",
+      "bytes": 2203,
+      "sha256": "a99360701b0c9523fa7b020e35aff4e69a16bb4502efbefc0830170d7f8196bf"
+    },
+    {
+      "path": "src/game/log.ts",
+      "bytes": 4989,
+      "sha256": "090899b306ae11b29814f402ff25105e572712cca55d7dbf48e7466a772b54e9"
+    },
+    {
+      "path": "src/game/new-game.ts",
+      "bytes": 1501,
+      "sha256": "77026f5c4903a2452cb7eac98a23df77b20670128e9f5f4f6ca9e2a6a358d3ac"
+    },
+    {
+      "path": "src/game/rules-profile.ts",
+      "bytes": 1790,
+      "sha256": "8b1c1ec07d9e66024898ddb7c23fb7d3b8f6ef6c7ab12238541785cbe8635e15"
+    },
+    {
+      "path": "src/game/saved-game.ts",
+      "bytes": 7105,
+      "sha256": "41a80e85943150b69a7005ed1ac4dd24455a12492f5092c1c4077d8e1d71d95c"
+    },
+    {
+      "path": "src/game/state.ts",
+      "bytes": 5081,
+      "sha256": "1705ea581ce7953d9666e00a474d8a68f9c38ed6593970dc0a9190f37d6dbc61"
+    },
+    {
+      "path": "src/game/types.ts",
+      "bytes": 8430,
+      "sha256": "7575c4c534ab04fdb67c7e6da52091fba91bb9ad9cfe7b8b33e4b9687c2b61d7"
+    },
+    {
+      "path": "tests/multi-course.test.ts",
+      "bytes": 8905,
+      "sha256": "a0905c55d915adda768dfa1af763135b489802e68ef9be95ea70013866903e73"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/.gitattributes",
+      "bytes": 88,
+      "sha256": "bb049fed9019ff2e1670d279e913becf14400428390017e656d731339a9d4d06"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-START1.png",
+      "bytes": 79068,
+      "sha256": "395f198d71a582f6069b4eac02c68d8d258c440d4a96f81a583af7d93f5d7649"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-START2.png",
+      "bytes": 78913,
+      "sha256": "c0f27d37f8a517d4217cb4931183bb3185bd3bbd693794c3d27dbd48eb7a22b8"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-START3.png",
+      "bytes": 79118,
+      "sha256": "75d688cd2223cae6eb0f89107522ee6205f3aff68ed5092ecd407522ced3cb86"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-START4.png",
+      "bytes": 78728,
+      "sha256": "2a354e04ba8b6397981d959b10743a59c04b3367c42ef12f2c099d4e03620742"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-board.png",
+      "bytes": 109600,
+      "sha256": "0b7a4f873550e56b88d93ddd3ffb021ef58e2ee03ecfccda45d6db65f6890b8d"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-course-both.png",
+      "bytes": 88256,
+      "sha256": "8b4c13384376602c2661bd17c55117b75ade82f76e87d973d8571d98b7dac666"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-course-one.png",
+      "bytes": 70282,
+      "sha256": "948cfde04982e951f8c0bc80606727c72173f3330e2debb1b3ff84658ee83ca3"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-course-unlearned.png",
+      "bytes": 70076,
+      "sha256": "013001fdce5fa3fc6d35eed10d7fb0b6f7446c61ec5af1f4bd762af8b0c3c265"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-event-bank.png",
+      "bytes": 68369,
+      "sha256": "9dfae3b1e0438e62bd2534746714bfe7a13b2decdc0555db9c90fc7123852027"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-event-bonds.png",
+      "bytes": 85876,
+      "sha256": "9315ebfbd2140a4e8f2c5caa5091ee04673d6caa5179faf87fa4ed1577a02c20"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-event-business.png",
+      "bytes": 76853,
+      "sha256": "08454667b3d0f7a13b5a4fa154c9eddc2075c78b549bebaa48e7dbb1c9fe2700"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-event-course.png",
+      "bytes": 70076,
+      "sha256": "013001fdce5fa3fc6d35eed10d7fb0b6f7446c61ec5af1f4bd762af8b0c3c265"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-event-demand-boom.png",
+      "bytes": 90503,
+      "sha256": "5eed380c575cc90f617df8363c31f8efd31e64f5c5eb976048cbdba6e3f098b4"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-event-gold.png",
+      "bytes": 69435,
+      "sha256": "90021c9ecb27a84c4a6099454bd822171cbfce52479bf92af3a80444cf44641c"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-event-stocks.png",
+      "bytes": 71672,
+      "sha256": "1cf67e3264db0e14870f18103d9bb80b0b2adeb9a755461f7d4394a350430722"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-result.png",
+      "bytes": 65236,
+      "sha256": "c7e3ac1cada530bdaec3b912c6784124f45b8c0833783eaabdac0910f17fa556"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-setup.png",
+      "bytes": 80534,
+      "sha256": "3e342de9abb0e6a5d11604abf61d659dd0bdd852448edfb5930c8519f49656a3"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-basic-first-wallet.png",
+      "bytes": 75024,
+      "sha256": "8f2b36e1a94a214676e313769026d7a820fd81f51cc13f5507ae9d3002e7e768"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-course-insufficient.png",
+      "bytes": 78959,
+      "sha256": "e7ce273ae7008d3d973620ddab4120b6fdb6a2b85e08d41eb6f807c10be06ad1"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-multi-rulebook-0.png",
+      "bytes": 88944,
+      "sha256": "f4860a9e8d7e397c79583f06df4f4741535bc615a47e91d6edb8ff80f6ec0af4"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-multi-rulebook-1.png",
+      "bytes": 65933,
+      "sha256": "c8b40621c6d1e154662fdac9c6e7873e8cf07ac3286d9a3f38cf43dd1b4162c8"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-multi-rulebook-2.png",
+      "bytes": 90033,
+      "sha256": "953b9f1d7f341e2a05615be4a61eb1bf1a2b7ba8b710c78aa0b277c98e27e20a"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-multi-rulebook-3.png",
+      "bytes": 124977,
+      "sha256": "b884e0931409e06e6edbb50ff27b38b9ce810b793ab7c5d9d9fa2b0bd85e5c66"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-multi-rulebook-4.png",
+      "bytes": 99467,
+      "sha256": "52be24e24126345ab94dabd83c6a238196ebd70865faeb01e82d9c58b611e26c"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-multi-rulebook-5.png",
+      "bytes": 89537,
+      "sha256": "1ab664354e93cc49f7e8904ee3829eb2bb9083b4bd7daae671523852ec21eedf"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/320-tile16-bonds-details.png",
+      "bytes": 90081,
+      "sha256": "4bc9b7e2c8f32669d26a876e27e86705185617fc692211ab652d119e1d16d36c"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-START1.png",
+      "bytes": 101003,
+      "sha256": "a007db349fbb7c6af136ff2b74e6c858efcf5701073c54660da534398d0528e5"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-START2.png",
+      "bytes": 96455,
+      "sha256": "27d29d7c586c71a1b2a29214aca18e829dd1f63ab731c145020f6cd41dc1d19a"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-START3.png",
+      "bytes": 101118,
+      "sha256": "dd7557ac557e66e1abebd610a97b684f7f4e391940f4f373f0ffa508bd18ec21"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-START4.png",
+      "bytes": 100749,
+      "sha256": "e4c187d171f5a13584fd79b41848d6b10db7c66f91f5660c7f6d49385539799a"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-board.png",
+      "bytes": 135189,
+      "sha256": "9b86172571104086d5af81956f6a969d10eb593d2cdbe196676c7406157011ec"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-course-both.png",
+      "bytes": 108679,
+      "sha256": "6ff2c866a48183f226cdad2edd50ede5196af044685c93e7b5bb10b7618749f0"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-course-one.png",
+      "bytes": 88653,
+      "sha256": "c413973ed6f31366db85ecaca4209d1648175c7a807ec2dd3538a05b5f43dbb0"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-course-unlearned.png",
+      "bytes": 88923,
+      "sha256": "e22f34f7d04edb80550aeb5aba22ac62ad86eb2d97cf6c9720b227ba24d00385"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-event-bank.png",
+      "bytes": 89586,
+      "sha256": "756a06d202752af4b41147cc870276d867ea553618489b69c0adfd0a9c255751"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-event-bonds.png",
+      "bytes": 103809,
+      "sha256": "2553e642c36896cbcfedf479f355d0f61bb7a467af35c3544a64322a91ee291d"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-event-business.png",
+      "bytes": 89013,
+      "sha256": "7078bdd1d4142b963dc00927671abe2726eb333023b1446e85a46015374209fb"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-event-course.png",
+      "bytes": 88923,
+      "sha256": "e22f34f7d04edb80550aeb5aba22ac62ad86eb2d97cf6c9720b227ba24d00385"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-event-demand-boom.png",
+      "bytes": 98993,
+      "sha256": "cc9c627fc4a20e0470df14ef99497494c68db0ce30a78044df5246ac2db34103"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-event-gold.png",
+      "bytes": 81190,
+      "sha256": "7d57492f5bd1cb1764e982c392c569beb6db8ab148f766047e312316fe59bdc1"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-event-stocks.png",
+      "bytes": 82509,
+      "sha256": "31a7abe859fda5ce49002362ed0fc062321817e8553454dee1dfe1c3684df6ad"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-result.png",
+      "bytes": 85342,
+      "sha256": "7b636c5782f04320da403b73672bff92ac4e949560880b2bf4933bd2e498df6d"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-setup.png",
+      "bytes": 92722,
+      "sha256": "4e3525ec19f36bb7e553ff251f2b3c303453fb47773f72955df512de9bda6bdf"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-advanced-first-wallet.png",
+      "bytes": 92355,
+      "sha256": "f86f75ce9ef4137da80be266ab5a368269a91a280f5f8debfabe28665f8900ad"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-course-insufficient.png",
+      "bytes": 89406,
+      "sha256": "fbe4cd235daadfc9864ca9e3b4bb3060e7918b7d321e4ab18c8877b07a74a1a1"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-multi-rulebook-0.png",
+      "bytes": 96834,
+      "sha256": "ae80db346a848d63683a6bbab26e0df72039e209b3244894d3985fe60129bca7"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-multi-rulebook-1.png",
+      "bytes": 67877,
+      "sha256": "e5e21f6707a1d0f73fee58422a04ab82bf163881e9801724e0ac3d57659827a9"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-multi-rulebook-2.png",
+      "bytes": 99570,
+      "sha256": "876e9ecd079e1f9f0a9d1cd92bfdfb9c3b68e17e7dc9290f04e6be5751473b57"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-multi-rulebook-3.png",
+      "bytes": 143212,
+      "sha256": "420a81a2587dcd0d3a21ea993fa4419465a30a08287ce7bbbb816ae267aa47f2"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-multi-rulebook-4.png",
+      "bytes": 116102,
+      "sha256": "8f513774a73b4235948b0f677e0fb02a9844235de72891c5360eb45461646433"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-multi-rulebook-5.png",
+      "bytes": 100617,
+      "sha256": "7629dac429cc771227dbe1cd4c27549f5b03ae9a9ff97a176823f123d85ca379"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-sale-preview-bonds.png",
+      "bytes": 91776,
+      "sha256": "6c000ceb87a641d1be0832f40413f7a2c34532ca918955b5443aa5f941951420"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-sale-preview-gold.png",
+      "bytes": 92722,
+      "sha256": "c711d14e31a195ca175f87b73c70e536141a02b5000ffdf98f316ad5586a5a25"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-tile16-bonds-details.png",
+      "bytes": 107073,
+      "sha256": "5e1a8467e5d76faca9dd4739857915dced65114c88fa71f91f1fb697d29bff4d"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-START1.png",
+      "bytes": 99792,
+      "sha256": "65f39a836241251eb6156f69c06b6ed7af11c39ee5692bb72b6171085bf658ad"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-START2.png",
+      "bytes": 95707,
+      "sha256": "a757f990d0ab0263726b8e2247514718e0c9e7762ef6bab1eb1e24cde598dcf0"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-START3.png",
+      "bytes": 97914,
+      "sha256": "3abcf1579e5b85acd1d8b85400caa497d6093ba52d8513672ee857291d085d49"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-START4.png",
+      "bytes": 97003,
+      "sha256": "9f13d5a6495fa1f90516f174094d3666cb5f4918e4700ff7751bf704440f11cd"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-board.png",
+      "bytes": 135184,
+      "sha256": "82ae7ae2d4c520da9f797d22d5cf50ba07d0e06089006fab017d1ca8e7c632aa"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-course-both.png",
+      "bytes": 108315,
+      "sha256": "980ff485785fd7ed11766b9b178c0f1ea7b89879356d1438766580e5d8e7f424"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-course-one.png",
+      "bytes": 89116,
+      "sha256": "49f3738ee446e4d4803dc1b2bd21098ba85c1730aba2665079045b526b6d6b0d"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-course-unlearned.png",
+      "bytes": 89021,
+      "sha256": "16a6d1513acb9d8aa62f9d85f1ae395b652721e8519b9e2208030e77a15fd020"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-event-bank.png",
+      "bytes": 90846,
+      "sha256": "fa05339fe166a3357658190482f2cefb24e6d34a317231b79492dc291ea7d972"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-event-bonds.png",
+      "bytes": 101881,
+      "sha256": "0d140c1fee6b75143742df7470579b33abcf87e43f828fd426634c76bc2c0ccb"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-event-business.png",
+      "bytes": 88963,
+      "sha256": "a3fa23c5973d33f979b8d3a72cc0b4109bea9bea7f84cf305e9d4a3efd3538a1"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-event-course.png",
+      "bytes": 89021,
+      "sha256": "16a6d1513acb9d8aa62f9d85f1ae395b652721e8519b9e2208030e77a15fd020"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-event-credit-tightening.png",
+      "bytes": 103029,
+      "sha256": "0e063c8ecf595a36494694e00b655aaf677bfea9e6d5159319189488069421d7"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-event-gold.png",
+      "bytes": 80843,
+      "sha256": "2c01be7392686111bbb9d5d6b9d961fb9cf89db7be49978bc3dbd862c7b59d13"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-event-stocks.png",
+      "bytes": 83311,
+      "sha256": "a6cfec87fde4daee6f994cc060413a1fb769dc7fdd2f4586136c356e8aec1c19"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-result.png",
+      "bytes": 82787,
+      "sha256": "709a1fb1a532e27c19eb51632ef2fe06fcaa2c281ec2403946f8170e800f044a"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-setup.png",
+      "bytes": 92726,
+      "sha256": "dc2aea3f3612aae119d87139a75098c6ef2e8664323f5fb3385a46650f5d8890"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/390-trades-wallet.png",
+      "bytes": 92354,
+      "sha256": "e9d7a90be3a73dfd9dddc55404da632fd623d70a22fb9d079280a5beb1bd3932"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/browser-320-basic-first.json.gz",
+      "bytes": 1637365,
+      "sha256": "311228b5fbfcf950671870eb002152f2008573e7c9b0b15bd9a8776ea0516acf"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/browser-390-advanced-first.json.gz",
+      "bytes": 1638136,
+      "sha256": "6a7ee6bdd0045812a803f3262d6824897efc8cdce8f643376a74584b9e627a60"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/browser-390-trades.json.gz",
+      "bytes": 1574115,
+      "sha256": "7be4b2f26432afb47f28eab1582f23937d6e02ce34467d28b44851c02414f241"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/browser-desktop.json.gz",
+      "bytes": 1638427,
+      "sha256": "d23e52dd2ad8673dd67180920fa30d0c304c01dd1e5c8be831383c5cd857b4e7"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/browser-poor-320.json.gz",
+      "bytes": 90110,
+      "sha256": "476c6a135f5b94dbb9b8a36e03b3af1600f28c80ac12cdcd536b8e877dcd4a0a"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/browser-poor-390.json.gz",
+      "bytes": 90110,
+      "sha256": "476c6a135f5b94dbb9b8a36e03b3af1600f28c80ac12cdcd536b8e877dcd4a0a"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/browser-verification.json",
+      "bytes": 15438,
+      "sha256": "f6310077d15e484064fde6c2c9545779c5c877cc0f61a0733764e39fa2933683"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/desktop-browser-verification.json",
+      "bytes": 1618,
+      "sha256": "352e679b1c715b21da4f602f6a152248698afee9333ea9883623bb49d4f5dea2"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/desktop-build-output.txt",
+      "bytes": 409,
+      "sha256": "387da4a3c4b72a08fe021bdd5ff015345d85a3181545c4c6c414783e7eb00d63"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/desktop-course-both.png",
+      "bytes": 261021,
+      "sha256": "08421daf058f513138d375504961211047c639d6ab59c6f39e090882dec917e2"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/desktop-course-insufficient.png",
+      "bytes": 273531,
+      "sha256": "2ee6818c5bb5166eda8a08bb2092d7604ecb678f76b33253eb06e0250674d636"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/desktop-course-one.png",
+      "bytes": 276352,
+      "sha256": "dd61cf0641df53ba725e753841c2f52a13252cc2947ffe9a01fb900ffd24f29e"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/desktop-course-unlearned.png",
+      "bytes": 277455,
+      "sha256": "b24085bf7c9fbb5aac84ceb145d29d58ffdf629418c32fbc624a2184352b616d"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/desktop-game-board.png",
+      "bytes": 178964,
+      "sha256": "ef7bb64513729805ad7ac02b2b30aef56309a178202df54d209d17dcccb670f3"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/desktop-poor-board.png",
+      "bytes": 176875,
+      "sha256": "2075f069cbf55538e1fd9f42a3de619cb61a380a9112c08e8771120edb1aef3a"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/desktop-result.png",
+      "bytes": 305204,
+      "sha256": "df5ae5752ce222997d0655cd20963ff282640e1c4ea8a85075bff8073f197ff0"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-business-roi.json.gz",
+      "bytes": 1437231,
+      "sha256": "5b6695deeb8284389165ba597d9b92a2cfec444939932bc9d382754c4ef550ed"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-cash-roi.json.gz",
+      "bytes": 1414791,
+      "sha256": "076d201c55dde8575ee82715f84c659e46f6e0b3e097f9fc87918304d49b182d"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-diversified-roi.json.gz",
+      "bytes": 1647403,
+      "sha256": "b49190afef1d9f04dda18ce53a680531a44da216e28129959a2c0577119a359e"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-novice.json.gz",
+      "bytes": 1680591,
+      "sha256": "779c13b16defdb1df165e26b9ec2b5dd9d00fdce6fd0f396b6ec0b7776ab9d1a"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-risk-aware-roi.json.gz",
+      "bytes": 1638453,
+      "sha256": "8787d7dff5179dd90737b5a8c028e5cb794d35d47486891b00011ca2161cf1aa"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-savings-all.json.gz",
+      "bytes": 1449836,
+      "sha256": "4776ff0705795a4d8577df496a2515caed8affc1989013cf75179133f011b5ca"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-screen-cash-roi.json.gz",
+      "bytes": 1179418,
+      "sha256": "8c2d4d43fccb175e16dee0fecdb2cef6f86584817fa5ea7f951279037894e8c7"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-business-roi.json.gz",
+      "bytes": 1256472,
+      "sha256": "ab176a11ef66d5527c971e28f0b613f0441b239b3ab546b15b0e588ed097f069"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-cash-roi.json.gz",
+      "bytes": 1227643,
+      "sha256": "1bd62b53c6642a5b887435f4205379634f7722f768e62cce9753828143f4d589"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-diversified-roi.json.gz",
+      "bytes": 1514281,
+      "sha256": "490e6ba696d6f3bf4fbcd2dc453cd0a228dc35c565bfdadd3b6c41f8cbe4f3a4"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-novice.json.gz",
+      "bytes": 1542179,
+      "sha256": "b252c03a2770f7f915b00a2ef7f8338ade35c6668dbb175a83774d7cbbfa849d"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-risk-aware-roi.json.gz",
+      "bytes": 1429376,
+      "sha256": "92245d369337a37ece7352b527f19e49024edd6d68cc1246d19d25b77b8c0d9c"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-savings-all.json.gz",
+      "bytes": 1233434,
+      "sha256": "65ae224cf69078cd073538069ff1197d97b3342d2d57d3addb1fab1bbb0d6091"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/lint-output.txt",
+      "bytes": 44,
+      "sha256": "ef8252592ca3b6a4f85d52de44c1220549496c4de3c245ec80fbde759bcbd0db"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/mobile-build-output.txt",
+      "bytes": 407,
+      "sha256": "4903c8f588b9af04f6e79fdb4fd32ed2cb420ec1c85b93c9ce73fe6de42c1ad8"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/replay-verification.json",
+      "bytes": 15654,
+      "sha256": "6996ffd871b44a2251cb924972625509361263dc8d9ad2a5f6dc6f9dc360ba6c"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/research-parity.json",
+      "bytes": 10852,
+      "sha256": "7be6352e147dc60f18a7bb626a2559460ddb9142ce9259404b1be84f3311a67f"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/research-source/holdout-I2-choice__L3-bonds.config.json",
+      "bytes": 1209,
+      "sha256": "3789e38738fd77fe8d0166cb2c5af80f0ce832560c18fe5d6d3f44ea48e16b75"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/research-source/holdout-I2-choice__L3-bonds.replays.json.gz",
+      "bytes": 373250,
+      "sha256": "4feffea7f702a6ba92947d8575bb3a35fa543f609e0477259acd7426e606f604"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/research-source/screen-I2-choice__L3-bonds.config.json",
+      "bytes": 1209,
+      "sha256": "3789e38738fd77fe8d0166cb2c5af80f0ce832560c18fe5d6d3f44ea48e16b75"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/research-source/screen-I2-choice__L3-bonds.replays.json.gz",
+      "bytes": 44658,
+      "sha256": "74ed3b73ef0420ccbddb9f36a3a121e79ea5298a4fe070a07e2629f62a601cf9"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/research-source/shortlist-I2-choice__L3-bonds.config.json",
+      "bytes": 1209,
+      "sha256": "3789e38738fd77fe8d0166cb2c5af80f0ce832560c18fe5d6d3f44ea48e16b75"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/research-source/shortlist-I2-choice__L3-bonds.replays.json.gz",
+      "bytes": 315272,
+      "sha256": "62139a2429549e6200f788a60329a1955442fcaa04daa127745b8c44c5a1784f"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/rulebook-browser-verification.json",
+      "bytes": 4405,
+      "sha256": "c489657102e60cbd353ea8defebaa3c2f58036dcac8f5c767a07c692cbf39b07"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/tests-output.txt",
+      "bytes": 75606,
+      "sha256": "381d82f146b12f49f97f66f96acbd7a52df413fcd18423b7799bdd02059f4fcc"
+    },
+    {
+      "path": "docs/playtests/core-mvp-b18-multi-course/ui-tests-output.txt",
+      "bytes": 944,
+      "sha256": "9c7aa639aa993dceda61fcbf569590582f0947062b180abe222ca6beb58c8ad6"
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+TAP version 13
+# (node:20728) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 11:07:56 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 11:07:58 AM [vite] (client) [optimizer] scanning dependencies...
+# Subtest: atomic investment UI preserves prices/news and follows the saved encounter policy
+    # Subtest: new Mobile and Web panels offer one buy and one skip, keeping fees and market context
+    ok 1 - new Mobile and Web panels offer one buy and one skip, keeping fees and market context
+      ---
+      duration_ms: 30.6298
+      ...
+    # Subtest: successful purchases leave no encounter modal or second form
+    ok 2 - successful purchases leave no encounter modal or second form
+      ---
+      duration_ms: 2.2283
+      ...
+    # Subtest: reopened same-turn encounter does not show another purchase form
+    ok 3 - reopened same-turn encounter does not show another purchase form
+      ---
+      duration_ms: 1.0371
+      ...
+    # Subtest: saved historical Gold/Bonds sessions keep their multi-purchase forms
+    ok 4 - saved historical Gold/Bonds sessions keep their multi-purchase forms
+      ---
+      duration_ms: 5.8367
+      ...
+    1..4
+ok 1 - atomic investment UI preserves prices/news and follows the saved encounter policy
+  ---
+  duration_ms: 3916.2531
+  ...
+# (node:21420) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: beginner course disclosure, factual result feedback and ended-vs-running saved game labels
+ok 2 - beginner course disclosure, factual result feedback and ended-vs-running saved game labels
+  ---
+  duration_ms: 3638.8562
+  ...
+# (node:15288) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 11:08:05 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 11:08:06 AM [vite] (client) [optimizer] scanning dependencies...
+# Subtest: Bond V2.5 real React panels expose issuer choice, executable lot sales and credit status
+    # Subtest: two issuer cards retain one CTA/skip and conditional contract copy
+    ok 1 - two issuer cards retain one CTA/skip and conditional contract copy
+      ---
+      duration_ms: 16.3149
+      ...
+    # Subtest: funding chooses the specific issuer lot and displays actual net proceeds
+    ok 2 - funding chooses the specific issuer lot and displays actual net proceeds
+      ---
+      duration_ms: 3.6978
+      ...
+    # Subtest: default holdings show claims/loss and do not become eligible funding assets
+    ok 3 - default holdings show claims/loss and do not become eligible funding assets
+      ---
+      duration_ms: 3.6723
+      ...
+    # Subtest: historical single issuer panel keeps its original terms
+    ok 4 - historical single issuer panel keeps its original terms
+      ---
+      duration_ms: 3.4002
+      ...
+    1..4
+ok 3 - Bond V2.5 real React panels expose issuer choice, executable lot sales and credit status
+  ---
+  duration_ms: 3698.7274
+  ...
+# (node:21020) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 11:08:09 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 11:08:10 AM [vite] (client) [optimizer] scanning dependencies...
+# Subtest: START React UI separates received cash, claims and losses with hidden accounting
+    # Subtest: periodic living is a signed outgoing row, legacy START has no periodic row
+    ok 1 - periodic living is a signed outgoing row, legacy START has no periodic row
+      ---
+      duration_ms: 43.8468
+      ...
+    # Subtest: multiple lots yield one default-visible issuer, amounts reconcile and all details start closed
+    ok 2 - multiple lots yield one default-visible issuer, amounts reconcile and all details start closed
+      ---
+      duration_ms: 17.4815
+      ...
+    # Subtest: delayed principal/coupon is amber, zero receipt neutral, no realized loss
+    ok 3 - delayed principal/coupon is amber, zero receipt neutral, no realized loss
+      ---
+      duration_ms: 13.3179
+      ...
+    # Subtest: default recovery claim is separate from permanent write-down and cash
+    ok 4 - default recovery claim is separate from permanent write-down and cash
+      ---
+      duration_ms: 23.9728
+      ...
+    # Subtest: rendering preserves serialized engine log and news/credit calculations
+    ok 5 - rendering preserves serialized engine log and news/credit calculations
+      ---
+      duration_ms: 46.0722
+      ...
+    # Subtest: no holdings and legacy metadata render gracefully, with raw legacy records
+    ok 6 - no holdings and legacy metadata render gracefully, with raw legacy records
+      ---
+      duration_ms: 16.1299
+      ...
+    1..6
+ok 4 - START React UI separates received cash, claims and losses with hidden accounting
+  ---
+  duration_ms: 3556.6021
+  ...
+# (node:5900) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 11:08:13 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 11:08:14 AM [vite] (client) [optimizer] scanning dependencies...
+# Subtest: current customer preference UI is shared, current-only and read-only
+    # Subtest: bulletin and unopened shop use saved current preference, not seed or future data
+    ok 1 - bulletin and unopened shop use saved current preference, not seed or future data
+      ---
+      duration_ms: 35.3269
+      ...
+    # Subtest: owned shop keeps legal upgrade, engine previews and current directions in rulebook
+    ok 2 - owned shop keeps legal upgrade, engine previews and current directions in rulebook
+      ---
+      duration_ms: 36.5385
+      ...
+    # Subtest: rendering cannot change START cash, RNG or next-round preference
+    ok 3 - rendering cannot change START cash, RNG or next-round preference
+      ---
+      duration_ms: 43.2026
+      ...
+    # Subtest: preference-less historical sessions and setup stay compatible; saved replay remains exact
+    ok 4 - preference-less historical sessions and setup stay compatible; saved replay remains exact
+      ---
+      duration_ms: 851.1119
+      ...
+    1..4
+ok 5 - current customer preference UI is shared, current-only and read-only
+  ---
+  duration_ms: 4503.8053
+  ...
+# (node:24864) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 11:08:18 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 11:08:19 AM [vite] (client) [optimizer] scanning dependencies...
+# Subtest: B18 shared goal, setup, board and completed course render without legacy target or20-tile art
+ok 6 - B18 shared goal, setup, board and completed course render without legacy target or20-tile art
+  ---
+  duration_ms: 3733.5865
+  ...
+# (node:34584) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 11:08:22 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 11:08:23 AM [vite] (client) [optimizer] scanning dependencies...
+# Subtest: Economic Event React popup presents observed market changes with one acknowledgement
+    # Subtest: credit-tightening: three market groups, real percentages, issuers and closed details
+    ok 1 - credit-tightening: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 22.4958
+      ...
+    # Subtest: demand-boom: three market groups, real percentages, issuers and closed details
+    ok 2 - demand-boom: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 10.2307
+      ...
+    # Subtest: supply-recovery: three market groups, real percentages, issuers and closed details
+    ok 3 - supply-recovery: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 9.2664
+      ...
+    # Subtest: zero movement is neutral, missing log unavailable and legacy single issuer supported
+    ok 4 - zero movement is neutral, missing log unavailable and legacy single issuer supported
+      ---
+      duration_ms: 13.49
+      ...
+    # Subtest: business is excluded from three market groups, but observed personal capital change is explained
+    ok 5 - business is excluded from three market groups, but observed personal capital change is explained
+      ---
+      duration_ms: 7.5616
+      ...
+    # Subtest: B18 credit-tightening/0: price and issuer pressure, owned holdings, immutable render
+    ok 6 - B18 credit-tightening/0: price and issuer pressure, owned holdings, immutable render
+      ---
+      duration_ms: 11.2555
+      ...
+    # Subtest: B18 demand-boom/1: price and issuer pressure, owned holdings, immutable render
+    ok 7 - B18 demand-boom/1: price and issuer pressure, owned holdings, immutable render
+      ---
+      duration_ms: 10.462
+      ...
+    # Subtest: B18 supply-recovery/0: price and issuer pressure, owned holdings, immutable render
+    ok 8 - B18 supply-recovery/0: price and issuer pressure, owned holdings, immutable render
+      ---
+      duration_ms: 11.7895
+      ...
+    # Subtest: B18 credit-tightening/2: price and issuer pressure, owned holdings, immutable render
+    ok 9 - B18 credit-tightening/2: price and issuer pressure, owned holdings, immutable render
+      ---
+      duration_ms: 10.854
+      ...
+    1..9
+ok 7 - Economic Event React popup presents observed market changes with one acknowledgement
+  ---
+  duration_ms: 3875.2276
+  ...
+# (node:34452) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 11:08:27 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 11:08:28 AM [vite] (client) [optimizer] scanning dependencies...
+# Subtest: Mobile economic news renders through real phase and transaction components
+    # Subtest: all scenarios show bulletin, three assets and a single start CTA
+    ok 1 - all scenarios show bulletin, three assets and a single start CTA
+      ---
+      duration_ms: 18.2045
+      ...
+    # Subtest: market context appears only on Stocks/Bonds/Gold, with legal buy actions intact
+    ok 2 - market context appears only on Stocks/Bonds/Gold, with legal buy actions intact
+      ---
+      duration_ms: 18.8371
+      ...
+    # Subtest: summary renders realized prices, observed shock and educational distinction
+    ok 3 - summary renders realized prices, observed shock and educational distinction
+      ---
+      duration_ms: 13.9034
+      ...
+    # Subtest: missing observations show unavailable; gold fees and quote remain explicit
+    ok 4 - missing observations show unavailable; gold fees and quote remain explicit
+      ---
+      duration_ms: 2.3641
+      ...
+    1..4
+ok 8 - Mobile economic news renders through real phase and transaction components
+  ---
+  duration_ms: 3861.7971
+  ...
+# (node:28436) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: wallet preserves deposit sequence/maturity and both interfaces explain savings periods without exposing IDs
+ok 9 - wallet preserves deposit sequence/maturity and both interfaces explain savings periods without exposing IDs
+  ---
+  duration_ms: 3985.0773
+  ...
+# (node:25556) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 11:08:35 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 11:08:36 AM [vite] (client) [optimizer] scanning dependencies...
+# Subtest: Mobile final UI contracts use the official engine, board and financial previews
+    # Subtest: fresh player sees onboarding without creating a game; returning player sees setup
+    ok 1 - fresh player sees onboarding without creating a game; returning player sees setup
+      ---
+      duration_ms: 27.0485
+      ...
+    # Subtest: term cards show per-START and total simple interest correctly
+    ok 2 - term cards show per-START and total simple interest correctly
+      ---
+      duration_ms: 1.0928
+      ...
+    # Subtest: purchase tiles never offer voluntary selling even when holdings exist
+    ok 3 - purchase tiles never offer voluntary selling even when holdings exist
+      ---
+      duration_ms: 17.8745
+      ...
+    # Subtest: result uses lawful proceeds and never liquidates or claims four laps for insolvency
+    ok 4 - result uses lawful proceeds and never liquidates or claims four laps for insolvency
+      ---
+      duration_ms: 4.721
+      ...
+    # Subtest: tutorial keeps six steps and rulebook displays every official C20 tile
+    ok 5 - tutorial keeps six steps and rulebook displays every official C20 tile
+      ---
+      duration_ms: 7.5747
+      ...
+    # Subtest: stock completion and Bank lots remain atomic through the Mobile controller
+    ok 6 - stock completion and Bank lots remain atomic through the Mobile controller
+      ---
+      duration_ms: 1.2543
+      ...
+    # Subtest: Business purchase ends encounter; same-turn sale/upgrade blocked, later upgrade allowed once
+    ok 7 - Business purchase ends encounter; same-turn sale/upgrade blocked, later upgrade allowed once
+      ---
+      duration_ms: 4.1313
+      ...
+    1..7
+ok 10 - Mobile final UI contracts use the official engine, board and financial previews
+  ---
+  duration_ms: 4095.617
+  ...
+# (node:20204) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Desktop/Mobile share exact course cards and preserve legacy single-course UI/board
+ok 11 - Desktop/Mobile share exact course cards and preserve legacy single-course UI/board
+  ---
+  duration_ms: 3653.3851
+  ...
+# (node:17760) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: shared glossary renders on Desktop and Mobile, escapes selector text, and leaves state untouched
+ok 12 - shared glossary renders on Desktop and Mobile, escapes selector text, and leaves state untouched
+  ---
+  duration_ms: 3890.591
+  ...
+1..12
+# tests 50
+# suites 0
+# pass 50
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 51685.5171
