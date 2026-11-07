@@ -3,6 +3,7 @@ import { courseChoices } from '../../../src/game/courses'
 import { money } from '../../../src/game/format'
 import type { GameState } from '../../../src/game/types'
 import { sound } from '../utils/audio'
+import { assetUrl } from '../utils/assets'
 
 interface MobileCourseChoicesProps {
   game: GameState
@@ -27,7 +28,7 @@ export const MobileCourseChoices: React.FC<MobileCourseChoicesProps> = ({ game, 
         }}
       >
         <img
-          src="/assets/winner-goal-icon.png"
+          src={assetUrl('assets/winner-goal-icon.png')}
           alt="Hoàn thành"
           style={{ width: '40px', height: '40px', objectFit: 'contain' }}
         />
@@ -124,7 +125,7 @@ export const MobileCourseChoices: React.FC<MobileCourseChoicesProps> = ({ game, 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                 <img
-                  src={choice.id === 'basic' ? '/assets/basic-course.png' : '/assets/knowledge-icon.png'}
+                  src={assetUrl(choice.id === 'basic' ? 'assets/basic-course.png' : 'assets/knowledge-icon.png')}
                   alt=""
                   style={{ width: '18px', height: '18px', objectFit: 'contain' }}
                 />

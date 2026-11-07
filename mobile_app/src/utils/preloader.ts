@@ -1,3 +1,5 @@
+import { assetUrl } from './assets';
+
 /**
  * Preload critical game assets into browser memory cache
  * to ensure 0ms rendering and zero loading lag.
@@ -47,19 +49,20 @@ export function preloadGameAssets(): Promise<void[]> {
   if (typeof window === 'undefined') return Promise.resolve([]);
 
   const promises = CRITICAL_ASSETS.map(src => {
-    if (loadedCache.has(src)) return Promise.resolve();
+    const resolved = assetUrl(src);
+    if (loadedCache.has(resolved)) return Promise.resolve();
 
     return new Promise<void>(resolve => {
       const img = new Image();
       img.onload = () => {
-        loadedCache.add(src);
+        loadedCache.add(resolved);
         resolve();
       };
       img.onerror = () => {
         // Resolve anyway so app doesn't block on network glitch
         resolve();
       };
-      img.src = src;
+      img.src = resolved;
     });
   });
 

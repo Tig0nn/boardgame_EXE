@@ -8,6 +8,7 @@ import { GlossaryText } from '../../../src/components/FinancialTerm'
 import { localizeNarrative } from '../../../src/components/glossary'
 import { goalProgress } from '../../../src/game/selectors'
 import { GamifiedModal } from './GamifiedModal'
+import { assetUrl } from '../utils/assets'
 
 interface MobileLapSummaryModalProps {
   game: GameState
@@ -139,7 +140,7 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ fontWeight: 800, color: '#1E293B', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
               <img
-                src="/assets/money-icon.png"
+                src={assetUrl('assets/money-icon.png')}
                 alt=""
                 style={{
                   width: '16px',
@@ -169,7 +170,7 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
           <span style={{ fontSize: '12px', fontWeight: 800, color: '#86198F', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
             <img
-              src="/assets/goal-icon.png"
+              src={assetUrl('assets/goal-icon.png')}
               alt="Mục tiêu"
               style={{ width: '18px', height: '18px', objectFit: 'contain' }}
             />

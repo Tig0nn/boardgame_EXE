@@ -13,6 +13,7 @@ import type { GameState } from '../../../src/game/types';
 import { createMvpMobileGame } from '../game/session';
 import { loadGameLocally } from '../../../src/game/saved-game';
 import { sound } from '../utils/audio';
+import { assetUrl } from '../utils/assets';
 
 interface MapScreenProps {
   onBack: () => void;
@@ -129,9 +130,9 @@ export const MapScreen: React.FC<MapScreenProps> = ({
         >
           {/* HÌNH NỀN BẢN ĐỒ TỐI ƯU map-no-nodes.webp (1080x2160, ~160KB) */}
           <img
-            src="/assets/map-no-nodes.webp"
+            src={assetUrl('assets/map-no-nodes.webp')}
             onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = '/assets/map-no-nodes.jpg';
+              (e.currentTarget as HTMLImageElement).src = assetUrl('assets/map-no-nodes.jpg');
             }}
             alt="Bản đồ phiêu lưu Chương 1"
             className="pointer-events-none select-none"
@@ -201,7 +202,7 @@ export const MapScreen: React.FC<MapScreenProps> = ({
                     }}
                   >
                     <img
-                      src="/assets/pin-map.png"
+                      src={assetUrl('assets/pin-map.png')}
                       alt="Vị trí hiện tại"
                       style={{
                         width: '64px',
@@ -257,13 +258,13 @@ export const MapScreen: React.FC<MapScreenProps> = ({
                 >
                   {/* Ảnh Icon Node PNG / WebP Tối Ưu Nổi Tự Nhiên */}
                   <img
-                    src={`/assets/map-chapter-${node.stageNumber}.png`}
+                    src={assetUrl(`assets/map-chapter-${node.stageNumber}.png`)}
                     onError={(e) => {
                       const img = e.currentTarget as HTMLImageElement;
                       if (!img.src.endsWith('.webp')) {
-                        img.src = `/assets/map-chapter-${node.stageNumber}.webp`;
+                        img.src = assetUrl(`assets/map-chapter-${node.stageNumber}.webp`);
                       } else {
-                        img.src = `/assets/nodes/node-${node.stageNumber}.png`;
+                        img.src = assetUrl(`assets/nodes/node-${node.stageNumber}.png`);
                       }
                     }}
                     alt={`Chương ${node.stageNumber}`}

@@ -51,22 +51,7 @@ export const MobileContainer: React.FC<MobileContainerProps> = ({ children, over
   return (
     <div className="device-wrapper">
       <div ref={frameRef} className="device-frame">
-        {/* Dynamic Island / Tai thỏ nhỏ trang trí trên Desktop */}
-        <div style={{
-          position: 'absolute',
-          top: '12px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '90px',
-          height: '24px',
-          background: '#000000',
-          borderRadius: '999px',
-          zIndex: 100,
-          pointerEvents: 'none',
-          boxShadow: '0 2px 6px rgba(0, 0, 0, 0.5)',
-        }} />
-
-        {/* Viewport Game Canvas 940x1672 co giãn đồng bộ */}
+        {/* Viewport Game Canvas 940x1672 co giãn đồng bộ (Đã loại bỏ viên thuốc Dynamic Island giả lập thừa thãi) */}
         <div className="game-viewport" style={{ ...transformStyle, pointerEvents: 'auto' }}>
           {children}
         </div>

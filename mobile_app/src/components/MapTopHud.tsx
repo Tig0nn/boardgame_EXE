@@ -1,5 +1,6 @@
 import React from 'react';
 import { sound } from '../utils/audio';
+import { assetUrl } from '../utils/assets';
 
 interface MapTopHudProps {
   onBack?: () => void;
@@ -64,9 +65,9 @@ export const MapTopHud: React.FC<MapTopHudProps> = ({
           }}
         >
           <img
-            src="/assets/cropped/app-logo.png"
+            src={assetUrl('assets/cropped/app-logo.png')}
             onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = '/assets/icon.PNG';
+              (e.currentTarget as HTMLImageElement).src = assetUrl('assets/icon.PNG');
             }}
             alt="Mỏ Hỗn (Xoay Vòng Tiến Lui)"
             style={{
@@ -114,9 +115,9 @@ export const MapTopHud: React.FC<MapTopHudProps> = ({
               }}
             >
               <img
-                src="/assets/cropped/sound-btn.png"
+                src={assetUrl('assets/cropped/sound-btn.png')}
                 onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = '/assets/sound-btn.png';
+                  (e.currentTarget as HTMLImageElement).src = assetUrl('assets/sound-btn.png');
                 }}
                 alt="Âm thanh"
                 style={{
@@ -173,9 +174,9 @@ export const MapTopHud: React.FC<MapTopHudProps> = ({
             }}
           >
             <img
-              src="/assets/cropped/setting-btn.png"
+              src={assetUrl('assets/cropped/setting-btn.png')}
               onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src = '/assets/setting-btn.png';
+                (e.currentTarget as HTMLImageElement).src = assetUrl('assets/setting-btn.png');
               }}
               alt="Cài đặt"
               style={{

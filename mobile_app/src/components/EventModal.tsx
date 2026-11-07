@@ -14,6 +14,7 @@ import { localizeNarrative } from '../../../src/components/glossary'
 import { paymentOptionCopy } from '../../../src/components/financial-decision-copy'
 import { GamifiedModal } from './GamifiedModal'
 import { sound } from '../utils/audio'
+import { assetUrl } from '../utils/assets'
 
 export function EventModal({
   game,
@@ -39,7 +40,7 @@ export function EventModal({
       <GamifiedModal
         badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · Ô ${game.position + 1}`}
         title="Đầu tư bản thân"
-        titleIcon="/assets/knowledge-icon.png"
+        titleIcon={assetUrl('assets/knowledge-icon.png')}
         onHelp={onHelp}
       >
         <MobileCourseChoices game={game} onChoose={onChoose} />
@@ -53,7 +54,7 @@ export function EventModal({
       <GamifiedModal
         badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · Ô ${game.position + 1}`}
         title="Ngân hàng"
-        titleIcon="/assets/bank-icon.png"
+        titleIcon={assetUrl('assets/bank-icon.png')}
         onHelp={onHelp}
       >
         <MobileBankPanel
@@ -66,12 +67,12 @@ export function EventModal({
   }
 
   const titleIconMap: Record<string, string> = {
-    bank: '/assets/bank-icon.png',
-    stocks: '/assets/stock-icon.png',
-    bonds: '/assets/bond-icon.png',
-    gold: '/assets/gold-icon.png',
-    business: '/assets/shop-icon.png',
-    repair: '/assets/broken-bike.png',
+    bank: assetUrl('assets/bank-icon.png'),
+    stocks: assetUrl('assets/stock-icon.png'),
+    bonds: assetUrl('assets/bond-icon.png'),
+    gold: assetUrl('assets/gold-icon.png'),
+    business: assetUrl('assets/shop-icon.png'),
+    repair: assetUrl('assets/broken-bike.png'),
   }
   const titleIcon = titleIconMap[event.id]
   const trading = ['stocks', 'bonds', 'gold', 'bank', 'business'].includes(event.id)
@@ -111,7 +112,7 @@ export function EventModal({
         >
           {event.id === 'repair' && (
             <img
-              src="/assets/broken-bike.png"
+              src={assetUrl('assets/broken-bike.png')}
               alt="Chiếc xe cần sửa"
               style={{
                 width: '36px',
@@ -153,7 +154,7 @@ export function EventModal({
       >
         <span style={{ color: '#92400E', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
           <img
-            src="/assets/money-icon.png"
+            src={assetUrl('assets/money-icon.png')}
             alt=""
             style={{
               width: '18px',

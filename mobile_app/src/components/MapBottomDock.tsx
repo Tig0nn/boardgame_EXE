@@ -1,5 +1,6 @@
 import React from 'react';
 import { sound } from '../utils/audio';
+import { assetUrl } from '../utils/assets';
 
 export type MapTab = 'inventory' | 'rules' | null;
 
@@ -57,9 +58,9 @@ export const MapBottomDock: React.FC<MapBottomDockProps> = ({
         }}
       >
         <img
-          src="/assets/cropped/tuido-icon.png"
+          src={assetUrl('assets/cropped/tuido-icon.png')}
           onError={(e) => {
-            (e.currentTarget as HTMLImageElement).src = '/assets/tuido-icon.png';
+            (e.currentTarget as HTMLImageElement).src = assetUrl('assets/tuido-icon.png');
           }}
           alt="Túi Đồ"
           style={{
@@ -103,9 +104,9 @@ export const MapBottomDock: React.FC<MapBottomDockProps> = ({
         }}
       >
         <img
-          src="/assets/cropped/sotay-full-icon.png"
+          src={assetUrl('assets/cropped/sotay-full-icon.png')}
           onError={(e) => {
-            (e.currentTarget as HTMLImageElement).src = '/assets/sotay.PNG';
+            (e.currentTarget as HTMLImageElement).src = assetUrl('assets/sotay.PNG');
           }}
           alt="Kiến Thức"
           style={{

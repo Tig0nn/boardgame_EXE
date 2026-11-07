@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import '@google/model-viewer';
 import App from './App';
 import './index.css';
 
@@ -15,7 +16,8 @@ if (rootElement) {
 // Register PWA Service Worker for offline iOS/Web caching
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch((err) => {
+    const swPath = import.meta.env.BASE_URL ? `${import.meta.env.BASE_URL}sw.js` : './sw.js';
+    navigator.serviceWorker.register(swPath).catch((err) => {
       console.warn('ServiceWorker registration failed: ', err);
     });
   });

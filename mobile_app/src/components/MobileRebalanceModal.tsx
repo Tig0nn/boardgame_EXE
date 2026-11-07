@@ -8,6 +8,7 @@ import { bondIssuer } from '../../../src/data/bond-issuers'
 import { investmentLotLabel } from '../../../src/components/player-language'
 import { localizeNarrative } from '../../../src/components/glossary'
 import { GamifiedModal } from './GamifiedModal'
+import { assetUrl } from '../utils/assets'
 
 interface MobileRebalanceModalProps {
   game: GameState
@@ -76,7 +77,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
     <GamifiedModal
       badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · TÁI CÂN BẰNG`}
       title="Ghé ví tại ô Xuất phát"
-      titleIcon="/assets/wallet.png"
+      titleIcon={assetUrl('assets/wallet.png')}
       onHelp={onHelp}
       primaryAction={{
         label: game.lap === game.totalLaps ? 'Xem kết quả hành trình →' : 'Bắt đầu vòng mới →',
@@ -99,7 +100,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
         }}
       >
         <img
-          src="/assets/warning.png"
+          src={assetUrl('assets/warning.png')}
           alt=""
           style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }}
         />
@@ -136,9 +137,9 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
             const isSelected = asset === key
             const val = game.portfolio[key]
             const assetIcons = {
-              stocks: '/assets/stock-icon.png',
-              bonds: '/assets/bond-icon.png',
-              gold: '/assets/gold-icon.png',
+              stocks: assetUrl('assets/stock-icon.png'),
+              bonds: assetUrl('assets/bond-icon.png'),
+              gold: assetUrl('assets/gold-icon.png'),
             }
             return (
               <button

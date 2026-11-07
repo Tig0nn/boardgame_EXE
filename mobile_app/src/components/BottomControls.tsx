@@ -1,5 +1,6 @@
 import React from 'react';
 import { sound } from '../utils/audio';
+import { assetUrl } from '../utils/assets';
 
 export interface BottomControlsProps {
   onRollClick?: () => void;
@@ -94,9 +95,9 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
           }}
         >
           <img
-            src="/assets/dice-icon.png"
+            src={assetUrl('assets/dice-icon.png')}
             onError={(e) => {
-              e.currentTarget.src = '/assets/xucxac.PNG'
+              e.currentTarget.src = assetUrl('assets/xucxac.PNG')
             }}
             alt="Xúc xắc"
             style={{
@@ -176,7 +177,7 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
           }}
         >
           <img
-            src="/assets/cropped/tuido-icon.png"
+            src={assetUrl('assets/cropped/tuido-icon.png')}
             alt="Túi Đồ"
             style={{
               width: '100%',
@@ -186,8 +187,8 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
               pointerEvents: 'none',
             }}
             onError={(e) => {
-              if (!e.currentTarget.src.includes('tui-do.png')) {
-                e.currentTarget.src = '/assets/tui-do.png';
+              if (!e.currentTarget.src.includes('tuido-icon.png')) {
+                e.currentTarget.src = assetUrl('assets/tuido-icon.png');
               }
             }}
           />
@@ -234,7 +235,7 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
           }}
         >
           <img
-            src="/assets/cropped/nutlac-btn.webp"
+            src={assetUrl('assets/cropped/nutlac-btn.webp')}
             alt="Lắc Xúc Xắc"
             style={{
               width: '100%',
@@ -245,9 +246,9 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
             }}
             onError={(e) => {
               if (!e.currentTarget.src.includes('nutlac-btn.png')) {
-                e.currentTarget.src = '/assets/cropped/nutlac-btn.png';
+                e.currentTarget.src = assetUrl('assets/cropped/nutlac-btn.png');
               } else if (!e.currentTarget.src.includes('nutlac.PNG')) {
-                e.currentTarget.src = '/assets/nutlac.PNG';
+                e.currentTarget.src = assetUrl('assets/nutlac.PNG');
               }
             }}
           />
@@ -292,7 +293,7 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
           }}
         >
           <img
-            src="/assets/cropped/sotay-full-icon.png"
+            src={assetUrl('assets/cropped/sotay-full-icon.png')}
             alt="Sổ Tay"
             style={{
               width: '100%',
@@ -303,7 +304,7 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
             }}
             onError={(e) => {
               if (!e.currentTarget.src.includes('sotay.PNG')) {
-                e.currentTarget.src = '/assets/sotay.PNG';
+                e.currentTarget.src = assetUrl('assets/sotay.PNG');
               }
             }}
           />

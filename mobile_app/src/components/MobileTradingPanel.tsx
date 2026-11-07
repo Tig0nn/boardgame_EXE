@@ -9,6 +9,7 @@ import { tileTradingEnabled } from '../../../src/game/encounters';
 import { sound } from '../utils/audio';
 import { TradingPanel } from '../../../src/components/TradingPanel';
 import { BondHoldings } from '../../../src/components/BondHoldings';
+import { assetUrl } from '../utils/assets';
 
 interface MobileTradingPanelProps {
   game: GameState;
@@ -262,7 +263,7 @@ function MobileBondCreditView({
                         Hạng {current.rating}
                       </span>
                       <img
-                        src={isSafe ? '/assets/safety-icon.png' : '/assets/boost-icon.png'}
+                        src={assetUrl(isSafe ? 'assets/safety-icon.png' : 'assets/boost-icon.png')}
                         alt={isSafe ? 'An toàn' : 'Bứt phá'}
                         style={{ width: '16px', height: '16px', objectFit: 'contain' }}
                       />
@@ -402,7 +403,7 @@ function MobileBondCreditView({
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '2px', borderBottom: '1px solid rgba(180, 83, 9, 0.15)', paddingBottom: '4px' }}>
-              <img src="/assets/money-report.png" alt="Báo giá & Dòng tiền" style={{ width: '16px', height: '16px', objectFit: 'contain' }} />
+              <img src={assetUrl('assets/money-report.png')} alt="Báo giá & Dòng tiền" style={{ width: '16px', height: '16px', objectFit: 'contain' }} />
               <span style={{ fontSize: '11px', fontWeight: 800, color: '#78350F' }}>BÁO GIÁ & DÒNG TIỀN DỰ KIẾN</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

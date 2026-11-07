@@ -5,6 +5,7 @@ import { depositPreview, purchasePreview } from '../../../src/game/selectors'
 import { savingsProfileForGame } from '../../../src/game/savings'
 import { investmentLotLabel, maturityLabel } from '../../../src/components/player-language'
 import { sound } from '../utils/audio'
+import { assetUrl } from '../utils/assets'
 
 interface MobileBankPanelProps {
   game: GameState
@@ -98,7 +99,7 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
           }}
         >
           <img
-            src="/assets/money-icon.png"
+            src={assetUrl('assets/money-icon.png')}
             alt=""
             style={{
               width: '18px',

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { sound } from '../utils/audio';
+import { assetUrl } from '../utils/assets';
 
 interface Character3DProps {
   x: number;
@@ -181,7 +182,7 @@ export const Character3D: React.FC<Character3DProps> = ({
         <model-viewer
           ref={modelViewerRef}
           data-model-status="loading"
-          src="/assets/character.glb"
+          src={assetUrl('assets/character.glb')}
           alt="Nhân vật sinh viên 3D"
           autoplay
           animation-name={animationName}

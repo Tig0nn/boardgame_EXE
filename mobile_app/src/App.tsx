@@ -25,6 +25,7 @@ import { UnifiedGameGuide } from './components/UnifiedGameGuide'
 import tilesB18Data from './data/tiles-b18.json'
 import { loadGameLocally, saveGameLocally, GAME_SAVE_KEY } from '../../src/game/saved-game'
 import { preloadGameAssets } from './utils/preloader'
+import { assetUrl } from './utils/assets'
 import { EntranceScreen } from './components/EntranceScreen'
 import { UnifiedManagementSheet } from './components/UnifiedManagementSheet'
 import { SettingsModal } from './components/SettingsModal'
@@ -255,7 +256,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
             }}
           >
             <img
-              src="/assets/champion-icon.png"
+              src={assetUrl('assets/champion-icon.png')}
               alt="Kết quả"
               style={{
                 width: '22px',

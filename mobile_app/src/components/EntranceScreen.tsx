@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { sound } from '../utils/audio';
 import { SettingsModal } from './SettingsModal';
+import { assetUrl } from '../utils/assets';
 
 interface EntranceScreenProps {
   onPlay: () => void;
@@ -78,9 +79,9 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
     >
       {/* 1. Nền Màn Hình Chờ Xoay Vòng Tiến Lui (WebP Q88 tối ưu hóa kèm fallback) */}
       <img
-        src="/assets/splash-game.webp"
+        src={assetUrl('assets/splash-game.webp')}
         onError={(e) => {
-          (e.currentTarget as HTMLImageElement).src = '/assets/splash-game.png';
+          (e.currentTarget as HTMLImageElement).src = assetUrl('assets/splash-game.png');
         }}
         alt="Màn hình chờ Xoay Vòng Tiến Lui"
         className="pointer-events-none select-none"
@@ -137,7 +138,7 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
           }}
         >
           <img
-            src="/assets/cropped/sound-btn.png"
+            src={assetUrl('assets/cropped/sound-btn.png')}
             alt="Âm thanh"
             className="pointer-events-none select-none w-full h-full object-contain"
             style={{
@@ -197,7 +198,7 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
           }}
         >
           <img
-            src="/assets/cropped/setting-btn.png"
+            src={assetUrl('assets/cropped/setting-btn.png')}
             alt="Cài Đặt"
             className="pointer-events-none select-none w-full h-full object-contain"
             style={{
@@ -250,7 +251,7 @@ export const EntranceScreen: React.FC<EntranceScreenProps> = ({
           }}
         >
           <img
-            src="/assets/cropped/play-icon.png"
+            src={assetUrl('assets/cropped/play-icon.png')}
             alt="Bắt đầu chơi"
             className="pointer-events-none select-none"
             style={{

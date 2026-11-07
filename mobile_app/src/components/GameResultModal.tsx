@@ -7,6 +7,7 @@ import type { GameState } from '../../../src/game/types'
 import { FinancialReview } from '../../../src/components/FinancialReview'
 import { hasBondCredit } from '../../../src/game/bond-credit'
 import { sound } from '../utils/audio'
+import { assetUrl } from '../utils/assets'
 
 interface GameResultModalProps {
   game: GameState
@@ -293,7 +294,7 @@ export function GameResultModal({
           >
             {won ? (
               <img
-                src="/assets/winner-goal-icon.png"
+                src={assetUrl('assets/winner-goal-icon.png')}
                 alt="Chiến thắng"
                 style={{
                   width: '44px',
@@ -304,7 +305,7 @@ export function GameResultModal({
               />
             ) : (
               <img
-                src="/assets/loser-icon.png"
+                src={assetUrl('assets/loser-icon.png')}
                 alt="Thất bại"
                 style={{
                   width: '38px',
@@ -462,7 +463,7 @@ export function GameResultModal({
             <summary>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 800 }}>
                 <img
-                  src="/assets/ai-coach-icon.png"
+                  src={assetUrl('assets/ai-coach-icon.png')}
                   alt="AI Coach"
                   style={{
                     width: '20px',
@@ -485,7 +486,7 @@ export function GameResultModal({
             <summary>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 800 }}>
                 <img
-                  src="/assets/history-icon.png"
+                  src={assetUrl('assets/history-icon.png')}
                   alt="Nhật ký"
                   style={{
                     width: '20px',
@@ -553,7 +554,7 @@ export function GameResultModal({
                 }}
               >
                 <img
-                  src="/assets/history-icon.png"
+                  src={assetUrl('assets/history-icon.png')}
                   alt="Lưu nhật ký"
                   style={{ width: '14px', height: '14px', objectFit: 'contain' }}
                 />
@@ -584,7 +585,7 @@ export function GameResultModal({
                 }}
               >
                 <img
-                  src="/assets/guide-new-icon.png"
+                  src={assetUrl('assets/guide-new-icon.png')}
                   alt="Sổ tay"
                   style={{ width: '14px', height: '14px', objectFit: 'contain' }}
                 />
@@ -618,7 +619,7 @@ export function GameResultModal({
           >
             <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
               <img
-                src={won ? '/assets/winner-goal-icon.png' : '/assets/reset-play.png'}
+                src={assetUrl(won ? 'assets/winner-goal-icon.png' : 'assets/reset-play.png')}
                 alt=""
                 style={{ width: '18px', height: '18px', objectFit: 'contain' }}
               />
@@ -639,9 +640,9 @@ export function GameResultModal({
               >
                 <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}>
                   <img
-                    src="/assets/nut-home.PNG"
+                    src={assetUrl('assets/nut-home.PNG')}
                     onError={(e) => {
-                      e.currentTarget.src = '/assets/nut-home-guide.png'
+                      e.currentTarget.src = assetUrl('assets/nut-home-guide.png')
                     }}
                     alt="Màn hình chờ"
                     style={{ width: '16px', height: '16px', objectFit: 'contain' }}
@@ -662,7 +663,7 @@ export function GameResultModal({
               >
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
                   <img
-                    src="/assets/search-board-icon.png"
+                    src={assetUrl('assets/search-board-icon.png')}
                     alt="Xem bàn cờ"
                     style={{
                       width: '15px',

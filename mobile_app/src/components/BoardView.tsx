@@ -5,6 +5,7 @@ import { tileInformation } from '../../../src/components/tile-information';
 import { GlossaryText } from '../../../src/components/FinancialTerm';
 import { tileDisplayLabel } from '../../../src/components/player-language';
 import type { GameState, TileType } from '../../../src/game/types';
+import { assetUrl } from '../utils/assets';
 
 interface BoardViewProps {
   currentTileIndex: number;
@@ -59,9 +60,9 @@ export const BoardView: React.FC<BoardViewProps> = ({
 
       {/* 1. Nền Cỏ Game (Layer 1 - Tối ưu WebP Q88 kèm fallback) */}
       <img
-        src="/assets/main-background.webp"
+        src={assetUrl('assets/main-background.webp')}
         onError={(e) => {
-          (e.currentTarget as HTMLImageElement).src = '/assets/main-background.png';
+          (e.currentTarget as HTMLImageElement).src = assetUrl('assets/main-background.png');
         }}
         alt="Nền bàn cờ"
         style={{
@@ -77,7 +78,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
 
       {/* 2. Bàn Cờ Isometric Playboard-4 Fit Bãi Cỏ (Layer 2) */}
       <img
-        src="/assets/playboard-4.PNG"
+        src={assetUrl('assets/playboard-4.PNG')}
         alt="Bàn cờ góc nhìn nghiêng"
         style={{
           position: 'absolute',

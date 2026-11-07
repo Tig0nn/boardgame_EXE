@@ -1,4 +1,5 @@
 import { money } from '../../../src/game/format'
+import { assetUrl } from '../utils/assets'
 
 interface TopHudProps {
   cash: number
@@ -114,9 +115,9 @@ export function TopHud({
               }}
             >
               <img
-                src="/assets/nut-home.PNG"
+                src={assetUrl('assets/nut-home.PNG')}
                 onError={(e) => {
-                  e.currentTarget.src = '/assets/nut-home-guide.png'
+                  e.currentTarget.src = assetUrl('assets/nut-home-guide.png')
                 }}
                 alt="Quay lại Bản đồ"
                 style={{
@@ -129,9 +130,9 @@ export function TopHud({
             </button>
           ) : (
             <img
-              src="/assets/cropped/app-logo.png"
+              src={assetUrl('assets/cropped/app-logo.png')}
               onError={(e) => {
-                e.currentTarget.src = '/assets/icon.PNG'
+                e.currentTarget.src = assetUrl('assets/icon.PNG')
               }}
               alt="Mỏ Hỗn (Xoay Vòng Tiến Lui)"
               style={{
@@ -169,7 +170,7 @@ export function TopHud({
         >
           {/* Icon Money chính thức từ app_ui_docs/images/money-icon.png */}
           <img
-            src="/assets/money-icon.png"
+            src={assetUrl('assets/money-icon.png')}
             alt="Tiền mặt"
             style={{
               width: 'clamp(26px, 6.8vw, 32px)',
@@ -283,9 +284,9 @@ export function TopHud({
               }}
             >
               <img
-                src="/assets/cropped/sound-btn.png"
+                src={assetUrl('assets/cropped/sound-btn.png')}
                 onError={(e) => {
-                  e.currentTarget.src = '/assets/sound-btn.png'
+                  e.currentTarget.src = assetUrl('assets/sound-btn.png')
                 }}
                 alt="Âm thanh"
                 style={{
@@ -340,9 +341,9 @@ export function TopHud({
               }}
             >
               <img
-                src="/assets/cropped/setting-btn.png"
+                src={assetUrl('assets/cropped/setting-btn.png')}
                 onError={(e) => {
-                  e.currentTarget.src = '/assets/setting-btn.png'
+                  e.currentTarget.src = assetUrl('assets/setting-btn.png')
                 }}
                 alt="Cài đặt"
                 style={{
@@ -401,7 +402,7 @@ export function TopHud({
             }}
           >
             <img
-              src="/assets/run-money-icon.png"
+              src={assetUrl('assets/run-money-icon.png')}
               alt="Vòng chơi"
               style={{
                 width: 'clamp(18px, 4.8vw, 22px)',
@@ -447,7 +448,7 @@ export function TopHud({
             }}
           >
             <img
-              src="/assets/goal-icon.png"
+              src={assetUrl('assets/goal-icon.png')}
               alt="Mục tiêu"
               style={{
                 width: 'clamp(18px, 4.8vw, 22px)',

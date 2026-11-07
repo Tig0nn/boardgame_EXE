@@ -1,5 +1,6 @@
 import React from 'react'
 import { sound } from '../utils/audio'
+import { assetUrl } from '../utils/assets'
 
 export interface GamifiedModalProps {
   title?: string
@@ -145,10 +146,10 @@ export const BookHelpButton: React.FC<BookHelpButtonProps> = ({
       }}
     >
       <img
-        src="/assets/guide-new-icon.png"
+        src={assetUrl('assets/guide-new-icon.png')}
         alt="Sổ tay"
         onError={(e) => {
-          e.currentTarget.src = '/assets/cropped/sotay-full-icon.png'
+          e.currentTarget.src = assetUrl('assets/cropped/sotay-full-icon.png')
         }}
         style={{
           width: '100%',

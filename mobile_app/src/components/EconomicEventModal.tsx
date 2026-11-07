@@ -5,6 +5,7 @@ import { buildEconomicEventImpact } from '../game/economic-event'
 import type { EventPriceImpact } from '../game/economic-event'
 import { issuerPressureChange, issuerPressureDetails } from './market-language'
 import { GamifiedModal } from './GamifiedModal'
+import { assetUrl } from '../utils/assets'
 
 function Movement({ rate }: { rate: number | null }) {
   const isUp = rate !== null && rate > 0
@@ -99,7 +100,7 @@ export const EconomicEventModal: React.FC<{
         </div>
 
         {impact.groups.map((group) => {
-          const assetIcons: Record<string, string> = { stocks: '/assets/stock-icon.png', bonds: '/assets/bond-icon.png', gold: '/assets/gold-icon.png' }
+          const assetIcons: Record<string, string> = { stocks: assetUrl('assets/stock-icon.png'), bonds: assetUrl('assets/bond-icon.png'), gold: assetUrl('assets/gold-icon.png') }
           return (
             <div
               key={group.asset}

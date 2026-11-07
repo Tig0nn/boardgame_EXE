@@ -5,6 +5,7 @@ import { money } from '../../../src/game/format'
 import { marketBulletin } from '../game/market-news'
 import { sound } from '../utils/audio'
 import { GamifiedModal } from './GamifiedModal'
+import { assetUrl } from '../utils/assets'
 
 interface RoundChallengeModalProps {
   game: GameState
@@ -53,7 +54,7 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
         }}
       >
         <img
-          src="/assets/stock-icon.png"
+          src={assetUrl('assets/stock-icon.png')}
           alt="Cổ Phiếu"
           style={{
             width: '32px',
@@ -103,7 +104,7 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
         }}
       >
         <img
-          src="/assets/bond-icon.png"
+          src={assetUrl('assets/bond-icon.png')}
           alt="Trái Phiếu"
           style={{
             width: '32px',
@@ -153,7 +154,7 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
         }}
       >
         <img
-          src="/assets/gold-icon.png"
+          src={assetUrl('assets/gold-icon.png')}
           alt="Vàng Trú Ẩn"
           style={{
             width: '32px',
@@ -205,7 +206,7 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <img
-              src="/assets/goal-icon.png"
+              src={assetUrl('assets/goal-icon.png')}
               alt="Mục tiêu"
               style={{ width: '18px', height: '18px', objectFit: 'contain' }}
             />
@@ -294,7 +295,7 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
         }}
       >
         <img
-          src="/assets/warning.png"
+          src={assetUrl('assets/warning.png')}
           alt="Lưu ý"
           style={{ width: '18px', height: '18px', objectFit: 'contain', flexShrink: 0, marginTop: '1px' }}
         />

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { sound } from '../utils/audio';
 import { GamifiedModal } from './GamifiedModal';
 import { isAutoShowRulesEnabled, setAutoShowRulesEnabled } from '../game/rules-settings';
+import { assetUrl } from '../utils/assets';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -194,7 +195,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               }}
             >
               <MaskedSettingIcon
-                src="/assets/sound-new-icon.png"
+                src={assetUrl('assets/sound-new-icon.png')}
                 alt="Âm thanh"
                 size={28}
                 color={isMuted ? '#64748B' : '#059669'}
@@ -285,7 +286,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               }}
             >
               <MaskedSettingIcon
-                src="/assets/knowledge-icon.png"
+                src={assetUrl('assets/knowledge-icon.png')}
                 alt="Tự động mở luật chơi"
                 size={28}
                 color={!autoRules ? '#64748B' : '#7C3AED'}
@@ -383,7 +384,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 }}
               >
                 <MaskedSettingIcon
-                  src="/assets/reset-play.png"
+                  src={assetUrl('assets/reset-play.png')}
                   alt="Khởi động lại"
                   size={28}
                   color={confirmingRestart ? '#FFFFFF' : '#DC2626'}

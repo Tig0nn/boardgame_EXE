@@ -8,6 +8,7 @@ import { boardFor, MULTI_COURSE_B18_BOARD } from '../../../src/data/board';
 import { tileDisplayLabel } from '../../../src/components/player-language';
 import type { GameState } from '../../../src/game/types';
 import { sound } from '../utils/audio';
+import { assetUrl } from '../utils/assets';
 
 // Hàm rút gọn số tiền sang đơn vị M/k giúp tiết kiệm diện tích tối đa trên giao diện giấy kem
 const formatCompactMoney = (value: number): string => {
@@ -72,7 +73,7 @@ const chapters = [
     chapterLabel: 'CHƯƠNG 1',
     title: 'Đích Đến 90M',
     icon: '🏆',
-    iconAsset: '/assets/champion-icon.png',
+    iconAsset: assetUrl('assets/champion-icon.png'),
     primaryColor: '#e11d48',
     gradient: 'linear-gradient(135deg, #ff2e93 0%, #e11d48 100%)',
     borderColor: '#fda4af',
@@ -86,11 +87,11 @@ const chapters = [
     chapterLabel: 'CHƯƠNG 2',
     title: 'Bàn Cờ Cơ Hội',
     icon: '🗺️',
-    iconAsset: '/assets/game-category-icon.png',
+    iconAsset: assetUrl('assets/game-category-icon.png'),
     primaryColor: '#059669',
     gradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
     borderColor: '#a7f3d0',
-    glowColor: 'rgba(16, 185, 129, 0.45)',
+    glowColor: 'rgba(168, 85, 247, 0.45)',
     accentBg: 'rgba(240, 253, 244, 0.95)',
   },
   {
@@ -100,7 +101,7 @@ const chapters = [
     chapterLabel: 'CHƯƠNG 3',
     title: 'Quy Trình Lượt Chơi',
     icon: '⚡',
-    iconAsset: '/assets/game-rule.png',
+    iconAsset: assetUrl('assets/game-rule.png'),
     primaryColor: '#2563eb',
     gradient: 'linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%)',
     borderColor: '#bae6fd',
@@ -114,7 +115,7 @@ const chapters = [
     chapterLabel: 'CHƯƠNG 4',
     title: 'Phân Bổ Danh Mục',
     icon: '📖',
-    iconAsset: '/assets/knowledge-icon.png',
+    iconAsset: assetUrl('assets/knowledge-icon.png'),
     primaryColor: '#7c3aed',
     gradient: 'linear-gradient(135deg, #a855f7 0%, #7c3aed 100%)',
     borderColor: '#e9d5ff',
@@ -128,7 +129,7 @@ const chapters = [
     chapterLabel: 'CHƯƠNG 5',
     title: 'Phòng Thủ & Về Đích',
     icon: '🔥',
-    iconAsset: '/assets/game-defense-icon.png',
+    iconAsset: assetUrl('assets/game-defense-icon.png'),
     primaryColor: '#ea580c',
     gradient: 'linear-gradient(135deg, #f59e0b 0%, #ea580c 100%)',
     borderColor: '#fde68a',
@@ -732,7 +733,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       gap: '6px',
                     }}
                   >
-                    <img src="/assets/money-icon.png" alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
+                    <img src={assetUrl('assets/money-icon.png')} alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
                     <span><b style={{ color: '#16a34a' }}>Tiền mặt:</b> Dùng ngay, thanh toán sinh hoạt phí và chớp cơ hội mua tài sản giá tốt.</span>
                   </div>
                   <div
@@ -749,7 +750,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       gap: '6px',
                     }}
                   >
-                    <img src="/assets/wallet.png" alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
+                    <img src={assetUrl('assets/wallet.png')} alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
                     <span><b style={{ color: '#2563eb' }}>Tiết kiệm:</b> Kỳ hạn 1 / 2 / 3 vòng, lãi suất 4% - 18%, an toàn tuyệt đối.</span>
                   </div>
                   <div
@@ -766,7 +767,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       gap: '6px',
                     }}
                   >
-                    <img src="/assets/stock-icon.png" alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
+                    <img src={assetUrl('assets/stock-icon.png')} alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
                     <span><b style={{ color: '#9333ea' }}>Cổ phiếu:</b> Sinh lời cao theo sóng thị trường, thanh khoản linh hoạt sau phí bán.</span>
                   </div>
                   <div
@@ -783,7 +784,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       gap: '6px',
                     }}
                   >
-                    <img src="/assets/bond-icon.png" alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
+                    <img src={assetUrl('assets/bond-icon.png')} alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
                     <span><b style={{ color: '#d97706' }}>Trái phiếu:</b> Lãi coupon định kỳ tại ô Xuất phát, chú ý rủi ro tổ chức phát hành.</span>
                   </div>
                   <div
@@ -800,7 +801,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       gap: '6px',
                     }}
                   >
-                    <img src="/assets/gold-icon.png" alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
+                    <img src={assetUrl('assets/gold-icon.png')} alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
                     <span><b style={{ color: '#ea580c' }}>Vàng:</b> Kênh trú ẩn phòng thủ an toàn khi kinh tế gặp cú sốc vĩ mô.</span>
                   </div>
                   <div
@@ -817,7 +818,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
                       gap: '6px',
                     }}
                   >
-                    <img src="/assets/shop-icon.png" alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
+                    <img src={assetUrl('assets/shop-icon.png')} alt="" style={{ width: '16px', height: '16px', objectFit: 'contain', flexShrink: 0 }} />
                     <span><b style={{ color: '#db2777' }}>Quán F&B:</b> Mua 20M, nâng cấp tối đa 6 tầng (+5M/tầng) đem lại dòng tiền thụ động lớn.</span>
                   </div>
                 </div>

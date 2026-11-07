@@ -8,6 +8,7 @@ import '../market-news.css'
 import { CustomerPreferenceCard } from '../../../src/components/CustomerPreferenceCard'
 import { GlossaryText } from '../../../src/components/FinancialTerm'
 import { tileTradingEnabled } from '../../../src/game/encounters'
+import { assetUrl } from '../utils/assets'
 
 const policyContext: Record<string, string> = {
   'credit-tightening': 'Cổ phiếu và giá trái phiếu giảm; vàng tăng.',
@@ -71,9 +72,9 @@ export function ForecastReality({ game, lap }: { game: GameState; lap: number })
 export function CompactForecastReality({ game, lap }: { game: GameState; lap: number }) {
   const review = roundMarketReview(game, lap)
   const assetIconMap: Record<string, string> = {
-    stocks: '/assets/stock-icon.png',
-    bonds: '/assets/bond-icon.png',
-    gold: '/assets/gold-icon.png',
+    stocks: assetUrl('assets/stock-icon.png'),
+    bonds: assetUrl('assets/bond-icon.png'),
+    gold: assetUrl('assets/gold-icon.png'),
   }
 
   return (

@@ -13,6 +13,7 @@ import { localizeNarrative } from '../../../src/components/glossary';
 import { money } from '../../../src/game/format';
 import { Icon } from '../../../src/components/Icon';
 import { sound } from '../utils/audio';
+import { assetUrl } from '../utils/assets';
 
 interface UnifiedManagementSheetProps {
   game: GameState;
@@ -177,9 +178,9 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
           }}
         >
           <img
-            src="/assets/cropped/exit-btn.png"
+            src={assetUrl('assets/cropped/exit-btn.png')}
             onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = '/assets/nut-exit.png';
+              (e.currentTarget as HTMLImageElement).src = assetUrl('assets/nut-exit.png');
             }}
             alt="Đóng"
             style={{ width: '100%', height: '100%', objectFit: 'contain' }}
@@ -236,7 +237,7 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
               }}
             >
               <MaskedIcon
-                src="/assets/wallet.png"
+                src={assetUrl('assets/wallet.png')}
                 alt="Ví Tài Sản"
                 size={21}
                 color={activeTab === 'portfolio' ? '#381F0B' : '#8C5828'}
@@ -266,7 +267,7 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
               }}
             >
               <MaskedIcon
-                src="/assets/history-icon.png"
+                src={assetUrl('assets/history-icon.png')}
                 alt="Nhật Ký"
                 size={21}
                 color={activeTab === 'log' ? '#381F0B' : '#8C5828'}
@@ -463,13 +464,13 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                               }}
                             >
                               {key === 'stocks' ? (
-                                <img src="/assets/stock-icon.png" alt="Cổ phiếu" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                                <img src={assetUrl('assets/stock-icon.png')} alt="Cổ phiếu" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
                               ) : key === 'bonds' ? (
-                                <img src="/assets/bond-icon.png" alt="Trái phiếu" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                                <img src={assetUrl('assets/bond-icon.png')} alt="Trái phiếu" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
                               ) : key === 'gold' ? (
-                                <img src="/assets/gold-icon.png" alt="Vàng" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                                <img src={assetUrl('assets/gold-icon.png')} alt="Vàng" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
                               ) : key === 'cash' ? (
-                                <img src="/assets/money-icon.png" alt="Tiền mặt" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                                <img src={assetUrl('assets/money-icon.png')} alt="Tiền mặt" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
                               ) : (
                                 <Icon name={asset.icon} size={21} />
                               )}
@@ -641,7 +642,7 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                         }}
                       >
                         <MaskedIcon
-                          src="/assets/read-icon.png"
+                          src={assetUrl('assets/read-icon.png')}
                           alt="Sổ Tay"
                           size={20}
                           color="#78350F"
@@ -732,7 +733,7 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                   }}
                 >
                   <img
-                    src="/assets/export-globe.png"
+                    src={assetUrl('assets/export-globe.png')}
                     alt="Xuất Nhật Ký"
                     style={{
                       width: '18px',
