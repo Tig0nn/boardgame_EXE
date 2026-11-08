@@ -6,6 +6,7 @@ import { money } from '../../../src/game/format'
 import type { GameState } from '../../../src/game/types'
 import { FinancialReview } from '../../../src/components/FinancialReview'
 import { hasBondCredit } from '../../../src/game/bond-credit'
+import { evaluateFinancialHealth } from '../../../src/game/financial-health'
 import { sound } from '../utils/audio'
 import { assetUrl } from '../utils/assets'
 
@@ -28,6 +29,7 @@ export function GameResultModal({
 }: GameResultModalProps) {
   const won = victory(game).won
   const { funds, target, percent: progress } = goalProgress(game)
+  const healthReport = evaluateFinancialHealth(game)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
   // Dynamic Victory / Defeat Particle Animation Canvas
@@ -451,6 +453,131 @@ export function GameResultModal({
               <span>{Math.round(progress)}% mục tiêu</span>
               <span>{won ? '✅ Đạt chỉ tiêu' : '⚠️ Chưa hoàn tất'}</span>
             </div>
+          </div>
+
+          {/* BÁO CÁO SỨC KHỎE TÀI CHÍNH (POST-GAME FINANCIAL HEALTH REPORT) */}
+          <div
+            style={{
+              background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
+              border: won ? '2px solid #f59e0b' : '2px solid #64748b',
+              borderRadius: '16px',
+              padding: '12px',
+              color: '#f8fafc',
+              boxShadow: '0 4px 14px rgba(0,0,0,0.25)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px',
+            }}
+          >
+            {/* Header: Điểm số & Xếp hạng */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <span style={{ fontSize: '10px', fontWeight: 800, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  HỒ SƠ TƯ DUY TÀI CHÍNH
+                </span>
+                <div style={{ fontSize: '14px', fontWeight: 900, color: '#fef08a' }}>
+                  {healthReport.title}
+                </div>
+              </div>
+              <div
+                style={{
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '12px',
+                  background: won
+                    ? 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)'
+                    : 'linear-gradient(135deg, #64748b 0%, #475569 100%)',
+                  border: '2px solid #ffffff',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+                }}
+              >
+                <span style={{ fontSize: '18px', fontWeight: 900, lineHeight: 1, color: '#ffffff' }}>
+                  {healthReport.grade}
+                </span>
+                <span style={{ fontSize: '8px', fontWeight: 800, color: '#fef3c7' }}>
+                  {healthReport.overallScore}/100
+                </span>
+              </div>
+            </div>
+
+            {/* Verdict */}
+            <p style={{ margin: 0, fontSize: '11px', color: '#cbd5e1', lineHeight: 1.35 }}>
+              {healthReport.verdict}
+            </p>
+
+            {/* 4 Trụ Cột Tài Chính */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', marginTop: '2px' }}>
+              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '10px', padding: '6px 8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#94a3b8' }}>
+                  <span>🛡️ Dòng Tiền & Runway</span>
+                  <strong style={{ color: '#38bdf8' }}>{healthReport.pillarScores.cashflowScore}/25</strong>
+                </div>
+                <div style={{ width: '100%', height: '4px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', marginTop: '4px', overflow: 'hidden' }}>
+                  <div style={{ width: `${(healthReport.pillarScores.cashflowScore / 25) * 100}%`, height: '100%', background: '#38bdf8' }} />
+                </div>
+              </div>
+
+              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '10px', padding: '6px 8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#94a3b8' }}>
+                  <span>📊 Đa Dạng Hóa</span>
+                  <strong style={{ color: '#a78bfa' }}>{healthReport.pillarScores.diversificationScore}/25</strong>
+                </div>
+                <div style={{ width: '100%', height: '4px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', marginTop: '4px', overflow: 'hidden' }}>
+                  <div style={{ width: `${(healthReport.pillarScores.diversificationScore / 25) * 100}%`, height: '100%', background: '#a78bfa' }} />
+                </div>
+              </div>
+
+              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '10px', padding: '6px 8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#94a3b8' }}>
+                  <span>🚀 Hiệu Suất Sinh Lời</span>
+                  <strong style={{ color: '#34d399' }}>{healthReport.pillarScores.growthScore}/25</strong>
+                </div>
+                <div style={{ width: '100%', height: '4px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', marginTop: '4px', overflow: 'hidden' }}>
+                  <div style={{ width: `${(healthReport.pillarScores.growthScore / 25) * 100}%`, height: '100%', background: '#34d399' }} />
+                </div>
+              </div>
+
+              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '10px', padding: '6px 8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#94a3b8' }}>
+                  <span>⚖️ Quản Trị Rủi Ro</span>
+                  <strong style={{ color: '#fbbf24' }}>{healthReport.pillarScores.riskControlScore}/25</strong>
+                </div>
+                <div style={{ width: '100%', height: '4px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', marginTop: '4px', overflow: 'hidden' }}>
+                  <div style={{ width: `${(healthReport.pillarScores.riskControlScore / 25) * 100}%`, height: '100%', background: '#fbbf24' }} />
+                </div>
+              </div>
+            </div>
+
+            {/* Bước Ngoặt Then Chốt nếu có */}
+            {healthReport.keyTurningPoints.length > 0 && (
+              <div style={{ marginTop: '2px', borderTop: '1px dashed rgba(255,255,255,0.15)', paddingTop: '6px' }}>
+                <span style={{ fontSize: '10px', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase' }}>
+                  ⚡ BƯỚC NGOẶT THEN CHỐT:
+                </span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '4px' }}>
+                  {healthReport.keyTurningPoints.map((point, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        fontSize: '10.5px',
+                        lineHeight: 1.3,
+                        color: point.impact === 'positive' ? '#a7f3d0' : '#fecaca',
+                        background: point.impact === 'positive' ? 'rgba(16, 185, 129, 0.12)' : 'rgba(239, 68, 68, 0.12)',
+                        borderLeft: `3px solid ${point.impact === 'positive' ? '#10b981' : '#ef4444'}`,
+                        padding: '3px 6px',
+                        borderRadius: '0 6px 6px 0',
+                      }}
+                    >
+                      <strong>{point.title}:</strong> {point.description}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* ĐÁNH GIÁ TÀI CHÍNH (FINANCIAL REVIEW) */}

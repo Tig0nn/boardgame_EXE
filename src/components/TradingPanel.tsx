@@ -109,6 +109,24 @@ export function TradingPanel({ game, onTransaction, onSkip, compact = false, mar
     <label htmlFor="trade-amount">Số tiền {tile === 'bank' ? 'gửi' : 'mua'}</label><MoneyInput id="trade-amount" amount={amount} onChange={setAmount} invalid={!preview.valid} />
     {tile === 'bank' && <SavingsPreview game={game} amount={amount} term={term} />}
     <div className="trade-remaining"><span>Tiền mặt sau giao dịch</span><strong>{preview.cashAfter === null ? '—' : money(preview.cashAfter)}</strong></div>
+    {preview.valid && preview.cashAfter !== null && (
+      <div style={{
+        margin: '6px 0',
+        padding: '6px 10px',
+        borderRadius: '10px',
+        fontSize: '11.5px',
+        fontWeight: 700,
+        background: preview.cashAfter >= 10_000_000 ? '#F0FDF4' : preview.cashAfter >= 5_000_000 ? '#FEF3C7' : '#FEF2F2',
+        border: `1px solid ${preview.cashAfter >= 10_000_000 ? '#86EFAC' : preview.cashAfter >= 5_000_000 ? '#FDE047' : '#FCA5A5'}`,
+        color: preview.cashAfter >= 10_000_000 ? '#166534' : preview.cashAfter >= 5_000_000 ? '#854D0E' : '#991B1B',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      }}>
+        <span>{preview.cashAfter >= 10_000_000 ? '🛡️ Đệm tiền mặt an toàn (> 10M)' : preview.cashAfter >= 5_000_000 ? '⚠️ Đệm tiền mặt mỏng (Dưới 10M)' : '🚨 Nguy cấp: Dưới 5M dễ vỡ nợ khi gặp biến cố!'}</span>
+        <span>{Math.min(100, Math.round((preview.cashAfter / 10_000_000) * 100))}%</span>
+      </div>
+    )}
     {!preview.valid && <p className="input-error" role="status">{preview.error}</p>}
     {tile === 'stocks' && <p className="trade-risk">Phí mua 0 ₫ · Phí bán {ECONOMY.tradeFees.stocks * 100}%. Giá có thể giảm; không đảm bảo lợi nhuận.</p>}
     <button className="button primary full-button" disabled={!preview.valid} onClick={() => submit({ kind: tile === 'bank' ? 'deposit' : 'buy', asset: tile === 'bank' ? undefined : tile, amount, term, symbolId, ...(tile === 'stocks' || atomicInvestment ? { completeEncounter: true } : {}) })}>{compact ? tile === 'bank' ? 'Gửi tiết kiệm' : 'Mua' : `Xác nhận ${tile === 'bank' ? 'gửi khoản mới' : `mua ${ASSETS[tile].label.toLowerCase()}`}`} {preview.valid ? money(amount) : ''}</button>

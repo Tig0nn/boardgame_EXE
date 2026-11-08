@@ -480,29 +480,52 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
             </div>
 
             {preview.valid && (
-              <div
-                style={{
-                  borderTop: '1px dashed rgba(16, 185, 129, 0.2)',
-                  paddingTop: '8px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  fontSize: '11.5px',
-                  color: '#64748b',
-                }}
-              >
-                <span>Tiền mặt sau giao dịch</span>
-                <strong
+              <>
+                <div
                   style={{
-                    fontSize: '13px',
-                    fontWeight: 800,
-                    color: '#334155',
-                    fontVariantNumeric: 'tabular-nums',
+                    borderTop: '1px dashed rgba(16, 185, 129, 0.2)',
+                    paddingTop: '8px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    fontSize: '11.5px',
+                    color: '#64748b',
                   }}
                 >
-                  {money(preview.cashAfter ?? 0)}
-                </strong>
-              </div>
+                  <span>Tiền mặt sau giao dịch</span>
+                  <strong
+                    style={{
+                      fontSize: '13px',
+                      fontWeight: 800,
+                      color: '#334155',
+                      fontVariantNumeric: 'tabular-nums',
+                    }}
+                  >
+                    {money(preview.cashAfter ?? 0)}
+                  </strong>
+                </div>
+
+                {preview.cashAfter !== null && (
+                  <div
+                    style={{
+                      marginTop: '4px',
+                      padding: '5px 8px',
+                      borderRadius: '8px',
+                      fontSize: '10.5px',
+                      fontWeight: 700,
+                      background: preview.cashAfter >= 10_000_000 ? '#F0FDF4' : preview.cashAfter >= 5_000_000 ? '#FEF3C7' : '#FEF2F2',
+                      border: `1px solid ${preview.cashAfter >= 10_000_000 ? '#86EFAC' : preview.cashAfter >= 5_000_000 ? '#FDE047' : '#FCA5A5'}`,
+                      color: preview.cashAfter >= 10_000_000 ? '#166534' : preview.cashAfter >= 5_000_000 ? '#854D0E' : '#991B1B',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                    }}
+                  >
+                    <span>{preview.cashAfter >= 10_000_000 ? '🛡️ Đệm an toàn (> 10M)' : preview.cashAfter >= 5_000_000 ? '⚠️ Đệm tiền mặt mỏng (< 10M)' : '🚨 Nguy cấp: Dưới 5M dễ vỡ nợ khi gặp biến cố!'}</span>
+                    <span>{Math.min(100, Math.round((preview.cashAfter / 10_000_000) * 100))}%</span>
+                  </div>
+                )}
+              </>
             )}
           </div>
 

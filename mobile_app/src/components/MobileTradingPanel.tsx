@@ -441,6 +441,27 @@ function MobileBondCreditView({
               </strong>
             </div>
 
+            {preview.valid && preview.cashAfter !== null && (
+              <div
+                style={{
+                  margin: '4px 0 2px',
+                  padding: '5px 8px',
+                  borderRadius: '8px',
+                  fontSize: '10.5px',
+                  fontWeight: 700,
+                  background: preview.cashAfter >= 10_000_000 ? '#F0FDF4' : preview.cashAfter >= 5_000_000 ? '#FEF3C7' : '#FEF2F2',
+                  border: `1px solid ${preview.cashAfter >= 10_000_000 ? '#86EFAC' : preview.cashAfter >= 5_000_000 ? '#FDE047' : '#FCA5A5'}`,
+                  color: preview.cashAfter >= 10_000_000 ? '#166534' : preview.cashAfter >= 5_000_000 ? '#854D0E' : '#991B1B',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <span>{preview.cashAfter >= 10_000_000 ? '🛡️ Đệm an toàn vững (> 10M)' : preview.cashAfter >= 5_000_000 ? '⚠️ Đệm tiền mặt mỏng (< 10M)' : '🚨 Nguy cấp: Dưới 5M dễ vỡ nợ khi gặp biến cố!'}</span>
+                <span>{Math.min(100, Math.round((preview.cashAfter / 10_000_000) * 100))}%</span>
+              </div>
+            )}
+
             {maturityLap > game.totalLaps && (
               <p style={{ margin: '2px 0 0', color: '#B45309', fontSize: '10px', fontWeight: 700 }}>
                 ⚠️ Đáo hạn sau khi hết ván ({maturityLap} vòng); cuối ván sẽ thanh lý theo giá thị trường sau phí.

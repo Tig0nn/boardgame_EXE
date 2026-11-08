@@ -260,6 +260,40 @@ export function EventModal({
                   </span>
                 )}
 
+                {option.cost && isAffordable && (
+                  <span
+                    style={{
+                      fontSize: '10.5px',
+                      fontWeight: 800,
+                      background: game.portfolio.cash - option.cost >= 10_000_000 ? 'rgba(16, 185, 129, 0.25)' : 'rgba(239, 68, 68, 0.25)',
+                      color: game.portfolio.cash - option.cost >= 10_000_000 ? '#ECFDF5' : '#FEF2F2',
+                      padding: '2px 8px',
+                      borderRadius: '8px',
+                      marginTop: '2px',
+                    }}
+                  >
+                    {game.portfolio.cash - option.cost >= 10_000_000
+                      ? `🛡️ Tiền mặt còn ${money(game.portfolio.cash - option.cost)} (> 10M)`
+                      : `⚠️ Tiền mặt còn ${money(game.portfolio.cash - option.cost)} (< 10M: Đệm mỏng!)`}
+                  </span>
+                )}
+
+                {option.obligation && !option.cost && (
+                  <span
+                    style={{
+                      fontSize: '10.5px',
+                      fontWeight: 800,
+                      background: 'rgba(245, 158, 11, 0.25)',
+                      color: '#FEF3C7',
+                      padding: '2px 8px',
+                      borderRadius: '8px',
+                      marginTop: '2px',
+                    }}
+                  >
+                    ⏳ Trả chậm tại START: {money(option.obligation)} (Chịu thêm phí hoãn)
+                  </span>
+                )}
+
                 {!isAffordable && (
                   <span
                     style={{
