@@ -26,12 +26,69 @@ function roundSource(game: GameState, lap: number) {
   return { start, scenario, endTurn: normal?.after.turn ?? game.turn }
 }
 
+export interface LapQuarterInsight {
+  lap: number
+  quarterLabel: string
+  periodName: string
+  macroTheme: string
+  actionableAdvice: string
+  recommendedAsset: string
+  highlightBadge: string
+}
+
+export function getLapQuarterInsight(lap: number): LapQuarterInsight {
+  switch (lap) {
+    case 1:
+      return {
+        lap: 1,
+        quarterLabel: 'QUÝ 1/2026',
+        periodName: 'Quý 1/2026 · Tăng Trưởng & Bứt Phá Đầu Năm',
+        macroTheme: 'Sóng Công Nghệ AI & Tiêu Dùng Đầu Năm Khởi Sắc',
+        actionableAdvice: 'Tận dụng vốn 50M: Nâng cấp kỹ năng (+3M lương/vòng) hoặc mở tiệm F&B / Cổ phiếu Công nghệ. Luôn giữ đệm tiền an toàn ≥ 10M.',
+        recommendedAsset: 'Cổ Phiếu AI & Học Kỹ Năng',
+        highlightBadge: 'TĂNG TRƯỞNG & ĐẦU TƯ',
+      }
+    case 2:
+      return {
+        lap: 2,
+        quarterLabel: 'QUÝ 2/2026',
+        periodName: 'Quý 2/2026 · Áp Lực Lạm Phát & Sóng Vàng Trú Ẩn',
+        macroTheme: 'Cơn Sốt Vàng 2026 Lập Đỉnh Lịch Sử (+12% đến +26%)',
+        actionableAdvice: 'Áp lực lạm phát thế giới tăng mạnh. Vàng là kênh trú ẩn số 1 giúp bứt phá tài sản (+12% đến +26%). Gom Vàng tích trữ để đón sóng thặng dư lớn.',
+        recommendedAsset: 'Vàng (Gold)',
+        highlightBadge: 'SÓNG VÀNG TRÚ ẨN',
+      }
+    case 3:
+      return {
+        lap: 3,
+        quarterLabel: 'QUÝ 3/2026',
+        periodName: 'Quý 3/2026 · Rung Lắc & Bảo Toàn Dòng Tiền',
+        macroTheme: 'Tín Dụng Thắt Chặt & Rủi Ro Biến Cố Bất Thường',
+        actionableAdvice: 'Thị trường thận trọng và rung lắc mạnh. Tránh đầu cơ lướt sóng. Ưu tiên giữ đệm tiền mặt ≥ 10M, nhận lãi coupon trái phiếu và tiết kiệm.',
+        recommendedAsset: 'Đệm Tiền Mặt & Trái Phiếu',
+        highlightBadge: 'PHÒNG THỦ & DÒNG TIỀN',
+      }
+    case 4:
+    default:
+      return {
+        lap: 4,
+        quarterLabel: 'QUÝ 4/2026',
+        periodName: 'Quý 4/2026 (Tháng 11/2026) · Mùa Chốt Sổ Về Đích 90 Triệu',
+        macroTheme: 'Tháng 11/2026: Vàng Giữ Đỉnh Cao & Thu Hoạch Lợi Nhuận',
+        actionableAdvice: 'Về đích chặng cuối: Hiện thực hóa lợi nhuận từ Vàng và Cổ phiếu. Thu hoạch toàn bộ cổ tức và thành quả kinh doanh để cán mốc ≥ 90M VND!',
+        recommendedAsset: 'Chốt Lời & Về Đích ≥ 90M',
+        highlightBadge: 'VỀ ĐÍCH CHIẾN THẮNG',
+      }
+  }
+}
+
 export function marketBulletin(game: GameState, lap = game.lap) {
   const source = roundSource(game, lap)
   return {
     available: !!source, lap, forecastId: source?.scenario.id ?? null,
     headline: source?.scenario.label ?? 'Chưa đủ dữ liệu',
     context: source?.scenario.description ?? 'Chưa tìm thấy bản tin đầu vòng này.',
+    quarter: getLapQuarterInsight(lap),
     assets: assets.map(asset => ({ asset, ...ASSETS[asset], ...education[asset],
       ...(asset === 'bonds' && hasBondCredit(game) ? {
         characteristic: 'Lãi trái phiếu tùy tổ chức phát hành · Có thể chậm trả hoặc mất vốn',

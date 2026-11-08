@@ -1,8 +1,9 @@
-import { ECONOMY, MACRO_EVENTS, SCENARIOS } from '../data/config.ts'
+import { ECONOMY, MACRO_EVENTS, SCENARIOS, RL_2026_SCENARIO_RANGES } from '../data/config.ts'
 import { stockCatalog } from '../data/stock-catalog.ts'
 import { hashSeed, random } from './random.ts'
 import { copyState, draw, record, snapshot } from './state.ts'
 import { applyCreditMacro, creditBondLots, hasBondCredit, updateCreditMarket } from './bond-credit.ts'
+import { isCoreMvp } from './rules-profile.ts'
 import type { GameState, MarketInstrument, MarketState, PricePoint, StockCatalogVersion } from './types.ts'
 
 export function initializeMarket(seed: string, catalogVersion?: StockCatalogVersion): MarketState {
@@ -82,16 +83,17 @@ export function updateNormalMarket(state: GameState): GameState {
   const before = snapshot(state)
   const s = copyState(state)
   const scenario = SCENARIOS.find(scenario => scenario.id === s.scenarioId)!
+  const ranges = isCoreMvp(s) ? RL_2026_SCENARIO_RANGES[scenario.id] ?? scenario.ranges : scenario.ranges
   const sample = ([low, high]: [number, number]) => low + draw(s) * (high - low)
-  const common = sample(scenario.ranges.stocks)
+  const common = sample(ranges.stocks)
   const sectors = Object.fromEntries([...new Set(s.market.stocks.map(stock => stock.sector))].map(sector => [sector, (draw(s) * 2 - 1) * ECONOMY.market.sectorVolatility]))
   for (const stock of s.market.stocks) change(stock, common + sectors[stock.sector] + (draw(s) * 2 - 1) * stock.volatility, s, 'normal')
   // Consume the historical draw to preserve every other instrument/dice sequence.
-  const bondRate = sample(scenario.ranges.bonds)
+  const bondRate = sample(ranges.bonds)
   if (hasBondCredit(s)) updateCreditMarket(s)
   else change(s.market.bond, bondRate, s, 'normal')
-  change(s.market.gold, sample(scenario.ranges.gold), s, 'normal')
-  const businessReturn = sample(scenario.ranges.business)
+  change(s.market.gold, sample(ranges.gold), s, 'normal')
+  const businessReturn = sample(ranges.business)
   s.business.recoverableCapital *= Math.max(0, 1 + businessReturn - ECONOMY.business.depreciation)
   s.market.normalLaps = [...s.market.normalLaps, s.lap]
   syncValuations(s)

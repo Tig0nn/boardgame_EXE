@@ -34,14 +34,55 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
 
   return (
     <GamifiedModal
-      badgeText={`VÒNG ${game.lap} / ${game.totalLaps} · THÁCH THỨC VÒNG MỚI`}
-      title={news.headline || `Khởi đầu vòng ${game.lap}`}
+      badgeText={news.quarter?.quarterLabel ? `${news.quarter.quarterLabel} · VÒNG ${game.lap}/${game.totalLaps}` : `VÒNG ${game.lap} / ${game.totalLaps} · THÁCH THỨC VÒNG MỚI`}
+      title={news.quarter?.macroTheme || news.headline || `Khởi đầu vòng ${game.lap}`}
       onHelp={onHelp}
       primaryAction={{
         label: `BẮT ĐẦU VÒNG ${game.lap} →`,
         onClick: handleContinue,
       }}
     >
+      {/* BANNER CHIẾN LƯỢC TRỌNG TÂM THỰC TẾ 2026 (ACTIONABLE RL STRATEGIC ADVICE) */}
+      <div
+        style={{
+          background: 'linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%)',
+          border: '1.5px solid #93C5FD',
+          borderRadius: '14px',
+          padding: '10px 12px',
+          boxSizing: 'border-box',
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '4px',
+          boxShadow: '0 2px 8px rgba(37, 99, 235, 0.08)',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ fontSize: '15px' }}>💡</span>
+            <span style={{ fontSize: '12px', fontWeight: 900, color: '#1E40AF', letterSpacing: '0.2px' }}>
+              CHIẾN LƯỢC QUÝ {game.lap}/2026
+            </span>
+          </div>
+          <span
+            style={{
+              fontSize: '10px',
+              fontWeight: 900,
+              padding: '2px 8px',
+              borderRadius: '999px',
+              background: '#2563EB',
+              color: '#FFFFFF',
+              letterSpacing: '0.3px',
+            }}
+          >
+            {news.quarter?.recommendedAsset || 'Ưu tiên'}
+          </span>
+        </div>
+        <p style={{ margin: 0, fontSize: '11px', color: '#1E3A8A', fontWeight: 600, lineHeight: 1.35 }}>
+          {news.quarter?.actionableAdvice}
+        </p>
+      </div>
+
       {/* 3 THẺ XU HƯỚNG TÀI SẢN TRỰC QUAN (VISUAL-FIRST GAMIFIED CARDS) */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
         {/* 1. THẺ CỔ PHIẾU */}
@@ -78,22 +119,22 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
                     fontWeight: 900,
                     padding: '1px 6px',
                     borderRadius: '999px',
-                    background: '#DCFCE7',
-                    color: '#15803D',
+                    background: game.lap === 1 ? '#DCFCE7' : game.lap === 3 ? '#FEE2E2' : '#F1F5F9',
+                    color: game.lap === 1 ? '#15803D' : game.lap === 3 ? '#B91C1C' : '#475569',
                     letterSpacing: '0.3px',
                   }}
                 >
-                  TĂNG TRƯỞNG
+                  {game.lap === 1 ? 'SÓNG AI TĂNG' : game.lap === 3 ? 'RUNG LẮC CAO' : 'PHÂN HÓA'}
                 </span>
               </div>
               <small style={{ fontSize: '10.5px', color: '#64748B', fontWeight: 600 }}>
-                Sinh lời cao theo sóng thị trường
+                {game.lap === 1 ? 'Sóng công nghệ dẫn dắt thị trường' : 'Sinh lời cao nhưng biến động mạnh'}
               </small>
             </div>
           </div>
           <div style={{ textAlign: 'right' }}>
-            <strong style={{ fontSize: '14px', fontWeight: 900, color: '#16A34A', display: 'block' }}>
-              ▲ Hấp Dẫn
+            <strong style={{ fontSize: '14px', fontWeight: 900, color: game.lap === 1 ? '#16A34A' : game.lap === 3 ? '#DC2626' : '#2563EB', display: 'block' }}>
+              {game.lap === 1 ? '▲ +15% ~ +35%' : game.lap === 3 ? '▼ Dễ giảm' : '▲ Tiềm năng'}
             </strong>
             <small style={{ fontSize: '9.5px', color: '#94A3B8', fontWeight: 700 }}>Thanh khoản cao</small>
           </div>
@@ -160,11 +201,11 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            background: 'rgba(255, 255, 255, 0.95)',
-            border: '1.5px solid #E2E8F0',
+            background: (game.lap === 2 || game.lap === 4) ? 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)' : 'rgba(255, 255, 255, 0.95)',
+            border: (game.lap === 2 || game.lap === 4) ? '1.5px solid #F59E0B' : '1.5px solid #E2E8F0',
             borderRadius: '14px',
             padding: '8px 12px',
-            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+            boxShadow: (game.lap === 2 || game.lap === 4) ? '0 4px 12px rgba(245, 158, 11, 0.15)' : '0 2px 8px rgba(0, 0, 0, 0.04)',
             boxSizing: 'border-box',
           }}
         >
@@ -188,24 +229,26 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
                     fontWeight: 900,
                     padding: '1px 6px',
                     borderRadius: '999px',
-                    background: '#FEF3C7',
+                    background: (game.lap === 2 || game.lap === 4) ? '#FEF3C7' : '#FEF9C3',
                     color: '#B45309',
                     letterSpacing: '0.3px',
                   }}
                 >
-                  PHÒNG THỦ
+                  {(game.lap === 2 || game.lap === 4) ? '🔥 LẬP ĐỈNH 2026' : 'PHÒNG THỦ'}
                 </span>
               </div>
               <small style={{ fontSize: '10.5px', color: '#64748B', fontWeight: 600 }}>
-                Bảo vệ tài sản trước biến động
+                {(game.lap === 2 || game.lap === 4) ? 'Kênh trú ẩn số 1 bứt phá lợi nhuận' : 'Bảo vệ tài sản trước biến động'}
               </small>
             </div>
           </div>
           <div style={{ textAlign: 'right' }}>
-            <strong style={{ fontSize: '14px', fontWeight: 900, color: '#D97706', display: 'block' }}>
-              Ổn Định
+            <strong style={{ fontSize: '14px', fontWeight: 900, color: (game.lap === 2 || game.lap === 4) ? '#16A34A' : '#D97706', display: 'block' }}>
+              {(game.lap === 2 || game.lap === 4) ? '▲ +12% ~ +26%' : 'Ổn Định'}
             </strong>
-            <small style={{ fontSize: '9.5px', color: '#94A3B8', fontWeight: 700 }}>Lá chắn rủi ro</small>
+            <small style={{ fontSize: '9.5px', color: (game.lap === 2 || game.lap === 4) ? '#15803D' : '#94A3B8', fontWeight: 700 }}>
+              {(game.lap === 2 || game.lap === 4) ? 'Khuyến nghị gom' : 'Lá chắn rủi ro'}
+            </small>
           </div>
         </div>
       </div>
