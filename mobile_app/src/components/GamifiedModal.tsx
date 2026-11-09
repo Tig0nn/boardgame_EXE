@@ -206,7 +206,7 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
     >
       {/* Khung Tinh Gọn Chuẩn Di Động Medieval Fantasy (w-[92%] max-w-[370px] h-[82vh] max-h-[690px]) */}
       <div
-        className={`gamified-modal-card w-[92%] max-w-[370px] h-[82vh] max-h-[690px] mx-auto rounded-[28px] shadow-2xl flex flex-col relative overflow-visible ${className}`}
+        className={`gamified-modal-card holo-card-2027 w-[92%] max-w-[370px] h-[82vh] max-h-[690px] mx-auto rounded-[28px] shadow-2xl flex flex-col relative overflow-visible ${className}`}
         style={{
           position: 'relative',
           width: '92%',
@@ -229,6 +229,21 @@ export const GamifiedModal: React.FC<GamifiedModalProps> = ({
           pointerEvents: 'auto',
         }}
       >
+        {/* Holographic Trend 2027 Pill Tag */}
+        <div
+          className="holo-trend-badge"
+          style={{
+            position: 'absolute',
+            top: '-12px',
+            right: '16px',
+            zIndex: 32,
+            fontSize: '9px',
+            letterSpacing: '0.4px',
+          }}
+        >
+          ✨ 2027
+        </div>
+
         {/* Ruy Băng Hoàng Kim Quý Phái (Royal Ribbon theo vòng) */}
         {badgeText && (
           <div

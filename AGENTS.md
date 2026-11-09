@@ -94,7 +94,7 @@ Mọi Tác nhân AI khi tham gia phát triển dự án PlayBoard phải xác đ
 | **Kiểm tra UI Mobile** | `8 / 8 PASS` | `scripts/diagnostics/mobile-final-ui.test.ts` pass hoàn toàn |
 | **Web Production Build** | `THÀNH CÔNG` | `npm run build` hoàn tất không cảnh báo lỗi |
 | **Mobile Production Build** | `THÀNH CÔNG` | `npm --prefix mobile_app run build` hoàn tất không lỗi |
-| **Chương 1 (B18 Cờ Tỷ Phú)** | `HOÀN THIỆN 100%` | Logic 4 Quý 2026, Vàng bứt phá, đệm tiền 10M, Báo cáo sức khỏe tài chính |
+| **Chương 1 (B18 Cờ Tỷ Phú)** | `HOÀN THIỆN 100%` | 4 Quý 2026, Vàng bứt phá, đệm tiền 10M, Báo cáo sức khỏe, Danger Zone Heartbeat FX, Holographic 2027 Modals |
 | **Chương 2 (Khởi Nghiệp Cafe)**| `THIẾT KẾ ĐẦY ĐỦ` | GDD chi tiết, 12 thẻ quyết định, Sổ tay P&L, Design System gỗ retro, Tech Architecture |
 | **Chương 3 (Nhân Chuỗi & Vốn)**| `THIẾT KẾ ĐẦY ĐỦ` | GDD chuỗi & Franchise, Bếp trung tâm, Định giá Cap Table, Sổ tay, Design System |
 | **Hệ thống Tài liệu Kiến trúc** | `HOÀN TẤT` | `SYSTEM_ARCHITECTURE.md`, `AGENTS_SOP.md`, 13 file tại `docs/chapters/` |

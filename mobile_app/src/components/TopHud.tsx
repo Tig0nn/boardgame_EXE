@@ -44,6 +44,9 @@ export function TopHud({
   const goal = targetGoal ?? targetFund ?? 90_000_000
   const progress = Math.max(0, Math.min(100, (proceeds / goal) * 100))
   const toggleAudio = onToggleMute ?? onToggleSound
+  const isDanger = cash < 5_000_000
+  const remainingLaps = Math.max(0, maxLap - currentLap)
+  const projectedProceeds = proceeds + remainingLaps * 9_000_000
 
   return (
     <header
@@ -148,8 +151,8 @@ export function TopHud({
 
         {/* Center Slot: Glassmorphism Cash Balance Capsule (Đã loại bỏ card bo viền nặng nề) */}
         <div
-          className="hud-cash-capsule"
-          title={`Tiền mặt hiện có: ${money(cash)}`}
+          className={`hud-cash-capsule ${isDanger ? 'hud-cash-danger-pulse' : ''}`}
+          title={isDanger ? `CẢNH BÁO: Đệm tiền mặt dưới 5M! (${money(cash)})` : `Tiền mặt hiện có: ${money(cash)}`}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -192,7 +195,7 @@ export function TopHud({
               style={{
                 fontSize: 'clamp(7.5px, 2vw, 9px)',
                 letterSpacing: '0.8px',
-                color: '#fde68a',
+                color: isDanger ? '#f87171' : '#fde68a',
                 fontWeight: 800,
                 lineHeight: 1,
                 fontFamily: "'Fredoka', sans-serif",
@@ -200,7 +203,7 @@ export function TopHud({
                 textShadow: '0 1px 2px rgba(0,0,0,0.8)',
               }}
             >
-              TIỀN MẶT
+              {isDanger ? '⚠️ ĐỆM NGUY CẤP' : 'TIỀN MẶT'}
             </span>
             <strong
               style={{
@@ -486,6 +489,21 @@ export function TopHud({
             >
               {(proceeds / 1_000_000).toLocaleString('vi-VN', { maximumFractionDigits: 1 })}/{goal / 1_000_000}M
             </strong>
+            {currentLap >= 2 && (
+              <span
+                className="holo-trend-badge"
+                title={`Dự phóng tài sản khi hoàn thành Vòng 4: ${(projectedProceeds / 1_000_000).toFixed(0)}M`}
+                style={{
+                  fontSize: '9px',
+                  padding: '1px 5px',
+                  flexShrink: 0,
+                  background: proceeds >= goal ? 'rgba(34, 197, 94, 0.45)' : undefined,
+                  borderColor: proceeds >= goal ? 'rgba(74, 222, 128, 0.75)' : undefined,
+                }}
+              >
+                {proceeds >= goal ? '✨ ĐẠT' : `Dự phóng ${(projectedProceeds / 1_000_000).toFixed(0)}M`}
+              </span>
+            )}
           </div>
         </div>
 

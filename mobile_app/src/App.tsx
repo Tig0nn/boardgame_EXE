@@ -64,6 +64,15 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
   const generation = useRef(0)
   const particleId = useRef(0)
   const nextActionAt = useRef(0)
+  const isDangerZone = game.portfolio.cash < 5_000_000 && game.phase !== 'finished'
+  const prevCash = useRef(game.portfolio.cash)
+
+  useEffect(() => {
+    if (isDangerZone && prevCash.current >= 5_000_000) {
+      sound.playHeartbeatTension()
+    }
+    prevCash.current = game.portfolio.cash
+  }, [game.portfolio.cash, isDangerZone])
 
   useEffect(() => () => { generation.current++ }, [])
   useEffect(() => {
@@ -170,6 +179,18 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
       <MobileContainer
         overlay={
           <>
+            {isDangerZone && (
+              <div
+                className="danger-zone-vignette"
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  pointerEvents: 'none',
+                  zIndex: 28,
+                }}
+              />
+            )}
             <TopHud
               cash={game.portfolio.cash}
               debt={game.portfolio.debt}
