@@ -7,7 +7,7 @@ import { eventsForGame } from '../../../src/data/events'
 import { canChoose } from '../../../src/game/engine'
 import { money } from '../../../src/game/format'
 import type { GameState, RebalanceAction } from '../../../src/game/types'
-import { TradingPanel } from '../../../src/components/TradingPanel'
+import { MobileTrading } from './MobileTrading'
 import { MarketSignal } from './MarketNews'
 import { investmentPurchasesComplete } from '../../../src/game/encounters'
 import { MACRO_EVENTS } from '../../../src/data/config'
@@ -243,18 +243,15 @@ export function EventModal({
     {cash}
     {/* Trading Panel nếu thuộc nhóm giao dịch */}
       {trading && (
-        <div style={{ width: '100%' }}>
-          <TradingPanel
-            key={`${game.turn}-${game.log.length}`}
-            game={game}
-            compact
-            onTransaction={onTransaction}
-            onSkip={() => onChoose('skip')}
-            marketContext={(asset, symbolId) => (
-              <MarketSignal game={game} asset={asset} symbolId={symbolId} />
-            )}
-          />
-        </div>
+        <MobileTrading
+          key={`${game.turn}-${game.log.length}`}
+          game={game}
+          onTransaction={onTransaction}
+          onSkip={() => onChoose('skip')}
+          marketContext={(asset, symbolId) => (
+            <MarketSignal game={game} asset={asset} symbolId={symbolId} />
+          )}
+        />
       )}
 
     {decisions}

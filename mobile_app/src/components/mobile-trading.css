@@ -1,0 +1,50 @@
+.mobile-trading {
+  width: 100%;
+  min-width: 0;
+}
+
+.mobile-trading .investment-actions {
+  gap: 6px;
+}
+
+.mobile-trading .investment-actions button.button.secondary {
+  min-height: 44px;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #334155 !important;
+}
+
+.mobile-trading .investment-actions button.button.secondary[aria-pressed="true"] {
+  border-color: #b45309 !important;
+  background: #fef3c7 !important;
+  color: #78350f !important;
+  box-shadow: 0 2px 6px rgb(180 83 9 / 18%) !important;
+}
+
+.mobile-trading .bond-issuer-card[aria-pressed="true"] {
+  border-color: #b45309;
+  background: #fef3c7;
+  box-shadow: inset 3px 0 #b45309;
+}
+
+.mobile-trading .money-input input,
+.mobile-trading select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.mobile-trading button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed !important;
+}
+
+.mobile-trading button:focus-visible,
+.mobile-trading select:focus-visible,
+.mobile-trading .money-input:focus-within {
+  outline: 2px solid #92400e !important;
+  outline-offset: 2px;
+}
