@@ -21,12 +21,14 @@ function choiceLabel(choice: WhatIfDecision) {
   return `${alternativeLabel(choice)} · Quyết định ${choice.decisionId.split(':')[1]} · Vòng ${choice.lap}, lượt ${choice.turn}`
 }
 
+const geminiMode = import.meta.env.DEV && import.meta.env.WHAT_IF_PROVIDER_MODE === 'gemini'
+
 export function InGameAiEntry({ registration, watch }: Props) {
   const binding = useSyncExternalStore(registration.subscribe, registration.getSnapshot)
   return binding ? <BoundAiEntry binding={binding} watch={watch} /> : null
 }
 function BoundAiEntry({ binding, watch }: { binding: EndgameAppBinding; watch: Props['watch'] }) {
-  const controller = useMemo(() => createInGameAiController(binding, () => createHttpWhatIfProvider()), [binding])
+  const controller = useMemo(() => createInGameAiController(binding, () => createHttpWhatIfProvider(), geminiMode), [binding])
   const view = useSyncExternalStore(controller.subscribe, controller.getSnapshot)
   const trigger = useRef<HTMLButtonElement>(null)
   useLayoutEffect(() => {
@@ -99,7 +101,7 @@ function AiDialog({ controller, trigger }: { controller: ReturnType<typeof creat
     </header>
     <div className="endgame-what-if__content" aria-busy={pending}>
       <p>Thử phương án trên lịch sử ván đã chơi. Bạn xác nhận từng thay đổi trước khi mô phỏng.</p>
-      <p className="in-game-ai-mode">DEV · AI mock qua HTTP. Gemini live chưa được chạy.</p>
+      <p className="in-game-ai-mode">{geminiMode ? 'DEV · Gemini qua HTTP.' : 'DEV · AI mock qua HTTP. Gemini live chưa được chạy.'}</p>
       <p role="status">{view.notice ?? (view.stage === 'preparing' ? 'Đang xác minh lịch sử và tìm lựa chọn…'
         : view.stage === 'proposing' ? 'Đang chờ đề xuất AI…' : view.stage === 'running' ? 'Đang xác minh phương án thử…' : '')}</p>
       {['preparing', 'question', 'proposing'].includes(view.stage) && <form onSubmit={event => {
@@ -109,7 +111,7 @@ function AiDialog({ controller, trigger }: { controller: ReturnType<typeof creat
         <label htmlFor={input}>Câu hỏi What-if</label>
         <textarea id={input} ref={questionInput} value={question} maxLength={QUESTION_LIMIT} disabled={view.stage === 'preparing'} rows={3}
           onChange={event => updateQuestion(event.target.value)} required />
-        <button type="submit" disabled={pending || view.stage !== 'question' || !question.trim()}>Phân tích câu hỏi (mock)</button>
+        <button type="submit" disabled={pending || view.stage !== 'question' || !question.trim()}>{geminiMode ? 'Phân tích câu hỏi' : 'Phân tích câu hỏi (mock)'}</button>
         {view.stage === 'question' && view.providerFailed && <button type="button" onClick={() => {
           const selector = view.selectedSequence && view.catalog.length ? '[data-verified-alternative]' : view.history?.length ? '[data-history-selector]' : null
           const target = selector ? dialog.current?.querySelector<HTMLSelectElement>(selector) : manualCategory.current
@@ -162,7 +164,7 @@ function AiDialog({ controller, trigger }: { controller: ReturnType<typeof creat
             <div><dt>Chênh lệch</dt><dd>{row.delta}</dd></div>
           </dl>
         </section>)}
-        <p>{view.explanation}</p>
+        <p data-explanation-source={view.explanationSource}>{view.explanation}</p>
         {!!view.salaryChanges?.length && <section aria-label="Dữ kiện lương từ engine">
           <h4>Khoản tăng lương theo vòng</h4>
           <ul>{view.salaryChanges.map(change => <li key={change}>{change}</li>)}</ul>

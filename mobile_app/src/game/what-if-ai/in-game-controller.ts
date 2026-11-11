@@ -1,5 +1,5 @@
 import { money, signedMoney } from '../../../../src/game/format.ts'
-import { intentReply, proposalReply, WhatIfApiError } from '../../../../src/ai/what-if/contracts.ts'
+import { explanationReply, intentReply, proposalReply, WhatIfApiError } from '../../../../src/ai/what-if/contracts.ts'
 import type { EndgameAppBinding } from '../endgame-analysis-app-binding.ts'
 import { validateResponse } from '../endgame-analysis-protocol.ts'
 import type { FinalCore, Response } from '../endgame-analysis-protocol.ts'
@@ -20,7 +20,7 @@ type Kind = WhatIfDecision['kind']
 type Stage = 'closed' | 'preparing' | 'question' | 'proposing' | 'proposal' | 'running' | 'followup' | 'final' | 'blocked'
 type Row = { label: string; actual: string; alternative: string; delta: string }
 export type InGameAiView = { stage: Stage; kind: Kind; catalog: WhatIfDecision[]; notice?: string;
-  proposal?: WhatIfDecision; followUp?: string; rows?: Row[]; explanation?: string;
+  proposal?: WhatIfDecision; followUp?: string; rows?: Row[]; explanation?: string; explanationSource?: 'engine' | 'gemini-claim';
   history?: HistoricalDecision[]; historyOffset?: number; historyTotal?: number; historyNext?: number | null;
   selectedSequence?: number; controls?: DecisionControls; alternativesNext?: number | null; alternativesOffset?: number;
   natural?: NaturalIntent; missing?: string[]; original?: string; alternative?: string; confirmedFollowUps?: string[]; followUpDetail?: string;
@@ -44,7 +44,7 @@ const sessionStamp = (binding: EndgameAppBinding) => {
 }
 
 /** Owns one App capture, its provider requests and native branches. Public views contain only detached UI facts. */
-export function createInGameAiController(binding: EndgameAppBinding, provider: () => WhatIfProvider) {
+export function createInGameAiController(binding: EndgameAppBinding, provider: () => WhatIfProvider, geminiExplanation = false) {
   let active: Active | undefined
   let view: InGameAiView = { stage: 'closed', kind: 'gold', catalog: [] }
   let viewCurrent = captureDataIntegrity(view)
@@ -179,7 +179,20 @@ export function createInGameAiController(binding: EndgameAppBinding, provider: (
     publish({ stage: 'final', kind: view.kind, catalog: [], rows, original: owner.original,
       alternative: owner.selection ? alternativeLabel(owner.selection) : undefined, confirmedFollowUps: owner.confirmed,
       salaryChanges: verifiedSalaryChanges(facts.actual.salaryAtStarts, facts.alternative.salaryAtStarts),
-      explanation: groundedExplanation(facts.delta) })
+      explanation: groundedExplanation(facts.delta), explanationSource: 'engine' })
+    if (geminiExplanation) void verifyExplanation(owner, view, facts.delta.cash)
+  }
+  async function verifyExplanation(owner: Active, result: InGameAiView, cashDelta: number) {
+    const direction = cashDelta > 0 ? 'up' : cashDelta < 0 ? 'down' : 'unchanged'
+    const facts = { kind: result.kind, direction, confirmedFollowUp: owner.confirmed.length > 0 } as const
+    try {
+      if (!valid(owner) || view !== result || result.stage !== 'final') return
+      const signal = AbortSignal.any([owner.abort.signal, AbortSignal.timeout(7000)])
+      explanationReply(await owner.provider.explain(facts, signal), facts)
+      if (!signal.aborted && valid(owner) && view === result) publish({ ...result, explanationSource: 'gemini-claim' })
+    } catch {
+      // The result already includes the engine explanation. A provider failure cannot change it.
+    }
   }
   async function acceptGold(owner: Active, response: Response | null) {
     if (!sameSession(owner)) return
