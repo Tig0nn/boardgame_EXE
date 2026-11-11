@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { resolve } from 'node:path'
+import { setTimeout as delay } from 'node:timers/promises'
 import { gunzipSync } from 'node:zlib'
 import { startWhatIfDev } from '../what-if-ai-dev.ts'
 import { advance } from '../../src/game/engine.ts'
@@ -60,13 +61,16 @@ const transport = async (url, init) => {
   assert.equal(url, 'https://generativelanguage.googleapis.com/v1beta/models/gemini-test-model:generateContent')
   const body = JSON.parse(init.body), request = JSON.parse(body.contents[0].parts[0].text)
   const current = scenario, fixture = fixtures[current.source ?? current.name]
-  const { operation: _, ...parameters } = fixture.selection.parameters ?? {}
+  const { symbolId, issuerId, lotId } = fixture.selection.parameters ?? {}
   operations.push(request.operation)
+  if (current.slowDiagnostic && ['interpret', 'explain'].includes(request.operation)) {
+    await delay(7500, undefined, { signal: init.signal })
+  }
   if (request.operation === 'interpret') {
     assert.deepEqual(request, { operation: 'interpret', question: current.question })
     if (current.failure) return new Response(null, { status: 429 })
     return geminiReply({ status: 'intent', intent: { kind: current.name, action: current.action,
-      sequence: Number(fixture.selection.decisionId.split(':')[1]), ...parameters,
+      ...(symbolId ? { symbolId } : {}), ...(issuerId ? { issuerId } : {}), ...(lotId ? { lotId } : {}),
       ...(current.originalAction ? { originalAction: current.originalAction } : {}),
       ...(current.preferenceId ? { preferenceId: current.preferenceId } : {}) } })
   }
@@ -94,7 +98,7 @@ const transport = async (url, init) => {
 const server = await startWhatIfDev(Number(process.argv[2] ?? 5228), {
   mode: 'gemini', gemini: { model: 'gemini-test-model', apiKey: 'synthetic-test-value',
     accessApproved: true, allowLiveTraffic: true, fetch: transport },
-}, { maxCalls: 64, maxRequests: 64 })
+}, { maxCalls: 64, maxRequests: 64, devDiagnosticDeadlineMs: 30_000 })
 const origin = 'http://127.0.0.1:' + server.httpServer.address().port
 let browser
 const byName = (page, name) => page.getByRole('button', { name, exact: true })
@@ -236,9 +240,67 @@ try {
     assert.equal(await dialog(page).locator('.endgame-what-if__metric').count(), 0)
   })
   console.log('PASS Gemini App delayed explanation, abort and stale response isolation')
+  const slowDiagnostic = { ...cases[2], slowDiagnostic: true }
+  await run(slowDiagnostic, async ({ page }) => {
+    await ask(page, slowDiagnostic.question)
+    await finish(page, slowDiagnostic)
+    await dialog(page).locator('[data-explanation-source="gemini-claim"]').waitFor()
+    assert.deepEqual(operations, ['interpret', 'propose', 'explain'])
+  })
+  console.log('PASS Gemini App diagnostic budget accepts interpret and explain beyond the default client deadline')
+  async function blockedIntent(page, entry, notice = /nêu rõ nhóm/) {
+    scenario = entry
+    const called = operations.length
+    await ask(page, entry.question)
+    await page.getByRole('status').filter({ hasText: notice }).waitFor()
+    assert.deepEqual(operations.slice(called), ['interpret'])
+    assert.equal(await byName(page, 'Xác nhận và mô phỏng').count(), 0)
+    assert.equal(await dialog(page).locator('.endgame-what-if__metric').count(), 0)
+    assert(await page.evaluate(() => window.geminiWorkers.every(worker => !worker.comparisons.length
+      && worker.messages.every(kind => kind !== 'create' && kind !== 'followup'))))
+  }
+  const stocks = cases.find(entry => entry.name === 'stocks')
+  const bank = cases.find(entry => entry.name === 'bank')
+  await run(stocks, async ({ page }) => {
+    for (const question of ['Mua CMG với 1 triệu USD tại quyết định 10', 'Mua 1 triệu cổ phiếu CMG tại quyết định 10']) {
+      await blockedIntent(page, { ...stocks, question })
+    }
+  })
+  console.log('PASS Gemini App rejects unsupported currency and share quantity without replay')
+  await run(bank, async ({ page }) => {
+    await blockedIntent(page, { ...bank, question: 'Gửi tiết kiệm 1 triệu VND kỳ hạn 3 tuần tại quyết định 36' })
+  })
+  console.log('PASS Gemini App rejects calendar terms without replay')
+  await run(stocks, async ({ page }) => {
+    await blockedIntent(page, { ...stocks, question: 'Mua CMG hoặc FPT với 1.234.567 VND tại quyết định 10' })
+    await blockedIntent(page, { ...stocks, question: 'Mua CMG và bán FPT' }, /nhiều thay đổi/)
+    await blockedIntent(page, { ...stocks, action: 'sell' }, /Chưa thể xác minh phản hồi AI/)
+    await byName(page, 'Chọn phương án thủ công').click()
+    await page.getByLabel('Nhóm quyết định').selectOption('stocks')
+    await page.getByLabel('Quyết định lịch sử').selectOption('10')
+    await page.getByLabel('Hành động', { exact: true }).selectOption('buy')
+    await page.getByLabel('Mã cổ phiếu').selectOption('CMG')
+    await page.getByLabel('Số tiền VND', { exact: true }).fill('1234567')
+    await byName(page, 'Xác minh phương án').click()
+    const alternatives = page.getByLabel('Phương án đã xác minh hợp lệ')
+    const verified = alternatives.locator('option').filter({ hasText: /CMG/ })
+    await verified.waitFor({ state: 'attached' })
+    await alternatives.selectOption(await verified.getAttribute('value'))
+    await finish(page, stocks)
+    await dialog(page).locator('[data-explanation-source="gemini-claim"]').waitFor()
+    assert.deepEqual(operations, ['interpret', 'interpret', 'interpret', 'explain'])
+  })
+  console.log('PASS Gemini App requires one consistent intent and allows explicit manual recovery')
+  await run(stocks, async ({ page }) => {
+    for (const locator of ['quyết định 10 và 11', 'lượt 10abc']) {
+      await blockedIntent(page, { ...stocks, question: 'Mua CMG tại ' + locator })
+    }
+  })
+  console.log('PASS Gemini App rejects unresolved history locators without replay')
+
   assert.deepEqual(pageErrors, [])
   assert.deepEqual(external, [])
-  console.log('GEMINI SIMULATED CHROMIUM PASS 9/9')
+  console.log('GEMINI SIMULATED CHROMIUM PASS 14/14')
 } finally {
   releaseExplain()
   try { await browser?.close() } finally { await server.close() }

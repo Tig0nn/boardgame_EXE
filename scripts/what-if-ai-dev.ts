@@ -2,7 +2,7 @@ import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createServer } from 'vite'
 import { WHAT_IF_ENDPOINT } from '../src/ai/what-if/contracts.ts'
-import { createWhatIfHandler } from '../src/ai/what-if/server.ts'
+import { createWhatIfHandler, resolveWhatIfServerDeadlineMs } from '../src/ai/what-if/server.ts'
 import { mockServerProvider } from '../src/ai/what-if/mock-server-provider.ts'
 import { createWhatIfGeminiProvider, hasWhatIfGeminiConfig } from '../src/ai/what-if/gemini.ts'
 import type { GeminiOptions } from '../src/ai/what-if/gemini.ts'
@@ -15,9 +15,13 @@ export async function startWhatIfDev(port = 5196, options: WhatIfDevMode = { mod
     throw new Error('Gemini DEV requires approved access, live traffic opt-in, a model and server credentials.')
   }
   const provider = options.mode === 'gemini' ? createWhatIfGeminiProvider(options.gemini) : mockServerProvider
+  const deadlineMs = resolveWhatIfServerDeadlineMs(limits)
   const handler = createWhatIfHandler(provider, limits)
   const server = await createServer({ root: resolve('mobile_app'), server: { host: '127.0.0.1', port, strictPort: true },
-    define: { 'import.meta.env.WHAT_IF_PROVIDER_MODE': JSON.stringify(options.mode) },
+    define: {
+      'import.meta.env.WHAT_IF_PROVIDER_MODE': JSON.stringify(options.mode),
+      'import.meta.env.WHAT_IF_SERVER_DEADLINE_MS': JSON.stringify(deadlineMs),
+    },
     plugins: [{ name: 'what-if-provider-only', configureServer(vite) {
       vite.middlewares.use((req, res, next) => {
         if (req.url?.split('?')[0] === WHAT_IF_ENDPOINT) void handler(req, res)
@@ -38,11 +42,18 @@ function environmentMode(): WhatIfDevMode {
     model: process.env.WHAT_IF_GEMINI_MODEL,
     apiKey: process.env.WHAT_IF_GEMINI_API_KEY,
     fetch: globalThis.fetch,
+    onInterpretDiagnostic: process.env.WHAT_IF_DEV_GEMINI_DIAGNOSTICS === '1'
+      ? diagnostic => console.info('What-if Gemini interpret', JSON.stringify(diagnostic))
+      : undefined,
   } }
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const options = environmentMode()
-  await startWhatIfDev(5196, options)
+  const rawDeadline = process.env.WHAT_IF_DEV_DEADLINE_MS
+  const limits = rawDeadline === undefined ? undefined : {
+    devDiagnosticDeadlineMs: /^[1-9][0-9]{0,4}$/.test(rawDeadline) ? Number(rawDeadline) : NaN,
+  }
+  await startWhatIfDev(5196, options, limits)
   console.log('What-if ' + options.mode + ' HTTP ready at http://127.0.0.1:5196/?endgameWhatIf=1&whatIfAi=1')
 }
