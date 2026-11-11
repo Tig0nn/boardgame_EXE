@@ -202,7 +202,7 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
                 onChange={handleAmountChange}
                 className="w-full text-base font-black text-slate-800 bg-white border border-slate-200 rounded-xl px-3 py-2 pr-8 focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none transition-all"
               />
-              <span className="absolute right-3 text-sm font-bold text-slate-400 pointer-events-none">
+              <span className="absolute right-3 text-sm font-black text-slate-500 pointer-events-none">
                 ₫
               </span>
             </div>
@@ -211,6 +211,7 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
             <div className="flex gap-1.5 pt-0.5">
               {[0.25, 0.5, 1].map((ratio) => {
                 const targetVal = Math.floor((game.portfolio.cash * ratio) / 1000) * 1000
+                const selected = targetVal > 0 && amount === targetVal
                 return (
                   <button
                     key={ratio}
@@ -219,7 +220,10 @@ export const MobileBankPanel: React.FC<MobileBankPanelProps> = ({
                       sound.playClick()
                       setAmount(Math.max(1000, targetVal))
                     }}
-                    className="flex-1 py-1 px-2 text-[11px] font-bold rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-700 transition-colors"
+                    aria-pressed={selected}
+                    className={`flex-1 py-1.5 px-2 text-[11px] rounded-lg border transition-colors ${selected
+                      ? 'font-black bg-amber-50 border-amber-600 text-amber-800'
+                      : 'font-bold bg-white border-slate-200 text-slate-600 hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-700'}`}
                   >
                     {ratio === 1 ? 'Tối đa' : `${ratio * 100}%`}
                   </button>

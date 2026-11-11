@@ -238,7 +238,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
         </div>
 
         {/* Quick Percentage Chips */}
-        <div style={{ display: 'flex', gap: '4px' }}>
+        <div style={{ display: 'flex', gap: '6px' }}>
           {[25, 50, 100].map((pct) => (
             <button
               key={pct}
@@ -247,12 +247,13 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
               onClick={() => setPercentAmount(pct)}
               style={{
                 flex: 1,
-                padding: '4px 0',
-                borderRadius: '8px',
+                padding: '5.5px 0',
+                borderRadius: '10px',
                 border: '1px solid #CBD5E1',
-                background: '#F1F5F9',
-                color: '#334155',
-                fontSize: '10.5px',
+                background: available > 0 ? '#FFFFFF' : '#F1F5F9',
+                color: available > 0 ? '#334155' : '#94A3B8',
+                opacity: available > 0 ? 1 : 0.6,
+                fontSize: '11px',
                 fontWeight: 800,
                 cursor: available <= 0 ? 'not-allowed' : 'pointer',
               }}

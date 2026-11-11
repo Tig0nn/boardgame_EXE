@@ -88,6 +88,7 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
   const [currentTab, setCurrentTab] = useState(initialTab);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
   const living = livingPresentation(game);
   const board = game ? boardFor(game) : MULTI_COURSE_B18_BOARD;
 
@@ -130,6 +131,21 @@ export function UnifiedGameGuide({ firstTime = false, onClose, game, initialTab 
       {/* Khung Sổ Tay / Bảng Gỗ Luật Chơi luat-choi.webp (Chuẩn hóa kích thước đồng bộ: min(92%, 400px) x min(86vh, 700px)) */}
       <div
         className="guide-board-wrapper w-[92%] max-w-[400px] mx-auto relative flex flex-col shadow-2xl bg-transparent"
+        onTouchStart={(event) => {
+          const touch = event.touches.length === 1 ? event.touches[0] : null;
+          touchStart.current = touch ? { x: touch.clientX, y: touch.clientY } : null;
+        }}
+        onTouchCancel={() => { touchStart.current = null; }}
+        onTouchEnd={(event) => {
+          const start = touchStart.current;
+          const touch = event.changedTouches[0];
+          touchStart.current = null;
+          if (!start || !touch) return;
+          const deltaX = touch.clientX - start.x;
+          if (Math.abs(deltaX) <= Math.max(45, Math.abs(touch.clientY - start.y))) return;
+          const next = currentTab + (deltaX < 0 ? 1 : -1);
+          if (next >= 0 && next < chapters.length) navigateTo(next);
+        }}
         style={{
           position: 'relative',
           width: 'min(92%, 400px)',
