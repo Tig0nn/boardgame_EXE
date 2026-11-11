@@ -63,7 +63,9 @@ export function createWhatIfHandler(provider: WhatIfProvider, options: { deadlin
       } finally { abort.signal.removeEventListener('abort', onAbort) }
     } catch (error) {
       const code = error instanceof WhatIfApiError ? error.code : 'INVALID_REQUEST'
-      send(code === 'PROVIDER_TIMEOUT' ? 504 : code === 'PROVIDER_UNAVAILABLE' || code === 'OUTPUT_REJECTED' ? 503 : 400, { error: code })
+      const status = code === 'RATE_LIMITED' ? 429 : code === 'PROVIDER_TIMEOUT' ? 504
+        : code === 'PROVIDER_UNAVAILABLE' || code === 'OUTPUT_REJECTED' ? 503 : 400
+      send(status, { error: code })
     } finally {
       if (admitted) running--
       clearTimeout(timer)
