@@ -1,0 +1,1685 @@
+{
+  "cases": [
+    {
+      "name": "player-timeout-retry-in-place",
+      "status": "PASS"
+    },
+    {
+      "name": "player-mobile-390-suggestion-edit-and-ask-again",
+      "status": "PASS"
+    },
+    {
+      "name": "player-edit-and-cancel-outstanding-intake",
+      "status": "PASS"
+    },
+    {
+      "name": "player-real-catalog-paging",
+      "status": "PASS"
+    },
+    {
+      "name": "player-verified-result-independent-of-explain-service",
+      "status": "PASS"
+    },
+    {
+      "name": "player-clear-failed-filter-for-manual-fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "player-advanced-category-native-fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "stocks-desktop-http-native-restart",
+      "status": "PASS"
+    },
+    {
+      "name": "bank-small-app",
+      "status": "PASS"
+    },
+    {
+      "name": "bonds-small-app",
+      "status": "PASS"
+    },
+    {
+      "name": "sale-small-app",
+      "status": "PASS"
+    },
+    {
+      "name": "course-small-app",
+      "status": "PASS"
+    },
+    {
+      "name": "business-small-app",
+      "status": "PASS"
+    },
+    {
+      "name": "gold-small-app",
+      "status": "PASS"
+    },
+    {
+      "name": "provider-invalid",
+      "status": "PASS"
+    },
+    {
+      "name": "provider-ambiguous",
+      "status": "PASS"
+    },
+    {
+      "name": "provider-timeout",
+      "status": "PASS"
+    },
+    {
+      "name": "editing-revokes-old-choice-and-unowned-sale-is-excluded",
+      "status": "PASS"
+    },
+    {
+      "name": "close-during-provider",
+      "status": "PASS"
+    },
+    {
+      "name": "close-during-worker",
+      "status": "PASS"
+    },
+    {
+      "name": "close-during-probe",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-stocks",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-stockAgain",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-sale",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-bank",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-bonds",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-course",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-courseBasic",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-courseSkipBasic",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-business",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-gold",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-ambiguous-history-choice",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-provider-cannot-switch-to-another-legal-alternative",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-missing-stocks",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-missing-stocks",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-missing-bank",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-missing-bonds",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-refusal-Bỏ mua vàng và bỏ bán vàng",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-refusal-Nếu tôi thay đổi thì sao?",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-refusal-Mua CMG 1 triệu tại quyết định 499",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-refusal-Mua cổ phiếu ZZZ 1 triệu tại quyết định 10",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-refusal-Bỏ mua CMG tại quyết định 10",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-refusal-Gửi 1 triệu kỳ hạn 2 hoặc 3 START",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-refusal-Gửi 1 triệu kỳ hạn 3 tháng",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-engine-blocked-lot-provenance-explained",
+      "status": "PASS"
+    },
+    {
+      "name": "intent-invalid",
+      "status": "PASS"
+    },
+    {
+      "name": "intent-ambiguous",
+      "status": "PASS"
+    },
+    {
+      "name": "intent-missing",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-close-reopen-intake-stale-and-focus",
+      "status": "PASS"
+    },
+    {
+      "name": "natural-keyboard-tab-enter-escape-reopen",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "forbidden": [],
+  "interceptedFonts": [
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2"
+  ],
+  "coreEntry": [
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 390,
+      "step": 0,
+      "resultActivation": "touch"
+    },
+    {
+      "name": "stocks",
+      "width": 390,
+      "step": 1,
+      "resultActivation": "touch"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "paging",
+      "width": 390,
+      "step": 0,
+      "resultActivation": "touch"
+    },
+    {
+      "name": "paging",
+      "width": 390,
+      "step": 1,
+      "resultActivation": "touch"
+    },
+    {
+      "name": "course",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "course",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "course",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "course",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "bank",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bank",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bonds",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bonds",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "sale",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "sale",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "course",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "course",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "business",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "business",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "gold",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "gold",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stockAgain",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stockAgain",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "sale",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "sale",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bank",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bank",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bonds",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bonds",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "course",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "course",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "courseBasic",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "courseBasic",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "courseSkipBasic",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "courseSkipBasic",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "business",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "business",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "gold",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "gold",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "course",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "course",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bank",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bank",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bonds",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bonds",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bonds",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "bonds",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 1280,
+      "step": 1,
+      "resultActivation": "pointer"
+    }
+  ],
+  "requests": [
+    {
+      "operation": "interpret",
+      "question": "Mua CMG 1.234.567 VND tại quyết định 10"
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG 1.234.567 VND tại quyết định 10"
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Nếu tôi mua cổ phiếu tại quyết định 10 thì sao?"
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG 1.234.567 VND tại quyết định 10"
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua FPT 7,25 triệu lần đầu"
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu FPT số tiền 7250000 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:FPT:7250000",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 7250000,
+            "symbolId": "FPT"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua FPT 7,25 triệu lần đầu"
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua FPT 7,25 triệu lần đầu"
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG 1.234.567 VND tại quyết định 10"
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Học khóa nâng cao lần đầu"
+    },
+    {
+      "operation": "propose",
+      "question": "Học khóa nâng cao tại quyết định 7",
+      "catalog": [
+        {
+          "kind": "course",
+          "decisionId": "course:7",
+          "alternativeId": "course-advanced",
+          "lap": 1,
+          "turn": 2
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG tại quyết định 499"
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "propose",
+      "question": "Gửi tiết kiệm số tiền 1000000 kỳ hạn 3 tại quyết định 36",
+      "catalog": [
+        {
+          "kind": "bank",
+          "decisionId": "bank:36",
+          "alternativeId": "custom:bank:deposit:3:1000000",
+          "lap": 2,
+          "turn": 9,
+          "parameters": {
+            "operation": "deposit",
+            "amount": 1000000,
+            "term": 3
+          }
+        }
+      ]
+    },
+    {
+      "operation": "propose",
+      "question": "Bán trái phiếu lot bond-2 số tiền 750000 tại quyết định 23",
+      "catalog": [
+        {
+          "kind": "bonds",
+          "decisionId": "bonds:23",
+          "alternativeId": "custom:bonds:sell:bond-2:750000",
+          "lap": 1,
+          "turn": 5,
+          "parameters": {
+            "operation": "sell",
+            "amount": 750000,
+            "lotId": "bond-2"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "propose",
+      "question": "Bán cổ phiếu FPT số tiền 1000000 tại quyết định 51",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:51",
+          "alternativeId": "custom:stocks:sell:FPT:1000000",
+          "lap": 3,
+          "turn": 12,
+          "parameters": {
+            "operation": "sell",
+            "amount": 1000000,
+            "symbolId": "FPT"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "propose",
+      "question": "Học khóa nâng cao tại quyết định 7",
+      "catalog": [
+        {
+          "kind": "course",
+          "decisionId": "course:7",
+          "alternativeId": "course-basic",
+          "lap": 1,
+          "turn": 2
+        },
+        {
+          "kind": "course",
+          "decisionId": "course:7",
+          "alternativeId": "course-advanced",
+          "lap": 1,
+          "turn": 2
+        }
+      ]
+    },
+    {
+      "operation": "propose",
+      "question": "Nếu tôi bỏ mua vàng thì sao?",
+      "catalog": [
+        {
+          "kind": "gold",
+          "decisionId": "gold:4",
+          "alternativeId": "skip",
+          "lap": 1,
+          "turn": 1
+        }
+      ]
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Nếu tôi mua cổ phiếu CMG 1.234.567 VND ở quyết định 10 thì sao?"
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Nếu mua FPT 7,25 triệu lần đầu thì sao?"
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu FPT số tiền 7250000 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:FPT:7250000",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 7250000,
+            "symbolId": "FPT"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Bán FPT 1 triệu ở quyết định 51"
+    },
+    {
+      "operation": "propose",
+      "question": "Bán cổ phiếu FPT số tiền 1000000 tại quyết định 51",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:51",
+          "alternativeId": "custom:stocks:sell:FPT:1000000",
+          "lap": 3,
+          "turn": 12,
+          "parameters": {
+            "operation": "sell",
+            "amount": 1000000,
+            "symbolId": "FPT"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Gửi tiết kiệm 1 triệu kỳ hạn 3 START tại quyết định 36"
+    },
+    {
+      "operation": "propose",
+      "question": "Gửi tiết kiệm số tiền 1000000 kỳ hạn 3 tại quyết định 36",
+      "catalog": [
+        {
+          "kind": "bank",
+          "decisionId": "bank:36",
+          "alternativeId": "custom:bank:deposit:3:1000000",
+          "lap": 2,
+          "turn": 9,
+          "parameters": {
+            "operation": "deposit",
+            "amount": 1000000,
+            "term": 3
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Bán trái phiếu lot bond-2 750 nghìn ở quyết định 23"
+    },
+    {
+      "operation": "propose",
+      "question": "Bán trái phiếu lot bond-2 số tiền 750000 tại quyết định 23",
+      "catalog": [
+        {
+          "kind": "bonds",
+          "decisionId": "bonds:23",
+          "alternativeId": "custom:bonds:sell:bond-2:750000",
+          "lap": 1,
+          "turn": 5,
+          "parameters": {
+            "operation": "sell",
+            "amount": 750000,
+            "lotId": "bond-2"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Nếu tôi học khóa nâng cao lần đầu thì sao?"
+    },
+    {
+      "operation": "propose",
+      "question": "Học khóa nâng cao tại quyết định 7",
+      "catalog": [
+        {
+          "kind": "course",
+          "decisionId": "course:7",
+          "alternativeId": "course-advanced",
+          "lap": 1,
+          "turn": 2
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Nếu tôi học khóa cơ bản lần đầu thì sao?"
+    },
+    {
+      "operation": "propose",
+      "question": "Học khóa cơ bản tại quyết định 7",
+      "catalog": [
+        {
+          "kind": "course",
+          "decisionId": "course:7",
+          "alternativeId": "course-basic",
+          "lap": 1,
+          "turn": 2
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Nếu bỏ học khóa cơ bản ở quyết định 37 thì sao?"
+    },
+    {
+      "operation": "propose",
+      "question": "Bỏ qua lần học tại quyết định 37",
+      "catalog": [
+        {
+          "kind": "course",
+          "decisionId": "course:37",
+          "alternativeId": "skip",
+          "lap": 2,
+          "turn": 10
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Nâng cấp cơ sở theo giá cả hợp lý tại quyết định 48"
+    },
+    {
+      "operation": "propose",
+      "question": "Nâng cấp giá cả hợp lý tại quyết định 48",
+      "catalog": [
+        {
+          "kind": "business",
+          "decisionId": "business:48",
+          "alternativeId": "upgrade-business:budget",
+          "lap": 3,
+          "turn": 11
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Nếu tôi không mua vàng lần đầu thì sao?"
+    },
+    {
+      "operation": "propose",
+      "question": "Bỏ mua vàng tại quyết định 4",
+      "catalog": [
+        {
+          "kind": "gold",
+          "decisionId": "gold:4",
+          "alternativeId": "skip",
+          "lap": 1,
+          "turn": 1
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Nếu tôi mua CMG 1.234.567 VND thì sao?"
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Nếu học khóa nâng cao tại quyết định 7 thì sao?"
+    },
+    {
+      "operation": "propose",
+      "question": "Học khóa nâng cao tại quyết định 7",
+      "catalog": [
+        {
+          "kind": "course",
+          "decisionId": "course:7",
+          "alternativeId": "course-advanced",
+          "lap": 1,
+          "turn": 2
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG tại quyết định 10"
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG 1.000 triệu tại quyết định 10"
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Gửi tiết kiệm 1 triệu tại quyết định 36"
+    },
+    {
+      "operation": "propose",
+      "question": "Gửi tiết kiệm số tiền 1000000 kỳ hạn 3 tại quyết định 36",
+      "catalog": [
+        {
+          "kind": "bank",
+          "decisionId": "bank:36",
+          "alternativeId": "custom:bank:deposit:3:1000000",
+          "lap": 2,
+          "turn": 9,
+          "parameters": {
+            "operation": "deposit",
+            "amount": 1000000,
+            "term": 3
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Bán trái phiếu 750 nghìn tại quyết định 23"
+    },
+    {
+      "operation": "propose",
+      "question": "Bán trái phiếu lot bond-2 số tiền 750000 tại quyết định 23",
+      "catalog": [
+        {
+          "kind": "bonds",
+          "decisionId": "bonds:23",
+          "alternativeId": "custom:bonds:sell:bond-2:750000",
+          "lap": 1,
+          "turn": 5,
+          "parameters": {
+            "operation": "sell",
+            "amount": 750000,
+            "lotId": "bond-2"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Bỏ mua vàng và bỏ bán vàng"
+    },
+    {
+      "operation": "interpret",
+      "question": "Nếu tôi thay đổi thì sao?"
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG 1 triệu tại quyết định 499"
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua cổ phiếu ZZZ 1 triệu tại quyết định 10"
+    },
+    {
+      "operation": "interpret",
+      "question": "Bỏ mua CMG tại quyết định 10"
+    },
+    {
+      "operation": "interpret",
+      "question": "Gửi 1 triệu kỳ hạn 2 hoặc 3 START"
+    },
+    {
+      "operation": "interpret",
+      "question": "Gửi 1 triệu kỳ hạn 3 tháng"
+    },
+    {
+      "operation": "interpret",
+      "question": "Bỏ mua trái phiếu tại quyết định 10"
+    },
+    {
+      "operation": "propose",
+      "question": "Bỏ qua giao dịch trái phiếu tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "bonds",
+          "decisionId": "bonds:10",
+          "alternativeId": "skip",
+          "lap": 1,
+          "turn": 3
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG 1.234.567 VND tại quyết định 10"
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG 1.234.567 VND tại quyết định 10"
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG 1.234.567 VND tại quyết định 10"
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG 1 triệu lần đầu"
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG 1.234.567 VND tại quyết định 10"
+    },
+    {
+      "operation": "propose",
+      "question": "Mua cổ phiếu CMG số tiền 1234567 tại quyết định 10",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:10",
+          "alternativeId": "custom:stocks:buy:CMG:1234567",
+          "lap": 1,
+          "turn": 3,
+          "parameters": {
+            "operation": "buy",
+            "amount": 1234567,
+            "symbolId": "CMG"
+          }
+        }
+      ]
+    }
+  ],
+  "newHistories": {},
+  "resourceChecks": [],
+  "fixtures": {
+    "stocks": {
+      "sourceHash": "226b9b5810ac209973870043647a26db38a6a3a485a810f2cf711dc7b9022bb1",
+      "phase": "summary"
+    },
+    "stockAgain": {
+      "sourceHash": "226b9b5810ac209973870043647a26db38a6a3a485a810f2cf711dc7b9022bb1",
+      "phase": "summary"
+    },
+    "sale": {
+      "sourceHash": "91cee793ae8519ab683f7300c1cb968b81fe71178bf4aa7e2c05dcd4a1f81b55",
+      "phase": "summary"
+    },
+    "bank": {
+      "sourceHash": "1a47f48d14c531a2065d55f4bced3c2232a8f4d96e2320a6d5d8be923688dbd8",
+      "phase": "summary"
+    },
+    "bonds": {
+      "sourceHash": "836e5d10c5bfa1292f5becad5aa893f6ec9ed5168aeefd181ac87a5e62328b27",
+      "phase": "summary"
+    },
+    "course": {
+      "sourceHash": "ad97984596b8baa6d7190c4bef3d603ff1fc85cf93cca235837ab80c20ac90d9",
+      "phase": "summary"
+    },
+    "business": {
+      "sourceHash": "296dde6a880d30373c07739e5394872fd08bc035ed4aa57dfe3b7011c1b8cc8c",
+      "phase": "summary"
+    },
+    "gold": {
+      "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+      "phase": "summary"
+    },
+    "courseBasic": {
+      "sourceHash": "ad97984596b8baa6d7190c4bef3d603ff1fc85cf93cca235837ab80c20ac90d9",
+      "phase": "summary"
+    },
+    "courseSkipBasic": {
+      "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+      "phase": "summary"
+    },
+    "paging": {
+      "sourceHash": "46e43ef5de955d515e5fcd3a2baea15f8f6244156b593177d33cad96f43f58ad",
+      "phase": "summary"
+    }
+  }
+}

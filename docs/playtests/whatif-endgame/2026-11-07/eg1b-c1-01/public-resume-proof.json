@@ -1,0 +1,1983 @@
+{
+  "status": "PASS",
+  "call": "handle.resume(explicitCallerSelection)",
+  "result": {
+    "status": "supported-final",
+    "selection": {
+      "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+      "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+      "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+      "profile": "core-mvp-b18-multi-course-v1",
+      "schema": 7,
+      "initialPolicy": "gold-buy-to-skip-full-end.v1",
+      "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+      "fairness": "F1-native-coupling.v1",
+      "decision": {
+        "sequence": 4,
+        "kind": "rebalancing",
+        "turn": 1,
+        "lap": 1,
+        "tileId": 5,
+        "eventId": null,
+        "decisionId": "buy-gold-complete",
+        "action": {
+          "kind": "buy",
+          "amount": 2000000,
+          "asset": "gold",
+          "symbolId": "FPT",
+          "term": 1,
+          "completeEncounter": true
+        }
+      },
+      "eventContext": "gold"
+    },
+    "continuation": {
+      "branchId": "f3b9e6ec-ec3e-44ca-8d9f-42012d13bf3f",
+      "selection": {
+        "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+        "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+        "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+        "profile": "core-mvp-b18-multi-course-v1",
+        "schema": 7,
+        "initialPolicy": "gold-buy-to-skip-full-end.v1",
+        "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+        "fairness": "F1-native-coupling.v1",
+        "decision": {
+          "sequence": 4,
+          "kind": "rebalancing",
+          "turn": 1,
+          "lap": 1,
+          "tileId": 5,
+          "eventId": null,
+          "decisionId": "buy-gold-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "gold",
+            "symbolId": "FPT",
+            "term": 1,
+            "completeEncounter": true
+          }
+        },
+        "eventContext": "gold"
+      },
+      "initial": "skip",
+      "revision": 1,
+      "transcriptHash": "b732473bfcb97bf1bfa5a3f8a9c1f7a390f3be802b03b297250d93ad187c9843",
+      "sourceCursor": 40,
+      "alternativePrefixHash": "f805edb2dd257f9f8adf4c065dda0570d58d6fe500608b3f2c281e1129db0d6c"
+    },
+    "transcript": {
+      "branchId": "f3b9e6ec-ec3e-44ca-8d9f-42012d13bf3f",
+      "selection": {
+        "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+        "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+        "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+        "profile": "core-mvp-b18-multi-course-v1",
+        "schema": 7,
+        "initialPolicy": "gold-buy-to-skip-full-end.v1",
+        "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+        "fairness": "F1-native-coupling.v1",
+        "decision": {
+          "sequence": 4,
+          "kind": "rebalancing",
+          "turn": 1,
+          "lap": 1,
+          "tileId": 5,
+          "eventId": null,
+          "decisionId": "buy-gold-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "gold",
+            "symbolId": "FPT",
+            "term": 1,
+            "completeEncounter": true
+          }
+        },
+        "eventContext": "gold"
+      },
+      "initial": "skip",
+      "entries": [
+        {
+          "sourceCursor": 10,
+          "command": {
+            "sequence": 25,
+            "kind": "rebalancing",
+            "turn": 6,
+            "lap": 2,
+            "tileId": 5,
+            "eventId": null,
+            "decisionId": "sell-gold-complete",
+            "action": {
+              "kind": "sell",
+              "amount": 1974376,
+              "asset": "gold"
+            }
+          },
+          "blockerHash": "dc33d3ba08349e2fb2e12a7611d76c9247748f471a93df335dec4a0ae806815e",
+          "choice": {
+            "kind": "gold-skip",
+            "optionId": "skip"
+          },
+          "preStateHash": "1bf8b3eb90d6c7d2fb353a1f8b88d362d3c79edfb9266b443b0110cb61d31447",
+          "postStateHash": "1ebdc4bc13de44fd0eceea94992cdfb7c8caa8ee3aff7fd22b5de6622ee577a9",
+          "actualAction": {
+            "sequence": 25,
+            "kind": "rebalancing",
+            "turn": 6,
+            "lap": 2,
+            "tileId": 5,
+            "eventId": null,
+            "decisionId": "sell-gold-complete",
+            "action": {
+              "kind": "sell",
+              "amount": 1974376,
+              "asset": "gold"
+            }
+          },
+          "alternativeAction": {
+            "sequence": 25,
+            "kind": "decision",
+            "turn": 6,
+            "lap": 2,
+            "tileId": 5,
+            "eventId": "gold",
+            "decisionId": "skip",
+            "action": null
+          },
+          "nextSourceCursor": 11,
+          "ordinal": 1,
+          "previousHash": "08826e8d7e43e9d5c6b595487d671a1a0dd96c4f317233e2e38a915ca950684b",
+          "hash": "b732473bfcb97bf1bfa5a3f8a9c1f7a390f3be802b03b297250d93ad187c9843"
+        }
+      ],
+      "hash": "b732473bfcb97bf1bfa5a3f8a9c1f7a390f3be802b03b297250d93ad187c9843"
+    },
+    "ledger": [
+      {
+        "sourceCursor": 1,
+        "sourceCommand": {
+          "sequence": 4,
+          "kind": "rebalancing",
+          "turn": 1,
+          "lap": 1,
+          "tileId": 5,
+          "eventId": null,
+          "decisionId": "buy-gold-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "gold",
+            "symbolId": "FPT",
+            "term": 1,
+            "completeEncounter": true
+          }
+        },
+        "mode": "initial-fork",
+        "actualCommand": {
+          "sequence": 4,
+          "kind": "rebalancing",
+          "turn": 1,
+          "lap": 1,
+          "tileId": 5,
+          "eventId": null,
+          "decisionId": "buy-gold-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "gold",
+            "symbolId": "FPT",
+            "term": 1,
+            "completeEncounter": true
+          }
+        },
+        "alternativeCommand": {
+          "sequence": 4,
+          "kind": "decision",
+          "turn": 1,
+          "lap": 1,
+          "tileId": 5,
+          "eventId": "gold",
+          "decisionId": "skip",
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 2,
+        "sourceCommand": {
+          "sequence": 5,
+          "kind": "roll",
+          "turn": 1,
+          "lap": 1,
+          "tileId": 5,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 5,
+          "kind": "roll",
+          "turn": 1,
+          "lap": 1,
+          "tileId": 5,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 5,
+          "kind": "roll",
+          "turn": 1,
+          "lap": 1,
+          "tileId": 5,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 3,
+        "sourceCommand": {
+          "sequence": 7,
+          "kind": "decision",
+          "turn": 2,
+          "lap": 1,
+          "tileId": 8,
+          "eventId": "business",
+          "decisionId": "skip",
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 7,
+          "kind": "decision",
+          "turn": 2,
+          "lap": 1,
+          "tileId": 8,
+          "eventId": "business",
+          "decisionId": "skip",
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 7,
+          "kind": "decision",
+          "turn": 2,
+          "lap": 1,
+          "tileId": 8,
+          "eventId": "business",
+          "decisionId": "skip",
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 4,
+        "sourceCommand": {
+          "sequence": 8,
+          "kind": "roll",
+          "turn": 2,
+          "lap": 1,
+          "tileId": 8,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 8,
+          "kind": "roll",
+          "turn": 2,
+          "lap": 1,
+          "tileId": 8,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 8,
+          "kind": "roll",
+          "turn": 2,
+          "lap": 1,
+          "tileId": 8,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 5,
+        "sourceCommand": {
+          "sequence": 10,
+          "kind": "rebalancing",
+          "turn": 3,
+          "lap": 1,
+          "tileId": 9,
+          "eventId": null,
+          "decisionId": "buy-bonds-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "bonds",
+            "issuerId": "an-tam",
+            "completeEncounter": true
+          }
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 10,
+          "kind": "rebalancing",
+          "turn": 3,
+          "lap": 1,
+          "tileId": 9,
+          "eventId": null,
+          "decisionId": "buy-bonds-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "bonds",
+            "issuerId": "an-tam",
+            "completeEncounter": true
+          }
+        },
+        "alternativeCommand": {
+          "sequence": 10,
+          "kind": "rebalancing",
+          "turn": 3,
+          "lap": 1,
+          "tileId": 9,
+          "eventId": null,
+          "decisionId": "buy-bonds-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "bonds",
+            "issuerId": "an-tam",
+            "completeEncounter": true
+          }
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 6,
+        "sourceCommand": {
+          "sequence": 11,
+          "kind": "roll",
+          "turn": 3,
+          "lap": 1,
+          "tileId": 9,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 11,
+          "kind": "roll",
+          "turn": 3,
+          "lap": 1,
+          "tileId": 9,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 11,
+          "kind": "roll",
+          "turn": 3,
+          "lap": 1,
+          "tileId": 9,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 7,
+        "sourceCommand": {
+          "sequence": 13,
+          "kind": "rebalancing",
+          "turn": 4,
+          "lap": 1,
+          "tileId": 15,
+          "eventId": null,
+          "decisionId": "sell-bonds-complete",
+          "action": {
+            "kind": "sell",
+            "amount": 2000000,
+            "asset": "bonds",
+            "lotId": "bond-1"
+          }
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 13,
+          "kind": "rebalancing",
+          "turn": 4,
+          "lap": 1,
+          "tileId": 15,
+          "eventId": null,
+          "decisionId": "sell-bonds-complete",
+          "action": {
+            "kind": "sell",
+            "amount": 2000000,
+            "asset": "bonds",
+            "lotId": "bond-1"
+          }
+        },
+        "alternativeCommand": {
+          "sequence": 13,
+          "kind": "rebalancing",
+          "turn": 4,
+          "lap": 1,
+          "tileId": 15,
+          "eventId": null,
+          "decisionId": "sell-bonds-complete",
+          "action": {
+            "kind": "sell",
+            "amount": 2000000,
+            "asset": "bonds",
+            "lotId": "bond-1"
+          }
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 8,
+        "sourceCommand": {
+          "sequence": 14,
+          "kind": "roll",
+          "turn": 4,
+          "lap": 1,
+          "tileId": 15,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 14,
+          "kind": "roll",
+          "turn": 4,
+          "lap": 1,
+          "tileId": 15,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 14,
+          "kind": "roll",
+          "turn": 4,
+          "lap": 1,
+          "tileId": 15,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 9,
+        "sourceCommand": {
+          "sequence": 23,
+          "kind": "roll",
+          "turn": 5,
+          "lap": 2,
+          "tileId": 0,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 23,
+          "kind": "roll",
+          "turn": 5,
+          "lap": 2,
+          "tileId": 0,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 23,
+          "kind": "roll",
+          "turn": 5,
+          "lap": 2,
+          "tileId": 0,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 10,
+        "sourceCommand": {
+          "sequence": 25,
+          "kind": "rebalancing",
+          "turn": 6,
+          "lap": 2,
+          "tileId": 5,
+          "eventId": null,
+          "decisionId": "sell-gold-complete",
+          "action": {
+            "kind": "sell",
+            "amount": 1974376,
+            "asset": "gold"
+          }
+        },
+        "mode": "explicit-followup",
+        "actualCommand": {
+          "sequence": 25,
+          "kind": "rebalancing",
+          "turn": 6,
+          "lap": 2,
+          "tileId": 5,
+          "eventId": null,
+          "decisionId": "sell-gold-complete",
+          "action": {
+            "kind": "sell",
+            "amount": 1974376,
+            "asset": "gold"
+          }
+        },
+        "alternativeCommand": {
+          "sequence": 25,
+          "kind": "decision",
+          "turn": 6,
+          "lap": 2,
+          "tileId": 5,
+          "eventId": "gold",
+          "decisionId": "skip",
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": {
+          "actual": {
+            "gross": 1974376,
+            "spread": 59231,
+            "fee": 19151,
+            "net": 1895994
+          },
+          "alternative": null
+        }
+      },
+      {
+        "sourceCursor": 11,
+        "sourceCommand": {
+          "sequence": 26,
+          "kind": "roll",
+          "turn": 6,
+          "lap": 2,
+          "tileId": 5,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 26,
+          "kind": "roll",
+          "turn": 6,
+          "lap": 2,
+          "tileId": 5,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 26,
+          "kind": "roll",
+          "turn": 6,
+          "lap": 2,
+          "tileId": 5,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 12,
+        "sourceCommand": {
+          "sequence": 28,
+          "kind": "decision",
+          "turn": 7,
+          "lap": 2,
+          "tileId": 6,
+          "eventId": "bank",
+          "decisionId": "skip",
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 28,
+          "kind": "decision",
+          "turn": 7,
+          "lap": 2,
+          "tileId": 6,
+          "eventId": "bank",
+          "decisionId": "skip",
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 28,
+          "kind": "decision",
+          "turn": 7,
+          "lap": 2,
+          "tileId": 6,
+          "eventId": "bank",
+          "decisionId": "skip",
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 13,
+        "sourceCommand": {
+          "sequence": 29,
+          "kind": "roll",
+          "turn": 7,
+          "lap": 2,
+          "tileId": 6,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 29,
+          "kind": "roll",
+          "turn": 7,
+          "lap": 2,
+          "tileId": 6,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 29,
+          "kind": "roll",
+          "turn": 7,
+          "lap": 2,
+          "tileId": 6,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 14,
+        "sourceCommand": {
+          "sequence": 31,
+          "kind": "rebalancing",
+          "turn": 8,
+          "lap": 2,
+          "tileId": 9,
+          "eventId": null,
+          "decisionId": "buy-bonds-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "bonds",
+            "issuerId": "an-tam",
+            "completeEncounter": true
+          }
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 31,
+          "kind": "rebalancing",
+          "turn": 8,
+          "lap": 2,
+          "tileId": 9,
+          "eventId": null,
+          "decisionId": "buy-bonds-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "bonds",
+            "issuerId": "an-tam",
+            "completeEncounter": true
+          }
+        },
+        "alternativeCommand": {
+          "sequence": 31,
+          "kind": "rebalancing",
+          "turn": 8,
+          "lap": 2,
+          "tileId": 9,
+          "eventId": null,
+          "decisionId": "buy-bonds-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "bonds",
+            "issuerId": "an-tam",
+            "completeEncounter": true
+          }
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 15,
+        "sourceCommand": {
+          "sequence": 32,
+          "kind": "roll",
+          "turn": 8,
+          "lap": 2,
+          "tileId": 9,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 32,
+          "kind": "roll",
+          "turn": 8,
+          "lap": 2,
+          "tileId": 9,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 32,
+          "kind": "roll",
+          "turn": 8,
+          "lap": 2,
+          "tileId": 9,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 16,
+        "sourceCommand": {
+          "sequence": 34,
+          "kind": "rebalancing",
+          "turn": 9,
+          "lap": 2,
+          "tileId": 10,
+          "eventId": null,
+          "decisionId": "buy-stocks-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "stocks",
+            "symbolId": "FPT",
+            "term": 1,
+            "completeEncounter": true
+          }
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 34,
+          "kind": "rebalancing",
+          "turn": 9,
+          "lap": 2,
+          "tileId": 10,
+          "eventId": null,
+          "decisionId": "buy-stocks-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "stocks",
+            "symbolId": "FPT",
+            "term": 1,
+            "completeEncounter": true
+          }
+        },
+        "alternativeCommand": {
+          "sequence": 34,
+          "kind": "rebalancing",
+          "turn": 9,
+          "lap": 2,
+          "tileId": 10,
+          "eventId": null,
+          "decisionId": "buy-stocks-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "stocks",
+            "symbolId": "FPT",
+            "term": 1,
+            "completeEncounter": true
+          }
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 17,
+        "sourceCommand": {
+          "sequence": 35,
+          "kind": "roll",
+          "turn": 9,
+          "lap": 2,
+          "tileId": 10,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 35,
+          "kind": "roll",
+          "turn": 9,
+          "lap": 2,
+          "tileId": 10,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 35,
+          "kind": "roll",
+          "turn": 9,
+          "lap": 2,
+          "tileId": 10,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 18,
+        "sourceCommand": {
+          "sequence": 37,
+          "kind": "decision",
+          "turn": 10,
+          "lap": 2,
+          "tileId": 12,
+          "eventId": "course",
+          "decisionId": "course-basic",
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 37,
+          "kind": "decision",
+          "turn": 10,
+          "lap": 2,
+          "tileId": 12,
+          "eventId": "course",
+          "decisionId": "course-basic",
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 37,
+          "kind": "decision",
+          "turn": 10,
+          "lap": 2,
+          "tileId": 12,
+          "eventId": "course",
+          "decisionId": "course-basic",
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 19,
+        "sourceCommand": {
+          "sequence": 38,
+          "kind": "roll",
+          "turn": 10,
+          "lap": 2,
+          "tileId": 12,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 38,
+          "kind": "roll",
+          "turn": 10,
+          "lap": 2,
+          "tileId": 12,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 38,
+          "kind": "roll",
+          "turn": 10,
+          "lap": 2,
+          "tileId": 12,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 20,
+        "sourceCommand": {
+          "sequence": 40,
+          "kind": "decision",
+          "turn": 11,
+          "lap": 2,
+          "tileId": 17,
+          "eventId": "bank",
+          "decisionId": "skip",
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 40,
+          "kind": "decision",
+          "turn": 11,
+          "lap": 2,
+          "tileId": 17,
+          "eventId": "bank",
+          "decisionId": "skip",
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 40,
+          "kind": "decision",
+          "turn": 11,
+          "lap": 2,
+          "tileId": 17,
+          "eventId": "bank",
+          "decisionId": "skip",
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 21,
+        "sourceCommand": {
+          "sequence": 41,
+          "kind": "roll",
+          "turn": 11,
+          "lap": 2,
+          "tileId": 17,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 41,
+          "kind": "roll",
+          "turn": 11,
+          "lap": 2,
+          "tileId": 17,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 41,
+          "kind": "roll",
+          "turn": 11,
+          "lap": 2,
+          "tileId": 17,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 22,
+        "sourceCommand": {
+          "sequence": 51,
+          "kind": "decision",
+          "turn": 12,
+          "lap": 3,
+          "tileId": 4,
+          "eventId": "course",
+          "decisionId": "course-advanced",
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 51,
+          "kind": "decision",
+          "turn": 12,
+          "lap": 3,
+          "tileId": 4,
+          "eventId": "course",
+          "decisionId": "course-advanced",
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 51,
+          "kind": "decision",
+          "turn": 12,
+          "lap": 3,
+          "tileId": 4,
+          "eventId": "course",
+          "decisionId": "course-advanced",
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 23,
+        "sourceCommand": {
+          "sequence": 52,
+          "kind": "roll",
+          "turn": 12,
+          "lap": 3,
+          "tileId": 4,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 52,
+          "kind": "roll",
+          "turn": 12,
+          "lap": 3,
+          "tileId": 4,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 52,
+          "kind": "roll",
+          "turn": 12,
+          "lap": 3,
+          "tileId": 4,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 24,
+        "sourceCommand": {
+          "sequence": 54,
+          "kind": "decision",
+          "turn": 13,
+          "lap": 3,
+          "tileId": 7,
+          "eventId": "course",
+          "decisionId": "skip",
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 54,
+          "kind": "decision",
+          "turn": 13,
+          "lap": 3,
+          "tileId": 7,
+          "eventId": "course",
+          "decisionId": "skip",
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 54,
+          "kind": "decision",
+          "turn": 13,
+          "lap": 3,
+          "tileId": 7,
+          "eventId": "course",
+          "decisionId": "skip",
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 25,
+        "sourceCommand": {
+          "sequence": 55,
+          "kind": "roll",
+          "turn": 13,
+          "lap": 3,
+          "tileId": 7,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 55,
+          "kind": "roll",
+          "turn": 13,
+          "lap": 3,
+          "tileId": 7,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 55,
+          "kind": "roll",
+          "turn": 13,
+          "lap": 3,
+          "tileId": 7,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 26,
+        "sourceCommand": {
+          "sequence": 57,
+          "kind": "decision",
+          "turn": 14,
+          "lap": 3,
+          "tileId": 11,
+          "eventId": "business",
+          "decisionId": "skip",
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 57,
+          "kind": "decision",
+          "turn": 14,
+          "lap": 3,
+          "tileId": 11,
+          "eventId": "business",
+          "decisionId": "skip",
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 57,
+          "kind": "decision",
+          "turn": 14,
+          "lap": 3,
+          "tileId": 11,
+          "eventId": "business",
+          "decisionId": "skip",
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 27,
+        "sourceCommand": {
+          "sequence": 58,
+          "kind": "roll",
+          "turn": 14,
+          "lap": 3,
+          "tileId": 11,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 58,
+          "kind": "roll",
+          "turn": 14,
+          "lap": 3,
+          "tileId": 11,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 58,
+          "kind": "roll",
+          "turn": 14,
+          "lap": 3,
+          "tileId": 11,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 28,
+        "sourceCommand": {
+          "sequence": 60,
+          "kind": "rebalancing",
+          "turn": 15,
+          "lap": 3,
+          "tileId": 16,
+          "eventId": null,
+          "decisionId": "buy-gold-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "gold",
+            "symbolId": "FPT",
+            "term": 1,
+            "completeEncounter": true
+          }
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 60,
+          "kind": "rebalancing",
+          "turn": 15,
+          "lap": 3,
+          "tileId": 16,
+          "eventId": null,
+          "decisionId": "buy-gold-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "gold",
+            "symbolId": "FPT",
+            "term": 1,
+            "completeEncounter": true
+          }
+        },
+        "alternativeCommand": {
+          "sequence": 60,
+          "kind": "rebalancing",
+          "turn": 15,
+          "lap": 3,
+          "tileId": 16,
+          "eventId": null,
+          "decisionId": "buy-gold-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "gold",
+            "symbolId": "FPT",
+            "term": 1,
+            "completeEncounter": true
+          }
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 29,
+        "sourceCommand": {
+          "sequence": 61,
+          "kind": "roll",
+          "turn": 15,
+          "lap": 3,
+          "tileId": 16,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 61,
+          "kind": "roll",
+          "turn": 15,
+          "lap": 3,
+          "tileId": 16,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 61,
+          "kind": "roll",
+          "turn": 15,
+          "lap": 3,
+          "tileId": 16,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 30,
+        "sourceCommand": {
+          "sequence": 72,
+          "kind": "decision",
+          "turn": 16,
+          "lap": 4,
+          "tileId": 1,
+          "eventId": "credit-tightening",
+          "decisionId": "acknowledge",
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 72,
+          "kind": "decision",
+          "turn": 16,
+          "lap": 4,
+          "tileId": 1,
+          "eventId": "credit-tightening",
+          "decisionId": "acknowledge",
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 72,
+          "kind": "decision",
+          "turn": 16,
+          "lap": 4,
+          "tileId": 1,
+          "eventId": "credit-tightening",
+          "decisionId": "acknowledge",
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 31,
+        "sourceCommand": {
+          "sequence": 73,
+          "kind": "roll",
+          "turn": 16,
+          "lap": 4,
+          "tileId": 1,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 73,
+          "kind": "roll",
+          "turn": 16,
+          "lap": 4,
+          "tileId": 1,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 73,
+          "kind": "roll",
+          "turn": 16,
+          "lap": 4,
+          "tileId": 1,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 32,
+        "sourceCommand": {
+          "sequence": 75,
+          "kind": "decision",
+          "turn": 17,
+          "lap": 4,
+          "tileId": 7,
+          "eventId": "course",
+          "decisionId": "skip",
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 75,
+          "kind": "decision",
+          "turn": 17,
+          "lap": 4,
+          "tileId": 7,
+          "eventId": "course",
+          "decisionId": "skip",
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 75,
+          "kind": "decision",
+          "turn": 17,
+          "lap": 4,
+          "tileId": 7,
+          "eventId": "course",
+          "decisionId": "skip",
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 33,
+        "sourceCommand": {
+          "sequence": 76,
+          "kind": "roll",
+          "turn": 17,
+          "lap": 4,
+          "tileId": 7,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 76,
+          "kind": "roll",
+          "turn": 17,
+          "lap": 4,
+          "tileId": 7,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 76,
+          "kind": "roll",
+          "turn": 17,
+          "lap": 4,
+          "tileId": 7,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 34,
+        "sourceCommand": {
+          "sequence": 78,
+          "kind": "decision",
+          "turn": 18,
+          "lap": 4,
+          "tileId": 11,
+          "eventId": "business",
+          "decisionId": "skip",
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 78,
+          "kind": "decision",
+          "turn": 18,
+          "lap": 4,
+          "tileId": 11,
+          "eventId": "business",
+          "decisionId": "skip",
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 78,
+          "kind": "decision",
+          "turn": 18,
+          "lap": 4,
+          "tileId": 11,
+          "eventId": "business",
+          "decisionId": "skip",
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 35,
+        "sourceCommand": {
+          "sequence": 79,
+          "kind": "roll",
+          "turn": 18,
+          "lap": 4,
+          "tileId": 11,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 79,
+          "kind": "roll",
+          "turn": 18,
+          "lap": 4,
+          "tileId": 11,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 79,
+          "kind": "roll",
+          "turn": 18,
+          "lap": 4,
+          "tileId": 11,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 36,
+        "sourceCommand": {
+          "sequence": 81,
+          "kind": "rebalancing",
+          "turn": 19,
+          "lap": 4,
+          "tileId": 15,
+          "eventId": null,
+          "decisionId": "buy-bonds-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "bonds",
+            "issuerId": "an-tam",
+            "completeEncounter": true
+          }
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 81,
+          "kind": "rebalancing",
+          "turn": 19,
+          "lap": 4,
+          "tileId": 15,
+          "eventId": null,
+          "decisionId": "buy-bonds-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "bonds",
+            "issuerId": "an-tam",
+            "completeEncounter": true
+          }
+        },
+        "alternativeCommand": {
+          "sequence": 81,
+          "kind": "rebalancing",
+          "turn": 19,
+          "lap": 4,
+          "tileId": 15,
+          "eventId": null,
+          "decisionId": "buy-bonds-complete",
+          "action": {
+            "kind": "buy",
+            "amount": 2000000,
+            "asset": "bonds",
+            "issuerId": "an-tam",
+            "completeEncounter": true
+          }
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 37,
+        "sourceCommand": {
+          "sequence": 82,
+          "kind": "roll",
+          "turn": 19,
+          "lap": 4,
+          "tileId": 15,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 82,
+          "kind": "roll",
+          "turn": 19,
+          "lap": 4,
+          "tileId": 15,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 82,
+          "kind": "roll",
+          "turn": 19,
+          "lap": 4,
+          "tileId": 15,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      },
+      {
+        "sourceCursor": 38,
+        "sourceCommand": {
+          "sequence": 84,
+          "kind": "rebalancing",
+          "turn": 20,
+          "lap": 4,
+          "tileId": 16,
+          "eventId": null,
+          "decisionId": "sell-gold-complete",
+          "action": {
+            "kind": "sell",
+            "amount": 2351968,
+            "asset": "gold"
+          }
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 84,
+          "kind": "rebalancing",
+          "turn": 20,
+          "lap": 4,
+          "tileId": 16,
+          "eventId": null,
+          "decisionId": "sell-gold-complete",
+          "action": {
+            "kind": "sell",
+            "amount": 2351968,
+            "asset": "gold"
+          }
+        },
+        "alternativeCommand": {
+          "sequence": 84,
+          "kind": "rebalancing",
+          "turn": 20,
+          "lap": 4,
+          "tileId": 16,
+          "eventId": null,
+          "decisionId": "sell-gold-complete",
+          "action": {
+            "kind": "sell",
+            "amount": 2351968,
+            "asset": "gold"
+          }
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": {
+          "actual": {
+            "gross": 2351968,
+            "spread": 70559,
+            "fee": 22814,
+            "net": 2258595
+          },
+          "alternative": {
+            "gross": 2351968,
+            "spread": 70559,
+            "fee": 22814,
+            "net": 2258595
+          }
+        }
+      },
+      {
+        "sourceCursor": 39,
+        "sourceCommand": {
+          "sequence": 85,
+          "kind": "roll",
+          "turn": 20,
+          "lap": 4,
+          "tileId": 16,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "mode": "retained",
+        "actualCommand": {
+          "sequence": 85,
+          "kind": "roll",
+          "turn": 20,
+          "lap": 4,
+          "tileId": 16,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "alternativeCommand": {
+          "sequence": 85,
+          "kind": "roll",
+          "turn": 20,
+          "lap": 4,
+          "tileId": 16,
+          "eventId": null,
+          "decisionId": null,
+          "action": null
+        },
+        "actualApplications": 1,
+        "alternativeApplications": 1,
+        "saleCosts": null
+      }
+    ],
+    "comparability": "same-completed-horizon",
+    "actual": {
+      "cash": 80424780,
+      "totalWorth": 84687670,
+      "liquidatableFunds": 84635118,
+      "debt": 0,
+      "obligations": 0,
+      "goalFunds": 84635118,
+      "goalTarget": 90000000,
+      "goalPercent": 94.03902,
+      "goalRemaining": 5364882,
+      "won": false,
+      "courses": [
+        "basic",
+        "advanced"
+      ],
+      "recurringIncome": 20000000,
+      "salaryAtStarts": [
+        {
+          "lap": 1,
+          "base": 14000000,
+          "courseBoost": 0
+        },
+        {
+          "lap": 2,
+          "base": 14000000,
+          "courseBoost": 2000000
+        },
+        {
+          "lap": 3,
+          "base": 14000000,
+          "courseBoost": 6000000
+        },
+        {
+          "lap": 4,
+          "base": 14000000,
+          "courseBoost": 6000000
+        }
+      ],
+      "gold": {
+        "units": 0,
+        "book": 0,
+        "basis": 0
+      }
+    },
+    "alternative": {
+      "cash": 80528786,
+      "totalWorth": 84791676,
+      "liquidatableFunds": 84739124,
+      "debt": 0,
+      "obligations": 0,
+      "goalFunds": 84739124,
+      "goalTarget": 90000000,
+      "goalPercent": 94.15458222222223,
+      "goalRemaining": 5260876,
+      "won": false,
+      "courses": [
+        "basic",
+        "advanced"
+      ],
+      "recurringIncome": 20000000,
+      "salaryAtStarts": [
+        {
+          "lap": 1,
+          "base": 14000000,
+          "courseBoost": 0
+        },
+        {
+          "lap": 2,
+          "base": 14000000,
+          "courseBoost": 2000000
+        },
+        {
+          "lap": 3,
+          "base": 14000000,
+          "courseBoost": 6000000
+        },
+        {
+          "lap": 4,
+          "base": 14000000,
+          "courseBoost": 6000000
+        }
+      ],
+      "gold": {
+        "units": 0,
+        "book": 0,
+        "basis": 0
+      }
+    },
+    "delta": {
+      "cash": 104006,
+      "totalWorth": 104006,
+      "liquidatableFunds": 104006,
+      "debt": 0,
+      "obligations": 0,
+      "goalFunds": 104006,
+      "goalPercent": 0.11556222222223766,
+      "goalRemaining": -104006,
+      "recurringIncome": 0
+    },
+    "endings": {
+      "actual": {
+        "termination": "completed",
+        "phase": "finished",
+        "lap": 4,
+        "turn": 21,
+        "summaries": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "shortfall": 0
+      },
+      "alternative": {
+        "termination": "completed",
+        "phase": "finished",
+        "lap": 4,
+        "turn": 21,
+        "summaries": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "shortfall": 0
+      }
+    },
+    "costs": [
+      {
+        "sourceSequence": 25,
+        "actual": {
+          "gross": 1974376,
+          "spread": 59231,
+          "fee": 19151,
+          "net": 1895994
+        },
+        "alternative": null
+      },
+      {
+        "sourceSequence": 84,
+        "actual": {
+          "gross": 2351968,
+          "spread": 70559,
+          "fee": 22814,
+          "net": 2258595
+        },
+        "alternative": {
+          "gross": 2351968,
+          "spread": 70559,
+          "fee": 22814,
+          "net": 2258595
+        }
+      }
+    ],
+    "attribution": {
+      "initialFork": "gold-buy-to-skip-full-end.v1",
+      "initialCommand": {
+        "sequence": 4,
+        "kind": "rebalancing",
+        "turn": 1,
+        "lap": 1,
+        "tileId": 5,
+        "eventId": null,
+        "decisionId": "buy-gold-complete",
+        "action": {
+          "kind": "buy",
+          "amount": 2000000,
+          "asset": "gold",
+          "symbolId": "FPT",
+          "term": 1,
+          "completeEncounter": true
+        }
+      },
+      "followupCount": 1,
+      "followups": [
+        {
+          "ordinal": 1,
+          "command": {
+            "sequence": 25,
+            "kind": "rebalancing",
+            "turn": 6,
+            "lap": 2,
+            "tileId": 5,
+            "eventId": null,
+            "decisionId": "sell-gold-complete",
+            "action": {
+              "kind": "sell",
+              "amount": 1974376,
+              "asset": "gold"
+            }
+          },
+          "choice": {
+            "kind": "gold-skip",
+            "optionId": "skip"
+          }
+        }
+      ],
+      "combinedConsequences": true
+    },
+    "proof": {
+      "actualReplay": true,
+      "alternativeReplay": true,
+      "alternativeExportHash": "a3dbfda4d88d11f3ef73a77c15e1afae95e5746c59eae94a48eb98cf19ceb73a",
+      "externalCheckpoints": 100,
+      "phaseAdvances": 11,
+      "steps": 195,
+      "sourceUnchanged": true,
+      "reconstruction": {
+        "actual": 1,
+        "coupled": 1,
+        "independentAlternative": 1
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import type { ReactNode } from 'react'
 import { FinancialTerm } from '../../../src/components/FinancialTerm'
 import { AICoachPanel } from '../../../src/ai/AICoachPanel'
 import { goalProgress, totalWorth, victory } from '../../../src/game/selectors'
@@ -15,6 +16,7 @@ interface GameResultModalProps {
   onClose?: () => void
   onExport: () => void
   onHelp?: () => void
+  endgameResultAction?: ReactNode
 }
 
 export function GameResultModal({
@@ -24,6 +26,7 @@ export function GameResultModal({
   onClose,
   onExport,
   onHelp,
+  endgameResultAction,
 }: GameResultModalProps) {
   const won = victory(game).won
   const { funds, target, percent: progress } = goalProgress(game)
@@ -568,6 +571,8 @@ export function GameResultModal({
           >
             <span>{won ? 'Chơi Ván Mới 🏆' : 'Thử Lại Ván Mới 🔄'}</span>
           </button>
+
+          {endgameResultAction}
 
           {/* Hàng 2: Về màn hình chờ & Xem lại bàn cờ */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', width: '100%' }}>

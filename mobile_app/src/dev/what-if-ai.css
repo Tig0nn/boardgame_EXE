@@ -1,0 +1,11 @@
+body { margin: 0; background: #f4f6f8; color: #192735; font: 1rem/1.5 system-ui, sans-serif; }
+.what-if-ai-dev { max-width: 42rem; margin: auto; padding: clamp(1rem, 5vw, 3rem); }
+.what-if-ai-dev form { display: grid; gap: .75rem; }
+.what-if-ai-dev form p { margin: 0; }
+.what-if-ai-dev label { font-weight: 600; }
+.what-if-ai-dev input, .what-if-ai-dev select, .what-if-ai-dev button { font: inherit; padding: .55rem .7rem; }
+.what-if-ai-dev input, .what-if-ai-dev select { min-width: 0; }
+.what-if-ai-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.what-if-ai-dev dl { display: grid; grid-template-columns: 1fr; gap: .35rem; }
+.what-if-ai-dev dl div { display: flex; justify-content: space-between; gap: .75rem; }
+.what-if-ai-dev dd { margin: 0; text-align: end; }

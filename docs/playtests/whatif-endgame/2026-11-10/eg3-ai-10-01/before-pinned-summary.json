@@ -1,0 +1,549 @@
+{
+  "logicalCpu": 1,
+  "peers": 5,
+  "tests": [
+    {
+      "code": 1,
+      "result": {
+        "status": "limited",
+        "reason": "time-budget"
+      },
+      "stages": [
+        {
+          "operation": "create",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 1,
+              "cpuMs": 0,
+              "remainingMs": 19718,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2647,
+              "cpuMs": 485,
+              "remainingMs": 17071,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "duplicate-parse",
+              "wallMs": 2847,
+              "cpuMs": 485,
+              "remainingMs": 14224,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 3505,
+              "cpuMs": 593,
+              "remainingMs": 10720,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 2762,
+              "cpuMs": 343,
+              "remainingMs": 7957,
+              "steps": 76,
+              "remainingSteps": 4924
+            }
+          ]
+        },
+        {
+          "operation": "resume",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 0,
+              "cpuMs": 0,
+              "remainingMs": 19999,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 5166,
+              "cpuMs": 798,
+              "remainingMs": 14818,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "duplicate-parse",
+              "wallMs": 4121,
+              "cpuMs": 609,
+              "remainingMs": 10712,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 3479,
+              "cpuMs": 610,
+              "remainingMs": 7233,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 7295,
+              "cpuMs": 1390,
+              "remainingMs": -62,
+              "steps": 113,
+              "remainingSteps": 4887
+            },
+            {
+              "stage": "budget-exhausted",
+              "wallMs": 3,
+              "cpuMs": 0,
+              "remainingMs": -64,
+              "steps": 113,
+              "remainingSteps": 4887
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": 1,
+      "result": {
+        "status": "limited",
+        "reason": "time-budget"
+      },
+      "stages": [
+        {
+          "operation": "create",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 42,
+              "cpuMs": 0,
+              "remainingMs": 19797,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2703,
+              "cpuMs": 562,
+              "remainingMs": 17095,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "duplicate-parse",
+              "wallMs": 2946,
+              "cpuMs": 516,
+              "remainingMs": 14148,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2393,
+              "cpuMs": 531,
+              "remainingMs": 11756,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 2697,
+              "cpuMs": 328,
+              "remainingMs": 9059,
+              "steps": 76,
+              "remainingSteps": 4924
+            }
+          ]
+        },
+        {
+          "operation": "resume",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 7,
+              "cpuMs": 0,
+              "remainingMs": 19993,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 5149,
+              "cpuMs": 703,
+              "remainingMs": 14844,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "duplicate-parse",
+              "wallMs": 3502,
+              "cpuMs": 688,
+              "remainingMs": 11341,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 3638,
+              "cpuMs": 531,
+              "remainingMs": 7704,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 7985,
+              "cpuMs": 1390,
+              "remainingMs": -281,
+              "steps": 113,
+              "remainingSteps": 4887
+            },
+            {
+              "stage": "budget-exhausted",
+              "wallMs": 2,
+              "cpuMs": 0,
+              "remainingMs": -283,
+              "steps": 113,
+              "remainingSteps": 4887
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": 1,
+      "result": {
+        "status": "limited",
+        "reason": "time-budget"
+      },
+      "stages": [
+        {
+          "operation": "create",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 2,
+              "cpuMs": 0,
+              "remainingMs": 19839,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2553,
+              "cpuMs": 516,
+              "remainingMs": 17286,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "duplicate-parse",
+              "wallMs": 3118,
+              "cpuMs": 515,
+              "remainingMs": 14168,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2686,
+              "cpuMs": 594,
+              "remainingMs": 11482,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 2627,
+              "cpuMs": 343,
+              "remainingMs": 8856,
+              "steps": 76,
+              "remainingSteps": 4924
+            }
+          ]
+        },
+        {
+          "operation": "resume",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 1,
+              "cpuMs": 0,
+              "remainingMs": 19998,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 5419,
+              "cpuMs": 579,
+              "remainingMs": 14579,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "duplicate-parse",
+              "wallMs": 3692,
+              "cpuMs": 546,
+              "remainingMs": 10888,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 3645,
+              "cpuMs": 688,
+              "remainingMs": 7243,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 7407,
+              "cpuMs": 1141,
+              "remainingMs": -165,
+              "steps": 109,
+              "remainingSteps": 4891
+            },
+            {
+              "stage": "budget-exhausted",
+              "wallMs": 2,
+              "cpuMs": 0,
+              "remainingMs": -167,
+              "steps": 109,
+              "remainingSteps": 4891
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": 1,
+      "result": {
+        "status": "limited",
+        "reason": "time-budget"
+      },
+      "stages": [
+        {
+          "operation": "create",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 1,
+              "cpuMs": 0,
+              "remainingMs": 19609,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 1673,
+              "cpuMs": 453,
+              "remainingMs": 17936,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "duplicate-parse",
+              "wallMs": 3995,
+              "cpuMs": 625,
+              "remainingMs": 13941,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 3166,
+              "cpuMs": 595,
+              "remainingMs": 10775,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 3468,
+              "cpuMs": 405,
+              "remainingMs": 7307,
+              "steps": 76,
+              "remainingSteps": 4924
+            }
+          ]
+        },
+        {
+          "operation": "resume",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 0,
+              "cpuMs": 0,
+              "remainingMs": 19999,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 4937,
+              "cpuMs": 641,
+              "remainingMs": 15062,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "duplicate-parse",
+              "wallMs": 3390,
+              "cpuMs": 485,
+              "remainingMs": 11672,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2798,
+              "cpuMs": 577,
+              "remainingMs": 8875,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 8567,
+              "cpuMs": 3047,
+              "remainingMs": 308,
+              "steps": 143,
+              "remainingSteps": 4857
+            },
+            {
+              "stage": "independent-verification",
+              "wallMs": 791,
+              "cpuMs": 719,
+              "remainingMs": -483,
+              "steps": 143,
+              "remainingSteps": 4857
+            },
+            {
+              "stage": "budget-exhausted",
+              "wallMs": 2,
+              "cpuMs": 0,
+              "remainingMs": -486,
+              "steps": 143,
+              "remainingSteps": 4857
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": 1,
+      "result": {
+        "status": "limited",
+        "reason": "time-budget"
+      },
+      "stages": [
+        {
+          "operation": "create",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 1,
+              "cpuMs": 16,
+              "remainingMs": 19595,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2586,
+              "cpuMs": 531,
+              "remainingMs": 17010,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "duplicate-parse",
+              "wallMs": 3185,
+              "cpuMs": 485,
+              "remainingMs": 13824,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2306,
+              "cpuMs": 468,
+              "remainingMs": 11518,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 2769,
+              "cpuMs": 297,
+              "remainingMs": 8749,
+              "steps": 76,
+              "remainingSteps": 4924
+            }
+          ]
+        },
+        {
+          "operation": "resume",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 1,
+              "cpuMs": 0,
+              "remainingMs": 19998,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 3802,
+              "cpuMs": 750,
+              "remainingMs": 16197,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "duplicate-parse",
+              "wallMs": 3964,
+              "cpuMs": 563,
+              "remainingMs": 12233,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 3575,
+              "cpuMs": 765,
+              "remainingMs": 8658,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 8927,
+              "cpuMs": 1344,
+              "remainingMs": -268,
+              "steps": 113,
+              "remainingSteps": 4887
+            },
+            {
+              "stage": "budget-exhausted",
+              "wallMs": 3,
+              "cpuMs": 0,
+              "remainingMs": -271,
+              "steps": 113,
+              "remainingSteps": 4887
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+diff --git a/src/components/FinancialTerm.tsx b/src/components/FinancialTerm.tsx
+--- a/src/components/FinancialTerm.tsx
++++ b/src/components/FinancialTerm.tsx
+@@ -19,7 +19,7 @@
+     const element = popup.current!, button = trigger.current!
+     const place = () => {
+       const root = button.closest('dialog') ?? document
+-      const actions = [...root.querySelectorAll<HTMLButtonElement>('.button')].filter(b => !b.disabled && b.getClientRects().length > 0).map(b => b.getBoundingClientRect())
++      const actions = [...root.querySelectorAll<HTMLButtonElement>('.button, .gamified-modal-card button:not(.financial-term-trigger)')].filter(b => !b.disabled && b.getClientRects().length > 0).map(b => b.getBoundingClientRect())
+       // Native popovers enter the top layer above a modal and cannot be clipped by it.
+       element.style.maxHeight = ''; element.style.width = `${Math.min(300, innerWidth - 16)}px`
+       const p = tooltipPosition(button.getBoundingClientRect(), innerWidth, innerHeight, element.scrollHeight, actions)

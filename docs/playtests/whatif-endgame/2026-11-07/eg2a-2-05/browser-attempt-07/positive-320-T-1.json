@@ -1,0 +1,2236 @@
+{
+  "width": 320,
+  "transport": "T",
+  "index": 1,
+  "sampleClass": "cold-document",
+  "terminal": {
+    "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+    "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+    "sessionEpoch": 1,
+    "origin": "saved",
+    "terminal": true,
+    "terminalAt": 3169.5,
+    "captureId": null,
+    "captureRevision": null,
+    "reason": null,
+    "worker": null,
+    "observations": [
+      {
+        "stage": "session-read",
+        "start": 2156,
+        "elapsedMs": 0
+      },
+      {
+        "stage": "session-read",
+        "start": 2738.3000000715256,
+        "elapsedMs": 0
+      },
+      {
+        "stage": "session-read",
+        "start": 3169.4000000953674,
+        "elapsedMs": 0
+      }
+    ],
+    "summaryButtonStart": 2424.9000000953674,
+    "finalAdvanceStart": 3120,
+    "terminalFromClickAttemptMs": 49.5
+  },
+  "stages": [
+    {
+      "name": "prepare",
+      "start": 3401.9000000953674,
+      "wallMs": 1078.6999999284744,
+      "result": {
+        "version": "endgame-analysis.transport.v1",
+        "kind": "SOURCE_VERIFIED",
+        "envelope": {
+          "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+          "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+          "sessionEpoch": 1,
+          "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+          "captureRevision": 1,
+          "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+          "configHash": null,
+          "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+          "profile": "core-mvp-b18-multi-course-v1",
+          "schema": 7,
+          "initialPolicy": "gold-buy-to-skip-full-end.v1",
+          "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+          "fairness": "F1-native-coupling.v1",
+          "analysisInstance": "dc23e9fd-0e69-41f5-9c63-e8c699e11101",
+          "analysisId": "c49ee88b-9bc6-4c62-a834-3f440ecaa4a1",
+          "jobId": "a673a99e-d14a-457f-8f64-73c13594e837",
+          "requestOrdinal": 1,
+          "workerGeneration": "3bbbf56f-5f2b-4b1b-a390-d23cc5bb583a",
+          "branchId": null,
+          "expectedRevision": null,
+          "cancelId": null,
+          "decision": null
+        },
+        "body": {
+          "identity": {
+            "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+            "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+            "semanticHash": "b4451cf72ea66aa3fa90deefe824af672cf06a26a3547cac5f7f2275f16e4d41",
+            "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+            "profile": "core-mvp-b18-multi-course-v1",
+            "schema": 7,
+            "entries": 93,
+            "commands": 40,
+            "characters": 14865002,
+            "utf8Bytes": 14901445,
+            "origin": "text",
+            "ending": {
+              "termination": "completed",
+              "phase": "finished",
+              "lap": 4,
+              "turn": 21,
+              "summaries": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "shortfall": 0
+            }
+          },
+          "timings": {
+            "serializeMs": 0,
+            "parseMs": 215.69999992847443,
+            "actualReplayMs": 217.39999997615814,
+            "hashMs": 152.70000004768372
+          },
+          "capabilities": {
+            "worker": true,
+            "crypto": true,
+            "encoder": true,
+            "clone": true,
+            "dom": false
+          }
+        },
+        "timing": {
+          "receivedAt": 1794069342910,
+          "finishedAt": 1794069343646.0999,
+          "elapsedMs": 736.199951171875
+        }
+      },
+      "state": {
+        "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+        "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+        "sessionEpoch": 1,
+        "origin": "saved",
+        "terminal": true,
+        "terminalAt": 3169.5,
+        "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+        "captureRevision": 1,
+        "reason": null,
+        "worker": {
+          "spawns": 1,
+          "terminations": 0,
+          "postMs": [
+            7.200000047683716
+          ],
+          "postAt": [
+            1794069342809.7
+          ],
+          "arrivalAt": [
+            1794069343648.0999
+          ],
+          "discarded": 0,
+          "lastCancelAck": null,
+          "disposed": false,
+          "phase": "source",
+          "activeWorker": true,
+          "activeJob": false,
+          "envelope": {
+            "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+            "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+            "sessionEpoch": 1,
+            "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+            "captureRevision": 1,
+            "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+            "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+            "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+            "profile": "core-mvp-b18-multi-course-v1",
+            "schema": 7,
+            "initialPolicy": "gold-buy-to-skip-full-end.v1",
+            "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+            "fairness": "F1-native-coupling.v1",
+            "analysisInstance": "dc23e9fd-0e69-41f5-9c63-e8c699e11101",
+            "analysisId": "c49ee88b-9bc6-4c62-a834-3f440ecaa4a1",
+            "jobId": "a673a99e-d14a-457f-8f64-73c13594e837",
+            "requestOrdinal": 1,
+            "workerGeneration": "3bbbf56f-5f2b-4b1b-a390-d23cc5bb583a",
+            "branchId": null,
+            "expectedRevision": null,
+            "cancelId": null,
+            "decision": null
+          }
+        },
+        "observations": [
+          {
+            "stage": "session-read",
+            "start": 2156,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "session-read",
+            "start": 2738.3000000715256,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "session-read",
+            "start": 3169.4000000953674,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "capture-session-read",
+            "start": 3402,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "capture-witness",
+            "start": 3402,
+            "elapsedMs": 12.200000047683716
+          },
+          {
+            "stage": "serialize-text",
+            "start": 3414.3000000715256,
+            "elapsedMs": 54.60000002384186
+          },
+          {
+            "stage": "text-hash-submit",
+            "start": 3470.2000000476837,
+            "elapsedMs": 75.70000004768372
+          },
+          {
+            "stage": "text-hash-wall",
+            "start": 3470.2000000476837,
+            "elapsedMs": 75.70000004768372
+          },
+          {
+            "stage": "post-capture-witness",
+            "start": 3570.9000000953674,
+            "elapsedMs": 5.199999928474426
+          },
+          {
+            "stage": "publication-witness",
+            "start": 4474.600000023842,
+            "elapsedMs": 6
+          }
+        ]
+      },
+      "animationFrameIntervalsMs": [
+        3.1999999046324774,
+        55.5,
+        77.70000000000027,
+        11.099999999999909,
+        11.099999999999909,
+        11.099999999999909,
+        66.70000000000027,
+        11.099999999999909,
+        11.099999999999909,
+        11.099999999999909,
+        11.099999999999909,
+        11.100000000000364,
+        11.199999999999818,
+        11.099999999999909,
+        11.099999999999909,
+        11.100000000000364,
+        11.099999999999909,
+        11.199999999999818,
+        11.099999999999909,
+        11.100000000000364,
+        11.099999999999909,
+        11.099999999999909,
+        11.199999999999818,
+        11,
+        11.200000000000273,
+        11.099999999999909,
+        11.099999999999909,
+        11,
+        11.300000000000182,
+        10.900000000000091,
+        11.099999999999909,
+        11.199999999999818,
+        11.099999999999909,
+        11.100000000000364,
+        11.099999999999909,
+        11.199999999999818,
+        11.099999999999909,
+        11.100000000000364,
+        11,
+        11.199999999999818,
+        11.099999999999909,
+        11.099999999999909,
+        11.100000000000364,
+        11.099999999999909,
+        11.099999999999909,
+        11.099999999999909,
+        11.200000000000273,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.199999999999818,
+        11.099999999999454,
+        11,
+        11.200000000000728,
+        11,
+        11.099999999999454,
+        11.199999999999818,
+        11.100000000000364,
+        11.100000000000364,
+        11.199999999999818,
+        11.099999999999454,
+        11,
+        11.100000000000364,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.300000000000182,
+        11,
+        11.099999999999454,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11.199999999999818,
+        11,
+        11.100000000000364,
+        11.199999999999818
+      ]
+    },
+    {
+      "name": "list",
+      "start": 4486.5,
+      "wallMs": 843.6000000238419,
+      "result": {
+        "version": "endgame-analysis.transport.v1",
+        "kind": "DECISIONS_READY",
+        "envelope": {
+          "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+          "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+          "sessionEpoch": 1,
+          "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+          "captureRevision": 1,
+          "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+          "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+          "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+          "profile": "core-mvp-b18-multi-course-v1",
+          "schema": 7,
+          "initialPolicy": "gold-buy-to-skip-full-end.v1",
+          "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+          "fairness": "F1-native-coupling.v1",
+          "analysisInstance": "dc23e9fd-0e69-41f5-9c63-e8c699e11101",
+          "analysisId": "c49ee88b-9bc6-4c62-a834-3f440ecaa4a1",
+          "jobId": "37dc7a4d-0803-4f4d-93e4-d647a900f660",
+          "requestOrdinal": 2,
+          "workerGeneration": "3bbbf56f-5f2b-4b1b-a390-d23cc5bb583a",
+          "branchId": null,
+          "expectedRevision": null,
+          "cancelId": null,
+          "decision": null
+        },
+        "body": {
+          "decisions": [
+            {
+              "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+              "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+              "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+              "profile": "core-mvp-b18-multi-course-v1",
+              "schema": 7,
+              "initialPolicy": "gold-buy-to-skip-full-end.v1",
+              "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+              "fairness": "F1-native-coupling.v1",
+              "decision": {
+                "sequence": 4,
+                "kind": "rebalancing",
+                "turn": 1,
+                "lap": 1,
+                "tileId": 5,
+                "eventId": null,
+                "decisionId": "buy-gold-complete",
+                "action": {
+                  "kind": "buy",
+                  "amount": 2000000,
+                  "asset": "gold",
+                  "symbolId": "FPT",
+                  "term": 1,
+                  "completeEncounter": true
+                }
+              },
+              "eventContext": "gold"
+            }
+          ]
+        },
+        "timing": {
+          "receivedAt": 1794069343665,
+          "finishedAt": 1794069344495.2,
+          "elapsedMs": 830.199951171875
+        }
+      },
+      "state": {
+        "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+        "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+        "sessionEpoch": 1,
+        "origin": "saved",
+        "terminal": true,
+        "terminalAt": 3169.5,
+        "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+        "captureRevision": 1,
+        "reason": null,
+        "worker": {
+          "spawns": 1,
+          "terminations": 0,
+          "postMs": [
+            7.200000047683716,
+            0
+          ],
+          "postAt": [
+            1794069342809.7,
+            1794069343665
+          ],
+          "arrivalAt": [
+            1794069343648.0999,
+            1794069344496.4
+          ],
+          "discarded": 0,
+          "lastCancelAck": null,
+          "disposed": false,
+          "phase": "catalog",
+          "activeWorker": true,
+          "activeJob": false,
+          "envelope": {
+            "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+            "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+            "sessionEpoch": 1,
+            "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+            "captureRevision": 1,
+            "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+            "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+            "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+            "profile": "core-mvp-b18-multi-course-v1",
+            "schema": 7,
+            "initialPolicy": "gold-buy-to-skip-full-end.v1",
+            "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+            "fairness": "F1-native-coupling.v1",
+            "analysisInstance": "dc23e9fd-0e69-41f5-9c63-e8c699e11101",
+            "analysisId": "c49ee88b-9bc6-4c62-a834-3f440ecaa4a1",
+            "jobId": "37dc7a4d-0803-4f4d-93e4-d647a900f660",
+            "requestOrdinal": 2,
+            "workerGeneration": "3bbbf56f-5f2b-4b1b-a390-d23cc5bb583a",
+            "branchId": null,
+            "expectedRevision": null,
+            "cancelId": null,
+            "decision": null
+          }
+        },
+        "observations": [
+          {
+            "stage": "session-read",
+            "start": 2156,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "session-read",
+            "start": 2738.3000000715256,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "session-read",
+            "start": 3169.4000000953674,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "capture-session-read",
+            "start": 3402,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "capture-witness",
+            "start": 3402,
+            "elapsedMs": 12.200000047683716
+          },
+          {
+            "stage": "serialize-text",
+            "start": 3414.3000000715256,
+            "elapsedMs": 54.60000002384186
+          },
+          {
+            "stage": "text-hash-submit",
+            "start": 3470.2000000476837,
+            "elapsedMs": 75.70000004768372
+          },
+          {
+            "stage": "text-hash-wall",
+            "start": 3470.2000000476837,
+            "elapsedMs": 75.70000004768372
+          },
+          {
+            "stage": "post-capture-witness",
+            "start": 3570.9000000953674,
+            "elapsedMs": 5.199999928474426
+          },
+          {
+            "stage": "publication-witness",
+            "start": 4474.600000023842,
+            "elapsedMs": 6
+          },
+          {
+            "stage": "request-witness",
+            "start": 4486.600000023842,
+            "elapsedMs": 4.399999976158142
+          },
+          {
+            "stage": "publication-witness",
+            "start": 5322.800000071526,
+            "elapsedMs": 7.299999952316284
+          }
+        ]
+      },
+      "animationFrameIntervalsMs": [
+        7.399999999999636,
+        11.100000000000364,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.099999999999454,
+        11.200000000000728,
+        11.099999999999454,
+        11.100000000000364,
+        11.099999999999454,
+        11.200000000000728,
+        11.099999999999454,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999999454,
+        11.199999999999818,
+        11.100000000000364,
+        11,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11.199999999999818,
+        11.200000000000728,
+        11.099999999999454,
+        11,
+        11.199999999999818,
+        11,
+        11.200000000000728,
+        11.099999999999454,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11,
+        11.100000000000364,
+        11,
+        11.099999999999454,
+        11.300000000000182,
+        11.100000000000364,
+        11,
+        11,
+        11.199999999999818,
+        11.099999999999454,
+        11.100000000000364,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11.200000000000728,
+        11.099999999999454,
+        11.100000000000364,
+        11.099999999999454,
+        11.200000000000728,
+        11,
+        11.099999999999454,
+        11.199999999999818,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999999454,
+        11.199999999999818,
+        11.100000000000364,
+        10.899999999999636,
+        11.300000000000182,
+        11,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.199999999999818
+      ]
+    },
+    {
+      "name": "create",
+      "start": 5336.600000023842,
+      "wallMs": 906.1000000238419,
+      "result": {
+        "version": "endgame-analysis.transport.v1",
+        "kind": "NEEDS_FOLLOWUP",
+        "envelope": {
+          "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+          "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+          "sessionEpoch": 1,
+          "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+          "captureRevision": 1,
+          "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+          "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+          "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+          "profile": "core-mvp-b18-multi-course-v1",
+          "schema": 7,
+          "initialPolicy": "gold-buy-to-skip-full-end.v1",
+          "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+          "fairness": "F1-native-coupling.v1",
+          "analysisInstance": "dc23e9fd-0e69-41f5-9c63-e8c699e11101",
+          "analysisId": "c49ee88b-9bc6-4c62-a834-3f440ecaa4a1",
+          "jobId": "593ec04e-f1ab-44d1-a6fe-4ab8a3ecb125",
+          "requestOrdinal": 3,
+          "workerGeneration": "3bbbf56f-5f2b-4b1b-a390-d23cc5bb583a",
+          "branchId": null,
+          "expectedRevision": null,
+          "cancelId": null,
+          "decision": {
+            "sequence": 4,
+            "kind": "rebalancing",
+            "turn": 1,
+            "lap": 1,
+            "tileId": 5,
+            "eventId": null,
+            "decisionId": "buy-gold-complete",
+            "action": {
+              "kind": "buy",
+              "amount": 2000000,
+              "asset": "gold",
+              "symbolId": "FPT",
+              "term": 1,
+              "completeEncounter": true
+            }
+          }
+        },
+        "body": {
+          "continuation": {
+            "branchId": "88125dc6-d04e-4c94-bacf-6b0ab39d4e9a",
+            "selection": {
+              "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+              "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+              "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+              "profile": "core-mvp-b18-multi-course-v1",
+              "schema": 7,
+              "initialPolicy": "gold-buy-to-skip-full-end.v1",
+              "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+              "fairness": "F1-native-coupling.v1",
+              "decision": {
+                "sequence": 4,
+                "kind": "rebalancing",
+                "turn": 1,
+                "lap": 1,
+                "tileId": 5,
+                "eventId": null,
+                "decisionId": "buy-gold-complete",
+                "action": {
+                  "kind": "buy",
+                  "amount": 2000000,
+                  "asset": "gold",
+                  "symbolId": "FPT",
+                  "term": 1,
+                  "completeEncounter": true
+                }
+              },
+              "eventContext": "gold"
+            },
+            "initial": "skip",
+            "revision": 0,
+            "transcriptHash": "3820c9fc6fbe19233e37a28126b751ec4e898ffc4cc3c5c3dddd0ff578e025ae",
+            "sourceCursor": 10,
+            "alternativePrefixHash": "568782a00d9ae9e718cc9b641077441c9083a1eadc08853162744ae282196761"
+          },
+          "blocker": {
+            "hash": "dc33d3ba08349e2fb2e12a7611d76c9247748f471a93df335dec4a0ae806815e",
+            "command": {
+              "sequence": 25,
+              "kind": "rebalancing",
+              "turn": 6,
+              "lap": 2,
+              "tileId": 5,
+              "eventId": null,
+              "decisionId": "sell-gold-complete",
+              "action": {
+                "kind": "sell",
+                "amount": 1974376,
+                "asset": "gold"
+              }
+            },
+            "sourceCursor": 10,
+            "boundary": "before-command",
+            "commandApplied": false,
+            "context": {
+              "phase": "event",
+              "event": "gold",
+              "lap": 2,
+              "turn": 6,
+              "tile": 5
+            },
+            "reason": "illegal-recorded-action",
+            "engineReason": "Số tiền không hợp lệ hoặc vượt số dư khả dụng.",
+            "externalEqual": true,
+            "actualGoldUnits": 2,
+            "alternativeGoldUnits": 0,
+            "actualSaleLegal": true,
+            "alternativeUnchanged": true,
+            "choices": [
+              {
+                "action": {
+                  "kind": "gold-skip",
+                  "optionId": "skip"
+                },
+                "label": "Bỏ qua giao dịch Gold trong nhánh giả định"
+              }
+            ]
+          },
+          "transcriptCount": 0
+        },
+        "timing": {
+          "receivedAt": 1794069344518.2998,
+          "finishedAt": 1794069345411.7998,
+          "elapsedMs": 893.5
+        }
+      },
+      "state": {
+        "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+        "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+        "sessionEpoch": 1,
+        "origin": "saved",
+        "terminal": true,
+        "terminalAt": 3169.5,
+        "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+        "captureRevision": 1,
+        "reason": null,
+        "worker": {
+          "spawns": 1,
+          "terminations": 0,
+          "postMs": [
+            7.200000047683716,
+            0,
+            0.09999990463256836
+          ],
+          "postAt": [
+            1794069342809.7,
+            1794069343665,
+            1794069344518.0999
+          ],
+          "arrivalAt": [
+            1794069343648.0999,
+            1794069344496.4,
+            1794069345412.5
+          ],
+          "discarded": 0,
+          "lastCancelAck": null,
+          "disposed": false,
+          "phase": "pending",
+          "activeWorker": true,
+          "activeJob": false,
+          "envelope": {
+            "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+            "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+            "sessionEpoch": 1,
+            "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+            "captureRevision": 1,
+            "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+            "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+            "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+            "profile": "core-mvp-b18-multi-course-v1",
+            "schema": 7,
+            "initialPolicy": "gold-buy-to-skip-full-end.v1",
+            "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+            "fairness": "F1-native-coupling.v1",
+            "analysisInstance": "dc23e9fd-0e69-41f5-9c63-e8c699e11101",
+            "analysisId": "c49ee88b-9bc6-4c62-a834-3f440ecaa4a1",
+            "jobId": "593ec04e-f1ab-44d1-a6fe-4ab8a3ecb125",
+            "requestOrdinal": 3,
+            "workerGeneration": "3bbbf56f-5f2b-4b1b-a390-d23cc5bb583a",
+            "branchId": "88125dc6-d04e-4c94-bacf-6b0ab39d4e9a",
+            "expectedRevision": 0,
+            "cancelId": null,
+            "decision": {
+              "sequence": 4,
+              "kind": "rebalancing",
+              "turn": 1,
+              "lap": 1,
+              "tileId": 5,
+              "eventId": null,
+              "decisionId": "buy-gold-complete",
+              "action": {
+                "kind": "buy",
+                "amount": 2000000,
+                "asset": "gold",
+                "symbolId": "FPT",
+                "term": 1,
+                "completeEncounter": true
+              }
+            }
+          }
+        },
+        "observations": [
+          {
+            "stage": "session-read",
+            "start": 2156,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "session-read",
+            "start": 2738.3000000715256,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "session-read",
+            "start": 3169.4000000953674,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "capture-session-read",
+            "start": 3402,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "capture-witness",
+            "start": 3402,
+            "elapsedMs": 12.200000047683716
+          },
+          {
+            "stage": "serialize-text",
+            "start": 3414.3000000715256,
+            "elapsedMs": 54.60000002384186
+          },
+          {
+            "stage": "text-hash-submit",
+            "start": 3470.2000000476837,
+            "elapsedMs": 75.70000004768372
+          },
+          {
+            "stage": "text-hash-wall",
+            "start": 3470.2000000476837,
+            "elapsedMs": 75.70000004768372
+          },
+          {
+            "stage": "post-capture-witness",
+            "start": 3570.9000000953674,
+            "elapsedMs": 5.199999928474426
+          },
+          {
+            "stage": "publication-witness",
+            "start": 4474.600000023842,
+            "elapsedMs": 6
+          },
+          {
+            "stage": "request-witness",
+            "start": 4486.600000023842,
+            "elapsedMs": 4.399999976158142
+          },
+          {
+            "stage": "publication-witness",
+            "start": 5322.800000071526,
+            "elapsedMs": 7.299999952316284
+          },
+          {
+            "stage": "request-witness",
+            "start": 5336.700000047684,
+            "elapsedMs": 7.399999976158142
+          },
+          {
+            "stage": "publication-witness",
+            "start": 6238.900000095367,
+            "elapsedMs": 3.799999952316284
+          }
+        ]
+      },
+      "animationFrameIntervalsMs": [
+        1.7999999761577783,
+        11.200000000000728,
+        11.099999999999454,
+        11,
+        11.199999999999818,
+        11,
+        11.200000000000728,
+        11,
+        11.099999999999454,
+        11.199999999999818,
+        11.200000000000728,
+        10.899999999999636,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.300000000000182,
+        11,
+        11,
+        11.199999999999818,
+        11.099999999999454,
+        11.200000000000728,
+        11,
+        11.299999999999272,
+        11.100000000000364,
+        11,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.199999999999818,
+        11.199999999999818,
+        11,
+        11.200000000000728,
+        11,
+        11.099999999999454,
+        11.100000000000364,
+        11.099999999999454,
+        11.200000000000728,
+        11.099999999999454,
+        11.100000000000364,
+        11,
+        11.199999999999818,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11.200000000000728,
+        11.099999999999454,
+        11,
+        11.100000000000364,
+        11.199999999999818,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.199999999999818,
+        11,
+        11.100000000000364,
+        11.199999999999818,
+        11.099999999999454,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.099999999999454,
+        11.200000000000728,
+        11.099999999999454,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.199999999999818,
+        11.100000000000364,
+        11,
+        11.099999999999454,
+        11.300000000000182,
+        11
+      ]
+    },
+    {
+      "name": "followUp",
+      "start": 6248.400000095367,
+      "wallMs": 2635.5999999046326,
+      "result": {
+        "version": "endgame-analysis.transport.v1",
+        "kind": "SUPPORTED_FINAL",
+        "envelope": {
+          "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+          "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+          "sessionEpoch": 1,
+          "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+          "captureRevision": 1,
+          "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+          "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+          "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+          "profile": "core-mvp-b18-multi-course-v1",
+          "schema": 7,
+          "initialPolicy": "gold-buy-to-skip-full-end.v1",
+          "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+          "fairness": "F1-native-coupling.v1",
+          "analysisInstance": "dc23e9fd-0e69-41f5-9c63-e8c699e11101",
+          "analysisId": "c49ee88b-9bc6-4c62-a834-3f440ecaa4a1",
+          "jobId": "c7e2c6fa-d75b-46ae-8bcd-2d4e3abb39e7",
+          "requestOrdinal": 4,
+          "workerGeneration": "3bbbf56f-5f2b-4b1b-a390-d23cc5bb583a",
+          "branchId": "88125dc6-d04e-4c94-bacf-6b0ab39d4e9a",
+          "expectedRevision": 0,
+          "cancelId": null,
+          "decision": {
+            "sequence": 4,
+            "kind": "rebalancing",
+            "turn": 1,
+            "lap": 1,
+            "tileId": 5,
+            "eventId": null,
+            "decisionId": "buy-gold-complete",
+            "action": {
+              "kind": "buy",
+              "amount": 2000000,
+              "asset": "gold",
+              "symbolId": "FPT",
+              "term": 1,
+              "completeEncounter": true
+            }
+          }
+        },
+        "body": {
+          "continuation": {
+            "branchId": "88125dc6-d04e-4c94-bacf-6b0ab39d4e9a",
+            "selection": {
+              "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+              "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+              "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+              "profile": "core-mvp-b18-multi-course-v1",
+              "schema": 7,
+              "initialPolicy": "gold-buy-to-skip-full-end.v1",
+              "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+              "fairness": "F1-native-coupling.v1",
+              "decision": {
+                "sequence": 4,
+                "kind": "rebalancing",
+                "turn": 1,
+                "lap": 1,
+                "tileId": 5,
+                "eventId": null,
+                "decisionId": "buy-gold-complete",
+                "action": {
+                  "kind": "buy",
+                  "amount": 2000000,
+                  "asset": "gold",
+                  "symbolId": "FPT",
+                  "term": 1,
+                  "completeEncounter": true
+                }
+              },
+              "eventContext": "gold"
+            },
+            "initial": "skip",
+            "revision": 1,
+            "transcriptHash": "651bf52cccd9bf231e35b08223f641a373a1abcc0ff8bf7df44782e136498afb",
+            "sourceCursor": 40,
+            "alternativePrefixHash": "f805edb2dd257f9f8adf4c065dda0570d58d6fe500608b3f2c281e1129db0d6c"
+          },
+          "actual": {
+            "cash": 80424780,
+            "totalWorth": 84687670,
+            "liquidatableFunds": 84635118,
+            "debt": 0,
+            "obligations": 0,
+            "goalFunds": 84635118,
+            "goalTarget": 90000000,
+            "goalPercent": 94.03902,
+            "goalRemaining": 5364882,
+            "won": false,
+            "courses": [
+              "basic",
+              "advanced"
+            ],
+            "recurringIncome": 20000000,
+            "salaryAtStarts": [
+              {
+                "lap": 1,
+                "base": 14000000,
+                "courseBoost": 0
+              },
+              {
+                "lap": 2,
+                "base": 14000000,
+                "courseBoost": 2000000
+              },
+              {
+                "lap": 3,
+                "base": 14000000,
+                "courseBoost": 6000000
+              },
+              {
+                "lap": 4,
+                "base": 14000000,
+                "courseBoost": 6000000
+              }
+            ],
+            "gold": {
+              "units": 0,
+              "book": 0,
+              "basis": 0
+            }
+          },
+          "alternative": {
+            "cash": 80528786,
+            "totalWorth": 84791676,
+            "liquidatableFunds": 84739124,
+            "debt": 0,
+            "obligations": 0,
+            "goalFunds": 84739124,
+            "goalTarget": 90000000,
+            "goalPercent": 94.15458222222223,
+            "goalRemaining": 5260876,
+            "won": false,
+            "courses": [
+              "basic",
+              "advanced"
+            ],
+            "recurringIncome": 20000000,
+            "salaryAtStarts": [
+              {
+                "lap": 1,
+                "base": 14000000,
+                "courseBoost": 0
+              },
+              {
+                "lap": 2,
+                "base": 14000000,
+                "courseBoost": 2000000
+              },
+              {
+                "lap": 3,
+                "base": 14000000,
+                "courseBoost": 6000000
+              },
+              {
+                "lap": 4,
+                "base": 14000000,
+                "courseBoost": 6000000
+              }
+            ],
+            "gold": {
+              "units": 0,
+              "book": 0,
+              "basis": 0
+            }
+          },
+          "delta": {
+            "cash": 104006,
+            "totalWorth": 104006,
+            "liquidatableFunds": 104006,
+            "debt": 0,
+            "obligations": 0,
+            "goalFunds": 104006,
+            "goalPercent": 0.11556222222223766,
+            "goalRemaining": -104006,
+            "recurringIncome": 0
+          },
+          "endings": {
+            "actual": {
+              "termination": "completed",
+              "phase": "finished",
+              "lap": 4,
+              "turn": 21,
+              "summaries": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "shortfall": 0
+            },
+            "alternative": {
+              "termination": "completed",
+              "phase": "finished",
+              "lap": 4,
+              "turn": 21,
+              "summaries": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "shortfall": 0
+            }
+          },
+          "costs": [
+            {
+              "sourceSequence": 25,
+              "actual": {
+                "gross": 1974376,
+                "spread": 59231,
+                "fee": 19151,
+                "net": 1895994
+              },
+              "alternative": null
+            },
+            {
+              "sourceSequence": 84,
+              "actual": {
+                "gross": 2351968,
+                "spread": 70559,
+                "fee": 22814,
+                "net": 2258595
+              },
+              "alternative": {
+                "gross": 2351968,
+                "spread": 70559,
+                "fee": 22814,
+                "net": 2258595
+              }
+            }
+          ],
+          "attribution": {
+            "initialFork": "gold-buy-to-skip-full-end.v1",
+            "initialCommand": {
+              "sequence": 4,
+              "kind": "rebalancing",
+              "turn": 1,
+              "lap": 1,
+              "tileId": 5,
+              "eventId": null,
+              "decisionId": "buy-gold-complete",
+              "action": {
+                "kind": "buy",
+                "amount": 2000000,
+                "asset": "gold",
+                "symbolId": "FPT",
+                "term": 1,
+                "completeEncounter": true
+              }
+            },
+            "followupCount": 1,
+            "followups": [
+              {
+                "ordinal": 1,
+                "command": {
+                  "sequence": 25,
+                  "kind": "rebalancing",
+                  "turn": 6,
+                  "lap": 2,
+                  "tileId": 5,
+                  "eventId": null,
+                  "decisionId": "sell-gold-complete",
+                  "action": {
+                    "kind": "sell",
+                    "amount": 1974376,
+                    "asset": "gold"
+                  }
+                },
+                "choice": {
+                  "kind": "gold-skip",
+                  "optionId": "skip"
+                }
+              }
+            ],
+            "combinedConsequences": true
+          },
+          "proof": {
+            "actualReplay": true,
+            "alternativeReplay": true,
+            "alternativeExportHash": "a3dbfda4d88d11f3ef73a77c15e1afae95e5746c59eae94a48eb98cf19ceb73a",
+            "externalCheckpoints": 100,
+            "phaseAdvances": 11,
+            "steps": 195,
+            "sourceUnchanged": true,
+            "reconstruction": {
+              "actual": 1,
+              "coupled": 1,
+              "independentAlternative": 1
+            }
+          },
+          "execution": {
+            "transcriptCount": 1,
+            "transcriptHash": "651bf52cccd9bf231e35b08223f641a373a1abcc0ff8bf7df44782e136498afb",
+            "sourceCommands": 39,
+            "explicitReplacements": 1,
+            "initialReplacements": 1,
+            "retained": 37,
+            "uniqueSourceCommands": true,
+            "retainedGoldSequences": [
+              60,
+              84
+            ]
+          }
+        },
+        "timing": {
+          "receivedAt": 1794069345425.7998,
+          "finishedAt": 1794069348052.2,
+          "elapsedMs": 2626.400146484375
+        }
+      },
+      "state": {
+        "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+        "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+        "sessionEpoch": 1,
+        "origin": "saved",
+        "terminal": true,
+        "terminalAt": 3169.5,
+        "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+        "captureRevision": 1,
+        "reason": null,
+        "worker": {
+          "spawns": 1,
+          "terminations": 0,
+          "postMs": [
+            7.200000047683716,
+            0,
+            0.09999990463256836,
+            0
+          ],
+          "postAt": [
+            1794069342809.7,
+            1794069343665,
+            1794069344518.0999,
+            1794069345425.5999
+          ],
+          "arrivalAt": [
+            1794069343648.0999,
+            1794069344496.4,
+            1794069345412.5,
+            1794069348053.5999
+          ],
+          "discarded": 0,
+          "lastCancelAck": null,
+          "disposed": false,
+          "phase": "final",
+          "activeWorker": true,
+          "activeJob": false,
+          "envelope": {
+            "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+            "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+            "sessionEpoch": 1,
+            "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+            "captureRevision": 1,
+            "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+            "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+            "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+            "profile": "core-mvp-b18-multi-course-v1",
+            "schema": 7,
+            "initialPolicy": "gold-buy-to-skip-full-end.v1",
+            "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+            "fairness": "F1-native-coupling.v1",
+            "analysisInstance": "dc23e9fd-0e69-41f5-9c63-e8c699e11101",
+            "analysisId": "c49ee88b-9bc6-4c62-a834-3f440ecaa4a1",
+            "jobId": "c7e2c6fa-d75b-46ae-8bcd-2d4e3abb39e7",
+            "requestOrdinal": 4,
+            "workerGeneration": "3bbbf56f-5f2b-4b1b-a390-d23cc5bb583a",
+            "branchId": "88125dc6-d04e-4c94-bacf-6b0ab39d4e9a",
+            "expectedRevision": 1,
+            "cancelId": null,
+            "decision": {
+              "sequence": 4,
+              "kind": "rebalancing",
+              "turn": 1,
+              "lap": 1,
+              "tileId": 5,
+              "eventId": null,
+              "decisionId": "buy-gold-complete",
+              "action": {
+                "kind": "buy",
+                "amount": 2000000,
+                "asset": "gold",
+                "symbolId": "FPT",
+                "term": 1,
+                "completeEncounter": true
+              }
+            }
+          }
+        },
+        "observations": [
+          {
+            "stage": "session-read",
+            "start": 2156,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "session-read",
+            "start": 2738.3000000715256,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "session-read",
+            "start": 3169.4000000953674,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "capture-session-read",
+            "start": 3402,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "capture-witness",
+            "start": 3402,
+            "elapsedMs": 12.200000047683716
+          },
+          {
+            "stage": "serialize-text",
+            "start": 3414.3000000715256,
+            "elapsedMs": 54.60000002384186
+          },
+          {
+            "stage": "text-hash-submit",
+            "start": 3470.2000000476837,
+            "elapsedMs": 75.70000004768372
+          },
+          {
+            "stage": "text-hash-wall",
+            "start": 3470.2000000476837,
+            "elapsedMs": 75.70000004768372
+          },
+          {
+            "stage": "post-capture-witness",
+            "start": 3570.9000000953674,
+            "elapsedMs": 5.199999928474426
+          },
+          {
+            "stage": "publication-witness",
+            "start": 4474.600000023842,
+            "elapsedMs": 6
+          },
+          {
+            "stage": "request-witness",
+            "start": 4486.600000023842,
+            "elapsedMs": 4.399999976158142
+          },
+          {
+            "stage": "publication-witness",
+            "start": 5322.800000071526,
+            "elapsedMs": 7.299999952316284
+          },
+          {
+            "stage": "request-witness",
+            "start": 5336.700000047684,
+            "elapsedMs": 7.399999976158142
+          },
+          {
+            "stage": "publication-witness",
+            "start": 6238.900000095367,
+            "elapsedMs": 3.799999952316284
+          },
+          {
+            "stage": "request-witness",
+            "start": 6248.5,
+            "elapsedMs": 3.100000023841858
+          },
+          {
+            "stage": "publication-witness",
+            "start": 8880.300000071526,
+            "elapsedMs": 3.6999999284744263
+          }
+        ]
+      },
+      "animationFrameIntervalsMs": [
+        1.0999999046325684,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11,
+        11.099999999999454,
+        11.300000000000182,
+        10.900000000000546,
+        11.199999999999818,
+        11.199999999999818,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.300000000000182,
+        11,
+        11,
+        11.199999999999818,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11.199999999999818,
+        11,
+        11.100000000000364,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.099999999999454,
+        11.100000000000364,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999999454,
+        11.199999999999818,
+        11.100000000000364,
+        11,
+        11.100000000000364,
+        11.199999999999818,
+        11.099999999999454,
+        11.200000000000728,
+        11,
+        11.099999999999454,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999999454,
+        11.199999999999818,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.100000000000364,
+        11.199999999999818,
+        11.099999999999454,
+        11.100000000000364,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.099999999999454,
+        11.100000000000364,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11,
+        11.200000000000728,
+        11.099999999999454,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999999454,
+        11.199999999999818,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11.200000000000728,
+        10.899999999999636,
+        11.199999999999818,
+        11.199999999999818,
+        11,
+        11.200000000000728,
+        11.099999999999454,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11,
+        11.100000000000364,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.300000000000182,
+        11,
+        11.099999999999454,
+        11.199999999999818,
+        11,
+        11.200000000000728,
+        11.099999999999454,
+        11,
+        11.199999999999818,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999999454,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.100000000000364,
+        11.299999999999272,
+        11.100000000000364,
+        11,
+        11.100000000000364,
+        11.299999999999272,
+        11,
+        11.100000000000364,
+        11,
+        11.100000000000364,
+        11.299999999999272,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999999454,
+        11,
+        11.100000000000364,
+        11.199999999999818,
+        11,
+        11.300000000000182,
+        10.899999999999636,
+        11.300000000000182,
+        11,
+        11.100000000000364,
+        11,
+        11.199999999999818,
+        11.099999999999454,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999999454,
+        11.199999999999818,
+        11.200000000000728,
+        11,
+        11.299999999999272,
+        11,
+        11,
+        11.200000000000728,
+        11.099999999999454,
+        11.199999999999818,
+        11,
+        11.100000000000364,
+        11.299999999999272,
+        11.100000000000364,
+        11.100000000000364,
+        11,
+        11.200000000000728,
+        11,
+        11.199999999998909,
+        11.100000000000364,
+        11,
+        11.100000000000364,
+        11.100000000000364,
+        11.299999999999272,
+        11,
+        11.200000000000728,
+        10.899999999999636,
+        11.100000000000364,
+        11.299999999999272,
+        11,
+        11.100000000000364,
+        11.100000000000364,
+        11.199999999998909,
+        11.200000000000728,
+        11,
+        11.100000000000364,
+        11.099999999998545,
+        11,
+        11.200000000000728,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999998545,
+        11.100000000000364,
+        11.200000000000728,
+        11,
+        11.199999999998909,
+        11.100000000000364,
+        11.100000000000364,
+        11,
+        11.299999999999272,
+        11,
+        11.100000000000364,
+        11.100000000000364,
+        11.200000000000728,
+        11.099999999998545,
+        11.100000000000364,
+        11.100000000000364,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999998545,
+        11.100000000000364,
+        11.200000000000728,
+        11,
+        11.199999999998909,
+        11,
+        11.200000000000728,
+        11.100000000000364,
+        11.100000000000364,
+        11.099999999998545,
+        11.100000000000364,
+        11.100000000000364,
+        11.200000000000728
+      ]
+    },
+    {
+      "name": "read",
+      "start": 8891.200000047684,
+      "wallMs": 4.200000047683716,
+      "result": {
+        "version": "endgame-analysis.transport.v1",
+        "kind": "SUPPORTED_FINAL",
+        "envelope": {
+          "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+          "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+          "sessionEpoch": 1,
+          "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+          "captureRevision": 1,
+          "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+          "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+          "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+          "profile": "core-mvp-b18-multi-course-v1",
+          "schema": 7,
+          "initialPolicy": "gold-buy-to-skip-full-end.v1",
+          "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+          "fairness": "F1-native-coupling.v1",
+          "analysisInstance": "dc23e9fd-0e69-41f5-9c63-e8c699e11101",
+          "analysisId": "c49ee88b-9bc6-4c62-a834-3f440ecaa4a1",
+          "jobId": "c7e2c6fa-d75b-46ae-8bcd-2d4e3abb39e7",
+          "requestOrdinal": 4,
+          "workerGeneration": "3bbbf56f-5f2b-4b1b-a390-d23cc5bb583a",
+          "branchId": "88125dc6-d04e-4c94-bacf-6b0ab39d4e9a",
+          "expectedRevision": 0,
+          "cancelId": null,
+          "decision": {
+            "sequence": 4,
+            "kind": "rebalancing",
+            "turn": 1,
+            "lap": 1,
+            "tileId": 5,
+            "eventId": null,
+            "decisionId": "buy-gold-complete",
+            "action": {
+              "kind": "buy",
+              "amount": 2000000,
+              "asset": "gold",
+              "symbolId": "FPT",
+              "term": 1,
+              "completeEncounter": true
+            }
+          }
+        },
+        "body": {
+          "continuation": {
+            "branchId": "88125dc6-d04e-4c94-bacf-6b0ab39d4e9a",
+            "selection": {
+              "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+              "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+              "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+              "profile": "core-mvp-b18-multi-course-v1",
+              "schema": 7,
+              "initialPolicy": "gold-buy-to-skip-full-end.v1",
+              "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+              "fairness": "F1-native-coupling.v1",
+              "decision": {
+                "sequence": 4,
+                "kind": "rebalancing",
+                "turn": 1,
+                "lap": 1,
+                "tileId": 5,
+                "eventId": null,
+                "decisionId": "buy-gold-complete",
+                "action": {
+                  "kind": "buy",
+                  "amount": 2000000,
+                  "asset": "gold",
+                  "symbolId": "FPT",
+                  "term": 1,
+                  "completeEncounter": true
+                }
+              },
+              "eventContext": "gold"
+            },
+            "initial": "skip",
+            "revision": 1,
+            "transcriptHash": "651bf52cccd9bf231e35b08223f641a373a1abcc0ff8bf7df44782e136498afb",
+            "sourceCursor": 40,
+            "alternativePrefixHash": "f805edb2dd257f9f8adf4c065dda0570d58d6fe500608b3f2c281e1129db0d6c"
+          },
+          "actual": {
+            "cash": 80424780,
+            "totalWorth": 84687670,
+            "liquidatableFunds": 84635118,
+            "debt": 0,
+            "obligations": 0,
+            "goalFunds": 84635118,
+            "goalTarget": 90000000,
+            "goalPercent": 94.03902,
+            "goalRemaining": 5364882,
+            "won": false,
+            "courses": [
+              "basic",
+              "advanced"
+            ],
+            "recurringIncome": 20000000,
+            "salaryAtStarts": [
+              {
+                "lap": 1,
+                "base": 14000000,
+                "courseBoost": 0
+              },
+              {
+                "lap": 2,
+                "base": 14000000,
+                "courseBoost": 2000000
+              },
+              {
+                "lap": 3,
+                "base": 14000000,
+                "courseBoost": 6000000
+              },
+              {
+                "lap": 4,
+                "base": 14000000,
+                "courseBoost": 6000000
+              }
+            ],
+            "gold": {
+              "units": 0,
+              "book": 0,
+              "basis": 0
+            }
+          },
+          "alternative": {
+            "cash": 80528786,
+            "totalWorth": 84791676,
+            "liquidatableFunds": 84739124,
+            "debt": 0,
+            "obligations": 0,
+            "goalFunds": 84739124,
+            "goalTarget": 90000000,
+            "goalPercent": 94.15458222222223,
+            "goalRemaining": 5260876,
+            "won": false,
+            "courses": [
+              "basic",
+              "advanced"
+            ],
+            "recurringIncome": 20000000,
+            "salaryAtStarts": [
+              {
+                "lap": 1,
+                "base": 14000000,
+                "courseBoost": 0
+              },
+              {
+                "lap": 2,
+                "base": 14000000,
+                "courseBoost": 2000000
+              },
+              {
+                "lap": 3,
+                "base": 14000000,
+                "courseBoost": 6000000
+              },
+              {
+                "lap": 4,
+                "base": 14000000,
+                "courseBoost": 6000000
+              }
+            ],
+            "gold": {
+              "units": 0,
+              "book": 0,
+              "basis": 0
+            }
+          },
+          "delta": {
+            "cash": 104006,
+            "totalWorth": 104006,
+            "liquidatableFunds": 104006,
+            "debt": 0,
+            "obligations": 0,
+            "goalFunds": 104006,
+            "goalPercent": 0.11556222222223766,
+            "goalRemaining": -104006,
+            "recurringIncome": 0
+          },
+          "endings": {
+            "actual": {
+              "termination": "completed",
+              "phase": "finished",
+              "lap": 4,
+              "turn": 21,
+              "summaries": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "shortfall": 0
+            },
+            "alternative": {
+              "termination": "completed",
+              "phase": "finished",
+              "lap": 4,
+              "turn": 21,
+              "summaries": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "shortfall": 0
+            }
+          },
+          "costs": [
+            {
+              "sourceSequence": 25,
+              "actual": {
+                "gross": 1974376,
+                "spread": 59231,
+                "fee": 19151,
+                "net": 1895994
+              },
+              "alternative": null
+            },
+            {
+              "sourceSequence": 84,
+              "actual": {
+                "gross": 2351968,
+                "spread": 70559,
+                "fee": 22814,
+                "net": 2258595
+              },
+              "alternative": {
+                "gross": 2351968,
+                "spread": 70559,
+                "fee": 22814,
+                "net": 2258595
+              }
+            }
+          ],
+          "attribution": {
+            "initialFork": "gold-buy-to-skip-full-end.v1",
+            "initialCommand": {
+              "sequence": 4,
+              "kind": "rebalancing",
+              "turn": 1,
+              "lap": 1,
+              "tileId": 5,
+              "eventId": null,
+              "decisionId": "buy-gold-complete",
+              "action": {
+                "kind": "buy",
+                "amount": 2000000,
+                "asset": "gold",
+                "symbolId": "FPT",
+                "term": 1,
+                "completeEncounter": true
+              }
+            },
+            "followupCount": 1,
+            "followups": [
+              {
+                "ordinal": 1,
+                "command": {
+                  "sequence": 25,
+                  "kind": "rebalancing",
+                  "turn": 6,
+                  "lap": 2,
+                  "tileId": 5,
+                  "eventId": null,
+                  "decisionId": "sell-gold-complete",
+                  "action": {
+                    "kind": "sell",
+                    "amount": 1974376,
+                    "asset": "gold"
+                  }
+                },
+                "choice": {
+                  "kind": "gold-skip",
+                  "optionId": "skip"
+                }
+              }
+            ],
+            "combinedConsequences": true
+          },
+          "proof": {
+            "actualReplay": true,
+            "alternativeReplay": true,
+            "alternativeExportHash": "a3dbfda4d88d11f3ef73a77c15e1afae95e5746c59eae94a48eb98cf19ceb73a",
+            "externalCheckpoints": 100,
+            "phaseAdvances": 11,
+            "steps": 195,
+            "sourceUnchanged": true,
+            "reconstruction": {
+              "actual": 1,
+              "coupled": 1,
+              "independentAlternative": 1
+            }
+          },
+          "execution": {
+            "transcriptCount": 1,
+            "transcriptHash": "651bf52cccd9bf231e35b08223f641a373a1abcc0ff8bf7df44782e136498afb",
+            "sourceCommands": 39,
+            "explicitReplacements": 1,
+            "initialReplacements": 1,
+            "retained": 37,
+            "uniqueSourceCommands": true,
+            "retainedGoldSequences": [
+              60,
+              84
+            ]
+          }
+        },
+        "timing": {
+          "receivedAt": 1794069345425.7998,
+          "finishedAt": 1794069348052.2,
+          "elapsedMs": 2626.400146484375
+        }
+      },
+      "state": {
+        "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+        "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+        "sessionEpoch": 1,
+        "origin": "saved",
+        "terminal": true,
+        "terminalAt": 3169.5,
+        "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+        "captureRevision": 1,
+        "reason": null,
+        "worker": {
+          "spawns": 1,
+          "terminations": 0,
+          "postMs": [
+            7.200000047683716,
+            0,
+            0.09999990463256836,
+            0
+          ],
+          "postAt": [
+            1794069342809.7,
+            1794069343665,
+            1794069344518.0999,
+            1794069345425.5999
+          ],
+          "arrivalAt": [
+            1794069343648.0999,
+            1794069344496.4,
+            1794069345412.5,
+            1794069348053.5999
+          ],
+          "discarded": 0,
+          "lastCancelAck": null,
+          "disposed": false,
+          "phase": "final",
+          "activeWorker": true,
+          "activeJob": false,
+          "envelope": {
+            "controllerIncarnation": "b0443901-3f55-4637-a315-d18d3fb1479d",
+            "sessionIncarnation": "924347d0-43fe-45d7-8b2d-a8f5bfb469c8",
+            "sessionEpoch": 1,
+            "captureId": "0947ced2-4895-41ca-8b0c-0fa49c5e9e0c",
+            "captureRevision": 1,
+            "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+            "configHash": "72945999189fd73f764de5e1936f248f5d8667779bbd2edfce95e6fca8d99f1d",
+            "engine": "eg1a-course-v1:5a9f6aa4907ad5d2e2013fe68d6d22fa10debd9e3c93c2c01ced11f2494d8415",
+            "profile": "core-mvp-b18-multi-course-v1",
+            "schema": 7,
+            "initialPolicy": "gold-buy-to-skip-full-end.v1",
+            "continuationPolicy": "eg1b-gold-explicit-followup.v1",
+            "fairness": "F1-native-coupling.v1",
+            "analysisInstance": "dc23e9fd-0e69-41f5-9c63-e8c699e11101",
+            "analysisId": "c49ee88b-9bc6-4c62-a834-3f440ecaa4a1",
+            "jobId": "c7e2c6fa-d75b-46ae-8bcd-2d4e3abb39e7",
+            "requestOrdinal": 4,
+            "workerGeneration": "3bbbf56f-5f2b-4b1b-a390-d23cc5bb583a",
+            "branchId": "88125dc6-d04e-4c94-bacf-6b0ab39d4e9a",
+            "expectedRevision": 1,
+            "cancelId": null,
+            "decision": {
+              "sequence": 4,
+              "kind": "rebalancing",
+              "turn": 1,
+              "lap": 1,
+              "tileId": 5,
+              "eventId": null,
+              "decisionId": "buy-gold-complete",
+              "action": {
+                "kind": "buy",
+                "amount": 2000000,
+                "asset": "gold",
+                "symbolId": "FPT",
+                "term": 1,
+                "completeEncounter": true
+              }
+            }
+          }
+        },
+        "observations": [
+          {
+            "stage": "session-read",
+            "start": 2156,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "session-read",
+            "start": 2738.3000000715256,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "session-read",
+            "start": 3169.4000000953674,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "capture-session-read",
+            "start": 3402,
+            "elapsedMs": 0
+          },
+          {
+            "stage": "capture-witness",
+            "start": 3402,
+            "elapsedMs": 12.200000047683716
+          },
+          {
+            "stage": "serialize-text",
+            "start": 3414.3000000715256,
+            "elapsedMs": 54.60000002384186
+          },
+          {
+            "stage": "text-hash-submit",
+            "start": 3470.2000000476837,
+            "elapsedMs": 75.70000004768372
+          },
+          {
+            "stage": "text-hash-wall",
+            "start": 3470.2000000476837,
+            "elapsedMs": 75.70000004768372
+          },
+          {
+            "stage": "post-capture-witness",
+            "start": 3570.9000000953674,
+            "elapsedMs": 5.199999928474426
+          },
+          {
+            "stage": "publication-witness",
+            "start": 4474.600000023842,
+            "elapsedMs": 6
+          },
+          {
+            "stage": "request-witness",
+            "start": 4486.600000023842,
+            "elapsedMs": 4.399999976158142
+          },
+          {
+            "stage": "publication-witness",
+            "start": 5322.800000071526,
+            "elapsedMs": 7.299999952316284
+          },
+          {
+            "stage": "request-witness",
+            "start": 5336.700000047684,
+            "elapsedMs": 7.399999976158142
+          },
+          {
+            "stage": "publication-witness",
+            "start": 6238.900000095367,
+            "elapsedMs": 3.799999952316284
+          },
+          {
+            "stage": "request-witness",
+            "start": 6248.5,
+            "elapsedMs": 3.100000023841858
+          },
+          {
+            "stage": "publication-witness",
+            "start": 8880.300000071526,
+            "elapsedMs": 3.6999999284744263
+          },
+          {
+            "stage": "read-witness",
+            "start": 8891.400000095367,
+            "elapsedMs": 3.799999952316284
+          }
+        ]
+      },
+      "animationFrameIntervalsMs": []
+    }
+  ],
+  "memBefore": 31240027,
+  "memAfter": 71464058,
+  "cleanup": {
+    "max": 1,
+    "total": 1,
+    "live": 0,
+    "waitMs": 0.011900000001332955
+  },
+  "timeOrigin": 1794069339173.7,
+  "longTasks": [
+    {
+      "start": 1361.5,
+      "duration": 55
+    },
+    {
+      "start": 1687.6000000238419,
+      "duration": 351
+    },
+    {
+      "start": 2154.9000000953674,
+      "duration": 136
+    },
+    {
+      "start": 2297.5,
+      "duration": 104
+    },
+    {
+      "start": 2837.600000023842,
+      "duration": 90
+    },
+    {
+      "start": 3168.2000000476837,
+      "duration": 68
+    },
+    {
+      "start": 3243.2000000476837,
+      "duration": 87
+    },
+    {
+      "start": 3470.2000000476837,
+      "duration": 75
+    },
+    {
+      "start": 3570.600000023842,
+      "duration": 72
+    }
+  ],
+  "workers": [
+    {
+      "live": false,
+      "created": 3635.8000000715256,
+      "messages": [
+        {
+          "kind": "SOURCE_VERIFIED",
+          "time": 4473.700000047684
+        },
+        {
+          "kind": "DECISIONS_READY",
+          "time": 5322.200000047684
+        },
+        {
+          "kind": "NEEDS_FOLLOWUP",
+          "time": 6238.5
+        },
+        {
+          "kind": "SUPPORTED_FINAL",
+          "time": 8879.200000047684
+        }
+      ],
+      "terminate": 8963.300000071526
+    }
+  ],
+  "callbacks": [
+    {
+      "op": "connect",
+      "mode": "normal"
+    },
+    {
+      "op": "disconnect",
+      "mode": "normal"
+    },
+    {
+      "op": "connect",
+      "mode": "normal"
+    },
+    {
+      "op": "disconnect",
+      "mode": "normal"
+    }
+  ],
+  "dtoMutationBlocked": true
+}

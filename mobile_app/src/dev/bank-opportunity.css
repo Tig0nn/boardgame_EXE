@@ -1,0 +1,27 @@
+:root { font-family: 'Nunito', system-ui, sans-serif; color: #35443d; background: #fffaf0; --line:#b4b8b5; --muted:#56635c; --actual:#f2f5f1; --alternative:#f1edf8; }
+* { box-sizing:border-box; }
+body { margin:0; }
+main { max-width:760px; margin:auto; padding:24px 16px; }
+h1 { font-size:28px; line-height:1.2; margin:12px 0; }
+h2 { font-size:19px; line-height:1.35; margin:0 0 12px; }
+h3 { font-size:22px; margin:8px 0 12px; }
+p { font-size:14px; line-height:1.6; margin:8px 0; }
+.eyebrow, .checkpoint > span { font-size:11px; font-weight:800; letter-spacing:.06em; }
+.notice { border-left:3px solid #986f30; padding:12px; margin:20px 0; background:#f6eddc; font-size:13px; line-height:1.5; }
+form { border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px 0; margin:20px 0; }
+label { display:block; font-size:14px; font-weight:750; margin:16px 0 8px; }
+input, select, button { display:block; width:100%; min-height:48px; font:inherit; border:1px solid var(--line); border-radius:8px; padding:12px; background:#fff; color:inherit; }
+button { margin-top:20px; background:#35443d; color:#fffaf0; font-weight:750; cursor:pointer; }
+:is(input,select,button):focus-visible { outline:3px solid #637c74; outline-offset:3px; }
+.checkpoint { margin:24px 0 16px; }
+.checkpoint h2 { margin-top:8px; }
+.outcomes { display:grid; gap:12px; }
+article { padding:16px; border-radius:12px; border:1px solid var(--line); min-width:0; }
+article.actual { background:var(--actual); border:2px solid #63746c; }
+article.alternative { background:var(--alternative); border-color:#a58dbb; }
+article strong, .lesson > strong { font-size:28px; line-height:1.4; font-variant-numeric:tabular-nums; display:block; overflow-wrap:anywhere; }
+article p { color:var(--muted); }
+.lesson { background:#eaf2e7; padding:16px; border-radius:12px; margin:20px 0; }
+.liquidity, .limits { border-top:1px solid var(--line); padding:20px 0; }
+footer { color:var(--muted); border-top:1px solid var(--line); padding:16px 0; font-size:12px; line-height:1.6; }
+@media(min-width:640px) { main {padding:32px;} .outcomes { grid-template-columns:1fr 1fr; } }

@@ -1,0 +1,115 @@
+{
+  "status": "PASS",
+  "patches": [
+    {
+      "path": "docs\\playtests\\whatif-endgame\\2026-11-08\\eg2c-fast-track-01\\protected-beta-activation-proposed.patch",
+      "sha256": "A1F25B0DB6F2E71B7C2DB126DF813236E6527C6D9F3990D67A333F5FCDFB48C0",
+      "files": [
+        "mobile_app/src/game/endgame-analysis-feature.ts",
+        "mobile_app/src/game/endgame-analysis-app-binding.ts"
+      ],
+      "hunks": 3,
+      "check": "PASS"
+    },
+    {
+      "path": "docs\\playtests\\whatif-endgame\\2026-11-08\\eg2c-fast-track-01\\attempt-02-beta-wiring-unapplied.patch",
+      "sha256": "3F98C3E6204F2F036D840B2CA97C2E09DCE2156D31CFCC363F3973D16336BB5F",
+      "files": [
+        "mobile_app/src/App.tsx",
+        "mobile_app/src/main.tsx",
+        "mobile_app/src/dev/EndgameWhatIfDev.tsx"
+      ],
+      "hunks": 7,
+      "check": "PASS"
+    }
+  ],
+  "files": [
+    {
+      "path": "mobile_app/src/App.tsx",
+      "beforeSha256": "2B9986CDF0F73ED005E6D52303AEC9667861163272082954FBF10912952E0273",
+      "candidateSha256": "BE293816BD3CDC8B32F69B2D2420DD02CFDE16A6C8E6B4BB24D4B9ED114680E6",
+      "beforeEol": {
+        "crlf": 545,
+        "loneLf": 9,
+        "finalNewline": true,
+        "bom": false
+      },
+      "candidateEol": {
+        "crlf": 549,
+        "loneLf": 9,
+        "finalNewline": true,
+        "bom": false
+      }
+    },
+    {
+      "path": "mobile_app/src/main.tsx",
+      "beforeSha256": "2B6E6184C470A956AEAAAA9E9722CF254B9B13F0CDA3F734D34F689EFF5A3797",
+      "candidateSha256": "40F34CFD520BCD252D4330A3F5FEF77D17591A15BD0A5662C89CD48D3D8BC320",
+      "beforeEol": {
+        "crlf": 25,
+        "loneLf": 0,
+        "finalNewline": true,
+        "bom": false
+      },
+      "candidateEol": {
+        "crlf": 25,
+        "loneLf": 0,
+        "finalNewline": true,
+        "bom": false
+      }
+    },
+    {
+      "path": "mobile_app/src/dev/EndgameWhatIfDev.tsx",
+      "beforeSha256": "04D6EA7F2AC5016803883EA7DD5DAAC3B8633627BAFC4820957E1F2AE42360E3",
+      "candidateSha256": "D63B594214FF1A7BDE02F471CB88E003107A73D85E8364FC23B5D892684A1ECD",
+      "beforeEol": {
+        "crlf": 0,
+        "loneLf": 46,
+        "finalNewline": true,
+        "bom": false
+      },
+      "candidateEol": {
+        "crlf": 0,
+        "loneLf": 48,
+        "finalNewline": true,
+        "bom": false
+      }
+    },
+    {
+      "path": "mobile_app/src/game/endgame-analysis-feature.ts",
+      "beforeSha256": "8025700593484E31EE4C541706E96D5DBB13309F1439015575A0B7E48D43AEC7",
+      "candidateSha256": "AD20284FD8BC7DC8DDC0014B04F38F568E2CD8F07B978F4168579D1C0FBEDF6E",
+      "beforeEol": {
+        "crlf": 0,
+        "loneLf": 2,
+        "finalNewline": false,
+        "bom": false
+      },
+      "candidateEol": {
+        "crlf": 0,
+        "loneLf": 3,
+        "finalNewline": false,
+        "bom": false
+      }
+    },
+    {
+      "path": "mobile_app/src/game/endgame-analysis-app-binding.ts",
+      "beforeSha256": "0167DDDB7C6B3EE3E12020BAEEDFA38C2B8AA4427787CE22119B5FA3A328433C",
+      "candidateSha256": "703D34254BE295DAF396E1194DBB915A5803004458A02AEFFE4D7D76547E380D",
+      "beforeEol": {
+        "crlf": 0,
+        "loneLf": 270,
+        "finalNewline": true,
+        "bom": false
+      },
+      "candidateEol": {
+        "crlf": 0,
+        "loneLf": 271,
+        "finalNewline": true,
+        "bom": false
+      }
+    }
+  ],
+  "appliedHunks": 10,
+  "stagingTouched": false
+}

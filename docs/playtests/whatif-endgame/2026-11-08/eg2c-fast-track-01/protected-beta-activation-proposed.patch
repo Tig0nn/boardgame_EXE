@@ -1,0 +1,35 @@
+diff --git a/mobile_app/src/game/endgame-analysis-feature.ts b/mobile_app/src/game/endgame-analysis-feature.ts
+--- a/mobile_app/src/game/endgame-analysis-feature.ts
++++ b/mobile_app/src/game/endgame-analysis-feature.ts
+@@ -1,3 +1,4 @@
+-/** Independent DEV gate; no URL/App hookup, storage, simulation or import-time Worker. */
+-export const ENDGAME_ANALYSIS_DEV=import.meta.env?.DEV===true
+-export const endgameAnalysisEnabled=(dev:boolean,explicitOptIn:boolean)=>dev&&explicitOptIn
+\ No newline at end of file
++/** Build availability only. The caller must also opt in explicitly. */
++export const ENDGAME_ANALYSIS_DEV=import.meta.env?.DEV===true
++export const ENDGAME_ANALYSIS_BETA=import.meta.env?.PROD===true&&import.meta.env?.VITE_ENDGAME_WHAT_IF_BETA==='1'
++export const endgameAnalysisEnabled=(dev:boolean,explicitOptIn:boolean)=>(dev||ENDGAME_ANALYSIS_BETA)&&explicitOptIn
+\ No newline at end of file
+diff --git a/mobile_app/src/game/endgame-analysis-app-binding.ts b/mobile_app/src/game/endgame-analysis-app-binding.ts
+--- a/mobile_app/src/game/endgame-analysis-app-binding.ts
++++ b/mobile_app/src/game/endgame-analysis-app-binding.ts
+@@ -6,7 +6,8 @@
+ import { completedFour } from './endgame-whatif-comparison.ts'
+ import type { GoldResumeInput, GoldSelection } from './endgame-whatif-gold-contract.ts'
+ import { digest } from './endgame-whatif-identity.ts'
+-import { captureDataIntegrity } from './endgame-whatif-integrity.ts'
++import { captureDataIntegrity } from './endgame-whatif-integrity.ts'
++import { ENDGAME_ANALYSIS_BETA } from './endgame-analysis-feature.ts'
+ 
+ type Transport = 'T' | 'S'
+ type WorkerBinding = ReturnType<typeof import('./endgame-analysis-binding.ts').createAnalysisBinding>
+@@ -43,7 +44,7 @@
+ const integrityGap = 'CAPTURE_INTEGRITY_GAP'
+ const performanceGap = 'CAPTURE_PERFORMANCE_GAP'
+ const captureBudgetMs = 100
+-const loadWorkerBinding = import.meta.env?.DEV
++const loadWorkerBinding = import.meta.env?.DEV || ENDGAME_ANALYSIS_BETA
+   ? () => import('./endgame-analysis-binding.ts')
+   : null
+ 

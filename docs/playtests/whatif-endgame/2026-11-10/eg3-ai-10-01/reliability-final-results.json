@@ -1,0 +1,628 @@
+{
+  "cases": [
+    {
+      "name": "reliability-new-gold",
+      "status": "PASS"
+    },
+    {
+      "name": "reliability-new-bank",
+      "status": "PASS"
+    },
+    {
+      "name": "reliability-new-course",
+      "status": "PASS"
+    },
+    {
+      "name": "reliability-new-advanced",
+      "status": "PASS"
+    },
+    {
+      "name": "reliability-new-stocks",
+      "status": "PASS"
+    },
+    {
+      "name": "reliability-new-bonds",
+      "status": "PASS"
+    },
+    {
+      "name": "reliability-new-business",
+      "status": "PASS"
+    },
+    {
+      "name": "reliability-http-throttle-manual-recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "reliability-same-game-repeated-run-and-close-stress",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "forbidden": [],
+  "interceptedFonts": [
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2",
+    "https://fonts.googleapis.com/css2"
+  ],
+  "coreEntry": [
+    {
+      "name": "new-gold",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "new-bank",
+      "width": 390,
+      "step": 0,
+      "resultActivation": "touch"
+    },
+    {
+      "name": "new-course",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "new-advanced",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "new-stocks",
+      "width": 390,
+      "step": 0,
+      "resultActivation": "touch"
+    },
+    {
+      "name": "new-bonds",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "new-business",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 0,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "stocks",
+      "width": 320,
+      "step": 1,
+      "resultActivation": "keyboard-enter"
+    },
+    {
+      "name": "new-stocks",
+      "width": 1280,
+      "step": 0,
+      "resultActivation": "pointer"
+    }
+  ],
+  "requests": [
+    {
+      "operation": "interpret",
+      "question": "Không mua vàng tại quyết định 7"
+    },
+    {
+      "operation": "propose",
+      "question": "Bỏ mua vàng tại quyết định 7",
+      "catalog": [
+        {
+          "kind": "gold",
+          "decisionId": "gold:7",
+          "alternativeId": "skip",
+          "lap": 1,
+          "turn": 2
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Gửi tiết kiệm 7.250.019 VND kỳ hạn 3 START tại quyết định 7"
+    },
+    {
+      "operation": "propose",
+      "question": "Gửi tiết kiệm số tiền 7250019 kỳ hạn 3 tại quyết định 7",
+      "catalog": [
+        {
+          "kind": "bank",
+          "decisionId": "bank:7",
+          "alternativeId": "custom:bank:deposit:3:7250019",
+          "lap": 1,
+          "turn": 2,
+          "parameters": {
+            "operation": "deposit",
+            "amount": 7250019,
+            "term": 3
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Bỏ học khóa cơ bản tại quyết định 48"
+    },
+    {
+      "operation": "propose",
+      "question": "Bỏ qua lần học tại quyết định 48",
+      "catalog": [
+        {
+          "kind": "course",
+          "decisionId": "course:48",
+          "alternativeId": "skip",
+          "lap": 3,
+          "turn": 10
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Bỏ mua FPT tại quyết định 7"
+    },
+    {
+      "operation": "propose",
+      "question": "Bỏ qua giao dịch cổ phiếu tại quyết định 7",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:7",
+          "alternativeId": "skip",
+          "lap": 1,
+          "turn": 2
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Bán trái phiếu lot bond-4 số tiền 17 tại quyết định 78"
+    },
+    {
+      "operation": "propose",
+      "question": "Bán trái phiếu lot bond-4 số tiền 17 tại quyết định 78",
+      "catalog": [
+        {
+          "kind": "bonds",
+          "decisionId": "bonds:78",
+          "alternativeId": "custom:bonds:sell:bond-4:17",
+          "lap": 3,
+          "turn": 18,
+          "parameters": {
+            "operation": "sell",
+            "amount": 17,
+            "lotId": "bond-4"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Nâng cấp chất lượng đồ uống tại quyết định 76"
+    },
+    {
+      "operation": "propose",
+      "question": "Nâng cấp chất lượng đồ uống tại quyết định 76",
+      "catalog": [
+        {
+          "kind": "business",
+          "decisionId": "business:76",
+          "alternativeId": "upgrade-business:taste",
+          "lap": 4,
+          "turn": 16
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Mua CMG 1.234.567 VND tại quyết định 10"
+    },
+    {
+      "operation": "interpret",
+      "question": "Bỏ mua FPT tại quyết định 7"
+    },
+    {
+      "operation": "propose",
+      "question": "Bỏ qua giao dịch cổ phiếu tại quyết định 7",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:7",
+          "alternativeId": "skip",
+          "lap": 1,
+          "turn": 2
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Bỏ mua FPT tại quyết định 7"
+    },
+    {
+      "operation": "propose",
+      "question": "Bỏ qua giao dịch cổ phiếu tại quyết định 7",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:7",
+          "alternativeId": "skip",
+          "lap": 1,
+          "turn": 2
+        }
+      ]
+    },
+    {
+      "operation": "interpret",
+      "question": "Bỏ mua FPT tại quyết định 7"
+    },
+    {
+      "operation": "propose",
+      "question": "Bỏ qua giao dịch cổ phiếu tại quyết định 7",
+      "catalog": [
+        {
+          "kind": "stocks",
+          "decisionId": "stocks:7",
+          "alternativeId": "skip",
+          "lap": 1,
+          "turn": 2
+        }
+      ]
+    }
+  ],
+  "newHistories": {
+    "new-gold": {
+      "seed": "EG3-AI-08-GOLD-2",
+      "sourceHash": "f49f39c87bc39ad2ad716c3eb12cba8a23f0d89deaaee11b5f04757cc825ddde",
+      "characters": 17795559,
+      "bytes": 17846949,
+      "entries": 109,
+      "selection": {
+        "decisionId": "gold:7",
+        "alternativeId": "skip"
+      },
+      "followUps": [
+        31
+      ],
+      "delta": {
+        "cash": 46,
+        "totalWorth": 46,
+        "liquidatableFunds": 46,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 46,
+        "goalPercent": 0.000051111111119439556,
+        "goalRemaining": -46,
+        "recurringIncome": 0
+      },
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "alternativeExportHash": "f90f899c29e659d818df27eb5025ff930fcdefc23770e76134b4e68357d6039e",
+        "externalCheckpoints": 122,
+        "phaseAdvances": 11,
+        "steps": 243,
+        "sourceUnchanged": true,
+        "reconstruction": {
+          "actual": 1,
+          "coupled": 1,
+          "independentAlternative": 1
+        }
+      }
+    },
+    "new-bank": {
+      "seed": "EG3-AI-08-MIXED-3",
+      "sourceHash": "94448abd32cdcb0a1324ec6ffc1fb893ad4670ea94f587e67ff6a391ab8f39d4",
+      "characters": 17233380,
+      "bytes": 17289280,
+      "entries": 104,
+      "selection": {
+        "kind": "bank",
+        "decisionId": "bank:7",
+        "alternativeId": "custom:bank:deposit:3:7250019",
+        "lap": 1,
+        "turn": 2,
+        "parameters": {
+          "operation": "deposit",
+          "amount": 7250019,
+          "term": 3
+        }
+      },
+      "followUps": [],
+      "delta": {
+        "cash": 1305003,
+        "totalWorth": 1305003,
+        "liquidatableFunds": 1305003,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 1305003,
+        "goalPercent": 1.450003333333342,
+        "goalRemaining": -1305003,
+        "recurringIncome": 0
+      },
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 116,
+        "alternativeExportHash": "45ddb33b9761d76ea8ec208b046ccdba0c08dd64a8e35137bbb6e09aea36629d"
+      }
+    },
+    "new-course": {
+      "seed": "EG3-AI-08-MIXED-5",
+      "sourceHash": "52e74005b11c23786388c83dafce8eb6b0bf34b6ec7ea3d4cf4e541e22cc6c5c",
+      "characters": 15648475,
+      "bytes": 15680208,
+      "entries": 95,
+      "selection": {
+        "kind": "course",
+        "decisionId": "course:48",
+        "alternativeId": "skip",
+        "lap": 3,
+        "turn": 10
+      },
+      "followUps": [],
+      "delta": {
+        "cash": 2000000,
+        "totalWorth": 2000000,
+        "liquidatableFunds": 2000000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 2000000,
+        "goalPercent": 2.2222222222222143,
+        "goalRemaining": -2000000,
+        "recurringIncome": -2000000
+      },
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 54,
+        "alternativeExportHash": "22e08d0b391e7e0db55d7f706dea3702fe8b23d5951b288a62f49dcf898655d8"
+      }
+    },
+    "new-advanced": {
+      "seed": "EG3-AI-08-MIXED-9",
+      "sourceHash": "b787b8653d014c3f268c90f28a68de1b8e6b30431347a862191ce208db39b9cf",
+      "characters": 19812943,
+      "bytes": 19884272,
+      "entries": 118,
+      "selection": {
+        "kind": "advanced",
+        "decisionId": "advanced:7",
+        "alternativeId": "course-advanced",
+        "lap": 1,
+        "turn": 2
+      },
+      "followUps": [],
+      "delta": {
+        "cash": 6000000,
+        "totalWorth": 6000000,
+        "liquidatableFunds": 6000000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 6000000,
+        "goalPercent": 6.666666666666671,
+        "goalRemaining": -6000000,
+        "recurringIncome": 4000000
+      },
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 138,
+        "alternativeExportHash": "edabdf9a4bed93eea912ae3853b1a6d3b629de90a20b4d0ba54d9fc6e2209b92"
+      }
+    },
+    "new-stocks": {
+      "seed": "EG3-AI-08-MIXED-5",
+      "sourceHash": "52e74005b11c23786388c83dafce8eb6b0bf34b6ec7ea3d4cf4e541e22cc6c5c",
+      "characters": 15648475,
+      "bytes": 15680208,
+      "entries": 95,
+      "selection": {
+        "kind": "stocks",
+        "decisionId": "stocks:7",
+        "alternativeId": "skip",
+        "lap": 1,
+        "turn": 2
+      },
+      "followUps": [
+        20,
+        21,
+        22
+      ],
+      "delta": {
+        "cash": 3876325,
+        "totalWorth": -246072,
+        "liquidatableFunds": -204848,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": -204848,
+        "goalPercent": -0.22760888888889497,
+        "goalRemaining": 204848,
+        "recurringIncome": 0
+      },
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 102,
+        "alternativeExportHash": "9b84ffb07f8bb320076103477548f0f9d04e15286793b16db93b21b6c18b4ffa"
+      }
+    },
+    "new-bonds": {
+      "seed": "EG3-AI-08-MIXED-3",
+      "sourceHash": "94448abd32cdcb0a1324ec6ffc1fb893ad4670ea94f587e67ff6a391ab8f39d4",
+      "characters": 17233380,
+      "bytes": 17289280,
+      "entries": 104,
+      "selection": {
+        "kind": "bonds",
+        "decisionId": "bonds:78",
+        "alternativeId": "custom:bonds:sell:bond-4:17",
+        "lap": 3,
+        "turn": 18,
+        "parameters": {
+          "operation": "sell",
+          "amount": 17,
+          "lotId": "bond-4"
+        }
+      },
+      "followUps": [],
+      "delta": {
+        "cash": -10821,
+        "totalWorth": -10821,
+        "liquidatableFunds": -10821,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": -10821,
+        "goalPercent": -0.01202333333333172,
+        "goalRemaining": 10821,
+        "recurringIncome": 0
+      },
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 36,
+        "alternativeExportHash": "f195256c6a6a13f4283a0d4d1b75bc18bc6cf85467665887d2506604dbd75fbd"
+      }
+    },
+    "new-business": {
+      "seed": "EG3-AI-08-MIXED-5",
+      "sourceHash": "52e74005b11c23786388c83dafce8eb6b0bf34b6ec7ea3d4cf4e541e22cc6c5c",
+      "characters": 15648475,
+      "bytes": 15680208,
+      "entries": 95,
+      "selection": {
+        "kind": "business",
+        "decisionId": "business:76",
+        "alternativeId": "upgrade-business:taste",
+        "lap": 4,
+        "turn": 16
+      },
+      "followUps": [],
+      "delta": {
+        "cash": -1000000,
+        "totalWorth": -1000000,
+        "liquidatableFunds": -1000000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": -1000000,
+        "goalPercent": -1.1111111111111143,
+        "goalRemaining": 1000000,
+        "recurringIncome": 0
+      },
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 22,
+        "alternativeExportHash": "0ccb83b8f9e1a5907f57907d580a6aeb8a50247aa31b1eb6dba36da994715caf"
+      }
+    }
+  },
+  "resourceChecks": [
+    {
+      "rapidCancels": 8,
+      "completedRuns": 3,
+      "created": 16,
+      "live": 0,
+      "heapBytesAfterGC": [
+        19319452,
+        19852628
+      ]
+    }
+  ],
+  "fixtures": {
+    "stocks": {
+      "sourceHash": "226b9b5810ac209973870043647a26db38a6a3a485a810f2cf711dc7b9022bb1",
+      "phase": "summary"
+    },
+    "stockAgain": {
+      "sourceHash": "226b9b5810ac209973870043647a26db38a6a3a485a810f2cf711dc7b9022bb1",
+      "phase": "summary"
+    },
+    "sale": {
+      "sourceHash": "91cee793ae8519ab683f7300c1cb968b81fe71178bf4aa7e2c05dcd4a1f81b55",
+      "phase": "summary"
+    },
+    "bank": {
+      "sourceHash": "1a47f48d14c531a2065d55f4bced3c2232a8f4d96e2320a6d5d8be923688dbd8",
+      "phase": "summary"
+    },
+    "bonds": {
+      "sourceHash": "836e5d10c5bfa1292f5becad5aa893f6ec9ed5168aeefd181ac87a5e62328b27",
+      "phase": "summary"
+    },
+    "course": {
+      "sourceHash": "ad97984596b8baa6d7190c4bef3d603ff1fc85cf93cca235837ab80c20ac90d9",
+      "phase": "summary"
+    },
+    "business": {
+      "sourceHash": "296dde6a880d30373c07739e5394872fd08bc035ed4aa57dfe3b7011c1b8cc8c",
+      "phase": "summary"
+    },
+    "gold": {
+      "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+      "phase": "summary"
+    },
+    "courseBasic": {
+      "sourceHash": "ad97984596b8baa6d7190c4bef3d603ff1fc85cf93cca235837ab80c20ac90d9",
+      "phase": "summary"
+    },
+    "courseSkipBasic": {
+      "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+      "phase": "summary"
+    },
+    "new-gold": {
+      "sourceHash": "f49f39c87bc39ad2ad716c3eb12cba8a23f0d89deaaee11b5f04757cc825ddde",
+      "phase": "rebalancing"
+    },
+    "new-bank": {
+      "sourceHash": "94448abd32cdcb0a1324ec6ffc1fb893ad4670ea94f587e67ff6a391ab8f39d4",
+      "phase": "rebalancing"
+    },
+    "new-course": {
+      "sourceHash": "52e74005b11c23786388c83dafce8eb6b0bf34b6ec7ea3d4cf4e541e22cc6c5c",
+      "phase": "rebalancing"
+    },
+    "new-advanced": {
+      "sourceHash": "b787b8653d014c3f268c90f28a68de1b8e6b30431347a862191ce208db39b9cf",
+      "phase": "rebalancing"
+    },
+    "new-stocks": {
+      "sourceHash": "52e74005b11c23786388c83dafce8eb6b0bf34b6ec7ea3d4cf4e541e22cc6c5c",
+      "phase": "rebalancing"
+    },
+    "new-bonds": {
+      "sourceHash": "94448abd32cdcb0a1324ec6ffc1fb893ad4670ea94f587e67ff6a391ab8f39d4",
+      "phase": "rebalancing"
+    },
+    "new-business": {
+      "sourceHash": "52e74005b11c23786388c83dafce8eb6b0bf34b6ec7ea3d4cf4e541e22cc6c5c",
+      "phase": "rebalancing"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+TAP version 13
+# (node:14624) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# EG3-GOLD-PREPARE 848
+# EG3-GOLD-STAGES {"operation":"create","stages":[{"stage":"setup","wallMs":2,"cpuMs":0,"remainingMs":19955,"steps":0,"remainingSteps":5000},{"stage":"identify","wallMs":824,"cpuMs":1016,"remainingMs":19131,"steps":0,"remainingSteps":5000},{"stage":"duplicate-parse","wallMs":718,"cpuMs":874,"remainingMs":18413,"steps":0,"remainingSteps":5000},{"stage":"actual-replay","wallMs":815,"cpuMs":766,"remainingMs":17597,"steps":52,"remainingSteps":4948},{"stage":"paired-replay","wallMs":374,"cpuMs":359,"remainingMs":17223,"steps":76,"remainingSteps":4924}],"rejectionWitness":{"calls":9,"wallMs":137.1358999999993,"cpuMs":123}}
+# EG3-GOLD-PRE-RESUME 3635
+# EG3-GOLD-STAGES {"operation":"resume","stages":[{"stage":"setup","wallMs":1,"cpuMs":0,"remainingMs":19999,"steps":0,"remainingSteps":5000},{"stage":"identify","wallMs":654,"cpuMs":751,"remainingMs":19345,"steps":0,"remainingSteps":5000},{"stage":"duplicate-parse","wallMs":573,"cpuMs":796,"remainingMs":18772,"steps":0,"remainingSteps":5000},{"stage":"actual-replay","wallMs":672,"cpuMs":625,"remainingMs":18099,"steps":52,"remainingSteps":4948},{"stage":"paired-replay","wallMs":3298,"cpuMs":3297,"remainingMs":14801,"steps":143,"remainingSteps":4857},{"stage":"independent-verification","wallMs":1737,"cpuMs":1813,"remainingMs":13064,"steps":195,"remainingSteps":4805},{"stage":"final-proof","wallMs":308,"cpuMs":390,"remainingMs":12756,"steps":195,"remainingSteps":4805}],"rejectionWitness":{"calls":38,"wallMs":2357.1029000000017,"cpuMs":2406}}
+# EG3-GOLD-RESULT {"status":"supported-final"}
+# Subtest: public pending rejects invalid inputs, preserves head, then valid retry commits once
+ok 1 - public pending rejects invalid inputs, preserves head, then valid retry commits once
+  ---
+  duration_ms: 10886.1505
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12051.3404

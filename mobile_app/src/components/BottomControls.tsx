@@ -9,6 +9,7 @@ export interface BottomControlsProps {
   onLogClick?: () => void;
   lastDiceValue?: number;
   disabled?: boolean;
+  decisionReview?: React.ReactNode;
 
   // Interface contract props
   onRollDice?: () => void;
@@ -26,6 +27,7 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
   onLogClick,
   lastDiceValue,
   disabled,
+  decisionReview,
   onRollDice,
   canRoll,
   isRolling,
@@ -62,6 +64,8 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
 
   return (
     <div
+      role="group"
+      aria-label="Điều khiển ván chơi"
       style={{
         position: 'absolute',
         bottom: 0,
@@ -293,6 +297,8 @@ export const BottomControls: React.FC<BottomControlsProps> = ({
           />
         </button>
       </div>
+
+      {decisionReview}
 
       <style>{`
         @keyframes nutlacBreathe {

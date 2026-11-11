@@ -1,4 +1,5 @@
 import {useMemo,useSyncExternalStore} from 'react'
+import type { ReactNode } from 'react'
 import {GameplayAiContext} from './gameplay-ai-context'
 import {useGameplayAiSlots} from './use-gameplay-ai-slots'
 import {createGameplayBinding} from '../game/universal-ai'
@@ -15,7 +16,7 @@ import { LapSummaryModal } from './LapSummaryModal'
 import { RebalanceModal } from './RebalanceModal'
 import { GameResultModal } from './GameResultModal'
 
-function GamePhaseContent({ game, session, send, onRestart, onHome, onHelp, onDismissResult }: {
+function GamePhaseContent({ game, session, send, onRestart, onHome, onHelp, onDismissResult, endgameResultAction }: {
   game: GameState;
   session?: RepairAiSession;
   send: (command: MobileCommand) => boolean;
@@ -23,6 +24,7 @@ function GamePhaseContent({ game, session, send, onRestart, onHome, onHelp, onDi
   onHome?: () => void;
   onHelp?: () => void;
   onDismissResult?: () => void;
+  endgameResultAction?: ReactNode;
 }) {
   switch (PHASE_UI[game.phase]) {
     case 'forecast': return <RoundChallengeModal game={game} onConfirm={() => send({ type: 'advance' })} onHelp={onHelp} />
@@ -30,7 +32,7 @@ function GamePhaseContent({ game, session, send, onRestart, onHome, onHelp, onDi
     case 'funding': return <FundingDialog key={game.log.length} game={game} compact onHelp={onHelp} onFund={(source, amount, lotId) => send({ type: 'fund', source, amount, lotId })} />
     case 'start-summary': return <LapSummaryModal game={game} onHelp={onHelp} onContinue={() => send({ type: 'advance' })} />
     case 'rebalancing': return <RebalanceModal key={game.log.length} game={game} compact onHelp={onHelp} onTransaction={action => send({ type: 'trade', action })} onContinue={() => send({ type: 'advance' })} />
-    case 'finished': return <GameResultModal game={game} onHelp={onHelp} onRestart={onRestart} onHome={onHome} onClose={onDismissResult} onExport={() => exportLog(game)} />
+    case 'finished': return <GameResultModal game={game} onHelp={onHelp} onRestart={onRestart} onHome={onHome} onClose={onDismissResult} onExport={() => exportLog(game)} endgameResultAction={endgameResultAction} />
     default: return game.phase === 'rolling' ? <RollingGameplayAi/> : null
   }
 }

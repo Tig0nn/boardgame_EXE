@@ -1,0 +1,806 @@
+{
+  "stocks": {
+    "kind": "stocks",
+    "sourceHash": "226b9b5810ac209973870043647a26db38a6a3a485a810f2cf711dc7b9022bb1",
+    "phase": "summary",
+    "selection": {
+      "kind": "stocks",
+      "decisionId": "stocks:10",
+      "alternativeId": "custom:stocks:buy:CMG:1234567",
+      "lap": 1,
+      "turn": 3,
+      "parameters": {
+        "operation": "buy",
+        "symbolId": "CMG",
+        "amount": 1234567
+      }
+    },
+    "followUps": [],
+    "comparison": {
+      "actual": {
+        "cash": 86000000,
+        "totalWorth": 86000000,
+        "liquidatableFunds": 86000000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 86000000,
+        "goalTarget": 90000000,
+        "goalPercent": 95.55555555555556,
+        "goalRemaining": 4000000,
+        "won": false,
+        "courses": [],
+        "recurringIncome": 14000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 0
+          }
+        ]
+      },
+      "alternative": {
+        "cash": 84765433,
+        "totalWorth": 86002321,
+        "liquidatableFunds": 85989952,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 85989952,
+        "goalTarget": 90000000,
+        "goalPercent": 95.54439111111111,
+        "goalRemaining": 4010048,
+        "won": false,
+        "courses": [],
+        "recurringIncome": 14000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 0
+          }
+        ]
+      },
+      "delta": {
+        "cash": -1234567,
+        "totalWorth": 2321,
+        "liquidatableFunds": -10048,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": -10048,
+        "goalPercent": -0.01116444444444653,
+        "goalRemaining": 10048,
+        "recurringIncome": 0
+      },
+      "lap": 4,
+      "turn": 20,
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 88,
+        "alternativeExportHash": "4947ae714af62844db85d33d91cb924b1897de37afc70b0aae6d2394ae9f3c78"
+      }
+    }
+  },
+  "stockAgain": {
+    "kind": "stocks",
+    "sourceHash": "226b9b5810ac209973870043647a26db38a6a3a485a810f2cf711dc7b9022bb1",
+    "phase": "summary",
+    "selection": {
+      "kind": "stocks",
+      "decisionId": "stocks:10",
+      "alternativeId": "custom:stocks:buy:FPT:7250000",
+      "lap": 1,
+      "turn": 3,
+      "parameters": {
+        "operation": "buy",
+        "symbolId": "FPT",
+        "amount": 7250000
+      }
+    },
+    "followUps": [],
+    "comparison": {
+      "actual": {
+        "cash": 86000000,
+        "totalWorth": 86000000,
+        "liquidatableFunds": 86000000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 86000000,
+        "goalTarget": 90000000,
+        "goalPercent": 95.55555555555556,
+        "goalRemaining": 4000000,
+        "won": false,
+        "courses": [],
+        "recurringIncome": 14000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 0
+          }
+        ]
+      },
+      "alternative": {
+        "cash": 78750000,
+        "totalWorth": 86776403,
+        "liquidatableFunds": 86696139,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 86696139,
+        "goalTarget": 90000000,
+        "goalPercent": 96.32904333333333,
+        "goalRemaining": 3303861,
+        "won": false,
+        "courses": [],
+        "recurringIncome": 14000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 0
+          }
+        ]
+      },
+      "delta": {
+        "cash": -7250000,
+        "totalWorth": 776403,
+        "liquidatableFunds": 696139,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 696139,
+        "goalPercent": 0.773487777777774,
+        "goalRemaining": -696139,
+        "recurringIncome": 0
+      },
+      "lap": 4,
+      "turn": 20,
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 88,
+        "alternativeExportHash": "24a2041afe7b9641846a39b4b2901043557e6f536527f13313c998c134d68fd8"
+      }
+    }
+  },
+  "sale": {
+    "kind": "stocks",
+    "sourceHash": "91cee793ae8519ab683f7300c1cb968b81fe71178bf4aa7e2c05dcd4a1f81b55",
+    "phase": "summary",
+    "selection": {
+      "kind": "stocks",
+      "decisionId": "stocks:51",
+      "alternativeId": "custom:stocks:sell:FPT:1000000",
+      "lap": 3,
+      "turn": 12,
+      "parameters": {
+        "operation": "sell",
+        "symbolId": "FPT",
+        "amount": 1000000
+      }
+    },
+    "followUps": [],
+    "comparison": {
+      "actual": {
+        "cash": 81000000,
+        "totalWorth": 86535450,
+        "liquidatableFunds": 86480095,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 86480095,
+        "goalTarget": 90000000,
+        "goalPercent": 96.08899444444444,
+        "goalRemaining": 3519905,
+        "won": false,
+        "courses": [],
+        "recurringIncome": 14000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 0
+          }
+        ]
+      },
+      "alternative": {
+        "cash": 81990000,
+        "totalWorth": 86601504,
+        "liquidatableFunds": 86555389,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 86555389,
+        "goalTarget": 90000000,
+        "goalPercent": 96.17265444444445,
+        "goalRemaining": 3444611,
+        "won": false,
+        "courses": [],
+        "recurringIncome": 14000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 0
+          }
+        ]
+      },
+      "delta": {
+        "cash": 990000,
+        "totalWorth": 66054,
+        "liquidatableFunds": 75294,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 75294,
+        "goalPercent": 0.08366000000000895,
+        "goalRemaining": -75294,
+        "recurringIncome": 0
+      },
+      "lap": 4,
+      "turn": 20,
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 42,
+        "alternativeExportHash": "a742e65d9aa220db8f3c07878cac8453f2b4a7c11c1628f84d0e46c890dc299b"
+      }
+    }
+  },
+  "bank": {
+    "kind": "bank",
+    "sourceHash": "1a47f48d14c531a2065d55f4bced3c2232a8f4d96e2320a6d5d8be923688dbd8",
+    "phase": "summary",
+    "selection": {
+      "kind": "bank",
+      "decisionId": "bank:36",
+      "alternativeId": "custom:bank:deposit:3:1000000",
+      "lap": 2,
+      "turn": 9,
+      "parameters": {
+        "operation": "deposit",
+        "amount": 1000000,
+        "term": 3
+      }
+    },
+    "followUps": [],
+    "comparison": {
+      "actual": {
+        "cash": 86000000,
+        "totalWorth": 86000000,
+        "liquidatableFunds": 86000000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 86000000,
+        "goalTarget": 90000000,
+        "goalPercent": 95.55555555555556,
+        "goalRemaining": 4000000,
+        "won": false,
+        "courses": [
+          "advanced",
+          "basic"
+        ],
+        "recurringIncome": 20000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 6000000
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 6000000
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 6000000
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 6000000
+          }
+        ]
+      },
+      "alternative": {
+        "cash": 86180000,
+        "totalWorth": 86180000,
+        "liquidatableFunds": 86180000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 86180000,
+        "goalTarget": 90000000,
+        "goalPercent": 95.75555555555556,
+        "goalRemaining": 3820000,
+        "won": false,
+        "courses": [
+          "advanced",
+          "basic"
+        ],
+        "recurringIncome": 20000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 6000000
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 6000000
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 6000000
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 6000000
+          }
+        ]
+      },
+      "delta": {
+        "cash": 180000,
+        "totalWorth": 180000,
+        "liquidatableFunds": 180000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 180000,
+        "goalPercent": 0.20000000000000284,
+        "goalRemaining": -180000,
+        "recurringIncome": 0
+      },
+      "lap": 4,
+      "turn": 18,
+      "principal": 1000000,
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 50,
+        "alternativeExportHash": "b9cf6f00e0f4a01faad787ae76a9206bc36b1b55e03702383e5f6dfb8555c3ea"
+      }
+    }
+  },
+  "bonds": {
+    "kind": "bonds",
+    "sourceHash": "836e5d10c5bfa1292f5becad5aa893f6ec9ed5168aeefd181ac87a5e62328b27",
+    "phase": "summary",
+    "selection": {
+      "kind": "bonds",
+      "decisionId": "bonds:23",
+      "alternativeId": "custom:bonds:sell:bond-2:750000",
+      "lap": 1,
+      "turn": 5,
+      "parameters": {
+        "operation": "sell",
+        "lotId": "bond-2",
+        "amount": 750000
+      }
+    },
+    "followUps": [],
+    "comparison": {
+      "actual": {
+        "cash": 79761070,
+        "totalWorth": 84023960,
+        "liquidatableFunds": 83971408,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 83971408,
+        "goalTarget": 90000000,
+        "goalPercent": 93.30156444444444,
+        "goalRemaining": 6028592,
+        "won": false,
+        "courses": [
+          "basic",
+          "advanced"
+        ],
+        "recurringIncome": 20000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 2000000
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 6000000
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 6000000
+          }
+        ]
+      },
+      "alternative": {
+        "cash": 80195757,
+        "totalWorth": 84458647,
+        "liquidatableFunds": 84406095,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 84406095,
+        "goalTarget": 90000000,
+        "goalPercent": 93.78455,
+        "goalRemaining": 5593905,
+        "won": false,
+        "courses": [
+          "basic",
+          "advanced"
+        ],
+        "recurringIncome": 20000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 2000000
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 6000000
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 6000000
+          }
+        ]
+      },
+      "delta": {
+        "cash": 434687,
+        "totalWorth": 434687,
+        "liquidatableFunds": 434687,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 434687,
+        "goalPercent": 0.4829855555555582,
+        "goalRemaining": -434687,
+        "recurringIncome": 0
+      },
+      "lap": 4,
+      "turn": 21,
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 84,
+        "alternativeExportHash": "5cfcd08a6ddc8de17a7857d6bb9811ee2326529f85a0de4ad0bacfb8f64b28f6"
+      }
+    }
+  },
+  "course": {
+    "kind": "course",
+    "sourceHash": "ad97984596b8baa6d7190c4bef3d603ff1fc85cf93cca235837ab80c20ac90d9",
+    "phase": "summary",
+    "selection": {
+      "kind": "course",
+      "decisionId": "course:7",
+      "alternativeId": "course-advanced",
+      "lap": 1,
+      "turn": 2
+    },
+    "followUps": [
+      51
+    ],
+    "comparison": {
+      "actual": {
+        "cash": 76000000,
+        "totalWorth": 76000000,
+        "liquidatableFunds": 76000000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 76000000,
+        "goalTarget": 90000000,
+        "goalPercent": 84.44444444444444,
+        "goalRemaining": 14000000,
+        "won": false,
+        "courses": [
+          "advanced"
+        ],
+        "recurringIncome": 18000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 4000000
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 4000000
+          }
+        ]
+      },
+      "alternative": {
+        "cash": 84000000,
+        "totalWorth": 84000000,
+        "liquidatableFunds": 84000000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 84000000,
+        "goalTarget": 90000000,
+        "goalPercent": 93.33333333333333,
+        "goalRemaining": 6000000,
+        "won": false,
+        "courses": [
+          "advanced"
+        ],
+        "recurringIncome": 18000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 4000000
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 4000000
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 4000000
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 4000000
+          }
+        ]
+      },
+      "delta": {
+        "cash": 8000000,
+        "totalWorth": 8000000,
+        "liquidatableFunds": 8000000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 8000000,
+        "goalPercent": 8.888888888888886,
+        "goalRemaining": -8000000,
+        "recurringIncome": 0
+      },
+      "lap": 4,
+      "turn": 23,
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 104,
+        "alternativeExportHash": "03abe3b7450349d83f006f30b49d62f63eec2dd19db9517542cf766c24446528"
+      }
+    }
+  },
+  "business": {
+    "kind": "business",
+    "sourceHash": "296dde6a880d30373c07739e5394872fd08bc035ed4aa57dfe3b7011c1b8cc8c",
+    "phase": "summary",
+    "selection": {
+      "kind": "business",
+      "decisionId": "business:48",
+      "alternativeId": "upgrade-business:budget",
+      "lap": 3,
+      "turn": 11
+    },
+    "followUps": [],
+    "comparison": {
+      "actual": {
+        "cash": 72000000,
+        "totalWorth": 97287480,
+        "liquidatableFunds": 72000000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 72000000,
+        "goalTarget": 90000000,
+        "goalPercent": 80,
+        "goalRemaining": 18000000,
+        "won": false,
+        "courses": [],
+        "recurringIncome": 14000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 0
+          }
+        ]
+      },
+      "alternative": {
+        "cash": 69400000,
+        "totalWorth": 98508923,
+        "liquidatableFunds": 69400000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": 69400000,
+        "goalTarget": 90000000,
+        "goalPercent": 77.11111111111111,
+        "goalRemaining": 20600000,
+        "won": false,
+        "courses": [],
+        "recurringIncome": 14000000,
+        "salaryAtStarts": [
+          {
+            "lap": 1,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 2,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 3,
+            "base": 14000000,
+            "courseBoost": 0
+          },
+          {
+            "lap": 4,
+            "base": 14000000,
+            "courseBoost": 0
+          }
+        ]
+      },
+      "delta": {
+        "cash": -2600000,
+        "totalWorth": 1221443,
+        "liquidatableFunds": -2600000,
+        "debt": 0,
+        "obligations": 0,
+        "goalFunds": -2600000,
+        "goalPercent": -2.8888888888888857,
+        "goalRemaining": 2600000,
+        "recurringIncome": 0
+      },
+      "lap": 4,
+      "turn": 19,
+      "proof": {
+        "actualReplay": true,
+        "alternativeReplay": true,
+        "sourceUnchanged": true,
+        "externalCheckpoints": 42,
+        "alternativeExportHash": "bbb24926c92548ddbb28dd15216688bd7d5166ea58c000bd8d6f921d42546835"
+      }
+    }
+  },
+  "gold": {
+    "kind": "gold",
+    "sourceHash": "7b4b8e94646da6f1a31ee2dfa540aa12dc53eb6755737a6512193969db3bf2ac",
+    "phase": "summary",
+    "selection": {
+      "decisionId": "gold:4"
+    },
+    "followUps": [
+      25
+    ]
+  }
+}

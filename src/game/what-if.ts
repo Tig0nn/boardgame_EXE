@@ -5,6 +5,8 @@ import { validateCourseState } from './courses.ts'
 import { validateLivingBoard } from './living-expenses.ts'
 import { totalWorth } from './selectors.ts'
 import type { GameState } from './types.ts'
+import { livingCostForGame } from './living-expenses.ts'
+import { rulesForGame } from './rules-profile.ts'
 
 export type RepairChoice = 'full' | 'temporary'
 export type RepairOutcome = Readonly<{
@@ -19,6 +21,13 @@ export type RepairOutcome = Readonly<{
   totalCommitted: number
 }>
 export type RepairWhatIf = Readonly<{
+  context?: Readonly<{
+    existingObligations: number
+    livingAtStart: number
+    savingsPrincipal: number
+    debtPrincipal: number
+    debtInterestAtStart: number
+  }>
   cashBefore: number
   actual: RepairOutcome
   alternative: RepairOutcome
@@ -68,6 +77,10 @@ export function simulateRepairWhatIf(before: GameState, chosen: string): RepairW
     key !== 'choice' && key !== 'status' && !validMoney(value as number)))) return null
   const [full, temporary] = outcomes
   return Object.freeze({ cashBefore: before.portfolio.cash,
+    context: Object.freeze({ existingObligations: before.obligations,
+      livingAtStart: livingCostForGame(before), savingsPrincipal: before.portfolio.savings,
+      debtPrincipal: before.portfolio.debt,
+      debtInterestAtStart: Math.round(before.portfolio.debt * rulesForGame(before).debtRate) }),
     actual: chosen === 'full' ? full : temporary,
     alternative: chosen === 'full' ? temporary : full,
     temporaryCashKept: temporary.cashAfter - full.cashAfter,

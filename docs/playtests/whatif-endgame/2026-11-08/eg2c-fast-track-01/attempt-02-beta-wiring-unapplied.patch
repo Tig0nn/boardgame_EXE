@@ -1,0 +1,121 @@
+diff --git a/mobile_app/src/App.tsx b/mobile_app/src/App.tsx
+--- a/mobile_app/src/App.tsx
++++ b/mobile_app/src/App.tsx
+@@ -342,12 +342,15 @@
+   )
+ }
+ 
+-type RestoreQaDriver = EndgameAppQaDriver & {
+-  setupRequests?: EventTarget
+-  renderEndgameResultAction?: RenderEndgameResultAction
+-}
+-
+-export default function App({ endgameQa }: { endgameQa?: RestoreQaDriver } = {}) {
++type EndgameResultDriver = EndgameAppQaDriver & {
++  renderEndgameResultAction?: RenderEndgameResultAction
++}
++
++type RestoreQaDriver = EndgameResultDriver & { setupRequests?: EventTarget }
++
++export default function App(props: { endgameQa?: RestoreQaDriver; endgameBeta?: EndgameResultDriver } = {}) {
++  const endgameQa = import.meta.env.DEV ? props.endgameQa : undefined
++  const resultDriver = import.meta.env.DEV ? endgameQa : import.meta.env.PROD && import.meta.env.VITE_ENDGAME_WHAT_IF_BETA === '1' ? props.endgameBeta : undefined
+   const [screen, setScreen] = useState<'entrance' | 'map' | 'game' | 'setup'>('entrance')
+   const [session, setSession] = useState<Session | null>(null)
+   const [saved, setSaved] = useState(() => loadGameLocally())
+@@ -361,14 +364,15 @@
+   const endgameBinding = useRef<EndgameAppBinding | null>(null)
+   const endgameSession = useRef<{ session: Session; origin: EndgameSessionOrigin } | null>(null)
+   useEffect(() => {
+-    if (!import.meta.env.DEV || !endgameQa) return
+-    const binding = createAppAnalysisBinding({ transport: endgameQa.transport })
++    if (!import.meta.env.DEV && !(import.meta.env.PROD && import.meta.env.VITE_ENDGAME_WHAT_IF_BETA === '1')) return
++    if (!resultDriver) return
++    const binding = createAppAnalysisBinding({ transport: resultDriver.transport })
+     endgameBinding.current = binding
+     const current = endgameSession.current
+     if (current) binding.replaceSession(current.session, current.origin)
+     let disconnect: (() => void) | undefined
+     try {
+-      disconnect = endgameQa.connect(binding)
++      disconnect = resultDriver.connect(binding)
+     } catch {
+       binding.dispose()
+       endgameBinding.current = null
+@@ -380,9 +384,9 @@
+         disconnect?.()
+       } catch { /* QA teardown must not interrupt gameplay. */ }
+     }
+-  }, [endgameQa])
+-
+-  useEffect(() => {
++  }, [resultDriver])
++
++  useEffect(() => {
+     if (!import.meta.env.DEV || !endgameQa?.setupRequests) return
+     const target = endgameQa.setupRequests
+     const openSetup = () => setScreen('setup')
+@@ -513,7 +517,7 @@
+             onHome={returnToMap}
+             onHelp={openHelp}
+             helpOpen={!!tutorial}
+-            renderEndgameResultAction={import.meta.env.DEV ? endgameQa?.renderEndgameResultAction : undefined}
++            renderEndgameResultAction={resultDriver?.renderEndgameResultAction}
+           />
+         )
+       )}
+diff --git a/mobile_app/src/main.tsx b/mobile_app/src/main.tsx
+--- a/mobile_app/src/main.tsx
++++ b/mobile_app/src/main.tsx
+@@ -6,10 +6,10 @@
+ const rootElement = document.getElementById('root');
+ async function mount() {
+   let Demo = App
+-  if (import.meta.env.DEV) {
++  if (import.meta.env.DEV || (import.meta.env.PROD && import.meta.env.VITE_ENDGAME_WHAT_IF_BETA === '1')) {
+     const params = new URLSearchParams(location.search)
+     const endgame = params.getAll('endgameWhatIf')
+-    if (params.get('whatIfDemo') === 'repair') {
++    if (import.meta.env.DEV && params.get('whatIfDemo') === 'repair') {
+       Demo = (await import('./dev/WhatIfDemo')).default
+     } else if (endgame.length === 1 && endgame[0] === '1' && !params.has('whatIfDemo')) {
+       Demo = await import('./dev/EndgameWhatIfDev').then(module => module.default, () => App)
+diff --git a/mobile_app/src/dev/EndgameWhatIfDev.tsx b/mobile_app/src/dev/EndgameWhatIfDev.tsx
+--- a/mobile_app/src/dev/EndgameWhatIfDev.tsx
++++ b/mobile_app/src/dev/EndgameWhatIfDev.tsx
+@@ -2,12 +2,13 @@
+ import type { ComponentProps } from 'react'
+ import App from '../App'
+ import { EndgameWhatIfEntry } from '../components/endgame-what-if/EndgameWhatIfEntry'
+-import type { EndgameAppBinding } from '../game/endgame-analysis-app-binding.ts'
++import type { EndgameAppBinding } from '../game/endgame-analysis-app-binding.ts'
++import { ENDGAME_ANALYSIS_BETA } from '../game/endgame-analysis-feature.ts'
+ import { isEndgameDevQuery } from '../game/endgame-whatif-ui-controller.ts'
+ 
+-type Driver = NonNullable<NonNullable<ComponentProps<typeof App>>['endgameQa']>
++type Driver = NonNullable<NonNullable<ComponentProps<typeof App>>['endgameBeta']>
+ 
+-function createDevDriver(): Driver {
++function createResultDriver(): Driver {
+   let binding: EndgameAppBinding | null = null
+   const listeners = new Set<() => void>()
+   const registration = {
+@@ -34,13 +35,14 @@
+   }
+ }
+ 
+-export default function EndgameWhatIfDev() {
++export default function EndgameWhatIfEntryPoint() {
+   const [driver] = useState(() => {
+     const ua = navigator.userAgent
+     const chromiumDesktop = /\b(?:Chrome|Chromium|HeadlessChrome)\//.test(ua) && !/\b(?:Android|Mobile|CriOS)\b/.test(ua)
+     const loopback = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname)
+-    return import.meta.env.DEV && loopback && chromiumDesktop && isEndgameDevQuery(location.search)
+-      ? createDevDriver() : undefined
++    const permittedBuild = import.meta.env.DEV ? loopback : ENDGAME_ANALYSIS_BETA
++    return permittedBuild && chromiumDesktop && isEndgameDevQuery(location.search)
++      ? createResultDriver() : undefined
+   })
+-  return <App endgameQa={driver} />
++  return import.meta.env.DEV ? <App endgameQa={driver} /> : <App endgameBeta={driver} />
+ }

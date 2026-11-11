@@ -1,0 +1,52 @@
+{
+  "branch": "feat/b18-whatif-deep-analysis-v2",
+  "head": "759a6fe1879816a716e21e38cc91eecd3fe5f50a",
+  "staging": "empty",
+  "sources": [
+    {
+      "path": "mobile_app/src/game/endgame-whatif-paired.ts",
+      "sha256": "f67089bad63618514b0a9407b8279291917714edb645ae7384d04df0ba911c25"
+    },
+    {
+      "path": "mobile_app/src/game/endgame-whatif-gold-identity.ts",
+      "sha256": "0891188b11829deaad1f1e65e02ae351471d7ffe89656de0e3c31caf5569f104"
+    },
+    {
+      "path": "mobile_app/src/game/endgame-whatif-gold-resume.ts",
+      "sha256": "2198bd586fbb39ad083fb30b4de05ae2eff88b82b26dbe9c689deec663655708"
+    },
+    {
+      "path": "mobile_app/src/game/endgame-whatif-gold-c1.test.ts",
+      "sha256": "0c84189418c6d0f31e2e2fa661296f2461aa9332c223163c9f8c35c7b110036c"
+    },
+    {
+      "path": "mobile_app/src/game/endgame-whatif-contract.ts",
+      "sha256": "1390eac66599fee998780ced52c243214211a3ed17276c4ef5268f4da35c764b"
+    }
+  ],
+  "regressions": [
+    {
+      "name": "final-regression-a",
+      "passed": 305,
+      "concurrency": 2,
+      "exactBaselineNames": true
+    },
+    {
+      "name": "final-regression-b",
+      "passed": 305,
+      "concurrency": 2,
+      "exactBaselineNames": true
+    }
+  ],
+  "browser": [
+    {
+      "name": "baseline-final",
+      "passed": 50
+    },
+    {
+      "name": "reliability-final",
+      "passed": 9
+    }
+  ],
+  "live": "LIVE_NOT_RUN"
+}

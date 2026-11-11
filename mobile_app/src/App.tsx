@@ -1,5 +1,7 @@
 import { localizeNarrative } from '../../src/components/glossary'
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { Component, lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import type { ReactNode, RefObject } from 'react'
+import type { GameState } from '../../src/game/types'
 import tilesData from './data/tiles.json'
 import { boardFor } from '../../src/data/board'
 import { goalProgress } from '../../src/game/selectors'
@@ -33,12 +35,37 @@ import { MapScreen } from './components/MapScreen'
 import type { MapNodeConfig } from './game/map-progress'
 import { WhatIfModal } from './components/WhatIfModal'
 import type { RepairWhatIf } from '../../src/game/what-if'
+import { createAppAnalysisBinding } from './game/endgame-analysis-app-binding'
+import type { EndgameAppBinding, EndgameAppQaDriver, EndgameSessionOrigin } from './game/endgame-analysis-app-binding'
 
 // Owner review only. Production builds cannot enable this via a URL.
 const whatIfEnabled = import.meta.env.DEV && typeof window !== 'undefined'
   && (new URLSearchParams(window.location.search).get('whatIf') === '1'
     || new URLSearchParams(window.location.search).get('whatIfDemo') === 'repair')
 
+// Explicit opt-in, compiled out of production; no changes to shared phase components.
+const HistoricalHost = import.meta.env.DEV && typeof window !== 'undefined'
+  && new URLSearchParams(window.location.search).get('historicalWhatIf') === '1'
+  ? lazy(() => import('./components/BankHistoricalReview')) : null
+function HistoricalSlot({ session, game, children }: { session: Session; game: GameState; children: ReactNode }) {
+  return HistoricalHost ? <Suspense fallback={children}><HistoricalHost session={session} game={game}>{children}</HistoricalHost></Suspense> : <>{children}</>
+}
+// Independent Gold DEV opt-in; App mount requires Owner approval.
+const GoldHistoricalHost = import.meta.env.DEV && typeof window !== 'undefined'
+  && new URLSearchParams(window.location.search).get('goldHistoricalWhatIf') === '1'
+  ? lazy(() => import('./components/GoldHistoricalReview')) : null
+// Proposal only: this boundary owns Gold failure, never the gameplay subtree.
+class GoldHistoricalBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  state = { failed: false }
+  static getDerivedStateFromError() { return { failed: true } }
+  render() { return this.state.failed ? null : this.props.children }
+}
+function GoldGameplayScope({ root, children }: { root: RefObject<HTMLDivElement | null>; children: ReactNode }) {
+  return GoldHistoricalHost ? <div ref={root} data-gold-review-host="">{children}</div> : <>{children}</>
+}
+function GoldHistoricalSlot({ session, game, root }: { session: Session; game: GameState; root: RefObject<HTMLDivElement | null> }) {
+  return GoldHistoricalHost && game.phase === 'rebalancing' ? <GoldHistoricalBoundary><Suspense fallback={null}><GoldHistoricalHost session={session} game={game} root={root}/></Suspense></GoldHistoricalBoundary> : null
+}
 // Coordinates are artwork metadata; category/order/labels come from the official C20 or B18 board.
 const coordinatesFor = (board: ReturnType<typeof boardFor>) => {
   const source = board.length === 18 ? tilesB18Data : tilesData
@@ -47,13 +74,16 @@ const coordinatesFor = (board: ReturnType<typeof boardFor>) => {
 const delay = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms))
 type Session = ReturnType<typeof createMobileSession>
 
-export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = false, persist = true }: {
+type RenderEndgameResultAction = (watch: Session['subscribe']) => ReactNode
+
+export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = false, persist = true, renderEndgameResultAction }: {
   session: Session;
   onRestart: () => void;
   onHome?: () => void;
   onHelp?: () => void;
   helpOpen?: boolean;
   persist?: boolean;
+  renderEndgameResultAction?: RenderEndgameResultAction;
 }) {
   // React subscribes to immutable engine snapshots: https://react.dev/reference/react/useSyncExternalStore
   const game = useSyncExternalStore(session.subscribe, session.getSnapshot)
@@ -68,11 +98,14 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
   const [diceSealValue, setDiceSealValue] = useState<number | null>(null)
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [whatIfFor, setWhatIfFor] = useState<RepairWhatIf | null>(null)
+  const [reviewDismissedFor, setReviewDismissedFor] = useState<RepairWhatIf | null>(null)
   const comparison = session.getRepairWhatIf()
   const whatIfOpen = !!comparison && whatIfFor === comparison
+  const reviewOpen = whatIfEnabled && !!comparison && reviewDismissedFor !== comparison && game.phase === 'rolling'
   const busy = useRef(false)
   const generation = useRef(0)
   const particleId = useRef(0)
+  const goldPhaseRoot = useRef<HTMLDivElement>(null)
   const nextActionAt = useRef(0)
 
   useEffect(() => () => { generation.current++ }, [])
@@ -93,7 +126,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
   }, [])
 
   const send = (command: MobileCommand): boolean => {
-    if (helpOpen || whatIfOpen || busy.current || Date.now() < nextActionAt.current) return false
+    if (helpOpen || whatIfOpen || reviewOpen || busy.current || Date.now() < nextActionAt.current) return false
     try {
       if (!session.dispatch(command, game)) return false
       // Reject the second click of a double tap even if a same-phase sheet has already rerendered.
@@ -114,7 +147,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
   }
 
   const rollDice = async () => {
-    if (helpOpen || whatIfOpen || busy.current || Date.now() < nextActionAt.current || overlay || game.phase !== 'rolling') return
+    if (helpOpen || whatIfOpen || reviewOpen || busy.current || Date.now() < nextActionAt.current || overlay || game.phase !== 'rolling') return
     busy.current = true
     const token = ++generation.current
     setAnimatedTile(game.position)
@@ -145,7 +178,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
     sound.playEventShow()
   }
 
-  const disabled = helpOpen || whatIfOpen || !!animation || !!overlay || game.phase !== 'rolling'
+  const disabled = helpOpen || whatIfOpen || reviewOpen || !!animation || !!overlay || game.phase !== 'rolling'
   const goal = goalProgress(game)
   const pieces = (
     <>
@@ -220,8 +253,8 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
         </BoardView>
       </MobileContainer>
 
-      {!animation && !overlay && !whatIfOpen && (!dismissResult || game.phase !== 'finished') && (
-        <GamePhase
+      {!animation && !overlay && !whatIfOpen && !reviewOpen && (!dismissResult || game.phase !== 'finished') && (
+        <HistoricalSlot session={session} game={game}><GoldGameplayScope root={goldPhaseRoot}><GamePhase
           session={session}
           game={game}
           send={send}
@@ -229,13 +262,27 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
           onHome={onHome}
           onHelp={onHelp}
           onDismissResult={() => setDismissResult(true)}
-        />
+          endgameResultAction={game.phase === 'finished' && !helpOpen && !settingsOpen
+            ? renderEndgameResultAction?.(session.subscribe) : undefined}
+        /><GoldHistoricalSlot session={session} game={game} root={goldPhaseRoot}/></GoldGameplayScope></HistoricalSlot>
       )}
 
-      {whatIfEnabled && comparison && game.phase === 'rolling' && !animation && !overlay && !helpOpen && !settingsOpen && <>
-        <button className="whatif-launch" onClick={() => setWhatIfFor(comparison)}>✨ Nếu tôi chọn cách khác?</button>
-        {whatIfOpen && <WhatIfModal comparison={comparison} onClose={() => setWhatIfFor(null)} />}
-      </>}
+      {reviewOpen && comparison && !animation && !overlay && !helpOpen && !settingsOpen &&
+        <div aria-hidden={whatIfOpen || undefined}>
+        <Modal title="Quyết định sửa xe vừa chọn" className="whatif-modal whatif-result" onClose={() => setReviewDismissedFor(comparison)}>
+          <h2>Đã {comparison.actual.choice === 'full' ? 'sửa ngay' : 'sửa tạm'}</h2>
+          <p>Đã trả {money(comparison.actual.paidNow)}. Tiền mặt còn {money(comparison.actual.cashAfter)}.</p>
+          <p>{comparison.actual.obligationAdded > 0
+            ? `Nghĩa vụ mới ở Xuất phát: ${money(comparison.actual.obligationAdded)}.`
+            : 'Không phát sinh nghĩa vụ sửa xe mới.'}</p>
+          <button className="whatif-review-link" onClick={() => {
+            if (session.getRepairWhatIf() === comparison) setWhatIfFor(comparison)
+          }}>Xem phương án khác</button>
+          <button className="whatif-back" onClick={() => setReviewDismissedFor(comparison)}>Tiếp tục ván chơi</button>
+        </Modal></div>}
+
+      {whatIfEnabled && comparison && game.phase === 'rolling' && !animation && !overlay && !helpOpen && !settingsOpen && whatIfOpen &&
+        <WhatIfModal comparison={comparison} onClose={() => setWhatIfFor(null)} />}
 
       {dismissResult && game.phase === 'finished' && !overlay && (
         <div
@@ -295,7 +342,15 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
   )
 }
 
-export default function App() {
+type EndgameResultDriver = EndgameAppQaDriver & {
+  renderEndgameResultAction?: RenderEndgameResultAction
+}
+
+type RestoreQaDriver = EndgameResultDriver & { setupRequests?: EventTarget }
+
+export default function App(props: { endgameQa?: RestoreQaDriver; endgameBeta?: EndgameResultDriver } = {}) {
+  const endgameQa = import.meta.env.DEV ? props.endgameQa : undefined
+  const resultDriver = import.meta.env.DEV ? endgameQa : import.meta.env.PROD && import.meta.env.VITE_ENDGAME_WHAT_IF_BETA === '1' ? props.endgameBeta : undefined
   const [screen, setScreen] = useState<'entrance' | 'map' | 'game' | 'setup'>('entrance')
   const [session, setSession] = useState<Session | null>(null)
   const [saved, setSaved] = useState(() => loadGameLocally())
@@ -306,10 +361,51 @@ export default function App() {
 
   useEffect(() => { preloadGameAssets() }, [])
 
+  const endgameBinding = useRef<EndgameAppBinding | null>(null)
+  const endgameSession = useRef<{ session: Session; origin: EndgameSessionOrigin } | null>(null)
+  useEffect(() => {
+    if (!import.meta.env.DEV && !(import.meta.env.PROD && import.meta.env.VITE_ENDGAME_WHAT_IF_BETA === '1')) return
+    if (!resultDriver) return
+    const binding = createAppAnalysisBinding({ transport: resultDriver.transport })
+    endgameBinding.current = binding
+    const current = endgameSession.current
+    if (current) binding.replaceSession(current.session, current.origin)
+    let disconnect: (() => void) | undefined
+    try {
+      disconnect = resultDriver.connect(binding)
+    } catch {
+      binding.dispose()
+      endgameBinding.current = null
+    }
+    return () => {
+      if (endgameBinding.current === binding) endgameBinding.current = null
+      binding.dispose()
+      try {
+        disconnect?.()
+      } catch { /* QA teardown must not interrupt gameplay. */ }
+    }
+  }, [resultDriver])
+
+  useEffect(() => {
+    if (!import.meta.env.DEV || !endgameQa?.setupRequests) return
+    const target = endgameQa.setupRequests
+    const openSetup = () => setScreen('setup')
+    target.addEventListener('open-setup', openSetup)
+    return () => target.removeEventListener('open-setup', openSetup)
+  }, [endgameQa])
+
+  const installSession = (next: Session, origin: EndgameSessionOrigin) => {
+    endgameBinding.current?.replaceSession(next, origin)
+    endgameSession.current = { session: next, origin }
+    setSession(next)
+  }
+
   // Chương 1 (Node 1) là chương duy nhất mở khóa, gồm 4 vòng chơi (Laps 1-4).
   // Các vòng chơi thuộc tiến trình nội bộ của Chương 1, không nhảy node hay mở khóa Chương 2-5.
 
   const returnToMap = () => {
+    endgameBinding.current?.revoke('home')
+    endgameSession.current = null
     if (session) {
       const latest = session.getSnapshot()
       if (latest.phase === 'finished') {
@@ -328,7 +424,7 @@ export default function App() {
     const fresh = createMvpMobileGame(String(Date.now()), 0, 1)
     saveGameLocally(fresh)
     setSaved(fresh)
-    setSession(createMobileSession(fresh, { whatIf: whatIfEnabled }))
+    installSession(createMobileSession(fresh, { whatIf: whatIfEnabled }), 'fresh')
     setScreen('game')
   }
 
@@ -336,7 +432,7 @@ export default function App() {
     sound.playClick()
     void node.id
     if (saved && saved.phase !== 'finished') {
-      setSession(createMobileSession(saved, { whatIf: whatIfEnabled }))
+      installSession(createMobileSession(saved, { whatIf: whatIfEnabled }), 'saved')
       setScreen('game')
     } else {
       handleStartFreshGame()
@@ -409,8 +505,8 @@ export default function App() {
             onHelp={openHelp}
             saved={saved}
             saveNotice={saveNotice}
-            onRestore={s => { setSession(createMobileSession(s, { whatIf: whatIfEnabled })); setScreen('game') }}
-            onStart={(seed, savings, term) => { setSession(createMobileSession(createMvpMobileGame(seed, savings, term), { whatIf: whatIfEnabled })); setScreen('game') }}
+            onRestore={s => { installSession(createMobileSession(s, { whatIf: whatIfEnabled }), 'restored-state'); setScreen('game') }}
+            onStart={(seed, savings, term) => { installSession(createMobileSession(createMvpMobileGame(seed, savings, term), { whatIf: whatIfEnabled }), 'fresh'); setScreen('game') }}
           />
         </MobileContainer>
       ) : (
@@ -421,6 +517,7 @@ export default function App() {
             onHome={returnToMap}
             onHelp={openHelp}
             helpOpen={!!tutorial}
+            renderEndgameResultAction={resultDriver?.renderEndgameResultAction}
           />
         )
       )}

@@ -1,0 +1,157 @@
+.endgame-what-if-entry,
+.endgame-what-if button {
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #365c73;
+  border-radius: 0.75rem;
+  background: #f0f7fa;
+  color: #153449;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.endgame-what-if-entry:focus-visible,
+.endgame-what-if :focus-visible {
+  outline: 3px solid #1365a0;
+  outline-offset: 2px;
+}
+
+.endgame-what-if {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(39rem, calc(100% - 1rem));
+  max-width: none;
+  max-height: calc(100dvh - 1rem);
+  padding: 0;
+  border: 1px solid #365c73;
+  border-radius: 1rem;
+  background: #fff;
+  color: #172b38;
+  box-sizing: border-box;
+  overscroll-behavior: contain;
+}
+
+.endgame-what-if[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.endgame-what-if::backdrop {
+  background: rgb(7 25 38 / 65%);
+}
+
+.endgame-what-if__header,
+.endgame-what-if__footer {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  padding: 0.75rem 1rem;
+  gap: 0.75rem;
+}
+
+.endgame-what-if__header {
+  justify-content: space-between;
+  border-bottom: 1px solid #cedde6;
+}
+
+.endgame-what-if__header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.endgame-what-if__status {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.65rem 1rem;
+  background: #eef5f8;
+}
+
+.endgame-what-if__content {
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 0.75rem 1rem;
+  overflow-wrap: anywhere;
+}
+
+.endgame-what-if__content > :first-child {
+  margin-top: 0;
+}
+
+.endgame-what-if__footer {
+  border-top: 1px solid #cedde6;
+  justify-content: flex-end;
+}
+
+.endgame-what-if fieldset {
+  min-width: 0;
+  margin: 0 0 1rem;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid #7a92a0;
+  border-radius: 0.75rem;
+}
+
+.endgame-what-if legend,
+.endgame-what-if h3,
+.endgame-what-if h4 {
+  font-weight: 800;
+}
+
+.endgame-what-if label {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.endgame-what-if button.endgame-what-if__primary {
+  border-color: #194566;
+  background: #194566;
+  color: #fff;
+}
+
+.endgame-what-if button:disabled {
+  border-color: #7a92a0;
+  background: #e1e7eb;
+  color: #435661;
+  cursor: default;
+}
+
+.endgame-what-if__metric {
+  margin: 0.5rem 0;
+  padding: 0.65rem;
+  background: #f5f8fa;
+  border-radius: 0.75rem;
+}
+
+.endgame-what-if__metric h4 {
+  margin: 0 0 0.25rem;
+}
+
+.endgame-what-if__metric dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  gap: 0.5rem;
+}
+
+.endgame-what-if__metric dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.endgame-what-if__delta {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 35rem) {
+  .endgame-what-if__metric dl {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .endgame-what-if__delta {
+    grid-column: auto;
+  }
+}

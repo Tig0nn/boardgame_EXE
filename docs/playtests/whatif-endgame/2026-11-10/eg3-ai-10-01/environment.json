@@ -1,0 +1,16 @@
+{
+  "node": "v22.14.0",
+  "platform": "win32",
+  "release": "10.0.26300",
+  "cpu": "12th Gen Intel(R) Core(TM) i7-1260P",
+  "logicalCpus": 16,
+  "availableParallelism": 16,
+  "totalMemoryBytes": 16890978304,
+  "freeMemoryBytes": 967651328,
+  "cpuUsageUnit": "process user plus system microseconds converted to milliseconds",
+  "defaultBudget": {
+    "milliseconds": 20000,
+    "steps": 5000
+  },
+  "testConcurrency": 2
+}

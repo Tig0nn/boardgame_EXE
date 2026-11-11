@@ -1,0 +1,546 @@
+{
+  "logicalCpu": 1,
+  "peers": 5,
+  "tests": [
+    {
+      "code": 0,
+      "result": {
+        "status": "supported-final"
+      },
+      "stages": [
+        {
+          "operation": "create",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 13,
+              "cpuMs": 16,
+              "remainingMs": 19759,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2456,
+              "cpuMs": 437,
+              "remainingMs": 17302,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2308,
+              "cpuMs": 421,
+              "remainingMs": 14994,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 1003,
+              "cpuMs": 297,
+              "remainingMs": 13991,
+              "steps": 76,
+              "remainingSteps": 4924
+            }
+          ],
+          "rejectionWitness": {
+            "calls": 9,
+            "wallMs": 84.10490000000209,
+            "cpuMs": 62
+          }
+        },
+        {
+          "operation": "resume",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 1,
+              "cpuMs": 0,
+              "remainingMs": 20000,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2140,
+              "cpuMs": 469,
+              "remainingMs": 17859,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2302,
+              "cpuMs": 344,
+              "remainingMs": 15557,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 5498,
+              "cpuMs": 1063,
+              "remainingMs": 10059,
+              "steps": 143,
+              "remainingSteps": 4857
+            },
+            {
+              "stage": "independent-verification",
+              "wallMs": 5602,
+              "cpuMs": 890,
+              "remainingMs": 4457,
+              "steps": 195,
+              "remainingSteps": 4805
+            },
+            {
+              "stage": "final-proof",
+              "wallMs": 975,
+              "cpuMs": 172,
+              "remainingMs": 3482,
+              "steps": 195,
+              "remainingSteps": 4805
+            }
+          ],
+          "rejectionWitness": {
+            "calls": 38,
+            "wallMs": 1904.553299999996,
+            "cpuMs": 467
+          }
+        }
+      ]
+    },
+    {
+      "code": 0,
+      "result": {
+        "status": "supported-final"
+      },
+      "stages": [
+        {
+          "operation": "create",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 5,
+              "cpuMs": 0,
+              "remainingMs": 19690,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2174,
+              "cpuMs": 391,
+              "remainingMs": 17516,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2200,
+              "cpuMs": 297,
+              "remainingMs": 15315,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 1263,
+              "cpuMs": 282,
+              "remainingMs": 14053,
+              "steps": 76,
+              "remainingSteps": 4924
+            }
+          ],
+          "rejectionWitness": {
+            "calls": 9,
+            "wallMs": 95.66150000000198,
+            "cpuMs": 16
+          }
+        },
+        {
+          "operation": "resume",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 1,
+              "cpuMs": 0,
+              "remainingMs": 19992,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2074,
+              "cpuMs": 359,
+              "remainingMs": 17918,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2237,
+              "cpuMs": 281,
+              "remainingMs": 15681,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 5672,
+              "cpuMs": 1000,
+              "remainingMs": 10009,
+              "steps": 143,
+              "remainingSteps": 4857
+            },
+            {
+              "stage": "independent-verification",
+              "wallMs": 5563,
+              "cpuMs": 1032,
+              "remainingMs": 4446,
+              "steps": 195,
+              "remainingSteps": 4805
+            },
+            {
+              "stage": "final-proof",
+              "wallMs": 416,
+              "cpuMs": 171,
+              "remainingMs": 4030,
+              "steps": 195,
+              "remainingSteps": 4805
+            }
+          ],
+          "rejectionWitness": {
+            "calls": 38,
+            "wallMs": 1832.3366000000024,
+            "cpuMs": 357
+          }
+        }
+      ]
+    },
+    {
+      "code": 0,
+      "result": {
+        "status": "supported-final"
+      },
+      "stages": [
+        {
+          "operation": "create",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 8,
+              "cpuMs": 0,
+              "remainingMs": 19838,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2579,
+              "cpuMs": 500,
+              "remainingMs": 17259,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2345,
+              "cpuMs": 312,
+              "remainingMs": 14914,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 1051,
+              "cpuMs": 156,
+              "remainingMs": 13863,
+              "steps": 76,
+              "remainingSteps": 4924
+            }
+          ],
+          "rejectionWitness": {
+            "calls": 9,
+            "wallMs": 98.92030000000159,
+            "cpuMs": 48
+          }
+        },
+        {
+          "operation": "resume",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 1,
+              "cpuMs": 16,
+              "remainingMs": 19999,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2126,
+              "cpuMs": 297,
+              "remainingMs": 17873,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2216,
+              "cpuMs": 390,
+              "remainingMs": 15657,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 5598,
+              "cpuMs": 1063,
+              "remainingMs": 10059,
+              "steps": 143,
+              "remainingSteps": 4857
+            },
+            {
+              "stage": "independent-verification",
+              "wallMs": 5316,
+              "cpuMs": 1094,
+              "remainingMs": 4743,
+              "steps": 195,
+              "remainingSteps": 4805
+            },
+            {
+              "stage": "final-proof",
+              "wallMs": 1060,
+              "cpuMs": 234,
+              "remainingMs": 3684,
+              "steps": 195,
+              "remainingSteps": 4805
+            }
+          ],
+          "rejectionWitness": {
+            "calls": 38,
+            "wallMs": 1897.5658999999978,
+            "cpuMs": 327
+          }
+        }
+      ]
+    },
+    {
+      "code": 0,
+      "result": {
+        "status": "supported-final"
+      },
+      "stages": [
+        {
+          "operation": "create",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 1,
+              "cpuMs": 0,
+              "remainingMs": 19777,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2623,
+              "cpuMs": 486,
+              "remainingMs": 17154,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2410,
+              "cpuMs": 640,
+              "remainingMs": 14744,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 1071,
+              "cpuMs": 172,
+              "remainingMs": 13673,
+              "steps": 76,
+              "remainingSteps": 4924
+            }
+          ],
+          "rejectionWitness": {
+            "calls": 9,
+            "wallMs": 111.88380000000143,
+            "cpuMs": 0
+          }
+        },
+        {
+          "operation": "resume",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 0,
+              "cpuMs": 0,
+              "remainingMs": 19999,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2229,
+              "cpuMs": 328,
+              "remainingMs": 17770,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2196,
+              "cpuMs": 390,
+              "remainingMs": 15575,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 5476,
+              "cpuMs": 1095,
+              "remainingMs": 10098,
+              "steps": 143,
+              "remainingSteps": 4857
+            },
+            {
+              "stage": "independent-verification",
+              "wallMs": 5355,
+              "cpuMs": 1093,
+              "remainingMs": 4743,
+              "steps": 195,
+              "remainingSteps": 4805
+            },
+            {
+              "stage": "final-proof",
+              "wallMs": 1050,
+              "cpuMs": 157,
+              "remainingMs": 3694,
+              "steps": 195,
+              "remainingSteps": 4805
+            }
+          ],
+          "rejectionWitness": {
+            "calls": 38,
+            "wallMs": 1869.4341000000131,
+            "cpuMs": 440
+          }
+        }
+      ]
+    },
+    {
+      "code": 0,
+      "result": {
+        "status": "supported-final"
+      },
+      "stages": [
+        {
+          "operation": "create",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 1,
+              "cpuMs": 0,
+              "remainingMs": 19719,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2435,
+              "cpuMs": 453,
+              "remainingMs": 17285,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2215,
+              "cpuMs": 406,
+              "remainingMs": 15069,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 1163,
+              "cpuMs": 265,
+              "remainingMs": 13906,
+              "steps": 76,
+              "remainingSteps": 4924
+            }
+          ],
+          "rejectionWitness": {
+            "calls": 9,
+            "wallMs": 91.29889999999796,
+            "cpuMs": 0
+          }
+        },
+        {
+          "operation": "resume",
+          "stages": [
+            {
+              "stage": "setup",
+              "wallMs": 10,
+              "cpuMs": 0,
+              "remainingMs": 19977,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "identify",
+              "wallMs": 2092,
+              "cpuMs": 453,
+              "remainingMs": 17885,
+              "steps": 0,
+              "remainingSteps": 5000
+            },
+            {
+              "stage": "actual-replay",
+              "wallMs": 2257,
+              "cpuMs": 438,
+              "remainingMs": 15629,
+              "steps": 52,
+              "remainingSteps": 4948
+            },
+            {
+              "stage": "paired-replay",
+              "wallMs": 5366,
+              "cpuMs": 1062,
+              "remainingMs": 10263,
+              "steps": 143,
+              "remainingSteps": 4857
+            },
+            {
+              "stage": "independent-verification",
+              "wallMs": 5410,
+              "cpuMs": 891,
+              "remainingMs": 4853,
+              "steps": 195,
+              "remainingSteps": 4805
+            },
+            {
+              "stage": "final-proof",
+              "wallMs": 1093,
+              "cpuMs": 219,
+              "remainingMs": 3760,
+              "steps": 195,
+              "remainingSteps": 4805
+            }
+          ],
+          "rejectionWitness": {
+            "calls": 38,
+            "wallMs": 1789.5595999999969,
+            "cpuMs": 341
+          }
+        }
+      ]
+    }
+  ]
+}

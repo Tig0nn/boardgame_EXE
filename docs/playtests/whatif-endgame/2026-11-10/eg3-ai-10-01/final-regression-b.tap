@@ -1,0 +1,1604 @@
+TAP version 13
+# (node:10468) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: observer failures and throwing unsubscribe cannot interrupt replacement or cleanup
+ok 1 - observer failures and throwing unsubscribe cannot interrupt replacement or cleanup
+  ---
+  duration_ms: 12.7436
+  ...
+# Subtest: subscription failure releases authority and permits a later valid attachment
+ok 2 - subscription failure releases authority and permits a later valid attachment
+  ---
+  duration_ms: 1.4613
+  ...
+# Subtest: an unnotified snapshot replacement during capture revokes authority before Worker startup
+ok 3 - an unnotified snapshot replacement during capture revokes authority before Worker startup
+  ---
+  duration_ms: 962.2189
+  ...
+# Subtest: dispose unsubscribes every attached session exactly once
+ok 4 - dispose unsubscribes every attached session exactly once
+  ---
+  duration_ms: 0.9898
+  ...
+# (node:38280) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: ordinary active session has an identity but does not register a terminal capture
+ok 5 - ordinary active session has an identity but does not register a terminal capture
+  ---
+  duration_ms: 9.488
+  ...
+# Subtest: reattaching the same content creates a new session incarnation
+ok 6 - reattaching the same content creates a new session incarnation
+  ---
+  duration_ms: 0.7648
+  ...
+# (node:10220) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: logical lease revocation blocks old read and delayed A publication on B
+ok 7 - logical lease revocation blocks old read and delayed A publication on B
+  ---
+  duration_ms: 6.2289
+  ...
+# Subtest: isolated logical final read is detached and revoked on epoch mutation/close/reopen
+ok 8 - isolated logical final read is detached and revoked on epoch mutation/close/reopen
+  ---
+  duration_ms: 5.3077
+  ...
+# Subtest: logical lease mutation invalidates current read controllerIncarnation
+ok 9 - logical lease mutation invalidates current read controllerIncarnation
+  ---
+  duration_ms: 2.8193
+  ...
+# Subtest: logical lease mutation invalidates current read sessionIncarnation
+ok 10 - logical lease mutation invalidates current read sessionIncarnation
+  ---
+  duration_ms: 1.9994
+  ...
+# Subtest: logical lease mutation invalidates current read sessionEpoch
+ok 11 - logical lease mutation invalidates current read sessionEpoch
+  ---
+  duration_ms: 1.3837
+  ...
+# Subtest: logical lease mutation invalidates current read captureId
+ok 12 - logical lease mutation invalidates current read captureId
+  ---
+  duration_ms: 1.198
+  ...
+# Subtest: logical lease mutation invalidates current read captureRevision
+ok 13 - logical lease mutation invalidates current read captureRevision
+  ---
+  duration_ms: 1.5829
+  ...
+# Subtest: logical lease mutation invalidates current read workerGeneration
+ok 14 - logical lease mutation invalidates current read workerGeneration
+  ---
+  duration_ms: 1.6908
+  ...
+# Subtest: logical lease mutation invalidates current read analysisInstance
+ok 15 - logical lease mutation invalidates current read analysisInstance
+  ---
+  duration_ms: 2.6177
+  ...
+# Subtest: logical lease mutation invalidates current read analysisId
+ok 16 - logical lease mutation invalidates current read analysisId
+  ---
+  duration_ms: 2.9536
+  ...
+# Subtest: logical lease mutation invalidates current read sourceHash
+ok 17 - logical lease mutation invalidates current read sourceHash
+  ---
+  duration_ms: 2.0771
+  ...
+# Subtest: logical lease mutation invalidates current read decision
+ok 18 - logical lease mutation invalidates current read decision
+  ---
+  duration_ms: 2.1641
+  ...
+# Subtest: logical lease mutation invalidates current read initialPolicy
+ok 19 - logical lease mutation invalidates current read initialPolicy
+  ---
+  duration_ms: 2.8247
+  ...
+# Subtest: binding does not queue concurrent operations or publish after cancel
+ok 20 - binding does not queue concurrent operations or publish after cancel
+  ---
+  duration_ms: 2.8366
+  ...
+# Subtest: binding activation rejects accessors and prototypes before invoking factory
+ok 21 - binding activation rejects accessors and prototypes before invoking factory
+  ---
+  duration_ms: 1.2795
+  ...
+# (node:24820) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: full exact historical text verifies and lists only native-legal Gold C1 buy4
+ok 22 - full exact historical text verifies and lists only native-legal Gold C1 buy4
+  ---
+  duration_ms: 2464.9753
+  ...
+# Subtest: START4 summary and rebalancing are not terminal history
+ok 23 - START4 summary and rebalancing are not terminal history
+  ---
+  duration_ms: 1295.8431
+  ...
+# Subtest: private native snapshot recapture has its own exact hash and equal verified full semantics
+ok 24 - private native snapshot recapture has its own exact hash and equal verified full semantics
+  ---
+  duration_ms: 3407.6615
+  ...
+# Subtest: full source refuses schema
+ok 25 - full source refuses schema
+  ---
+  duration_ms: 325.4869
+  ...
+# Subtest: full source refuses profile
+ok 26 - full source refuses profile
+  ---
+  duration_ms: 383.1797
+  ...
+# Subtest: full source refuses config
+ok 27 - full source refuses config
+  ---
+  duration_ms: 579.2867
+  ...
+# Subtest: full source refuses incomplete
+ok 28 - full source refuses incomplete
+  ---
+  duration_ms: 325.8408
+  ...
+# Subtest: full source refuses snapshot
+ok 29 - full source refuses snapshot
+  ---
+  duration_ms: 539.674
+  ...
+# Subtest: source data graph, getters, size, cancellation and async mutation fail closed
+ok 30 - source data graph, getters, size, cancellation and async mutation fail closed
+  ---
+  duration_ms: 1192.8123
+  ...
+# (node:30336) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: runtime protocol refuses unknown versions, policy, graph and extra data
+ok 31 - runtime protocol refuses unknown versions, policy, graph and extra data
+  ---
+  duration_ms: 4.3418
+  ...
+# Subtest: worker rejects unprepared create and does not run an implicit analysis
+ok 32 - worker rejects unprepared create and does not run an implicit analysis
+  ---
+  duration_ms: 2.029
+  ...
+# Subtest: duplicate in-flight request cannot release the original worker computation lock
+ok 33 - duplicate in-flight request cannot release the original worker computation lock
+  ---
+  duration_ms: 1337.1156
+  ...
+# Subtest: real unchanged C1 runs create/pending/resume on the one resident job handle
+ok 34 - real unchanged C1 runs create/pending/resume on the one resident job handle
+  ---
+  duration_ms: 7415.3705
+  ...
+# Subtest: client boundary refuses foreign/stale response controllerIncarnation
+ok 35 - client boundary refuses foreign/stale response controllerIncarnation
+  ---
+  duration_ms: 1130.8737
+  ...
+# Subtest: client boundary refuses foreign/stale response sessionIncarnation
+ok 36 - client boundary refuses foreign/stale response sessionIncarnation
+  ---
+  duration_ms: 30.8932
+  ...
+# Subtest: client boundary refuses foreign/stale response sessionEpoch
+ok 37 - client boundary refuses foreign/stale response sessionEpoch
+  ---
+  duration_ms: 31.9881
+  ...
+# Subtest: client boundary refuses foreign/stale response captureId
+ok 38 - client boundary refuses foreign/stale response captureId
+  ---
+  duration_ms: 30.6466
+  ...
+# Subtest: client boundary refuses foreign/stale response captureRevision
+ok 39 - client boundary refuses foreign/stale response captureRevision
+  ---
+  duration_ms: 31.3651
+  ...
+# Subtest: client boundary refuses foreign/stale response sourceHash
+ok 40 - client boundary refuses foreign/stale response sourceHash
+  ---
+  duration_ms: 31.7244
+  ...
+# Subtest: client boundary refuses foreign/stale response workerGeneration
+ok 41 - client boundary refuses foreign/stale response workerGeneration
+  ---
+  duration_ms: 31.7847
+  ...
+# Subtest: client boundary refuses foreign/stale response analysisInstance
+ok 42 - client boundary refuses foreign/stale response analysisInstance
+  ---
+  duration_ms: 31.4614
+  ...
+# Subtest: client boundary refuses foreign/stale response analysisId
+ok 43 - client boundary refuses foreign/stale response analysisId
+  ---
+  duration_ms: 32.0545
+  ...
+# Subtest: client boundary refuses foreign/stale response jobId
+ok 44 - client boundary refuses foreign/stale response jobId
+  ---
+  duration_ms: 30.8783
+  ...
+# Subtest: client boundary refuses foreign/stale response requestOrdinal
+ok 45 - client boundary refuses foreign/stale response requestOrdinal
+  ---
+  duration_ms: 31.8516
+  ...
+# Subtest: client boundary refuses foreign/stale response initialPolicy
+ok 46 - client boundary refuses foreign/stale response initialPolicy
+  ---
+  duration_ms: 0.8384
+  ...
+# Subtest: client boundary refuses foreign/stale response branchId
+ok 47 - client boundary refuses foreign/stale response branchId
+  ---
+  duration_ms: 30.3389
+  ...
+# Subtest: client boundary refuses foreign/stale response expectedRevision
+ok 48 - client boundary refuses foreign/stale response expectedRevision
+  ---
+  duration_ms: 31.8446
+  ...
+# Subtest: client boundary refuses foreign/stale response decision
+ok 49 - client boundary refuses foreign/stale response decision
+  ---
+  duration_ms: 0.6817
+  ...
+# Subtest: client enforces phase, synchronous revoke, one module worker owner, duplicate disposal
+ok 50 - client enforces phase, synchronous revoke, one module worker owner, duplicate disposal
+  ---
+  duration_ms: 283.7719
+  ...
+# Subtest: projection contains only bounded verified C1 facts; extra nested/private data rejected
+ok 51 - projection contains only bounded verified C1 facts; extra nested/private data rejected
+  ---
+  duration_ms: 2.9257
+  ...
+# Subtest: protocol rejects inherited/accessor/cyclic/nonfinite/oversized/unknown kinds and policy
+ok 52 - protocol rejects inherited/accessor/cyclic/nonfinite/oversized/unknown kinds and policy
+  ---
+  duration_ms: 0.7378
+  ...
+# (node:4760) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: explicit Basic8 to engine skip reaches completed4 with independent replay and signed selectors
+ok 53 - explicit Basic8 to engine skip reaches completed4 with independent replay and signed selectors
+  ---
+  duration_ms: 4286.5168
+  ...
+# Subtest: wrong source, branch and policy identities fail closed without final numeric fields
+ok 54 - wrong source, branch and policy identities fail closed without final numeric fields
+  ---
+  duration_ms: 3497.0731
+  ...
+# Subtest: malformed source is blocked as invalid input rather than an internal error
+ok 55 - malformed source is blocked as invalid input rather than an internal error
+  ---
+  duration_ms: 711.812
+  ...
+# Subtest: source boundary: wrong schema
+ok 56 - source boundary: wrong schema
+  ---
+  duration_ms: 479.6732
+  ...
+# Subtest: source boundary: wrong profile
+ok 57 - source boundary: wrong profile
+  ---
+  duration_ms: 692.691
+  ...
+# Subtest: source boundary: mixed config
+ok 58 - source boundary: mixed config
+  ---
+  duration_ms: 2928.2846
+  ...
+# Subtest: source boundary: corrupt intermediate snapshot
+ok 59 - source boundary: corrupt intermediate snapshot
+  ---
+  duration_ms: 2742.1028
+  ...
+# Subtest: source boundary: corrupt final Actual
+ok 60 - source boundary: corrupt final Actual
+  ---
+  duration_ms: 4790.7349
+  ...
+# Subtest: source boundary: non-contiguous log
+ok 61 - source boundary: non-contiguous log
+  ---
+  duration_ms: 879.7492
+  ...
+# Subtest: source boundary: missing explicit Basic
+ok 62 - source boundary: missing explicit Basic
+  ---
+  duration_ms: 1555.0599
+  ...
+# Subtest: Advanced/Gold/Bank decision cannot be selected as approved policy
+ok 63 - Advanced/Gold/Bank decision cannot be selected as approved policy
+  ---
+  duration_ms: 3319.7711
+  ...
+# Subtest: decision/config/engine identity mismatch is rejected, even when source bytes are unchanged
+ok 64 - decision/config/engine identity mismatch is rejected, even when source bytes are unchanged
+  ---
+  duration_ms: 4408.3196
+  ...
+# Subtest: reconstructed pre-state proves both choices legal; invalid Alternative context is refused
+ok 65 - reconstructed pre-state proves both choices legal; invalid Alternative context is refused
+  ---
+  duration_ms: 2184.0326
+  ...
+# Subtest: first illegal recorded course action: duplicate-course
+ok 66 - first illegal recorded course action: duplicate-course
+  ---
+  duration_ms: 994.8839
+  ...
+# Subtest: first illegal recorded course action: insufficient-cash
+ok 67 - first illegal recorded course action: insufficient-cash
+  ---
+  duration_ms: 942.2389
+  ...
+# Subtest: recorded asset sale incompatible with holdings stops without changing the command
+ok 68 - recorded asset sale incompatible with holdings stops without changing the command
+  ---
+  duration_ms: 6.6266
+  ...
+# Subtest: recorded funding no longer needed is a blocker, never a fund-zero replacement
+ok 69 - recorded funding no longer needed is a blocker, never a fund-zero replacement
+  ---
+  duration_ms: 1.6888
+  ...
+# Subtest: new Alternative pending funding before recorded roll stops before rolling
+ok 70 - new Alternative pending funding before recorded roll stops before rolling
+  ---
+  duration_ms: 1.4343
+  ...
+# Subtest: different pending-payment amounts stop even with both phases funding
+ok 71 - different pending-payment amounts stop even with both phases funding
+  ---
+  duration_ms: 1.4184
+  ...
+# Subtest: F1 blocks exogenous/context mismatch: rng
+ok 72 - F1 blocks exogenous/context mismatch: rng
+  ---
+  duration_ms: 3.5927
+  ...
+# Subtest: F1 blocks exogenous/context mismatch: market
+ok 73 - F1 blocks exogenous/context mismatch: market
+  ---
+  duration_ms: 3.3447
+  ...
+# Subtest: F1 blocks exogenous/context mismatch: credit
+ok 74 - F1 blocks exogenous/context mismatch: credit
+  ---
+  duration_ms: 4.6349
+  ...
+# Subtest: F1 blocks exogenous/context mismatch: time
+ok 75 - F1 blocks exogenous/context mismatch: time
+  ---
+  duration_ms: 4.2955
+  ...
+# Subtest: F1 blocks exogenous/context mismatch: event
+ok 76 - F1 blocks exogenous/context mismatch: event
+  ---
+  duration_ms: 3.1436
+  ...
+# Subtest: F1 blocks exogenous/context mismatch: schedule
+ok 77 - F1 blocks exogenous/context mismatch: schedule
+  ---
+  duration_ms: 4.8226
+  ...
+# Subtest: wrong recorded context and no-progress engine transition cannot be bypassed
+ok 78 - wrong recorded context and no-progress engine transition cannot be bypassed
+  ---
+  duration_ms: 5.1561
+  ...
+# Subtest: independent pre-existing Node replay reproduces the complete Alternative, including four salary consequences
+ok 79 - independent pre-existing Node replay reproduces the complete Alternative, including four salary consequences
+  ---
+  duration_ms: 1499.5787
+  ...
+# Subtest: ending comparison refuses insolvent
+ok 80 - ending comparison refuses insolvent
+  ---
+  duration_ms: 22.1802
+  ...
+# Subtest: ending comparison refuses summary-before-final
+ok 81 - ending comparison refuses summary-before-final
+  ---
+  duration_ms: 18.8676
+  ...
+# Subtest: ending comparison refuses missing-summary
+ok 82 - ending comparison refuses missing-summary
+  ---
+  duration_ms: 15.3519
+  ...
+# Subtest: ending comparison refuses duplicate-summary
+ok 83 - ending comparison refuses duplicate-summary
+  ---
+  duration_ms: 18.6
+  ...
+# Subtest: ending comparison refuses pending-settlement
+ok 84 - ending comparison refuses pending-settlement
+  ---
+  duration_ms: 17.3971
+  ...
+# Subtest: ending comparison refuses pending-payment
+ok 85 - ending comparison refuses pending-payment
+  ---
+  duration_ms: 20.1109
+  ...
+# Subtest: ending comparison refuses wrong-time
+ok 86 - ending comparison refuses wrong-time
+  ---
+  duration_ms: 22.8465
+  ...
+# Subtest: ending comparison refuses early-finished
+ok 87 - ending comparison refuses early-finished
+  ---
+  duration_ms: 18.3969
+  ...
+# Subtest: real engine insolvency at a synthetic boundary stops without future salary/market or completed ending
+ok 88 - real engine insolvency at a synthetic boundary stops without future salary/market or completed ending
+  ---
+  duration_ms: 10.0516
+  ...
+# Subtest: cursor records an already-applied command at first funding divergence, so no future reapply is implied
+ok 89 - cursor records an already-applied command at first funding divergence, so no future reapply is implied
+  ---
+  duration_ms: 957.1121
+  ...
+# Subtest: bounded work returns limited at step limit, never a partial final DTO
+ok 90 - bounded work returns limited at step limit, never a partial final DTO
+  ---
+  duration_ms: 2388.5366
+  ...
+# Subtest: invalid work bound cannot disable budget
+ok 91 - invalid work bound cannot disable budget
+  ---
+  duration_ms: 803.2799
+  ...
+# Subtest: pre-aborted and in-flight cancellation publish no final numbers
+ok 92 - pre-aborted and in-flight cancellation publish no final numbers
+  ---
+  duration_ms: 1512.222
+  ...
+# Subtest: exact source/request changes across async verification are rejected before publication
+ok 93 - exact source/request changes across async verification are rejected before publication
+  ---
+  duration_ms: 3296.758
+  ...
+# Subtest: request getters are never invoked and cycles/custom prototypes are rejected
+ok 94 - request getters are never invoked and cycles/custom prototypes are rejected
+  ---
+  duration_ms: 939.8693
+  ...
+# Subtest: source/live session and storage stay unchanged; outputs deterministic across reruns
+ok 95 - source/live session and storage stay unchanged; outputs deterministic across reruns
+  ---
+  duration_ms: 14428.0226
+  ...
+# Subtest: second pre-existing independent engine history is tested by first explicit Basic eligibility, not payoff
+ok 96 - second pre-existing independent engine history is tested by first explicit Basic eligibility, not payoff
+  ---
+  duration_ms: 7840.6297
+  ...
+# Subtest: corrupted recorded transaction reports source-replay blocked, not an opaque internal error
+ok 97 - corrupted recorded transaction reports source-replay blocked, not an opaque internal error
+  ---
+  duration_ms: 3077.8623
+  ...
+# Subtest: terminal comparison requires approved profile and rejects a foreign completed4 ending
+ok 98 - terminal comparison requires approved profile and rejects a foreign completed4 ending
+  ---
+  duration_ms: 21.5404
+  ...
+# Subtest: parser rejects oversized, cyclic-like JSON depth and non-finite numeric data before identity hashing
+ok 99 - parser rejects oversized, cyclic-like JSON depth and non-finite numeric data before identity hashing
+  ---
+  duration_ms: 1204.012
+  ...
+# Subtest: command identity is a bounded allowlist, not a carrier for arbitrary action payloads
+ok 100 - command identity is a bounded allowlist, not a carrier for arbitrary action payloads
+  ---
+  duration_ms: 247.5871
+  ...
+# Subtest: genuine final START summary input is not a full terminal source and cannot publish final numbers
+ok 101 - genuine final START summary input is not a full terminal source and cannot publish final numbers
+  ---
+  duration_ms: 4607.0038
+  ...
+# Subtest: known action fields also require bounded scalar values before entering a continuation identity
+ok 102 - known action fields also require bounded scalar values before entering a continuation identity
+  ---
+  duration_ms: 360.484
+  ...
+# (node:20844) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: critical fixture attempt is honestly nondivergent; it cannot certify interactive full-horizon acceptance
+ok 103 - critical fixture attempt is honestly nondivergent; it cannot certify interactive full-horizon acceptance
+  ---
+  duration_ms: 3435.2255
+  ...
+# Subtest: EG1A fixed archive and independent history remain full completed comparisons without follow-ups
+ok 104 - EG1A fixed archive and independent history remain full completed comparisons without follow-ups
+  ---
+  duration_ms: 11404.3277
+  ...
+# Subtest: synthetic engine boundary: explicit skip replaces first illegal course decision exactly once
+ok 105 - synthetic engine boundary: explicit skip replaces first illegal course decision exactly once
+  ---
+  duration_ms: 28.8932
+  ...
+# Subtest: synthetic funding boundary: exact remaining debt is an explicit engine-verified contract
+ok 106 - synthetic funding boundary: exact remaining debt is an explicit engine-verified contract
+  ---
+  duration_ms: 34.3574
+  ...
+# Subtest: synthetic boundary F1 mismatch cannot offer follow-up: rng
+ok 107 - synthetic boundary F1 mismatch cannot offer follow-up: rng
+  ---
+  duration_ms: 21.1359
+  ...
+# Subtest: synthetic boundary F1 mismatch cannot offer follow-up: market
+ok 108 - synthetic boundary F1 mismatch cannot offer follow-up: market
+  ---
+  duration_ms: 24.2196
+  ...
+# Subtest: synthetic boundary F1 mismatch cannot offer follow-up: credit
+ok 109 - synthetic boundary F1 mismatch cannot offer follow-up: credit
+  ---
+  duration_ms: 22.0044
+  ...
+# Subtest: synthetic boundary F1 mismatch cannot offer follow-up: time
+ok 110 - synthetic boundary F1 mismatch cannot offer follow-up: time
+  ---
+  duration_ms: 20.8875
+  ...
+# Subtest: synthetic boundary F1 mismatch cannot offer follow-up: event
+ok 111 - synthetic boundary F1 mismatch cannot offer follow-up: event
+  ---
+  duration_ms: 19.0823
+  ...
+# Subtest: synthetic boundary F1 mismatch cannot offer follow-up: schedule
+ok 112 - synthetic boundary F1 mismatch cannot offer follow-up: schedule
+  ---
+  duration_ms: 22.0681
+  ...
+# Subtest: synthetic after-command never reapplies an already consumed source command
+ok 113 - synthetic after-command never reapplies an already consumed source command
+  ---
+  duration_ms: 18.6462
+  ...
+# Subtest: synthetic phase-advance never reapplies an already consumed source command
+ok 114 - synthetic phase-advance never reapplies an already consumed source command
+  ---
+  duration_ms: 24.1154
+  ...
+# Subtest: synthetic new or unnecessary funding remains limited; no fund0 or automatic skip
+ok 115 - synthetic new or unnecessary funding remains limited; no fund0 or automatic skip
+  ---
+  duration_ms: 23.2227
+  ...
+# Subtest: synthetic candidate changing funding state is refused despite engine legality
+ok 116 - synthetic candidate changing funding state is refused despite engine legality
+  ---
+  duration_ms: 18.6262
+  ...
+# Subtest: synthetic wrong cursor/context, arbitrary lot and nonfinite amounts rejected
+ok 117 - synthetic wrong cursor/context, arbitrary lot and nonfinite amounts rejected
+  ---
+  duration_ms: 15.9683
+  ...
+# Subtest: synthetic boundary permits multiple explicit replacements; no automatic option selected
+ok 118 - synthetic boundary permits multiple explicit replacements; no automatic option selected
+  ---
+  duration_ms: 40.6261
+  ...
+# Subtest: transcript chain binds source and ordered choices; tampering/reordering rejected
+ok 119 - transcript chain binds source and ordered choices; tampering/reordering rejected
+  ---
+  duration_ms: 1247.444
+  ...
+# Subtest: transcript hard caps reject seventeenth choice, oversized/nonfinite/deep data
+ok 120 - transcript hard caps reject seventeenth choice, oversized/nonfinite/deep data
+  ---
+  duration_ms: 1427.0816
+  ...
+# Subtest: negative submission guard rejects wrong source (derived synthetic blocker, no execution claim)
+ok 121 - negative submission guard rejects wrong source (derived synthetic blocker, no execution claim)
+  ---
+  duration_ms: 1293.3428
+  ...
+# Subtest: negative submission guard rejects wrong selected (derived synthetic blocker, no execution claim)
+ok 122 - negative submission guard rejects wrong selected (derived synthetic blocker, no execution claim)
+  ---
+  duration_ms: 1324.1314
+  ...
+# Subtest: negative submission guard rejects wrong branch (derived synthetic blocker, no execution claim)
+ok 123 - negative submission guard rejects wrong branch (derived synthetic blocker, no execution claim)
+  ---
+  duration_ms: 1339.7317
+  ...
+# Subtest: negative submission guard rejects wrong policy (derived synthetic blocker, no execution claim)
+ok 124 - negative submission guard rejects wrong policy (derived synthetic blocker, no execution claim)
+  ---
+  duration_ms: 1313.4606
+  ...
+# Subtest: negative submission guard rejects wrong revision (derived synthetic blocker, no execution claim)
+ok 125 - negative submission guard rejects wrong revision (derived synthetic blocker, no execution claim)
+  ---
+  duration_ms: 1176.728
+  ...
+# Subtest: negative submission guard rejects wrong cursor (derived synthetic blocker, no execution claim)
+ok 126 - negative submission guard rejects wrong cursor (derived synthetic blocker, no execution claim)
+  ---
+  duration_ms: 1138.2011
+  ...
+# Subtest: negative submission guard rejects wrong blocker (derived synthetic blocker, no execution claim)
+ok 127 - negative submission guard rejects wrong blocker (derived synthetic blocker, no execution claim)
+  ---
+  duration_ms: 1077.1255
+  ...
+# Subtest: negative submission guard rejects wrong phase (derived synthetic blocker, no execution claim)
+ok 128 - negative submission guard rejects wrong phase (derived synthetic blocker, no execution claim)
+  ---
+  duration_ms: 1215.9492
+  ...
+# Subtest: negative submission guard rejects wrong engine (derived synthetic blocker, no execution claim)
+ok 129 - negative submission guard rejects wrong engine (derived synthetic blocker, no execution claim)
+  ---
+  duration_ms: 1179.3928
+  ...
+# Subtest: negative submission guard rejects wrong config (derived synthetic blocker, no execution claim)
+ok 130 - negative submission guard rejects wrong config (derived synthetic blocker, no execution claim)
+  ---
+  duration_ms: 1157.5671
+  ...
+# Subtest: negative submission guard rejects wrong event (derived synthetic blocker, no execution claim)
+ok 131 - negative submission guard rejects wrong event (derived synthetic blocker, no execution claim)
+  ---
+  duration_ms: 1040.7657
+  ...
+# Subtest: negative guard rejects duplicate/old revision after a tail advances, not a full public resume proof
+ok 132 - negative guard rejects duplicate/old revision after a tail advances, not a full public resume proof
+  ---
+  duration_ms: 1072.1417
+  ...
+# Subtest: public API rejects forged Alternative state and imported transcript; never accepts a raw cursor/state
+ok 133 - public API rejects forged Alternative state and imported transcript; never accepts a raw cursor/state
+  ---
+  duration_ms: 1707.617
+  ...
+# Subtest: public source identity mismatch sourceHash is blocked before financial publication
+ok 134 - public source identity mismatch sourceHash is blocked before financial publication
+  ---
+  duration_ms: 1688.3775
+  ...
+# Subtest: public source identity mismatch configHash is blocked before financial publication
+ok 135 - public source identity mismatch configHash is blocked before financial publication
+  ---
+  duration_ms: 1770.4776
+  ...
+# Subtest: public source identity mismatch engine is blocked before financial publication
+ok 136 - public source identity mismatch engine is blocked before financial publication
+  ---
+  duration_ms: 1670.743
+  ...
+# Subtest: public source identity mismatch branch is blocked before financial publication
+ok 137 - public source identity mismatch branch is blocked before financial publication
+  ---
+  duration_ms: 1633.2892
+  ...
+# Subtest: public source identity mismatch policy is blocked before financial publication
+ok 138 - public source identity mismatch policy is blocked before financial publication
+  ---
+  duration_ms: 1456.6912
+  ...
+# Subtest: public API source mutation during verification is rejected; graph getters are not invoked
+ok 139 - public API source mutation during verification is rejected; graph getters are not invoked
+  ---
+  duration_ms: 6657.6206
+  ...
+# Subtest: public work step/deadline/cancellation and option hard caps fail closed
+ok 140 - public work step/deadline/cancellation and option hard caps fail closed
+  ---
+  duration_ms: 5153.3158
+  ...
+# Subtest: public core deterministic facts, no live dispatch/storage/network and no mutable result alias
+ok 141 - public core deterministic facts, no live dispatch/storage/network and no mutable result alias
+  ---
+  duration_ms: 16525.9411
+  ...
+# Subtest: public malformed inputs are blocked rather than reported as internal verification errors
+ok 142 - public malformed inputs are blocked rather than reported as internal verification errors
+  ---
+  duration_ms: 1.0234
+  ...
+# Subtest: synthetic real event candidate with changed funding path fails paired rejoin
+ok 143 - synthetic real event candidate with changed funding path fails paired rejoin
+  ---
+  duration_ms: 10.8044
+  ...
+# Subtest: synthetic no-progress/context/early-insolvent cannot be advanced or offered a choice
+ok 144 - synthetic no-progress/context/early-insolvent cannot be advanced or offered a choice
+  ---
+  duration_ms: 17.8085
+  ...
+# Subtest: work-option accessors and inherited getters are rejected without invocation
+ok 145 - work-option accessors and inherited getters are rejected without invocation
+  ---
+  duration_ms: 0.8879
+  ...
+# (node:14404) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: public identity rejects altered sourceHash
+ok 146 - public identity rejects altered sourceHash
+  ---
+  duration_ms: 2231.4585
+  ...
+# Subtest: public identity rejects altered configHash
+ok 147 - public identity rejects altered configHash
+  ---
+  duration_ms: 951.2515
+  ...
+# Subtest: public identity rejects altered engine
+ok 148 - public identity rejects altered engine
+  ---
+  duration_ms: 1099.3026
+  ...
+# Subtest: public identity rejects altered profile
+ok 149 - public identity rejects altered profile
+  ---
+  duration_ms: 1108.0705
+  ...
+# Subtest: public identity rejects altered initialPolicy
+ok 150 - public identity rejects altered initialPolicy
+  ---
+  duration_ms: 954.0034
+  ...
+# Subtest: public identity rejects altered continuationPolicy
+ok 151 - public identity rejects altered continuationPolicy
+  ---
+  duration_ms: 952.6665
+  ...
+# Subtest: public identity rejects altered fairness
+ok 152 - public identity rejects altered fairness
+  ---
+  duration_ms: 1021.6366
+  ...
+# Subtest: public identity rejects altered eventContext
+ok 153 - public identity rejects altered eventContext
+  ---
+  duration_ms: 974.7745
+  ...
+# Subtest: public identity rejects altered decision
+ok 154 - public identity rejects altered decision
+  ---
+  duration_ms: 1273.322
+  ...
+# Subtest: public identity rejects altered schema
+ok 155 - public identity rejects altered schema
+  ---
+  duration_ms: 1493.9376
+  ...
+# Subtest: exact recorded term/symbol fields cannot be changed in the selected identity
+ok 156 - exact recorded term/symbol fields cannot be changed in the selected identity
+  ---
+  duration_ms: 1486.663
+  ...
+# Subtest: other Gold tile60 and non-Gold initial choices are outside approved identity scope
+ok 157 - other Gold tile60 and non-Gold initial choices are outside approved identity scope
+  ---
+  duration_ms: 2605.3601
+  ...
+# Subtest: public source verification refuses corrupted/unsupported schema
+ok 158 - public source verification refuses corrupted/unsupported schema
+  ---
+  duration_ms: 1190.6092
+  ...
+# Subtest: public source verification refuses corrupted/unsupported profile
+ok 159 - public source verification refuses corrupted/unsupported profile
+  ---
+  duration_ms: 1136.5831
+  ...
+# Subtest: public source verification refuses corrupted/unsupported config
+ok 160 - public source verification refuses corrupted/unsupported config
+  ---
+  duration_ms: 2572.9448
+  ...
+# Subtest: public source verification refuses corrupted/unsupported snapshot
+ok 161 - public source verification refuses corrupted/unsupported snapshot
+  ---
+  duration_ms: 2235.8881
+  ...
+# Subtest: public source verification refuses corrupted/unsupported buy-form
+ok 162 - public source verification refuses corrupted/unsupported buy-form
+  ---
+  duration_ms: 1235.3138
+  ...
+# Subtest: public source verification refuses corrupted/unsupported action-extra
+ok 163 - public source verification refuses corrupted/unsupported action-extra
+  ---
+  duration_ms: 1288.6119
+  ...
+# Subtest: public input rejects raw Alternative state, imported transcript and extra mutable source of truth
+ok 164 - public input rejects raw Alternative state, imported transcript and extra mutable source of truth
+  ---
+  duration_ms: 2436.9307
+  ...
+# Subtest: malformed/getter/prototype/cyclic/nonfinite request data never enters reconstruction
+ok 165 - malformed/getter/prototype/cyclic/nonfinite request data never enters reconstruction
+  ---
+  duration_ms: 53.4662
+  ...
+# Subtest: source/graph/step/time budgets fail closed without final numbers
+ok 166 - source/graph/step/time budgets fail closed without final numbers
+  ---
+  duration_ms: 939.0798
+  ...
+# Subtest: source mutation across public create is rejected; caller source changes after capture cannot rewrite a handle
+ok 167 - source mutation across public create is rejected; caller source changes after capture cannot rewrite a handle
+  ---
+  duration_ms: 9953.3647
+  ...
+# Subtest: private transcript rejects changed/reordered native follow-up records and wrong binding
+ok 168 - private transcript rejects changed/reordered native follow-up records and wrong binding
+  ---
+  duration_ms: 8978.9785
+  ...
+# Subtest: even a rehashed duplicate source-cursor record is not a valid ordered Gold transcript
+ok 169 - even a rehashed duplicate source-cursor record is not a valid ordered Gold transcript
+  ---
+  duration_ms: 6.5675
+  ...
+# Subtest: detached native boundary fails closed on rng divergence
+ok 170 - detached native boundary fails closed on rng divergence
+  ---
+  duration_ms: 3091.407
+  ...
+# Subtest: detached native boundary fails closed on market divergence
+ok 171 - detached native boundary fails closed on market divergence
+  ---
+  duration_ms: 270.115
+  ...
+# Subtest: detached native boundary fails closed on credit divergence
+ok 172 - detached native boundary fails closed on credit divergence
+  ---
+  duration_ms: 297.1175
+  ...
+# Subtest: detached native boundary fails closed on time divergence
+ok 173 - detached native boundary fails closed on time divergence
+  ---
+  duration_ms: 279.6039
+  ...
+# Subtest: detached native boundary fails closed on event divergence
+ok 174 - detached native boundary fails closed on event divergence
+  ---
+  duration_ms: 330.0058
+  ...
+# Subtest: detached native boundary refuses funding, early insolvency and incomparable endings
+ok 175 - detached native boundary refuses funding, early insolvency and incomparable endings
+  ---
+  duration_ms: 452.0082
+  ...
+# Subtest: detached native blockers outside approved sale form/tile/context offer no replacement
+ok 176 - detached native blockers outside approved sale form/tile/context offer no replacement
+  ---
+  duration_ms: 5718.2949
+  ...
+# Subtest: detached native boundary refuses partial sale before executing either branch
+ok 177 - detached native boundary refuses partial sale before executing either branch
+  ---
+  duration_ms: 169.8443
+  ...
+# Subtest: internal initial-fork guard refuses illegal native Skip contexts without mutation
+ok 178 - internal initial-fork guard refuses illegal native Skip contexts without mutation
+  ---
+  duration_ms: 288.8397
+  ...
+# Subtest: transcript follow-up count, text length and action identity are bounded
+ok 179 - transcript follow-up count, text length and action identity are bounded
+  ---
+  duration_ms: 966.7235
+  ...
+# Subtest: fresh import and genuine public run have no storage/network/session/Basic mutation
+ok 180 - fresh import and genuine public run have no storage/network/session/Basic mutation
+  ---
+  duration_ms: 8376.8853
+  ...
+# Subtest: public options reject accessors without reading them
+ok 181 - public options reject accessors without reading them
+  ---
+  duration_ms: 37.9588
+  ...
+# (node:18412) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: pinned full history: public Gold create pauses at sale25; explicit public resume completes with real replay
+ok 182 - pinned full history: public Gold create pauses at sale25; explicit public resume completes with real replay
+  ---
+  duration_ms: 14100.829
+  ...
+# EG3-GOLD-PREPARE 1280
+# EG3-GOLD-STAGES {"operation":"create","stages":[{"stage":"setup","wallMs":1,"cpuMs":0,"remainingMs":19935,"steps":0,"remainingSteps":5000},{"stage":"identify","wallMs":1125,"cpuMs":984,"remainingMs":18810,"steps":0,"remainingSteps":5000},{"stage":"actual-replay","wallMs":893,"cpuMs":813,"remainingMs":17917,"steps":52,"remainingSteps":4948},{"stage":"paired-replay","wallMs":432,"cpuMs":390,"remainingMs":17485,"steps":76,"remainingSteps":4924}],"rejectionWitness":{"calls":9,"wallMs":51.29279999999562,"cpuMs":32}}
+# EG3-GOLD-PRE-RESUME 3803
+# EG3-GOLD-STAGES {"operation":"resume","stages":[{"stage":"setup","wallMs":0,"cpuMs":0,"remainingMs":19999,"steps":0,"remainingSteps":5000},{"stage":"identify","wallMs":908,"cpuMs":907,"remainingMs":19091,"steps":0,"remainingSteps":5000},{"stage":"actual-replay","wallMs":1117,"cpuMs":875,"remainingMs":17975,"steps":52,"remainingSteps":4948},{"stage":"paired-replay","wallMs":2201,"cpuMs":1999,"remainingMs":15773,"steps":143,"remainingSteps":4857},{"stage":"independent-verification","wallMs":2138,"cpuMs":2188,"remainingMs":13635,"steps":195,"remainingSteps":4805},{"stage":"final-proof","wallMs":368,"cpuMs":328,"remainingMs":13267,"steps":195,"remainingSteps":4805}],"rejectionWitness":{"calls":38,"wallMs":801.766900000006,"cpuMs":798}}
+# EG3-GOLD-RESULT {"status":"supported-final"}
+# Subtest: public pending rejects invalid inputs, preserves head, then valid retry commits once
+ok 183 - public pending rejects invalid inputs, preserves head, then valid retry commits once
+  ---
+  duration_ms: 10541.2327
+  ...
+# Subtest: genuine concurrent public resumes commit one financial timeline and reject duplicate/stale
+ok 184 - genuine concurrent public resumes commit one financial timeline and reject duplicate/stale
+  ---
+  duration_ms: 8653.7601
+  ...
+# Subtest: foreign genuine branch refused; repeated fresh full-history runs have deterministic engine facts
+ok 185 - foreign genuine branch refused; repeated fresh full-history runs have deterministic engine facts
+  ---
+  duration_ms: 20677.7454
+  ...
+# Subtest: public cancellation before/during commit preserves pending; abort after success does not roll back
+ok 186 - public cancellation before/during commit preserves pending; abort after success does not roll back
+  ---
+  duration_ms: 8327.483
+  ...
+# Subtest: caller mutation during a public resume is rejected without consuming the private pending head
+ok 187 - caller mutation during a public resume is rejected without consuming the private pending head
+  ---
+  duration_ms: 12271.6554
+  ...
+# (node:43236) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: DEV entry accepts only the exact unmixed opt-in
+ok 188 - DEV entry accepts only the exact unmixed opt-in
+  ---
+  duration_ms: 1.6201
+  ...
+# Subtest: ineligible terminal cannot start work and mount alone creates no Worker
+ok 189 - ineligible terminal cannot start work and mount alone creates no Worker
+  ---
+  duration_ms: 1.303
+  ...
+# Subtest: requires explicit initial and follow-up actions, then publishes via guarded read
+ok 190 - requires explicit initial and follow-up actions, then publishes via guarded read
+  ---
+  duration_ms: 10.8743
+  ...
+# Subtest: blocks a stale or unguarded result even after verified final publication
+ok 191 - blocks a stale or unguarded result even after verified final publication
+  ---
+  duration_ms: 1.8349
+  ...
+# Subtest: same-source ABA during resume cannot publish or cancel the new capture
+ok 192 - same-source ABA during resume cannot publish or cancel the new capture
+  ---
+  duration_ms: 5.3377
+  ...
+# Subtest: ignores late CREATE after close and late RESUME after unmount
+ok 193 - ignores late CREATE after close and late RESUME after unmount
+  ---
+  duration_ms: 2.4206
+  ...
+# Subtest: unknown commit clears the capture and does not retry
+ok 194 - unknown commit clears the capture and does not retry
+  ---
+  duration_ms: 2.2572
+  ...
+# Subtest: final guarded read rejects a different job even with the same source
+ok 195 - final guarded read rejects a different job even with the same source
+  ---
+  duration_ms: 4.6559
+  ...
+# (node:964) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Bank enumerates both verified skips in C1, including tile6, and replays each exact alternative through START4
+ok 196 - Bank enumerates both verified skips in C1, including tile6, and replays each exact alternative through START4
+  ---
+  duration_ms: 12203.7492
+  ...
+# Subtest: new Course skip-to-basic slice uses native wages and independent terminal replay on two decisions
+ok 197 - new Course skip-to-basic slice uses native wages and independent terminal replay on two decisions
+  ---
+  duration_ms: 13570.8444
+  ...
+# Subtest: duplicate recorded Course purchase needs explicit follow-up, rejects stale/concurrent input, then reconstructs one branch
+ok 198 - duplicate recorded Course purchase needs explicit follow-up, rejects stale/concurrent input, then reconstructs one branch
+  ---
+  duration_ms: 13005.0143
+  ...
+# Subtest: Bank history with a legal partial Gold sale retains that native action and supports the comparison
+ok 199 - Bank history with a legal partial Gold sale retains that native action and supports the comparison
+  ---
+  duration_ms: 8054.3903
+  ...
+# Subtest: official snapshot and packed save remain byte-identical across a genuine Bank analysis
+ok 200 - official snapshot and packed save remain byte-identical across a genuine Bank analysis
+  ---
+  duration_ms: 5595.2762
+  ...
+# Subtest: invalid/tampered history, alternative, work budget and cancellation publish no metrics
+ok 201 - invalid/tampered history, alternative, work budget and cancellation publish no metrics
+  ---
+  duration_ms: 3889.4459
+  ...
+# (node:15896) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: filtered history and a custom non-first-symbol budget return only native-probed alternatives
+ok 202 - filtered history and a custom non-first-symbol budget return only native-probed alternatives
+  ---
+  duration_ms: 4156.6593
+  ...
+# Subtest: every native stock symbol and budgets below and above five million survive independent replay
+ok 203 - every native stock symbol and budgets below and above five million survive independent replay
+  ---
+  duration_ms: 43243.353
+  ...
+# Subtest: native stock partial sales work and a sale of an unowned symbol is excluded
+ok 204 - native stock partial sales work and a sale of an unowned symbol is excluded
+  ---
+  duration_ms: 8453.2328
+  ...
+# Subtest: Bank exposes all native terms with variable principals and historical deposits remain selectable
+ok 205 - Bank exposes all native terms with variable principals and historical deposits remain selectable
+  ---
+  duration_ms: 37121.7736
+  ...
+# Subtest: both native bond issuers accept multiple budgets and distinct lots accept partial sales
+ok 206 - both native bond issuers accept multiple budgets and distinct lots accept partial sales
+  ---
+  duration_ms: 49686.0978
+  ...
+# Subtest: history and alternative pages keep bounded guards and never silently truncate a selection
+ok 207 - history and alternative pages keep bounded guards and never silently truncate a selection
+  ---
+  duration_ms: 4533.8347
+  ...
+# Subtest: dynamic parameters and their canonical IDs are closed-schema and cannot be tampered independently
+ok 208 - dynamic parameters and their canonical IDs are closed-schema and cannot be tampered independently
+  ---
+  duration_ms: 4319.3536
+  ...
+# Subtest: mock asks for explicit numeric and target selection instead of guessing a parameter
+ok 209 - mock asks for explicit numeric and target selection instead of guessing a parameter
+  ---
+  duration_ms: 2.771
+  ...
+# Subtest: Course page exposes Basic and Advanced without weakening native repeat-course guards
+ok 210 - Course page exposes Basic and Advanced without weakening native repeat-course guards
+  ---
+  duration_ms: 9126.4793
+  ...
+# (node:26576) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: mixed verified deltas expose the trade-off and confirmed follow-ups without invented causal events
+ok 211 - mixed verified deltas expose the trade-off and confirmed follow-ups without invented causal events
+  ---
+  duration_ms: 40.2157
+  ...
+# Subtest: course salary evidence names only changed START credits from matched replay laps
+ok 212 - course salary evidence names only changed START credits from matched replay laps
+  ---
+  duration_ms: 2.1319
+  ...
+# (node:28184) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: editing a pending question aborts the request and a late reply cannot replace the next response
+ok 213 - editing a pending question aborts the request and a late reply cannot replace the next response
+  ---
+  duration_ms: 17.5376
+  ...
+# Subtest: replaced session and replaced terminal snapshot reject an outstanding provider response
+ok 214 - replaced session and replaced terminal snapshot reject an outstanding provider response
+  ---
+  duration_ms: 12.9198
+  ...
+# Subtest: capture failure stays visible and retry opens a fresh verified capture in the same panel
+ok 215 - capture failure stays visible and retry opens a fresh verified capture in the same panel
+  ---
+  duration_ms: 6.2272
+  ...
+# (node:35996) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: stocks independent native fixture requires explicit safe follow-ups and verifies a completed comparison without changing save
+ok 216 - stocks independent native fixture requires explicit safe follow-ups and verifies a completed comparison without changing save
+  ---
+  duration_ms: 12308.9573
+  ...
+# Subtest: stocks rejects a forged alternative and a corrupted source before numeric publication
+ok 217 - stocks rejects a forged alternative and a corrupted source before numeric publication
+  ---
+  duration_ms: 5517.4036
+  ...
+# Subtest: bonds independent native fixture requires explicit safe follow-ups and verifies a completed comparison without changing save
+ok 218 - bonds independent native fixture requires explicit safe follow-ups and verifies a completed comparison without changing save
+  ---
+  duration_ms: 10134.958
+  ...
+# Subtest: bonds rejects a forged alternative and a corrupted source before numeric publication
+ok 219 - bonds rejects a forged alternative and a corrupted source before numeric publication
+  ---
+  duration_ms: 4684.8184
+  ...
+# Subtest: business independent native fixture requires explicit safe follow-ups and verifies a completed comparison without changing save
+ok 220 - business independent native fixture requires explicit safe follow-ups and verifies a completed comparison without changing save
+  ---
+  duration_ms: 18948.9346
+  ...
+# Subtest: business rejects a forged alternative and a corrupted source before numeric publication
+ok 221 - business rejects a forged alternative and a corrupted source before numeric publication
+  ---
+  duration_ms: 9685.587
+  ...
+# Subtest: advanced independent native fixture requires explicit safe follow-ups and verifies a completed comparison without changing save
+ok 222 - advanced independent native fixture requires explicit safe follow-ups and verifies a completed comparison without changing save
+  ---
+  duration_ms: 14363.0594
+  ...
+# Subtest: advanced rejects a forged alternative and a corrupted source before numeric publication
+ok 223 - advanced rejects a forged alternative and a corrupted source before numeric publication
+  ---
+  duration_ms: 6561.4254
+  ...
+# Subtest: stocks sell-stocks from a recorded skip uses a native legal action and independent replay
+ok 224 - stocks sell-stocks from a recorded skip uses a native legal action and independent replay
+  ---
+  duration_ms: 6631.8518
+  ...
+# Subtest: stocks buy-stocks from a recorded skip uses a native legal action and independent replay
+ok 225 - stocks buy-stocks from a recorded skip uses a native legal action and independent replay
+  ---
+  duration_ms: 6579.2934
+  ...
+# Subtest: bonds sell-bonds: from a recorded skip uses a native legal action and independent replay
+ok 226 - bonds sell-bonds: from a recorded skip uses a native legal action and independent replay
+  ---
+  duration_ms: 6512.6531
+  ...
+# Subtest: business upgrade-business:budget from a recorded skip uses a native legal action and independent replay
+ok 227 - business upgrade-business:budget from a recorded skip uses a native legal action and independent replay
+  ---
+  duration_ms: 8233.2939
+  ...
+# Subtest: business sell-business from a recorded skip uses a native legal action and independent replay
+ok 228 - business sell-business from a recorded skip uses a native legal action and independent replay
+  ---
+  duration_ms: 8232.2625
+  ...
+# Subtest: business buy-business from a recorded skip uses a native legal action and independent replay
+ok 229 - business buy-business from a recorded skip uses a native legal action and independent replay
+  ---
+  duration_ms: 6521.9462
+  ...
+# Subtest: Bonds issuer purchase and Advanced-to-Basic choices are generated by the existing native legality checks
+ok 230 - Bonds issuer purchase and Advanced-to-Basic choices are generated by the existing native legality checks
+  ---
+  duration_ms: 12531.591
+  ...
+# Subtest: START sales can be omitted while keeping native state and verifying a renumbered independent log
+ok 231 - START sales can be omitted while keeping native state and verifying a renumbered independent log
+  ---
+  duration_ms: 7434.7381
+  ...
+# Subtest: a reused native bond lot ID cannot redirect a recorded sale to a different purchase
+ok 232 - a reused native bond lot ID cannot redirect a recorded sale to a different purchase
+  ---
+  duration_ms: 2368.1987
+  ...
+# Subtest: native guards reject insufficient cash, defaulted issuer, unowned business upgrade and duplicate Advanced
+ok 233 - native guards reject insufficient cash, defaulted issuer, unowned business upgrade and duplicate Advanced
+  ---
+  duration_ms: 5051.8956
+  ...
+# (node:27640) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# (node:27640) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Gold C1 through mock AI and native Worker pauses for confirmation then verifies all three deltas
+ok 234 - Gold C1 through mock AI and native Worker pauses for confirmation then verifies all three deltas
+  ---
+  duration_ms: 10199.5557
+  ...
+# (node:27640) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# (node:27640) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# (node:27640) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: independent Bank fixture through the same mock orchestration and native replay reaches verified START4
+ok 235 - independent Bank fixture through the same mock orchestration and native replay reaches verified START4
+  ---
+  duration_ms: 6870.7506
+  ...
+# Subtest: Bank cancellation removes the Worker listeners and suppresses late responses
+ok 236 - Bank cancellation removes the Worker listeners and suppresses late responses
+  ---
+  duration_ms: 2.686
+  ...
+# (node:27640) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: new Course selection passes mock AI validation and native Worker replay with a verified terminal delta
+ok 237 - new Course selection passes mock AI validation and native Worker replay with a verified terminal delta
+  ---
+  duration_ms: 7198.8863
+  ...
+# Subtest: generalized client abort and deadline terminate pending Workers and discard late responses
+ok 238 - generalized client abort and deadline terminate pending Workers and discard late responses
+  ---
+  duration_ms: 9.7967
+  ...
+# Subtest: generalized client ignores foreign response IDs and rejects numbers outside a terminal comparison
+ok 239 - generalized client ignores foreign response IDs and rejects numbers outside a terminal comparison
+  ---
+  duration_ms: 1.911
+  ...
+# (node:27640) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: stocks independent fixture uses mock-selected IDs, explicit follow-ups and the existing native Worker
+ok 240 - stocks independent fixture uses mock-selected IDs, explicit follow-ups and the existing native Worker
+  ---
+  duration_ms: 9060.2157
+  ...
+# (node:27640) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: bonds independent fixture uses mock-selected IDs, explicit follow-ups and the existing native Worker
+ok 241 - bonds independent fixture uses mock-selected IDs, explicit follow-ups and the existing native Worker
+  ---
+  duration_ms: 7868.9691
+  ...
+# (node:27640) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: business independent fixture uses mock-selected IDs, explicit follow-ups and the existing native Worker
+ok 242 - business independent fixture uses mock-selected IDs, explicit follow-ups and the existing native Worker
+  ---
+  duration_ms: 12638.6789
+  ...
+# (node:27640) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: advanced independent fixture uses mock-selected IDs, explicit follow-ups and the existing native Worker
+ok 243 - advanced independent fixture uses mock-selected IDs, explicit follow-ups and the existing native Worker
+  ---
+  duration_ms: 9445.0485
+  ...
+# (node:27640) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: paged native Worker revokes previous parameters and failed probes before accepting a fresh exact selection
+ok 244 - paged native Worker revokes previous parameters and failed probes before accepting a fresh exact selection
+  ---
+  duration_ms: 8177.5306
+  ...
+# (node:26168) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Vietnamese intent extracts one explicit change, monetary units, targets and historical locator
+ok 245 - Vietnamese intent extracts one explicit change, monetary units, targets and historical locator
+  ---
+  duration_ms: 6.8581
+  ...
+# Subtest: missing parameters are explicit and repeated histories require a player choice
+ok 246 - missing parameters are explicit and repeated histories require a player choice
+  ---
+  duration_ms: 0.7259
+  ...
+# Subtest: untrusted intent schema rejects fabricated IDs, extra state, invalid scalars and cross-asset fields
+ok 247 - untrusted intent schema rejects fabricated IDs, extra state, invalid scalars and cross-asset fields
+  ---
+  duration_ms: 0.5745
+  ...
+# Subtest: historical locator is filtered by the native Worker catalog without dropping the page cap
+ok 248 - historical locator is filtered by the native Worker catalog without dropping the page cap
+  ---
+  duration_ms: 1088.2185
+  ...
+# Subtest: skip questions preserve the original target and Course Basic is not confused with a sale
+ok 249 - skip questions preserve the original target and Course Basic is not confused with a sale
+  ---
+  duration_ms: 1.768
+  ...
+# Subtest: ambiguous amount formatting, alternative terms and calendar units never become guessed tool parameters
+ok 250 - ambiguous amount formatting, alternative terms and calendar units never become guessed tool parameters
+  ---
+  duration_ms: 0.3887
+  ...
+# Subtest: omission questions do not relabel a recorded sale or Basic lesson as a purchase or Advanced lesson
+ok 251 - omission questions do not relabel a recorded sale or Basic lesson as a purchase or Advanced lesson
+  ---
+  duration_ms: 2.9518
+  ...
+# Subtest: player amounts accept consistent VND grouping and ambiguous amounts stay unconfirmed
+ok 252 - player amounts accept consistent VND grouping and ambiguous amounts stay unconfirmed
+  ---
+  duration_ms: 0.4757
+  ...
+# Subtest: compound same-asset actions require a new question while check-in remains a legal intent
+ok 253 - compound same-asset actions require a new question while check-in remains a legal intent
+  ---
+  duration_ms: 0.7381
+  ...
+# Subtest: a stock suggestion with a historical locator still asks for the missing symbol
+ok 254 - a stock suggestion with a historical locator still asks for the missing symbol
+  ---
+  duration_ms: 0.7497
+  ...
+# (node:24232) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: mock selects the unique catalog entry and passes only the trusted choice to replay
+ok 255 - mock selects the unique catalog entry and passes only the trusted choice to replay
+  ---
+  duration_ms: 4.5675
+  ...
+# Subtest: unsupported, bundled follow-up, and ambiguous requests do not reach the engine
+ok 256 - unsupported, bundled follow-up, and ambiguous requests do not reach the engine
+  ---
+  duration_ms: 2.0465
+  ...
+# Subtest: provider cannot add financial fields, invent IDs, or pick a different alternative
+ok 257 - provider cannot add financial fields, invent IDs, or pick a different alternative
+  ---
+  duration_ms: 0.8017
+  ...
+# Subtest: a provider response arriving after cancellation cannot run an action
+ok 258 - a provider response arriving after cancellation cannot run an action
+  ---
+  duration_ms: 1.6505
+  ...
+# Subtest: replacing a Gold catalog rejects a delayed provider even when its decision IDs recur
+ok 259 - replacing a Gold catalog rejects a delayed provider even when its decision IDs recur
+  ---
+  duration_ms: 1.1808
+  ...
+# Subtest: explanations accept only the engine-supported claim ID, with no provider prose or numbers
+ok 260 - explanations accept only the engine-supported claim ID, with no provider prose or numbers
+  ---
+  duration_ms: 0.9926
+  ...
+# (node:19708) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: legacy pair retains the exact full sale and does not mutate either branch
+ok 261 - legacy pair retains the exact full sale and does not mutate either branch
+  ---
+  duration_ms: 788.7873
+  ...
+# Subtest: legacy Gold refuses a partial sale before applying either branch
+ok 262 - legacy Gold refuses a partial sale before applying either branch
+  ---
+  duration_ms: 34.993
+  ...
+# Subtest: illegal recorded sale preserves the stopped alternative and exposes no result metrics
+ok 263 - illegal recorded sale preserves the stopped alternative and exposes no result metrics
+  ---
+  duration_ms: 129.5781
+  ...
+# Subtest: legacy pair rejects rng before executing another command
+ok 264 - legacy pair rejects rng before executing another command
+  ---
+  duration_ms: 17.6692
+  ...
+# Subtest: legacy pair rejects turn before executing another command
+ok 265 - legacy pair rejects turn before executing another command
+  ---
+  duration_ms: 17.7844
+  ...
+# Subtest: legacy pair rejects market before executing another command
+ok 266 - legacy pair rejects market before executing another command
+  ---
+  duration_ms: 9.1857
+  ...
+# Subtest: legacy pair rejects funding before executing another command
+ok 267 - legacy pair rejects funding before executing another command
+  ---
+  duration_ms: 10.159
+  ...
+# Subtest: legacy pair rejects insolvent before executing another command
+ok 268 - legacy pair rejects insolvent before executing another command
+  ---
+  duration_ms: 7.5003
+  ...
+# Subtest: legacy pair rejects terminal before executing another command
+ok 269 - legacy pair rejects terminal before executing another command
+  ---
+  duration_ms: 8.1242
+  ...
+# Subtest: legacy step preserves cancellation, time budget, and advance budget rejection
+ok 270 - legacy step preserves cancellation, time budget, and advance budget rejection
+  ---
+  duration_ms: 12.131
+  ...
+# (node:17344) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: reliability gold: new engine history verifies a separate fork and preserves source/save
+ok 271 - reliability gold: new engine history verifies a separate fork and preserves source/save
+  ---
+  duration_ms: 8817.4835
+  ...
+# Subtest: reliability bank: new engine history verifies a separate fork and preserves source/save
+ok 272 - reliability bank: new engine history verifies a separate fork and preserves source/save
+  ---
+  duration_ms: 7249.7779
+  ...
+# Subtest: reliability course: new engine history verifies a separate fork and preserves source/save
+ok 273 - reliability course: new engine history verifies a separate fork and preserves source/save
+  ---
+  duration_ms: 6357.7307
+  ...
+# Subtest: reliability advanced: new engine history verifies a separate fork and preserves source/save
+ok 274 - reliability advanced: new engine history verifies a separate fork and preserves source/save
+  ---
+  duration_ms: 8692.5734
+  ...
+# Subtest: reliability stocks: new engine history verifies a separate fork and preserves source/save
+ok 275 - reliability stocks: new engine history verifies a separate fork and preserves source/save
+  ---
+  duration_ms: 10408.842
+  ...
+# Subtest: reliability bonds: new engine history verifies a separate fork and preserves source/save
+ok 276 - reliability bonds: new engine history verifies a separate fork and preserves source/save
+  ---
+  duration_ms: 6430.1166
+  ...
+# Subtest: reliability business: new engine history verifies a separate fork and preserves source/save
+ok 277 - reliability business: new engine history verifies a separate fork and preserves source/save
+  ---
+  duration_ms: 6851.625
+  ...
+# Subtest: engine-generated history over the source limit and a consistently forged command both fail closed
+ok 278 - engine-generated history over the source limit and a consistently forged command both fail closed
+  ---
+  duration_ms: 1138.1196
+  ...
+# Subtest: new Gold history with a full sale at START remains limited without numeric publication
+ok 279 - new Gold history with a full sale at START remains limited without numeric publication
+  ---
+  duration_ms: 2424.9253
+  ...
+# (node:7500) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: archived browser skip is explicit Actual; prefix, action and completed checkpoint match history
+ok 280 - archived browser skip is explicit Actual; prefix, action and completed checkpoint match history
+  ---
+  duration_ms: 2841.1882
+  ...
+# Subtest: ex-ante returns only known tradeoffs; no future cash, realized interest or dice
+ok 281 - ex-ante returns only known tradeoffs; no future cash, realized interest or dice
+  ---
+  duration_ms: 1595.0249
+  ...
+# Subtest: incomplete actual history cannot use seed to reveal a future result
+ok 282 - incomplete actual history cannot use seed to reveal a future result
+  ---
+  duration_ms: 5773.3895
+  ...
+# Subtest: no inferred skip, wrong boundary and actual deposit are rejected
+ok 283 - no inferred skip, wrong boundary and actual deposit are rejected
+  ---
+  duration_ms: 2438.7305
+  ...
+# Subtest: transcript/action/snapshot/metadata tampering and ambiguous identity fail closed
+ok 284 - transcript/action/snapshot/metadata tampering and ambiguous identity fail closed
+  ---
+  duration_ms: 5275.8621
+  ...
+# Subtest: stale fingerprint rejects another valid history, not only corrupt data
+ok 285 - stale fingerprint rejects another valid history, not only corrupt data
+  ---
+  duration_ms: 398.7362
+  ...
+# Subtest: packed local save roundtrip preserves explicit decision and historical opportunity proof
+ok 286 - packed local save roundtrip preserves explicit decision and historical opportunity proof
+  ---
+  duration_ms: 2302.7267
+  ...
+# Subtest: a second archived last-bank skip uses its own recorded wealth, not G3 demo amounts
+ok 287 - a second archived last-bank skip uses its own recorded wealth, not G3 demo amounts
+  ---
+  duration_ms: 1511.2195
+  ...
+# Subtest: post-checkpoint actions are not copied into the counterfactual
+ok 288 - post-checkpoint actions are not copied into the counterfactual
+  ---
+  duration_ms: 2342.6169
+  ...
+# Subtest: unsupported schema and missing explicit record return BLOCKED with no opportunity amount
+ok 289 - unsupported schema and missing explicit record return BLOCKED with no opportunity amount
+  ---
+  duration_ms: 1759.1413
+  ...
+# Subtest: existing session revision guard rejects stale or cross-session snapshots without schema changes
+ok 290 - existing session revision guard rejects stale or cross-session snapshots without schema changes
+  ---
+  duration_ms: 1994.1472
+  ...
+# (node:24612) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: actual HTTP mock transport selects a catalog ID and grounds explanation without transmitting game history
+ok 291 - actual HTTP mock transport selects a catalog ID and grounds explanation without transmitting game history
+  ---
+  duration_ms: 78.7566
+  ...
+# Subtest: exact schemas, privacy exclusions, same-origin gate, payload cap, and local call budgets fail closed
+ok 292 - exact schemas, privacy exclusions, same-origin gate, payload cap, and local call budgets fail closed
+  ---
+  duration_ms: 52.9186
+  ...
+# Subtest: DEV HTTP client preserves the default throttle as a distinct error after twelve requests
+ok 293 - DEV HTTP client preserves the default throttle as a distinct error after twelve requests
+  ---
+  duration_ms: 35.2044
+  ...
+# Subtest: unknown provider IDs, extra monetary data and internal errors never cross the response boundary
+ok 294 - unknown provider IDs, extra monetary data and internal errors never cross the response boundary
+  ---
+  duration_ms: 24.0968
+  ...
+# Subtest: ambiguous proposals remain explicit and a provider ignoring AbortSignal is bounded by the server deadline
+ok 295 - ambiguous proposals remain explicit and a provider ignoring AbortSignal is bounded by the server deadline
+  ---
+  duration_ms: 45.0405
+  ...
+# Subtest: Gemini adapter is disabled without explicit access and traffic approval, and validates a mocked Gemini HTTP response
+ok 296 - Gemini adapter is disabled without explicit access and traffic approval, and validates a mocked Gemini HTTP response
+  ---
+  duration_ms: 1.6149
+  ...
+# Subtest: parallel HTTP requests reserve the two available provider slots before reading their bodies
+ok 297 - parallel HTTP requests reserve the two available provider slots before reading their bodies
+  ---
+  duration_ms: 28.0856
+  ...
+# Subtest: mock HTTP validates all new asset and Advanced catalog tuples and grounded claim IDs
+ok 298 - mock HTTP validates all new asset and Advanced catalog tuples and grounded claim IDs
+  ---
+  duration_ms: 27.1641
+  ...
+# Subtest: mock HTTP carries only user-selected scalar parameters and refuses missing or mismatched numbers
+ok 299 - mock HTTP carries only user-selected scalar parameters and refuses missing or mismatched numbers
+  ---
+  duration_ms: 38.3743
+  ...
+# Subtest: large explicit catalog amounts keep the question privacy gate for unrelated phone numbers
+ok 300 - large explicit catalog amounts keep the question privacy gate for unrelated phone numbers
+  ---
+  duration_ms: 8.812
+  ...
+# Subtest: natural-language HTTP intake returns untrusted intent only and fails closed on hallucinated response fields
+ok 301 - natural-language HTTP intake returns untrusted intent only and fails closed on hallucinated response fields
+  ---
+  duration_ms: 18.828
+  ...
+# Subtest: HTTP rejects coerced enums, invented financial parameters and foreign explanation claims
+ok 302 - HTTP rejects coerced enums, invented financial parameters and foreign explanation claims
+  ---
+  duration_ms: 22.7494
+  ...
+# Subtest: simulated model handles Vietnamese paraphrases, omissions and ambiguity over the three HTTP operations
+ok 303 - simulated model handles Vietnamese paraphrases, omissions and ambiguity over the three HTTP operations
+  ---
+  duration_ms: 18.2413
+  ...
+# Subtest: simulated model rejects malformed or oversized JSON, hallucinated IDs and financial explanations
+ok 304 - simulated model rejects malformed or oversized JSON, hallucinated IDs and financial explanations
+  ---
+  duration_ms: 1.6126
+  ...
+# Subtest: simulated model keeps concurrent replies separate and suppresses a late cancelled completion
+ok 305 - simulated model keeps concurrent replies separate and suppresses a late cancelled completion
+  ---
+  duration_ms: 0.3691
+  ...
+1..305
+# tests 305
+# suites 0
+# pass 305
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 430765.7754
