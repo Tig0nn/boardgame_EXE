@@ -1,14 +1,22 @@
-import { boundedJson, explanationReply, fields, intentReply, proposalReply, validateProviderRequest, WHAT_IF_ENDPOINT, WhatIfApiError } from '../../../../src/ai/what-if/contracts.ts'
+import { boundedJson, explanationReply, fields, intentReply, proposalReply, validateProviderRequest, validateWhatIfDevDeadlineMs,
+  WHAT_IF_DEFAULT_SERVER_DEADLINE_MS, WHAT_IF_ENDPOINT, WhatIfApiError } from '../../../../src/ai/what-if/contracts.ts'
 import type { ProviderRequest } from '../../../../src/ai/what-if/contracts.ts'
 import type { WhatIfProvider } from './orchestrator.ts'
 
+export function whatIfHttpTimeoutMs() {
+  const deadline: unknown = typeof import.meta.env === 'undefined' ? undefined : import.meta.env.WHAT_IF_SERVER_DEADLINE_MS
+  // Allow the loopback server to return its timeout response before the browser aborts.
+  return (deadline === undefined ? WHAT_IF_DEFAULT_SERVER_DEADLINE_MS : validateWhatIfDevDeadlineMs(deadline)) + 2000
+}
+
 export function createHttpWhatIfProvider(transport: typeof fetch = fetch): WhatIfProvider {
+  const timeoutMs = whatIfHttpTimeoutMs()
   let calls = 0
   async function request(input: ProviderRequest, signal: AbortSignal) {
     validateProviderRequest(input)
     signal.throwIfAborted()
     if (++calls > 8) throw new WhatIfApiError('RATE_LIMITED')
-    const timeout = AbortSignal.timeout(7000)
+    const timeout = AbortSignal.timeout(timeoutMs)
     const bounded = AbortSignal.any([signal, timeout])
     try {
       const response = await transport(WHAT_IF_ENDPOINT, { method: 'POST', credentials: 'same-origin', redirect: 'error',

@@ -5,6 +5,15 @@ import type { IntentReply } from '../../../mobile_app/src/game/what-if-ai/natura
 
 export const WHAT_IF_ENDPOINT = '/api/what-if-provider'
 export const MAX_HTTP_BYTES = 8192
+export const WHAT_IF_DEFAULT_SERVER_DEADLINE_MS = 5000
+const WHAT_IF_MAX_DEV_DEADLINE_MS = 30_000
+
+export function validateWhatIfDevDeadlineMs(value: unknown): number {
+  if (typeof value !== 'number' || !Number.isSafeInteger(value) || value < 1 || value > WHAT_IF_MAX_DEV_DEADLINE_MS) {
+    throw new Error('What-if DEV deadline must be an integer from 1 to 30000 ms')
+  }
+  return value
+}
 export type ProviderRequest = { operation: 'propose'; question: string; catalog: WhatIfDecision[] }
   | { operation: 'explain'; facts: ExplanationFacts }
   | { operation: 'interpret'; question: string }
@@ -68,9 +77,16 @@ export function validateProviderRequest(value: unknown): asserts value is Provid
   if (/(?:\+?\d[\d -]{7,}\d)/.test(question)) throw new WhatIfApiError('INVALID_REQUEST')
 }
 
-export function intentReply(value: unknown, question: string): IntentReply {
+export function intentReply(value: unknown, question: string, onReject?: (step: 'contract' | 'financial') => void): IntentReply {
   const reply = readIntentReply(value)
-  if (!reply || reply.status === 'intent' && !hasExplicitFinancialParameters(question, reply.intent)) throw new WhatIfApiError('OUTPUT_REJECTED')
+  if (!reply) {
+    onReject?.('contract')
+    throw new WhatIfApiError('OUTPUT_REJECTED')
+  }
+  if (reply.status === 'intent' && !hasExplicitFinancialParameters(question, reply.intent)) {
+    onReject?.('financial')
+    throw new WhatIfApiError('OUTPUT_REJECTED')
+  }
   return reply
 }
 

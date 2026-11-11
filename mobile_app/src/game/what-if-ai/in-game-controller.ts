@@ -7,6 +7,7 @@ import type { GoldSelection, GoldResumeInput } from '../endgame-whatif-gold-cont
 import { captureDataIntegrity } from '../endgame-whatif-integrity.ts'
 import { digest, equalData } from '../endgame-whatif-identity.ts'
 import { createDecisionClient } from './decision-client.ts'
+import { whatIfHttpTimeoutMs } from './http-provider.ts'
 import type { DecisionResult } from './decision.worker.ts'
 import type { ReplayComparison } from './decision-replay.ts'
 import type { CatalogPage, CatalogQuery, HistoricalDecision, DecisionControls } from './flexible-catalog.ts'
@@ -187,7 +188,7 @@ export function createInGameAiController(binding: EndgameAppBinding, provider: (
     const facts = { kind: result.kind, direction, confirmedFollowUp: owner.confirmed.length > 0 } as const
     try {
       if (!valid(owner) || view !== result || result.stage !== 'final') return
-      const signal = AbortSignal.any([owner.abort.signal, AbortSignal.timeout(7000)])
+      const signal = AbortSignal.any([owner.abort.signal, AbortSignal.timeout(whatIfHttpTimeoutMs())])
       explanationReply(await owner.provider.explain(facts, signal), facts)
       if (!signal.aborted && valid(owner) && view === result) publish({ ...result, explanationSource: 'gemini-claim' })
     } catch {

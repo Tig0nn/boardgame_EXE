@@ -2,12 +2,21 @@ import type { IncomingMessage, ServerResponse } from 'node:http'
 import { readRequestBody } from '../companion/server/body.ts'
 import { boundedInteger, createLocalLimiter } from '../companion/server/limits.ts'
 import type { WhatIfProvider } from '../../../mobile_app/src/game/what-if-ai/orchestrator.ts'
-import { explanationReply, intentReply, proposalReply, validateProviderRequest, WhatIfApiError } from './contracts.ts'
+import { explanationReply, intentReply, proposalReply, validateProviderRequest, validateWhatIfDevDeadlineMs,
+  WHAT_IF_DEFAULT_SERVER_DEADLINE_MS, WhatIfApiError } from './contracts.ts'
+
+type WhatIfHandlerOptions = { deadlineMs?: number; devDiagnosticDeadlineMs?: number; maxRequests?: number; maxCalls?: number }
+
+export function resolveWhatIfServerDeadlineMs(options: WhatIfHandlerOptions = {}) {
+  if (options.devDiagnosticDeadlineMs === undefined) return boundedInteger(options.deadlineMs ?? WHAT_IF_DEFAULT_SERVER_DEADLINE_MS, 1, 7000)
+  if (options.deadlineMs !== undefined) throw new Error('Choose one What-if deadline')
+  return validateWhatIfDevDeadlineMs(options.devDiagnosticDeadlineMs)
+}
 
 /** Dedicated bounded endpoint. Callers mount it under WHAT_IF_ENDPOINT in an authorized server. */
-export function createWhatIfHandler(provider: WhatIfProvider, options: { deadlineMs?: number; maxRequests?: number; maxCalls?: number } = {}) {
+export function createWhatIfHandler(provider: WhatIfProvider, options: WhatIfHandlerOptions = {}) {
   const admit = createLocalLimiter(options.maxRequests ?? 12, 600_000, 64)
-  const deadlineMs = boundedInteger(options.deadlineMs ?? 5000, 1, 7000)
+  const deadlineMs = resolveWhatIfServerDeadlineMs(options)
   const maxCalls = boundedInteger(options.maxCalls ?? 100, 0, 1000)
   let running = 0, calls = 0
   return async (req: IncomingMessage, res: ServerResponse) => {
