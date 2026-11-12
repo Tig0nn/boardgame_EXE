@@ -2,9 +2,11 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { once } from 'node:events'
 import { createServer } from 'node:http'
+import type { IncomingMessage } from 'node:http'
+import { PassThrough } from 'node:stream'
 import { createGeminiLearningProvider, createHostedLearningHandler, createLearningHandler, mockLearningProvider } from '../src/ai/mascot/learning-server.ts'
 import type { LearningProvider } from '../src/ai/mascot/learning-server.ts'
-import { composeLearningAnswer, deduplicateLearningIds, fallbackLearning, learningCards, offlineLearning, readLearningContext, readLearningIds, readLearningQuestion, readLearningReply, resolveLearningReply, LEARNING_ENDPOINT } from '../src/ai/mascot/learning.ts'
+import { composeLearningAnswer, deduplicateLearningIds, fallbackLearning, learningCards, offlineLearning, readLearningContext, readLearningIds, readLearningQuestion, readLearningReply, resolveLearningReply, LEARNING_BODY_LIMIT, LEARNING_ENDPOINT } from '../src/ai/mascot/learning.ts'
 import type { LearningContext } from '../src/ai/mascot/learning.ts'
 import { createRepairDemo } from '../mobile_app/src/dev/repair-fixture.ts'
 import { projectLearningContext } from '../mobile_app/src/game/mascot-learning-context.ts'
@@ -24,16 +26,28 @@ const goldQuestion = 'Tại sao dùng hết tiền mặt mua vàng lại có th�
 const predictionQuestion = 'Tôi nghĩ giá vàng sẽ tăng, tại sao cuối cùng tôi vẫn không đạt mục tiêu?'
 const origin = 'http://127.0.0.1:5207'
 const session = '123e4567-e89b-42d3-a456-426614174001'
-async function withHandler(options: Parameters<typeof createLearningHandler>[0] | ReturnType<typeof createLearningHandler>, run: (send: (body: unknown, origin?: string) => Promise<Response>) => Promise<void>) {
-  const server = createServer(typeof options === 'function' ? options : createLearningHandler({ origin, ...options }))
+async function withHandler(
+  options: Parameters<typeof createLearningHandler>[0] | ReturnType<typeof createLearningHandler>,
+  run: (send: (body: unknown, origin?: string, chunked?: boolean) => Promise<Response>) => Promise<void>,
+  decorate?: (req: IncomingMessage) => Promise<void>,
+) {
+  const handler = typeof options === 'function' ? options : createLearningHandler({ origin, ...options })
+  const server = createServer(async (req, res) => {
+    await decorate?.(req)
+    await handler(req, res)
+  })
   server.listen(0, '127.0.0.1')
   await once(server, 'listening')
   const { port } = server.address() as { port: number }
   try {
-    await run((body, requestOrigin = origin) => fetch('http://127.0.0.1:' + port + LEARNING_ENDPOINT, {
-      method: 'POST', headers: { origin: requestOrigin, 'content-type': 'application/json', 'x-mascot-learning': '1', 'x-mascot-session': session },
-      body: JSON.stringify(body),
-    }))
+    await run((body, requestOrigin = origin, chunked = false) => {
+      const json = JSON.stringify(body)
+      const request = {
+        method: 'POST', headers: { origin: requestOrigin, 'content-type': 'application/json', 'x-mascot-learning': '1', 'x-mascot-session': session },
+        body: chunked ? new Blob([json]).stream() : json, duplex: 'half' as const,
+      }
+      return fetch('http://127.0.0.1:' + port + LEARNING_ENDPOINT, request)
+    })
   } finally {
     server.closeAllConnections()
     await new Promise<void>(resolve => server.close(() => resolve()))
@@ -144,8 +158,10 @@ test('Gemini transport can select only validated evidence, with unsupported pros
     ['{"ids":["cash"],"text":"Bạn có 200.000.000 VND"}', 503], ['not JSON', 503],
     ['{"ids":["result","result"]}', 503],
   ] as const) {
+    let mimeType: unknown
     const provider = createGeminiLearningProvider({ model: 'gemini-test', credential: 'fixture-only', transport: async (_url, init) => {
       const body = JSON.parse(String(init?.body))
+      mimeType = body.generationConfig.responseFormat.text.mimeType
       const data = JSON.parse(body.contents[0].parts[0].text)
       assert.equal(data.question, question)
       assert(data.evidence.some((item: { id: string }) => item.id === 'result'))
@@ -158,6 +174,7 @@ test('Gemini transport can select only validated evidence, with unsupported pros
       assert.equal(response.status, expected)
       if (response.ok) assert.deepEqual(await response.json(), { source: 'gemini', ids: ['result', 'goal-rule'] })
     })
+    assert.equal(mimeType, 'APPLICATION_JSON')
   }
   assert.equal(readLearningIds({ ids: ['result'] }, learningCards(context)), null)
 })
@@ -291,7 +308,8 @@ test('hosted Learning Q&A requires an explicit server flag and a canonical HTTPS
     providerCalls++
     return Response.json({ candidates: [{ finishReason: 'STOP', content: { parts: [{ text: '{"ids":["result"]}' }] } }] })
   }
-  for (const settings of [env, { ...env, MASCOT_LEARNING_ENABLED: 'true' },
+  for (const settings of [env, { ...env, MASCOT_LEARNING_ENABLED: '0' }, { ...env, MASCOT_LEARNING_ENABLED: 'true' },
+    { ...env, MASCOT_LEARNING_ENABLED: '1', GEMINI_MODEL: '' },
     { ...env, MASCOT_LEARNING_ENABLED: '1', MASCOT_LEARNING_ORIGIN: allowedOrigin + '/path' }]) {
     await withHandler(createHostedLearningHandler(settings, transport), async send => {
       const response = await send({ question, context: finished }, allowedOrigin)
@@ -305,5 +323,56 @@ test('hosted Learning Q&A requires an explicit server flag and a canonical HTTPS
     const response = await send({ question, context: finished }, allowedOrigin)
     assert.deepEqual(await response.json(), { source: 'gemini', ids: ['result'] })
   })
+  assert.equal(providerCalls, 1)
+})
+
+test('Learning bounds raw request bytes before parsing, even without Content-Length', async () => {
+  let calls = 0
+  const provider: LearningProvider = { source: 'mock', async select() { calls++; return { ids: [] } } }
+  await withHandler({ provider }, async send => {
+    for (const size of [LEARNING_BODY_LIMIT, 9000]) {
+      for (const chunked of [false, true]) {
+        const response = await send({ question, context, padding: 'x'.repeat(size) }, origin, chunked)
+        assert.equal(response.status, 413)
+        assert.deepEqual(await response.json(), { error: 'REQUEST_TOO_LARGE' })
+      }
+    }
+    assert.equal((await send({ question: finalQuestion, context: finished })).status, 200)
+  })
+  assert.equal(calls, 0)
+})
+
+test('hosted Learning validates the raw stream with Vercel-style lazy request helpers', async () => {
+  const allowedOrigin = 'https://fixture.example'
+  let providerCalls = 0
+  let accessorReads = 0
+  const handler = createHostedLearningHandler({
+    MASCOT_LEARNING_ENABLED: '1', MASCOT_LEARNING_ORIGIN: allowedOrigin,
+    GEMINI_API_KEY: 'fixture-only', GEMINI_MODEL: 'gemini-test',
+  }, async () => {
+    providerCalls++
+    return Response.json({ candidates: [{ finishReason: 'STOP', content: { parts: [{ text: '{"ids":["result"]}' }] } }] })
+  })
+  await withHandler(handler, async send => {
+    const accepted = await send({ question, context: finished }, allowedOrigin)
+    assert.equal(accepted.status, 200)
+    assert.deepEqual(await accepted.json(), { source: 'gemini', ids: ['result'] })
+    assert.equal((await send({ question, context, rawSave: 'fixture' }, allowedOrigin)).status, 400)
+    assert.equal((await send({ question, context, padding: 'x'.repeat(LEARNING_BODY_LIMIT) }, allowedOrigin, true)).status, 413)
+  }, async req => {
+    const chunks: Buffer[] = []
+    for await (const chunk of req) chunks.push(chunk)
+    const bytes = Buffer.concat(chunks)
+    const restored = new PassThrough()
+    const on = req.on.bind(req)
+    // Vercel restores data and end listeners to a separate stream and exposes a lazy parser.
+    Object.defineProperties(req, {
+      on: { value: (event: string, listener: (...args: unknown[]) => void) =>
+        event === 'data' || event === 'end' ? restored.on(event, listener) : on(event, listener) },
+      body: { get() { accessorReads++; return JSON.parse(bytes.toString('utf8')) } },
+    })
+    restored.end(bytes)
+  })
+  assert.equal(accessorReads, 0)
   assert.equal(providerCalls, 1)
 })

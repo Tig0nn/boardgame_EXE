@@ -1,4 +1,5 @@
 import type { IncomingMessage, ServerResponse } from 'node:http'
+import { CompanionContractError } from '../companion/errors.ts'
 import { readRequestBody } from '../companion/server/body.ts'
 import { boundedInteger, createLocalLimiter } from '../companion/server/limits.ts'
 import { boundedJson } from '../what-if/contracts.ts'
@@ -72,7 +73,7 @@ export function createHostedLearningHandler(env: NodeJS.ProcessEnv, transport: t
   const provider = createGeminiLearningProvider({
     credential: env.GEMINI_API_KEY, model: env.GEMINI_MODEL, transport,
   })
-  return createLearningHandler({ origin, provider })
+  return provider ? createLearningHandler({ origin, provider }) : createLearningHandler()
 }
 
 export function createLearningHandler({ origin, provider, deadlineMs = LEARNING_DEADLINE }: {
@@ -107,12 +108,12 @@ export function createLearningHandler({ origin, provider, deadlineMs = LEARNING_
     try {
       let parsed
       try {
-        const contentLength = req.headers['content-length']
-        if (contentLength && Number(contentLength) > LEARNING_BODY_LIMIT) return send(413, { error: 'REQUEST_TOO_LARGE' })
-        const body = await readRequestBody(req, signal)
-        if (Buffer.byteLength(body) > LEARNING_BODY_LIMIT) return send(413, { error: 'REQUEST_TOO_LARGE' })
+        const body = await readRequestBody(req, signal, LEARNING_BODY_LIMIT)
         parsed = readLearningRequest(JSON.parse(body))
-      } catch {
+      } catch (error) {
+        if (error instanceof CompanionContractError && error.code === 'PAYLOAD_TOO_LARGE') {
+          return send(413, { error: 'REQUEST_TOO_LARGE' })
+        }
         return send(timeout.aborted ? 504 : 400, { error: timeout.aborted ? 'TIMEOUT' : 'INVALID_REQUEST' })
       }
       if (!parsed) return send(400, { error: 'INVALID_REQUEST' })

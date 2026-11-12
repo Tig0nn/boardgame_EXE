@@ -17,7 +17,9 @@ type LocalOptions = Pick<NonNullable<Parameters<typeof createMascotExplanationHa
 export async function startMascotDev(port: number, provider: MascotProvider | null = mockMascotProvider, cacheDir?: string,
   { deadlineMs = MASCOT_DEFAULT_DEADLINE_MS, learningProvider = null, learningDeadlineMs, ...options }: LocalOptions = {}) {
   const mascot = createMascotExplanationHandler({ origin: `http://127.0.0.1:${port}`, provider: provider ?? undefined, deadlineMs, ...options })
-  const learning = createLearningHandler({ origin: `http://127.0.0.1:${port}`, provider: learningProvider ?? undefined, deadlineMs: learningDeadlineMs })
+  const learning = createLearningHandler(learningProvider
+    ? { origin: `http://127.0.0.1:${port}`, provider: learningProvider, deadlineMs: learningDeadlineMs }
+    : undefined)
   const whatIf = createWhatIfHandler(mockServerProvider)
   const server = await createServer({
     root: resolve('mobile_app'),
@@ -37,7 +39,11 @@ export async function startMascotDev(port: number, provider: MascotProvider | nu
           if (path === MASCOT_EXPLANATION_ENDPOINT) void mascot(req, res)
           else if (path === LEARNING_ENDPOINT) void learning(req, res)
           else if (path === WHAT_IF_ENDPOINT) void whatIf(req, res)
-          else next()
+          else if (path?.startsWith('/api/')) {
+            // Keep the demo's API traffic inside the handlers mounted above.
+            res.writeHead(404, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' })
+            res.end(JSON.stringify({ error: 'NOT_FOUND' }))
+          } else next()
         })
       },
     }],

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import { boundedJson } from '../../../src/ai/what-if/contracts.ts'
 import { MASCOT_SESSION_HEADER } from '../../../src/ai/mascot/contracts.ts'
@@ -6,7 +6,7 @@ import { composeLearningAnswer, fallbackLearning, INSUFFICIENT, learningCards, L
   readLearningQuestion, readLearningReply, resolveLearningReply } from '../../../src/ai/mascot/learning.ts'
 import type { LearningCard, LearningContext, LearningReply } from '../../../src/ai/mascot/learning.ts'
 
-const learningEnabled = import.meta.env.VITE_MASCOT_LEARNING_ENABLED === '1'
+const geminiLearningEnabled = import.meta.env.VITE_MASCOT_LEARNING_ENABLED === '1'
 const sourceLabels = { offline: 'Dữ kiện EXE', mock: 'Gemini giả lập', gemini: 'Gemini · Dữ kiện EXE', fallback: 'Chưa đủ dữ kiện' }
 export function MascotLearningPanel({ context, getSession }: {
   context: LearningContext | null; getSession: () => string
@@ -16,7 +16,7 @@ export function MascotLearningPanel({ context, getSession }: {
   const [answer, setAnswer] = useState<{ source: LearningReply['source']; cards: LearningCard[] }>()
   const [loading, setLoading] = useState(false)
   const request = useRef<AbortController | null>(null)
-  useEffect(() => () => request.current?.abort(), [])
+  useLayoutEffect(() => () => request.current?.abort(), [])
   const submit = async (event: FormEvent) => {
     event.preventDefault()
     request.current?.abort()
@@ -28,8 +28,8 @@ export function MascotLearningPanel({ context, getSession }: {
     const cards = learningCards(context)
     const offline = offlineLearning(text, cards)
     if (offline?.length) { setAnswer({ source: 'offline', cards: composeLearningAnswer(offline) }); return }
-    if (!learningEnabled || !context) {
-      const known = composeLearningAnswer(fallbackLearning(text, cards))
+    if (!geminiLearningEnabled || !context) {
+      const known = composeLearningAnswer(fallbackLearning(text, cards, context))
       setAnswer({ source: known.length ? 'offline' : 'fallback', cards: known })
       return
     }

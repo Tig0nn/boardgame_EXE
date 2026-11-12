@@ -6,11 +6,12 @@ import { createMultiCourseGame } from '../../src/game/new-game.ts'
 import { GAME_SAVE_KEY, restoreSavedGame, saveGameLocally } from '../../src/game/saved-game.ts'
 import { projectLearningContext } from '../../mobile_app/src/game/mascot-learning-context.ts'
 import { LEARNING_ENDPOINT } from '../../src/ai/mascot/learning.ts'
+import { WHAT_IF_ENDPOINT } from '../../src/ai/what-if/contracts.ts'
 import { replayGameLog } from './replay-game-log.ts'
 import { startMascotDev } from '../mascot-dev.ts'
 
 const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE || 'playwright')
-const port = 5299
+const port = Number(process.argv[2] ?? 5299)
 const origin = 'http://127.0.0.1:' + port
 const flags = '?universalAi=1&mascotLearning=1&VITE_MASCOT_LEARNING_ENABLED=1'
 const initial = advance(createMultiCourseGame('b18-mascot-integration-resume', 30_000_000, 1))
@@ -23,6 +24,7 @@ const panel = page => page.getByRole('region', { name: 'Cáo EXE', exact: true }
 async function open(page) {
   await entry(page).waitFor()
   assert.equal(await entry(page).count(), 1)
+  assert.equal(await page.getByRole('tab', { name: /Hỏi AI/ }).count(), 0)
   assert.equal(await page.getByRole('button', { name: 'Hỏi Cáo', exact: true }).count(), 0)
   await entry(page).click()
 }
@@ -96,6 +98,17 @@ try {
     await open(page)
     assert.equal(await panel(page).locator('.mascot-learning-answer').count(), 0)
 
+    await page.goto(origin + '/' + flags + '&mascotDemo=routine')
+    await page.locator('#trade-amount').fill('6000000')
+    await page.getByRole('button', { name: /^Mua [\d.]+ ₫/ }).click()
+    await open(page)
+    await panel(page).getByRole('button', { name: 'Vì sao?', exact: true }).click()
+    await panel(page).getByText('Giải thích từ dữ kiện ván').waitFor()
+    await ask(page, 'Nhắc lại giao dịch vừa rồi', /Mua.*vàng.*6\.000\.000 ₫/i)
+    await page.getByRole('button', { name: 'Thử lại', exact: true }).click()
+    await page.locator('#trade-amount').waitFor()
+    assert.equal(await panel(page).locator('.mascot-learning-answer').count(), 0)
+
     await page.goto(origin + '/' + flags + '&mascotDemo=finished')
     const result = page.locator('.game-result-container')
     await result.waitFor()
@@ -127,11 +140,23 @@ try {
   const reply = await fetch(origin + LEARNING_ENDPOINT, {
     method: 'POST',
     headers: { origin, 'content-type': 'application/json', 'x-mascot-learning': '1', 'x-mascot-session': '123e4567-e89b-42d3-a456-426614174001' },
-    body: JSON.stringify({ question: 'Thời tiết ngày mai thế nào?', context: projectLearningContext(initial) }),
+    body: JSON.stringify({ question: 'Nhịp tăng trưởng là gì?', context: projectLearningContext(initial) }),
   })
   assert.equal(reply.status, 503)
   assert.deepEqual(await reply.json(), { error: 'UNAVAILABLE' })
-  console.log('PASS default-off local endpoint fails closed')
+  console.log('PASS default-off local endpoint fails closed even for a known question')
+  const whatIf = await fetch(origin + WHAT_IF_ENDPOINT, {
+    method: 'POST',
+    headers: { origin, 'content-type': 'application/json', 'x-what-if-request': '1' },
+    body: JSON.stringify({ operation: 'explain', facts: { kind: 'gold', direction: 'up', confirmedFollowUp: false } }),
+  })
+  assert.equal(whatIf.status, 200)
+  assert.deepEqual(await whatIf.json(), { claimId: 'gold-up' })
+  console.log('PASS separate What-if mock with Learning disabled')
+  const legacy = await fetch(origin + '/api/ai-coach', { method: 'POST' })
+  assert.equal(legacy.status, 404)
+  assert.deepEqual(await legacy.json(), { error: 'NOT_FOUND' })
+  console.log('PASS unmounted APIs do not fall through to the root dev proxy')
 } finally {
   await browser?.close()
   await server.close()
