@@ -17,6 +17,12 @@ interface MobileRebalanceModalProps {
   compact?: boolean
 }
 
+function presetAmount(available: number, pct: number) {
+  if (pct === 100) return available
+  const rounded = Math.floor((available * (pct / 100)) / 1000) * 1000
+  return Math.min(available, Math.max(1000, rounded))
+}
+
 export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
   game,
   onTransaction,
@@ -25,6 +31,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
 }) => {
   const [asset, setAsset] = useState<TradableAsset>('stocks')
   const [amount, setAmount] = useState<number>(game.portfolio.stocks)
+  const [activePct, setActivePct] = useState<number | null>(null)
 
   const lots = hasBondCredit(game)
     ? creditBondLots(game).filter((item) => item.quote.executable)
@@ -41,6 +48,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
   const repayable = Math.min(game.portfolio.debt, Math.floor(game.portfolio.cash / (1 + debtRate)))
 
   const handleSelectAsset = (next: TradableAsset) => {
+    setActivePct(null)
     setAsset(next)
     if (next === 'bonds' && hasBondCredit(game)) {
       setAmount(lot?.quote.gross ?? 0)
@@ -51,8 +59,8 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
 
   const setPercentAmount = (pct: number) => {
     if (available <= 0) return
-    const calculated = Math.floor((available * pct) / 1000) * 1000
-    setAmount(Math.max(1000, Math.min(available, calculated)))
+    setActivePct(pct)
+    setAmount(presetAmount(available, pct))
   }
 
   const lastLog = game.log.at(-1)
@@ -168,6 +176,7 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
           <select
             value={lot?.lot.id ?? ''}
             onChange={(e) => {
+              setActivePct(null)
               setLotId(e.target.value)
               const selectedLot = lots.find((item) => item.lot.id === e.target.value)
               if (selectedLot) setAmount(selectedLot.quote.gross)
@@ -220,7 +229,10 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
             min={0}
             max={available}
             value={amount || ''}
-            onChange={(e) => setAmount(Number(e.target.value))}
+            onChange={(e) => {
+              setActivePct(null)
+              setAmount(Number(e.target.value))
+            }}
             placeholder="0"
             style={{
               flex: 1,
@@ -239,28 +251,32 @@ export const MobileRebalanceModal: React.FC<MobileRebalanceModalProps> = ({
 
         {/* Quick Percentage Chips */}
         <div style={{ display: 'flex', gap: '6px' }}>
-          {[25, 50, 100].map((pct) => (
-            <button
-              key={pct}
-              type="button"
-              disabled={available <= 0}
-              onClick={() => setPercentAmount(pct)}
-              style={{
-                flex: 1,
-                padding: '5.5px 0',
-                borderRadius: '10px',
-                border: '1px solid #CBD5E1',
-                background: available > 0 ? '#FFFFFF' : '#F1F5F9',
-                color: available > 0 ? '#334155' : '#94A3B8',
-                opacity: available > 0 ? 1 : 0.6,
-                fontSize: '11px',
-                fontWeight: 800,
-                cursor: available <= 0 ? 'not-allowed' : 'pointer',
-              }}
-            >
-              {pct === 100 ? 'Tất cả' : `${pct}%`}
-            </button>
-          ))}
+          {[25, 50, 100].map((pct) => {
+            const isSelected = available > 0 && activePct === pct && amount === presetAmount(available, pct)
+            return (
+              <button
+                key={pct}
+                type="button"
+                disabled={available <= 0}
+                aria-pressed={isSelected}
+                onClick={() => setPercentAmount(pct)}
+                style={{
+                  flex: 1,
+                  padding: '5.5px 0',
+                  borderRadius: '10px',
+                  border: isSelected ? '1px solid #D97706' : '1px solid #CBD5E1',
+                  background: isSelected ? '#FEF3C7' : available > 0 ? '#FFFFFF' : '#F1F5F9',
+                  color: isSelected ? '#92400E' : available > 0 ? '#334155' : '#94A3B8',
+                  opacity: available > 0 ? 1 : 0.6,
+                  fontSize: '11px',
+                  fontWeight: 800,
+                  cursor: available <= 0 ? 'not-allowed' : 'pointer',
+                }}
+              >
+                {pct === 100 ? 'Tất cả' : `${pct}%`}
+              </button>
+            )
+          })}
         </div>
       </div>
 
