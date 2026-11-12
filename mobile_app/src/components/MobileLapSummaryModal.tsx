@@ -13,12 +13,14 @@ interface MobileLapSummaryModalProps {
   game: GameState
   onContinue: () => void
   onHelp?: () => void
+  coach?: React.ReactNode
 }
 
 export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
   game,
   onContinue,
   onHelp,
+  coach,
 }) => {
   const summary = game.summaries.at(-1)!
   const issuers = buildBondStartSummary(game, summary.lap)
@@ -36,6 +38,7 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
         onClick: onContinue,
       }}
     >
+      {coach}
       {/* Dashboard Thu & Chi 2 Cột Đối Xứng */}
       {overview ? (
         <div

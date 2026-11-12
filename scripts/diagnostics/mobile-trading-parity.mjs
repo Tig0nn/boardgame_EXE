@@ -122,6 +122,7 @@ try {
         }
         assert.equal(await page.evaluate(key => localStorage.getItem(key), GAME_SAVE_KEY), source)
         if (mode === 'verify') {
+          assert.equal(await page.locator('.mascot-coach').count(), 0, 'Mascot must stay outside the trading screen')
           const selected = trade.locator('.investment-actions button[aria-pressed="true"]')
           if (await selected.count()) assert.equal(await selected.evaluate(node => getComputedStyle(node).borderTopLeftRadius), '10px')
           const overflow = await scope.evaluate(node => {

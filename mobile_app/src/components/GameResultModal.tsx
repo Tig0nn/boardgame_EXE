@@ -17,6 +17,7 @@ interface GameResultModalProps {
   onExport: () => void
   onHelp?: () => void
   endgameResultAction?: ReactNode
+  coach?: ReactNode
 }
 
 export function GameResultModal({
@@ -27,6 +28,7 @@ export function GameResultModal({
   onExport,
   onHelp,
   endgameResultAction,
+  coach,
 }: GameResultModalProps) {
   const won = victory(game).won
   const { funds, target, percent: progress } = goalProgress(game)
@@ -355,6 +357,8 @@ export function GameResultModal({
                 )}; không còn nguồn thanh toán khả dụng.`
               : `Còn thiếu ${money(Math.max(0, target - funds))} để chạm mốc mục tiêu 90M.`}
           </p>
+
+          {coach}
 
           {/* CARD CHỈ SỐ: NGUỒN TIỀN VỀ ĐÍCH */}
           <div

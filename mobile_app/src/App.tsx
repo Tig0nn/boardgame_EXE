@@ -1,5 +1,5 @@
 import { localizeNarrative } from '../../src/components/glossary'
-import { Component, lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { Component, lazy, Suspense, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import type { ReactNode, RefObject } from 'react'
 import type { GameState } from '../../src/game/types'
 import tilesData from './data/tiles.json'
@@ -16,6 +16,8 @@ import { FloatingMoney } from './components/FloatingMoney'
 import type { MoneyParticle } from './components/FloatingMoney'
 import { GameSetup } from './components/GameSetup'
 import { GamePhase } from './components/GamePhase'
+import { MascotCoach } from './components/MascotCoach'
+import { createMascotCoach } from './game/mascot-coach'
 import { createMvpMobileGame, createMobileSession, movementPath } from './game/session'
 import type { MobileCommand } from './game/session'
 import { sound } from './utils/audio'
@@ -74,6 +76,21 @@ const coordinatesFor = (board: ReturnType<typeof boardFor>) => {
 const delay = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms))
 type Session = ReturnType<typeof createMobileSession>
 
+function bindMascotCoach(session: Session) {
+  const coach = createMascotCoach()
+  return {
+    coach,
+    connect() {
+      let previous = session.getSnapshot()
+      return session.subscribe(() => {
+        const before = previous
+        previous = session.getSnapshot()
+        coach.observe(before, previous)
+      })
+    },
+  }
+}
+
 type RenderEndgameResultAction = (watch: Session['subscribe']) => ReactNode
 
 export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = false, persist = true, renderEndgameResultAction }: {
@@ -87,6 +104,8 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
 }) {
   // React subscribes to immutable engine snapshots: https://react.dev/reference/react/useSyncExternalStore
   const game = useSyncExternalStore(session.subscribe, session.getSnapshot)
+  const mascot = useMemo(() => bindMascotCoach(session), [session])
+  useEffect(() => mascot.connect(), [mascot])
   const coordinates = coordinatesFor(boardFor(game))
   const [animation, setAnimation] = useState<'dice' | 'pause' | 'moving' | null>(null)
   const [animatedTile, setAnimatedTile] = useState(0)
@@ -179,6 +198,9 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
   }
 
   const disabled = helpOpen || whatIfOpen || reviewOpen || !!animation || !!overlay || game.phase !== 'rolling'
+  const mascotSurface = settingsOpen ? null : !disabled ? 'board'
+    : (game.phase === 'summary' || game.phase === 'finished') && (game.phase !== 'finished' || !dismissResult) && !animation && !overlay && !helpOpen && !whatIfOpen && !reviewOpen ? 'summary' : null
+  useEffect(() => { mascot.coach.present(mascotSurface, performance.now()) }, [mascot, mascotSurface, game])
   const goal = goalProgress(game)
   const pieces = (
     <>
@@ -230,6 +252,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
               onToggleMute={toggleMute}
               onOpenSettings={() => setSettingsOpen(true)}
             />
+            {mascotSurface === 'board' && <MascotCoach coach={mascot.coach} surface="board" game={game} />}
             <BottomControls
               onRollClick={rollDice}
               disabled={disabled}
@@ -262,6 +285,7 @@ export function GameExperience({ session, onRestart, onHome, onHelp, helpOpen = 
           onHome={onHome}
           onHelp={onHelp}
           onDismissResult={() => setDismissResult(true)}
+          summaryCoach={mascotSurface === 'summary' ? <MascotCoach coach={mascot.coach} surface="summary" game={game} /> : undefined}
           endgameResultAction={game.phase === 'finished' && !helpOpen && !settingsOpen
             ? renderEndgameResultAction?.(session.subscribe) : undefined}
         /><GoldHistoricalSlot session={session} game={game} root={goldPhaseRoot}/></GoldGameplayScope></HistoricalSlot>

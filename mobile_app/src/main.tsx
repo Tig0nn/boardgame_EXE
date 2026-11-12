@@ -13,6 +13,8 @@ async function mount() {
       Demo = (await import('./dev/WhatIfDemo')).default
     } else if (endgame.length === 1 && endgame[0] === '1' && !params.has('whatIfDemo')) {
       Demo = await import('./dev/EndgameWhatIfDev').then(module => module.default, () => App)
+    } else if (import.meta.env.DEV && params.has('mascotDemo')) {
+      Demo = (await import('./dev/MascotDemo')).default
     }
   }
   if (!rootElement) return
