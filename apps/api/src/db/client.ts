@@ -1,0 +1,25 @@
+import { drizzle } from 'drizzle-orm/node-postgres'
+import pg from 'pg'
+
+export function createDatabase(connectionString: string) {
+  const pool = new pg.Pool({
+    connectionString,
+    max: 10,
+    connectionTimeoutMillis: 2_000,
+    statement_timeout: 5_000,
+  })
+  // pg emits errors for idle sockets after a database restart. The pool discards them.
+  pool.on('error', () => {})
+
+  return {
+    pool,
+    db: drizzle(pool),
+    async check() {
+      await pool.query('SELECT 1')
+    },
+    close: () => pool.end(),
+  }
+}
+
+export type DatabaseConnection = ReturnType<typeof createDatabase>
+export type Database = DatabaseConnection['db']

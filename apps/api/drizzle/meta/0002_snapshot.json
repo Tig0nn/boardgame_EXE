@@ -1,0 +1,692 @@
+{
+  "id": "1d4d3b29-ae51-4432-b97a-43e2adcf8f07",
+  "prevId": "f7b10014-372d-48fe-82af-a90f0af5420d",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.admin_audit_logs": {
+      "name": "admin_audit_logs",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "actor_id": {
+          "name": "actor_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_type": {
+          "name": "action_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "target_type": {
+          "name": "target_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "target_id": {
+          "name": "target_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "details": {
+          "name": "details",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'{}'::jsonb"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "admin_audit_logs_actor_created_idx": {
+          "name": "admin_audit_logs_actor_created_idx",
+          "columns": [
+            {
+              "expression": "actor_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "created_at",
+              "isExpression": false,
+              "asc": false,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "admin_audit_logs_target_idx": {
+          "name": "admin_audit_logs_target_idx",
+          "columns": [
+            {
+              "expression": "target_type",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "target_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "created_at",
+              "isExpression": false,
+              "asc": false,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "admin_audit_logs_actor_id_profiles_user_id_fk": {
+          "name": "admin_audit_logs_actor_id_profiles_user_id_fk",
+          "tableFrom": "admin_audit_logs",
+          "tableTo": "profiles",
+          "columnsFrom": [
+            "actor_id"
+          ],
+          "columnsTo": [
+            "user_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "admin_audit_logs_details_check": {
+          "name": "admin_audit_logs_details_check",
+          "value": "jsonb_typeof(\"admin_audit_logs\".\"details\") = 'object'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.game_actions": {
+      "name": "game_actions",
+      "schema": "",
+      "columns": {
+        "session_id": {
+          "name": "session_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sequence": {
+          "name": "sequence",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "idempotency_key": {
+          "name": "idempotency_key",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_type": {
+          "name": "action_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "payload": {
+          "name": "payload",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "engine_version": {
+          "name": "engine_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "result_version": {
+          "name": "result_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "game_actions_session_id_game_sessions_id_fk": {
+          "name": "game_actions_session_id_game_sessions_id_fk",
+          "tableFrom": "game_actions",
+          "tableTo": "game_sessions",
+          "columnsFrom": [
+            "session_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "game_actions_session_id_sequence_pk": {
+          "name": "game_actions_session_id_sequence_pk",
+          "columns": [
+            "session_id",
+            "sequence"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "game_actions_session_key_unique": {
+          "name": "game_actions_session_key_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "session_id",
+            "idempotency_key"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "game_actions_sequence_check": {
+          "name": "game_actions_sequence_check",
+          "value": "\"game_actions\".\"sequence\" > 0"
+        },
+        "game_actions_payload_check": {
+          "name": "game_actions_payload_check",
+          "value": "jsonb_typeof(\"game_actions\".\"payload\") = 'object'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.game_results": {
+      "name": "game_results",
+      "schema": "",
+      "columns": {
+        "session_id": {
+          "name": "session_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "state_version": {
+          "name": "state_version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "outcome": {
+          "name": "outcome",
+          "type": "game_result_outcome",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lawful_proceeds_vnd": {
+          "name": "lawful_proceeds_vnd",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "engine_version": {
+          "name": "engine_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "result_version": {
+          "name": "result_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "game_results_final_snapshot_fk": {
+          "name": "game_results_final_snapshot_fk",
+          "tableFrom": "game_results",
+          "tableTo": "game_snapshots",
+          "columnsFrom": [
+            "session_id",
+            "state_version"
+          ],
+          "columnsTo": [
+            "session_id",
+            "state_version"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "game_results_final_state_check": {
+          "name": "game_results_final_state_check",
+          "value": "\"game_results\".\"state_version\" > 0"
+        },
+        "game_results_proceeds_check": {
+          "name": "game_results_proceeds_check",
+          "value": "\"game_results\".\"lawful_proceeds_vnd\" BETWEEN -9007199254740991 AND 9007199254740991"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.game_sessions": {
+      "name": "game_sessions",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "scenario_id": {
+          "name": "scenario_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "scenario_version": {
+          "name": "scenario_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "creation_key": {
+          "name": "creation_key",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "seed": {
+          "name": "seed",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "game_session_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'active'"
+        },
+        "state_version": {
+          "name": "state_version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "game_sessions_user_created_idx": {
+          "name": "game_sessions_user_created_idx",
+          "columns": [
+            {
+              "expression": "user_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "created_at",
+              "isExpression": false,
+              "asc": false,
+              "nulls": "last"
+            },
+            {
+              "expression": "id",
+              "isExpression": false,
+              "asc": false,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "game_sessions_scenario_idx": {
+          "name": "game_sessions_scenario_idx",
+          "columns": [
+            {
+              "expression": "scenario_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "scenario_version",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "game_sessions_user_id_profiles_user_id_fk": {
+          "name": "game_sessions_user_id_profiles_user_id_fk",
+          "tableFrom": "game_sessions",
+          "tableTo": "profiles",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "user_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "game_sessions_scenario_version_fk": {
+          "name": "game_sessions_scenario_version_fk",
+          "tableFrom": "game_sessions",
+          "tableTo": "scenario_versions",
+          "columnsFrom": [
+            "scenario_id",
+            "scenario_version"
+          ],
+          "columnsTo": [
+            "scenario_id",
+            "version"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "game_sessions_user_creation_key_unique": {
+          "name": "game_sessions_user_creation_key_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "user_id",
+            "creation_key"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "game_sessions_state_version_check": {
+          "name": "game_sessions_state_version_check",
+          "value": "\"game_sessions\".\"state_version\" >= 0"
+        },
+        "game_sessions_seed_check": {
+          "name": "game_sessions_seed_check",
+          "value": "\"game_sessions\".\"seed\" ~ '^[0-9a-f]{32}$'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.game_snapshots": {
+      "name": "game_snapshots",
+      "schema": "",
+      "columns": {
+        "session_id": {
+          "name": "session_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "state_version": {
+          "name": "state_version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "schema_version": {
+          "name": "schema_version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "payload": {
+          "name": "payload",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "game_snapshots_session_id_game_sessions_id_fk": {
+          "name": "game_snapshots_session_id_game_sessions_id_fk",
+          "tableFrom": "game_snapshots",
+          "tableTo": "game_sessions",
+          "columnsFrom": [
+            "session_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "game_snapshots_session_id_state_version_pk": {
+          "name": "game_snapshots_session_id_state_version_pk",
+          "columns": [
+            "session_id",
+            "state_version"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "game_snapshots_state_version_check": {
+          "name": "game_snapshots_state_version_check",
+          "value": "\"game_snapshots\".\"state_version\" >= 0"
+        },
+        "game_snapshots_schema_version_check": {
+          "name": "game_snapshots_schema_version_check",
+          "value": "\n    \"game_snapshots\".\"schema_version\" > 0\n    AND jsonb_typeof(\"game_snapshots\".\"payload\"::jsonb) = 'object'\n    AND (\"game_snapshots\".\"payload\"::jsonb->'schemaVersion' = to_jsonb(\"game_snapshots\".\"schema_version\")) IS TRUE\n  "
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.profiles": {
+      "name": "profiles",
+      "schema": "",
+      "columns": {
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.scenario_versions": {
+      "name": "scenario_versions",
+      "schema": "",
+      "columns": {
+        "scenario_id": {
+          "name": "scenario_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "version": {
+          "name": "version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gameplay_profile": {
+          "name": "gameplay_profile",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "engine_version": {
+          "name": "engine_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "result_version": {
+          "name": "result_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tile_count": {
+          "name": "tile_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lap_count": {
+          "name": "lap_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "scenario_versions_scenario_id_version_pk": {
+          "name": "scenario_versions_scenario_id_version_pk",
+          "columns": [
+            "scenario_id",
+            "version"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "scenario_versions_dimensions_check": {
+          "name": "scenario_versions_dimensions_check",
+          "value": "\"scenario_versions\".\"tile_count\" > 0 AND \"scenario_versions\".\"lap_count\" > 0"
+        }
+      },
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.game_result_outcome": {
+      "name": "game_result_outcome",
+      "schema": "public",
+      "values": [
+        "victory",
+        "defeat",
+        "insolvent"
+      ]
+    },
+    "public.game_session_status": {
+      "name": "game_session_status",
+      "schema": "public",
+      "values": [
+        "active",
+        "completed",
+        "abandoned"
+      ]
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

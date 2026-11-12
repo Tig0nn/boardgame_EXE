@@ -1,0 +1,2 @@
+ALTER TABLE "game_results" DROP CONSTRAINT "game_results_proceeds_check";--> statement-breakpoint
+ALTER TABLE "game_results" ADD CONSTRAINT "game_results_proceeds_check" CHECK ("game_results"."lawful_proceeds_vnd" BETWEEN -9007199254740991 AND 9007199254740991);
