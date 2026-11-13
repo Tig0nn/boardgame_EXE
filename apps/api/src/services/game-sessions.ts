@@ -1,4 +1,5 @@
 import type { Database } from '../db/client.ts'
+import type { SnapshotObserver } from '../observability.ts'
 import { ApiError } from '../errors.ts'
 import { insertProfileIfMissing } from '../repositories/profiles.ts'
 import { sessionRepository } from '../repositories/game-sessions.ts'
@@ -11,9 +12,9 @@ function checkCreationRetry(stored: B18Setup, requested: B18Setup) {
   }
 }
 
-export function createGameSession(db: Database, userId: string, creationKey: string, setup: B18Setup) {
+export function createGameSession(db: Database, userId: string, creationKey: string, setup: B18Setup, observer?: SnapshotObserver) {
   return db.transaction(async tx => {
-    const sessions = sessionRepository(tx)
+    const sessions = sessionRepository(tx, observer)
     const previous = await sessions.findByCreationKey(userId, creationKey)
     if (previous) {
       checkCreationRetry(previous.setup, setup)

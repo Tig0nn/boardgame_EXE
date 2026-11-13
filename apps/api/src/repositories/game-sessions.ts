@@ -3,6 +3,8 @@ import type { SelectedFields } from 'drizzle-orm/pg-core'
 import type { Database } from '../db/client.ts'
 import { gameResults, gameSessions, gameSnapshots, scenarioVersions } from '../db/schema.ts'
 import { snapshotPayloadForInsert } from './snapshot-payload.ts'
+import { observeSnapshot } from '../observability.ts'
+import type { SnapshotObserver } from '../observability.ts'
 
 const sessionFields = {
   id: gameSessions.id,
@@ -24,7 +26,7 @@ const scenarioFields = {
   laps: scenarioVersions.laps,
 }
 
-export function sessionRepository(db: Pick<Database, 'select' | 'insert'>) {
+export function sessionRepository(db: Pick<Database, 'select' | 'insert'>, observer?: SnapshotObserver) {
   const ownedSessions = <T extends SelectedFields>(extra: T) => db.select({ ...sessionFields, ...scenarioFields, setup: setupFields, ...extra })
     .from(gameSessions)
     .innerJoin(scenarioVersions, and(
@@ -34,7 +36,7 @@ export function sessionRepository(db: Pick<Database, 'select' | 'insert'>) {
 
   return {
     async findWithState(userId: string, id: string) {
-      const [session] = await ownedSessions({
+      const [session] = await observeSnapshot(observer, 'session_state_read', {}, async () => ownedSessions({
         seed: gameSessions.seed,
         snapshot: { schemaVersion: gameSnapshots.schemaVersion, payload: gameSnapshots.payload },
         result: { outcome: gameResults.outcome, lawfulProceedsVnd: gameResults.lawfulProceedsVnd },
@@ -47,7 +49,7 @@ export function sessionRepository(db: Pick<Database, 'select' | 'insert'>) {
           eq(gameResults.sessionId, gameSessions.id),
           eq(gameResults.stateVersion, gameSessions.stateVersion),
         ))
-        .where(and(eq(gameSessions.userId, userId), eq(gameSessions.id, id)))
+        .where(and(eq(gameSessions.userId, userId), eq(gameSessions.id, id))))
       return session
     },
     async lockOwned(userId: string, id: string) {
@@ -82,7 +84,10 @@ export function sessionRepository(db: Pick<Database, 'select' | 'insert'>) {
       return { ...session, setup: { initialSavings, savingsTerm } }
     },
     async insertSnapshot(values: typeof gameSnapshots.$inferInsert) {
-      await db.insert(gameSnapshots).values({ ...values, payload: snapshotPayloadForInsert(values.payload) })
+      const payload = snapshotPayloadForInsert(values.payload)
+      await observeSnapshot(observer, 'snapshot_insert', {
+        stateVersion: values.stateVersion, payloadBytes: observer ? Buffer.byteLength(values.payload) : undefined,
+      }, async () => db.insert(gameSnapshots).values({ ...values, payload }))
     },
   }
 }

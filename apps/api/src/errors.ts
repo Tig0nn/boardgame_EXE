@@ -1,5 +1,6 @@
 import type { FastifyReply } from 'fastify'
 import { ZodError } from 'zod'
+import { postgresFailure } from './observability.ts'
 
 export class ApiError extends Error {
   readonly status: number
@@ -35,10 +36,11 @@ export function sendError(error: unknown, reply: FastifyReply) {
   } else if (status && status >= 400 && status < 500) {
     problem = new ApiError(status, 'INVALID_REQUEST', 'Invalid request')
   } else {
-    reply.log.error('Unexpected API error')
+    reply.log.error({ event: 'request_failed', category: 'internal', ...postgresFailure(error) })
     problem = new ApiError(500, 'INTERNAL_ERROR', 'Internal server error')
   }
 
+  if (problem.status < 500) reply.log.info({ event: 'request_rejected', code: problem.code, statusCode: problem.status })
   if (problem.status === 401) reply.header('WWW-Authenticate', 'Bearer')
   return reply.code(problem.status).send({
     error: { code: problem.code, message: problem.message },

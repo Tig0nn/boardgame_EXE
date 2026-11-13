@@ -1,16 +1,22 @@
+import { readFileSync } from 'node:fs'
 import { buildApp } from './app.ts'
 import { loadConfig } from './config.ts'
 import { createDatabase } from './db/client.ts'
 import { stagingConnection, stagingPoolOptions } from './db/staging.ts'
 
 async function main() {
-  const config = loadConfig(process.env)
-  const staging = process.env.EXE_ENV === 'staging' ? stagingConnection(process.env, 'runtime') : null
+  const env = { ...process.env }
+  if (env.DATABASE_URL_FILE) {
+    if (env.DATABASE_URL) throw new Error('Configure one database URL source')
+    env.DATABASE_URL = readFileSync(env.DATABASE_URL_FILE, 'utf8').trim()
+  }
+  const config = loadConfig(env)
+  const staging = env.EXE_ENV === 'staging' ? stagingConnection(env, 'runtime') : null
   const database = staging ? createDatabase(staging.url, stagingPoolOptions(staging)) : createDatabase(config.databaseUrl)
   const app = buildApp(database, config.auth, true)
 
   try {
-    await app.listen({ host: '127.0.0.1', port: config.port })
+    await app.listen({ host: config.host, port: config.port })
   } catch (error) {
     await app.close()
     throw error
@@ -27,6 +33,6 @@ async function main() {
 }
 
 main().catch(() => {
-  console.error('API startup failed. Check apps/api/.env and local port availability.')
+  console.error(JSON.stringify({ level: 'error', event: 'api_startup_failed' }))
   process.exitCode = 1
 })

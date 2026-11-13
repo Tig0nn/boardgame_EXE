@@ -4,6 +4,7 @@ const postgresUrl = z.url({ protocol: /^postgres(?:ql)?$/ })
 const settings = z.object({
   DATABASE_URL: postgresUrl,
   API_PORT: z.coerce.number().int().min(1).max(65535).default(3109),
+  API_HOST: z.enum(['127.0.0.1', '0.0.0.0']).default('127.0.0.1'),
   AUTH_ISSUER: z.union([z.literal(''), z.url({ protocol: /^https$/ })]).default(''),
   AUTH_AUDIENCE: z.string().trim().min(1).default('authenticated'),
 })
@@ -15,7 +16,7 @@ export function loadConfig(env: NodeJS.ProcessEnv) {
     throw new Error('Invalid API configuration fields: ' + fields)
   }
 
-  const { DATABASE_URL, API_PORT, AUTH_ISSUER, AUTH_AUDIENCE } = result.data
+  const { DATABASE_URL, API_PORT, API_HOST, AUTH_ISSUER, AUTH_AUDIENCE } = result.data
   let auth
   if (AUTH_ISSUER) {
     const url = new URL(AUTH_ISSUER)
@@ -29,7 +30,7 @@ export function loadConfig(env: NodeJS.ProcessEnv) {
     }
   }
 
-  return { databaseUrl: DATABASE_URL, port: API_PORT, auth }
+  return { databaseUrl: DATABASE_URL, port: API_PORT, host: API_HOST, auth }
 }
 
 // Development migrations and tests may only target the dedicated local Compose database.

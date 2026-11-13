@@ -1,8 +1,10 @@
 import { and, eq, sql } from 'drizzle-orm'
 import type { Database } from '../db/client.ts'
 import { gameActions, gameResults, gameSessions, gameSnapshots } from '../db/schema.ts'
+import { observeSnapshot } from '../observability.ts'
+import type { SnapshotObserver } from '../observability.ts'
 
-export function actionRepository(db: Pick<Database, 'select' | 'insert' | 'update'>) {
+export function actionRepository(db: Pick<Database, 'select' | 'insert' | 'update'>, observer?: SnapshotObserver) {
   return {
     async findByKey(sessionId: string, key: string) {
       const [action] = await db.select().from(gameActions)
@@ -10,8 +12,9 @@ export function actionRepository(db: Pick<Database, 'select' | 'insert' | 'updat
       return action
     },
     async snapshot(sessionId: string, stateVersion: number) {
-      const [snapshot] = await db.select().from(gameSnapshots)
-        .where(and(eq(gameSnapshots.sessionId, sessionId), eq(gameSnapshots.stateVersion, stateVersion)))
+      const [snapshot] = await observeSnapshot(observer, 'snapshot_read', { stateVersion }, async () =>
+        db.select().from(gameSnapshots)
+          .where(and(eq(gameSnapshots.sessionId, sessionId), eq(gameSnapshots.stateVersion, stateVersion))))
       return snapshot
     },
     async insertAction(values: typeof gameActions.$inferInsert) {

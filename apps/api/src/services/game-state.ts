@@ -1,5 +1,6 @@
 import { restoreSavedGame } from '../../../../src/game/saved-game.ts'
 import type { Database } from '../db/client.ts'
+import type { SnapshotObserver } from '../observability.ts'
 import { ApiError, notFound } from '../errors.ts'
 import { sessionRepository } from '../repositories/game-sessions.ts'
 import { b18Scenario } from './b18.ts'
@@ -37,8 +38,8 @@ export function restoreB18State(session: SessionIdentity, saved: StoredSnapshot 
   return game
 }
 
-export async function loadGameState(db: Database, userId: string, sessionId: string) {
-  const row = await sessionRepository(db).findWithState(userId, sessionId)
+export async function loadGameState(db: Database, userId: string, sessionId: string, observer?: SnapshotObserver) {
+  const row = await sessionRepository(db, observer).findWithState(userId, sessionId)
   if (!row) throw notFound()
 
   const { seed, snapshot, result, ...session } = row
@@ -53,8 +54,8 @@ export async function loadGameState(db: Database, userId: string, sessionId: str
   return { session, game, result }
 }
 
-export async function readGameState(db: Database, userId: string, sessionId: string) {
-  const { session, game, result } = await loadGameState(db, userId, sessionId)
+export async function readGameState(db: Database, userId: string, sessionId: string, observer?: SnapshotObserver) {
+  const { session, game, result } = await loadGameState(db, userId, sessionId, observer)
   return {
     session,
     state: publicB18State(game, session.status === 'active'),

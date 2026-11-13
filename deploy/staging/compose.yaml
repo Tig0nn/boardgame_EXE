@@ -1,0 +1,81 @@
+name: exe-staging
+
+x-logging: &logging
+  driver: local
+  options:
+    max-size: '10m'
+    max-file: '3'
+
+services:
+  api:
+    image: exe-staging-api:${EXE_RELEASE:?Set EXE_RELEASE}
+    build:
+      context: ../..
+      dockerfile: deploy/staging/Dockerfile
+      target: api
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 25s
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    environment:
+      EXE_ENV: staging
+      EXE_STAGING_PROJECT_REF: yqikecqeijeaygmmjdyg
+      AUTH_ISSUER: https://yqikecqeijeaygmmjdyg.supabase.co/auth/v1
+      AUTH_AUDIENCE: authenticated
+      API_HOST: 0.0.0.0
+      API_PORT: '3109'
+      DATABASE_URL_FILE: /run/secrets/exe_database_url
+      EXE_STAGING_DB_CA_FILE: /run/secrets/exe_database_ca
+      EXE_DB_POOL_MAX: ${EXE_DB_POOL_MAX:-4}
+    secrets: [exe_database_url, exe_database_ca]
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3109/health',{signal:AbortSignal.timeout(2000)}).then(r=>process.exit(r.ok?0:1),()=>process.exit(1))"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    logging: *logging
+
+  edge:
+    image: exe-staging-edge:${EXE_RELEASE:?Set EXE_RELEASE}
+    build:
+      context: ../..
+      dockerfile: deploy/staging/Dockerfile
+      target: edge
+      args:
+        EXE_PUBLIC_SUPABASE_KEY: ${VITE_SUPABASE_PUBLISHABLE_KEY:-}
+    restart: unless-stopped
+    stop_grace_period: 20s
+    read_only: true
+    security_opt: [no-new-privileges:true]
+    depends_on:
+      api:
+        condition: service_healthy
+    environment:
+      EXE_STAGING_HOSTNAME: ${EXE_STAGING_HOSTNAME:?Set EXE_STAGING_HOSTNAME}
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, "http://127.0.0.1:2016/health"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+    ports: ['80:80', '443:443', '443:443/udp']
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    logging: *logging
+
+networks:
+  default:
+    enable_ipv6: true
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+secrets:
+  exe_database_url:
+    file: ${EXE_DATABASE_URL_FILE:?Set EXE_DATABASE_URL_FILE}
+  exe_database_ca:
+    file: ${EXE_DATABASE_CA_FILE:?Set EXE_DATABASE_CA_FILE}

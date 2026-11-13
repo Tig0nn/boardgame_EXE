@@ -2,6 +2,7 @@ import { isDeepStrictEqual } from 'node:util'
 import { serializeLog } from '../../../../src/game/log.ts'
 import type { GameState } from '../../../../src/game/types.ts'
 import type { Database } from '../db/client.ts'
+import type { SnapshotObserver } from '../observability.ts'
 import { ApiError, notFound } from '../errors.ts'
 import { actionRepository } from '../repositories/game-actions.ts'
 import { sessionRepository } from '../repositories/game-sessions.ts'
@@ -18,14 +19,15 @@ function actionResponse(sessionId: string, stateVersion: number, game: GameState
   }
 }
 
-export function executeGameAction(db: Database, userId: string, sessionId: string, key: string, request: GameActionRequest) {
+export function executeGameAction(db: Database, userId: string, sessionId: string, key: string, request: GameActionRequest,
+  telemetry?: { snapshot: SnapshotObserver; idempotency: (outcome: 'replayed' | 'conflict') => void }) {
   return db.transaction(async tx => {
-    const sessions = sessionRepository(tx)
+    const sessions = sessionRepository(tx, telemetry?.snapshot)
     const session = await sessions.lockOwned(userId, sessionId)
     if (!session) throw notFound()
     assertSupportedB18(session)
 
-    const repository = actionRepository(tx)
+    const repository = actionRepository(tx, telemetry?.snapshot)
     const loadState = async (version: number) => restoreB18State(session, await repository.snapshot(session.id, version))
 
     const previous = await repository.findByKey(session.id, key)
@@ -33,8 +35,10 @@ export function executeGameAction(db: Database, userId: string, sessionId: strin
       // JSONB may reorder payload fields. Sequence is the post-action state version.
       if (previous.actionType !== request.actionId || previous.sequence - 1 !== request.expectedStateVersion ||
           !isDeepStrictEqual(previous.payload, request.payload)) {
+        telemetry?.idempotency('conflict')
         throw new ApiError(409, 'IDEMPOTENCY_KEY_REUSED', 'Idempotency key already belongs to a different request')
       }
+      telemetry?.idempotency('replayed')
       return actionResponse(session.id, previous.sequence, await loadState(previous.sequence))
     }
 

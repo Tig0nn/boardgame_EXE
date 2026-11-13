@@ -40,7 +40,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   await migrateDatabase(database.db)
   const origin = await app.listen({ host: '127.0.0.1', port: 0 })
   const owner = randomUUID()
-  const expires = { exp: Math.floor(Date.now() / 1000) + 420 }
+  const expires = { exp: Math.floor(Date.now() / 1000) + 900 }
   const token = await issuer.sign(owner, expires)
   const outsider = await issuer.sign(randomUUID(), expires)
   const expired = await issuer.sign(owner, { exp: 1 })
@@ -90,6 +90,8 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   const errors: string[] = []
   async function player(width: number, bearer = token, refreshToken = '') {
     const context = await browser.newContext({ viewport: { width, height: 870 }, reducedMotion: 'reduce' })
+    await context.route(/^https:\/\/fonts\.(googleapis|gstatic)\.com\//,
+      (route: { abort: () => Promise<void> }) => route.abort())
     await context.addInitScript(({ bearer, refreshToken }: { bearer: string; refreshToken: string }) => {
       sessionStorage.setItem('phase3a-test-token', bearer)
       sessionStorage.setItem('phase3b-refresh-token', refreshToken)
@@ -100,7 +102,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
       if (response.url().includes('/v1/game-sessions')) statuses.push(response.status())
     })
     page.on('pageerror', (error: Error) => errors.push(error.message))
-    await page.goto(frontendUrl)
+    await page.goto(frontendUrl, { waitUntil: 'domcontentloaded' })
     await page.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).click()
     await page.getByRole('heading', { name: 'Ván chơi của bạn' }).waitFor()
     return { context, page, statuses }
@@ -124,9 +126,18 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
     const [response] = await Promise.all([
       page.waitForResponse((value: { url: () => string }) => value.url().endsWith('/actions')),
       click(),
-    ])
+    ]).catch(async error => {
+      const retry = await page.getByRole('button', { name: 'Thử lại thao tác', exact: true }).isVisible()
+      const reconnect = await page.getByRole('button', { name: 'Tải lại ván', exact: true }).isVisible()
+      throw new Error('Action response missing. Retry visible: ' + retry + '. Reload visible: ' + reconnect, { cause: error })
+    })
     assert.equal(response.status(), expected, await response.text())
     return response.json()
+  }
+  async function rollDice(page: Page) {
+    const button = page.getByRole('button', { name: 'Lắc Xúc Xắc', exact: true })
+    await button.click({ trial: true })
+    await button.evaluate((element: HTMLButtonElement) => element.click())
   }
   async function transaction(page: Page, choice: string, quote: boolean, amount?: number) {
     await page.getByLabel('Thao tác', { exact: true }).selectOption(choice)
@@ -163,7 +174,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
       }
       const option = state.fundingOptions[0]
       funded = await transaction(wide.page, [option.source, option.lotId].filter(Boolean).join('-'), option.source === 'debt')
-    } else if (state.phase === 'rolling') funded = await action(wide.page, () => wide.page.getByRole('button', { name: 'Lắc Xúc Xắc', exact: true }).click())
+    } else if (state.phase === 'rolling') funded = await action(wide.page, () => rollDice(wide.page))
     else if (state.phase === 'summary') funded = await action(wide.page, () => wide.page.getByRole('button', { name: 'Ghé ví tại ô Xuất phát', exact: true }).click())
     else if (state.phase === 'rebalancing') funded = await action(wide.page, () => wide.page.getByRole('button', { name: 'Kết thúc điều chỉnh', exact: true }).click())
     else if (state.phase === 'forecast') funded = await action(wide.page, () => wide.page.getByRole('button', { name: 'Bắt đầu vòng ' + state.lap, exact: true }).click())
@@ -193,7 +204,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
     await wide.page.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).click()
     await wide.page.getByRole('button', { name: /Tiếp tục ván/ }).first().click()
     await action(wide.page, () => wide.page.getByRole('button', { name: 'Bắt đầu vòng 1', exact: true }).click())
-    const landing = await action(wide.page, () => wide.page.getByRole('button', { name: 'Lắc Xúc Xắc', exact: true }).click())
+    const landing = await action(wide.page, () => rollDice(wide.page))
     const option = landing.state.options.find((item: { cost?: number }) => (item.cost ?? 0) > 0)
     assert.ok(option)
     const payment = await action(wide.page, () => wide.page.locator('[data-option-id="' + option.id + '"]').click())
@@ -238,7 +249,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
       await route.abort()
     } else { replayedKey = key; await route.continue() }
   })
-  await page.getByRole('button', { name: 'Lắc Xúc Xắc', exact: true }).click()
+  await rollDice(page)
   await page.getByRole('button', { name: 'Thử lại thao tác', exact: true }).waitFor()
   let current = await action(page, () => page.getByRole('button', { name: 'Thử lại thao tác', exact: true }).click())
   assert.equal(current.stateVersion, 2)
@@ -247,7 +258,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   await page.unroute(matcher)
 
   await page.evaluate(() => window.dispatchEvent(new Event('online')))
-  await page.reload()
+  await page.reload({ waitUntil: 'domcontentloaded' })
   await page.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).click()
   const restoredResponse = page.waitForResponse((response: { url: () => string; status: () => number }) =>
     response.url().endsWith('/v1/game-sessions/' + id) && response.status() === 200)
@@ -262,7 +273,13 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
     const state = current.state
     covered.add(state.phase)
     if (state.phase === 'rolling') {
-      current = await action(page, () => page.getByRole('button', { name: 'Lắc Xúc Xắc', exact: true }).click())
+      try {
+        current = await action(page, () => rollDice(page))
+      } catch (error) {
+        t.diagnostic(JSON.stringify({ step: i, phase: state.phase, lap: state.lap, version: current.stateVersion,
+          serverVersion: (await (await direct(id)).json()).session?.stateVersion, browserErrors: errors }))
+        throw error
+      }
     } else if (state.phase === 'forecast') {
       current = await action(page, () => page.getByRole('button', { name: 'Bắt đầu vòng ' + state.lap, exact: true }).click())
     } else if (state.phase === 'summary') {

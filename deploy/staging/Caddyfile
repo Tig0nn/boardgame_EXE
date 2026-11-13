@@ -1,0 +1,35 @@
+{
+	admin off
+	skip_install_trust
+}
+
+http://:2016 {
+	bind 127.0.0.1
+	respond /health 200
+}
+
+{$EXE_STAGING_HOSTNAME} {
+	root * /srv
+	encode zstd gzip
+	header {
+		Referrer-Policy no-referrer
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+	}
+
+	@api path /v1 /v1/* /health /ready
+	handle @api {
+		reverse_proxy api:3109 {
+			transport http {
+				dial_timeout 2s
+				response_header_timeout 15s
+			}
+		}
+	}
+
+	handle {
+		@index path / /index.html
+		header @index Cache-Control no-store
+		file_server
+	}
+}

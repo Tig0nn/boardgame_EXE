@@ -91,6 +91,7 @@ test('Mobile registers and confirms through local Supabase Auth PKCE, then resum
   t.after(() => browser.close())
   async function device() {
     const context = await browser.newContext({ viewport: { width: 390, height: 850 }, reducedMotion: 'reduce' })
+    await context.route(/^https:\/\/fonts\.(googleapis|gstatic)\.com\//, (route: { abort: () => Promise<void> }) => route.abort())
     await context.route('https://127.0.0.1:58244/auth/v1/**', async (route: {
       request: () => { url: () => string }; fetch: (options: { url: string }) => Promise<unknown>;
       fulfill: (options: { response: unknown }) => Promise<void>;
@@ -110,7 +111,7 @@ test('Mobile registers and confirms through local Supabase Auth PKCE, then resum
     await page.getByLabel('Mật khẩu').fill(identity.password)
   }
   async function signup(page: Page, identity: Identity) {
-    await page.goto(mobileOrigin)
+    await page.goto(mobileOrigin, { waitUntil: 'domcontentloaded' })
     await page.getByRole('button', { name: 'Tạo tài khoản', exact: true }).click()
     await credentials(page, identity)
     const signupResponse = page.waitForResponse((response: { url: () => string }) => response.url().includes('/auth/v1/signup'))
@@ -120,7 +121,7 @@ test('Mobile registers and confirms through local Supabase Auth PKCE, then resum
     return confirmationLink(identity.email)
   }
   async function signin(page: Page, identity: Identity) {
-    await page.goto(mobileOrigin)
+    await page.goto(mobileOrigin, { waitUntil: 'domcontentloaded' })
     await credentials(page, identity)
     await page.getByRole('button', { name: 'Đăng nhập', exact: true }).click()
     await page.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).waitFor()
@@ -137,11 +138,11 @@ test('Mobile registers and confirms through local Supabase Auth PKCE, then resum
   const outsider = await device()
   const exchange = first.page.waitForResponse((response: { url: () => string; status: () => number }) =>
     response.url().includes('grant_type=pkce') && response.status() === 200)
-  await first.page.goto(await signup(first.page, a))
+  await first.page.goto(await signup(first.page, a), { waitUntil: 'domcontentloaded' })
   await exchange
   await first.page.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).waitFor()
   assert.equal(new URL(first.page.url()).searchParams.has('code'), false)
-  await first.page.reload()
+  await first.page.reload({ waitUntil: 'domcontentloaded' })
   await openList(first.page)
   await first.page.getByRole('button', { name: 'Tạo ván mới', exact: true }).click()
   const createdResponse = first.page.waitForResponse((response: { url: () => string; status: () => number }) =>
@@ -171,7 +172,7 @@ test('Mobile registers and confirms through local Supabase Auth PKCE, then resum
   assert.equal(resumed[0].id, createdGame.id)
   assert.equal(resumed[0].stateVersion, 0)
 
-  await outsider.page.goto(await signup(outsider.page, b))
+  await outsider.page.goto(await signup(outsider.page, b), { waitUntil: 'domcontentloaded' })
   const otherList = outsider.page.waitForResponse((response: { url: () => string; status: () => number }) =>
     response.url().includes('/v1/game-sessions?') && response.status() === 200)
   await openList(outsider.page)
@@ -181,13 +182,13 @@ test('Mobile registers and confirms through local Supabase Auth PKCE, then resum
 
   // A callback opened in a context without its verifier must fail safely and scrub the URL.
   const misplaced = await device()
-  await misplaced.page.goto(mobileOrigin + '/?code=synthetic-missing-verifier&lang=vi')
+  await misplaced.page.goto(mobileOrigin + '/?code=synthetic-missing-verifier&lang=vi', { waitUntil: 'domcontentloaded' })
   await misplaced.page.getByRole('alert').filter({ hasText: 'Không thể hoàn tất xác nhận' }).waitFor()
   assert.equal(new URL(misplaced.page.url()).search, '?lang=vi')
 
   await second.page.getByRole('button', { name: 'Đăng xuất' }).click()
   await second.page.getByRole('button', { name: 'Đăng nhập', exact: true }).waitFor()
-  await first.page.reload()
+  await first.page.reload({ waitUntil: 'domcontentloaded' })
   await first.page.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).waitFor()
   await Promise.all([first.context.close(), second.context.close(), outsider.context.close(), misplaced.context.close()])
 })
