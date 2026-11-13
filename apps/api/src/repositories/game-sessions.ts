@@ -2,6 +2,7 @@ import { and, desc, eq } from 'drizzle-orm'
 import type { SelectedFields } from 'drizzle-orm/pg-core'
 import type { Database } from '../db/client.ts'
 import { gameResults, gameSessions, gameSnapshots, scenarioVersions } from '../db/schema.ts'
+import { snapshotPayloadForInsert } from './snapshot-payload.ts'
 
 const sessionFields = {
   id: gameSessions.id,
@@ -81,7 +82,7 @@ export function sessionRepository(db: Pick<Database, 'select' | 'insert'>) {
       return { ...session, setup: { initialSavings, savingsTerm } }
     },
     async insertSnapshot(values: typeof gameSnapshots.$inferInsert) {
-      await db.insert(gameSnapshots).values(values)
+      await db.insert(gameSnapshots).values({ ...values, payload: snapshotPayloadForInsert(values.payload) })
     },
   }
 }
