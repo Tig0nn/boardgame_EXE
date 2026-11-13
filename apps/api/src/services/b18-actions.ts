@@ -1,3 +1,5 @@
+import { projectLearningContext } from '../../../../src/ai/mascot/learning-context.ts'
+import { foxCoachView } from './fox-evidence.ts'
 import { eventsForGame } from '../../../../src/data/events.ts'
 import { advance, canChoose, decide, fundPayment, roll } from '../../../../src/game/engine.ts'
 import { liquidatableFunds, victory } from '../../../../src/game/selectors.ts'
@@ -52,6 +54,7 @@ export function publicB18State(game: GameState, active = game.phase !== 'finishe
   const { stocks, gold, appliedShocks, normalLaps } = game.market
   return {
     boardLayout: game.boardLayout,
+    fox: { ...foxCoachView(game, officialB18Result(game)), learningContext: projectLearningContext(game) },
     boardRevision: game.boardRevision,
     livingExpenseRulesVersion: game.livingExpenseRulesVersion,
     event: event ? { title: event.title, description: event.description } : null,

@@ -113,6 +113,7 @@ export const foxCoachQuery = z.strictObject({
   journalSequence: coachQueryInt.pipe(expectedStateVersion.min(1)).optional(),
 })
 export const foxLearningBody = z.strictObject({
+  allowGemini: z.boolean().optional(),
   stateVersion: expectedStateVersion.optional(),
   question: z.string().refine(question => readLearningQuestion(question) !== null).transform(question => question.trim()),
 })

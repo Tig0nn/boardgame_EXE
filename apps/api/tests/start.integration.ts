@@ -14,6 +14,7 @@ import { liquidatableFunds, netWorth, saleQuote, totalWorth, victory } from '../
 import { borrowingAvailable, fundingSources } from '../../../src/game/transactions.ts'
 import type { GameState, TradableAsset } from '../../../src/game/types.ts'
 import { replayGameLog } from '../../../scripts/diagnostics/replay-game-log.ts'
+import { createFoxAssistance } from '../src/services/fox-assistance.ts'
 import { buildApp } from '../src/app.ts'
 import { localDatabaseUrl } from '../src/config.ts'
 import { createDatabase } from '../src/db/client.ts'
@@ -211,6 +212,8 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
     assert.equal(starting.evidence.position.portfolio.cash, genesis.state.portfolio.cash)
     assert.equal(starting.evidence.position.deposits[0].principal, setup.initialSavings)
     assert.equal(starting.evidence.result, null)
+    assert.deepEqual(genesis.state.fox.cards, starting.cards)
+    assert.deepEqual(genesis.state.fox.evidence, starting.evidence)
     await status(fox('', outsider), 404)
     await status(learn('Thanh khoản là gì?', outsider), 404)
     await status(post(foxPath + '/learn', { question: 'Thanh khoản là gì?', context: { cash: 123 } }), 400)
@@ -222,7 +225,34 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
     const unknown = await (await status(learn('Bạn có thể tiên đoán tỷ giá ngày mai?'), 200)).json()
     assert.equal(unknown.status, 'insufficient')
     assert.ok(unknown.message)
+    const disabled = await (await status(post(foxPath + '/learn', { question: 'Bạn có thể tiên đoán tỷ giá ngày mai?', allowGemini: true }), 200)).json()
+    assert.equal(disabled.assistance, 'disabled')
+    assert.equal(disabled.status, 'insufficient')
     const inspected = new Set<string>()
+    const learningDb = createDatabase(url.href)
+    let providerCalls = 0
+    const optional = buildApp(learningDb, issuer.config, false, createFoxAssistance({
+      EXE_FOX_GEMINI_ENABLED: '1', EXE_FOX_GEMINI_MODEL: 'gemini-test', EXE_FOX_GEMINI_API_KEY: 'fixture-only',
+    }, async (_url, init) => {
+      providerCalls++
+      assert.doesNotMatch(String(init?.body), /game_sessions|40[,.]000[,.]000|entry-|seed|userId/)
+      return Response.json({ candidates: [{ finishReason: 'STOP', content: { parts: [{ text: '{"ids":["liquidity"]}' }] } }] })
+    }))
+    try {
+      const open = 'Giải thích khả năng chuyển đổi tài sản'
+      const ask = (question: string, allowGemini: boolean, bearer = authorization, stateVersion = 0) =>
+        optional.inject({ method: 'POST', url: foxPath + '/learn', payload: { question, allowGemini, stateVersion }, headers: { authorization: bearer } })
+      assert.equal((await ask(open, true, outsider)).statusCode, 404)
+      assert.equal((await ask(open, true, authorization, 1)).statusCode, 409)
+      assert.equal((await ask(open, false)).json().assistance, 'not-requested')
+      assert.equal((await ask('Thanh khoản là gì?', true)).json().assistance, 'not-needed')
+      assert.equal(providerCalls, 0)
+      const selected = await ask(open, true)
+      assert.equal(selected.statusCode, 200)
+      assert.equal(selected.json().assistance, 'used')
+      assert.deepEqual(selected.json().cards.map((card: { id: string }) => card.id), ['liquidity'])
+      assert.equal(providerCalls, 1)
+    } finally { await optional.close() }
     const rowsBeforeCoach = await database.pool.query('SELECT count(*) FROM game_actions WHERE session_id = $1', [id])
     assert.equal(Number(rowsBeforeCoach.rows[0].count), 0)
     let testedSettlement = false
@@ -366,6 +396,8 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
     assert.ok(inspected.has('event') && inspected.has('summary') && inspected.has('trade'))
     const finalFox = await (await status(fox('?stateVersion=' + plan.length), 200)).json()
     assert.deepEqual(finalFox.evidence.result.completedLaps, [1, 2, 3, 4])
+    assert.deepEqual(final.state.fox.evidence, finalFox.evidence)
+    assert.equal(final.state.fox.learningContext.result.funds, Number(final.result.lawfulProceedsVnd))
     assert.equal(finalFox.evidence.result.lawfulProceedsVnd, final.result.lawfulProceedsVnd)
     assert.equal(finalFox.evidence.result.outcome, final.result.outcome)
     assert.deepEqual(await (await status(fox(), 200)).json(), finalFox)

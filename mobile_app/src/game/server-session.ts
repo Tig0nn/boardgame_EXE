@@ -61,8 +61,8 @@ export function createGameApi(accessToken: AccessToken, send: typeof fetch = fet
     action: (id: string, body: GameActionRequest, key: string) => request<ActionReply>('/' + encodeURIComponent(id) + '/actions', body, key),
     coach: (id: string, stateVersion: number, signal: AbortSignal) =>
       request<FoxCoachReply>('/' + encodeURIComponent(id) + '/coach?stateVersion=' + stateVersion, undefined, undefined, signal),
-    coachLearn: (id: string, stateVersion: number, question: string, signal: AbortSignal) =>
-      request<FoxLearningReply>('/' + encodeURIComponent(id) + '/coach/learn', { stateVersion, question }, undefined, signal),
+    coachLearn: (id: string, stateVersion: number, question: string, signal: AbortSignal, allowGemini = false) =>
+      request<FoxLearningReply>('/' + encodeURIComponent(id) + '/coach/learn', { stateVersion, question, allowGemini }, undefined, signal),
     whatIfCatalog: (id: string, signal: AbortSignal) => request<WhatIfCatalog>('/' + encodeURIComponent(id) + '/what-if', undefined, undefined, signal),
     whatIf: (id: string, body: WhatIfRequest, signal: AbortSignal) => request<WhatIfEvaluation>('/' + encodeURIComponent(id) + '/what-if', body, undefined, signal),
     quote(id: string, body: GameActionRequest) {

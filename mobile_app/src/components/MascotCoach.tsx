@@ -10,7 +10,6 @@ import './mascot-coach.css'
 
 type Coach = ReturnType<typeof createMascotCoach>
 type Expression = 'neutral' | 'warning' | 'positive'
-const sessionIds = new WeakMap<Coach, string>()
 
 function Fox({ expression }: { expression: Expression }) {
   return <svg viewBox="0 0 52 48" width="38" height="36" fill="none" aria-hidden="true">
@@ -37,14 +36,6 @@ export function MascotCoach({ coach, surface, game, online }: {
   const [expandedFor, setExpandedFor] = useState<typeof latest>(null)
   const learningContext = useMemo(() => open && game ? projectLearningContext(game) : null, [open, game])
   const revision = game ? [game.phase, game.lap, game.turn, game.log.at(-1)?.sequence].join(':') : ''
-  const getSession = () => {
-    let session = sessionIds.get(coach)
-    if (!session) {
-      session = crypto.randomUUID()
-      sessionIds.set(coach, session)
-    }
-    return session
-  }
   const panelId = useId()
   const reasonId = useId()
   const trigger = useRef<HTMLButtonElement>(null)
@@ -90,7 +81,7 @@ export function MascotCoach({ coach, surface, game, online }: {
       {open && online && <CloudFoxCoach key={online.sessionId + ':' + online.stateVersion} {...online} />}
       {open && !online && <MascotLearningPanel
         key={revision}
-        context={learningContext} getSession={getSession} />}
+        context={learningContext} />}
     </section>
   </aside>
 }

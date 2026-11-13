@@ -85,7 +85,7 @@ export function ServerGame({ controller, api, onHome, onNew }: {
   const surface = overlay || animation ? null : state.phase === 'rolling' ? 'board' : state.phase === 'summary' || state.phase === 'finished' ? 'summary' : 'context'
   useEffect(() => { coach.present(surface, performance.now()) }, [coach, surface, state])
   const companion = surface && <MascotCoach coach={coach} surface={surface} online={{
-    api, sessionId: session.id, stateVersion: session.stateVersion,
+    api, sessionId: session.id, stateVersion: session.stateVersion, evidence: state.fox,
   }} />
   const board = boardFor(state)
   const send = (command: MobileCommand) => {

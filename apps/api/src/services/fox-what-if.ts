@@ -1,5 +1,5 @@
 import { signedMoney } from '../../../../src/game/format.ts'
-import { foxCoachVersion } from './fox-coach.ts'
+import { foxCoachVersion } from './fox-evidence.ts'
 import type { evaluateWhatIf } from './what-if-replay.ts'
 
 type Evaluation = Awaited<ReturnType<typeof evaluateWhatIf>>

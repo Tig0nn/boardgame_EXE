@@ -218,7 +218,21 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   await wide.context.close()
 
   const { page } = await player(390)
+  // Supply entropy for this one test creation, so all required encounters occur.
+  // Session creation, actions, snapshots and replay still use the real API and engine.
+  const originalEntropy = globalThis.crypto.getRandomValues.bind(globalThis.crypto)
+  let fixedSeedUsed = false
+  t.mock.method(globalThis.crypto, 'getRandomValues', (value: ArrayBufferView<ArrayBuffer>) => {
+    if (!fixedSeedUsed && value instanceof Uint32Array && value.length === 4) {
+      fixedSeedUsed = true
+      value.set([2, 0xabcdef01, 0x01234567, 0xdeadcafe])
+      return value
+    }
+    return originalEntropy(value)
+  })
   const id = await create(page, 10_000_000)
+  assert.equal(fixedSeedUsed, true)
+  t.mock.restoreAll()
   assert.equal((await direct(id, outsider)).status, 404)
   const foreign = await player(390, outsider)
   await foreign.page.getByText('Bạn chưa có ván trực tuyến.').waitFor()
@@ -292,9 +306,11 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
       current = await action(page, () => page.getByRole('button', { name: 'Ghé ví tại ô Xuất phát', exact: true }).click())
     } else if (state.phase === 'rebalancing') {
       if (!checkedFoxAtStart) {
+        await page.context().setOffline(true)
         await openFox()
         await foxEvidence().getByText('Quyết toán START vòng ' + state.lap, { exact: true }).waitFor()
         await page.getByRole('button', { name: 'Cáo EXE', exact: true }).click()
+        await page.context().setOffline(false)
         checkedFoxAtStart = true
       }
       const sell = state.start.sales.find((sale: { asset: string; symbolId?: string }) => sale.asset === 'gold' || !sale.symbolId)
@@ -330,24 +346,39 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   assert.equal(current.state.summaries.length, 4)
   t.diagnostic('Four rounds completed through Mobile UI. Operations: ' + [...covered].join(', '))
   assert.ok(checkedFoxAtStart)
-  await page.route('**/coach?*', (route: { abort: () => Promise<void> }) => route.abort())
+  const coachRequests: string[] = []
+  page.on('request', (request: { url: () => string }) => {
+    if (/\/coach(?:[/?]|$)/u.test(request.url())) coachRequests.push(request.url())
+  })
+  await page.context().setOffline(true)
   await openFox()
-  await page.getByRole('button', { name: 'Thử lại Cáo' }).waitFor()
-  await page.unroute('**/coach?*')
-  await page.getByRole('button', { name: 'Thử lại Cáo' }).click()
   await foxEvidence().getByText(/Ván đã hoàn tất 4 vòng/).waitFor()
   const officialCoachText = await foxEvidence().innerText()
   const question = page.getByRole('textbox', { name: 'Câu hỏi về ván hoặc luật EXE' })
+  const sendQuestion = () => page.getByRole('button', { name: 'Hỏi Cáo', exact: true }).click()
   await question.fill('Thanh khoản là gì?')
-  const sendQuestion = () => page.getByRole('button', { name: 'Gửi', exact: true }).click()
+  await sendQuestion()
+  await page.getByText(/Thanh khoản nói về khả năng huy động tiền/).waitFor()
+  await question.fill('Vì sao cuối ván chưa đạt mục tiêu?')
+  await sendQuestion()
+  await page.locator('.mascot-learning-answer').getByText(/mốc mục tiêu/).waitFor()
+  await question.fill('Bạn có thể tiên đoán tỷ giá ngày mai?')
+  await sendQuestion()
+  await page.getByText(/Mình chưa có đủ dữ kiện/).waitFor()
+  assert.equal(coachRequests.length, 0)
+  await page.context().setOffline(false)
+  const optIn = page.getByRole('checkbox', { name: /Cho phép gửi câu hỏi này tới Gemini/ })
+  const assist = page.getByRole('button', { name: 'Nhờ Gemini tìm nội dung' })
+  assert.equal(await assist.isDisabled(), true)
+  await optIn.check()
   await page.route('**/coach/learn', (route: { abort: () => Promise<void> }) => route.abort())
-  await sendQuestion()
-  await page.getByText('Dữ kiện EXE', { exact: true }).waitFor()
-  await page.getByText(/Thanh khoản nói về khả năng huy động tiền/).waitFor()
+  await assist.click()
+  await page.getByRole('alert').filter({ hasText: 'Chưa nhận được phản hồi' }).waitFor()
   await page.unroute('**/coach/learn')
-  await sendQuestion()
-  await page.getByText('Dữ kiện EXE từ máy chủ', { exact: true }).waitFor()
-  await page.getByText(/Thanh khoản nói về khả năng huy động tiền/).waitFor()
+  await optIn.check()
+  await assist.click()
+  await page.getByText('Gemini chưa được bật cho Cáo.').waitFor()
+  assert.equal(coachRequests.length, 2)
   await page.getByRole('button', { name: 'Cáo EXE', exact: true }).click()
   await page.getByText('Kết quả chính thức · Nguồn huy động hợp lệ').waitFor()
   const persisted = await (await direct(id)).json()
@@ -416,10 +447,12 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
     assert.deepEqual(comparison.actual.lawfulProceedsVnd, persisted.result.lawfulProceedsVnd)
     await page.getByRole('heading', { name: 'So sánh sau vòng 4' }).waitFor()
     await page.getByRole('heading', { name: 'Vì sao kết quả khác?' }).waitFor()
+    await page.context().setOffline(true)
     await page.getByText('Cáo giải thích What-if', { exact: true }).click()
     await page.getByRole('heading', { name: 'Quyết định gốc' }).waitFor()
     await page.getByRole('heading', { name: 'Quyết định thay thế' }).waitFor()
     await page.getByRole('heading', { name: 'Nguồn huy động ở cuối vòng 4' }).waitFor()
+    await page.context().setOffline(false)
     return comparison
   }
   const beforeRefresh = await evaluate()
@@ -434,7 +467,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   await decision().selectOption(String(sale.sequence))
   assert.deepEqual(await evaluate(), beforeRefresh)
   assert.deepEqual(await (await direct(id)).json(), persisted)
-  t.diagnostic('Fox START, endgame, deterministic learning fallback, network retry, refresh and What-if explanation verified.')
+  t.diagnostic('Fox START, offline endgame and Q&A, explicit Gemini opt-in with OFF fallback, network retry, reload and offline What-if explanation verified.')
   t.diagnostic('What-if comparison and recovery verified through Chromium Mobile with a completed PostgreSQL game.')
   assert.deepEqual(errors, [])
   for (const required of ['rolling', 'event', 'funding', 'trading', 'bank', 'business', 'summary', 'rebalancing', 'rebalance-trade']) {

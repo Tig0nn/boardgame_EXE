@@ -13,6 +13,7 @@ import { quoteGameBusiness } from '../services/business-quotes.ts'
 import { quoteGameBank } from '../services/bank-quotes.ts'
 import { quoteGameTrade } from '../services/trading-quotes.ts'
 import { analyzeSavedGame } from '../services/what-if.ts'
+import type { FoxAssist } from '../services/fox-assistance.ts'
 import { readFoxCoach, learnWithFox } from '../services/fox-coach.ts'
 import { readGameState } from '../services/game-state.ts'
 import { bankQuoteBody, businessQuoteBody, createSessionBody, foxCoachQuery, foxLearningBody, gameActionBody, idempotencyKey, listSessionsQuery, sessionParams, tradeQuoteBody, whatIfBody } from '../validation.ts'
@@ -36,7 +37,7 @@ function snapshotObserver(request: FastifyRequest): SnapshotObserver {
   }
 }
 
-export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAuthConfig | undefined) {
+export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAuthConfig | undefined, foxAssist?: FoxAssist) {
   const authenticate = createAuthenticator(auth)
   const sessions = sessionRepository(db)
   api.decorateRequest('playerId', null)
@@ -124,10 +125,19 @@ export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAu
     return readFoxCoach(db, playerId(request), id, foxCoachQuery.parse(request.query))
   })
 
-  api.post('/game-sessions/:id/coach/learn', async request => {
+  api.post('/game-sessions/:id/coach/learn', { bodyLimit: 4096 }, async (request, reply) => {
     const { id } = sessionParams.parse(request.params)
-    const { question, stateVersion } = foxLearningBody.parse(request.body)
-    return learnWithFox(db, playerId(request), id, question, stateVersion)
+    const { question, stateVersion, allowGemini } = foxLearningBody.parse(request.body)
+    const abort = new AbortController()
+    const onClose = () => abort.abort()
+    reply.raw.once('close', onClose)
+    try {
+      return await learnWithFox(db, playerId(request), id, question, stateVersion, {
+        allowGemini, assist: foxAssist, signal: abort.signal,
+      })
+    } finally {
+      reply.raw.off('close', onClose)
+    }
   })
 
   api.get('/game-sessions/:id', async request => {

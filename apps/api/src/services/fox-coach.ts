@@ -2,95 +2,13 @@ import { isDeepStrictEqual } from 'node:util'
 import { composeLearningAnswer, fallbackLearning, INSUFFICIENT, learningCards, offlineLearning } from '../../../../src/ai/mascot/learning.ts'
 import { learningKnowledge } from '../../../../src/ai/mascot/learning-knowledge.ts'
 import { projectLearningContext } from '../../../../src/ai/mascot/learning-context.ts'
-import { eventsForGame } from '../../../../src/data/events.ts'
-import { money, signedMoney } from '../../../../src/game/format.ts'
-import { goalForGame } from '../../../../src/game/rules-profile.ts'
-import { liquidatableFunds, totalWorth } from '../../../../src/game/selectors.ts'
-import { borrowingAvailable } from '../../../../src/game/transactions.ts'
-import type { GameState, LogEntry } from '../../../../src/game/types.ts'
 import type { Database } from '../db/client.ts'
 import { ApiError } from '../errors.ts'
 import { postgresFailure } from '../observability.ts'
 import { officialB18Result } from './b18-actions.ts'
-import { b18FundingOptions } from './b18-funding.ts'
+import type { FoxAssist, FoxAssistanceStatus } from './fox-assistance.ts'
+import { coachEvidence, eligibleKinds, foxCoachVersion, foxCoachView, journalEvidence } from './fox-evidence.ts'
 import { loadGameState } from './game-state.ts'
-
-export const foxCoachVersion = 1
-const eligibleKinds = new Set<LogEntry['kind']>(['decision', 'rebalancing', 'funding', 'event_resolution', 'insolvency'])
-const outcomes = { victory: 'Đạt mục tiêu', defeat: 'Chưa đạt mục tiêu', insolvent: 'Mất khả năng thanh toán' }
-
-function journalEvidence({ sequence, lap, turn, kind, title, decision, consequence, action, eventId, decisionId, before, after,
-  cashDelta, savingsDelta, stockDelta, bondDelta, goldDelta, businessDelta, debtDelta, expensePaid, lostSavingsInterest, obligationCreated,
-}: LogEntry) {
-  return {
-    source: 'engine-journal' as const, sequence, lap, turn, kind, title, decision, consequence, action, eventId, decisionId,
-    before: { portfolio: before.portfolio, obligations: before.obligations, shortfallVnd: before.pendingCost },
-    after: { portfolio: after.portfolio, obligations: after.obligations, shortfallVnd: after.pendingCost },
-    effects: { cashDelta, savingsDelta, stockDelta, bondDelta, goldDelta, businessDelta, debtDelta, expensePaid, lostSavingsInterest, obligationCreated },
-  }
-}
-
-function coachEvidence(game: GameState, entry: LogEntry | undefined) {
-  const event = game.phase === 'event' ? eventsForGame(game).find(item => item.id === game.eventId) : undefined
-  const market = game.log.findLast(item => item.kind === 'market' && item.eventId && item.lap === game.lap)
-  const goldPrice = game.market.gold.priceHistory.findLast(point => point.kind !== 'history')
-  const lastStart = game.summaries.at(-1)
-  const result = officialB18Result(game)
-  return {
-    position: {
-      source: 'engine-state-and-selectors' as const,
-      lap: game.lap, phase: game.phase, portfolio: game.portfolio, deposits: game.deposits,
-      obligationsVnd: game.obligations, liquidatableFundsVnd: liquidatableFunds(game),
-      totalWorthVnd: totalWorth(game), borrowingAvailableVnd: borrowingAvailable(game),
-      pendingPayment: game.pendingPayment, fundingOptions: b18FundingOptions(game),
-    },
-    decision: entry ? journalEvidence(entry) : null,
-    event: event ? { source: 'engine-event' as const, id: event.id, title: event.title, description: event.description } : null,
-    market: market ? {
-      ...journalEvidence(market),
-      goldPriceVnd: { before: market.before.market.gold.currentPrice, after: market.after.market.gold.currentPrice },
-    } : null,
-    goldPrice: goldPrice ? {
-      source: 'engine-market' as const, lap: goldPrice.lap, beforeVnd: goldPrice.priceBefore, afterVnd: goldPrice.priceAfter,
-    } : null,
-    start: lastStart ? { source: 'engine-settlement' as const, lap: lastStart.lap, lines: lastStart.lines,
-      incomeTotalVnd: lastStart.incomeTotal, debtPrincipalPaidVnd: lastStart.debtPrincipalPaid } : null,
-    result: result ? { source: 'official-result-and-selectors' as const, ...result, targetVnd: goalForGame(game).target,
-      totalWorthVnd: totalWorth(game), completedLaps: game.summaries.map(summary => summary.lap) } : null,
-  }
-}
-
-function explainPosition(evidence: ReturnType<typeof coachEvidence>) {
-  const { position, decision, event, market, start, result } = evidence
-  const cards = [{
-    id: 'position', title: 'Tiền và khả năng huy động',
-    text: 'Bạn có ' + money(position.portfolio.cash) + ' dùng ngay, ' + money(position.portfolio.savings) + ' tiết kiệm và ' +
-      money(position.portfolio.debt) + ' dư nợ. Nguồn huy động hợp lệ là ' + money(position.liquidatableFundsVnd) + '.',
-  }]
-  if (position.pendingPayment) cards.push({
-    id: 'funding', title: 'Khoản đang thiếu',
-    text: position.pendingPayment.title + ' còn thiếu ' + money(position.pendingPayment.remaining) +
-      '. Mỗi nguồn huy động có điều kiện và giới hạn riêng trong ván.',
-  })
-  if (decision) cards.push({
-    id: 'decision', title: decision.title,
-    text: decision.consequence + ' Tiền mặt thay đổi ' + signedMoney(decision.effects.cashDelta) + '.',
-  })
-  if (event) cards.push({ id: 'event', title: event.title, text: event.description })
-  if (market) cards.push({ id: 'market', title: market.title, text: market.consequence + ' Giá vàng tại mốc này đi từ ' + money(market.goldPriceVnd.before) + ' đến ' + money(market.goldPriceVnd.after) + '.' })
-  if (start) cards.push({
-    id: 'start', title: 'Quyết toán START vòng ' + start.lap,
-    text: 'Các dòng quyết toán ghi nhận ' + money(start.incomeTotalVnd) + ' thu nhập và ' +
-      money(start.debtPrincipalPaidVnd) + ' nợ gốc đã trả.',
-  })
-  if (result) cards.push({
-    id: 'result', title: outcomes[result.outcome],
-    text: 'Ván đã hoàn tất ' + result.completedLaps.length + ' vòng. Nguồn huy động hợp lệ là ' +
-      money(Number(result.lawfulProceedsVnd)) + ' so với mốc ' + money(result.targetVnd) +
-      '. Tài sản ròng là ' + money(result.totalWorthVnd) + '.',
-  })
-  return cards
-}
 
 async function ownedState(db: Database, userId: string, id: string, version?: number) {
   let value
@@ -119,18 +37,27 @@ export async function readFoxCoach(db: Database, userId: string, id: string, opt
   if (options.journalSequence !== undefined && !decision) {
     throw new ApiError(422, 'COACH_DECISION_NOT_FOUND', 'Select a decision from the saved journal')
   }
-  const evidence = coachEvidence(game, decision)
-  return { version: foxCoachVersion, stateVersion, source: 'deterministic' as const, cards: explainPosition(evidence), evidence }
+  return { ...foxCoachView(game, officialB18Result(game), decision), stateVersion }
 }
 
-export async function learnWithFox(db: Database, userId: string, id: string, question: string, version?: number) {
+export async function learnWithFox(db: Database, userId: string, id: string, question: string, version?: number,
+  options: { allowGemini?: boolean; assist?: FoxAssist; signal?: AbortSignal } = {}) {
   const { stateVersion, game } = await ownedState(db, userId, id, version)
   const context = projectLearningContext(game)
   const catalog = learningCards(context)
-  const cards = composeLearningAnswer(offlineLearning(question, catalog) ?? fallbackLearning(question, catalog, context))
-  const evidence = coachEvidence(game, undefined)
+  let cards = composeLearningAnswer(offlineLearning(question, catalog) ?? fallbackLearning(question, catalog, context))
+  let assistance: FoxAssistanceStatus = options.allowGemini ? 'disabled' : 'not-requested'
+  // A local limitation is also a deterministic answer and must not be overridden.
+  if (options.allowGemini && cards.length) assistance = 'not-needed'
+  else if (options.allowGemini && options.assist) {
+    const selection = await options.assist(userId, question, catalog, options.signal)
+    assistance = selection.status
+    cards = composeLearningAnswer(selection.cards)
+  }
+  const evidence = coachEvidence(game, undefined, officialB18Result(game))
   return {
     version: foxCoachVersion, stateVersion, source: 'deterministic' as const,
+    assistance,
     status: cards.length && cards.some(card => card.scope !== 'UNKNOWN') ? 'answered' as const : 'insufficient' as const,
     cards: cards.map(card => ({ ...card, references: learningKnowledge.find(item => item.id === card.id)?.references ?? [] })),
     message: cards.length ? null : INSUFFICIENT,

@@ -1,20 +1,18 @@
-import { useEffect, useState } from 'react'
-import type { FoxCoachReply } from '../../../apps/api/src/services/fox-coach'
 import { ASSETS } from '../../../src/data/config'
 import { money, signedMoney } from '../../../src/game/format'
-import { apiMessage } from '../game/server-session'
-import type { createGameApi } from '../game/server-session'
+import type { createGameApi, ServerState } from '../game/server-session'
 import { MascotLearningPanel } from './MascotLearningPanel'
 
 export type CloudFoxSource = {
-  api: Pick<ReturnType<typeof createGameApi>, 'coach' | 'coachLearn'>
+  api: Pick<ReturnType<typeof createGameApi>, 'coachLearn'>
+  evidence: ServerState['fox']
   sessionId: string
   stateVersion: number
 }
 
 const fundingLabels = { savings: 'Tiết kiệm', gold: 'Vàng', stocks: 'Cổ phiếu', bonds: 'Trái phiếu', debt: 'Vay nợ' }
 
-function CoachEvidence({ value }: { value: FoxCoachReply }) {
+function CoachEvidence({ value }: { value: ServerState['fox'] }) {
   const { evidence } = value
   const { position } = evidence
   return <div className="mascot-learning-answer" aria-label="Cáo giải thích từ ván đã lưu">
@@ -44,25 +42,10 @@ function CoachEvidence({ value }: { value: FoxCoachReply }) {
   </div>
 }
 
-export function CloudFoxCoach({ api, sessionId, stateVersion }: CloudFoxSource) {
-  const [result, setResult] = useState<FoxCoachReply>()
-  const [error, setError] = useState('')
-  const [attempt, setAttempt] = useState(0)
-
-  useEffect(() => {
-    const controller = new AbortController()
-    void api.coach(sessionId, stateVersion, controller.signal)
-      .then(value => { if (!controller.signal.aborted) setResult(value) })
-      .catch(problem => { if (!controller.signal.aborted) setError(apiMessage(problem)) })
-    return () => controller.abort()
-  }, [api, sessionId, stateVersion, attempt])
-
+export function CloudFoxCoach({ api, sessionId, stateVersion, evidence }: CloudFoxSource) {
   return <div className="mascot-learning">
-    {!result && !error && <p role="status">Đang đọc dữ kiện ván…</p>}
-    {error && <><p role="alert">{error}</p><button type="button" onClick={() => {
-      setError(''); setAttempt(value => value + 1)
-    }}>Thử lại Cáo</button></>}
-    {result && <CoachEvidence value={result} />}
-    <MascotLearningPanel context={null} onlineAsk={(question, signal) => api.coachLearn(sessionId, stateVersion, question, signal)} />
+    <CoachEvidence value={evidence} />
+    <MascotLearningPanel context={evidence.learningContext}
+      onlineAsk={(question, signal) => api.coachLearn(sessionId, stateVersion, question, signal, true)} />
   </div>
 }

@@ -1,3 +1,4 @@
+import { readBoundedJson } from '../bounded-json.ts'
 import type { ExplanationFacts, WhatIfDecision } from '../../../mobile_app/src/game/what-if-ai/orchestrator.ts'
 import { explanationClaim, parameterAlternativeId, WHAT_IF_KINDS, validAlternative } from '../../../mobile_app/src/game/what-if-ai/orchestrator.ts'
 import { hasExplicitFinancialParameters, readIntentReply } from '../../../mobile_app/src/game/what-if-ai/natural-language.ts'
@@ -111,35 +112,10 @@ export function proposalReply(value: unknown, catalog: readonly WhatIfDecision[]
 }
 
 export async function boundedJson(response: Response, signal: AbortSignal, maxBytes = MAX_HTTP_BYTES): Promise<unknown> {
-  if (!/^application\/json(?:\s*;|$)/i.test(response.headers.get('content-type') ?? '') || !response.body) {
-    void response.body?.cancel().catch(() => {})
-    throw new WhatIfApiError('OUTPUT_REJECTED')
-  }
-  const reader = response.body.getReader(), chunks: Uint8Array[] = []
-  let length = 0
-  const cancel = () => { void reader.cancel().catch(() => {}) }
-  signal.addEventListener('abort', cancel, { once: true })
   try {
-    while (true) {
-      signal.throwIfAborted()
-      const next = await reader.read()
-      if (next.done) break
-      length += next.value.length
-      if (length > maxBytes) throw new WhatIfApiError('OUTPUT_REJECTED')
-      chunks.push(next.value)
-    }
+    return await readBoundedJson(response, signal, maxBytes)
+  } catch {
     signal.throwIfAborted()
-    const bytes = new Uint8Array(length)
-    let offset = 0
-    for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length }
-    try {
-      return JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes))
-    } catch {
-      throw new WhatIfApiError('OUTPUT_REJECTED')
-    }
-  } finally {
-    signal.removeEventListener('abort', cancel)
-    cancel()
-    reader.releaseLock()
+    throw new WhatIfApiError('OUTPUT_REJECTED')
   }
 }

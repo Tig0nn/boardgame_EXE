@@ -2,113 +2,105 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 import type { FoxLearningReply } from '../../../apps/api/src/services/fox-coach'
 import { apiMessage } from '../game/server-session'
-import { boundedJson } from '../../../src/ai/what-if/contracts.ts'
-import { MASCOT_SESSION_HEADER } from '../../../src/ai/mascot/contracts.ts'
-import { composeLearningAnswer, fallbackLearning, INSUFFICIENT, learningCards, LEARNING_DEADLINE, LEARNING_ENDPOINT, offlineLearning, QUESTION_LIMIT,
-  readLearningQuestion, readLearningReply, resolveLearningReply } from '../../../src/ai/mascot/learning.ts'
-import type { LearningCard, LearningContext, LearningReply } from '../../../src/ai/mascot/learning.ts'
+import { composeLearningAnswer, fallbackLearning, INSUFFICIENT, learningCards, offlineLearning, QUESTION_LIMIT,
+  readLearningQuestion } from '../../../src/ai/mascot/learning.ts'
+import type { LearningCard, LearningContext } from '../../../src/ai/mascot/learning.ts'
 
-const geminiLearningEnabled = import.meta.env.VITE_MASCOT_LEARNING_ENABLED === '1'
-const sourceLabels = { deterministic: 'Dữ kiện EXE từ máy chủ', offline: 'Dữ kiện EXE', mock: 'Gemini giả lập', gemini: 'Gemini · Dữ kiện EXE', fallback: 'Chưa đủ dữ kiện' }
-export function MascotLearningPanel({ context, getSession, onlineAsk }: {
-  context: LearningContext | null; getSession?: () => string
+const assistanceMessages = {
+  'not-requested': '',
+  disabled: 'Gemini chưa được bật cho Cáo.',
+  'not-needed': '',
+  used: '',
+  'no-match': 'Gemini chưa tìm được nội dung EXE phù hợp.',
+  unavailable: 'Gemini hiện chưa khả dụng.',
+  timeout: 'Gemini phản hồi quá thời gian.',
+  'rate-limited': 'Cáo đã đạt giới hạn lượt dùng Gemini. Hãy thử lại sau.',
+}
+
+export function MascotLearningPanel({ context, onlineAsk }: {
+  context: LearningContext | null
   onlineAsk?: (question: string, signal: AbortSignal) => Promise<FoxLearningReply>
 }) {
   const [question, setQuestion] = useState('')
   const [error, setError] = useState('')
-  const [answer, setAnswer] = useState<{ source: LearningReply['source'] | 'deterministic'; cards: LearningCard[] }>()
+  const [answer, setAnswer] = useState<{ cards: LearningCard[]; assisted?: boolean; note?: string }>()
   const [loading, setLoading] = useState(false)
+  const [share, setShare] = useState(false)
   const request = useRef<AbortController | null>(null)
   useLayoutEffect(() => () => request.current?.abort(), [])
-  const submit = async (event: FormEvent) => {
-    event.preventDefault()
-    request.current?.abort()
-    setAnswer(undefined)
-    setLoading(false)
-    setError('')
+
+  const readQuestion = () => {
     const text = readLearningQuestion(question)
-    if (!text) { setError('Nhập câu hỏi từ 3 đến ' + QUESTION_LIMIT + ' ký tự.'); return }
-    if (onlineAsk) {
-      const controller = new AbortController()
-      request.current = controller
-      setLoading(true)
-      try {
-        const reply = await onlineAsk(text, controller.signal)
-        if (!controller.signal.aborted) setAnswer({ source: 'deterministic', cards: reply.cards })
-      } catch (problem) {
-        if (controller.signal.aborted) return
-        const publicCards = learningCards(null).filter(card => card.scope === 'GENERAL_FINANCE' || card.scope === 'EXE_RULE')
-        const answer = composeLearningAnswer(offlineLearning(text, publicCards) ?? [])
-        if (answer.length) setAnswer({ source: 'offline', cards: answer })
-        setError(apiMessage(problem))
-      } finally {
-        if (!controller.signal.aborted) setLoading(false)
-      }
-      return
-    }
+    if (!text) setError('Nhập câu hỏi từ 3 đến ' + QUESTION_LIMIT + ' ký tự.')
+    return text
+  }
+
+  const submit = (event: FormEvent) => {
+    event.preventDefault()
+    setError('')
+    setShare(false)
+    const text = readQuestion()
+    if (!text) return
     const cards = learningCards(context)
-    const offline = offlineLearning(text, cards)
-    if (offline?.length) { setAnswer({ source: 'offline', cards: composeLearningAnswer(offline) }); return }
-    if (!geminiLearningEnabled || !context || !getSession) {
-      const known = composeLearningAnswer(fallbackLearning(text, cards, context))
-      setAnswer({ source: known.length ? 'offline' : 'fallback', cards: known })
-      return
-    }
+    setAnswer({ cards: composeLearningAnswer(offlineLearning(text, cards) ?? fallbackLearning(text, cards, context)) })
+  }
+
+  const askGemini = async () => {
+    if (!onlineAsk || !share || request.current) return
+    const text = readQuestion()
+    if (!text) return
     const controller = new AbortController()
     request.current = controller
-    const timeout = AbortSignal.timeout(LEARNING_DEADLINE + 1500)
-    const signal = AbortSignal.any([controller.signal, timeout])
     setLoading(true)
+    setError('')
+    setShare(false)
     try {
-      const response = await fetch(LEARNING_ENDPOINT, {
-        method: 'POST', redirect: 'error', cache: 'no-store', signal,
-        headers: { 'Content-Type': 'application/json', 'x-mascot-learning': '1', [MASCOT_SESSION_HEADER]: getSession() },
-        body: JSON.stringify({ question: text, context }),
-      })
-      if (response.status === 429 || response.status === 504) {
-        if (!controller.signal.aborted) setError(response.status === 429
-          ? 'Cáo đang giới hạn lượt hỏi. Bạn có thể thử gửi lại sau ít phút.'
-          : 'Cáo mất quá lâu để trả lời. Bạn có thể thử gửi lại.')
-        throw new Error('Learning request unavailable')
-      }
-      if (!response.ok) throw new Error('Learning request unavailable')
-      const reply = readLearningReply(await boundedJson(response, signal, 2048), cards)
-      signal.throwIfAborted()
-      if (!reply) throw new Error('Learning response rejected')
-      setAnswer(resolveLearningReply(text, cards, reply, context))
-    } catch {
+      const reply = await onlineAsk(text, controller.signal)
       if (controller.signal.aborted) return
-      const related = composeLearningAnswer(fallbackLearning(text, cards, context))
-      setAnswer({ source: related.length ? 'offline' : 'fallback', cards: related })
-      if (timeout.aborted) setError('Cáo mất quá lâu để trả lời. Bạn có thể thử gửi lại.')
-      else setError(current => current || 'Chưa lấy được câu trả lời. Bạn có thể thử gửi lại.')
+      setAnswer({ cards: reply.cards, assisted: reply.assistance === 'used', note: assistanceMessages[reply.assistance] })
+    } catch (problem) {
+      if (!controller.signal.aborted) setError(apiMessage(problem))
     } finally {
-      if (!controller.signal.aborted) setLoading(false)
+      if (request.current === controller) {
+        request.current = null
+        setLoading(false)
+      }
     }
   }
+
   return <div className="mascot-learning">
-    <form onSubmit={submit} noValidate>
+    <form onSubmit={submit} noValidate aria-label="Hỏi Cáo">
       <div className="mascot-question-row">
         <input aria-label="Câu hỏi về ván hoặc luật EXE"
           placeholder="Hỏi về luật EXE, ván chơi hoặc kết quả cuối ván"
           value={question} maxLength={QUESTION_LIMIT} autoComplete="off"
           onChange={event => {
             request.current?.abort()
+            request.current = null
             setLoading(false)
             setAnswer(undefined)
             setError('')
+            setShare(false)
             setQuestion(event.currentTarget.value)
           }} />
-        <button type="submit" disabled={loading}>Gửi</button>
+        <button type="submit" disabled={loading}>Hỏi Cáo</button>
       </div>
     </form>
     <div aria-live="polite" aria-busy={loading}>
       {loading && <p>Đang tìm dữ kiện…</p>}
       {error && <p role="alert">{error}</p>}
       {answer && <div className="mascot-learning-answer">
-        <p className="mascot-explanation-source">{sourceLabels[answer.source]}</p>
+        <p className="mascot-explanation-source">{answer.assisted ? 'Gemini hỗ trợ chọn nội dung EXE' : answer.cards.length ? 'Dữ kiện EXE' : 'Chưa đủ dữ kiện'}</p>
         {answer.cards.length ? answer.cards.map(item => <p key={item.id}>{item.text} <small>({item.source})</small></p>) : <p>{INSUFFICIENT}</p>}
+        {answer.note && <p>{answer.note}</p>}
       </div>}
     </div>
+    {onlineAsk && answer?.cards.length === 0 && !loading && <>
+      <label>
+        <input type="checkbox" checked={share} onChange={event => setShare(event.currentTarget.checked)} />
+        Cho phép gửi câu hỏi này tới Gemini. Vui lòng bỏ thông tin cá nhân khỏi câu hỏi.
+      </label>
+      <button type="button" disabled={!share} onClick={() => { void askGemini() }}>Nhờ Gemini tìm nội dung</button>
+    </>}
   </div>
 }

@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { buildApp } from './app.ts'
+import { createFoxAssistance } from './services/fox-assistance.ts'
 import { loadConfig } from './config.ts'
 import { createDatabase } from './db/client.ts'
 import { stagingConnection, stagingPoolOptions } from './db/staging.ts'
@@ -13,7 +14,7 @@ async function main() {
   const config = loadConfig(env)
   const staging = env.EXE_ENV === 'staging' ? stagingConnection(env, 'runtime') : null
   const database = staging ? createDatabase(staging.url, stagingPoolOptions(staging)) : createDatabase(config.databaseUrl)
-  const app = buildApp(database, config.auth, true)
+  const app = buildApp(database, config.auth, true, createFoxAssistance(env))
 
   try {
     await app.listen({ host: config.host, port: config.port })
