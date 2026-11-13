@@ -37,7 +37,7 @@ export function restoreB18State(session: SessionIdentity, saved: StoredSnapshot 
   return game
 }
 
-export async function readGameState(db: Database, userId: string, sessionId: string) {
+export async function loadGameState(db: Database, userId: string, sessionId: string) {
   const row = await sessionRepository(db).findWithState(userId, sessionId)
   if (!row) throw notFound()
 
@@ -50,6 +50,11 @@ export async function readGameState(db: Database, userId: string, sessionId: str
     throw new Error('Session, snapshot and result disagree')
   }
 
+  return { session, game, result }
+}
+
+export async function readGameState(db: Database, userId: string, sessionId: string) {
+  const { session, game, result } = await loadGameState(db, userId, sessionId)
   return {
     session,
     state: publicB18State(game, session.status === 'active'),
