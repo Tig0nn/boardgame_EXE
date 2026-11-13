@@ -3,6 +3,10 @@ import { boardFor } from '../../../../src/data/board.ts'
 import { serializeLog } from '../../../../src/game/log.ts'
 import { createMultiCourseGame } from '../../../../src/game/new-game.ts'
 import { MULTI_COURSE_PROFILE, MULTI_COURSE_RULES } from '../../../../src/game/rules-profile.ts'
+import type { Term } from '../../../../src/game/types.ts'
+
+export type B18Setup = { initialSavings: number; savingsTerm: Term }
+export const b18DefaultSetup: Readonly<B18Setup> = { initialSavings: 0, savingsTerm: 1 }
 
 const snapshotEnvelope = z.object({ schemaVersion: z.number().int().positive() })
 
@@ -16,9 +20,9 @@ export const b18Scenario = {
   laps: MULTI_COURSE_RULES.laps,
 } as const
 
-export function createB18Genesis() {
+export function createB18Genesis(setup: B18Setup = b18DefaultSetup) {
   // This is the factory used by the current B18 mobile setup. Its seed is generated in Node.
-  const game = createMultiCourseGame()
+  const game = createMultiCourseGame(undefined, setup.initialSavings, setup.savingsTerm)
   if (game.boardLayout !== 'B18' || boardFor(game).length !== b18Scenario.tiles ||
       game.totalLaps !== b18Scenario.laps || game.gameplayProfile !== b18Scenario.gameplayProfile ||
       game.goalRulesVersion !== b18Scenario.resultVersion) {

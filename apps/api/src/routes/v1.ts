@@ -43,9 +43,9 @@ export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAu
   })
 
   api.post('/game-sessions', async (request, reply) => {
-    createSessionBody.parse(request.body)
+    const { setup } = createSessionBody.parse(request.body)
     const key = idempotencyKey.parse(request.headers['idempotency-key'])
-    const result = await createGameSession(db, playerId(request), key)
+    const result = await createGameSession(db, playerId(request), key, setup)
     return reply.code(result.created ? 201 : 200)
       .header('Location', '/v1/game-sessions/' + result.session.id)
       .send({ session: result.session })

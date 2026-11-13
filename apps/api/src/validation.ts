@@ -2,9 +2,19 @@ import { z } from 'zod'
 import { BOND_ISSUERS } from '../../../src/data/bond-issuers.ts'
 import { CUSTOMER_PREFERENCES } from '../../../src/data/customer-preferences.ts'
 import { eventsForGame } from '../../../src/data/events.ts'
-import { b18Scenario } from './services/b18.ts'
+import { MULTI_COURSE_RULES } from '../../../src/game/rules-profile.ts'
+import { b18DefaultSetup, b18Scenario } from './services/b18.ts'
 
-export const createSessionBody = z.strictObject({ scenarioId: z.literal(b18Scenario.scenarioId) })
+const savingsTerm = z.union([z.literal(1), z.literal(2), z.literal(3)])
+const b18Setup = z.strictObject({
+  initialSavings: z.number().int().min(0).max(MULTI_COURSE_RULES.startingCapital).default(b18DefaultSetup.initialSavings),
+  savingsTerm: savingsTerm.default(b18DefaultSetup.savingsTerm),
+})
+
+export const createSessionBody = z.strictObject({
+  scenarioId: z.literal(b18Scenario.scenarioId),
+  setup: b18Setup.default(b18DefaultSetup),
+})
 export const idempotencyKey = z.uuid()
 export const sessionParams = z.strictObject({ id: z.uuid() })
 
@@ -53,7 +63,7 @@ export const businessQuoteBody = z.strictObject({ expectedStateVersion, payload:
 export type BusinessQuoteRequest = z.infer<typeof businessQuoteBody>
 
 const bankPayload = z.discriminatedUnion('kind', [
-  z.strictObject({ kind: z.literal('deposit'), amount, term: z.union([z.literal(1), z.literal(2), z.literal(3)]).optional() }),
+  z.strictObject({ kind: z.literal('deposit'), amount, term: savingsTerm.optional() }),
   z.strictObject({ kind: z.literal('repay'), amount }),
 ])
 export type BankPayload = z.infer<typeof bankPayload>

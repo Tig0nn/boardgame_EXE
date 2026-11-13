@@ -73,7 +73,7 @@ function planJourney(initial: GameState) {
       if (isAsset(asset) && !sold.has(asset) && !game.portfolio[asset] && game.portfolio.cash >= 1_500_001 &&
           (asset !== 'bonds' || issuer)) {
         next = command('trade', version, { kind: 'buy', asset, amount: 1_500_001, ...(asset === 'bonds' ? { issuerId: issuer!.id } : {}) })
-      } else if (asset === 'bank' && !game.deposits.length && game.portfolio.cash >= 1_234_567) {
+      } else if (asset === 'bank' && !game.deposits.some(lot => lot.id === 'deposit-2') && game.portfolio.cash >= 1_234_567) {
         next = command('trade', version, { kind: 'deposit', amount: 1_234_567, term: 1 })
       } else if (asset === 'business' && !game.business.capital && game.portfolio.cash >= ECONOMY.business.cost) {
         next = command('trade', version, { kind: 'buy', asset, amount: ECONOMY.business.cost })
@@ -88,7 +88,7 @@ function planJourney(initial: GameState) {
     plan.push(next)
   }
   return game.termination === 'completed' && sold.size === 3 && finalSale &&
-    game.deposits.some(lot => lot.status === 'matured') && game.business.capital > 0 &&
+    game.deposits.length === 2 && game.deposits.every(lot => lot.status === 'matured') && game.business.capital > 0 &&
     game.log.some(entry => entry.obligationCreated > 0) ? plan : null
 }
 
@@ -143,11 +143,13 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
     if (response.status !== expected) assert.fail('Expected HTTP ' + expected + ', got ' + response.status + ': ' + await response.text())
     return response
   }
-  async function createSession() {
-    const response = await status(post(path, { scenarioId: 'b18' }, randomUUID()), 201)
-    const id: string = (await response.json()).session.id
+  async function createSession(setup?: { initialSavings: number; savingsTerm: 1 | 2 | 3 }) {
+    const response = await status(post(path, { scenarioId: 'b18', ...(setup ? { setup } : {}) }, randomUUID()), 201)
+    const { session } = await response.json()
+    const id: string = session.id
+    if (setup) assert.deepEqual(session.setup, setup)
     const [row] = await database.db.select({ seed: gameSessions.seed }).from(gameSessions).where(eq(gameSessions.id, id))
-    return { id, game: createMultiCourseGame(row.seed) }
+    return { id, game: createMultiCourseGame(row.seed, setup?.initialSavings, setup?.savingsTerm) }
   }
   async function read(id: string, reconnect = false) {
     const response = await status(fetch(base + path + '/' + id, {
@@ -182,15 +184,22 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
   }
 
   await t.test('rolls through four START checkpoints, trades at START and replays every committed action', async () => {
-    let session = await createSession()
+    const setup = { initialSavings: 10_000_000, savingsTerm: 3 } as const
+    let session = await createSession(setup)
     let plan = planJourney(session.game)
     for (let attempt = 1; attempt < 96 && !plan; attempt++) {
-      session = await createSession()
+      session = await createSession(setup)
       plan = planJourney(session.game)
     }
     assert.ok(plan, 'Natural path with all three START sales, Business income, Bank maturity and deferred obligations')
     const { id } = session
     let game = session.game
+    const genesis = await read(id, true)
+    assert.deepEqual(genesis.session.setup, setup)
+    assert.equal(genesis.session.stateVersion, 0)
+    assertState(genesis.state, game)
+    assert.equal(genesis.state.portfolio.cash, 40_000_000)
+    assert.equal(genesis.state.bank.deposits[0].maturityLap, 3)
     let testedSettlement = false
     const sold = new Set<TradableAsset>()
     for (const action of plan) {
@@ -278,7 +287,8 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
     assert.equal(game.log.filter(entry => entry.title === 'Nhận lương').length, 4)
     assert.ok(game.summaries.some(item => item.lines.some(line => line.label === 'Dòng tiền kinh doanh' && line.amount > 0)))
     assert.ok(game.summaries.some(item => item.lines.some(line => line.label === 'Nghĩa vụ đã hẹn' && line.amount < 0)))
-    assert.equal(game.deposits[0].earnedInterest, 49_383)
+    assert.equal(game.deposits[0].earnedInterest, 1_800_000)
+    assert.equal(game.deposits[1].earnedInterest, 49_383)
 
     const log = await history(id)
     const snapshots = await database.db.select({
@@ -306,6 +316,7 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
     assert.equal(final.result.outcome, victory(game).won ? 'victory' : 'defeat')
     assert.equal(final.result.lawfulProceedsVnd, String(result.lawfulProceedsVnd))
     assert.equal(final.session.status, 'completed')
+    assert.deepEqual(final.session.setup, setup)
     assert.deepEqual(final.state.start.sales, [])
     await status(execute(id, command('trade', plan.length, { kind: 'sell', asset: 'gold', amount: 1 })), 409)
     t.diagnostic('Natural START journey completed ' + plan.length + ' HTTP actions and all three financial sales')

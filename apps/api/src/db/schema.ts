@@ -4,6 +4,9 @@ import {
   primaryKey, text, timestamp, unique, uuid,
 } from 'drizzle-orm/pg-core'
 
+import { MULTI_COURSE_RULES } from '../../../../src/game/rules-profile.ts'
+import type { Term } from '../../../../src/game/types.ts'
+
 const timestampWithZone = (name: string) => timestamp(name, { withTimezone: true })
 const jsonObject = (name: string) => jsonb(name).$type<Record<string, unknown>>()
 
@@ -35,6 +38,8 @@ export const gameSessions = pgTable('game_sessions', {
   scenarioVersion: text('scenario_version').notNull(),
   creationKey: uuid('creation_key').notNull(),
   seed: text('seed').notNull(),
+  initialSavings: integer('initial_savings').notNull().default(0),
+  savingsTerm: integer('savings_term').$type<Term>().notNull().default(1),
   status: sessionStatus('status').notNull().default('active'),
   stateVersion: integer('state_version').notNull().default(0),
   createdAt: timestampWithZone('created_at').notNull().defaultNow(),
@@ -48,6 +53,8 @@ export const gameSessions = pgTable('game_sessions', {
   unique('game_sessions_user_creation_key_unique').on(table.userId, table.creationKey),
   index('game_sessions_user_created_idx').on(table.userId, table.createdAt.desc(), table.id.desc()),
   index('game_sessions_scenario_idx').on(table.scenarioId, table.scenarioVersion),
+  check('game_sessions_initial_savings_check', sql`${table.initialSavings} BETWEEN 0 AND ${sql.raw(String(MULTI_COURSE_RULES.startingCapital))}`),
+  check('game_sessions_savings_term_check', sql`${table.savingsTerm} BETWEEN 1 AND 3`),
   check('game_sessions_state_version_check', sql`${table.stateVersion} >= 0`),
   check('game_sessions_seed_check', sql`${table.seed} ~ '^[0-9a-f]{32}$'`),
 ])

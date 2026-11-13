@@ -1,6 +1,6 @@
 # REST API V1
 
-Môi trường Phase 2C4 dùng `http://127.0.0.1:3106` theo `.env.example`. Các route `/v1` yêu cầu `Authorization: Bearer <access-token>` và trả `Cache-Control: no-store`. Dữ liệu phản hồi dùng JSON và timestamp ISO 8601 UTC.
+Môi trường Phase 2D dùng `http://127.0.0.1:3107` theo `.env.example`. Các route `/v1` yêu cầu `Authorization: Bearer <access-token>` và trả `Cache-Control: no-store`. Dữ liệu phản hồi dùng JSON và timestamp ISO 8601 UTC.
 
 | Method và path | Input | Thành công |
 | --- | --- | --- |
@@ -8,14 +8,14 @@ Môi trường Phase 2C4 dùng `http://127.0.0.1:3106` theo `.env.example`. Các
 | `GET /ready` | Công khai | 200 `{"status":"ready"}` khi PostgreSQL thực thi được `SELECT 1` |
 | `GET /v1/me` | Access token | 200 `{ "profile": { "userId", "createdAt" } }`. Tạo profile từ JWT ở lần đầu. |
 | `GET /v1/game-sessions` | `limit` 1–100, mặc định 20. `offset` 0–10.000, mặc định 0. | 200 `{ "sessions": [...], "limit": 20, "offset": 0 }`. Sắp xếp mới nhất trước theo `createdAt`, rồi `id` giảm dần. |
-| `POST /v1/game-sessions` | Header `Idempotency-Key` là UUID. JSON `{"scenarioId":"b18"}`. | 201 `{ "session": {...} }`, kèm `Location`. Gửi lại cùng khóa và owner trả 200, cùng resource. |
+| `POST /v1/game-sessions` | Header `Idempotency-Key` là UUID. JSON `{ scenarioId: "b18", setup? }` theo mục Setup. | 201 `{ "session": {...} }`, kèm `Location`. Retry cùng owner, khóa và setup trả 200. |
 | `POST /v1/game-sessions/:id/actions` | UUID session, UUID `Idempotency-Key` và JSON theo mục Actions. | 200, trạng thái tại version mà action đã commit. |
 | `POST /v1/game-sessions/:id/trade-quote` | JWT owner, UUID session, JSON `{ expectedStateVersion, payload }` với payload trade. | 200 `{ sessionId, stateVersion, payload, quote }`. |
 | `POST /v1/game-sessions/:id/bank-quote` | JWT owner, UUID session, JSON `{ actionId, expectedStateVersion, payload }` theo mục Bank. | 200 `{ sessionId, stateVersion, actionId, payload, quote }`. |
 | `POST /v1/game-sessions/:id/business-quote` | JWT owner, UUID session và JSON `{ expectedStateVersion, payload }` theo mục Business. | 200 `{ sessionId, stateVersion, payload, quote }`. |
 | `GET /v1/game-sessions/:id` | UUID session | 200 `{ session, state, result }` cho owner hiện tại, cùng một version đã commit. |
 
-Session gồm `id`, `scenarioId`, `scenarioVersion`, `gameplayProfile`, `engineVersion`, `resultVersion`, `tiles`, `laps`, `status`, `stateVersion`, `createdAt` và `updatedAt`. Session mới có `status=active` và `stateVersion=0`. Seed, trạng thái RNG và snapshot được giữ trong backend. POST tạo session từ chối mọi trường ngoài `scenarioId`, gồm `userId`, seed, tiền, portfolio và kết quả.
+Session gồm `id`, `scenarioId`, `scenarioVersion`, `gameplayProfile`, `engineVersion`, `resultVersion`, `tiles`, `laps`, `setup`, `status`, `stateVersion`, `createdAt` và `updatedAt`. Session mới có `status=active` và `stateVersion=0`. Seed, trạng thái RNG và snapshot được giữ trong backend.
 
 Lỗi có dạng `{"error":{"code":"INVALID_REQUEST","message":"Invalid request"}}`. Thông báo công khai có nội dung cố định.
 
@@ -29,6 +29,20 @@ Lỗi có dạng `{"error":{"code":"INVALID_REQUEST","message":"Invalid request"
 | 500 | `INTERNAL_ERROR` | Lỗi ngoài dự kiến khi phục vụ request |
 | 503 | `AUTH_UNAVAILABLE` | Chưa cấu hình issuer hoặc JWKS không khả dụng |
 | 503 | `DATABASE_UNAVAILABLE` | Readiness probe không kết nối hoặc truy vấn được PostgreSQL |
+
+## Setup B18 · Phase 2D
+
+```json
+{"scenarioId":"b18","setup":{"initialSavings":10000000,"savingsTerm":3}}
+```
+
+`setup.initialSavings` nhận số nguyên VND từ 0 đến 50.000.000. `setup.savingsTerm` nhận số 1, 2 hoặc 3. Hai trường mặc định lần lượt là 0 và 1 khi bỏ trống. Client muốn dùng lựa chọn đang hiển thị trên Mobile gửi cả hai trường. API trả setup đã áp dụng trong `session.setup` của POST, GET detail và danh sách, kể cả khi số tiền bằng 0. GET detail trả tiền mặt và tiết kiệm trong `state.portfolio` cùng lot trong `state.bank.deposits`.
+
+Server sinh seed và gọi factory B18. Số tiền dương được phân bổ từ vốn 50 triệu vào lot đầu ván. Số tiền 0 không mở lot, kỳ hạn vẫn được lưu trong session. Payload không hợp lệ, số gửi vượt vốn và trường thừa như seed, cash, RNG hoặc result trả `400 INVALID_REQUEST`.
+
+Khóa idempotency có phạm vi theo owner. Cùng khóa và setup sau khi áp dụng mặc định trả `200` với session đã tạo. Cùng khóa với số tiền hoặc kỳ hạn khác trả `409 IDEMPOTENCY_KEY_REUSED`, kể cả hai yêu cầu đồng thời. GET detail của owner khác trả `404`.
+
+[Đối chiếu setup Mobile và engine](./SETUP_V2D.md)
 
 ## Actions B18 · Phase 2C4
 

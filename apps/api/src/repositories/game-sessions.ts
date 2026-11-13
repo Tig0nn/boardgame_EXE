@@ -13,6 +13,8 @@ const sessionFields = {
   updatedAt: gameSessions.updatedAt,
 }
 
+const setupFields = { initialSavings: gameSessions.initialSavings, savingsTerm: gameSessions.savingsTerm }
+
 const scenarioFields = {
   gameplayProfile: scenarioVersions.gameplayProfile,
   engineVersion: scenarioVersions.engineVersion,
@@ -22,7 +24,7 @@ const scenarioFields = {
 }
 
 export function sessionRepository(db: Pick<Database, 'select' | 'insert'>) {
-  const ownedSessions = <T extends SelectedFields>(extra: T) => db.select({ ...sessionFields, ...scenarioFields, ...extra })
+  const ownedSessions = <T extends SelectedFields>(extra: T) => db.select({ ...sessionFields, ...scenarioFields, setup: setupFields, ...extra })
     .from(gameSessions)
     .innerJoin(scenarioVersions, and(
       eq(gameSessions.scenarioId, scenarioVersions.scenarioId),
@@ -71,10 +73,12 @@ export function sessionRepository(db: Pick<Database, 'select' | 'insert'>) {
       return scenario
     },
     async insert(values: typeof gameSessions.$inferInsert) {
-      const [session] = await db.insert(gameSessions).values(values)
+      const [row] = await db.insert(gameSessions).values(values)
         .onConflictDoNothing({ target: [gameSessions.userId, gameSessions.creationKey] })
-        .returning(sessionFields)
-      return session
+        .returning({ ...sessionFields, ...setupFields })
+      if (!row) return undefined
+      const { initialSavings, savingsTerm, ...session } = row
+      return { ...session, setup: { initialSavings, savingsTerm } }
     },
     async insertSnapshot(values: typeof gameSnapshots.$inferInsert) {
       await db.insert(gameSnapshots).values(values)

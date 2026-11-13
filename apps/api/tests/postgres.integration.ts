@@ -1,7 +1,12 @@
 import assert from 'node:assert/strict'
 import { randomUUID } from 'node:crypto'
+import { copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { test } from 'node:test'
 import { eq } from 'drizzle-orm'
+import { migrate } from 'drizzle-orm/node-postgres/migrator'
 import { createMultiCourseGame } from '../../../src/game/new-game.ts'
 import { restoreSavedGame } from '../../../src/game/saved-game.ts'
 import { serializeLog } from '../../../src/game/log.ts'
@@ -33,25 +38,59 @@ test('V1 foundation on PostgreSQL', async t => {
     }
   })
 
+  const legacyOwner = randomUUID()
+  const legacyKey = randomUUID()
+  const legacySeed = randomUUID().replaceAll('-', '')
+  const legacySnapshot = serializeLog(createMultiCourseGame(legacySeed))
+
   const version = await admin.pool.query<{ server_version_num: string }>('SHOW server_version_num')
   assert.match(version.rows[0].server_version_num, /^\d+$/)
   await admin.pool.query('CREATE DATABASE "' + name + '" TEMPLATE template0')
   createdDatabase = true
 
-  await t.test('applies migrations to an empty database and reruns safely', async () => {
+  await t.test('applies V2D to existing V2C4 data and reruns safely', async () => {
     const publicTables = () => database.pool.query<{ tablename: string }>(
       "SELECT tablename FROM pg_tables WHERE schemaname = 'public' ORDER BY tablename",
     )
     assert.deepEqual((await publicTables()).rows, [])
+    const legacyFolder = await mkdtemp(join(tmpdir(), 'exe-v2d-migrations-'))
+    const sourceFolder = fileURLToPath(new URL('../drizzle/', import.meta.url))
+    try {
+      await mkdir(join(legacyFolder, 'meta'))
+      const journal = JSON.parse(await readFile(join(sourceFolder, 'meta', '_journal.json'), 'utf8'))
+      journal.entries = journal.entries.slice(0, 3)
+      await writeFile(join(legacyFolder, 'meta', '_journal.json'), JSON.stringify(journal))
+      for (const { tag } of journal.entries) {
+        await copyFile(join(sourceFolder, tag + '.sql'), join(legacyFolder, tag + '.sql'))
+      }
+      await migrate(database.db, { migrationsFolder: legacyFolder })
+    } finally {
+      await rm(legacyFolder, { recursive: true, force: true })
+    }
+    await database.pool.query('INSERT INTO profiles (user_id) VALUES ($1)', [legacyOwner])
+    const { rows: [legacy] } = await database.pool.query<{ id: string }>(
+      'INSERT INTO game_sessions (user_id, scenario_id, scenario_version, creation_key, seed) VALUES ($1, $2, $3, $4, $5) RETURNING id',
+      [legacyOwner, b18Scenario.scenarioId, b18Scenario.version, legacyKey, legacySeed],
+    )
+    await database.pool.query('INSERT INTO game_snapshots (session_id, state_version, schema_version, payload) VALUES ($1, 0, 7, $2)',
+      [legacy.id, legacySnapshot])
+
     await migrateDatabase(database.db)
     await migrateDatabase(database.db)
+    const legacyHeaders = { authorization: 'Bearer ' + await issuer.sign(legacyOwner), 'idempotency-key': legacyKey }
+    const retry = await app.inject({ method: 'POST', url: '/v1/game-sessions', headers: legacyHeaders, payload: { scenarioId: 'b18' } })
+    assert.equal(retry.statusCode, 200)
+    assert.equal(retry.json().session.id, legacy.id)
+    assert.deepEqual(retry.json().session.setup, { initialSavings: 0, savingsTerm: 1 })
+    const [storedSnapshot] = await database.db.select().from(gameSnapshots).where(eq(gameSnapshots.sessionId, legacy.id))
+    assert.equal(storedSnapshot.payload, legacySnapshot)
     assert.deepEqual((await publicTables()).rows.map(row => row.tablename), [
       'admin_audit_logs', 'game_actions', 'game_results', 'game_sessions',
       'game_snapshots', 'profiles', 'scenario_versions',
     ])
     assert.deepEqual(await database.db.select().from(scenarioVersions), [b18Scenario])
-    const journal = await database.pool.query('SELECT id FROM drizzle.__drizzle_migrations')
-    assert.equal(journal.rowCount, 3)
+    const applied = await database.pool.query('SELECT id FROM drizzle.__drizzle_migrations')
+    assert.equal(applied.rowCount, 4)
   })
 
   const userA = randomUUID()
@@ -60,9 +99,9 @@ test('V1 foundation on PostgreSQL', async t => {
   const headersB = { authorization: 'Bearer ' + await issuer.sign(userB) }
   const path = '/v1/game-sessions'
   const key = randomUUID()
-  const create = (headers: typeof headersA, idempotencyKey: string) => app.inject({
+  const create = (headers: typeof headersA, idempotencyKey: string, setup?: object) => app.inject({
     method: 'POST', url: path, headers: { ...headers, 'idempotency-key': idempotencyKey },
-    payload: { scenarioId: 'b18' },
+    payload: { scenarioId: 'b18', ...(setup === undefined ? {} : { setup }) },
   })
 
   await t.test('serves health and readiness against PostgreSQL', async () => {
@@ -112,6 +151,10 @@ test('V1 foundation on PostgreSQL', async t => {
     assert.equal(left.headers.location, path + '/' + sessionId)
     assert.equal(session.status, 'active')
     assert.equal(session.stateVersion, 0)
+    assert.deepEqual(session.setup, { initialSavings: 0, savingsTerm: 1 })
+    const retry = await create(headersA, key, { initialSavings: 0, savingsTerm: 1 })
+    assert.equal(retry.statusCode, 200)
+    assert.deepEqual(retry.json(), left.json())
     assert.equal(session.tiles, 18)
     assert.equal(session.laps, 4)
     assert.equal(session.gameplayProfile, b18Scenario.gameplayProfile)
@@ -158,6 +201,53 @@ test('V1 foundation on PostgreSQL', async t => {
     assert.deepEqual(page.json().sessions.map((session: { id: string }) => session.id), [sessionId])
   })
 
+  await t.test('stores setup and balances for each term and the inclusive capital boundaries', async () => {
+    for (const [initialSavings, savingsTerm] of [[0, 3], [1, 1], [10_000_000, 1], [20_000_000, 2], [50_000_000, 3]] as const) {
+      const setup = { initialSavings, savingsTerm }
+      const created = await create(headersA, randomUUID(), setup)
+      assert.equal(created.statusCode, 201)
+      const { session } = created.json()
+      assert.deepEqual(session.setup, setup)
+      const [row] = await database.db.select().from(gameSessions).where(eq(gameSessions.id, session.id))
+      assert.equal(row.initialSavings, initialSavings)
+      assert.equal(row.savingsTerm, savingsTerm)
+      const [genesis] = await database.db.select().from(gameSnapshots).where(eq(gameSnapshots.sessionId, session.id))
+      assert.equal(genesis.payload, serializeLog(createMultiCourseGame(row.seed, initialSavings, savingsTerm)))
+      const loaded = await app.inject({ url: path + '/' + session.id, headers: headersA })
+      assert.equal(loaded.statusCode, 200)
+      const { state } = loaded.json()
+      assert.deepEqual(loaded.json().session.setup, setup)
+      assert.equal(state.portfolio.cash, 50_000_000 - initialSavings)
+      assert.equal(state.portfolio.savings, initialSavings)
+      assert.equal(state.bank.netWorth, 50_000_000)
+      assert.equal(state.bank.liquidatableFunds, 50_000_000)
+      assert.deepEqual(state.bank.deposits, initialSavings ? [{
+        id: 'deposit-1', principal: initialSavings, startLap: 1, maturityLap: savingsTerm,
+        rate: [0, 0.04, 0.05, 0.06][savingsTerm], status: 'active', earnedInterest: 0,
+      }] : [])
+    }
+  })
+
+  await t.test('conflicts on concurrent creation with different setup under the same owner and key', async () => {
+    const raceKey = randomUUID()
+    const options = [{ initialSavings: 10_000_000, savingsTerm: 1 }, { initialSavings: 20_000_000, savingsTerm: 3 }]
+    const pair = await Promise.all(options.map(setup => create(headersA, raceKey, setup)))
+    assert.deepEqual(pair.map(response => response.statusCode).sort(), [201, 409])
+    const winnerIndex = pair.findIndex(response => response.statusCode === 201)
+    const { session } = pair[winnerIndex].json()
+    assert.equal(pair[1 - winnerIndex].json().error.code, 'IDEMPOTENCY_KEY_REUSED')
+    const retry = await create(headersA, raceKey, options[winnerIndex])
+    assert.equal(retry.statusCode, 200)
+    assert.deepEqual(retry.json().session, session)
+    const otherOwner = await create(headersB, raceKey, options[1 - winnerIndex])
+    assert.equal(otherOwner.statusCode, 201)
+    assert.notEqual(otherOwner.json().session.id, session.id)
+    const denied = await app.inject({ url: path + '/' + session.id, headers: headersB })
+    assert.equal(denied.statusCode, 404)
+    const stored = await database.db.select().from(gameSnapshots).where(eq(gameSnapshots.sessionId, session.id))
+    assert.equal(stored.length, 1)
+  })
+
   await t.test('rejects invalid input, player-supplied state, and oversized bodies', async () => {
     const postHeaders = { ...headersA, 'idempotency-key': randomUUID(), 'content-type': 'application/json' }
     const invalidBodies = [
@@ -166,6 +256,10 @@ test('V1 foundation on PostgreSQL', async t => {
       { scenarioId: 'b18', userId: userB },
       { scenarioId: 'b18', cash: 1, portfolio: {}, won: true },
       { scenarioId: 'b18', seed: 'client-seed' },
+      { scenarioId: 'b18', setup: { initialSavings: 50_000_001, savingsTerm: 3 } },
+      { scenarioId: 'b18', setup: { initialSavings: '20000000', savingsTerm: 2 } },
+      { scenarioId: 'b18', setup: { initialSavings: 1, savingsTerm: 4 } },
+      { scenarioId: 'b18', setup: { initialSavings: 1, savingsTerm: 1, seed: 'client-seed' } },
       '{"scenarioId":',
     ]
     for (const payload of invalidBodies) {
@@ -193,6 +287,13 @@ test('V1 foundation on PostgreSQL', async t => {
       'SELECT user_id, scenario_id, scenario_version, creation_key, seed FROM game_sessions WHERE id = $1',
       [sessionId],
     ), { code: '23505', constraint: 'game_sessions_user_creation_key_unique' })
+
+    await assert.rejects(database.pool.query(
+      'UPDATE game_sessions SET initial_savings = 50000001 WHERE id = $1', [sessionId],
+    ), { code: '23514', constraint: 'game_sessions_initial_savings_check' })
+    await assert.rejects(database.pool.query(
+      'UPDATE game_sessions SET savings_term = 4 WHERE id = $1', [sessionId],
+    ), { code: '23514', constraint: 'game_sessions_savings_term_check' })
 
     const writeAction = (id: string, sequence: number, actionKey: string) => database.pool.query(
       'INSERT INTO game_actions (session_id, sequence, idempotency_key, action_type, payload, engine_version, result_version) ' +
@@ -240,9 +341,10 @@ test('V1 foundation on PostgreSQL', async t => {
     const user = randomUUID()
     const headers = { authorization: 'Bearer ' + await issuer.sign(user) }
     const rollbackKey = randomUUID()
+    const setup = { initialSavings: 20_000_000, savingsTerm: 2 }
     await database.pool.query('ALTER TABLE game_snapshots ADD CONSTRAINT test_reject_snapshot CHECK (false) NOT VALID')
     try {
-      const response = await create(headers, rollbackKey)
+      const response = await create(headers, rollbackKey, setup)
       assert.equal(response.statusCode, 500)
       assert.deepEqual(response.json(), {
         error: { code: 'INTERNAL_ERROR', message: 'Internal server error' },
@@ -252,7 +354,9 @@ test('V1 foundation on PostgreSQL', async t => {
     } finally {
       await database.pool.query('ALTER TABLE game_snapshots DROP CONSTRAINT test_reject_snapshot')
     }
-    assert.equal((await create(headers, rollbackKey)).statusCode, 201)
+    const retried = await create(headers, rollbackKey, setup)
+    assert.equal(retried.statusCode, 201)
+    assert.deepEqual(retried.json().session.setup, setup)
   })
 
   await t.test('returns 503 readiness when PostgreSQL cannot open the configured database', async () => {
