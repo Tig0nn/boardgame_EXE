@@ -1,10 +1,13 @@
 import { buildApp } from './app.ts'
 import { loadConfig } from './config.ts'
 import { createDatabase } from './db/client.ts'
+import { stagingConnection, stagingPoolOptions } from './db/staging.ts'
 
 async function main() {
   const config = loadConfig(process.env)
-  const app = buildApp(createDatabase(config.databaseUrl), config.auth, true)
+  const staging = process.env.EXE_ENV === 'staging' ? stagingConnection(process.env, 'runtime') : null
+  const database = staging ? createDatabase(staging.url, stagingPoolOptions(staging)) : createDatabase(config.databaseUrl)
+  const app = buildApp(database, config.auth, true)
 
   try {
     await app.listen({ host: '127.0.0.1', port: config.port })

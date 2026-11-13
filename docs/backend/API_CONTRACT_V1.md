@@ -1,6 +1,6 @@
 # REST API V1
 
-Môi trường Phase 3A dùng `http://127.0.0.1:3108` theo `.env.example`. Các route `/v1` yêu cầu `Authorization: Bearer <access-token>` và trả `Cache-Control: no-store`. Dữ liệu phản hồi dùng JSON và timestamp ISO 8601 UTC.
+Môi trường Phase 3B dùng `http://127.0.0.1:3109` theo `.env.example`. Các route `/v1` yêu cầu `Authorization: Bearer <access-token>` và trả `Cache-Control: no-store`. Dữ liệu phản hồi dùng JSON và timestamp ISO 8601 UTC.
 
 | Method và path | Input | Thành công |
 | --- | --- | --- |

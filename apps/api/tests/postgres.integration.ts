@@ -13,7 +13,7 @@ import { serializeLog } from '../../../src/game/log.ts'
 import { buildApp } from '../src/app.ts'
 import { localDatabaseUrl } from '../src/config.ts'
 import { createDatabase } from '../src/db/client.ts'
-import { migrateDatabase } from '../src/db/migrations.ts'
+import { migrateDatabase, verifyMigrationJournal } from '../src/db/migrations.ts'
 import { gameSessions, gameSnapshots, profiles, scenarioVersions } from '../src/db/schema.ts'
 import { b18Scenario } from '../src/services/b18.ts'
 import { startJwtIssuer } from './jwks.ts'
@@ -53,6 +53,15 @@ test('V1 foundation on PostgreSQL', async t => {
       "SELECT tablename FROM pg_tables WHERE schemaname = 'public' ORDER BY tablename",
     )
     assert.deepEqual((await publicTables()).rows, [])
+    const preflight = await database.pool.connect()
+    try {
+      await verifyMigrationJournal(preflight)
+      await preflight.query('BEGIN')
+      await preflight.query('CREATE TABLE public.game_sessions (id integer)')
+      await assert.rejects(verifyMigrationJournal(preflight), /Unmanaged game schema/)
+    } finally {
+      try { await preflight.query('ROLLBACK') } finally { preflight.release() }
+    }
     const legacyFolder = await mkdtemp(join(tmpdir(), 'exe-v2d-migrations-'))
     const sourceFolder = fileURLToPath(new URL('../drizzle/', import.meta.url))
     try {
@@ -90,7 +99,43 @@ test('V1 foundation on PostgreSQL', async t => {
     ])
     assert.deepEqual(await database.db.select().from(scenarioVersions), [b18Scenario])
     const applied = await database.pool.query('SELECT id FROM drizzle.__drizzle_migrations')
-    assert.equal(applied.rowCount, 4)
+    assert.equal(applied.rowCount, 5)
+    const client = await database.pool.connect()
+    try {
+      await verifyMigrationJournal(client)
+      await client.query('BEGIN')
+      await client.query("UPDATE drizzle.__drizzle_migrations SET hash = 'different' WHERE id = 1")
+      await assert.rejects(verifyMigrationJournal(client), /Unexpected migration history/)
+    } finally {
+      try { await client.query('ROLLBACK') } finally { client.release() }
+    }
+  })
+
+  await t.test('isolates direct SQL roles and allows the limited runtime to use the API tables', async () => {
+    const client = await database.pool.connect()
+    const privileges = await readFile(new URL('../drizzle/runtime-grants.sql', import.meta.url), 'utf8')
+    try {
+      // Role creation, grants and test writes are scoped to this transaction.
+      await client.query('BEGIN')
+      await client.query('CREATE ROLE exe_runtime NOLOGIN')
+      await client.query(privileges)
+      await client.query('SET LOCAL ROLE exe_runtime')
+      const user = randomUUID()
+      await client.query('INSERT INTO public.profiles (user_id) VALUES ($1) ON CONFLICT DO NOTHING', [user])
+      const { rowCount } = await client.query('SELECT user_id FROM public.profiles WHERE user_id = $1', [user])
+      assert.equal(rowCount, 1)
+      const stored = await client.query('SELECT id FROM public.game_sessions')
+      assert.equal(stored.rowCount, 1)
+      assert.equal((await client.query("SELECT has_table_privilege(current_user, 'public.game_sessions', 'DELETE') AS allowed")).rows[0].allowed, false)
+      await client.query('RESET ROLE')
+      await client.query('CREATE ROLE exe_browser_test NOLOGIN')
+      await client.query('GRANT SELECT ON public.game_sessions, public.game_snapshots TO exe_browser_test')
+      await client.query('SET LOCAL ROLE exe_browser_test')
+      assert.equal((await client.query('SELECT id FROM public.game_sessions')).rowCount, 0)
+      assert.equal((await client.query('SELECT payload FROM public.game_snapshots')).rowCount, 0)
+    } finally {
+      try { await client.query('ROLLBACK') } finally { client.release() }
+    }
   })
 
   const userA = randomUUID()

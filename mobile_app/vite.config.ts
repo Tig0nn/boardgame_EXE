@@ -11,7 +11,7 @@ export default defineConfig({
     host: '127.0.0.1',
     proxy: {
       '/v1': {
-        target: process.env.EXE_LOCAL_API_ORIGIN || 'http://127.0.0.1:3108',
+        target: process.env.EXE_LOCAL_API_ORIGIN || 'http://127.0.0.1:3109',
         changeOrigin: true,
       },
       '/api': {

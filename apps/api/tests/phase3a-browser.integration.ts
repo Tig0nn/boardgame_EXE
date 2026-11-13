@@ -43,6 +43,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   const expires = { exp: Math.floor(Date.now() / 1000) + 420 }
   const token = await issuer.sign(owner, expires)
   const outsider = await issuer.sign(randomUUID(), expires)
+  const expired = await issuer.sign(owner, { exp: 1 })
   const browser = await chromium.launch({ headless: true, executablePath: process.env.EXE_CHROMIUM_PATH || undefined })
   t.after(() => browser.close())
   const mobileRoot = fileURLToPath(new URL('../../../mobile_app/', import.meta.url))
@@ -50,7 +51,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   const vite = await import(pathToFileURL(mobileRequire.resolve('vite')).href)
   const frontend = await vite.createServer({
     root: mobileRoot,
-    server: { host: '127.0.0.1', port: 0, proxy: { '/v1': { target: origin, changeOrigin: true } } },
+    server: { host: '127.0.0.1', port: 0, hmr: false, proxy: { '/v1': { target: origin, changeOrigin: true } } },
     plugins: [{
       name: 'phase3a-browser-test-entry',
       configureServer(server: { transformIndexHtml: (url: string, html: string) => Promise<string>; middlewares: { use: (handler: (request: { url?: string }, response: { setHeader: (key: string, value: string) => void; end: (body: string) => void }, next: (error?: unknown) => void) => void) => void } }) {
@@ -72,7 +73,10 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
           "import '/src/engine-ui.css'",
           "import '/src/core-mvp.css'",
           "import '/src/medieval-theme.css'",
-          "createRoot(document.getElementById('root')).render(React.createElement(OnlineApp,{accessToken:async()=>sessionStorage.getItem('phase3a-test-token')}))",
+          "import { createAccountToken } from '/src/game/account-token.ts'",
+          "const read=async()=>({user:{id:'browser-test'},access_token:sessionStorage.getItem('phase3a-test-token')})",
+          "const refresh=async()=>{const fresh=sessionStorage.getItem('phase3b-refresh-token');if(!fresh)return null;sessionStorage.setItem('phase3a-test-token',fresh);return read()}",
+          "createRoot(document.getElementById('root')).render(React.createElement(OnlineApp,{accessToken:createAccountToken('browser-test',read,refresh,()=>{})}))",
         ].join('\n')
       },
     }],
@@ -84,15 +88,22 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   const direct = async (id: string, bearer = token) => fetch(origin + sessionsPath + '/' + id, { headers: { authorization: 'Bearer ' + bearer } })
 
   const errors: string[] = []
-  async function player(width: number, bearer = token) {
+  async function player(width: number, bearer = token, refreshToken = '') {
     const context = await browser.newContext({ viewport: { width, height: 870 }, reducedMotion: 'reduce' })
-    await context.addInitScript((value: string) => sessionStorage.setItem('phase3a-test-token', value), bearer)
+    await context.addInitScript(({ bearer, refreshToken }: { bearer: string; refreshToken: string }) => {
+      sessionStorage.setItem('phase3a-test-token', bearer)
+      sessionStorage.setItem('phase3b-refresh-token', refreshToken)
+    }, { bearer, refreshToken })
     const page = await context.newPage()
+    const statuses: number[] = []
+    page.on('response', (response: { url: () => string; status: () => number }) => {
+      if (response.url().includes('/v1/game-sessions')) statuses.push(response.status())
+    })
     page.on('pageerror', (error: Error) => errors.push(error.message))
     await page.goto(frontendUrl)
     await page.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).click()
     await page.getByRole('heading', { name: 'Ván chơi của bạn' }).waitFor()
-    return { context, page }
+    return { context, page, statuses }
   }
   type Page = Awaited<ReturnType<typeof player>>['page']
   async function create(page: Page, amount: number) {
@@ -110,9 +121,10 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
     return session.id as string
   }
   async function action(page: Page, click: () => Promise<void>, expected = 200) {
-    const pending = page.waitForResponse((response: { url: () => string }) => response.url().endsWith('/actions'))
-    await click()
-    const response = await pending
+    const [response] = await Promise.all([
+      page.waitForResponse((value: { url: () => string }) => value.url().endsWith('/actions')),
+      click(),
+    ])
     assert.equal(response.status(), expected, await response.text())
     return response.json()
   }
@@ -194,7 +206,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   t.diagnostic('Funding confirmed through Mobile UI using Bank quote and early savings withdrawal.')
   await wide.context.close()
 
-  const { context, page } = await player(390)
+  const { page } = await player(390)
   const id = await create(page, 10_000_000)
   assert.equal((await direct(id, outsider)).status, 404)
   const foreign = await player(390, outsider)
@@ -202,17 +214,17 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   await foreign.context.close()
   const initial = await (await direct(id)).json()
   assert.equal(initial.state.portfolio.cash, 40_000_000)
-  const tab = await context.newPage()
-  await tab.goto(frontendUrl)
-  await tab.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).click()
+  const device = await player(390, expired, token)
+  const tab = device.page
   await tab.getByRole('button', { name: /Tiếp tục ván/ }).first().click()
+  assert.deepEqual(device.statuses.slice(0, 2), [401, 200])
   await tab.getByRole('button', { name: 'Bắt đầu vòng 1', exact: true }).waitFor()
   const initialButton = page.getByRole('button', { name: 'Bắt đầu vòng 1', exact: true })
   const first = await action(page, () => initialButton.evaluate((button: HTMLButtonElement) => { button.click(); button.click() }))
   assert.equal(first.stateVersion, 1)
   await action(tab, () => tab.getByRole('button', { name: 'Bắt đầu vòng 1', exact: true }).click(), 409)
   await tab.getByText('Ván đã thay đổi. Đã tải lại trạng thái từ máy chủ.').waitFor()
-  await tab.close()
+  await device.context.close()
 
   let seenFailedKey: string | undefined
   let replayedKey: string | undefined
@@ -243,7 +255,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   assert.deepEqual(restored.state.portfolio, current.state.portfolio)
 
   const covered = new Set<string>(exercisedFunding ? ['funding'] : [])
-  t.diagnostic('Setup checked at 320/390/1440 px. Refresh, stale tab and lost response checked at 390 px.')
+  t.diagnostic('Setup checked at 320/390/1440 px. Refresh, separate device context and lost response checked at 390 px.')
   for (let i = 0; i < 120 && current.state.phase !== 'finished'; i++) {
     const state = current.state
     covered.add(state.phase)

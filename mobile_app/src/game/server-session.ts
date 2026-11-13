@@ -2,6 +2,7 @@ import type { publicB18State, officialB18Result } from '../../../apps/api/src/se
 import type { GameActionRequest } from '../../../apps/api/src/validation.ts'
 import type { Term } from '../../../src/game/types.ts'
 import type { MobileCommand } from './session.ts'
+import type { AccessToken } from './account-token.ts'
 
 export type ServerState = ReturnType<typeof publicB18State>
 export type OfficialResult = ReturnType<typeof officialB18Result>
@@ -22,23 +23,29 @@ export class ApiError extends Error {
   }
 }
 
-export function createGameApi(accessToken: () => Promise<string | null>) {
+export function createGameApi(accessToken: AccessToken, send: typeof fetch = fetch) {
   async function request<T>(path: string, body?: object, key?: string): Promise<T> {
     const token = await accessToken()
     if (!token) throw new ApiError(401, 'UNAUTHORIZED')
-    const response = await fetch('/v1/game-sessions' + path, {
+    const serialized = body ? JSON.stringify(body) : undefined
+    const transmit = (bearer: string) => send('/v1/game-sessions' + path, {
       method: body ? 'POST' : 'GET',
       credentials: 'omit',
       redirect: 'error',
       cache: 'no-store',
       signal: AbortSignal.timeout(12000),
       headers: {
-        authorization: 'Bearer ' + token,
+        authorization: 'Bearer ' + bearer,
         ...(body ? { 'content-type': 'application/json' } : {}),
         ...(key ? { 'idempotency-key': key } : {}),
       },
-      body: body ? JSON.stringify(body) : undefined,
+      body: serialized,
     })
+    let response = await transmit(token)
+    if (response.status === 401) {
+      const refreshed = await accessToken(token)
+      if (refreshed && refreshed !== token) response = await transmit(refreshed)
+    }
     if (!response.ok) {
       const value = await response.json().catch(() => null)
       throw new ApiError(response.status, value?.error?.code ?? 'REQUEST_FAILED')

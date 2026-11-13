@@ -3,6 +3,7 @@ import { Modal } from '../../../src/components/Modal'
 import { loadGameLocally } from '../../../src/game/saved-game'
 import type { GameState } from '../../../src/game/types'
 import { apiMessage, createGameApi, createServerSession, recoverable } from '../game/server-session'
+import type { AccessToken } from '../game/account-token'
 import type { SessionHeader, Setup } from '../game/server-session'
 import { EntranceScreen } from './EntranceScreen'
 import { GameSetup } from './GameSetup'
@@ -12,7 +13,7 @@ import { UnifiedGameGuide } from './UnifiedGameGuide'
 import { UnifiedManagementSheet } from './UnifiedManagementSheet'
 
 export function OnlineApp({ accessToken, onSignOut, onPractice }: {
-  accessToken: () => Promise<string | null>; onSignOut?: () => void; onPractice?: () => void
+  accessToken: AccessToken; onSignOut?: () => void; onPractice?: () => void
 }) {
   const api = useMemo(() => createGameApi(accessToken), [accessToken])
   const [screen, setScreen] = useState<'entrance' | 'sessions' | 'setup' | 'game'>('entrance')
