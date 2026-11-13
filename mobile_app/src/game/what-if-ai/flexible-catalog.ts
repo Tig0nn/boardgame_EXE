@@ -5,13 +5,12 @@ import { adapterFor } from './decision-adapters.ts'
 import type { DecisionAdapter, LegalAlternative, ReplayKind } from './decision-adapters.ts'
 import { parameterAlternativeId } from './orchestrator.ts'
 import type { DecisionParameters, WhatIfDecision } from './orchestrator.ts'
-import type { HistoryLocator } from './natural-language.ts'
+import type { HistoricalDecision, HistoryLocator } from './natural-language.ts'
 import { money } from '../../../../src/game/format.ts'
 
 export type CatalogQuery = { mode: 'history'; offset: number; limit?: number; locator?: HistoryLocator }
   | { mode: 'alternatives'; sequence: number; offset: number; limit?: number; parameters?: DecisionParameters }
-export type HistoricalDecision = { sequence: number; lap: number; turn: number; action: string; description?: string;
-  symbolId?: string; issuerId?: string; lotId?: string }
+export type { HistoricalDecision } from './natural-language.ts'
 export type DecisionControls = { cash: number; stockSellMax: number; symbols: string[]; issuers: string[];
   lots: { id: string; available: number }[]; terms: (1 | 2 | 3)[] }
 export type CatalogPage = { history: HistoricalDecision[]; decisions: WhatIfDecision[]; controls?: DecisionControls;

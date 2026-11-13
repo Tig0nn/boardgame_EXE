@@ -12,11 +12,13 @@ import { createGameSession } from '../services/game-sessions.ts'
 import { quoteGameBusiness } from '../services/business-quotes.ts'
 import { quoteGameBank } from '../services/bank-quotes.ts'
 import { quoteGameTrade } from '../services/trading-quotes.ts'
+import type { WhatIfAssistant } from '../services/what-if-assistance.ts'
+import { assistSavedWhatIf } from '../services/what-if-cloud-assistant.ts'
 import { analyzeSavedGame } from '../services/what-if.ts'
 import type { FoxAssist } from '../services/fox-assistance.ts'
 import { readFoxCoach, learnWithFox } from '../services/fox-coach.ts'
 import { readGameState } from '../services/game-state.ts'
-import { bankQuoteBody, businessQuoteBody, createSessionBody, foxCoachQuery, foxLearningBody, gameActionBody, idempotencyKey, listSessionsQuery, sessionParams, tradeQuoteBody, whatIfBody } from '../validation.ts'
+import { bankQuoteBody, businessQuoteBody, createSessionBody, foxCoachQuery, foxLearningBody, gameActionBody, idempotencyKey, listSessionsQuery, sessionParams, tradeQuoteBody, whatIfAssistantBody, whatIfBody } from '../validation.ts'
 
 declare module 'fastify' {
   interface FastifyRequest {
@@ -37,7 +39,7 @@ function snapshotObserver(request: FastifyRequest): SnapshotObserver {
   }
 }
 
-export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAuthConfig | undefined, foxAssist?: FoxAssist) {
+export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAuthConfig | undefined, foxAssist?: FoxAssist, whatIfAssist?: WhatIfAssistant) {
   const authenticate = createAuthenticator(auth)
   const sessions = sessionRepository(db)
   api.decorateRequest('playerId', null)
@@ -118,6 +120,19 @@ export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAu
         reply.raw.off('close', onClose)
       }
     },
+  })
+
+  api.post('/game-sessions/:id/what-if/assistant', { bodyLimit: 4096 }, async (request, reply) => {
+    const { id } = sessionParams.parse(request.params)
+    const input = whatIfAssistantBody.parse(request.body)
+    const abort = new AbortController()
+    const onClose = () => abort.abort()
+    reply.raw.once('close', onClose)
+    try {
+      return await assistSavedWhatIf(db, playerId(request), id, input, whatIfAssist, abort.signal)
+    } finally {
+      reply.raw.off('close', onClose)
+    }
   })
 
   api.get('/game-sessions/:id/coach', async request => {

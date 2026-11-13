@@ -1,4 +1,4 @@
-import type { WhatIfProvider } from '../../../mobile_app/src/game/what-if-ai/orchestrator.ts'
+import type { WhatIfProvider } from './orchestrator.ts'
 import { explanationReply, intentReply, proposalReply, validateProviderRequest, WhatIfApiError } from './contracts.ts'
 import type { ProviderRequest } from './contracts.ts'
 

@@ -1,5 +1,7 @@
 import type { publicB18State, officialB18Result } from '../../../apps/api/src/services/b18-actions.ts'
 import type { FoxCoachReply, FoxLearningReply } from '../../../apps/api/src/services/fox-coach.ts'
+import type { WhatIfAssistantReply } from '../../../apps/api/src/services/what-if-cloud-assistant.ts'
+import type { WhatIfAssistantRequest } from '../../../apps/api/src/validation.ts'
 import type { WhatIfCatalog, WhatIfEvaluation } from '../../../apps/api/src/services/what-if.ts'
 import type { GameActionRequest, WhatIfRequest } from '../../../apps/api/src/validation.ts'
 import type { Term } from '../../../src/game/types.ts'
@@ -63,6 +65,8 @@ export function createGameApi(accessToken: AccessToken, send: typeof fetch = fet
       request<FoxCoachReply>('/' + encodeURIComponent(id) + '/coach?stateVersion=' + stateVersion, undefined, undefined, signal),
     coachLearn: (id: string, stateVersion: number, question: string, signal: AbortSignal, allowGemini = false) =>
       request<FoxLearningReply>('/' + encodeURIComponent(id) + '/coach/learn', { stateVersion, question, allowGemini }, undefined, signal),
+    whatIfAssistant: (id: string, body: WhatIfAssistantRequest, signal: AbortSignal) =>
+      request<WhatIfAssistantReply>('/' + encodeURIComponent(id) + '/what-if/assistant', body, undefined, signal),
     whatIfCatalog: (id: string, signal: AbortSignal) => request<WhatIfCatalog>('/' + encodeURIComponent(id) + '/what-if', undefined, undefined, signal),
     whatIf: (id: string, body: WhatIfRequest, signal: AbortSignal) => request<WhatIfEvaluation>('/' + encodeURIComponent(id) + '/what-if', body, undefined, signal),
     quote(id: string, body: GameActionRequest) {

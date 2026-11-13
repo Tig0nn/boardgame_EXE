@@ -98,7 +98,7 @@ function requiredStep(game: GameState): GameActionRequest {
   return { actionId: 'advance', expectedStateVersion: 0, payload: {} }
 }
 
-type HistoricalStep = { action: GameActionRequest; before: GameState; after: GameState }
+export type HistoricalStep = { action: GameActionRequest; before: GameState; after: GameState }
 
 export async function replayWhatIfHistory(genesis: GameState, actions: GameActionRequest[], budget: WhatIfBudget) {
   let final = genesis
@@ -212,17 +212,14 @@ function comparison(actual: GameState, alternative: GameState, fork: HistoricalS
   }
 }
 
-export async function evaluateWhatIf(actual: GameState, steps: HistoricalStep[], input: WhatIfRequest, budget: WhatIfBudget) {
-  const fork = steps[input.sequence - 1]
-  if (!fork || !isDecision(fork.action)) throw new ApiError(422, 'WHAT_IF_INVALID_FORK', 'Select a recorded decision')
-  const alternative = input.alternative
+export function applyWhatIfAlternative(fork: HistoricalStep, alternative: WhatIfRequest['alternative']) {
   if (alternative.mode === 'omit' && !omitAllowed(fork.action)) {
     throw new ApiError(422, 'WHAT_IF_ILLEGAL_ALTERNATIVE', 'Only optional trades can be omitted')
   }
 
   let forkAfter = fork.before
   if (alternative.mode === 'replace') {
-    const action = { ...alternative.action, expectedStateVersion: input.sequence - 1 }
+    const action = { ...alternative.action, expectedStateVersion: fork.action.expectedStateVersion }
     // Funding can only be changed at a payment, and an event may be replaced by an eligible trade.
     if (isDeepStrictEqual(action, fork.action) || !isDecision(action)) {
       throw new ApiError(422, 'WHAT_IF_ILLEGAL_ALTERNATIVE', 'Select a different decision')
@@ -232,6 +229,13 @@ export async function evaluateWhatIf(actual: GameState, steps: HistoricalStep[],
       throw new ApiError(422, 'WHAT_IF_ILLEGAL_ALTERNATIVE', 'Alternative is not legal or does not change the decision')
     }
   }
+  return forkAfter
+}
+
+export async function evaluateWhatIf(actual: GameState, steps: HistoricalStep[], input: WhatIfRequest, budget: WhatIfBudget) {
+  const fork = steps[input.sequence - 1]
+  if (!fork || !isDecision(fork.action)) throw new ApiError(422, 'WHAT_IF_INVALID_FORK', 'Select a recorded decision')
+  const forkAfter = applyWhatIfAlternative(fork, input.alternative)
 
   const suffix = steps.slice(input.sequence)
   const remaining = new Map<string, HistoricalStep[]>()

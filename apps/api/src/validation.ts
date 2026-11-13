@@ -117,3 +117,12 @@ export const foxLearningBody = z.strictObject({
   stateVersion: expectedStateVersion.optional(),
   question: z.string().refine(question => readLearningQuestion(question) !== null).transform(question => question.trim()),
 })
+
+const assistantQuestion = z.string().max(240).refine(value => !/\p{Cc}/u.test(value)).transform(value => value.trim()).pipe(z.string().min(3))
+const assistantCommon = { stateVersion: expectedStateVersion, allowGemini: z.boolean().optional() }
+export const whatIfAssistantBody = z.discriminatedUnion('operation', [
+  z.strictObject({ ...assistantCommon, operation: z.literal('interpret'), question: assistantQuestion }),
+  z.strictObject({ ...assistantCommon, operation: z.literal('propose'), question: assistantQuestion }),
+  whatIfBody.extend({ operation: z.literal('explain'), allowGemini: assistantCommon.allowGemini }),
+])
+export type WhatIfAssistantRequest = z.infer<typeof whatIfAssistantBody>

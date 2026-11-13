@@ -1,8 +1,8 @@
 import { readBoundedJson } from '../bounded-json.ts'
-import type { ExplanationFacts, WhatIfDecision } from '../../../mobile_app/src/game/what-if-ai/orchestrator.ts'
-import { explanationClaim, parameterAlternativeId, WHAT_IF_KINDS, validAlternative } from '../../../mobile_app/src/game/what-if-ai/orchestrator.ts'
-import { hasExplicitFinancialParameters, readIntentReply } from '../../../mobile_app/src/game/what-if-ai/natural-language.ts'
-import type { IntentReply } from '../../../mobile_app/src/game/what-if-ai/natural-language.ts'
+import type { ExplanationFacts, WhatIfDecision } from './orchestrator.ts'
+import { explanationClaim, parameterAlternativeId, WHAT_IF_KINDS, validAlternative } from './orchestrator.ts'
+import { hasExplicitFinancialParameters, readIntentReply } from './natural-language.ts'
+import type { IntentReply } from './natural-language.ts'
 
 export const WHAT_IF_ENDPOINT = '/api/what-if-provider'
 export const MAX_HTTP_BYTES = 8192

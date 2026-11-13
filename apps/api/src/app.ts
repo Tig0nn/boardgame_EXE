@@ -5,9 +5,10 @@ import type { DatabaseConnection } from './db/client.ts'
 import { notFound, sendError, unavailable } from './errors.ts'
 import { postgresFailure } from './observability.ts'
 import type { FoxAssist } from './services/fox-assistance.ts'
+import type { WhatIfAssistant } from './services/what-if-assistance.ts'
 import { registerV1 } from './routes/v1.ts'
 
-export function buildApp(database: DatabaseConnection, auth?: JwtAuthConfig, logger = false, foxAssist?: FoxAssist) {
+export function buildApp(database: DatabaseConnection, auth?: JwtAuthConfig, logger = false, foxAssist?: FoxAssist, whatIfAssist?: WhatIfAssistant) {
   const app = Fastify({
     logger,
     logController: new LogController({ disableRequestLogging: true }),
@@ -43,6 +44,6 @@ export function buildApp(database: DatabaseConnection, auth?: JwtAuthConfig, log
     return { status: 'ready' }
   })
 
-  app.register(async api => registerV1(api, database.db, auth, foxAssist), { prefix: '/v1' })
+  app.register(async api => registerV1(api, database.db, auth, foxAssist, whatIfAssist), { prefix: '/v1' })
   return app
 }

@@ -10,6 +10,7 @@ import { gameActionBody } from '../src/validation.ts'
 import { serializeLog } from '../../../src/game/log.ts'
 import { liquidatableFunds, victory } from '../../../src/game/selectors.ts'
 import { replayGameLog } from '../../../scripts/diagnostics/replay-game-log.ts'
+import { createWhatIfAssistant } from '../src/services/what-if-assistance.ts'
 import { buildApp } from '../src/app.ts'
 import { localDatabaseUrl } from '../src/config.ts'
 import { createDatabase } from '../src/db/client.ts'
@@ -27,7 +28,18 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   local.pathname = '/' + dbName
   const database = createDatabase(local.href)
   const issuer = await startJwtIssuer()
-  const app = buildApp(database, issuer.config)
+  const assistantCalls: string[] = []
+  const app = buildApp(database, issuer.config, false, undefined, createWhatIfAssistant({
+    EXE_WHATIF_GEMINI_ENABLED: '1', EXE_WHATIF_GEMINI_ALLOW_LIVE_TRAFFIC: '1',
+    EXE_WHATIF_GEMINI_MODEL: 'gemini-test', EXE_WHATIF_GEMINI_API_KEY: 'fixture-only',
+  }, async (_url, init) => {
+    const input = JSON.parse(JSON.parse(String(init?.body)).contents[0].parts[0].text)
+    assistantCalls.push(input.operation)
+    const reply = input.operation === 'interpret' ? { status: 'intent', intent: { kind: 'bank', action: 'deposit' } }
+      : input.operation === 'propose' ? { decisionId: input.catalog[0].decisionId, alternativeId: input.catalog[0].alternativeId }
+        : { claimId: input.facts.kind + '-' + input.facts.direction }
+    return Response.json({ candidates: [{ finishReason: 'STOP', content: { parts: [{ text: JSON.stringify(reply) }] } }] })
+  }))
   let created = false
   t.after(async () => {
     try {
@@ -466,6 +478,42 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   await launchWhatIf()
   await decision().selectOption(String(sale.sequence))
   assert.deepEqual(await evaluate(), beforeRefresh)
+  const deposit = actions.find(row => row.actionType === 'trade' && row.payload.kind === 'deposit')
+  assert.ok(deposit)
+  await page.getByText('Hỏi về một phương án', { exact: true }).click()
+  await page.getByRole('textbox', { name: 'Câu hỏi What-if' }).fill(
+    'Gửi tiết kiệm số tiền 1.000.000 VND kỳ hạn 2 tại quyết định ' + deposit.sequence)
+  const interpretationButton = page.getByRole('button', { name: 'Kiểm tra cách hiểu' })
+  const [interpreted] = await Promise.all([
+    page.waitForResponse((response: { url: () => string }) => response.url().endsWith('/what-if/assistant')),
+    interpretationButton.click(),
+  ])
+  assert.equal(interpreted.status(), 200, await interpreted.text())
+  await page.getByText('Gửi tiết kiệm · ngân hàng', { exact: true }).waitFor()
+  assert.deepEqual(assistantCalls, [])
+  const consent = page.getByRole('checkbox', { name: /Cho phép gửi câu hỏi này tới Gemini/ })
+  await consent.check()
+  const suggest = page.getByRole('button', { name: 'Tìm phương án' })
+  await page.route('**/what-if/assistant', (route: { abort: () => Promise<void> }) => route.abort())
+  await suggest.click()
+  await page.getByRole('alert').filter({ hasText: 'Chưa nhận được phản hồi' }).waitFor()
+  await page.unroute('**/what-if/assistant')
+  await suggest.click()
+  await page.getByText(/Giả lập:.*1\.000\.000 ₫.*Kỳ hạn 2 START/).waitFor()
+  assert.deepEqual(assistantCalls, ['interpret', 'propose'])
+  const [confirmed] = await Promise.all([
+    page.waitForResponse((response: { url: () => string; request: () => { method: () => string } }) =>
+      response.url().endsWith('/what-if') && response.request().method() === 'POST'),
+    page.getByRole('button', { name: 'Xác nhận và mô phỏng' }).press('Enter'),
+  ])
+  assert.equal(confirmed.status(), 200, await confirmed.text())
+  const confirmedResult = await confirmed.json()
+  assert.equal(confirmedResult.status, 'completed')
+  assert.deepEqual(confirmedResult.alternative.completedLaps, [1, 2, 3, 4])
+  await page.getByRole('button', { name: 'Nhờ Gemini hỗ trợ giải thích' }).press('Enter')
+  await page.getByText(/Tiền mặt cuối vòng 4 của nhánh giả lập .* theo replay đã xác minh/).waitFor()
+  assert.deepEqual(assistantCalls, ['interpret', 'propose', 'explain'])
+  t.diagnostic('Cloud What-if UI verified Vietnamese input, explicit opt-in, provider retry, confirmation and replay-grounded explanation.')
   assert.deepEqual(await (await direct(id)).json(), persisted)
   t.diagnostic('Fox START, offline endgame and Q&A, explicit Gemini opt-in with OFF fallback, network retry, reload and offline What-if explanation verified.')
   t.diagnostic('What-if comparison and recovery verified through Chromium Mobile with a completed PostgreSQL game.')

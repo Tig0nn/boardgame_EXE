@@ -5,9 +5,10 @@ import { money, signedMoney } from '../../../../src/game/format'
 import { Modal } from '../../../../src/components/Modal'
 import { ApiError, apiMessage } from '../../game/server-session'
 import type { createGameApi } from '../../game/server-session'
+import { CloudWhatIfAssistant, CloudWhatIfExplanation } from './CloudWhatIfAssistant'
 import './cloud-endgame-what-if.css'
 
-type Api = Pick<ReturnType<typeof createGameApi>, 'whatIf' | 'whatIfCatalog'>
+type Api = Pick<ReturnType<typeof createGameApi>, 'whatIf' | 'whatIfCatalog' | 'whatIfAssistant'>
 type Decision = WhatIfCatalog['decisions'][number]
 type Alternative = WhatIfRequest['alternative']
 const labels = { victory: 'Đạt mục tiêu', defeat: 'Chưa đạt mục tiêu', insolvent: 'Mất khả năng thanh toán' }
@@ -116,7 +117,7 @@ function Analysis({ api, sessionId, close }: { api: Api; sessionId: string; clos
   const request = useRef<AbortController | null>(null)
   const [catalog, setCatalog] = useState<WhatIfCatalog | null>(null)
   const [selected, setSelected] = useState<number>()
-  const [result, setResult] = useState<WhatIfEvaluation>()
+  const [result, setResult] = useState<{ evaluation: WhatIfEvaluation; input: WhatIfRequest }>()
   const [busy, setBusy] = useState(true)
   const [error, setError] = useState('')
   const [generation, reload] = useState(0)
@@ -134,13 +135,13 @@ function Analysis({ api, sessionId, close }: { api: Api; sessionId: string; clos
   }, [api, sessionId, generation])
 
   const decision = catalog?.decisions.find(item => item.sequence === selected)
-  const evaluate = (alternative: Alternative) => {
-    if (!catalog || !decision || request.current) return
+  const evaluate = (input: WhatIfRequest) => {
+    if (!catalog || busy || request.current || input.stateVersion !== catalog.stateVersion) return
     const controller = new AbortController()
     request.current = controller
     setResult(undefined); setBusy(true); setError('')
-    void api.whatIf(sessionId, { stateVersion: catalog.stateVersion, sequence: decision.sequence, alternative }, controller.signal)
-      .then(value => { if (!controller.signal.aborted) setResult(value) })
+    void api.whatIf(sessionId, input, controller.signal)
+      .then(value => { if (!controller.signal.aborted) setResult({ evaluation: value, input }) })
       .catch(error => { if (!controller.signal.aborted) setError(explainError(error)) })
       .finally(() => {
         if (request.current === controller) { request.current = null; setBusy(false) }
@@ -155,6 +156,8 @@ function Analysis({ api, sessionId, close }: { api: Api; sessionId: string; clos
       setBusy(true); setError(''); setCatalog(null); setResult(undefined); reload(value => value + 1)
     }}>Tải lại quyết định</button></>}
     {catalog && !catalog.decisions.length && <p>Ván này không có quyết định phù hợp để thử lại.</p>}
+    {catalog && <CloudWhatIfAssistant api={api} sessionId={sessionId} stateVersion={catalog.stateVersion} busy={busy}
+      onConfirm={input => { setSelected(input.sequence); evaluate(input) }} />}
     {catalog && decision && <>
       <label>Quyết định đã thực hiện<select className="text-input" value={decision.sequence} disabled={busy}
         onChange={event => { setSelected(Number(event.target.value)); setResult(undefined); setError('') }}>
@@ -162,9 +165,13 @@ function Analysis({ api, sessionId, close }: { api: Api; sessionId: string; clos
           Vòng {item.lap} · {item.title} · {item.label} (bước {item.sequence})
         </option>)}
       </select></label>
-      <Alternatives key={decision.sequence} decision={decision} evaluate={evaluate} disabled={busy} />
+      <Alternatives key={decision.sequence} decision={decision} disabled={busy}
+        evaluate={alternative => evaluate({ stateVersion: catalog.stateVersion, sequence: decision.sequence, alternative })} />
     </>}
-    {result && <Comparison result={result} />}
+    {result && <>
+      {result.evaluation.status === 'completed' && <CloudWhatIfExplanation api={api} sessionId={sessionId} input={result.input} />}
+      <Comparison result={result.evaluation} />
+    </>}
   </Modal>
 }
 

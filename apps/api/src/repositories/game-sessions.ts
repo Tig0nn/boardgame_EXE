@@ -35,6 +35,12 @@ export function sessionRepository(db: Pick<Database, 'select' | 'insert'>, obser
     ))
 
   return {
+    async findOwnedHeader(userId: string, id: string) {
+      const [session] = await ownedSessions({ outcome: gameResults.outcome })
+        .leftJoin(gameResults, and(eq(gameResults.sessionId, gameSessions.id), eq(gameResults.stateVersion, gameSessions.stateVersion)))
+        .where(and(eq(gameSessions.userId, userId), eq(gameSessions.id, id)))
+      return session
+    },
     async findWithState(userId: string, id: string) {
       const [session] = await observeSnapshot(observer, 'session_state_read', {}, async () => ownedSessions({
         seed: gameSessions.seed,

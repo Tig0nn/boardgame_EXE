@@ -14,6 +14,7 @@ import { liquidatableFunds, netWorth, saleQuote, totalWorth, victory } from '../
 import { borrowingAvailable, fundingSources } from '../../../src/game/transactions.ts'
 import type { GameState, TradableAsset } from '../../../src/game/types.ts'
 import { replayGameLog } from '../../../scripts/diagnostics/replay-game-log.ts'
+import { createWhatIfAssistant } from '../src/services/what-if-assistance.ts'
 import { createFoxAssistance } from '../src/services/fox-assistance.ts'
 import { buildApp } from '../src/app.ts'
 import { localDatabaseUrl } from '../src/config.ts'
@@ -495,6 +496,67 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
       t.diagnostic('What-if version ' + value.sequence + ': HTTP ' + Math.round(latency) + 'ms; delta ' + value.delta.lawfulProceedsVnd + ' VND')
     }
 
+    const assistantPath = whatIfPath + '/assistant'
+    const question = 'Gửi tiết kiệm số tiền 1.234.567 VND kỳ hạn 2 tại quyết định ' + (deposit.expectedStateVersion + 1)
+    const proposed = { operation: 'propose', stateVersion, question, allowGemini: true }
+    const explanation = { ...compare(deposit, alternativeTerm), operation: 'explain', allowGemini: true }
+    const off = await (await status(post(assistantPath, proposed), 200)).json()
+    assert.equal(off.status, 'proposal')
+    assert.equal(off.assistance, 'disabled')
+    assert.deepEqual(off.proposal, compare(deposit, alternativeTerm))
+    await status(post(assistantPath, { ...proposed, intent: { amount: 9 } }), 400)
+    await status(post(assistantPath, { ...proposed, question: 'Tài khoản test@example.com' }), 400)
+
+    let mode: 'normal' | 'timeout' | 'wrong-claim' = 'normal'
+    const operations: string[] = []
+    const mockApp = buildApp(createDatabase(url.href), issuer.config, false, undefined, createWhatIfAssistant({
+      EXE_WHATIF_GEMINI_ENABLED: '1', EXE_WHATIF_GEMINI_ALLOW_LIVE_TRAFFIC: '1',
+      EXE_WHATIF_GEMINI_MODEL: 'gemini-test', EXE_WHATIF_GEMINI_API_KEY: 'fixture-only',
+    }, async (_url, init) => {
+      const envelope = JSON.parse(String(init?.body))
+      const input = JSON.parse(envelope.contents[0].parts[0].text)
+      assert.doesNotMatch(JSON.stringify(input), /"(seed|userId|sessionId|journal|stateVersion|actual|lawfulProceedsVnd)":/)
+      assert.equal(envelope.generationConfig.maxOutputTokens, 256)
+      operations.push(input.operation)
+      if (mode === 'timeout') return new Promise<Response>(() => {})
+      const reply = input.operation === 'interpret'
+        ? { status: 'intent', intent: { kind: 'bank', action: 'deposit' } }
+        : input.operation === 'propose'
+          ? { decisionId: input.catalog[0].decisionId, alternativeId: input.catalog[0].alternativeId }
+          : { claimId: input.facts.kind + '-' + (mode === 'wrong-claim' ? 'invented' : input.facts.direction) }
+      return Response.json({ candidates: [{ finishReason: 'STOP', content: { parts: [{ text: JSON.stringify(reply) }] } }] })
+    }, 150))
+    try {
+      const send = (payload: object, bearer = authorization) =>
+        mockApp.inject({ method: 'POST', url: assistantPath, payload, headers: { authorization: bearer } })
+      assert.equal((await send(proposed, outsider)).statusCode, 404)
+      assert.equal((await send({ ...proposed, stateVersion: stateVersion - 1 })).statusCode, 409)
+      assert.deepEqual(operations, [])
+      const interpreted = (await send({ ...proposed, operation: 'interpret' })).json()
+      assert.equal(interpreted.assistance, 'used')
+      assert.equal(interpreted.interpretation.intent.amount, 1_234_567)
+      assert.equal(interpreted.interpretation.intent.term, 2)
+      const proposal = (await send(proposed)).json()
+      assert.equal(proposal.assistance, 'used')
+      assert.equal(proposal.requiresConfirmation, true)
+      assert.deepEqual(proposal.proposal, off.proposal)
+      const explained = (await send(explanation)).json()
+      assert.equal(explained.assistance, 'used')
+      assert.equal(explained.claim.basis, 'verified-final-cash')
+      assert.deepEqual(explained.evaluation, await (await status(post(whatIfPath, off.proposal), 200)).json())
+      assert.deepEqual(operations, ['interpret', 'interpret', 'propose', 'explain'])
+      mode = 'wrong-claim'
+      const safe = (await send(explanation)).json()
+      assert.equal(safe.assistance, 'output-rejected')
+      assert.deepEqual(safe.evaluation, explained.evaluation)
+      assert.deepEqual(safe.claim, explained.claim)
+      mode = 'timeout'
+      const fallback = (await send(proposed)).json()
+      assert.equal(fallback.assistance, 'timeout')
+      assert.deepEqual(fallback.proposal, off.proposal)
+      assert.equal((await send(proposed)).json().assistance, 'rate-limited')
+    } finally { await mockApp.close() }
+    t.diagnostic('What-if assistant verified all three mock operations, engine grounding, ownership, fallback and quota.')
     // A held lock is confined to this disposable database. The transaction must time
     // out cleanly, and a fresh request must recover after the lock is released.
     const lock = await database.pool.connect()

@@ -1,7 +1,7 @@
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import { readRequestBody } from '../companion/server/body.ts'
 import { boundedInteger, createLocalLimiter } from '../companion/server/limits.ts'
-import type { WhatIfProvider } from '../../../mobile_app/src/game/what-if-ai/orchestrator.ts'
+import type { WhatIfProvider } from './orchestrator.ts'
 import { explanationReply, intentReply, proposalReply, validateProviderRequest, validateWhatIfDevDeadlineMs,
   WHAT_IF_DEFAULT_SERVER_DEADLINE_MS, WhatIfApiError } from './contracts.ts'
 

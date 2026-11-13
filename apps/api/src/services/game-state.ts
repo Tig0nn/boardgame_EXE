@@ -19,7 +19,7 @@ type SessionIdentity = {
 
 type StoredSnapshot = { schemaVersion: number; payload: string }
 
-export function assertSupportedB18(session: SessionIdentity) {
+export function assertSupportedB18(session: Omit<SessionIdentity, 'seed'>) {
   if (session.scenarioId !== b18Scenario.scenarioId || session.scenarioVersion !== b18Scenario.version ||
       session.engineVersion !== b18Scenario.engineVersion || session.resultVersion !== b18Scenario.resultVersion ||
       session.gameplayProfile !== b18Scenario.gameplayProfile || session.tiles !== b18Scenario.tiles ||

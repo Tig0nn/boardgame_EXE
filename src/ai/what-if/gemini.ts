@@ -2,9 +2,9 @@ import { stockCatalog } from '../../data/stock-catalog.ts'
 import { boundedJson, intentReply, WhatIfApiError } from './contracts.ts'
 import type { ProviderRequest } from './contracts.ts'
 import { createModelWhatIfProvider } from './model-provider.ts'
-import { explanationClaim, WHAT_IF_KINDS } from '../../../mobile_app/src/game/what-if-ai/orchestrator.ts'
-import { extractTrustedIntentFacts, INTENT_COMMON_FIELDS, INTENT_FIELD_RULES, INTENT_REFUSAL_STATUSES, INTENT_VARIANTS, TRUSTED_INTENT_FIELDS } from '../../../mobile_app/src/game/what-if-ai/natural-language.ts'
-import type { NaturalIntent } from '../../../mobile_app/src/game/what-if-ai/natural-language.ts'
+import { explanationClaim, WHAT_IF_KINDS } from './orchestrator.ts'
+import { extractTrustedIntentFacts, INTENT_COMMON_FIELDS, INTENT_FIELD_RULES, INTENT_REFUSAL_STATUSES, INTENT_VARIANTS, TRUSTED_INTENT_FIELDS } from './natural-language.ts'
+import type { NaturalIntent } from './natural-language.ts'
 
 export type GeminiInterpretDiagnostic = {
   stage: 'GEMINI_HTTP' | 'GEMINI_ENVELOPE' | 'GEMINI_FINISH_REASON' | 'GEMINI_JSON_PARSE'
@@ -112,7 +112,10 @@ function hasExplicitAssetReferences(question: string, intent: NaturalIntent) {
   const symbol = intent.symbolId ?? intent.originalSymbolId
   const issuer = intent.issuerId ?? intent.originalIssuerId
   const lot = intent.lotId ?? intent.originalLotId
-  return (!symbol || words.has(symbol.toLowerCase()))
+  const preference = intent.preferenceId
+  const preferenceText = { budget: /\b(?:budget|gia ca)\b/, taste: /\b(?:taste|do uong)\b/, checkin: /\b(?:check[ -]?in|khong gian)\b/ }
+  return (!preference || preferenceText[preference].test(text))
+    && (!symbol || words.has(symbol.toLowerCase()))
     && (!issuer || (issuer === 'an-tam' ? /\ban[ -]tam\b/ : /\bbut[ -]pha\b/).test(text))
     && (!lot || words.has(lot) || new RegExp('\\b(?:lot|lo)\\s*' + lot.slice(5) + '\\b').test(text))
 }
