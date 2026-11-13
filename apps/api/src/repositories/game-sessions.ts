@@ -1,7 +1,7 @@
 import { and, desc, eq } from 'drizzle-orm'
 import type { SelectedFields } from 'drizzle-orm/pg-core'
 import type { Database } from '../db/client.ts'
-import { gameSessions, gameSnapshots, scenarioVersions } from '../db/schema.ts'
+import { gameResults, gameSessions, gameSnapshots, scenarioVersions } from '../db/schema.ts'
 
 const sessionFields = {
   id: gameSessions.id,
@@ -30,8 +30,20 @@ export function sessionRepository(db: Pick<Database, 'select' | 'insert'>) {
     ))
 
   return {
-    async find(userId: string, id: string) {
-      const [session] = await ownedSessions({})
+    async findWithState(userId: string, id: string) {
+      const [session] = await ownedSessions({
+        seed: gameSessions.seed,
+        snapshot: { schemaVersion: gameSnapshots.schemaVersion, payload: gameSnapshots.payload },
+        result: { outcome: gameResults.outcome, lawfulProceedsVnd: gameResults.lawfulProceedsVnd },
+      })
+        .leftJoin(gameSnapshots, and(
+          eq(gameSnapshots.sessionId, gameSessions.id),
+          eq(gameSnapshots.stateVersion, gameSessions.stateVersion),
+        ))
+        .leftJoin(gameResults, and(
+          eq(gameResults.sessionId, gameSessions.id),
+          eq(gameResults.stateVersion, gameSessions.stateVersion),
+        ))
         .where(and(eq(gameSessions.userId, userId), eq(gameSessions.id, id)))
       return session
     },

@@ -4,7 +4,7 @@ import { setTimeout as delay } from 'node:timers/promises'
 import { test } from 'node:test'
 import { eq, sql } from 'drizzle-orm'
 import { eventsForGame } from '../../../src/data/events.ts'
-import { advance, decide, roll } from '../../../src/game/engine.ts'
+import { advance, canChoose, decide, roll } from '../../../src/game/engine.ts'
 import { serializeLog } from '../../../src/game/log.ts'
 import { createMultiCourseGame } from '../../../src/game/new-game.ts'
 import { restoreSavedGame } from '../../../src/game/saved-game.ts'
@@ -97,7 +97,7 @@ test('Phase 2A actions on PostgreSQL', { timeout: 90_000 }, async t => {
     assert.deepEqual(denied.json(), (await post(randomUUID(), action, randomUUID(), other)).json())
     for (const invalid of [
       command('trade', 0), command('advance', 0, { seed: 'x', cash: 0 }),
-      command('choose', 0, { optionId: 'course-basic' }), command('advance', -1),
+      command('choose', 0, { optionId: 'course-made-up' }), command('advance', -1),
       command('advance', 0.5), { ...action, state: {} }, { ...action, payload: [] },
     ]) {
       assert.equal((await post(id, invalid)).statusCode, 400)
@@ -303,7 +303,8 @@ test('Phase 2A actions on PostgreSQL', { timeout: 90_000 }, async t => {
       } else if (game.phase === 'event') {
         const event = eventsForGame(game).find(event => event.id === game.eventId)!
         const options = event.options.map(option => option.id)
-        const optionId = ['skip', 'acknowledge', 'defer', 'temporary'].find(id => options.includes(id))
+        const optionId = ['course-basic', 'course-advanced', 'skip', 'acknowledge', 'defer', 'temporary']
+          .find(id => options.includes(id) && canChoose(game, id))
         assert.ok(optionId, event.id)
         action = command('choose', version, { optionId })
         next = decide(game, optionId)
@@ -355,6 +356,7 @@ test('Phase 2A actions on PostgreSQL', { timeout: 90_000 }, async t => {
     assert.ok(finalCommand && choice)
     assert.equal(game.phase, 'finished')
     assert.equal(game.summaries.length, 4)
+    assert.deepEqual(game.ownedCourses, ['basic', 'advanced'])
     assert.ok(game.market.appliedShocks.length > 0)
     assert.deepEqual(game.market.normalLaps, [1, 2, 3, 4])
 

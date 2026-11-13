@@ -1,6 +1,6 @@
 import { z } from 'zod'
+import { eventsForGame } from '../../../src/data/events.ts'
 import { b18Scenario } from './services/b18.ts'
-import { supportedChoices } from './services/b18-actions.ts'
 
 export const createSessionBody = z.strictObject({ scenarioId: z.literal(b18Scenario.scenarioId) })
 export const idempotencyKey = z.uuid()
@@ -15,14 +15,24 @@ export const listSessionsQuery = z.strictObject({
 })
 
 const expectedStateVersion = z.number().int().min(0).max(2_147_483_647)
+const optionIds = new Set(eventsForGame(b18Scenario).flatMap(event => event.options.map(option => option.id)))
+const amount = z.number().int().positive().max(Number.MAX_SAFE_INTEGER)
+const lotId = z.string().min(1).max(64)
+
+const fundingPayload = z.union([
+  z.strictObject({ source: z.literal('savings'), amount, lotId: lotId.optional() }),
+  z.strictObject({ source: z.literal('bonds'), amount, lotId }),
+  z.strictObject({ source: z.enum(['stocks', 'gold', 'debt']), amount }),
+])
 
 export const gameActionBody = z.discriminatedUnion('actionId', [
   z.strictObject({ actionId: z.literal('advance'), expectedStateVersion, payload: z.strictObject({}) }),
   z.strictObject({ actionId: z.literal('roll'), expectedStateVersion, payload: z.strictObject({}) }),
   z.strictObject({
     actionId: z.literal('choose'), expectedStateVersion,
-    payload: z.strictObject({ optionId: z.enum(supportedChoices) }),
+    payload: z.strictObject({ optionId: z.string().refine(id => optionIds.has(id)) }),
   }),
+  z.strictObject({ actionId: z.literal('fund'), expectedStateVersion, payload: fundingPayload }),
 ])
 
 export type GameActionRequest = z.infer<typeof gameActionBody>

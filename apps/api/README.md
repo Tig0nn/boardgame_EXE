@@ -1,4 +1,4 @@
-# EXE Backend Phase 2A trên Windows
+# EXE Backend Phase 2B trên Windows
 
 Chạy các lệnh PowerShell từ thư mục gốc của worktree. Cần Node.js 22.14 trở lên trong dòng 22 LTS, npm và Docker Desktop ở chế độ Linux containers. Mở Docker Desktop rồi kiểm tra cả phần Client và Server trong `docker version`.
 
@@ -22,7 +22,7 @@ if (-not (Test-Path -LiteralPath '.env')) {
   $exeLocalPassword = node -p "require('node:crypto').randomBytes(24).toString('hex')"
   $exeLocalEnv = Get-Content -LiteralPath '.env.example' -Raw
   $exeLocalEnv = $exeLocalEnv.Replace('POSTGRES_PASSWORD=', "POSTGRES_PASSWORD=$exeLocalPassword")
-  $exeLocalEnv = $exeLocalEnv.Replace('DATABASE_URL=', "DATABASE_URL=postgresql://exe_v1:${exeLocalPassword}@127.0.0.1:55433/exe_v1")
+  $exeLocalEnv = $exeLocalEnv.Replace('DATABASE_URL=', "DATABASE_URL=postgresql://exe_v1:${exeLocalPassword}@127.0.0.1:55434/exe_v1")
   Set-Content -LiteralPath '.env' -Value $exeLocalEnv -Encoding ascii
 }
 docker compose up -d --wait
@@ -32,11 +32,11 @@ npm run db:migrate
 npm run dev
 ```
 
-Phase 2A dùng project Compose `exe-backend-v2a` từ `.env.example`, với volume riêng cho worktree này. PostgreSQL nghe trên `127.0.0.1:55433`. API nghe trên `http://127.0.0.1:3101`. Dùng PowerShell thứ hai để kiểm tra.
+Phase 2B dùng project Compose `exe-backend-v2b` từ `.env.example`, với volume riêng cho worktree này. PostgreSQL nghe trên `127.0.0.1:55434`. API nghe trên `http://127.0.0.1:3102`. Dùng PowerShell thứ hai để kiểm tra.
 
 ```powershell
-Invoke-RestMethod http://127.0.0.1:3101/health
-Invoke-RestMethod http://127.0.0.1:3101/ready
+Invoke-RestMethod http://127.0.0.1:3102/health
+Invoke-RestMethod http://127.0.0.1:3102/ready
 ```
 
 Khi chưa có `AUTH_ISSUER`, hai health probes hoạt động và các route `/v1` trả `503 AUTH_UNAVAILABLE`. Để dùng dự án Supabase đã có, cấu hình `AUTH_ISSUER=https://<project-ref>.supabase.co/auth/v1` trong `.env`, bật khóa ký bất đối xứng ES256 hoặc RS256 của dự án và khởi động lại API. `AUTH_AUDIENCE` mặc định là `authenticated`. Client dùng access token của tài khoản đã đăng nhập qua Supabase Auth. Không cần API key hay service-role key trong backend này.
@@ -44,13 +44,22 @@ Khi chưa có `AUTH_ISSUER`, hai health probes hoạt động và các route `/v
 ```powershell
 # EXE_ACCESS_TOKEN chứa access token do Supabase cấp cho người dùng thử.
 $exeHeaders = @{ Authorization = "Bearer $env:EXE_ACCESS_TOKEN" }
-Invoke-RestMethod http://127.0.0.1:3101/v1/me -Headers $exeHeaders
+Invoke-RestMethod http://127.0.0.1:3102/v1/me -Headers $exeHeaders
 $exeHeaders['Idempotency-Key'] = [guid]::NewGuid().ToString()
-$exeSession = Invoke-RestMethod http://127.0.0.1:3101/v1/game-sessions -Method Post -Headers $exeHeaders -ContentType 'application/json' -Body '{"scenarioId":"b18"}'
+$exeSession = Invoke-RestMethod http://127.0.0.1:3102/v1/game-sessions -Method Post -Headers $exeHeaders -ContentType 'application/json' -Body '{"scenarioId":"b18"}'
 $exeSessionId = $exeSession.session.id
 $exeHeaders['Idempotency-Key'] = [guid]::NewGuid().ToString()
 $exeAction = '{"actionId":"advance","payload":{},"expectedStateVersion":0}'
-Invoke-RestMethod "http://127.0.0.1:3101/v1/game-sessions/$exeSessionId/actions" -Method Post -Headers $exeHeaders -ContentType 'application/json' -Body $exeAction
+Invoke-RestMethod "http://127.0.0.1:3102/v1/game-sessions/$exeSessionId/actions" -Method Post -Headers $exeHeaders -ContentType 'application/json' -Body $exeAction
+```
+
+Khi action trả `409 STATE_VERSION_CONFLICT`, đọc lại state/version trước khi gửi lệnh mới. Lần gửi lại sau timeout cần giữ cùng idempotency key và body.
+
+```powershell
+$exeState = Invoke-RestMethod "http://127.0.0.1:3102/v1/game-sessions/$exeSessionId" -Headers $exeHeaders
+$exeState.session.stateVersion
+$exeState.state.availableActions
+$exeState.state.fundingOptions
 ```
 
 Xem [hợp đồng API](../../docs/backend/API_CONTRACT_V1.md) để biết mã lỗi và hành vi khi gửi lại yêu cầu.
@@ -77,11 +86,11 @@ Dừng API bằng Ctrl+C. `docker compose stop` dừng PostgreSQL và giữ volu
 
 ```powershell
 docker compose stop
-docker compose -p exe-backend-v2a-fresh up -d --wait
+docker compose -p exe-backend-v2b-fresh up -d --wait
 npm run db:migrate
 ```
 
-Dừng project mới bằng `docker compose -p exe-backend-v2a-fresh stop`, rồi dùng `docker compose up -d --wait` để quay lại database gốc. Mỗi tên project tạo volume riêng ở lần chạy đầu. Dùng tên mới nếu đã từng khởi tạo project `exe-backend-v2a-fresh`.
+Dừng project mới bằng `docker compose -p exe-backend-v2b-fresh stop`, rồi dùng `docker compose up -d --wait` để quay lại database gốc. Mỗi tên project tạo volume riêng ở lần chạy đầu. Dùng tên mới nếu đã từng khởi tạo project `exe-backend-v2b-fresh`.
 
 ## Xử lý sự cố
 
@@ -89,7 +98,7 @@ Dừng project mới bằng `docker compose -p exe-backend-v2a-fresh stop`, rồ
 | --- | --- |
 | Không kết nối được Docker Engine | Mở Docker Desktop và chờ `docker version` báo phần Server. |
 | Tải image Docker Hub lỗi CDN | Thử lại `docker pull postgres:17-bookworm`. Nếu CDN vẫn lỗi, có thể tải qua `mirror.gcr.io/library/postgres:17-bookworm`, đối chiếu digest bằng `docker buildx imagetools inspect postgres:17-bookworm`, rồi tag image đã xác minh thành `postgres:17-bookworm`. |
-| Cổng 55433 hoặc 3101 đã được dùng | Đổi `POSTGRES_PORT` cùng cổng trong `DATABASE_URL`, hoặc đổi `API_PORT`. |
+| Cổng 55434 hoặc 3102 đã được dùng | Đổi `POSTGRES_PORT` cùng cổng trong `DATABASE_URL`, hoặc đổi `API_PORT`. |
 | `db:check` thất bại | Kiểm tra `docker compose ps`, cổng và mật khẩu trong `.env`. Volume đã khởi tạo giữ mật khẩu cũ của PostgreSQL. |
 | `/ready` trả 503 | Kiểm tra container và `npm run db:check`. |
 | Route V1 trả 401 | Kiểm tra issuer, audience, thời hạn và khóa ký của access token. |
@@ -97,4 +106,4 @@ Dừng project mới bằng `docker compose -p exe-backend-v2a-fresh stop`, rồ
 
 [Kiến trúc V1](../../docs/backend/ARCHITECTURE_V1.md) · [Cơ sở dữ liệu V1](../../docs/backend/DATABASE_V1.md)
 
-[Thiết kế Phase 2A](../../docs/backend/ACTIONS_V2A.md)
+[Thiết kế Phase 2B](../../docs/backend/ACTIONS_V2B.md)

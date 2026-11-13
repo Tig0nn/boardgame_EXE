@@ -25,3 +25,5 @@ Bộ integration dùng `TEMPLATE template0` để kiểm tra migration trên dat
 Phase 2A sử dụng ba migration hiện có. `game_actions.sequence` là state version sau action, nên expected version của lệnh đã commit bằng `sequence - 1`. Cặp `(session_id, idempotency_key)` tra được lệnh gốc. Snapshot có cùng version dùng để trả lại response lịch sử. Seed, genesis, chuỗi lệnh có thứ tự và metadata engine/result đủ để kiểm tra replay theo checkpoint.
 
 Khi engine kết thúc, cùng transaction cập nhật session thành `completed` và thêm đúng một dòng `game_results` tham chiếu final snapshot. [Thiết kế Phase 2A](./ACTIONS_V2A.md)
+
+Phase 2B lưu thêm payload funding/event bằng cùng schema và tra snapshot/kết quả hiện tại theo cặp session/version. [Thiết kế Phase 2B](./ACTIONS_V2B.md)

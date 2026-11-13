@@ -2,11 +2,11 @@ import type { FastifyInstance, FastifyRequest } from 'fastify'
 import { createAuthenticator } from '../auth.ts'
 import type { JwtAuthConfig } from '../auth.ts'
 import type { Database } from '../db/client.ts'
-import { notFound } from '../errors.ts'
 import { getOrCreateProfile } from '../repositories/profiles.ts'
 import { sessionRepository } from '../repositories/game-sessions.ts'
 import { executeGameAction } from '../services/game-actions.ts'
 import { createGameSession } from '../services/game-sessions.ts'
+import { readGameState } from '../services/game-state.ts'
 import { createSessionBody, gameActionBody, idempotencyKey, listSessionsQuery, sessionParams } from '../validation.ts'
 
 declare module 'fastify' {
@@ -57,8 +57,6 @@ export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAu
 
   api.get('/game-sessions/:id', async request => {
     const { id } = sessionParams.parse(request.params)
-    const session = await sessions.find(playerId(request), id)
-    if (!session) throw notFound()
-    return { session }
+    return readGameState(db, playerId(request), id)
   })
 }

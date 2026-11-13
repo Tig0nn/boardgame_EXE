@@ -1,10 +1,9 @@
 import { eventsForGame } from '../../../../src/data/events.ts'
-import { advance, canChoose, decide, roll } from '../../../../src/game/engine.ts'
+import { advance, canChoose, decide, fundPayment, roll } from '../../../../src/game/engine.ts'
 import { liquidatableFunds, victory } from '../../../../src/game/selectors.ts'
 import type { GameState } from '../../../../src/game/types.ts'
 import type { GameActionRequest } from '../validation.ts'
-
-export const supportedChoices = ['skip', 'acknowledge', 'defer', 'temporary'] as const
+import { b18FundingOptions, canFundB18 } from './b18-funding.ts'
 
 export function transitionB18(game: GameState, request: GameActionRequest): GameState {
   switch (request.actionId) {
@@ -14,13 +13,27 @@ export function transitionB18(game: GameState, request: GameActionRequest): Game
       const { optionId } = request.payload
       return canChoose(game, optionId) ? decide(game, optionId) : game
     }
+    case 'fund': {
+      const { source, amount } = request.payload
+      const lotId = 'lotId' in request.payload ? request.payload.lotId : undefined
+      return canFundB18(game, source, amount, lotId) ? fundPayment(game, source, amount, lotId) : game
+    }
   }
 }
 
-export function publicB18State(game: GameState) {
-  const event = game.phase === 'event'
+export function publicB18State(game: GameState, active = game.phase !== 'finished') {
+  const event = active && game.phase === 'event'
     ? eventsForGame(game).find(item => item.id === game.eventId)
     : undefined
+  const options = event?.options.filter(option => canChoose(game, option.id)) ?? []
+  const fundingOptions = active ? b18FundingOptions(game) : []
+  const availableActions: GameActionRequest['actionId'][] = []
+  if (active) {
+    if (game.phase === 'rolling') availableActions.push('roll')
+    if (game.phase === 'forecast' || game.phase === 'summary' || game.phase === 'rebalancing') availableActions.push('advance')
+    if (options.length) availableActions.push('choose')
+    if (fundingOptions.length) availableActions.push('fund')
+  }
   const { stocks, gold, appliedShocks, normalLaps } = game.market
   return {
     boardLayout: game.boardLayout,
@@ -42,8 +55,9 @@ export function publicB18State(game: GameState) {
     summaries: game.summaries,
     pendingPayment: game.pendingPayment,
     termination: game.termination,
-    options: event?.options.filter(option =>
-      supportedChoices.some(id => id === option.id) && canChoose(game, option.id)) ?? [],
+    availableActions,
+    options,
+    fundingOptions,
     market: {
       stocks: stocks.map(({ id, currentPrice }) => ({ id, currentPrice })),
       gold: { currentPrice: gold.currentPrice },
