@@ -6,10 +6,11 @@ import { getOrCreateProfile } from '../repositories/profiles.ts'
 import { sessionRepository } from '../repositories/game-sessions.ts'
 import { executeGameAction } from '../services/game-actions.ts'
 import { createGameSession } from '../services/game-sessions.ts'
+import { quoteGameBusiness } from '../services/business-quotes.ts'
 import { quoteGameBank } from '../services/bank-quotes.ts'
 import { quoteGameTrade } from '../services/trading-quotes.ts'
 import { readGameState } from '../services/game-state.ts'
-import { bankQuoteBody, createSessionBody, gameActionBody, idempotencyKey, listSessionsQuery, sessionParams, tradeQuoteBody } from '../validation.ts'
+import { bankQuoteBody, businessQuoteBody, createSessionBody, gameActionBody, idempotencyKey, listSessionsQuery, sessionParams, tradeQuoteBody } from '../validation.ts'
 
 declare module 'fastify' {
   interface FastifyRequest {
@@ -66,6 +67,11 @@ export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAu
   api.post('/game-sessions/:id/bank-quote', async request => {
     const { id } = sessionParams.parse(request.params)
     return quoteGameBank(db, playerId(request), id, bankQuoteBody.parse(request.body))
+  })
+
+  api.post('/game-sessions/:id/business-quote', async request => {
+    const { id } = sessionParams.parse(request.params)
+    return quoteGameBusiness(db, playerId(request), id, businessQuoteBody.parse(request.body))
   })
 
   api.get('/game-sessions/:id', async request => {

@@ -1,6 +1,6 @@
 # REST API V1
 
-Môi trường Phase 2C2 dùng `http://127.0.0.1:3104` theo `.env.example`. Các route `/v1` yêu cầu `Authorization: Bearer <access-token>` và trả `Cache-Control: no-store`. Dữ liệu phản hồi dùng JSON và timestamp ISO 8601 UTC.
+Môi trường Phase 2C3 dùng `http://127.0.0.1:3105` theo `.env.example`. Các route `/v1` yêu cầu `Authorization: Bearer <access-token>` và trả `Cache-Control: no-store`. Dữ liệu phản hồi dùng JSON và timestamp ISO 8601 UTC.
 
 | Method và path | Input | Thành công |
 | --- | --- | --- |
@@ -12,6 +12,7 @@ Môi trường Phase 2C2 dùng `http://127.0.0.1:3104` theo `.env.example`. Các
 | `POST /v1/game-sessions/:id/actions` | UUID session, UUID `Idempotency-Key` và JSON theo mục Actions. | 200, trạng thái tại version mà action đã commit. |
 | `POST /v1/game-sessions/:id/trade-quote` | JWT owner, UUID session, JSON `{ expectedStateVersion, payload }` với payload trade. | 200 `{ sessionId, stateVersion, payload, quote }`. |
 | `POST /v1/game-sessions/:id/bank-quote` | JWT owner, UUID session, JSON `{ actionId, expectedStateVersion, payload }` theo mục Bank. | 200 `{ sessionId, stateVersion, actionId, payload, quote }`. |
+| `POST /v1/game-sessions/:id/business-quote` | JWT owner, UUID session và JSON `{ expectedStateVersion, payload }` theo mục Business. | 200 `{ sessionId, stateVersion, payload, quote }`. |
 | `GET /v1/game-sessions/:id` | UUID session | 200 `{ session, state, result }` cho owner hiện tại, cùng một version đã commit. |
 
 Session gồm `id`, `scenarioId`, `scenarioVersion`, `gameplayProfile`, `engineVersion`, `resultVersion`, `tiles`, `laps`, `status`, `stateVersion`, `createdAt` và `updatedAt`. Session mới có `status=active` và `stateVersion=0`. Seed, trạng thái RNG và snapshot được giữ trong backend. POST tạo session từ chối mọi trường ngoài `scenarioId`, gồm `userId`, seed, tiền, portfolio và kết quả.
@@ -29,7 +30,7 @@ Lỗi có dạng `{"error":{"code":"INVALID_REQUEST","message":"Invalid request"
 | 503 | `AUTH_UNAVAILABLE` | Chưa cấu hình issuer hoặc JWKS không khả dụng |
 | 503 | `DATABASE_UNAVAILABLE` | Readiness probe không kết nối hoặc truy vấn được PostgreSQL |
 
-## Actions B18 · Phase 2C2
+## Actions B18 · Phase 2C3
 
 Gửi `POST /v1/game-sessions/:id/actions` với access token của owner và header `Idempotency-Key` là UUID. Body phải có đủ ba trường sau.
 
@@ -58,7 +59,7 @@ Retry sau timeout hoặc mất response cần giữ nguyên key và cả body. R
 | 409 | `IDEMPOTENCY_KEY_REUSED` | Key đã commit cho action ID, payload hoặc expected version khác |
 | 409 | `STATE_VERSION_CONFLICT` | Key mới với expected version khác version hiện tại |
 | 409 | `SESSION_NOT_ACTIVE` | Lệnh mới trên session đã kết thúc hoặc bị bỏ |
-| 409 | `SCENARIO_UNSUPPORTED` | Session dùng scenario, engine hoặc rules ngoài phạm vi Phase 2C2 |
+| 409 | `SCENARIO_UNSUPPORTED` | Session dùng scenario, engine hoặc rules ngoài phạm vi Phase 2C3 |
 | 422 | `ACTION_NOT_ALLOWED` | Lệnh đúng schema nhưng engine từ chối ở phase/event hiện tại |
 
 Các lỗi chung trong bảng trên vẫn áp dụng, gồm 404 cho session thuộc người khác và 400 cho action/payload ngoài schema. Lỗi DB khi xử lý action trả 500. Sau khi DB phục hồi, gửi lại cùng key và body.
@@ -93,3 +94,19 @@ Dùng `stateVersion` của quote làm `expectedStateVersion` trong action, với
 `state.bank` cung cấp `canDeposit`, `canRepay`, `savingsRates`, `deposits`, `borrowingLimit`, `borrowingAvailable`, `netWorth`, `totalWorth` và `liquidatableFunds`. `state.fundingOptions` cho biết các nguồn có thể dùng để trả khoản thiếu. Payload sai schema trả 400, version cũ hoặc session inactive trả 409, hành động sai phase hoặc vượt khả năng tài chính trả 422.
 
 [Thiết kế Phase 2C2](./ACTIONS_V2C2.md)
+
+## Business · Phase 2C3
+
+Gửi `actionId: "trade"` với một trong các payload dưới đây, `expectedStateVersion` và UUID `Idempotency-Key`.
+
+| Payload | Điều kiện |
+| --- | --- |
+| `{"kind":"buy","asset":"business","amount":20000000}` | Gặp ô Business, chưa có cơ sở và đủ tiền mặt. Mua xong trở về `rolling`. |
+| `{"kind":"upgrade","asset":"business","amount":5000000,"customerPreferenceId":"taste"}` | Đang sở hữu và gặp lại ô Business sau lượt mua. Tối đa một nâng cấp mỗi lượt ghé và sáu tầng. `customerPreferenceId` có thể là `checkin`, `budget` hoặc `taste`. Bỏ trường này để engine dùng thị hiếu hiện tại. |
+| `{"kind":"sell","asset":"business","amount":14000000}` | Bán toàn bộ tại ô Business sau lượt mua. Dùng số tiền trong lệnh `sell` của `state.business.actions`. Giá trị 14.000.000 VND chỉ là ví dụ. |
+
+GET session và response action trả `state.business`. Các trường gồm `owned`, `capital`, `currentSaleValue`, `currentStartIncome`, `upgrades`, `levels`, `maxUpgrades`, chi phí, `currentCustomerPreference`, `specializations` và `actions`. Mỗi specialization có `currentStartIncomeIncrease` theo thị hiếu vòng hiện tại. `state.bank.liquidatableFunds` tiếp tục dùng điều kiện huy động canonical.
+
+`POST /v1/game-sessions/:id/business-quote` nhận cùng `payload` và `expectedStateVersion`. Không cần idempotency key. Quote có `cashPaid`, `cashReceived`, `cashAfter`, `phaseAfter`, `businessAfter`, `netWorthAfter`, `totalWorthAfter` và `liquidatableFundsAfter`. Gửi lại payload với version của quote qua action API để commit. Field tài chính do client tự tính bị từ chối với 400. Version cũ trả 409. Lệnh sai phase, sai giá trị canonical hoặc thiếu tiền trả 422.
+
+[Thiết kế Phase 2C3](./ACTIONS_V2C3.md)

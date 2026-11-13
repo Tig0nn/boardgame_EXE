@@ -1,4 +1,4 @@
-name: exe-backend-v2c2
+name: exe-backend-v2c3
 
 services:
   postgres:
@@ -8,7 +8,7 @@ services:
       POSTGRES_DB: exe_v1
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in apps/api/.env}
     ports:
-      - "127.0.0.1:${POSTGRES_PORT:-55436}:5432"
+      - "127.0.0.1:${POSTGRES_PORT:-55437}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:

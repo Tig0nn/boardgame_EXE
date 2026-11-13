@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { BOND_ISSUERS } from '../../../src/data/bond-issuers.ts'
+import { CUSTOMER_PREFERENCES } from '../../../src/data/customer-preferences.ts'
 import { eventsForGame } from '../../../src/data/events.ts'
 import { b18Scenario } from './services/b18.ts'
 
@@ -38,6 +39,19 @@ const tradePayload = z.union([
 export type TradePayload = z.infer<typeof tradePayload>
 export const tradeQuoteBody = z.strictObject({ expectedStateVersion, payload: tradePayload })
 
+const businessAsset = z.literal('business')
+const businessPayload = z.discriminatedUnion('kind', [
+  z.strictObject({ kind: z.literal('buy'), asset: businessAsset, amount }),
+  z.strictObject({ kind: z.literal('sell'), asset: businessAsset, amount: z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER) }),
+  z.strictObject({
+    kind: z.literal('upgrade'), asset: businessAsset, amount,
+    customerPreferenceId: z.enum(CUSTOMER_PREFERENCES.map(preference => preference.id)).optional(),
+  }),
+])
+export type BusinessPayload = z.infer<typeof businessPayload>
+export const businessQuoteBody = z.strictObject({ expectedStateVersion, payload: businessPayload })
+export type BusinessQuoteRequest = z.infer<typeof businessQuoteBody>
+
 const bankPayload = z.discriminatedUnion('kind', [
   z.strictObject({ kind: z.literal('deposit'), amount, term: z.union([z.literal(1), z.literal(2), z.literal(3)]).optional() }),
   z.strictObject({ kind: z.literal('repay'), amount }),
@@ -63,7 +77,7 @@ export const gameActionBody = z.discriminatedUnion('actionId', [
     payload: z.strictObject({ optionId: z.string().refine(id => optionIds.has(id)) }),
   }),
   z.strictObject({ actionId: z.literal('fund'), expectedStateVersion, payload: fundingPayload }),
-  z.strictObject({ actionId: z.literal('trade'), expectedStateVersion, payload: z.union([tradePayload, bankPayload]) }),
+  z.strictObject({ actionId: z.literal('trade'), expectedStateVersion, payload: z.union([tradePayload, bankPayload, businessPayload]) }),
 ])
 
 export type GameActionRequest = z.infer<typeof gameActionBody>

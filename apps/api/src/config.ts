@@ -3,7 +3,7 @@ import { z } from 'zod'
 const postgresUrl = z.url({ protocol: /^postgres(?:ql)?$/ })
 const settings = z.object({
   DATABASE_URL: postgresUrl,
-  API_PORT: z.coerce.number().int().min(1).max(65535).default(3104),
+  API_PORT: z.coerce.number().int().min(1).max(65535).default(3105),
   AUTH_ISSUER: z.union([z.literal(''), z.url({ protocol: /^https$/ })]).default(''),
   AUTH_AUDIENCE: z.string().trim().min(1).default('authenticated'),
 })

@@ -21,7 +21,7 @@ test('trade payload preserves canonical identifiers and rejects prices, balances
   for (const trade of [
     { ...valid[0], price: 1 }, { ...valid[0], cash: 1 }, { ...valid[0], holdings: {} },
     { ...valid[0], amount: 0 }, { ...valid[0], amount: 1.25 }, { ...valid[0], amount: Number.MAX_SAFE_INTEGER + 1 },
-    { ...valid[0], asset: 'business' }, { ...valid[0], kind: 'deposit' },
+    { ...valid[0], asset: 'bank' }, { ...valid[0], kind: 'deposit' },
     { kind: 'buy', asset: 'bonds', amount: 1 }, { kind: 'sell', asset: 'bonds', amount: 1 },
     { kind: 'buy', asset: 'bonds', amount: 1, issuerId: 'unknown' },
   ]) assert.equal(parse(trade).success, false)

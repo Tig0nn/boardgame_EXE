@@ -13,7 +13,7 @@
     "build": "tsc -p tsconfig.build.json",
     "lint": "eslint src tests drizzle.config.ts",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
-    "test:integration": "node --env-file-if-exists=.env --experimental-strip-types --test tests/postgres.integration.ts tests/actions.integration.ts tests/funding-events.integration.ts tests/trading.integration.ts tests/bank.integration.ts",
+    "test:integration": "node --env-file-if-exists=.env --experimental-strip-types --test tests/postgres.integration.ts tests/actions.integration.ts tests/funding-events.integration.ts tests/trading.integration.ts tests/bank.integration.ts tests/business.integration.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "node --env-file-if-exists=.env --experimental-strip-types src/db/cli.ts migrate",
     "db:check": "node --env-file-if-exists=.env --experimental-strip-types src/db/cli.ts check"
