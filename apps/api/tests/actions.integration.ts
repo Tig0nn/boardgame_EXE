@@ -324,7 +324,8 @@ test('Phase 2A actions on PostgreSQL', { timeout: 90_000 }, async t => {
           assert.equal((await session(id)).stateVersion, version)
           assert.equal((await session(id)).status, 'active')
           assert.equal((await actions(id)).length, version)
-          assert.equal((await snapshots(id)).length, version + 1)
+          const snapshotCount = await database.db.$count(gameSnapshots, eq(gameSnapshots.sessionId, id))
+          assert.equal(snapshotCount, version + 1)
           assert.deepEqual(await results(id), [])
         } finally {
           await database.pool.query('ALTER TABLE game_results DROP CONSTRAINT test_no_result')

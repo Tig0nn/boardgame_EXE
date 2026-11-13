@@ -178,6 +178,7 @@ test('Phase 2C1 real HTTP and PostgreSQL trading journey', { timeout: 120_000 },
     const expected = canonicalStep(game, command)
     const key = randomUUID()
     let response: Response
+    let retried: unknown
     if (command.actionId !== 'trade') {
       response = await post(actionPath, command, key)
     } else {
@@ -247,7 +248,7 @@ test('Phase 2C1 real HTTP and PostgreSQL trading journey', { timeout: 120_000 },
         const committedKey = (await history()).at(-1)!.idempotencyKey
         const duplicate = await post(actionPath, command, committedKey)
         assert.equal(duplicate.status, 200)
-        assert.deepEqual(await duplicate.json(), await response.clone().json())
+        retried = await duplicate.json()
         const changed = await post(actionPath, { ...command, payload: { ...trade, amount: trade.amount + 1 } }, committedKey)
         assert.equal(changed.status, 409)
         assert.equal((await changed.json()).error.code, 'IDEMPOTENCY_KEY_REUSED')
@@ -279,8 +280,9 @@ test('Phase 2C1 real HTTP and PostgreSQL trading journey', { timeout: 120_000 },
       else sold.add(trade.asset)
     }
 
-    assert.equal(response.status, 200, await response.clone().text())
+    if (response.status !== 200) assert.fail('Unexpected trade response ' + response.status + ': ' + await response.text())
     const value = await response.json()
+    if (retried !== undefined) assert.deepEqual(retried, value)
     assert.equal(value.stateVersion, version + 1)
     assert.deepEqual(value.state.portfolio, expected.portfolio)
     assert.deepEqual(value.state.holdings.stocks, expected.stockHoldings)

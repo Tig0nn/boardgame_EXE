@@ -3,6 +3,7 @@ import { advance, canChoose, decide, fundPayment, roll } from '../../../../src/g
 import { liquidatableFunds, victory } from '../../../../src/game/selectors.ts'
 import type { GameState } from '../../../../src/game/types.ts'
 import type { GameActionRequest } from '../validation.ts'
+import { publicBankState, transitionB18Bank } from './b18-bank.ts'
 import { b18FundingOptions, canFundB18 } from './b18-funding.ts'
 import { b18TradingAsset, transitionB18Trade } from './b18-trading.ts'
 
@@ -10,7 +11,10 @@ export function transitionB18(game: GameState, request: GameActionRequest): Game
   switch (request.actionId) {
     case 'advance': return advance(game)
     case 'roll': return roll(game)
-    case 'trade': return transitionB18Trade(game, request.payload) ?? game
+    case 'trade': {
+      const action = request.payload
+      return ('asset' in action ? transitionB18Trade(game, action) : transitionB18Bank(game, action)) ?? game
+    }
     case 'choose': {
       const { optionId } = request.payload
       return canChoose(game, optionId) ? decide(game, optionId) : game
@@ -30,13 +34,14 @@ export function publicB18State(game: GameState, active = game.phase !== 'finishe
   const options = event?.options.filter(option => canChoose(game, option.id)) ?? []
   const fundingOptions = active ? b18FundingOptions(game) : []
   const tradingAsset = active ? b18TradingAsset(game) : null
+  const bank = publicBankState(game, active)
   const availableActions: GameActionRequest['actionId'][] = []
   if (active) {
     if (game.phase === 'rolling') availableActions.push('roll')
     if (game.phase === 'forecast' || game.phase === 'summary' || game.phase === 'rebalancing') availableActions.push('advance')
     if (options.length) availableActions.push('choose')
     if (fundingOptions.length) availableActions.push('fund')
-    if (tradingAsset) availableActions.push('trade')
+    if (tradingAsset || bank.canDeposit || bank.canRepay) availableActions.push('trade')
   }
   const { stocks, gold, appliedShocks, normalLaps } = game.market
   return {
@@ -63,6 +68,7 @@ export function publicB18State(game: GameState, active = game.phase !== 'finishe
     options,
     fundingOptions,
     tradingAsset,
+    bank,
     holdings: {
       stocks: game.stockHoldings,
       gold: { units: game.goldUnits, costBasis: game.goldCostBasis },

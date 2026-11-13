@@ -1,6 +1,6 @@
 # REST API V1
 
-Môi trường Phase 2C1 dùng `http://127.0.0.1:3103` theo `.env.example`. Các route `/v1` yêu cầu `Authorization: Bearer <access-token>` và trả `Cache-Control: no-store`. Dữ liệu phản hồi dùng JSON và timestamp ISO 8601 UTC.
+Môi trường Phase 2C2 dùng `http://127.0.0.1:3104` theo `.env.example`. Các route `/v1` yêu cầu `Authorization: Bearer <access-token>` và trả `Cache-Control: no-store`. Dữ liệu phản hồi dùng JSON và timestamp ISO 8601 UTC.
 
 | Method và path | Input | Thành công |
 | --- | --- | --- |
@@ -11,6 +11,7 @@ Môi trường Phase 2C1 dùng `http://127.0.0.1:3103` theo `.env.example`. Các
 | `POST /v1/game-sessions` | Header `Idempotency-Key` là UUID. JSON `{"scenarioId":"b18"}`. | 201 `{ "session": {...} }`, kèm `Location`. Gửi lại cùng khóa và owner trả 200, cùng resource. |
 | `POST /v1/game-sessions/:id/actions` | UUID session, UUID `Idempotency-Key` và JSON theo mục Actions. | 200, trạng thái tại version mà action đã commit. |
 | `POST /v1/game-sessions/:id/trade-quote` | JWT owner, UUID session, JSON `{ expectedStateVersion, payload }` với payload trade. | 200 `{ sessionId, stateVersion, payload, quote }`. |
+| `POST /v1/game-sessions/:id/bank-quote` | JWT owner, UUID session, JSON `{ actionId, expectedStateVersion, payload }` theo mục Bank. | 200 `{ sessionId, stateVersion, actionId, payload, quote }`. |
 | `GET /v1/game-sessions/:id` | UUID session | 200 `{ session, state, result }` cho owner hiện tại, cùng một version đã commit. |
 
 Session gồm `id`, `scenarioId`, `scenarioVersion`, `gameplayProfile`, `engineVersion`, `resultVersion`, `tiles`, `laps`, `status`, `stateVersion`, `createdAt` và `updatedAt`. Session mới có `status=active` và `stateVersion=0`. Seed, trạng thái RNG và snapshot được giữ trong backend. POST tạo session từ chối mọi trường ngoài `scenarioId`, gồm `userId`, seed, tiền, portfolio và kết quả.
@@ -28,7 +29,7 @@ Lỗi có dạng `{"error":{"code":"INVALID_REQUEST","message":"Invalid request"
 | 503 | `AUTH_UNAVAILABLE` | Chưa cấu hình issuer hoặc JWKS không khả dụng |
 | 503 | `DATABASE_UNAVAILABLE` | Readiness probe không kết nối hoặc truy vấn được PostgreSQL |
 
-## Actions B18 · Phase 2C1
+## Actions B18 · Phase 2C2
 
 Gửi `POST /v1/game-sessions/:id/actions` với access token của owner và header `Idempotency-Key` là UUID. Body phải có đủ ba trường sau.
 
@@ -42,7 +43,7 @@ Gửi `POST /v1/game-sessions/:id/actions` với access token của owner và he
 | `roll` | `{}` | Phase `rolling`. Server tự gieo và xử lý landing/START. |
 | `choose` | `{"optionId":"course-basic"}` | Phase `event`. Dùng option ID canonical của event hiện tại, gồm mua `course-basic` và `course-advanced`, `pay`, `full`, `temporary`, `defer`, `acknowledge` và `skip` khi engine cho phép. |
 | `fund` | `{"source":"debt","amount":1000000}` | Phase `funding`. `amount` là số nguyên VND dương an toàn. Giới hạn theo `fundingOptions` và engine. |
-| `trade` | `{"kind":"buy","asset":"gold","amount":1000000}` | Phase `event` tại đúng ô Gold, Stocks hoặc Bonds, tối đa một giao dịch thành công mỗi lượt ghé. |
+| `trade` | `{"kind":"buy","asset":"gold","amount":1000000}` | Phase `event` tại đúng ô Gold, Stocks hoặc Bonds, tối đa một giao dịch thành công mỗi lượt ghé. Cũng nhận `deposit` tại Bank và `repay` tại checkpoint START. |
 
 `fund` hỗ trợ `savings`, `stocks`, `bonds`, `gold` và `debt`. Với `savings`, gửi toàn bộ gốc của lot và `lotId` để chỉ định khoản. Nếu bỏ `lotId`, engine chọn khoản đang active đầu tiên. `bonds` yêu cầu `lotId` và số tiền bán gộp của lot. `stocks` và `gold` nhận số tiền bán gộp. `debt` nhận số tiền muốn vay, giới hạn bởi khoản thiếu và hạn mức còn lại. Backend tính số tiền thực nhận, phí và số còn thiếu qua engine.
 
@@ -57,7 +58,7 @@ Retry sau timeout hoặc mất response cần giữ nguyên key và cả body. R
 | 409 | `IDEMPOTENCY_KEY_REUSED` | Key đã commit cho action ID, payload hoặc expected version khác |
 | 409 | `STATE_VERSION_CONFLICT` | Key mới với expected version khác version hiện tại |
 | 409 | `SESSION_NOT_ACTIVE` | Lệnh mới trên session đã kết thúc hoặc bị bỏ |
-| 409 | `SCENARIO_UNSUPPORTED` | Session dùng scenario, engine hoặc rules ngoài phạm vi Phase 2C1 |
+| 409 | `SCENARIO_UNSUPPORTED` | Session dùng scenario, engine hoặc rules ngoài phạm vi Phase 2C2 |
 | 422 | `ACTION_NOT_ALLOWED` | Lệnh đúng schema nhưng engine từ chối ở phase/event hiện tại |
 
 Các lỗi chung trong bảng trên vẫn áp dụng, gồm 404 cho session thuộc người khác và 400 cho action/payload ngoài schema. Lỗi DB khi xử lý action trả 500. Sau khi DB phục hồi, gửi lại cùng key và body.
@@ -77,3 +78,18 @@ Các lỗi chung trong bảng trên vẫn áp dụng, gồm 404 cho session thu�
 Dùng `stateVersion` của quote làm `expectedStateVersion` trong action, với cùng payload và một UUID `Idempotency-Key`. Server kiểm tra lại version và tính từ snapshot có thẩm quyền khi execute. Giá, fee, số dư và state do client gửi bị từ chối.
 
 [Thiết kế Phase 2C1](./ACTIONS_V2C1.md) · [Thiết kế Phase 2B](./ACTIONS_V2B.md)
+
+## Bank · Phase 2C2
+
+| Action và payload | Điều kiện |
+| --- | --- |
+| `trade` với `{"kind":"deposit","amount":1000000,"term":2}` | Encounter Bank. `term` là 1, 2 hoặc 3, mặc định 1. Một lot mỗi lượt ghé, yêu cầu đủ tiền mặt. |
+| `trade` với `{"kind":"repay","amount":1000000}` | Phase `rebalancing`. `amount` là gốc muốn trả, giới hạn bởi dư nợ và tiền mặt đủ trả cả gốc và lãi. |
+| `fund` với `{"source":"debt","amount":1000000}` | Funding. Giới hạn theo khoản thiếu và hạn mức còn lại. |
+| `fund` với `{"source":"savings","amount":1000000,"lotId":"deposit-1"}` | Funding. Phải rút toàn bộ gốc của một lot đang active. |
+
+`POST /v1/game-sessions/:id/bank-quote` nhận body như action ở bảng trên, gồm `expectedStateVersion`. Đây là phép đọc, không cần `Idempotency-Key`. Quote trả `cashAfter`, `savingsAfter`, `debtAfter`, `phaseAfter`, `pendingPaymentAfter`, `terminationAfter` và chi tiết theo loại. `deposit` có lot dự kiến, lãi khi đáo hạn và cờ `withinGame`. `repayment` có gốc, lãi và tổng tiền trả. `funding` có nguồn, lot nếu rút tiết kiệm, số tiền, phần trả nghĩa vụ hiện tại và lãi mất. Quote Funding có thể gồm tác động tiếp nối từ settlement. Khi gửi action, dùng version trong quote và cùng payload. Server tính lại theo state đã khóa.
+
+`state.bank` cung cấp `canDeposit`, `canRepay`, `savingsRates`, `deposits`, `borrowingLimit`, `borrowingAvailable`, `netWorth`, `totalWorth` và `liquidatableFunds`. `state.fundingOptions` cho biết các nguồn có thể dùng để trả khoản thiếu. Payload sai schema trả 400, version cũ hoặc session inactive trả 409, hành động sai phase hoặc vượt khả năng tài chính trả 422.
+
+[Thiết kế Phase 2C2](./ACTIONS_V2C2.md)
