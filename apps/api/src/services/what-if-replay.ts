@@ -174,6 +174,15 @@ const metrics = (game: GameState) => ({
   obligations: game.obligations, recurringIncome: game.recurringIncome, portfolio: game.portfolio,
 })
 
+function decisionEffects(fork: HistoricalStep, forkAfter: GameState) {
+  const entries = (game: GameState) => game.log.slice(fork.before.log.length)
+    .map(({ decision, consequence }) => ({ decision, consequence }))
+  return {
+    actual: entries(fork.after), alternative: entries(forkAfter),
+    cashDeltaVnd: forkAfter.portfolio.cash - fork.after.portfolio.cash,
+  }
+}
+
 function comparison(actual: GameState, alternative: GameState, fork: HistoricalStep, forkAfter: GameState) {
   const a = metrics(actual), b = metrics(alternative)
   const startDifferences = actual.summaries.map((summary, index) => {
@@ -197,11 +206,7 @@ function comparison(actual: GameState, alternative: GameState, fork: HistoricalS
       obligations: b.obligations - a.obligations, recurringIncome: b.recurringIncome - a.recurringIncome,
     },
     explanation: {
-      decision: {
-        actual: fork.after.log.slice(fork.before.log.length).map(({ decision, consequence }) => ({ decision, consequence })),
-        alternative: forkAfter.log.slice(fork.before.log.length).map(({ decision, consequence }) => ({ decision, consequence })),
-        cashDeltaVnd: forkAfter.portfolio.cash - fork.after.portfolio.cash,
-      },
+      decision: decisionEffects(fork, forkAfter),
       startDifferences,
     },
   }
@@ -264,7 +269,7 @@ export async function evaluateWhatIf(actual: GameState, steps: HistoricalStep[],
   budget.check()
   if (!completedFour(game) || !comparableEnvironment(actual, game)) {
     return { status: 'limited' as const, reason: game.termination === 'insolvent' ? 'EARLY_INSOLVENCY' : 'ENVIRONMENT_DIVERGED',
-      completedLaps: game.summaries.map(item => item.lap), continuation }
+      completedLaps: game.summaries.map(item => item.lap), continuation, decision: decisionEffects(fork, forkAfter) }
   }
   const result = comparison(actual, game, fork, forkAfter)
   budget.check()

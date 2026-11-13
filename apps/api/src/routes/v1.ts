@@ -13,8 +13,9 @@ import { quoteGameBusiness } from '../services/business-quotes.ts'
 import { quoteGameBank } from '../services/bank-quotes.ts'
 import { quoteGameTrade } from '../services/trading-quotes.ts'
 import { analyzeSavedGame } from '../services/what-if.ts'
+import { readFoxCoach, learnWithFox } from '../services/fox-coach.ts'
 import { readGameState } from '../services/game-state.ts'
-import { bankQuoteBody, businessQuoteBody, createSessionBody, gameActionBody, idempotencyKey, listSessionsQuery, sessionParams, tradeQuoteBody, whatIfBody } from '../validation.ts'
+import { bankQuoteBody, businessQuoteBody, createSessionBody, foxCoachQuery, foxLearningBody, gameActionBody, idempotencyKey, listSessionsQuery, sessionParams, tradeQuoteBody, whatIfBody } from '../validation.ts'
 
 declare module 'fastify' {
   interface FastifyRequest {
@@ -116,6 +117,17 @@ export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAu
         reply.raw.off('close', onClose)
       }
     },
+  })
+
+  api.get('/game-sessions/:id/coach', async request => {
+    const { id } = sessionParams.parse(request.params)
+    return readFoxCoach(db, playerId(request), id, foxCoachQuery.parse(request.query))
+  })
+
+  api.post('/game-sessions/:id/coach/learn', async request => {
+    const { id } = sessionParams.parse(request.params)
+    const { question, stateVersion } = foxLearningBody.parse(request.body)
+    return learnWithFox(db, playerId(request), id, question, stateVersion)
   })
 
   api.get('/game-sessions/:id', async request => {

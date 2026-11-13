@@ -1,4 +1,5 @@
 import type { publicB18State, officialB18Result } from '../../../apps/api/src/services/b18-actions.ts'
+import type { FoxCoachReply, FoxLearningReply } from '../../../apps/api/src/services/fox-coach.ts'
 import type { WhatIfCatalog, WhatIfEvaluation } from '../../../apps/api/src/services/what-if.ts'
 import type { GameActionRequest, WhatIfRequest } from '../../../apps/api/src/validation.ts'
 import type { Term } from '../../../src/game/types.ts'
@@ -58,6 +59,10 @@ export function createGameApi(accessToken: AccessToken, send: typeof fetch = fet
     create: (setup: Setup, key: string) => request<{ session: SessionHeader }>('', { scenarioId: 'b18', setup }, key),
     read: (id: string) => request<SessionDetail>('/' + encodeURIComponent(id)),
     action: (id: string, body: GameActionRequest, key: string) => request<ActionReply>('/' + encodeURIComponent(id) + '/actions', body, key),
+    coach: (id: string, stateVersion: number, signal: AbortSignal) =>
+      request<FoxCoachReply>('/' + encodeURIComponent(id) + '/coach?stateVersion=' + stateVersion, undefined, undefined, signal),
+    coachLearn: (id: string, stateVersion: number, question: string, signal: AbortSignal) =>
+      request<FoxLearningReply>('/' + encodeURIComponent(id) + '/coach/learn', { stateVersion, question }, undefined, signal),
     whatIfCatalog: (id: string, signal: AbortSignal) => request<WhatIfCatalog>('/' + encodeURIComponent(id) + '/what-if', undefined, undefined, signal),
     whatIf: (id: string, body: WhatIfRequest, signal: AbortSignal) => request<WhatIfEvaluation>('/' + encodeURIComponent(id) + '/what-if', body, undefined, signal),
     quote(id: string, body: GameActionRequest) {
@@ -113,6 +118,7 @@ export function recoverable(error: unknown) {
 export function apiMessage(error: unknown): string {
   if (error instanceof ApiError) {
     if (error.status === 401) return 'Phiên đăng nhập đã hết hạn. Hãy đăng nhập lại.'
+    if (error.status === 409) return 'Ván đã thay đổi. Hãy tải lại ván và thử lại.'
     if (error.status === 404) return 'Ván chơi không khả dụng cho tài khoản này.'
     if (error.status === 422 || error.status === 400) return 'Lựa chọn này không khả dụng. Hãy kiểm tra lại.'
   }

@@ -208,7 +208,7 @@ function evaluate(before: CoachGame | undefined, after: CoachGame, retained?: Ma
   return signals.sort((left, right) => right.priority - left.priority)
 }
 
-export type MascotSurface = 'board' | 'summary'
+export type MascotSurface = 'board' | 'summary' | 'context'
 
 export function createMascotCoach() {
   type Note = { insight: MascotInsight; current: boolean; shown: boolean }
@@ -284,7 +284,7 @@ export function createMascotCoach() {
     present(surface: MascotSurface | null, now: number) {
       if (phase && ((surface === 'board' && phase !== 'rolling') || (surface === 'summary' && phase !== 'summary' && phase !== 'finished'))) surface = null
       const boardAlert = surface === 'board' && boardPending?.current ? boardPending : null
-      const note = surface === 'summary' ? roundNote ?? recent : surface === 'board' ? boardAlert ?? recent : null
+      const note = surface === 'summary' ? roundNote ?? recent : surface === 'board' ? boardAlert ?? recent : surface === 'context' ? recent : null
       let open = !!surface && view.surface === surface && view.open && view.latest === note?.insight
       if (surface === 'board' || surface === 'summary') boardPending = null
       if (boardAlert) {

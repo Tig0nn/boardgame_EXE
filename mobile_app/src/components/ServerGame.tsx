@@ -4,11 +4,9 @@ import { boardFor } from '../../../src/data/board'
 import { goalForGame } from '../../../src/game/rules-profile'
 import { money } from '../../../src/game/format'
 import { Modal } from '../../../src/components/Modal'
-import { readLearningContext } from '../../../src/ai/mascot/learning'
 import { localizeNarrative } from '../../../src/components/glossary'
 import tiles from '../data/tiles-b18.json'
 import { createMascotCoach } from '../game/mascot-coach'
-import { projectLearningEntries } from '../game/mascot-learning-context'
 import type { MobileCommand } from '../game/session'
 import type { createGameApi, createServerSession, SessionDetail } from '../game/server-session'
 import { sound } from '../utils/audio'
@@ -62,7 +60,7 @@ export function ServerGame({ controller, api, onHome, onNew }: {
 }) {
   const view = useSyncExternalStore(controller.subscribe, controller.getSnapshot)
   const { detail } = view
-  const { state, session, result } = detail
+  const { state, session } = detail
   const [overlay, setOverlay] = useState<'wallet' | 'help' | 'menu' | null>(null)
   const [muted, setMuted] = useState(() => sound.isMuted)
   const [animation, setAnimation] = useState<{ tile: number; rolling: boolean } | null>(null)
@@ -84,15 +82,11 @@ export function ServerGame({ controller, api, onHome, onNew }: {
   }, [controller, coach])
   useEffect(() => () => timers.current.forEach(clearTimeout), [])
   const locked = view.busy || view.retryable || view.needsReload || !!animation
-  const surface = overlay || animation ? null : state.phase === 'rolling' ? 'board' : state.phase === 'summary' || state.phase === 'finished' ? 'summary' : null
+  const surface = overlay || animation ? null : state.phase === 'rolling' ? 'board' : state.phase === 'summary' || state.phase === 'finished' ? 'summary' : 'context'
   useEffect(() => { coach.present(surface, performance.now()) }, [coach, surface, state])
-  const context = useMemo(() => readLearningContext({
-    cash: state.portfolio.cash, obligations: state.obligations, lap: state.lap, scenario: state.scenarioId,
-    entries: projectLearningEntries(state.journal), gold: null,
-    result: result ? { funds: Number(result.lawfulProceedsVnd), target: goalForGame(state).target,
-      won: result.outcome === 'victory', insolvent: result.outcome === 'insolvent', worth: state.bank.totalWorth, requiredRounds: state.totalLaps } : null,
-  }), [state, result])
-  const companion = surface && <MascotCoach coach={coach} surface={surface} online={{ context, revision: String(session.stateVersion) }} />
+  const companion = surface && <MascotCoach coach={coach} surface={surface} online={{
+    api, sessionId: session.id, stateVersion: session.stateVersion,
+  }} />
   const board = boardFor(state)
   const send = (command: MobileCommand) => {
     if (locked || animating.current || overlay || !state.availableActions.includes(command.type)) return
@@ -140,7 +134,7 @@ export function ServerGame({ controller, api, onHome, onNew }: {
     </MobileContainer>
     {!animation && !overlay && <ServerGamePhase detail={detail} api={api} send={send} locked={locked}
       onHome={home} onNew={onNew} refresh={() => { void controller.reload('Ván đã thay đổi. Đã tải lại trạng thái từ máy chủ.') }}
-      coach={surface === 'summary' ? companion : undefined} />}
+      coach={surface && surface !== 'board' ? companion : undefined} />}
     {overlay === 'wallet' && <Wallet detail={detail} onClose={() => setOverlay(null)} />}
     {overlay === 'help' && <UnifiedGameGuide onClose={() => setOverlay(null)} />}
     {overlay === 'menu' && <Modal title="Ván chơi trực tuyến" onClose={() => setOverlay(null)}>

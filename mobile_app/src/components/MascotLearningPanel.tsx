@@ -1,5 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
+import type { FoxLearningReply } from '../../../apps/api/src/services/fox-coach'
+import { apiMessage } from '../game/server-session'
 import { boundedJson } from '../../../src/ai/what-if/contracts.ts'
 import { MASCOT_SESSION_HEADER } from '../../../src/ai/mascot/contracts.ts'
 import { composeLearningAnswer, fallbackLearning, INSUFFICIENT, learningCards, LEARNING_DEADLINE, LEARNING_ENDPOINT, offlineLearning, QUESTION_LIMIT,
@@ -7,13 +9,14 @@ import { composeLearningAnswer, fallbackLearning, INSUFFICIENT, learningCards, L
 import type { LearningCard, LearningContext, LearningReply } from '../../../src/ai/mascot/learning.ts'
 
 const geminiLearningEnabled = import.meta.env.VITE_MASCOT_LEARNING_ENABLED === '1'
-const sourceLabels = { offline: 'Dữ kiện EXE', mock: 'Gemini giả lập', gemini: 'Gemini · Dữ kiện EXE', fallback: 'Chưa đủ dữ kiện' }
-export function MascotLearningPanel({ context, getSession }: {
-  context: LearningContext | null; getSession: () => string
+const sourceLabels = { deterministic: 'Dữ kiện EXE từ máy chủ', offline: 'Dữ kiện EXE', mock: 'Gemini giả lập', gemini: 'Gemini · Dữ kiện EXE', fallback: 'Chưa đủ dữ kiện' }
+export function MascotLearningPanel({ context, getSession, onlineAsk }: {
+  context: LearningContext | null; getSession?: () => string
+  onlineAsk?: (question: string, signal: AbortSignal) => Promise<FoxLearningReply>
 }) {
   const [question, setQuestion] = useState('')
   const [error, setError] = useState('')
-  const [answer, setAnswer] = useState<{ source: LearningReply['source']; cards: LearningCard[] }>()
+  const [answer, setAnswer] = useState<{ source: LearningReply['source'] | 'deterministic'; cards: LearningCard[] }>()
   const [loading, setLoading] = useState(false)
   const request = useRef<AbortController | null>(null)
   useLayoutEffect(() => () => request.current?.abort(), [])
@@ -25,10 +28,28 @@ export function MascotLearningPanel({ context, getSession }: {
     setError('')
     const text = readLearningQuestion(question)
     if (!text) { setError('Nhập câu hỏi từ 3 đến ' + QUESTION_LIMIT + ' ký tự.'); return }
+    if (onlineAsk) {
+      const controller = new AbortController()
+      request.current = controller
+      setLoading(true)
+      try {
+        const reply = await onlineAsk(text, controller.signal)
+        if (!controller.signal.aborted) setAnswer({ source: 'deterministic', cards: reply.cards })
+      } catch (problem) {
+        if (controller.signal.aborted) return
+        const publicCards = learningCards(null).filter(card => card.scope === 'GENERAL_FINANCE' || card.scope === 'EXE_RULE')
+        const answer = composeLearningAnswer(offlineLearning(text, publicCards) ?? [])
+        if (answer.length) setAnswer({ source: 'offline', cards: answer })
+        setError(apiMessage(problem))
+      } finally {
+        if (!controller.signal.aborted) setLoading(false)
+      }
+      return
+    }
     const cards = learningCards(context)
     const offline = offlineLearning(text, cards)
     if (offline?.length) { setAnswer({ source: 'offline', cards: composeLearningAnswer(offline) }); return }
-    if (!geminiLearningEnabled || !context) {
+    if (!geminiLearningEnabled || !context || !getSession) {
       const known = composeLearningAnswer(fallbackLearning(text, cards, context))
       setAnswer({ source: known.length ? 'offline' : 'fallback', cards: known })
       return

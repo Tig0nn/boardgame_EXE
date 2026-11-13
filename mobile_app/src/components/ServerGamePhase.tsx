@@ -175,6 +175,7 @@ export function ServerGamePhase({ detail, api, send, locked, onHome, onNew, refr
       const scenario = SCENARIOS.find(item => item.id === state.scenarioId)
       return <GamifiedModal badgeText={lap} title={scenario?.label ?? 'Bản tin thị trường'}
         primaryAction={{ label: 'Bắt đầu vòng ' + state.lap, onClick: advance, disabled: locked }}>
+        {coach}
         <p>{scenario?.description}</p>
         <p>Tiền mặt <strong>{money(state.portfolio.cash)}</strong></p>
         {scenario && <dl>{Object.entries(scenario.tendencies).map(([asset, trend]) =>
@@ -183,6 +184,7 @@ export function ServerGamePhase({ detail, api, send, locked, onHome, onNew, refr
     }
     case 'event':
       return <GamifiedModal badgeText={lap} title={localizeNarrative(state.event?.title ?? 'Sự kiện')}>
+        {coach}
         {state.event?.description && <p>{localizeNarrative(state.event.description)}</p>}
         {state.eventId === 'business' && state.business.owned && <p>Vốn {money(state.business.capital)} · Dòng tiền START {money(state.business.currentStartIncome)} · Giá bán {money(state.business.currentSaleValue)}</p>}
         <Transactions key={session.stateVersion} choices={tradingChoices(detail)} {...transactionProps} />
@@ -191,6 +193,7 @@ export function ServerGamePhase({ detail, api, send, locked, onHome, onNew, refr
       </GamifiedModal>
     case 'funding':
       return <GamifiedModal badgeText={lap} title="Huy động tiền">
+        {coach}
         <p>{localizeNarrative(state.pendingPayment?.title ?? '')} · Còn thiếu {money(state.pendingPayment?.remaining ?? 0)}</p>
         <Transactions key={session.stateVersion} choices={fundingChoices(detail)} {...transactionProps} />
       </GamifiedModal>
@@ -203,6 +206,7 @@ export function ServerGamePhase({ detail, api, send, locked, onHome, onNew, refr
     case 'rebalancing':
       return <GamifiedModal badgeText={lap} title="Điều chỉnh danh mục"
         primaryAction={{ label: state.start.finalCheckpoint ? 'Chốt kết quả' : 'Kết thúc điều chỉnh', onClick: advance, disabled: locked }}>
+        {coach}
         <p>Tiền mặt {money(state.portfolio.cash)} · Nợ {money(state.portfolio.debt)}</p>
         <Transactions key={session.stateVersion} choices={tradingChoices(detail)} {...transactionProps} />
       </GamifiedModal>

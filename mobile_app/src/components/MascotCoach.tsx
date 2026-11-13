@@ -1,9 +1,10 @@
 import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import type { createMascotCoach, MascotSurface } from '../game/mascot-coach'
-import type { LearningContext } from '../../../src/ai/mascot/learning'
 import type { GameState } from '../../../src/game/types'
 import { explainMascot, explanationContext } from '../game/mascot-explanation'
 import { projectLearningContext } from '../game/mascot-learning-context'
+import { CloudFoxCoach } from './CloudFoxCoach'
+import type { CloudFoxSource } from './CloudFoxCoach'
 import { MascotLearningPanel } from './MascotLearningPanel'
 import './mascot-coach.css'
 
@@ -27,15 +28,15 @@ function Fox({ expression }: { expression: Expression }) {
 }
 
 export function MascotCoach({ coach, surface, game, online }: {
-  coach: Coach; surface: MascotSurface; game?: GameState; online?: { context: LearningContext | null; revision: string }
+  coach: Coach; surface: MascotSurface; game?: GameState; online?: CloudFoxSource
 }) {
   const view = useSyncExternalStore(coach.subscribe, coach.getSnapshot, coach.getSnapshot)
   const { current } = view
   const latest = view.surface === surface ? view.latest : null
   const open = view.surface === surface && view.open
   const [expandedFor, setExpandedFor] = useState<typeof latest>(null)
-  const learningContext = useMemo(() => open ? online ? online.context : game ? projectLearningContext(game) : null : null, [open, game, online])
-  const revision = online?.revision ?? (game ? [game.phase, game.lap, game.turn, game.log.at(-1)?.sequence].join(':') : '')
+  const learningContext = useMemo(() => open && game ? projectLearningContext(game) : null, [open, game])
+  const revision = game ? [game.phase, game.lap, game.turn, game.log.at(-1)?.sequence].join(':') : ''
   const getSession = () => {
     let session = sessionIds.get(coach)
     if (!session) {
@@ -86,7 +87,8 @@ export function MascotCoach({ coach, surface, game, online }: {
         <p className="mascot-reason">{deep?.narrative ?? 'Chưa đủ dữ kiện để giải thích thêm về quyết định này.'}</p>
         {deep && <dl>{deep.facts.map(fact => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>}
       </section>}
-      {open && <MascotLearningPanel
+      {open && online && <CloudFoxCoach key={online.sessionId + ':' + online.stateVersion} {...online} />}
+      {open && !online && <MascotLearningPanel
         key={revision}
         context={learningContext} getSession={getSession} />}
     </section>

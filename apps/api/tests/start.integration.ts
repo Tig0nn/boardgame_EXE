@@ -200,6 +200,31 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
     assertState(genesis.state, game)
     assert.equal(genesis.state.portfolio.cash, 40_000_000)
     assert.equal(genesis.state.bank.deposits[0].maturityLap, 3)
+    const foxPath = path + '/' + id + '/coach'
+    const fox = (query = '', bearer = authorization) => fetch(base + foxPath + query, { headers: { authorization: bearer } })
+    const learn = (question: string, bearer = authorization) => post(foxPath + '/learn', { question }, undefined, bearer)
+    const firstFox = await status(fox('?stateVersion=0'), 200)
+    assert.equal(firstFox.headers.get('cache-control'), 'no-store')
+    const starting = await firstFox.json()
+    assert.equal(starting.version, 1)
+    assert.equal(starting.source, 'deterministic')
+    assert.equal(starting.evidence.position.portfolio.cash, genesis.state.portfolio.cash)
+    assert.equal(starting.evidence.position.deposits[0].principal, setup.initialSavings)
+    assert.equal(starting.evidence.result, null)
+    await status(fox('', outsider), 404)
+    await status(learn('Thanh khoản là gì?', outsider), 404)
+    await status(post(foxPath + '/learn', { question: 'Thanh khoản là gì?', context: { cash: 123 } }), 400)
+    await status(fox('?journalSequence=0'), 400)
+    await status(fox('?journalSequence=9999'), 422)
+    const rule = await (await status(learn('Thanh khoản là gì?'), 200)).json()
+    assert.equal(rule.status, 'answered')
+    assert.ok(rule.cards.some((card: { id: string }) => card.id === 'liquidity'))
+    const unknown = await (await status(learn('Bạn có thể tiên đoán tỷ giá ngày mai?'), 200)).json()
+    assert.equal(unknown.status, 'insufficient')
+    assert.ok(unknown.message)
+    const inspected = new Set<string>()
+    const rowsBeforeCoach = await database.pool.query('SELECT count(*) FROM game_actions WHERE session_id = $1', [id])
+    assert.equal(Number(rowsBeforeCoach.rows[0].count), 0)
     let testedSettlement = false
     const sold = new Set<TradableAsset>()
     for (const action of plan) {
@@ -277,6 +302,26 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
       if (retry !== undefined) assert.deepEqual(retry, value)
       assert.equal(value.stateVersion, version + 1)
       assertState(value.state, expected)
+      if ((expected.phase === 'summary' && !inspected.has('summary')) ||
+          (expected.phase === 'event' && !inspected.has('event')) ||
+          (action.actionId === 'trade' && !inspected.has('trade'))) {
+        inspected.add(expected.phase)
+        if (action.actionId === 'trade') inspected.add('trade')
+        const entry = action.actionId === 'trade' ? expected.log.slice(game.log.length).find(item => item.kind === 'rebalancing') : undefined
+        const details = await status(fox('?stateVersion=' + (version + 1) + (entry ? '&journalSequence=' + entry.sequence : '')), 200)
+        const text = await details.text()
+        assert.doesNotMatch(text, /"(seed|rng|historySeed|snapshot|priceHistory)":/)
+        const explanation = JSON.parse(text)
+        assert.deepEqual(explanation.evidence.position.portfolio, expected.portfolio)
+        assert.equal(explanation.evidence.position.liquidatableFundsVnd, liquidatableFunds(expected))
+        if (expected.phase === 'summary') assert.deepEqual(explanation.evidence.start.lines, JSON.parse(JSON.stringify(expected.summaries.at(-1)!.lines)))
+        if (expected.phase === 'event') assert.equal(explanation.evidence.event.id, expected.eventId)
+        if (entry) {
+          assert.equal(explanation.evidence.decision.sequence, entry.sequence)
+          assert.equal(explanation.evidence.decision.effects.cashDelta, entry.cashDelta)
+          assert.equal(explanation.evidence.decision.consequence, entry.consequence)
+        }
+      }
       game = expected
     }
     assert.ok(testedSettlement)
@@ -318,6 +363,16 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
     assert.equal(final.session.status, 'completed')
     assert.deepEqual(final.session.setup, setup)
     assert.deepEqual(final.state.start.sales, [])
+    assert.ok(inspected.has('event') && inspected.has('summary') && inspected.has('trade'))
+    const finalFox = await (await status(fox('?stateVersion=' + plan.length), 200)).json()
+    assert.deepEqual(finalFox.evidence.result.completedLaps, [1, 2, 3, 4])
+    assert.equal(finalFox.evidence.result.lawfulProceedsVnd, final.result.lawfulProceedsVnd)
+    assert.equal(finalFox.evidence.result.outcome, final.result.outcome)
+    assert.deepEqual(await (await status(fox(), 200)).json(), finalFox)
+    await status(fox('?stateVersion=0'), 409)
+    const endgameLearning = await (await status(learn('Vì sao cuối ván chưa đạt mục tiêu?'), 200)).json()
+    assert.equal(endgameLearning.status, 'answered')
+    assert.equal(endgameLearning.evidence.result.lawfulProceedsVnd, final.result.lawfulProceedsVnd)
     await status(execute(id, command('trade', plan.length, { kind: 'sell', asset: 'gold', amount: 1 })), 409)
     // Same saved B18 game, through authenticated HTTP and the canonical START journey above.
     const whatIfPath = path + '/' + id + '/what-if'
@@ -376,6 +431,14 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
       assert.equal(value.actual.outcome, final.result.outcome)
       assert.equal(value.delta.lawfulProceedsVnd, String(BigInt(value.alternative.lawfulProceedsVnd) - BigInt(final.result.lawfulProceedsVnd)))
 
+      assert.equal(value.coach.version, 1)
+      assert.equal(value.coach.source, 'verified-what-if-replay')
+      assert.equal(value.coach.status, 'completed')
+      assert.deepEqual(value.coach.evidence.decisions, value.explanation.decision)
+      assert.deepEqual(value.coach.evidence.startDifferences, value.explanation.startDifferences)
+      assert.deepEqual(value.coach.evidence.delta, value.delta)
+      assert.equal(value.coach.evidence.actual.lawfulProceedsVnd, final.result.lawfulProceedsVnd)
+      assert.equal(value.coach.evidence.alternative.lawfulProceedsVnd, value.alternative.lawfulProceedsVnd)
       // Independent replay: in these two cases every later command remains legal, with
       // no required fallback. For the bank fork, only the deposit term is replaced.
       let expected = session.game
@@ -434,6 +497,12 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
     assert.equal(pending.state.start.settlementStatus, 'awaitingFunding')
     assert.equal(pending.state.start.finalCheckpoint, true)
     assert.deepEqual(pending.state.fundingOptions.map((item: { source: string }) => item.source), fundingSources(expected))
+    const coach = await (await status(fetch(base + path + '/' + id + '/coach?stateVersion=1',
+      { headers: { authorization } }), 200)).json()
+    assert.equal(coach.evidence.position.pendingPayment.remaining, expected.pendingPayment!.remaining)
+    assert.equal(coach.evidence.position.liquidatableFundsVnd, liquidatableFunds(expected))
+    assert.deepEqual(coach.evidence.position.fundingOptions, pending.state.fundingOptions)
+    assert.ok(coach.cards.some((card: { id: string }) => card.id === 'funding'))
     assertState(pending.state, expected)
     const amount = expected.pendingPayment!.remaining
     const key = randomUUID()

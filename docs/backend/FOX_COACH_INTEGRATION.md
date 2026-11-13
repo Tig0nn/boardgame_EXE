@@ -1,0 +1,28 @@
+# EXE Fox Coach for Cloud Save
+
+Base branch `codex/exe-whatif-full-endgame`, checkpoint `6b166dd318032bc48fe0798af0949c6cd5e96c21`. The checkpoint descends from the Render backend checkpoint. The Fox integration and its readiness fix are already in this history as `4fecec3` and `e30bbd0`. The standalone V2.3 development commit `f729e57` is a parallel checkpoint. The separate application checkout has uncommitted work and is outside this branch.
+
+| Existing surface | Audit and integration |
+| --- | --- |
+| Mascot V2.3 reminders and explanations | Working on the original game UI, including its session lifecycle, signal priority, and grounded explanation. Phase 3A Web online also observes authoritative API states for its reminders. This branch keeps that controller and adds an on-demand context surface. |
+| V2.3 Learning and financial education | Offline cards and the curated knowledge catalog work without a provider. The previous Web online panel built its learning context from client-visible gameplay responses. The same projector and card logic now run against the saved B18 snapshot in Fastify. Offline Web still uses the same projector. |
+| Legacy Financial Coach and Gemini surfaces | The post-game coach has a separate `/api/ai-coach` path and a preview mock. Mascot demo and development provider mocks are also separate. Legacy mascot endpoints accept client-projected context and are outside the Cloud Save ownership boundary. Fastify Fox uses its own owner-scoped read paths and deterministic explanations. |
+| What-if Full Endgame | Fastify already replayed original and alternative histories with the canonical engine. Fox consumes the result of that same call. Completed and limited responses now include a Fox section. The replay and financial calculation remain in What-if. |
+
+## React Native HTTP contract
+
+Use the Cloud Save Bearer JWT and an owned session UUID. The response language is Vietnamese. Every coach response has `version: 1`, `source`, and `cards`. Clients can render card text and use structured evidence for their own layout. Numeric VND fields are JSON numbers unless documented as decimal strings. Journal sequence numbers identify journal entries. The `sequence` in a What-if response identifies a server action.
+
+| Operation | Request and response |
+| --- | --- |
+| Read gameplay coach | `GET /v1/game-sessions/:id/coach?stateVersion=19&journalSequence=23`. Both query fields are optional. The version pins the read to the state displayed by the client. The journal sequence selects a historical player decision from that snapshot. By default the API shows the latest eligible decision. The response includes `stateVersion`, `source: "deterministic"`, and evidence for balances, deposits, borrowing, current funding options, decision effects, current encounter, recent market shock in the current lap, latest completed START and official result. Evidence not applicable to that phase is null or an empty list. |
+| Ask a learning question | `POST /v1/game-sessions/:id/coach/learn` with `{"stateVersion":19,"question":"Thanh khoản là gì?"}`. The version is optional. Questions contain 3–280 characters after trimming and have no control characters. The response has `status: "answered" | "insufficient"`, cards with scope and references, and supporting game evidence when the selected card uses it. |
+| Explain a What-if | Use the existing `POST /v1/game-sessions/:id/what-if` request. Read `coach` on the response. It has `source: "verified-what-if-replay"`, the same action sequence, continuation counts, and decision cards. Completed replay returns the actual and alternative endgame metrics, the replay-produced delta, and evidenced START line changes. `lawfulProceedsVnd` and its delta are decimal strings. Limited replay returns original and alternative decision evidence, the limit reason and completed laps. Financial comparisons are available only in the completed branch. |
+
+Responses use `Cache-Control: no-store`. Error bodies retain Fastify's `{ "error": { "code": "...", "message": "..." } }` envelope. Expect `400` for invalid inputs, `401` for invalid JWTs, `404` for a missing or foreign game, `409 STATE_VERSION_CONFLICT` for a stale version, `422 COACH_DECISION_NOT_FOUND` for a journal entry outside the supported decision set, and `503 COACH_UNAVAILABLE` for interrupted coach reads. What-if retains its documented errors. When retrying after a version conflict, reload the session and use the new version. On a network error, repeat the same read or question. The operations write no data and require no idempotency key.
+
+## Runtime and verification
+
+Web online opens Cáo from the board, encounter, funding, START, rebalancing and results. The existing learning input uses Fastify. During a network failure it can still answer supported general finance and EXE rules questions using the bundled curriculum. Game-specific evidence requires the server response. What-if uses the Fox explanation included in its existing response. Provider-generated replies, React Native UI integration and hosted acceptance remain separate work.
+
+The PostgreSQL START suite compares Coach evidence against direct engine transitions, verifies every official schema 7 snapshot hash, checks official result and What-if replay independently, and tests ownership, stale and invalid inputs, timeout recovery and row stability. The Chromium Mobile suite checks START, the official result, learning, loss of connection and retry, refresh, and the two decision explanations after a completed What-if. Chromium and HTTP acceptance use local PostgreSQL and a local JWT issuer. The API unit suite checks both limited outcomes without providing final financial comparisons.

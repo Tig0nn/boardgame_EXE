@@ -96,6 +96,15 @@ function Comparison({ result }: { result: WhatIfEvaluation }) {
         <ul>{result.explanation.startDifferences.flatMap(item => item.lines.map(line =>
           <li key={item.lap + ':' + line.label}>START vòng {item.lap} · {line.label}: {signedMoney(line.delta)}</li>))}</ul>
       </>}
+    {result.coach && <details>
+      <summary>Cáo giải thích What-if</summary>
+      {result.coach.cards.map(card => <section key={card.id}>
+        <h4>{card.title}</h4><p>{card.text}</p>
+      </section>)}
+      {result.coach.status === 'completed' && result.coach.evidence.startDifferences.length > 0 &&
+        <ul>{result.coach.evidence.startDifferences.flatMap(item => item.lines.map(line =>
+          <li key={item.lap + ':' + line.label}>START vòng {item.lap} · {line.label}: {signedMoney(line.delta)}</li>))}</ul>}
+    </details>}
     <p>Giữ lại {continuation.retained} bước sau điểm rẽ nhánh; {continuation.notRetained} bước không áp dụng lại.</p>
     {continuation.fallback.length > 0 && <details><summary>{continuation.fallback.length} quyết định bổ sung theo quy tắc giả lập</summary>
       <ul>{continuation.fallback.map((step, index) => <li key={index}>Vòng {step.context.lap}: {step.label}</li>)}</ul>

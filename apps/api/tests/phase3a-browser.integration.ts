@@ -267,6 +267,12 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   assert.equal(restored.session.stateVersion, 2)
   assert.deepEqual(restored.state.portfolio, current.state.portfolio)
 
+  const openFox = async () => {
+    const button = page.getByRole('button', { name: 'Cáo EXE', exact: true })
+    if (await button.getAttribute('aria-expanded') !== 'true') await button.click()
+  }
+  const foxEvidence = () => page.getByLabel('Cáo giải thích từ ván đã lưu')
+  let checkedFoxAtStart = false
   const covered = new Set<string>(exercisedFunding ? ['funding'] : [])
   t.diagnostic('Setup checked at 320/390/1440 px. Refresh, separate device context and lost response checked at 390 px.')
   for (let i = 0; i < 120 && current.state.phase !== 'finished'; i++) {
@@ -285,6 +291,12 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
     } else if (state.phase === 'summary') {
       current = await action(page, () => page.getByRole('button', { name: 'Ghé ví tại ô Xuất phát', exact: true }).click())
     } else if (state.phase === 'rebalancing') {
+      if (!checkedFoxAtStart) {
+        await openFox()
+        await foxEvidence().getByText('Quyết toán START vòng ' + state.lap, { exact: true }).waitFor()
+        await page.getByRole('button', { name: 'Cáo EXE', exact: true }).click()
+        checkedFoxAtStart = true
+      }
       const sell = state.start.sales.find((sale: { asset: string; symbolId?: string }) => sale.asset === 'gold' || !sale.symbolId)
       if (sell && !covered.has('rebalance-trade')) {
         const choice = ['sell', sell.asset, sell.symbolId, sell.lotId].filter(Boolean).join('-')
@@ -317,6 +329,26 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   assert.equal(current.state.phase, 'finished')
   assert.equal(current.state.summaries.length, 4)
   t.diagnostic('Four rounds completed through Mobile UI. Operations: ' + [...covered].join(', '))
+  assert.ok(checkedFoxAtStart)
+  await page.route('**/coach?*', (route: { abort: () => Promise<void> }) => route.abort())
+  await openFox()
+  await page.getByRole('button', { name: 'Thử lại Cáo' }).waitFor()
+  await page.unroute('**/coach?*')
+  await page.getByRole('button', { name: 'Thử lại Cáo' }).click()
+  await foxEvidence().getByText(/Ván đã hoàn tất 4 vòng/).waitFor()
+  const officialCoachText = await foxEvidence().innerText()
+  const question = page.getByRole('textbox', { name: 'Câu hỏi về ván hoặc luật EXE' })
+  await question.fill('Thanh khoản là gì?')
+  const sendQuestion = () => page.getByRole('button', { name: 'Gửi', exact: true }).click()
+  await page.route('**/coach/learn', (route: { abort: () => Promise<void> }) => route.abort())
+  await sendQuestion()
+  await page.getByText('Dữ kiện EXE', { exact: true }).waitFor()
+  await page.getByText(/Thanh khoản nói về khả năng huy động tiền/).waitFor()
+  await page.unroute('**/coach/learn')
+  await sendQuestion()
+  await page.getByText('Dữ kiện EXE từ máy chủ', { exact: true }).waitFor()
+  await page.getByText(/Thanh khoản nói về khả năng huy động tiền/).waitFor()
+  await page.getByRole('button', { name: 'Cáo EXE', exact: true }).click()
   await page.getByText('Kết quả chính thức · Nguồn huy động hợp lệ').waitFor()
   const persisted = await (await direct(id)).json()
   assert.deepEqual(persisted.result, current.result)
@@ -384,16 +416,25 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
     assert.deepEqual(comparison.actual.lawfulProceedsVnd, persisted.result.lawfulProceedsVnd)
     await page.getByRole('heading', { name: 'So sánh sau vòng 4' }).waitFor()
     await page.getByRole('heading', { name: 'Vì sao kết quả khác?' }).waitFor()
+    await page.getByText('Cáo giải thích What-if', { exact: true }).click()
+    await page.getByRole('heading', { name: 'Quyết định gốc' }).waitFor()
+    await page.getByRole('heading', { name: 'Quyết định thay thế' }).waitFor()
+    await page.getByRole('heading', { name: 'Nguồn huy động ở cuối vòng 4' }).waitFor()
     return comparison
   }
   const beforeRefresh = await evaluate()
   await page.reload({ waitUntil: 'domcontentloaded' })
   await page.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).click()
   await page.getByRole('button', { name: /Xem kết quả/ }).first().press('Enter')
+  await openFox()
+  await foxEvidence().getByText(/Ván đã hoàn tất 4 vòng/).waitFor()
+  assert.equal(await foxEvidence().innerText(), officialCoachText)
+  await page.getByRole('button', { name: 'Cáo EXE', exact: true }).click()
   await launchWhatIf()
   await decision().selectOption(String(sale.sequence))
   assert.deepEqual(await evaluate(), beforeRefresh)
   assert.deepEqual(await (await direct(id)).json(), persisted)
+  t.diagnostic('Fox START, endgame, deterministic learning fallback, network retry, refresh and What-if explanation verified.')
   t.diagnostic('What-if comparison and recovery verified through Chromium Mobile with a completed PostgreSQL game.')
   assert.deepEqual(errors, [])
   for (const required of ['rolling', 'event', 'funding', 'trading', 'bank', 'business', 'summary', 'rebalancing', 'rebalance-trade']) {

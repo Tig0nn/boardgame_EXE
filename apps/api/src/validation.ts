@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { readLearningQuestion } from '../../../src/ai/mascot/learning.ts'
 import { BOND_ISSUERS } from '../../../src/data/bond-issuers.ts'
 import { CUSTOMER_PREFERENCES } from '../../../src/data/customer-preferences.ts'
 import { eventsForGame } from '../../../src/data/events.ts'
@@ -105,3 +106,13 @@ export const whatIfBody = z.strictObject({
   ]),
 })
 export type WhatIfRequest = z.infer<typeof whatIfBody>
+
+const coachQueryInt = z.string().regex(/^\d{1,10}$/u).transform(Number)
+export const foxCoachQuery = z.strictObject({
+  stateVersion: coachQueryInt.pipe(expectedStateVersion).optional(),
+  journalSequence: coachQueryInt.pipe(expectedStateVersion.min(1)).optional(),
+})
+export const foxLearningBody = z.strictObject({
+  stateVersion: expectedStateVersion.optional(),
+  question: z.string().refine(question => readLearningQuestion(question) !== null).transform(question => question.trim()),
+})

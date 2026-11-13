@@ -10,11 +10,15 @@ import { sessionRepository } from '../repositories/game-sessions.ts'
 import { gameActionBody } from '../validation.ts'
 import type { WhatIfRequest } from '../validation.ts'
 import { officialB18Result } from './b18-actions.ts'
+import { explainFoxWhatIf } from './fox-what-if.ts'
+import type { FoxWhatIfReply } from './fox-what-if.ts'
 import { assertSupportedB18, restoreB18State } from './game-state.ts'
 import { completedFour, decisionCatalog, evaluateWhatIf, maxHistory, replayWhatIfHistory, snapshotDigest, WhatIfBudget, whatIfPolicy } from './what-if-replay.ts'
 
 export type WhatIfCatalog = { stateVersion: number; policy: typeof whatIfPolicy; decisions: ReturnType<typeof decisionCatalog> }
-export type WhatIfEvaluation = { stateVersion: number; policy: typeof whatIfPolicy; sequence: number } & Awaited<ReturnType<typeof evaluateWhatIf>>
+type Replay = Awaited<ReturnType<typeof evaluateWhatIf>>
+export type WhatIfEvaluation = { stateVersion: number; policy: typeof whatIfPolicy; sequence: number; coach: FoxWhatIfReply }
+  & (Extract<Replay, { status: 'completed' }> | Omit<Extract<Replay, { status: 'limited' }>, 'decision'>)
 
 export async function analyzeSavedGame(db: Database, userId: string, id: string, input?: WhatIfRequest, signal?: AbortSignal): Promise<WhatIfCatalog | WhatIfEvaluation> {
   const budget = new WhatIfBudget(signal)
@@ -90,7 +94,13 @@ export async function analyzeSavedGame(db: Database, userId: string, id: string,
       throw new Error('B18 branch point differs from its stored snapshot')
     }
     budget.check()
-    return { ...base, sequence: input.sequence, ...await evaluateWhatIf(final, steps, input, budget) }
+    const evaluation = await evaluateWhatIf(final, steps, input, budget)
+    const response = { ...base, sequence: input.sequence, coach: explainFoxWhatIf(evaluation, input.sequence) }
+    if (evaluation.status === 'limited') {
+      const { status, reason, completedLaps, continuation } = evaluation
+      return { ...response, status, reason, completedLaps, continuation }
+    }
+    return { ...response, ...evaluation }
   } catch (error) {
     if (postgresFailure(error)?.sqlState === '57014') {
       throw new ApiError(503, 'WHAT_IF_BUDGET_EXCEEDED', 'Analysis was interrupted; try again')
