@@ -42,13 +42,11 @@ export function snapshotPayloadForInsert(payload: string): string | SQL<string> 
   }
   if (chunkStart < payload.length) addChunk(payload.length)
 
-  const chunksJson = JSON.stringify(dictionary)
+  // A node-postgres text[] literal adds quotes, separators and escapes, just like JSON here.
+  const dictionaryBytes = Buffer.byteLength(JSON.stringify(dictionary))
   const template = positions.map(position => '%' + position + '$s').join('')
-  if (Buffer.byteLength(chunksJson) + Buffer.byteLength(template) >= originalBytes) return payload
+  if (dictionaryBytes + Buffer.byteLength(template) >= originalBytes) return payload
 
   // Reassemble the original text before the existing column constraints run.
-  return sql<string>`format(
-    ${template}::text,
-    VARIADIC ARRAY(SELECT jsonb_array_elements_text(${chunksJson}::jsonb))
-  )`
+  return sql<string>`format(${template}::text, VARIADIC ${sql.param(dictionary)}::text[])`
 }

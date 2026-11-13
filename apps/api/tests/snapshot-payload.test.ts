@@ -16,9 +16,11 @@ test('deduplicates repeated JSON while preserving every character and trailing n
   if (typeof value === 'string') throw new Error('Expected a deduplicated SQL parameter')
   const { params } = new PgDialect().sqlToQuery(value)
   const template = String(params[0])
-  const chunks: string[] = JSON.parse(String(params[1]))
+  assert.ok(Array.isArray(params[1]), 'Send one native PostgreSQL array parameter')
+  const chunks: string[] = params[1]
+  assert.equal(params.length, 2)
   const positions = [...template.matchAll(/%(\d+)\$s/g)].map(match => Number(match[1]))
-  assert.ok(Buffer.byteLength(template) + Buffer.byteLength(String(params[1])) < Buffer.byteLength(payload) / 4)
+  assert.ok(Buffer.byteLength(template) + Buffer.byteLength(JSON.stringify(chunks)) < Buffer.byteLength(payload) / 4)
   assert.equal(positions.map(position => chunks[position - 1]).join(''), payload)
 })
 

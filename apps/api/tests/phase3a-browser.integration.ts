@@ -249,8 +249,10 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   await page.evaluate(() => window.dispatchEvent(new Event('online')))
   await page.reload()
   await page.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).click()
+  const restoredResponse = page.waitForResponse((response: { url: () => string; status: () => number }) =>
+    response.url().endsWith('/v1/game-sessions/' + id) && response.status() === 200)
   await page.getByRole('button', { name: /Tiếp tục ván/ }).first().click()
-  const restored = await (await direct(id)).json()
+  const restored = await (await restoredResponse).json()
   assert.equal(restored.session.stateVersion, 2)
   assert.deepEqual(restored.state.portfolio, current.state.portfolio)
 

@@ -5,16 +5,32 @@ import type { AuthError, Session } from '@supabase/supabase-js'
 import { Modal } from '../../../src/components/Modal'
 import App from '../App'
 import { createAccountToken } from '../game/account-token'
+import { takeConfirmationCode } from '../game/auth-redirect'
 import { OnlineApp } from './OnlineApp'
 
 const url = import.meta.env.VITE_SUPABASE_URL?.trim()
 const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY?.trim()
 const auth = url?.startsWith('https://') && key?.startsWith('sb_publishable_')
   ? createClient(url, key, { auth: {
-    flowType: 'pkce', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true,
+    flowType: 'pkce', persistSession: true, autoRefreshToken: true, detectSessionInUrl: false,
   } }).auth : null
 
 type AuthClient = NonNullable<typeof auth>
+
+let confirmation: Promise<boolean> | undefined
+
+async function confirmEmail(client: AuthClient) {
+  const redirect = takeConfirmationCode(new URL(window.location.href))
+  if (!redirect) return true
+  window.history.replaceState(window.history.state, '', redirect.cleanUrl)
+  if (!redirect.code) return false
+  try {
+    const { error } = await client.exchangeCodeForSession(redirect.code)
+    return !error
+  } catch {
+    return false
+  }
+}
 
 function SignedInAccount({ client, owner, onExpired, onSignOut, onPractice }: {
   client: AuthClient; owner: string; onExpired: (rejected?: string) => void
@@ -40,15 +56,23 @@ export function OnlineAccount() {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
+  const [checkingConfirmation, setCheckingConfirmation] = useState(!!auth)
   const submitting = useRef(false)
 
   useEffect(() => {
     if (!auth) return
+    let active = true
     const { data } = auth.onAuthStateChange((event, next) => {
       if (event === 'SIGNED_OUT') setRegister(false)
       setSession(next)
     })
-    return () => data.subscription.unsubscribe()
+    confirmation ??= confirmEmail(auth)
+    void confirmation.then(confirmed => {
+      if (!active) return
+      if (!confirmed) setError('Không thể hoàn tất xác nhận trong trình duyệt này. Hãy đăng nhập nếu email đã được xác nhận, hoặc mở liên kết mới trong trình duyệt đã đăng ký.')
+      setCheckingConfirmation(false)
+    })
+    return () => { active = false; data.subscription.unsubscribe() }
   }, [])
 
   const signOut = async () => {
@@ -86,7 +110,7 @@ export function OnlineAccount() {
   }
 
   if (practice) return <App onLeaveLocal={() => setPractice(false)} />
-  if (auth && session) return <>
+  if (auth && session && !checkingConfirmation) return <>
     <SignedInAccount key={session.user.id} client={auth} owner={session.user.id}
       onExpired={rejected => setSession(previous => {
         if (!previous || previous.user.id !== session.user.id || (rejected && previous.access_token !== rejected)) return previous
@@ -97,7 +121,7 @@ export function OnlineAccount() {
   </>
   return <Modal title="EXE trực tuyến">
     <h2>{register ? 'Tạo tài khoản EXE' : 'EXE trực tuyến'}</h2>
-    {session === undefined ? <p role="status">Đang kiểm tra phiên đăng nhập…</p> : auth ?
+    {session === undefined || checkingConfirmation ? <p role="status">Đang kiểm tra phiên đăng nhập…</p> : auth ?
       <form onSubmit={authenticate}>
         <label htmlFor="online-email">Email</label>
         <input className="text-input" id="online-email" name="email" type="email" autoComplete="username" required />

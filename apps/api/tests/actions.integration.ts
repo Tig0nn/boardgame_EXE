@@ -209,6 +209,44 @@ test('Phase 2A actions on PostgreSQL', { timeout: 90_000 }, async t => {
     assert.equal((await post(id, command('advance', 0), key)).statusCode, 200)
   })
 
+  await t.test('PostgreSQL cancels a blocked snapshot INSERT and the same action key retries once', async () => {
+    const id = await createSession()
+    const key = randomUUID()
+    const payload = command('advance', 0)
+    const blocker = await database.pool.connect()
+    let blocked: { pid: number; blockers: number[] } | undefined
+    let request: ReturnType<typeof post> | undefined
+    try {
+      await blocker.query('BEGIN')
+      const { rows: [{ pid }] } = await blocker.query<{ pid: number }>('SELECT pg_backend_pid() AS pid')
+      await blocker.query('LOCK TABLE game_snapshots IN SHARE MODE')
+      request = post(id, payload, key)
+      for (let attempt = 0; attempt < 50 && !blocked; attempt++) {
+        const { rows } = await admin.pool.query<{ pid: number; blockers: number[] }>(
+          "SELECT pid, pg_blocking_pids(pid) AS blockers FROM pg_stat_activity WHERE datname = $1 AND wait_event_type = 'Lock' AND query LIKE 'insert into %game_snapshots%'",
+          [name],
+        )
+        blocked = rows[0]
+        if (!blocked) await delay(30)
+      }
+      assert.ok(blocked?.blockers.includes(pid))
+      const response = await request
+      assert.equal(response.statusCode, 500, response.body)
+      assert.equal((await session(id)).stateVersion, 0)
+      assert.equal((await actions(id)).length, 0)
+      assert.equal((await snapshots(id)).length, 1)
+    } finally {
+      try { await blocker.query('ROLLBACK') } finally { blocker.release() }
+      await request
+    }
+    const retry = await post(id, payload, key)
+    assert.equal(retry.statusCode, 200, retry.body)
+    assert.equal(retry.json().stateVersion, 1)
+    assert.equal((await post(id, payload, key)).statusCode, 200)
+    assert.equal((await actions(id)).length, 1)
+    assert.equal((await snapshots(id)).length, 2)
+  })
+
   await t.test('database disconnect recovers and an interrupted write can retry safely', async () => {
     const id = await createSession()
     const key = randomUUID()
