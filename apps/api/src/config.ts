@@ -10,7 +10,11 @@ const settings = z.object({
 })
 
 export function loadConfig(env: NodeJS.ProcessEnv) {
-  const result = settings.safeParse(env)
+  const onRender = env.RENDER === 'true'
+  if (onRender && (env.EXE_ENV !== 'staging' || env.EXE_STAGING_PROJECT_REF !== 'yqikecqeijeaygmmjdyg' || !env.PORT)) {
+    throw new Error('Render requires the EXE staging project and platform PORT')
+  }
+  const result = settings.safeParse(onRender ? { ...env, API_PORT: env.PORT, API_HOST: '0.0.0.0' } : env)
   if (!result.success) {
     const fields = result.error.issues.map(issue => issue.path.join('.')).join(', ')
     throw new Error('Invalid API configuration fields: ' + fields)

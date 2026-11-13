@@ -4,6 +4,20 @@ import { loadConfig, localDatabaseUrl } from '../src/config.ts'
 
 const developmentUrl = 'postgresql://exe_v1@127.0.0.1:55432/exe_v1'
 
+test('Render binds the platform port on all interfaces only for EXE staging', () => {
+  const env = {
+    DATABASE_URL: developmentUrl, RENDER: 'true', PORT: '10000', API_PORT: '3109', API_HOST: '127.0.0.1',
+    EXE_ENV: 'staging', EXE_STAGING_PROJECT_REF: 'yqikecqeijeaygmmjdyg',
+  }
+  const config = loadConfig(env)
+  assert.equal(config.port, 10000)
+  assert.equal(config.host, '0.0.0.0')
+  for (const patch of [{ PORT: undefined }, { PORT: '65536' }, { EXE_ENV: 'production' }, { EXE_STAGING_PROJECT_REF: 'other' }]) {
+    assert.throws(() => loadConfig({ ...env, ...patch }))
+  }
+  assert.equal(loadConfig({ DATABASE_URL: developmentUrl, PORT: '10000' }).port, 3109)
+})
+
 test('restricts development database commands to the dedicated loopback database', () => {
   assert.equal(localDatabaseUrl(developmentUrl).href, developmentUrl)
   for (const value of [
