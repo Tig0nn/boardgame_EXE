@@ -1,0 +1,13 @@
+.cloud-what-if-table {
+  overflow-x: auto;
+}
+
+.cloud-what-if-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cloud-what-if-table :is(th, td) {
+  padding: 0.25rem;
+  text-align: start;
+}

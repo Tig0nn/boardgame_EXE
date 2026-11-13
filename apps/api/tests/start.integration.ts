@@ -319,6 +319,105 @@ test('Phase 2C4 START and rebalancing on real HTTP and PostgreSQL', { timeout: 1
     assert.deepEqual(final.session.setup, setup)
     assert.deepEqual(final.state.start.sales, [])
     await status(execute(id, command('trade', plan.length, { kind: 'sell', asset: 'gold', amount: 1 })), 409)
+    // Same saved B18 game, through authenticated HTTP and the canonical START journey above.
+    const whatIfPath = path + '/' + id + '/what-if'
+    const catalog = (bearer = authorization) => fetch(base + whatIfPath, { headers: { authorization: bearer } })
+    const [firstCatalog, refreshedCatalog] = await Promise.all([status(catalog(), 200), status(catalog(), 200)])
+    assert.equal(firstCatalog.headers.get('cache-control'), 'no-store')
+    const { decisions, stateVersion, policy } = await firstCatalog.json()
+    assert.deepEqual({ decisions, stateVersion, policy }, await refreshedCatalog.json())
+    assert.equal(stateVersion, plan.length)
+    assert.equal(policy, 'retain-legal-then-required-v1')
+    assert.ok(decisions.some((entry: { original: GameActionRequest }) => entry.original.actionId === 'trade'))
+    await status(catalog(outsider), 404)
+
+    const firstTrade = plan.find(item => item.actionId === 'trade')!
+    const deposit = plan.find(item => item.actionId === 'trade' && item.payload.kind === 'deposit')!
+    const finalSale = plan.findLast(item => item.actionId === 'trade' && item.payload.kind === 'sell')!
+    const compare = (action: GameActionRequest, alternative: object = { mode: 'omit' }, version = stateVersion) =>
+      ({ stateVersion: version, sequence: action.expectedStateVersion + 1, alternative })
+    const originalState = await latest(id)
+    const rowsBefore = await database.pool.query(
+      'SELECT (SELECT count(*) FROM game_sessions) AS sessions, (SELECT count(*) FROM game_actions) AS actions, ' +
+      '(SELECT count(*) FROM game_snapshots) AS snapshots, (SELECT count(*) FROM game_results) AS results')
+    await status(post(whatIfPath, compare(firstTrade), undefined, outsider), 404)
+    await status(post(whatIfPath, compare(firstTrade, { mode: 'omit' }, stateVersion - 1)), 409)
+    await status(post(whatIfPath, compare(plan[0])), 422)
+    await status(post(whatIfPath, { ...compare(deposit), seed: 'no' }), 400)
+    await status(post(whatIfPath, compare(deposit, {
+      mode: 'replace', action: { actionId: 'trade', payload: { ...deposit.payload, amount: Number.MAX_SAFE_INTEGER } },
+    })), 422)
+
+    // Drop an encounter-completing trade: the alternate branch must supply the
+    // required event decision and must never sell a lot it no longer owns.
+    const assetBuy = plan.find(item => item.actionId === 'trade' && 'asset' in item.payload &&
+      item.payload.asset !== 'business' && item.payload.kind === 'buy')!
+    const omitted = await (await status(post(whatIfPath, compare(assetBuy)), 200)).json()
+    assert.equal(omitted.status, 'completed')
+    assert.ok(omitted.continuation.notRetained > 0)
+    assert.ok(omitted.continuation.fallback.some((step: { action: { actionId: string; payload: { optionId?: string } } }) =>
+      step.action.actionId === 'choose' && step.action.payload.optionId === 'skip'))
+    assert.deepEqual(omitted.alternative.completedLaps, [1, 2, 3, 4])
+    t.diagnostic('Omit asset buy: ' + omitted.continuation.notRetained + ' recorded steps not retained; ' + omitted.continuation.fallback.length + ' explicit fallback decisions')
+
+    const alternativeTerm = { mode: 'replace', action: { actionId: 'trade', payload: { ...deposit.payload, term: 2 } } }
+    for (const [action, alternative] of [[deposit, alternativeTerm], [finalSale, { mode: 'omit' }]] as const) {
+      const query = compare(action, alternative)
+      const started = performance.now()
+      const response = await status(post(whatIfPath, query), 200)
+      const latency = performance.now() - started
+      const json = await response.text()
+      assert.doesNotMatch(json, /"(seed|rng|historySeed|snapshot|priceHistory)":/)
+      const value = JSON.parse(json)
+      assert.equal(value.status, 'completed')
+      assert.deepEqual(value.actual.completedLaps, [1, 2, 3, 4])
+      assert.deepEqual(value.alternative.completedLaps, [1, 2, 3, 4])
+      assert.equal(value.actual.lawfulProceedsVnd, final.result.lawfulProceedsVnd)
+      assert.equal(value.actual.outcome, final.result.outcome)
+      assert.equal(value.delta.lawfulProceedsVnd, String(BigInt(value.alternative.lawfulProceedsVnd) - BigInt(final.result.lawfulProceedsVnd)))
+
+      // Independent replay: in these two cases every later command remains legal, with
+      // no required fallback. For the bank fork, only the deposit term is replaced.
+      let expected = session.game
+      const beforeFork = action.expectedStateVersion
+      for (const [index, command] of plan.entries()) {
+        if (index === beforeFork && alternative.mode === 'omit') continue
+        const nextCommand = index === beforeFork ? gameActionBody.parse({
+          ...alternative.action, expectedStateVersion: index,
+        }) : command
+        const next = canonicalStep(expected, nextCommand)
+        assert.notEqual(next, expected)
+        expected = next
+      }
+      assert.equal(expected.termination, 'completed')
+      assert.equal(value.alternative.lawfulProceedsVnd, String(liquidatableFunds(expected)))
+      assert.equal(value.alternative.totalWorth, totalWorth(expected))
+      assert.equal(value.alternative.outcome, victory(expected).won ? 'victory' : 'defeat')
+      assert.deepEqual(value.alternative.portfolio, expected.portfolio)
+      assert.equal(value.continuation.notRetained, 0)
+      assert.deepEqual(value.continuation.fallback, [])
+      assert.deepEqual(await (await status(post(whatIfPath, query), 200)).json(), value)
+      t.diagnostic('What-if version ' + value.sequence + ': HTTP ' + Math.round(latency) + 'ms; delta ' + value.delta.lawfulProceedsVnd + ' VND')
+    }
+
+    // A held lock is confined to this disposable database. The transaction must time
+    // out cleanly, and a fresh request must recover after the lock is released.
+    const lock = await database.pool.connect()
+    try {
+      await lock.query('BEGIN')
+      await lock.query('LOCK TABLE game_actions IN ACCESS EXCLUSIVE MODE')
+      const timeout = await status(post(whatIfPath, compare(finalSale)), 503)
+      assert.equal((await timeout.json()).error.code, 'WHAT_IF_BUDGET_EXCEEDED')
+    } finally {
+      try { await lock.query('ROLLBACK') } finally { lock.release() }
+    }
+    assert.equal((await (await status(post(whatIfPath, compare(finalSale)), 200)).json()).status, 'completed')
+    assert.deepEqual((await history(id)), log)
+    assert.deepEqual(await latest(id), originalState)
+    assert.deepEqual(await read(id), final)
+    assert.deepEqual((await database.pool.query(
+      'SELECT (SELECT count(*) FROM game_sessions) AS sessions, (SELECT count(*) FROM game_actions) AS actions, ' +
+      '(SELECT count(*) FROM game_snapshots) AS snapshots, (SELECT count(*) FROM game_results) AS results')).rows, rowsBefore.rows)
     t.diagnostic('Natural START journey completed ' + plan.length + ' HTTP actions and all three financial sales')
   })
 

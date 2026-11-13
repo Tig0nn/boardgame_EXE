@@ -202,7 +202,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
     assert.ok(fundingId, 'Could not find a new game with a first-roll payment')
     await wide.page.reload()
     await wide.page.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).click()
-    await wide.page.getByRole('button', { name: /Tiếp tục ván/ }).first().click()
+    await wide.page.getByRole('button', { name: /Tiếp tục ván/ }).first().press('Enter')
     await action(wide.page, () => wide.page.getByRole('button', { name: 'Bắt đầu vòng 1', exact: true }).click())
     const landing = await action(wide.page, () => rollDice(wide.page))
     const option = landing.state.options.find((item: { cost?: number }) => (item.cost ?? 0) > 0)
@@ -227,7 +227,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   assert.equal(initial.state.portfolio.cash, 40_000_000)
   const device = await player(390, expired, token)
   const tab = device.page
-  await tab.getByRole('button', { name: /Tiếp tục ván/ }).first().click()
+  await tab.getByRole('button', { name: /Tiếp tục ván/ }).first().press('Enter')
   assert.deepEqual(device.statuses.slice(0, 2), [401, 200])
   await tab.getByRole('button', { name: 'Bắt đầu vòng 1', exact: true }).waitFor()
   const initialButton = page.getByRole('button', { name: 'Bắt đầu vòng 1', exact: true })
@@ -262,7 +262,7 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   await page.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).click()
   const restoredResponse = page.waitForResponse((response: { url: () => string; status: () => number }) =>
     response.url().endsWith('/v1/game-sessions/' + id) && response.status() === 200)
-  await page.getByRole('button', { name: /Tiếp tục ván/ }).first().click()
+  await page.getByRole('button', { name: /Tiếp tục ván/ }).first().press('Enter')
   const restored = await (await restoredResponse).json()
   assert.equal(restored.session.stateVersion, 2)
   assert.deepEqual(restored.state.portfolio, current.state.portfolio)
@@ -354,6 +354,47 @@ test('Mobile browser uses real HTTP, JWT ownership and PostgreSQL to finish a B1
   assert.equal(snapshots.length, actions.length + 1)
   assert.equal(actions.filter(entry => entry.idempotencyKey === seenFailedKey).length, 1)
   assert.equal(await page.evaluate(() => localStorage.getItem('xvtl:mobile:game:v1')), null)
+  // Compare from the official result at mobile width; recover from a lost response
+  // and after a full page refresh, using the same saved game and no browser game state.
+  const whatIfName = 'Nếu chọn khác thì sao?'
+  const launchWhatIf = () => page.getByRole('button', { name: whatIfName, exact: true }).click()
+  const decision = () => page.getByLabel('Quyết định đã thực hiện')
+  const omitTrade = () => page.getByRole('button', { name: 'Bỏ giao dịch này', exact: true }).click()
+  await launchWhatIf()
+  const sale = actions.findLast(row => row.actionType === 'trade' && row.payload.kind === 'sell')
+  assert.ok(sale)
+  await decision().selectOption(String(sale.sequence))
+  await page.route('**/what-if', async (route: { request: () => { method: () => string }; abort: () => Promise<void>; continue: () => Promise<void> }) => {
+    if (route.request().method() === 'POST') await route.abort()
+    else await route.continue()
+  })
+  await omitTrade()
+  await page.getByRole('alert').filter({ hasText: 'Chưa nhận được phản hồi' }).waitFor()
+  await page.unroute('**/what-if')
+  const evaluate = async () => {
+    const [response] = await Promise.all([
+      page.waitForResponse((response: { url: () => string; request: () => { method: () => string } }) =>
+        response.url().endsWith('/what-if') && response.request().method() === 'POST'),
+      omitTrade(),
+    ])
+    assert.equal(response.status(), 200, await response.text())
+    const comparison = await response.json()
+    assert.equal(comparison.status, 'completed')
+    assert.deepEqual(comparison.alternative.completedLaps, [1, 2, 3, 4])
+    assert.deepEqual(comparison.actual.lawfulProceedsVnd, persisted.result.lawfulProceedsVnd)
+    await page.getByRole('heading', { name: 'So sánh sau vòng 4' }).waitFor()
+    await page.getByRole('heading', { name: 'Vì sao kết quả khác?' }).waitFor()
+    return comparison
+  }
+  const beforeRefresh = await evaluate()
+  await page.reload({ waitUntil: 'domcontentloaded' })
+  await page.getByRole('button', { name: 'Bắt đầu phiêu lưu' }).click()
+  await page.getByRole('button', { name: /Xem kết quả/ }).first().press('Enter')
+  await launchWhatIf()
+  await decision().selectOption(String(sale.sequence))
+  assert.deepEqual(await evaluate(), beforeRefresh)
+  assert.deepEqual(await (await direct(id)).json(), persisted)
+  t.diagnostic('What-if comparison and recovery verified through Chromium Mobile with a completed PostgreSQL game.')
   assert.deepEqual(errors, [])
   for (const required of ['rolling', 'event', 'funding', 'trading', 'bank', 'business', 'summary', 'rebalancing', 'rebalance-trade']) {
     assert.ok(covered.has(required), 'Browser journey did not encounter ' + required)

@@ -1,5 +1,6 @@
 import type { publicB18State, officialB18Result } from '../../../apps/api/src/services/b18-actions.ts'
-import type { GameActionRequest } from '../../../apps/api/src/validation.ts'
+import type { WhatIfCatalog, WhatIfEvaluation } from '../../../apps/api/src/services/what-if.ts'
+import type { GameActionRequest, WhatIfRequest } from '../../../apps/api/src/validation.ts'
 import type { Term } from '../../../src/game/types.ts'
 import type { MobileCommand } from './session.ts'
 import type { AccessToken } from './account-token.ts'
@@ -24,7 +25,7 @@ export class ApiError extends Error {
 }
 
 export function createGameApi(accessToken: AccessToken, send: typeof fetch = fetch) {
-  async function request<T>(path: string, body?: object, key?: string): Promise<T> {
+  async function request<T>(path: string, body?: object, key?: string, signal?: AbortSignal): Promise<T> {
     const token = await accessToken()
     if (!token) throw new ApiError(401, 'UNAUTHORIZED')
     const serialized = body ? JSON.stringify(body) : undefined
@@ -33,7 +34,7 @@ export function createGameApi(accessToken: AccessToken, send: typeof fetch = fet
       credentials: 'omit',
       redirect: 'error',
       cache: 'no-store',
-      signal: AbortSignal.timeout(12000),
+      signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(12000)]) : AbortSignal.timeout(12000),
       headers: {
         authorization: 'Bearer ' + bearer,
         ...(body ? { 'content-type': 'application/json' } : {}),
@@ -57,6 +58,8 @@ export function createGameApi(accessToken: AccessToken, send: typeof fetch = fet
     create: (setup: Setup, key: string) => request<{ session: SessionHeader }>('', { scenarioId: 'b18', setup }, key),
     read: (id: string) => request<SessionDetail>('/' + encodeURIComponent(id)),
     action: (id: string, body: GameActionRequest, key: string) => request<ActionReply>('/' + encodeURIComponent(id) + '/actions', body, key),
+    whatIfCatalog: (id: string, signal: AbortSignal) => request<WhatIfCatalog>('/' + encodeURIComponent(id) + '/what-if', undefined, undefined, signal),
+    whatIf: (id: string, body: WhatIfRequest, signal: AbortSignal) => request<WhatIfEvaluation>('/' + encodeURIComponent(id) + '/what-if', body, undefined, signal),
     quote(id: string, body: GameActionRequest) {
       const path = '/' + encodeURIComponent(id)
       const { actionId, payload, expectedStateVersion } = body

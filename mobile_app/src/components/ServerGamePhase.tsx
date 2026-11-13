@@ -1,3 +1,4 @@
+import { CloudEndgameWhatIf } from './endgame-what-if/CloudEndgameWhatIf'
 import { useRef, useState } from 'react'
 import type { FormEvent, ReactNode } from 'react'
 import { ASSETS, SCENARIOS } from '../../../src/data/config'
@@ -210,6 +211,7 @@ export function ServerGamePhase({ detail, api, send, locked, onHome, onNew, refr
         primaryAction={{ label: 'Chơi ván mới', onClick: onNew }} secondaryAction={{ label: 'Về danh sách ván', onClick: onHome }}>
         {coach}
         {result && <p>Kết quả chính thức · Nguồn huy động hợp lệ <strong>{money(Number(result.lawfulProceedsVnd))}</strong></p>}
+        {result && result.outcome !== 'insolvent' && <CloudEndgameWhatIf api={api} sessionId={session.id} />}
       </GamifiedModal>
     default: return null
   }

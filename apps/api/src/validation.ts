@@ -79,15 +79,29 @@ export const bankQuoteBody = z.discriminatedUnion('actionId', [
 ])
 export type BankQuoteRequest = z.infer<typeof bankQuoteBody>
 
+const chooseAction = z.strictObject({
+  actionId: z.literal('choose'), payload: z.strictObject({ optionId: z.string().refine(id => optionIds.has(id)) }),
+})
+const fundAction = z.strictObject({ actionId: z.literal('fund'), payload: fundingPayload })
+const tradeAction = z.strictObject({ actionId: z.literal('trade'), payload: z.union([tradePayload, bankPayload, businessPayload]) })
+const version = { expectedStateVersion }
+
 export const gameActionBody = z.discriminatedUnion('actionId', [
   z.strictObject({ actionId: z.literal('advance'), expectedStateVersion, payload: z.strictObject({}) }),
   z.strictObject({ actionId: z.literal('roll'), expectedStateVersion, payload: z.strictObject({}) }),
-  z.strictObject({
-    actionId: z.literal('choose'), expectedStateVersion,
-    payload: z.strictObject({ optionId: z.string().refine(id => optionIds.has(id)) }),
-  }),
-  z.strictObject({ actionId: z.literal('fund'), expectedStateVersion, payload: fundingPayload }),
-  z.strictObject({ actionId: z.literal('trade'), expectedStateVersion, payload: z.union([tradePayload, bankPayload, businessPayload]) }),
+  chooseAction.extend(version), fundAction.extend(version), tradeAction.extend(version),
 ])
 
 export type GameActionRequest = z.infer<typeof gameActionBody>
+
+const alternativeAction = z.discriminatedUnion('actionId', [chooseAction, fundAction, tradeAction])
+
+export const whatIfBody = z.strictObject({
+  stateVersion: expectedStateVersion,
+  sequence: z.number().int().positive().max(2_147_483_647),
+  alternative: z.discriminatedUnion('mode', [
+    z.strictObject({ mode: z.literal('omit') }),
+    z.strictObject({ mode: z.literal('replace'), action: alternativeAction }),
+  ]),
+})
+export type WhatIfRequest = z.infer<typeof whatIfBody>
