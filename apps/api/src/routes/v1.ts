@@ -5,8 +5,9 @@ import type { Database } from '../db/client.ts'
 import { notFound } from '../errors.ts'
 import { getOrCreateProfile } from '../repositories/profiles.ts'
 import { sessionRepository } from '../repositories/game-sessions.ts'
+import { executeGameAction } from '../services/game-actions.ts'
 import { createGameSession } from '../services/game-sessions.ts'
-import { createSessionBody, idempotencyKey, listSessionsQuery, sessionParams } from '../validation.ts'
+import { createSessionBody, gameActionBody, idempotencyKey, listSessionsQuery, sessionParams } from '../validation.ts'
 
 declare module 'fastify' {
   interface FastifyRequest {
@@ -45,6 +46,13 @@ export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAu
     return reply.code(result.created ? 201 : 200)
       .header('Location', '/v1/game-sessions/' + result.session.id)
       .send({ session: result.session })
+  })
+
+  api.post('/game-sessions/:id/actions', async request => {
+    const { id } = sessionParams.parse(request.params)
+    const action = gameActionBody.parse(request.body)
+    const key = idempotencyKey.parse(request.headers['idempotency-key'])
+    return executeGameAction(db, playerId(request), id, key, action)
   })
 
   api.get('/game-sessions/:id', async request => {

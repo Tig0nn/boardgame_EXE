@@ -19,6 +19,8 @@ Route POST nhận duy nhất scenario `b18` và khóa idempotency. Trong transac
 
 Idempotency theo cặp owner và khóa. Ràng buộc unique của PostgreSQL xử lý các POST đồng thời. Lần ghi thắng trả 201. Lần gửi lại trả 200 và cùng ID. PostgreSQL rollback profile, session và snapshot nếu một bước ghi thất bại. [Drizzle PostgreSQL](https://orm.drizzle.team/docs/get-started-postgresql) · [Fastify Server](https://fastify.dev/docs/latest/Reference/Server/)
 
-## Phase 2
+## Lộ trình từ V1
 
 Thêm endpoint nhận lệnh canonical và `expectedStateVersion`. Xác minh owner, khóa idempotency và version trong cùng transaction. Phục hồi snapshot bằng engine tương ứng, áp dụng lệnh hợp lệ, ghi action, tăng state version bằng compare-and-swap và ghi snapshot theo chính sách đã chọn. Khi kết thúc, lưu final snapshot và kết quả chính thức trong cùng transaction. Kiểm thử retry, cạnh tranh, replay xác định và kết quả B18 trước khi nối frontend. Chuẩn bị kế hoạch chuyển từng serverless route khi có thay thế được nghiệm thu. Semantic P4 ở trạng thái HOLD.
+
+Phase 2A đã triển khai luồng action B18 và kết quả terminal. [Thiết kế, phạm vi và replay Phase 2A](./ACTIONS_V2A.md)

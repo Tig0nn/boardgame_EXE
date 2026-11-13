@@ -19,3 +19,9 @@ Các bảng quan hệ dùng timestamp với múi giờ. API trả thời điểm
 V1 ghi dữ liệu vào `profiles`, `game_sessions` và `game_snapshots`. Ba bảng action, result và audit dành cho các luồng ghi sau. Backend lọc dữ liệu theo owner trong truy vấn. Database local phục vụ riêng backend, ở loopback.
 
 Bộ integration dùng `TEMPLATE template0` để kiểm tra migration trên database mới hoàn toàn. Suite chỉ xóa database có tên ngẫu nhiên mà chính lần chạy vừa tạo. Xem [hướng dẫn Windows](../../apps/api/README.md) để đổi sang volume trống mà vẫn giữ bản cũ.
+
+## Ghi action ở Phase 2A
+
+Phase 2A sử dụng ba migration hiện có. `game_actions.sequence` là state version sau action, nên expected version của lệnh đã commit bằng `sequence - 1`. Cặp `(session_id, idempotency_key)` tra được lệnh gốc. Snapshot có cùng version dùng để trả lại response lịch sử. Seed, genesis, chuỗi lệnh có thứ tự và metadata engine/result đủ để kiểm tra replay theo checkpoint.
+
+Khi engine kết thúc, cùng transaction cập nhật session thành `completed` và thêm đúng một dòng `game_results` tham chiếu final snapshot. [Thiết kế Phase 2A](./ACTIONS_V2A.md)

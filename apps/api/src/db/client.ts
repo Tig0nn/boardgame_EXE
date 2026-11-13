@@ -10,6 +10,10 @@ export function createDatabase(connectionString: string) {
   })
   // pg emits errors for idle sockets after a database restart. The pool discards them.
   pool.on('error', () => {})
+  // A server restart can also disconnect a client checked out by a transaction.
+  pool.on('connect', client => {
+    client.on('error', () => {})
+  })
 
   return {
     pool,
