@@ -1,6 +1,6 @@
 # REST API V1
 
-Môi trường Phase 2C3 dùng `http://127.0.0.1:3105` theo `.env.example`. Các route `/v1` yêu cầu `Authorization: Bearer <access-token>` và trả `Cache-Control: no-store`. Dữ liệu phản hồi dùng JSON và timestamp ISO 8601 UTC.
+Môi trường Phase 2C4 dùng `http://127.0.0.1:3106` theo `.env.example`. Các route `/v1` yêu cầu `Authorization: Bearer <access-token>` và trả `Cache-Control: no-store`. Dữ liệu phản hồi dùng JSON và timestamp ISO 8601 UTC.
 
 | Method và path | Input | Thành công |
 | --- | --- | --- |
@@ -30,7 +30,7 @@ Lỗi có dạng `{"error":{"code":"INVALID_REQUEST","message":"Invalid request"
 | 503 | `AUTH_UNAVAILABLE` | Chưa cấu hình issuer hoặc JWKS không khả dụng |
 | 503 | `DATABASE_UNAVAILABLE` | Readiness probe không kết nối hoặc truy vấn được PostgreSQL |
 
-## Actions B18 · Phase 2C3
+## Actions B18 · Phase 2C4
 
 Gửi `POST /v1/game-sessions/:id/actions` với access token của owner và header `Idempotency-Key` là UUID. Body phải có đủ ba trường sau.
 
@@ -44,7 +44,7 @@ Gửi `POST /v1/game-sessions/:id/actions` với access token của owner và he
 | `roll` | `{}` | Phase `rolling`. Server tự gieo và xử lý landing/START. |
 | `choose` | `{"optionId":"course-basic"}` | Phase `event`. Dùng option ID canonical của event hiện tại, gồm mua `course-basic` và `course-advanced`, `pay`, `full`, `temporary`, `defer`, `acknowledge` và `skip` khi engine cho phép. |
 | `fund` | `{"source":"debt","amount":1000000}` | Phase `funding`. `amount` là số nguyên VND dương an toàn. Giới hạn theo `fundingOptions` và engine. |
-| `trade` | `{"kind":"buy","asset":"gold","amount":1000000}` | Phase `event` tại đúng ô Gold, Stocks hoặc Bonds, tối đa một giao dịch thành công mỗi lượt ghé. Cũng nhận `deposit` tại Bank và `repay` tại checkpoint START. |
+| `trade` | `{"kind":"buy","asset":"gold","amount":1000000}` | Phase `event` tại đúng ô Gold, Stocks hoặc Bonds, tối đa một giao dịch thành công mỗi lượt ghé. Cũng nhận `sell` Gold/Stocks/Bonds và `repay` tại START, `deposit` tại Bank, cùng các thao tác tại ô Business. |
 
 `fund` hỗ trợ `savings`, `stocks`, `bonds`, `gold` và `debt`. Với `savings`, gửi toàn bộ gốc của lot và `lotId` để chỉ định khoản. Nếu bỏ `lotId`, engine chọn khoản đang active đầu tiên. `bonds` yêu cầu `lotId` và số tiền bán gộp của lot. `stocks` và `gold` nhận số tiền bán gộp. `debt` nhận số tiền muốn vay, giới hạn bởi khoản thiếu và hạn mức còn lại. Backend tính số tiền thực nhận, phí và số còn thiếu qua engine.
 
@@ -59,7 +59,7 @@ Retry sau timeout hoặc mất response cần giữ nguyên key và cả body. R
 | 409 | `IDEMPOTENCY_KEY_REUSED` | Key đã commit cho action ID, payload hoặc expected version khác |
 | 409 | `STATE_VERSION_CONFLICT` | Key mới với expected version khác version hiện tại |
 | 409 | `SESSION_NOT_ACTIVE` | Lệnh mới trên session đã kết thúc hoặc bị bỏ |
-| 409 | `SCENARIO_UNSUPPORTED` | Session dùng scenario, engine hoặc rules ngoài phạm vi Phase 2C3 |
+| 409 | `SCENARIO_UNSUPPORTED` | Session dùng scenario, engine hoặc rules ngoài phạm vi Phase 2C4 |
 | 422 | `ACTION_NOT_ALLOWED` | Lệnh đúng schema nhưng engine từ chối ở phase/event hiện tại |
 
 Các lỗi chung trong bảng trên vẫn áp dụng, gồm 404 cho session thuộc người khác và 400 cho action/payload ngoài schema. Lỗi DB khi xử lý action trả 500. Sau khi DB phục hồi, gửi lại cùng key và body.
@@ -85,7 +85,7 @@ Dùng `stateVersion` của quote làm `expectedStateVersion` trong action, với
 | Action và payload | Điều kiện |
 | --- | --- |
 | `trade` với `{"kind":"deposit","amount":1000000,"term":2}` | Encounter Bank. `term` là 1, 2 hoặc 3, mặc định 1. Một lot mỗi lượt ghé, yêu cầu đủ tiền mặt. |
-| `trade` với `{"kind":"repay","amount":1000000}` | Phase `rebalancing`. `amount` là gốc muốn trả, giới hạn bởi dư nợ và tiền mặt đủ trả cả gốc và lãi. |
+| `trade` với `{"kind":"repay","amount":1000000}` | Phase `rebalancing`. `amount` là gốc muốn trả, giới hạn bởi dư nợ và tiền mặt. Trước checkpoint cuối, tiền mặt phải đủ trả cả gốc và lãi. Tại checkpoint cuối, engine đã cộng lãi của khoản vay START mới vào nợ. |
 | `fund` với `{"source":"debt","amount":1000000}` | Funding. Giới hạn theo khoản thiếu và hạn mức còn lại. |
 | `fund` với `{"source":"savings","amount":1000000,"lotId":"deposit-1"}` | Funding. Phải rút toàn bộ gốc của một lot đang active. |
 
@@ -110,3 +110,24 @@ GET session và response action trả `state.business`. Các trường gồm `ow
 `POST /v1/game-sessions/:id/business-quote` nhận cùng `payload` và `expectedStateVersion`. Không cần idempotency key. Quote có `cashPaid`, `cashReceived`, `cashAfter`, `phaseAfter`, `businessAfter`, `netWorthAfter`, `totalWorthAfter` và `liquidatableFundsAfter`. Gửi lại payload với version của quote qua action API để commit. Field tài chính do client tự tính bị từ chối với 400. Version cũ trả 409. Lệnh sai phase, sai giá trị canonical hoặc thiếu tiền trả 422.
 
 [Thiết kế Phase 2C3](./ACTIONS_V2C3.md)
+
+## START và Rebalancing · Phase 2C4
+
+Khi `roll` đi tới hoặc vượt START, engine tự quyết toán. `fund` tiếp tục quyết toán nếu thiếu tiền. `advance` ở `summary` mở Rebalancing và `advance` ở `rebalancing` chuyển vòng hoặc chốt kết quả vòng cuối.
+
+GET session và response action trả `state.start`.
+
+| Trường | Nội dung |
+| --- | --- |
+| `lap` | Vòng hiện tại |
+| `settlementStatus` | `pending` trước START, `awaitingFunding` khi quyết toán đang chờ thanh toán, `completed` khi đã có tổng kết, `interrupted` khi ván kết thúc trong quyết toán |
+| `summary` | Tổng kết canonical của vòng hiện tại hoặc `null` |
+| `finalCheckpoint` | Có quyết toán đang diễn ra hoặc đã có tổng kết của vòng cuối |
+| `canFinishRebalancing`, `canRepay` | Quyền gửi `advance` để kết thúc checkpoint và quyền trả nợ |
+| `sales` | Danh sách `{ asset, symbolId?, lotId?, maxAmount }` cho session active ở Rebalancing. `maxAmount` là VND gộp theo snapshot đang đọc. |
+
+Trong Rebalancing, `trade` hỗ trợ `sell` Gold, Stocks và Bonds. Có thể gửi nhiều lệnh bán nếu còn holdings. Stocks có thể bán theo mã hoặc theo tỷ lệ khi bỏ mã. Bonds cần `lotId`. `completeEncounter: true` và `buy` bị từ chối ở checkpoint. Trả nợ dùng `trade` với `kind: "repay"` và `bank-quote`.
+
+`POST /v1/game-sessions/:id/trade-quote` nhận payload bán cùng `expectedStateVersion`, ví dụ `{"expectedStateVersion":24,"payload":{"kind":"sell","asset":"gold","amount":1000000}}`. Response dùng format Trading. Quote không ghi DB hoặc tiêu thụ RNG. Khi commit, server kiểm tra version và định giá lại từ snapshot đã khóa. Quote hoặc action với version cũ trả `409 STATE_VERSION_CONFLICT`. Lệnh sai phase hoặc vượt holdings trả `422 ACTION_NOT_ALLOWED`.
+
+[Thiết kế Phase 2C4](./ACTIONS_V2C4.md)

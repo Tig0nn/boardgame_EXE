@@ -1,6 +1,6 @@
 import { boardFor } from '../../../../src/data/board.ts'
 import { creditBondLots } from '../../../../src/game/bond-credit.ts'
-import { transact } from '../../../../src/game/engine.ts'
+import { rebalance, transact } from '../../../../src/game/engine.ts'
 import { investmentPurchaseUsed, investmentTradeUsed, tileTradingEnabled } from '../../../../src/game/encounters.ts'
 import { saleQuote, stockQuote } from '../../../../src/game/selectors.ts'
 import type { GameState } from '../../../../src/game/types.ts'
@@ -14,7 +14,9 @@ export function b18TradingAsset(game: GameState) {
 
 function tradeTerms(game: GameState, action: TradePayload) {
   const { asset, kind } = action
-  if (asset !== b18TradingAsset(game)) return null
+  if (game.phase === 'rebalancing') {
+    if (kind !== 'sell' || action.completeEncounter) return null
+  } else if (asset !== b18TradingAsset(game)) return null
   const buying = kind === 'buy'
   if (buying && investmentPurchaseUsed(game)) return null
 
@@ -65,8 +67,34 @@ function executableTerms(game: GameState, action: TradePayload) {
   return terms
 }
 
+export function b18RebalancingSales(game: GameState) {
+  if (game.phase !== 'rebalancing') return []
+
+  const candidates: TradePayload[] = [
+    { kind: 'sell', asset: 'gold', amount: 1 },
+    { kind: 'sell', asset: 'stocks', amount: 1 },
+    ...Object.keys(game.stockHoldings).map(symbolId => ({ kind: 'sell', asset: 'stocks', amount: 1, symbolId }) as const),
+    ...game.bondLots.filter(lot => lot.status === 'active')
+      .map(lot => ({ kind: 'sell', asset: 'bonds', amount: 1, lotId: lot.id }) as const),
+  ]
+  return candidates.flatMap(action => {
+    const terms = tradeTerms(game, action)
+    if (!terms || terms.maxAmount <= 0) return []
+    return [{
+      asset: action.asset,
+      ...('symbolId' in action ? { symbolId: action.symbolId } : {}),
+      ...('lotId' in action ? { lotId: action.lotId } : {}),
+      maxAmount: terms.maxAmount,
+    }]
+  })
+}
+
+function executeTrade(game: GameState, action: TradePayload) {
+  return game.phase === 'rebalancing' ? rebalance(game, action) : transact(game, action)
+}
+
 export function transitionB18Trade(game: GameState, action: TradePayload) {
-  return executableTerms(game, action) ? transact(game, action) : null
+  return executableTerms(game, action) ? executeTrade(game, action) : null
 }
 
 export function quoteB18Trade(game: GameState, action: TradePayload) {
@@ -74,7 +102,7 @@ export function quoteB18Trade(game: GameState, action: TradePayload) {
   if (!terms) return null
 
   // A quote runs the same pure transition on the restored snapshot without writing it.
-  const next = transact(game, action)
+  const next = executeTrade(game, action)
   const cashDelta = next.portfolio.cash - game.portfolio.cash
   const buying = action.kind === 'buy'
   const sale = buying ? null : saleQuote(game, action.asset, action.amount, 'lotId' in action ? action.lotId : undefined)

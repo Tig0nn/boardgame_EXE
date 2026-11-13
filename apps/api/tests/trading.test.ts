@@ -47,6 +47,6 @@ test('gold quote uses exact cash and canonical sale rounding without consuming a
   assert.equal(quoted.cashReceived, sale.net)
   assert.equal(quoted.fee, sale.fee)
   assert.equal(quoted.spread, sale.spread)
-  assert.equal(transitionB18Trade({ ...later, phase: 'rebalancing' }, sell), null)
+  assert.equal(transitionB18Trade({ ...later, phase: 'summary' }, sell), null)
   assert.equal(quoteB18Trade(game, sell), null)
 })
