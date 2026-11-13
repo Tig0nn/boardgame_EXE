@@ -8,8 +8,12 @@ export default defineConfig({
   resolve: { dedupe: ['react', 'react-dom'] },
   server: {
     port: 5174,
-    host: true,
+    host: '127.0.0.1',
     proxy: {
+      '/v1': {
+        target: process.env.EXE_LOCAL_API_ORIGIN || 'http://127.0.0.1:3108',
+        changeOrigin: true,
+      },
       '/api': {
         target: 'http://localhost:5173',
         changeOrigin: true,

@@ -52,6 +52,15 @@ export function publicB18State(game: GameState, active = game.phase !== 'finishe
   const { stocks, gold, appliedShocks, normalLaps } = game.market
   return {
     boardLayout: game.boardLayout,
+    boardRevision: game.boardRevision,
+    livingExpenseRulesVersion: game.livingExpenseRulesVersion,
+    event: event ? { title: event.title, description: event.description } : null,
+    // Player-visible journal entries exclude engine snapshots and random state.
+    journal: game.log.map(({ sequence, lap, kind, title, decision, consequence, before, after, action, decisionId, eventId, debtDelta, savingsDelta, expensePaid, cashDelta }) => ({
+      sequence, lap, kind, title, decision, consequence, action, decisionId, eventId, debtDelta, savingsDelta, expensePaid, cashDelta,
+      before: { portfolio: before.portfolio, obligations: before.obligations, pendingCost: before.pendingCost, deposits: before.deposits },
+      after: { portfolio: after.portfolio, obligations: after.obligations, pendingCost: after.pendingCost, deposits: after.deposits },
+    })),
     gameplayProfile: game.gameplayProfile,
     goalRulesVersion: game.goalRulesVersion,
     phase: game.phase,

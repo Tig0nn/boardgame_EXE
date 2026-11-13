@@ -5,8 +5,11 @@ import './index.css';
 
 const rootElement = document.getElementById('root');
 async function mount() {
-  let Demo = App
-  if (import.meta.env.DEV || (import.meta.env.PROD && import.meta.env.VITE_ENDGAME_WHAT_IF_BETA === '1')) {
+  let Demo: React.ComponentType = App
+  if (import.meta.env.VITE_EXE_ONLINE === '1') {
+    Demo = (await import('./components/OnlineAccount')).OnlineAccount
+  }
+  if (import.meta.env.VITE_EXE_ONLINE !== '1' && (import.meta.env.DEV || (import.meta.env.PROD && import.meta.env.VITE_ENDGAME_WHAT_IF_BETA === '1'))) {
     const params = new URLSearchParams(location.search)
     const endgame = params.getAll('endgameWhatIf')
     if (import.meta.env.DEV && params.get('whatIfDemo') === 'repair') {

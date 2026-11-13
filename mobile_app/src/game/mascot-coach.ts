@@ -5,6 +5,17 @@ import { exhaustsCash, isMascotPurchaseAsset, MASCOT_VERSION } from '../../../sr
 import type { ExplanationContext, Facts, Topic } from '../../../src/ai/mascot/contracts.ts'
 import type { GameState, LogEntry, Portfolio } from '../../../src/game/types.ts'
 
+type JournalFacts = Pick<LogEntry, 'sequence' | 'kind' | 'action' | 'decisionId' | 'cashDelta' | 'debtDelta' | 'savingsDelta' | 'expensePaid'> & {
+  before: Pick<LogEntry['before'], 'portfolio' | 'obligations' | 'pendingCost' | 'deposits'>
+  after: Pick<LogEntry['after'], 'portfolio' | 'obligations' | 'pendingCost' | 'deposits'>
+}
+type CoachGame = Pick<GameState, 'portfolio' | 'obligations' | 'pendingPayment' | 'phase'> & {
+  id: string; log: JournalFacts[]; goal: { remaining: number; target: number }
+}
+
+const localCoachGame = (game: GameState): CoachGame => ({ ...game, id: game.seed, goal: goalProgress(game) })
+const coachGame = (game: GameState | CoachGame): CoachGame => 'id' in game ? game : localCoachGame(game)
+
 type SignalId = 'concentration' | 'cash-exhaustion' | 'liquidity' | 'debt' | 'trade-off' | 'progress'
 type Severity = 'informational' | 'warning' | 'positive'
 
@@ -29,7 +40,7 @@ const GLOBAL_COOLDOWN = 12_000
 const SIGNAL_COOLDOWN = 90_000
 const explanation = (topic: Topic, facts: Facts): ExplanationContext => ({ version: MASCOT_VERSION, topic, facts })
 
-function finances(game: GameState) {
+function finances(game: CoachGame) {
   const { portfolio, obligations } = game
   const pending = game.pendingPayment?.remaining ?? 0
   const amounts = checkedAmounts.map(key => portfolio[key])
@@ -46,7 +57,7 @@ function concentrationRisk({ portfolio, gross, knownPayments }: { portfolio: Por
   return groups.find(group => portfolio[group] >= MIN_EXPOSURE && portfolio[group] / gross >= CONCENTRATION_SHARE)
 }
 
-function tradeOff(entry: LogEntry): MascotInsight | null {
+function tradeOff(entry: JournalFacts): MascotInsight | null {
   const { cashDelta, debtDelta, savingsDelta } = entry
   const kind = entry.action?.kind ?? entry.decisionId?.split('-')[0]
   let message: string
@@ -89,7 +100,7 @@ function tradeOff(entry: LogEntry): MascotInsight | null {
   }
 }
 
-function exhaustingPurchase(entry: LogEntry | undefined, cashBefore: number, cash: number) {
+function exhaustingPurchase(entry: JournalFacts | undefined, cashBefore: number, cash: number) {
   if (entry?.kind !== 'rebalancing' || entry.before.portfolio.cash !== cashBefore || entry.after.portfolio.cash !== cash) return null
   const amount = -entry.cashDelta
   if (!exhaustsCash(cashBefore, cash, amount)) return null
@@ -103,11 +114,11 @@ function exhaustingPurchase(entry: LogEntry | undefined, cashBefore: number, cas
 
 /** Coach thresholds only. Portfolio values and completed actions come from the engine. */
 export function evaluateMascotSignals(before: GameState | undefined, after: GameState): MascotInsight[] {
-  return evaluate(before, after)
+  return evaluate(before && localCoachGame(before), localCoachGame(after))
 }
 
-function evaluate(before: GameState | undefined, after: GameState, retained?: MascotInsight): MascotInsight[] {
-  if (!before || before === after || before.seed !== after.seed || after.phase === 'finished'
+function evaluate(before: CoachGame | undefined, after: CoachGame, retained?: MascotInsight): MascotInsight[] {
+  if (!before || before === after || before.id !== after.id || after.phase === 'finished'
     || after.log.length < before.log.length || (before.log.length && after.log[before.log.length - 1] !== before.log.at(-1))) return []
   const previous = finances(before)
   const current = finances(after)
@@ -180,8 +191,8 @@ function evaluate(before: GameState | undefined, after: GameState, retained?: Ma
   }
   if (!pending && !signals.some(signal => signal.signalId === 'progress')
     && entries.some(entry => entry.kind === 'settlement' || entry.kind === 'event_resolution' || entry.kind === 'decision')) {
-    const previousGoal = goalProgress(before)
-    const goal = goalProgress(after)
+    const previousGoal = before.goal
+    const goal = after.goal
     const improvement = previousGoal.remaining - goal.remaining
     if (goal.target === previousGoal.target && improvement >= goal.target * GOAL_IMPROVEMENT_SHARE && improvement > 0) {
       signals.push({
@@ -209,7 +220,7 @@ export function createMascotCoach() {
   let phase: GameState['phase'] | undefined
   let lastDisplay = -Infinity
   const lastSignal = new Map<SignalId, number>()
-  const observed = new WeakSet<GameState>()
+  const observed = new WeakSet<GameState | CoachGame>()
   const listeners = new Set<() => void>()
   function publish(next: typeof view) {
     if (view.open === next.open && view.current === next.current && view.latest === next.latest
@@ -218,7 +229,7 @@ export function createMascotCoach() {
     for (const listener of listeners) listener()
   }
 
-  function refresh(note: Note, before: GameState, after: GameState) {
+  function refresh(note: Note, before: CoachGame, after: CoachGame) {
     const previous = note.insight
     const refreshed = previous.severity === 'warning' && evaluate(before, after, previous)
       .find(candidate => candidate.explanation?.topic === previous.explanation?.topic
@@ -243,9 +254,11 @@ export function createMascotCoach() {
       listeners.add(listener)
       return () => { listeners.delete(listener) }
     },
-    observe(before: GameState, after: GameState) {
-      if (before === after || observed.has(after)) return
-      observed.add(after)
+    observe(previous: GameState | CoachGame, current: GameState | CoachGame) {
+      if (previous === current || observed.has(current)) return
+      observed.add(current)
+      const before = coachGame(previous)
+      const after = coachGame(current)
       phase = after.phase
       if (before.phase === 'summary' && after.phase !== 'summary') {
         roundNote = null
@@ -256,7 +269,7 @@ export function createMascotCoach() {
       if (roundNote) refresh(roundNote, before, after)
       if (boardPending && boardPending !== roundNote) refresh(boardPending, before, after)
 
-      const insight = evaluateMascotSignals(before, after)[0]
+      const insight = evaluate(before, after)[0]
       if (insight) {
         recent = { insight, current: true, shown: false }
         if (insight.boardAlert) boardPending = recent

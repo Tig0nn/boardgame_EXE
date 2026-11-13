@@ -1,5 +1,6 @@
 import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import type { createMascotCoach, MascotSurface } from '../game/mascot-coach'
+import type { LearningContext } from '../../../src/ai/mascot/learning'
 import type { GameState } from '../../../src/game/types'
 import { explainMascot, explanationContext } from '../game/mascot-explanation'
 import { projectLearningContext } from '../game/mascot-learning-context'
@@ -25,13 +26,16 @@ function Fox({ expression }: { expression: Expression }) {
   </svg>
 }
 
-export function MascotCoach({ coach, surface, game }: { coach: Coach; surface: MascotSurface; game: GameState }) {
+export function MascotCoach({ coach, surface, game, online }: {
+  coach: Coach; surface: MascotSurface; game?: GameState; online?: { context: LearningContext | null; revision: string }
+}) {
   const view = useSyncExternalStore(coach.subscribe, coach.getSnapshot, coach.getSnapshot)
   const { current } = view
   const latest = view.surface === surface ? view.latest : null
   const open = view.surface === surface && view.open
   const [expandedFor, setExpandedFor] = useState<typeof latest>(null)
-  const learningContext = useMemo(() => open ? projectLearningContext(game) : null, [open, game])
+  const learningContext = useMemo(() => open ? online ? online.context : game ? projectLearningContext(game) : null : null, [open, game, online])
+  const revision = online?.revision ?? (game ? [game.phase, game.lap, game.turn, game.log.at(-1)?.sequence].join(':') : '')
   const getSession = () => {
     let session = sessionIds.get(coach)
     if (!session) {
@@ -83,7 +87,7 @@ export function MascotCoach({ coach, surface, game }: { coach: Coach; surface: M
         {deep && <dl>{deep.facts.map(fact => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>}
       </section>}
       {open && <MascotLearningPanel
-        key={game.phase + ':' + game.lap + ':' + game.turn + ':' + game.log.at(-1)?.sequence}
+        key={revision}
         context={learningContext} getSession={getSession} />}
     </section>
   </aside>

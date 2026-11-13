@@ -150,31 +150,30 @@ test('Phase 2A actions on PostgreSQL', { timeout: 90_000 }, async t => {
     const key = randomUUID()
     const blocker = await database.pool.connect()
     const controller = new AbortController()
+    let request: Promise<unknown> | undefined
     try {
       await blocker.query('BEGIN')
       await blocker.query('SELECT id FROM game_sessions WHERE id = $1 FOR UPDATE', [id])
-      const request = httpPost(id, command('advance', 0), key, controller.signal).then(() => null, (error: unknown) => error)
-      try {
-        let waiting = false
-        for (let attempt = 0; attempt < 100; attempt++) {
-          const blocked = await admin.pool.query(
-            "SELECT 1 FROM pg_stat_activity WHERE datname = $1 AND wait_event_type = 'Lock' AND query LIKE '%for update%'",
-            [name],
-          )
-          if (blocked.rowCount) { waiting = true; break }
-          await delay(20)
-        }
-        assert.ok(waiting, 'HTTP action reached the PostgreSQL row lock')
-      } finally {
-        controller.abort(new DOMException('Client deadline', 'TimeoutError'))
-        const error = await request
-        assert.ok(error instanceof DOMException)
-        assert.equal(error.name, 'TimeoutError')
+      request = httpPost(id, command('advance', 0), key, controller.signal).then(() => null, (error: unknown) => error)
+      let waiting = false
+      for (let attempt = 0; attempt < 100; attempt++) {
+        const blocked = await admin.pool.query(
+          "SELECT 1 FROM pg_stat_activity WHERE datname = $1 AND wait_event_type = 'Lock' AND query LIKE '%for update%'",
+          [name],
+        )
+        if (blocked.rowCount) { waiting = true; break }
+        await delay(20)
       }
+      assert.ok(waiting, 'HTTP action reached the PostgreSQL row lock')
     } finally {
+      controller.abort(new DOMException('Client deadline', 'TimeoutError'))
+      // Release the row before awaiting browser-side cancellation. The server can still finish the request.
       try { await blocker.query('ROLLBACK') } finally { blocker.release() }
     }
 
+    const error = await request
+    assert.ok(error instanceof DOMException)
+    assert.equal(error.name, 'TimeoutError')
     const retried = await post(id, command('advance', 0), key)
     assert.equal(retried.statusCode, 200, retried.body)
     assert.equal(retried.json().stateVersion, 1)
@@ -344,7 +343,7 @@ test('Phase 2A actions on PostgreSQL', { timeout: 90_000 }, async t => {
       assert.equal(value.state.market.gold.currentPrice, next.market.gold.currentPrice)
       assert.deepEqual(value.state.market.stocks.map((stock: { currentPrice: number }) => stock.currentPrice),
         next.market.stocks.map(stock => stock.currentPrice))
-      assert.doesNotMatch(response.body, /"(seed|rng|historySeed|priceHistory|jitter|log|settlement)"/)
+      assert.doesNotMatch(response.body, /"(seed|rng|historySeed|priceHistory|jitter|log|settlement)"\s*:/)
       assert.equal(value.result === null, next.phase !== 'finished')
       if (next.phase === 'finished') {
         finalCommand = action

@@ -19,6 +19,7 @@ interface UnifiedManagementSheetProps {
   initialTab?: 'portfolio' | 'log';
   onClose: () => void;
   onHelp?: () => void;
+  readOnlyNotice?: string;
 }
 
 export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
@@ -26,6 +27,7 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
   initialTab = 'portfolio',
   onClose,
   onHelp,
+  readOnlyNotice,
 }) => {
   const [activeTab, setActiveTab] = useState<'portfolio' | 'log'>(initialTab);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -621,6 +623,7 @@ export const UnifiedManagementSheet: React.FC<UnifiedManagementSheetProps> = ({
                 }}
               >
                 <span style={{ fontSize: '11px', fontWeight: 800, color: '#78350f' }}>
+                  {readOnlyNotice && <><span>{readOnlyNotice}</span><br /></>}
                   Đã ghi nhận: <strong>{game.log.length}</strong> biến cố
                 </span>
                 <button

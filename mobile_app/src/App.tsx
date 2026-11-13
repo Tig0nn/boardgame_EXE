@@ -372,10 +372,10 @@ type EndgameResultDriver = EndgameAppQaDriver & {
 
 type RestoreQaDriver = EndgameResultDriver & { setupRequests?: EventTarget }
 
-export default function App(props: { endgameQa?: RestoreQaDriver; endgameBeta?: EndgameResultDriver } = {}) {
+export default function App(props: { endgameQa?: RestoreQaDriver; endgameBeta?: EndgameResultDriver; onLeaveLocal?: () => void } = {}) {
   const endgameQa = import.meta.env.DEV ? props.endgameQa : undefined
   const resultDriver = import.meta.env.DEV ? endgameQa : import.meta.env.PROD && import.meta.env.VITE_ENDGAME_WHAT_IF_BETA === '1' ? props.endgameBeta : undefined
-  const [screen, setScreen] = useState<'entrance' | 'map' | 'game' | 'setup'>('entrance')
+  const [screen, setScreen] = useState<'entrance' | 'map' | 'game' | 'setup'>(props.onLeaveLocal ? 'setup' : 'entrance')
   const [session, setSession] = useState<Session | null>(null)
   const [saved, setSaved] = useState(() => loadGameLocally())
   const [saveNotice, setSaveNotice] = useState('')
@@ -526,6 +526,7 @@ export default function App(props: { endgameQa?: RestoreQaDriver; endgameBeta?: 
       ) : screen === 'setup' ? (
         <MobileContainer>
           <GameSetup
+            onClose={props.onLeaveLocal}
             onHelp={openHelp}
             saved={saved}
             saveNotice={saveNotice}

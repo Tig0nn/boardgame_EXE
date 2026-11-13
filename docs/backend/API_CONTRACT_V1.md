@@ -1,6 +1,6 @@
 # REST API V1
 
-Môi trường Phase 2D dùng `http://127.0.0.1:3107` theo `.env.example`. Các route `/v1` yêu cầu `Authorization: Bearer <access-token>` và trả `Cache-Control: no-store`. Dữ liệu phản hồi dùng JSON và timestamp ISO 8601 UTC.
+Môi trường Phase 3A dùng `http://127.0.0.1:3108` theo `.env.example`. Các route `/v1` yêu cầu `Authorization: Bearer <access-token>` và trả `Cache-Control: no-store`. Dữ liệu phản hồi dùng JSON và timestamp ISO 8601 UTC.
 
 | Method và path | Input | Thành công |
 | --- | --- | --- |
@@ -64,7 +64,7 @@ Gửi `POST /v1/game-sessions/:id/actions` với access token của owner và he
 
 `expectedStateVersion` là số nguyên PostgreSQL không âm, bắt đầu từ 0. Input từ chối trường thừa, gồm số dư, kết quả, seed và state. Dùng state version trong response làm expected version của lệnh mới.
 
-HTTP 200 trả `{ sessionId, stateVersion, state, result }`. `state` gồm profile và bàn, phase/lap/turn/position/dice, scenario và event hiện hành, danh mục, thu nhập, nghĩa vụ, khóa học, tổng kết START, thông tin chờ thanh toán và các thao tác khả dụng. `availableActions` liệt kê ID action, `options` liệt kê lựa chọn event, `fundingOptions` liệt kê `{ source, lotId?, minAmount, maxAmount }` theo từng nguồn hoặc lot. `tradingAsset` cho biết ô có giao dịch hoặc `null`. `holdings` trả số lượng và cost basis của stocks/gold, cùng ID lot, số lượng, gốc, trạng thái và issuer/cost basis của bonds. `market` gồm giá hiện tại của cổ phiếu, vàng và trái phiếu theo tổ chức phát hành, các cú sốc đã áp dụng và các vòng đã cập nhật. `result` là `null` khi ván đang chạy. Kết quả chính thức có `outcome` là `victory`, `defeat` hoặc `insolvent`, và `lawfulProceedsVnd` là chuỗi số nguyên có dấu.
+HTTP 200 trả `{ sessionId, stateVersion, state, result }`. `state` gồm profile và bàn, phase/lap/turn/position/dice, scenario và event hiện hành, danh mục, thu nhập, nghĩa vụ, khóa học, tổng kết START, thông tin chờ thanh toán và các thao tác khả dụng. `availableActions` liệt kê ID action, `options` liệt kê lựa chọn event, `fundingOptions` liệt kê `{ source, lotId?, minAmount, maxAmount }` theo từng nguồn hoặc lot. `tradingAsset` cho biết ô có giao dịch hoặc `null`. `holdings` trả số lượng và cost basis của stocks/gold, cùng ID lot, số lượng, gốc, trạng thái và issuer/cost basis của bonds. `market` gồm giá hiện tại của cổ phiếu, vàng và trái phiếu theo tổ chức phát hành, các cú sốc đã áp dụng và các vòng đã cập nhật. `state.event` cung cấp tên và mô tả encounter. `state.journal` cung cấp bản ghi đã công khai cùng các facts tài chính dùng để giải thích quyết định, giữ seed, RNG, snapshot nội bộ và replay envelope trên server. `result` là `null` khi ván đang chạy. Kết quả chính thức có `outcome` là `victory`, `defeat` hoặc `insolvent`, và `lawfulProceedsVnd` là chuỗi số nguyên có dấu.
 
 Retry sau timeout hoặc mất response cần giữ nguyên key và cả body. Retry đã commit trả lại version, state và result của action gốc, kể cả sau các action khác hoặc sau khi ván kết thúc. Key có phạm vi theo session. Đọc `GET /v1/game-sessions/:id` để lấy `session.status`, `session.stateVersion`, `state` cùng projection như POST và kết quả chính thức đã lưu. Session kết thúc hoặc bị bỏ trả danh sách action khả dụng rỗng.
 
