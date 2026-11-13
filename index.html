@@ -8,14 +8,25 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="PlayBoard" />
-    <link rel="apple-touch-icon" href="./assets/cropped/app-logo.png" />
-    <link rel="manifest" href="./manifest.webmanifest" />
+    <script>
+      (function() {
+        if (window.location.hostname.endsWith('.github.io')) {
+          var p = window.location.pathname;
+          var segs = p.split('/').filter(Boolean);
+          if (segs.length === 1 && !p.endsWith('/')) {
+            window.location.replace(p + '/' + window.location.search + window.location.hash);
+          }
+        }
+      })();
+    </script>
+    <link rel="apple-touch-icon" href="/PlayBoard/assets/cropped/app-logo.png" />
+    <link rel="manifest" href="/PlayBoard/manifest.webmanifest" />
     <meta name="theme-color" content="#78350F" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800;900&family=Cinzel:wght@700;800;900&family=Fredoka:wght@600;700&family=Luckiest+Guy&family=Nunito:wght@700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Press+Start+2P&family=Silkscreen:wght@700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-BF1D9RXS.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BALQM04m.css">
+    <script type="module" crossorigin src="/PlayBoard/assets/index-e18et_Jg.js"></script>
+    <link rel="stylesheet" crossorigin href="/PlayBoard/assets/index-DoCUgIqJ.css">
   </head>
   <body>
     <div id="root"></div>
