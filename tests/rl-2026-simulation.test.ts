@@ -1,7 +1,5 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { createGame, roll, advance, transact, rebalance } from '../src/game/engine.ts'
-import { totalWorth, netWorth, victory } from '../src/game/selectors.ts'
 import { getLapQuarterInsight } from '../mobile_app/src/game/market-news.ts'
 import { CORE_MVP_RULES } from '../src/game/rules-profile.ts'
 

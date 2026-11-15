@@ -35,7 +35,7 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
   return (
     <GamifiedModal
       badgeText={news.quarter?.quarterLabel ? `${news.quarter.quarterLabel} · VÒNG ${game.lap}/${game.totalLaps}` : `VÒNG ${game.lap} / ${game.totalLaps} · THÁCH THỨC VÒNG MỚI`}
-      title={news.quarter?.macroTheme || news.headline || `Khởi đầu vòng ${game.lap}`}
+      title={news.headline || news.quarter?.macroTheme || `Khởi đầu vòng ${game.lap}`}
       onHelp={onHelp}
       primaryAction={{
         label: `BẮT ĐẦU VÒNG ${game.lap} →`,
@@ -61,7 +61,7 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <span style={{ fontSize: '15px' }}>💡</span>
             <span style={{ fontSize: '12px', fontWeight: 900, color: '#1E40AF', letterSpacing: '0.2px' }}>
-              CHIẾN LƯỢC QUÝ {game.lap}/2026
+              {news.quarter?.macroTheme || `CHIẾN LƯỢC QUÝ ${game.lap}/2026`}
             </span>
           </div>
           <span
@@ -334,7 +334,7 @@ export const RoundChallengeModal: React.FC<RoundChallengeModalProps> = ({
         }}
       >
         <summary style={{ fontWeight: 800, color: '#334155' }}>
-          ℹ️ Xem chi tiết dự báo vĩ mô vòng {game.lap}
+          ℹ️ {news.headline ? `${news.headline} · ` : ''}Xem chi tiết dự báo vĩ mô vòng {game.lap}
         </summary>
         <div style={{ marginTop: '6px', paddingTop: '6px', borderTop: '1px dashed #CBD5E1', display: 'flex', flexDirection: 'column', gap: '4px' }}>
           {stocksNews?.forecast && <div>• <b>Cổ phiếu:</b> {stocksNews.forecast}</div>}

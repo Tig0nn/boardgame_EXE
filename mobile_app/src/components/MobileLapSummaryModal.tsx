@@ -97,7 +97,7 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
             }}
           >
             <div style={{ fontSize: '10px', fontWeight: 800, color: '#15803D', textTransform: 'uppercase' }}>
-              Thu Vào (+)
+              Tiền đã nhận
             </div>
             <div style={{ fontSize: '15px', fontWeight: 900, color: '#16A34A', marginTop: '2px' }}>
               +{money(overview.received)}
@@ -115,7 +115,7 @@ export const MobileLapSummaryModal: React.FC<MobileLapSummaryModalProps> = ({
             }}
           >
             <div style={{ fontSize: '10px', fontWeight: 800, color: '#B91C1C', textTransform: 'uppercase' }}>
-              Chi Ra (-)
+              Tiền đã chi
             </div>
             <div style={{ fontSize: '15px', fontWeight: 900, color: '#DC2626', marginTop: '2px' }}>
               -{money(overview.paid)}

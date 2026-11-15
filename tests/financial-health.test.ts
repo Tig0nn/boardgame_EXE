@@ -4,6 +4,7 @@ import { createMultiCourseGame } from '../src/game/new-game.ts'
 import { evaluateTradeOff, evaluateFinancialHealth, SAFE_EMERGENCY_BUFFER } from '../src/game/financial-health.ts'
 
 test('Financial Health: evaluateTradeOff calculates safety buffer correctly', () => {
+  assert.equal(SAFE_EMERGENCY_BUFFER, 10_000_000)
   const game = createMultiCourseGame('test-seed', 0, 1)
   // Initial cash is 50M
   assert.equal(game.portfolio.cash, 50_000_000)
@@ -53,7 +54,7 @@ test('Financial Health: evaluateFinancialHealth scores 4 pillars and generates k
     ownedCourses: ['skills-1'],
     phase: 'finished' as const,
     termination: 'completed' as const,
-    summaries: [{ lap: 1 }, { lap: 2 }, { lap: 3 }, { lap: 4 }] as any,
+    summaries: [{ lap: 1 }, { lap: 2 }, { lap: 3 }, { lap: 4 }] as unknown as typeof game.summaries,
   }
   const wonReport = evaluateFinancialHealth(wonGame)
   assert.ok(wonReport.overallScore >= 80)

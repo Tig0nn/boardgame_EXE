@@ -107,12 +107,12 @@ export function evaluateFinancialHealth(game: GameState): FinancialHealthReport 
     (game.ownedCourses && game.ownedCourses.length > 0) || game.coursePurchased,
   ].filter(Boolean).length;
 
-  let diversificationScore = Math.min(25, activeChannels * 5);
+  const diversificationScore = Math.min(25, activeChannels * 5);
 
   // 3. Hiệu suất tăng trưởng (Growth & ROI): Max 25 điểm
   // Dựa trên mức vượt mục tiêu 90M hoặc mức lợi nhuận trên vốn 50M
   const profit = funds - initialCap;
-  let growthScore = 10;
+  let growthScore: number;
   if (profit >= 40_000_000) growthScore = 25; // >= 90M
   else if (profit >= 30_000_000) growthScore = 20; // 80M - 89M
   else if (profit >= 20_000_000) growthScore = 15; // 70M - 79M

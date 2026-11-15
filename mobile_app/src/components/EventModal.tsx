@@ -290,7 +290,7 @@ export function EventModal({
                       marginTop: '2px',
                     }}
                   >
-                    ⏳ Trả chậm tại START: {money(option.obligation)} (Chịu thêm phí hoãn)
+                    ⏳ Trả chậm cuối vòng: {money(option.obligation)} (Chịu thêm phí hoãn)
                   </span>
                 )}
 
