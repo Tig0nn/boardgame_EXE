@@ -1,0 +1,19 @@
+.bond-issuer-cards { display: grid; gap: .75rem; margin: 0 0 1rem; padding: 0; border: 0; min-width: 0; }
+.bond-issuer-cards legend { font-weight: 700; margin-bottom: .5rem; }
+.bond-issuer-card { display: grid; gap: .25rem; padding: .75rem; min-height: 44px; width: 100%; text-align: left; color: inherit; background: transparent; border: 1px solid #78909c; border-radius: 12px; cursor: pointer; font: inherit; }
+.bond-issuer-card.selected { border-color: #e7b94f; background: #e7b94f16; box-shadow: inset 3px 0 #e7b94f; }
+.bond-issuer-card small, .bond-holdings small { display: block; font-size: .8em; line-height: 1.5; }
+.bond-issuer-card:focus-visible { outline: 3px solid #e7b94f; outline-offset: 3px; }
+.bond-issuer-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .25rem .75rem; }
+.bond-issuer-heading > span { white-space: nowrap; }
+.bond-issuer-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-block: .5rem; }
+.bond-issuer-metrics > span { display: grid; gap: .25rem; }
+.bond-issuer-metrics b { font-size: 1.15em; font-variant-numeric: tabular-nums; }
+.bond-issuer-risk { line-height: 1.5; }
+.bond-contract-facts > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem .75rem; margin-block: .5rem; }
+.bond-contract-facts dd { margin: 0; font-weight: 700; }
+.bond-holdings article { padding-block: .75rem; border-bottom: 1px solid #78909c66; overflow-wrap: anywhere; }
+.bond-holdings p { margin-block: .35rem; font-size: .9em; }
+.credit-reality article { padding-block: .75rem; border-bottom: 1px solid #78909c66; }
+.credit-reality dl { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .25rem .5rem; font-size: .85em; }
+.credit-reality dd { margin: 0; text-align: right; overflow-wrap: anywhere; }

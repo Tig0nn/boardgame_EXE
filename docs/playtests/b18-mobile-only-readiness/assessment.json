@@ -1,0 +1,83 @@
+{
+  "format": "b18-mobile-only-release-readiness-v1",
+  "date": "2026-10-20",
+  "timezone": "Asia/Bangkok",
+  "basis": "Product Owner explicitly restricted MVP v1.0 release to Mobile Web; existing QA evidence reused without a full rerun.",
+  "verdict": "CONDITIONAL GO",
+  "candidateSourceSha": "927e53e2189bd6d901ed494791d9dc7e912358a6",
+  "originalQaCommit": "6cebf7df0b07f1de15601444066f388c949dc280",
+  "originalReport": "docs/B18_MVP_RELEASE_READINESS_REPORT.md",
+  "originalVerdictPreserved": "NO-GO for the original combined Mobile and Desktop scope",
+  "releaseScope": {
+    "application": "Mobile Web",
+    "sourceDirectory": "mobile_app",
+    "vercelProjectName": "boardgame-exe-mobile-preview",
+    "vercelProjectId": "prj_mNqBP0UOsodb1WifpfNuFfKLmUpG",
+    "teamSlug": "tris-projects-2888207c",
+    "qaPreviewUrl": "https://boardgame-exe-mobile-preview-7y72c042b-tris-projects-2888207c.vercel.app",
+    "qaPreviewDeploymentId": "dpl_DtQYn1xSUpSamKqJLjx6wbPYeQgY",
+    "officialOrigin": null,
+    "officialOriginStatus": "Must be explicitly recorded in the Owner-approved release plan",
+    "desktopReleaseAllowed": false,
+    "desktopPromotionAllowed": false,
+    "forbiddenDesktopProjectId": "prj_UAVbzlwGCgjcXuLLKbu6l8cRehRt"
+  },
+  "issueDisposition": [
+    {
+      "id": "RQA-01",
+      "severity": "P0",
+      "application": "Desktop",
+      "disposition": "OUT OF RELEASE SCOPE / DEFERRED",
+      "fixed": false,
+      "blocksMobileOnlyRelease": false,
+      "reassessBeforeDesktopRelease": true,
+      "originalEvidence": "docs/playtests/b18-release-qa/storage/results.json"
+    }
+  ],
+  "mobileEvidence": {
+    "completeNaturalUiGames": 10,
+    "chromiumGames": 8,
+    "firefoxGames": 1,
+    "webkitGames": 1,
+    "surfaceChecks": 170,
+    "excludedDesktopSurfaceChecks": 98,
+    "probeCases": 3,
+    "viewports": [320, 390, 768, 1440],
+    "confirmedInScopeP0P1": 0,
+    "previewSaveResume": "PASS in recorded paths",
+    "importSchemas": [4, 5, 6, 7],
+    "sharedRegressionBaseline": {
+      "productTests": 349,
+      "ssrTests": 46,
+      "historicalReplays": 81,
+      "researchParityGames": 13,
+      "researchSnapshots": 2306,
+      "lint": "PASS",
+      "mobileBuild": "PASS"
+    }
+  },
+  "conditionsPending": [
+    "Owner approval of the exact Mobile project, candidate and official HTTPS origin.",
+    "Owner decision to run targeted physical-device smoke checks or explicitly accept the unverified Safari/iOS and physical Android limits.",
+    "Verify production-serving deployment identity/configuration and pass targeted save/resume smoke checks on the official origin before broad announcement.",
+    "Record a compatible Mobile rollback target or an approved first-release stop plan when no such production target exists."
+  ],
+  "unverified": [
+    "Native Safari on iOS/iPhone/iPad",
+    "Physical Android devices",
+    "Real operating-system virtual keyboards, native rotation/zoom and low-end-device behavior",
+    "Official-origin save/resume before a future release"
+  ],
+  "actionsPerformed": {
+    "productSourceChanged": false,
+    "engineEconomicsGameplayChanged": false,
+    "originalReportOrEvidenceChanged": false,
+    "fullQaRerun": false,
+    "humanPlaytest": false,
+    "merged": false,
+    "deploymentCreatedManually": false,
+    "promoted": false,
+    "aliasChanged": false,
+    "releaseApproved": false
+  }
+}

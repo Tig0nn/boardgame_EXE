@@ -1,0 +1,45 @@
+{
+  "browser": "chromium",
+  "results": [
+    {
+      "name": "desktop-savings-victory",
+      "url": "https://boardgame-r8ukc7g79-tris-projects-2888207c.vercel.app",
+      "seed": "TRADING-AB-MAIN-0",
+      "actualUi": true,
+      "injectedState": false,
+      "completed": true,
+      "result": {
+        "status": "victory",
+        "won": true,
+        "lawfulProceeds": 95000000,
+        "termination": "completed"
+      },
+      "courses": [],
+      "originalHarnessName": "desktop-defeat",
+      "scenarioNote": "Initial all-savings scenario won 95M; renamed after observing the real outcome. Original exported log bytes preserved. A separate cash/no-course Desktop defeat was then played and recorded."
+    }
+  ],
+  "errors": [],
+  "layout": [
+    {
+      "label": "desktop-defeat-setup",
+      "viewport": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "desktop-defeat-result",
+      "viewport": 1440,
+      "scroll": 1440,
+      "dialogs": [
+        {
+          "client": 505,
+          "scroll": 505
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "actualPreview": true,
+  "humanPlaytest": false
+}

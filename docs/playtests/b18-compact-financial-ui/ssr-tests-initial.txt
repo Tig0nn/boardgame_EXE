@@ -1,0 +1,465 @@
+TAP version 13
+# (node:26752) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 4:46:43 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 4:46:44 PM [vite] (client) [optimizer] scanning dependencies...
+# 4:46:59 PM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: atomic investment UI preserves prices/news and follows the saved encounter policy
+    # Subtest: new Mobile and Web panels offer one buy and one skip, keeping fees and market context
+    not ok 1 - new Mobile and Web panels offer one buy and one skip, keeping fees and market context
+      ---
+      duration_ms: 52.4191
+      location: 'E:\\Fall25_Ki8\\EXE-boardgame\\xoay-vong-tien-lui\\scripts\\diagnostics\\atomic-investments-ui.test.ts:28:13'
+      failureType: 'testCodeFailure'
+      error: |-
+        The input did not match the regular expression /chênh lệch giá mua và bán 3% \+ phí 1%/. Input:
+        
+        '<dialog tabindex="-1" class="modal  mobile-event financial-modal" aria-label="Vàng"><span class="section-kicker">VÒNG 1 · Ô 10</span><h2>Vàng</h2><p class="event-cash">Tiền mặt: <strong>50.000.000 ₫</strong></p><section class="trading-panel "><div class="trade-facts gold-facts"><div><span>Giá hiện tại</span><strong>1.000.000 ₫</strong></div><div><span>Chênh lệch mua–bán</span><strong>3%</strong></div><div><span>Phí bán</span><strong>1%</strong></div></div><p class="trade-risk">Giá có thể giảm. Vàng không trả lãi định kỳ.</p><details class="market-signal"><summary>Xem tín hiệu thị trường</summary><strong>Vàng · Được quan tâm</strong><p>Giá hiện tại: 1.000.000 ₫/đơn vị. Trong vòng: Chưa đủ dữ liệu; chưa có biến động giá.</p><p>Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.</p><p>Phí bán 1% + chênh lệch giá mua và bán 3% · Còn 4 lần qua ô Xuất phát. Bán tại ô Xuất phát hoặc để trả khoản thiếu bắt buộc, nếu có giá bán hợp lệ.</p><p>Giữ đủ tiền cho sinh hoạt và khoản đến hạn. Xem tiền mặt sau giao dịch trước khi chọn mua.</p></details><label for="trade-amount">Số tiền mua</label><div class="money-input"><input id="trade-amount" class="text-input" type="text" inputMode="numeric" autoComplete="off" aria-invalid="false" value="6.000.000"/><span aria-hidden="true">₫</span></div><div class="trade-remaining"><span>Tiền mặt sau giao dịch</span><strong>44.000.000 ₫</strong></div><button class="button primary full-button">Mua 6.000.000 ₫</button><button class="button secondary full-button stock-skip">Bỏ qua cơ hội</button><details class="trade-details"><summary>Lịch sử giá và thông tin</summary><div class="market-details"><p>Giá mua: <b>1.000.000 ₫</b>/đơn vị</p><p>Bán nhận sau phí: <b>960.300 ₫</b>/đơn vị · <span class="financial-term"><button type="button" class="financial-term-trigger" aria-label="Giải thích: Chênh lệch giá mua và bán" aria-expanded="false" aria-controls="_R_4agn_">Chênh lệch giá mua và bán<span class="term-info" aria-hidden="true">ⓘ</span></button><span id="_R_4agn_" popover="manual" role="tooltip" class="financial-term-popup"><strong>Chênh lệch giá mua và bán</strong><span>Chênh lệch khiến giá bán lại thấp hơn giá mua ở cùng thời điểm; tách biệt phí giao dịch.</span></span></span> 3%; phí bán 1% tính sau chênh lệch</p><p>Bình quân số tiền đã bỏ ra mua mỗi đơn vị: Chưa mua · Không có lãi định kỳ.</p><figure class="price-chart"><figcaption>Vàng · Lịch sử đã xảy ra (giả lập)</figcaption><svg viewBox="0 0 300 124" role="img" aria-label="Vàng: 936.452 ₫ đến 1.000.000 ₫; 0 cú sốc"><polyline points="12,86.7563355822281 37.09090909090909,108 62.18181818181818,77.25925812086656 87.27272727272727,94.96591823039132 112.36363636363636,66.06535626283893 137.45454545454544,53.170572776591 162.54545454545453,20.981399232609476 187.63636363636363,51.99397562587407 212.72727272727272,35.03429692582745 237.81818181818184,20 262.9090909090909,30.581259893343983 288,58.108674381553946" fill="none" stroke="currentColor" stroke-width="2"></polyline></svg><small>889.328 ₫ – 1.084.535 ₫ · Hiện tại 1.000.000 ₫ · So với điểm đầu biểu đồ +6,79%</small></figure></div></details></section></dialog>'
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected:
+      actual: '<dialog tabindex="-1" class="modal  mobile-event financial-modal" aria-label="Vàng"><span class="section-kicker">VÒNG 1 · Ô 10</span><h2>Vàng</h2><p class="event-cash">Tiền mặt: <strong>50.000.000 ₫</strong></p><section class="trading-panel "><div class="trade-facts gold-facts"><div><span>Giá hiện tại</span><strong>1.000.000 ₫</strong></div><div><span>Chênh lệch mua–bán</span><strong>3%</strong></div><div><span>Phí bán</span><strong>1%</strong></div></div><p class="trade-risk">Giá có thể giảm. Vàng không trả lãi định kỳ.</p><details class="market-signal"><summary>Xem tín hiệu thị trường</summary><strong>Vàng · Được quan tâm</strong><p>Giá hiện tại: 1.000.000 ₫/đơn vị. Trong vòng: Chưa đủ dữ liệu; chưa có biến động giá.</p><p>Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.</p><p>Phí bán 1% + chênh lệch giá mua và bán 3% · Còn 4 lần qua ô Xuất phát. Bán tại ô Xuất phát hoặc để trả khoản thiếu bắt buộc, nếu có giá bán hợp lệ.</p><p>Giữ đủ tiền cho sinh hoạt và khoản đến hạn. Xem tiền mặt sau giao dịch trước khi chọn mua.</p></details><label for="trade-amount">Số tiền mua</label><div class="money-input"><input id="trade-amount" class="text-input" type="text" inputMode="numeric" autoComplete="off" aria-invalid="false" value="6.000.000"/><span aria-hidden="true">₫</span></div><div class="trade-remaining"><span>Tiền mặt sau giao dịch</span><strong>44.000.000 ₫</strong></div><button class="button primary full-button">Mua 6.000.000 ₫</button><button class="button secondary full-button stock-skip">Bỏ qua cơ hội</button><details class="trade-details"><summary>Lịch sử giá và thông tin</summary><div class="market-details"><p>Giá mua: <b>1.000.000 ₫</b>/đơn vị</p><p>Bán nhận sau phí: <b>960.300 ₫</b>/đơn vị · <span class="financial-term"><button type="button" class="financial-term-trigger" aria-label="Giải thích: Chênh lệch giá mua và bán" aria-expanded="false" aria-controls="_R_4agn_">Chênh lệch giá mua và bán<span class="term-info" aria-hidden="true">ⓘ</span></button><span id="_R_4agn_" popover="manual" role="tooltip" class="financial-term-popup"><strong>Chênh lệch giá mua và bán</strong><span>Chênh lệch khiến giá bán lại thấp hơn giá mua ở cùng thời điểm; tách biệt phí giao dịch.</span></span></span> 3%; phí bán 1% tính sau chênh lệch</p><p>Bình quân số tiền đã bỏ ra mua mỗi đơn vị: Chưa mua · Không có lãi định kỳ.</p><figure class="price-chart"><figcaption>Vàng · Lịch sử đã xảy ra (giả lập)</figcaption><svg viewBox="0 0 300 124" role="img" aria-label="Vàng: 936.452 ₫ đến 1.000.000 ₫; 0 cú sốc"><polyline points="12,86.7563355822281 37.09090909090909,108 62.18181818181818,77.25925812086656 87.27272727272727,94.96591823039132 112.36363636363636,66.06535626283893 137.45454545454544,53.170572776591 162.54545454545453,20.981399232609476 187.63636363636363,51.99397562587407 212.72727272727272,35.03429692582745 237.81818181818184,20 262.9090909090909,30.581259893343983 288,58.108674381553946" fill="none" stroke="currentColor" stroke-width="2"></polyline></svg><small>889.328 ₫ – 1.084.535 ₫ · Hiện tại 1.000.000 ₫ · So với điểm đầu biểu đồ +6,79%</small></figure></div></details></section></dialog>'
+      operator: 'match'
+      stack: |-
+        TestContext.<anonymous> (file:///E:/Fall25_Ki8/EXE-boardgame/xoay-vong-tien-lui/scripts/diagnostics/atomic-investments-ui.test.ts:40:16)
+        Test.runInAsyncScope (node:async_hooks:211:14)
+        Test.run (node:internal/test_runner/test:979:25)
+        Test.start (node:internal/test_runner/test:877:17)
+        TestContext.test (node:internal/test_runner/test:307:20)
+        TestContext.<anonymous> (file:///E:/Fall25_Ki8/EXE-boardgame/xoay-vong-tien-lui/scripts/diagnostics/atomic-investments-ui.test.ts:28:13)
+        async Test.run (node:internal/test_runner/test:980:9)
+        async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+      ...
+    # Subtest: successful purchases leave no encounter modal or second form
+    ok 2 - successful purchases leave no encounter modal or second form
+      ---
+      duration_ms: 6.4788
+      ...
+    # Subtest: reopened same-turn encounter does not show another purchase form
+    ok 3 - reopened same-turn encounter does not show another purchase form
+      ---
+      duration_ms: 2.9602
+      ...
+    # Subtest: saved historical Gold/Bonds sessions keep their multi-purchase forms
+    ok 4 - saved historical Gold/Bonds sessions keep their multi-purchase forms
+      ---
+      duration_ms: 25.5602
+      ...
+    1..4
+not ok 1 - atomic investment UI preserves prices/news and follows the saved encounter policy
+  ---
+  duration_ms: 22836.4843
+  location: 'E:\\Fall25_Ki8\\EXE-boardgame\\xoay-vong-tien-lui\\scripts\\diagnostics\\atomic-investments-ui.test.ts:9:1'
+  failureType: 'subtestsFailed'
+  error: '1 subtest failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# (node:34036) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: beginner course disclosure, factual result feedback and ended-vs-running saved game labels
+ok 2 - beginner course disclosure, factual result feedback and ended-vs-running saved game labels
+  ---
+  duration_ms: 22834.7819
+  ...
+# (node:31172) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 4:47:30 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 4:47:31 PM [vite] (client) [optimizer] scanning dependencies...
+# 4:48:05 PM [vite] (client) [optimizer] bundling dependencies...
+# 4:48:10 PM [vite] (client) page reload mobile_app/dist/index.html
+# Subtest: Bond V2.5 real React panels expose issuer choice, executable lot sales and credit status
+    # Subtest: two issuer cards retain one CTA/skip and conditional contract copy
+    ok 1 - two issuer cards retain one CTA/skip and conditional contract copy
+      ---
+      duration_ms: 50.0057
+      ...
+    # Subtest: funding chooses the specific issuer lot and displays actual net proceeds
+    ok 2 - funding chooses the specific issuer lot and displays actual net proceeds
+      ---
+      duration_ms: 9.024
+      ...
+    # Subtest: default holdings show claims/loss and do not become eligible funding assets
+    ok 3 - default holdings show claims/loss and do not become eligible funding assets
+      ---
+      duration_ms: 10.9386
+      ...
+    # Subtest: historical single issuer panel keeps its original terms
+    ok 4 - historical single issuer panel keeps its original terms
+      ---
+      duration_ms: 6.9664
+      ...
+    1..4
+ok 3 - Bond V2.5 real React panels expose issuer choice, executable lot sales and credit status
+  ---
+  duration_ms: 42143.9771
+  ...
+# (node:5748) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 4:48:13 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 4:48:15 PM [vite] (client) [optimizer] scanning dependencies...
+# 4:48:32 PM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: START React UI separates received cash, claims and losses with hidden accounting
+    # Subtest: periodic living is a signed outgoing row, legacy START has no periodic row
+    ok 1 - periodic living is a signed outgoing row, legacy START has no periodic row
+      ---
+      duration_ms: 110.7194
+      ...
+    # Subtest: multiple lots yield one default-visible issuer, amounts reconcile and all details start closed
+    ok 2 - multiple lots yield one default-visible issuer, amounts reconcile and all details start closed
+      ---
+      duration_ms: 50.281
+      ...
+    # Subtest: delayed principal/coupon is amber, zero receipt neutral, no realized loss
+    ok 3 - delayed principal/coupon is amber, zero receipt neutral, no realized loss
+      ---
+      duration_ms: 38.9289
+      ...
+    # Subtest: default recovery claim is separate from permanent write-down and cash
+    ok 4 - default recovery claim is separate from permanent write-down and cash
+      ---
+      duration_ms: 47.6003
+      ...
+    # Subtest: rendering preserves serialized engine log and news/credit calculations
+    ok 5 - rendering preserves serialized engine log and news/credit calculations
+      ---
+      duration_ms: 126.5827
+      ...
+    # Subtest: no holdings and legacy metadata render gracefully, with raw legacy records
+    ok 6 - no holdings and legacy metadata render gracefully, with raw legacy records
+      ---
+      duration_ms: 40.4625
+      ...
+    1..6
+ok 4 - START React UI separates received cash, claims and losses with hidden accounting
+  ---
+  duration_ms: 23581.943
+  ...
+# (node:29168) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 4:48:38 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 4:48:39 PM [vite] (client) [optimizer] scanning dependencies...
+# 4:48:53 PM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: current customer preference UI is shared, current-only and read-only
+    # Subtest: bulletin and unopened shop use saved current preference, not seed or future data
+    ok 1 - bulletin and unopened shop use saved current preference, not seed or future data
+      ---
+      duration_ms: 57.0824
+      ...
+    # Subtest: owned shop keeps legal upgrade, engine previews and current directions in rulebook
+    ok 2 - owned shop keeps legal upgrade, engine previews and current directions in rulebook
+      ---
+      duration_ms: 77.1198
+      ...
+    # Subtest: rendering cannot change START cash, RNG or next-round preference
+    ok 3 - rendering cannot change START cash, RNG or next-round preference
+      ---
+      duration_ms: 56.231
+      ...
+    # Subtest: preference-less historical sessions and setup stay compatible; saved replay remains exact
+    ok 4 - preference-less historical sessions and setup stay compatible; saved replay remains exact
+      ---
+      duration_ms: 1879.4027
+      ...
+    1..4
+ok 5 - current customer preference UI is shared, current-only and read-only
+  ---
+  duration_ms: 24149.278
+  ...
+# (node:16832) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 4:49:02 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 4:49:05 PM [vite] (client) [optimizer] scanning dependencies...
+# 4:49:18 PM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: B18 shared goal, setup, board and completed course render without legacy target or20-tile art
+ok 6 - B18 shared goal, setup, board and completed course render without legacy target or20-tile art
+  ---
+  duration_ms: 21889.6738
+  ...
+# (node:14076) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 4:49:25 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 4:49:27 PM [vite] (client) [optimizer] scanning dependencies...
+# 4:49:42 PM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: Economic Event React popup presents observed market changes with one acknowledgement
+    # Subtest: credit-tightening: three market groups, real percentages, issuers and closed details
+    ok 1 - credit-tightening: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 66.1537
+      ...
+    # Subtest: demand-boom: three market groups, real percentages, issuers and closed details
+    ok 2 - demand-boom: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 23.1161
+      ...
+    # Subtest: supply-recovery: three market groups, real percentages, issuers and closed details
+    ok 3 - supply-recovery: three market groups, real percentages, issuers and closed details
+      ---
+      duration_ms: 21.39
+      ...
+    # Subtest: zero movement is neutral, missing log unavailable and legacy single issuer supported
+    ok 4 - zero movement is neutral, missing log unavailable and legacy single issuer supported
+      ---
+      duration_ms: 34.6987
+      ...
+    # Subtest: business is excluded from three market groups, but observed personal capital change is explained
+    ok 5 - business is excluded from three market groups, but observed personal capital change is explained
+      ---
+      duration_ms: 22.015
+      ...
+    # Subtest: B18 credit-tightening/0: price and issuer pressure, owned holdings, immutable render
+    ok 6 - B18 credit-tightening/0: price and issuer pressure, owned holdings, immutable render
+      ---
+      duration_ms: 33.7913
+      ...
+    # Subtest: B18 demand-boom/1: price and issuer pressure, owned holdings, immutable render
+    ok 7 - B18 demand-boom/1: price and issuer pressure, owned holdings, immutable render
+      ---
+      duration_ms: 24.1221
+      ...
+    # Subtest: B18 supply-recovery/0: price and issuer pressure, owned holdings, immutable render
+    ok 8 - B18 supply-recovery/0: price and issuer pressure, owned holdings, immutable render
+      ---
+      duration_ms: 22.8155
+      ...
+    # Subtest: B18 credit-tightening/2: price and issuer pressure, owned holdings, immutable render
+    ok 9 - B18 credit-tightening/2: price and issuer pressure, owned holdings, immutable render
+      ---
+      duration_ms: 22.8124
+      ...
+    1..9
+ok 7 - Economic Event React popup presents observed market changes with one acknowledgement
+  ---
+  duration_ms: 24240.1324
+  ...
+# (node:3560) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 4:49:50 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 4:49:52 PM [vite] (client) [optimizer] scanning dependencies...
+# 4:50:15 PM [vite] (client) [optimizer] bundling dependencies...
+# Subtest: Mobile economic news renders through real phase and transaction components
+    # Subtest: all scenarios show bulletin, three assets and a single start CTA
+    ok 1 - all scenarios show bulletin, three assets and a single start CTA
+      ---
+      duration_ms: 49.0435
+      ...
+    # Subtest: market context appears only on Stocks/Bonds/Gold, with legal buy actions intact
+    not ok 2 - market context appears only on Stocks/Bonds/Gold, with legal buy actions intact
+      ---
+      duration_ms: 32.0315
+      location: 'E:\\Fall25_Ki8\\EXE-boardgame\\xoay-vong-tien-lui\\scripts\\diagnostics\\economic-news-ui.test.ts:40:13'
+      failureType: 'testCodeFailure'
+      error: |-
+        The input did not match the regular expression /Phí bán 1\.5%/. Input:
+        
+        '<dialog tabindex="-1" class="modal  mobile-event financial-modal" aria-label="Trái phiếu"><button class="sheet-help" aria-label="Mở sổ tay"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7h.01"></path></svg> Sổ tay</button><span class="section-kicker">VÒNG 1 · Ô 1</span><h2>Trái phiếu</h2><p class="event-cash">Tiền mặt: <strong>50.000.000 ₫</strong></p><section class="trading-panel bond-credit-panel"><fieldset class="bond-issuer-cards"><legend>Bạn cho ai vay vốn?</legend><button type="button" class="bond-issuer-card selected" aria-pressed="true"><span class="bond-issuer-heading"><strong>Hợp tác xã An Tâm</strong><span>Hạng AA</span></span><span class="bond-issuer-metrics"><span>Lãi mỗi kỳ<b>4,5%</b></span><span>Thời hạn<b>2 kỳ</b></span></span><span class="bond-issuer-risk">Ít rủi ro hơn; vẫn có thể chậm trả hoặc mất vốn.</span></button><button type="button" class="bond-issuer-card " aria-pressed="false"><span class="bond-issuer-heading"><strong>Công ty Bứt Phá</strong><span>Hạng B</span></span><span class="bond-issuer-metrics"><span>Lãi mỗi kỳ<b>10%</b></span><span>Thời hạn<b>2 kỳ</b></span></span><span class="bond-issuer-risk">Lãi cao hơn; dễ chậm trả hoặc mất vốn hơn.</span></button></fieldset><label for="trade-amount">Số tiền mua</label><div class="money-input"><input id="trade-amount" class="text-input" type="text" inputMode="numeric" autoComplete="off" aria-invalid="false" value="8.000.000"/><span aria-hidden="true">₫</span></div><div class="trade-facts"><div><span>Lãi mỗi kỳ nếu trả đúng hạn</span><strong>360.000 ₫</strong></div><div><span>Phí bán</span><strong>1,5%</strong></div></div><div class="trade-remaining"><span>Tiền mặt sau giao dịch</span><strong>42.000.000 ₫</strong></div><details class="market-signal">'
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected:
+      actual: '<dialog tabindex="-1" class="modal  mobile-event financial-modal" aria-label="Trái phiếu"><button class="sheet-help" aria-label="Mở sổ tay"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7h.01"></path></svg> Sổ tay</button><span class="section-kicker">VÒNG 1 · Ô 1</span><h2>Trái phiếu</h2><p class="event-cash">Tiền mặt: <strong>50.000.000 ₫</strong></p><section class="trading-panel bond-credit-panel"><fieldset class="bond-issuer-cards"><legend>Bạn cho ai vay vốn?</legend><button type="button" class="bond-issuer-card selected" aria-pressed="true"><span class="bond-issuer-heading"><strong>Hợp tác xã An Tâm</strong><span>Hạng AA</span></span><span class="bond-issuer-metrics"><span>Lãi mỗi kỳ<b>4,5%</b></span><span>Thời hạn<b>2 kỳ</b></span></span><span class="bond-issuer-risk">Ít rủi ro hơn; vẫn có thể chậm trả hoặc mất vốn.</span></button><button type="button" class="bond-issuer-card " aria-pressed="false"><span class="bond-issuer-heading"><strong>Công ty Bứt Phá</strong><span>Hạng B</span></span><span class="bond-issuer-metrics"><span>Lãi mỗi kỳ<b>10%</b></span><span>Thời hạn<b>2 kỳ</b></span></span><span class="bond-issuer-risk">Lãi cao hơn; dễ chậm trả hoặc mất vốn hơn.</span></button></fieldset><label for="trade-amount">Số tiền mua</label><div class="money-input"><input id="trade-amount" class="text-input" type="text" inputMode="numeric" autoComplete="off" aria-invalid="false" value="8.000.000"/><span aria-hidden="true">₫</span></div><div class="trade-facts"><div><span>Lãi mỗi kỳ nếu trả đúng hạn</span><strong>360.000 ₫</strong></div><div><span>Phí bán</span><strong>1,5%</strong></div></div><div class="trade-remaining"><span>Tiền mặt sau giao dịch</span><strong>42.000.000 ₫</strong></div><details class="market-signal">'
+      operator: 'match'
+      stack: |-
+        TestContext.<anonymous> (file:///E:/Fall25_Ki8/EXE-boardgame/xoay-vong-tien-lui/scripts/diagnostics/economic-news-ui.test.ts:46:41)
+        Test.runInAsyncScope (node:async_hooks:211:14)
+        Test.run (node:internal/test_runner/test:979:25)
+        Test.start (node:internal/test_runner/test:877:17)
+        TestContext.test (node:internal/test_runner/test:307:20)
+        TestContext.<anonymous> (file:///E:/Fall25_Ki8/EXE-boardgame/xoay-vong-tien-lui/scripts/diagnostics/economic-news-ui.test.ts:40:13)
+        async Test.run (node:internal/test_runner/test:980:9)
+        async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+      ...
+    # Subtest: summary renders realized prices, observed shock and educational distinction
+    ok 3 - summary renders realized prices, observed shock and educational distinction
+      ---
+      duration_ms: 27.0019
+      ...
+    # Subtest: missing observations show unavailable; gold fees and quote remain explicit
+    not ok 4 - missing observations show unavailable; gold fees and quote remain explicit
+      ---
+      duration_ms: 4.7524
+      location: 'E:\\Fall25_Ki8\\EXE-boardgame\\xoay-vong-tien-lui\\scripts\\diagnostics\\economic-news-ui.test.ts:62:13'
+      failureType: 'testCodeFailure'
+      error: |-
+        The input did not match the regular expression /Phí bán 1% \+ chênh lệch giá mua và bán 3%/. Input:
+        
+        '<details class="market-signal"><summary>Xem tín hiệu thị trường</summary><strong>Vàng · Đi ngang</strong><p>Giá hiện tại: 1.000.000 ₫/đơn vị. Trong vòng: Chưa đủ dữ liệu; chưa có biến động giá.</p><p>Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.</p><p>Phí bán 1%; chênh lệch giá mua và bán 3% · Còn 4 lần qua ô Xuất phát. Bán tại ô Xuất phát hoặc để trả khoản thiếu bắt buộc, nếu có giá bán hợp lệ.</p><p>Giữ đủ tiền cho sinh hoạt và khoản đến hạn. Xem tiền mặt sau giao dịch trước khi chọn mua.</p></details>'
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected:
+      actual: '<details class="market-signal"><summary>Xem tín hiệu thị trường</summary><strong>Vàng · Đi ngang</strong><p>Giá hiện tại: 1.000.000 ₫/đơn vị. Trong vòng: Chưa đủ dữ liệu; chưa có biến động giá.</p><p>Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.</p><p>Phí bán 1%; chênh lệch giá mua và bán 3% · Còn 4 lần qua ô Xuất phát. Bán tại ô Xuất phát hoặc để trả khoản thiếu bắt buộc, nếu có giá bán hợp lệ.</p><p>Giữ đủ tiền cho sinh hoạt và khoản đến hạn. Xem tiền mặt sau giao dịch trước khi chọn mua.</p></details>'
+      operator: 'match'
+      stack: |-
+        TestContext.<anonymous> (file:///E:/Fall25_Ki8/EXE-boardgame/xoay-vong-tien-lui/scripts/diagnostics/economic-news-ui.test.ts:66:14)
+        Test.runInAsyncScope (node:async_hooks:211:14)
+        Test.run (node:internal/test_runner/test:979:25)
+        Test.start (node:internal/test_runner/test:877:17)
+        TestContext.test (node:internal/test_runner/test:307:20)
+        TestContext.<anonymous> (file:///E:/Fall25_Ki8/EXE-boardgame/xoay-vong-tien-lui/scripts/diagnostics/economic-news-ui.test.ts:62:13)
+        async Test.run (node:internal/test_runner/test:980:9)
+        async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+      ...
+    1..4
+not ok 8 - Mobile economic news renders through real phase and transaction components
+  ---
+  duration_ms: 31641.1461
+  location: 'E:\\Fall25_Ki8\\EXE-boardgame\\xoay-vong-tien-lui\\scripts\\diagnostics\\economic-news-ui.test.ts:11:1'
+  failureType: 'subtestsFailed'
+  error: '2 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# (node:13440) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: financial decision copy renders scheduled outgoing amounts and valid profile-based savings quotes
+    # Subtest: family outgoing schedule, both wrappers, no mutation
+    ok 1 - family outgoing schedule, both wrappers, no mutation
+      ---
+      duration_ms: 38.3084
+      ...
+    # Subtest: medical outgoing schedule, both wrappers, no mutation
+    ok 2 - medical outgoing schedule, both wrappers, no mutation
+      ---
+      duration_ms: 7.2228
+      ...
+    # Subtest: repair outgoing schedule, both wrappers, no mutation
+    ok 3 - repair outgoing schedule, both wrappers, no mutation
+      ---
+      duration_ms: 6.8008
+      ...
+    # Subtest: bills outgoing schedule, both wrappers, no mutation
+    ok 4 - bills outgoing schedule, both wrappers, no mutation
+      ---
+      duration_ms: 7.5218
+      ...
+    # Subtest: contract outgoing schedule, both wrappers, no mutation
+    ok 5 - contract outgoing schedule, both wrappers, no mutation
+      ---
+      duration_ms: 9.3332
+      ...
+    # Subtest: compact bond cards retain risk and exact contract dates in details
+    ok 6 - compact bond cards retain risk and exact contract dates in details
+      ---
+      duration_ms: 33.9778
+      ...
+    # Subtest: gold shows separate config facts, without an invented combined fee
+    ok 7 - gold shows separate config facts, without an invented combined fee
+      ---
+      duration_ms: 8.5277
+      ...
+    # Subtest: positive income keeps its plus sign
+    ok 8 - positive income keeps its plus sign
+      ---
+      duration_ms: 2.4947
+      ...
+    # Subtest: term 1/2/3 quotes use the running profile and absolute maturity, including legacy
+    ok 9 - term 1/2/3 quotes use the running profile and absolute maturity, including legacy
+      ---
+      duration_ms: 34.5607
+      ...
+    # Subtest: invalid inputs never render projected proceeds; late maturity warns explicitly
+    ok 10 - invalid inputs never render projected proceeds; late maturity warns explicitly
+      ---
+      duration_ms: 4.2423
+      ...
+    # Subtest: plain savings explanation is split from the withdrawal warning; stock label stays asset-specific
+    ok 11 - plain savings explanation is split from the withdrawal warning; stock label stays asset-specific
+      ---
+      duration_ms: 10.8402
+      ...
+    1..11
+ok 9 - financial decision copy renders scheduled outgoing amounts and valid profile-based savings quotes
+  ---
+  duration_ms: 22647.7977
+  ...
+# (node:14516) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: wallet preserves deposit sequence/maturity and both interfaces explain savings periods without exposing IDs
+not ok 10 - wallet preserves deposit sequence/maturity and both interfaces explain savings periods without exposing IDs
+  ---
+  duration_ms: 35656.2877
+  location: 'E:\\Fall25_Ki8\\EXE-boardgame\\xoay-vong-tien-lui\\scripts\\diagnostics\\language-cleanup-ui.test.ts:10:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /mỗi lần qua ô Xuất phát/i. Input:
+    
+    '<dialog tabindex="-1" class="modal  game-setup" aria-label="Bắt đầu hành trình"><button class="sheet-help" aria-label="Mở sổ tay"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7h.01"></path></svg> Sổ tay</button><span class="section-kicker">18 Ô · 4 VÒNG · MỘT MỤC TIÊU 90 TRIỆU</span><h2>Sẵn sàng dạo phố?</h2><div class="setup-goal-card"><div><small>Vốn khởi đầu</small><strong>50.000.000 ₫</strong></div><span aria-hidden="true">→</span><div><small>Mục tiêu về đích</small><strong>90.000.000 ₫</strong></div></div><p>Bạn tự phân bổ 50 triệu. Tiền mặt giúp trả chi phí và đón bất ngờ; không buộc giữ mức dự phòng cố định.</p><label for="initial-savings">Bạn muốn gửi tiết kiệm bao nhiêu?</label><div class="money-input"><input id="initial-savings" class="text-input" type="text" inputMode="numeric" autoComplete="off" aria-invalid="false" value="0"/><span aria-hidden="true">₫</span></div><div class="amount-presets" aria-label="Gửi tiết kiệm nhanh"><button type="button" aria-pressed="true">0 triệu</button><button type="button" aria-pressed="false">10 triệu</button><button type="button" aria-pressed="false">20 triệu</button><button type="button" aria-pressed="false">50 triệu</button></div><fieldset class="savings-terms"><legend>Kỳ hạn gửi tiết kiệm</legend><div><label class=""><input type="radio" aria-label="1 kỳ · Lãi suất 4% mỗi kỳ · Tổng 4% cuối kỳ hạn" name="initial-term" value="1"/><span>1 kỳ</span><strong>4% mỗi kỳ</strong><small>Tổng 4% cuối kỳ hạn</small></label><label class=""><input type="radio" aria-label="2 kỳ · Lãi suất 5% mỗi kỳ · Tổng 10% cuối kỳ hạn" name="initial-term" value="2"/><span>2 kỳ</span><strong>5% mỗi kỳ</strong><small>Tổng 10% cuối kỳ hạn</small></label><label class="selected"><input type="radio" aria-label="3 kỳ · Lãi suất 6% mỗi kỳ · Tổng 18% cuối kỳ hạn" name="initial-term" checked="" value="3"/><span>3 kỳ</span><strong>6% mỗi kỳ</strong><small>Tổng 18% cuối kỳ hạn</small></label></div><p class="savings-period-note">Rút trước hạn để trả khoản bắt buộc: mất lãi chưa nhận.</p><details class="trade-details"><summary>Cách nhận lãi</summary><p>Khi hết kỳ hạn, bạn nhận lại tiền đã gửi và toàn bộ tiền lãi. Lãi chỉ tính trên số tiền gửi ban đầu.</p><p>Nếu phải rút trước hạn để thanh toán khoản bắt buộc, bạn sẽ mất phần lãi chưa nhận. Rút toàn khoản; không tự tái tục.</p></details></fieldset><div class="sheet-actions setup-start"><div class="setup-cash"><span>Tiền mặt khởi đầu</span><strong>50.000.000 ₫</strong></div><button class="button primary full-button">Bắt đầu hành trình <span aria-hidden="true">→</span></button></div><details><summary>Chơi lại cùng hành trình</summary><label for="mobile-seed">Mã hành trình</label><input id="mobile-seed" placeholder="Để trống để khám phá ván mới" maxLength="128" value=""/><p>Giữ mã này để chơi lại cùng hành trình và lựa chọn ban đầu.</p></details></dialog>'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: '<dialog tabindex="-1" class="modal  game-setup" aria-label="Bắt đầu hành trình"><button class="sheet-help" aria-label="Mở sổ tay"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7h.01"></path></svg> Sổ tay</button><span class="section-kicker">18 Ô · 4 VÒNG · MỘT MỤC TIÊU 90 TRIỆU</span><h2>Sẵn sàng dạo phố?</h2><div class="setup-goal-card"><div><small>Vốn khởi đầu</small><strong>50.000.000 ₫</strong></div><span aria-hidden="true">→</span><div><small>Mục tiêu về đích</small><strong>90.000.000 ₫</strong></div></div><p>Bạn tự phân bổ 50 triệu. Tiền mặt giúp trả chi phí và đón bất ngờ; không buộc giữ mức dự phòng cố định.</p><label for="initial-savings">Bạn muốn gửi tiết kiệm bao nhiêu?</label><div class="money-input"><input id="initial-savings" class="text-input" type="text" inputMode="numeric" autoComplete="off" aria-invalid="false" value="0"/><span aria-hidden="true">₫</span></div><div class="amount-presets" aria-label="Gửi tiết kiệm nhanh"><button type="button" aria-pressed="true">0 triệu</button><button type="button" aria-pressed="false">10 triệu</button><button type="button" aria-pressed="false">20 triệu</button><button type="button" aria-pressed="false">50 triệu</button></div><fieldset class="savings-terms"><legend>Kỳ hạn gửi tiết kiệm</legend><div><label class=""><input type="radio" aria-label="1 kỳ · Lãi suất 4% mỗi kỳ · Tổng 4% cuối kỳ hạn" name="initial-term" value="1"/><span>1 kỳ</span><strong>4% mỗi kỳ</strong><small>Tổng 4% cuối kỳ hạn</small></label><label class=""><input type="radio" aria-label="2 kỳ · Lãi suất 5% mỗi kỳ · Tổng 10% cuối kỳ hạn" name="initial-term" value="2"/><span>2 kỳ</span><strong>5% mỗi kỳ</strong><small>Tổng 10% cuối kỳ hạn</small></label><label class="selected"><input type="radio" aria-label="3 kỳ · Lãi suất 6% mỗi kỳ · Tổng 18% cuối kỳ hạn" name="initial-term" checked="" value="3"/><span>3 kỳ</span><strong>6% mỗi kỳ</strong><small>Tổng 18% cuối kỳ hạn</small></label></div><p class="savings-period-note">Rút trước hạn để trả khoản bắt buộc: mất lãi chưa nhận.</p><details class="trade-details"><summary>Cách nhận lãi</summary><p>Khi hết kỳ hạn, bạn nhận lại tiền đã gửi và toàn bộ tiền lãi. Lãi chỉ tính trên số tiền gửi ban đầu.</p><p>Nếu phải rút trước hạn để thanh toán khoản bắt buộc, bạn sẽ mất phần lãi chưa nhận. Rút toàn khoản; không tự tái tục.</p></details></fieldset><div class="sheet-actions setup-start"><div class="setup-cash"><span>Tiền mặt khởi đầu</span><strong>50.000.000 ₫</strong></div><button class="button primary full-button">Bắt đầu hành trình <span aria-hidden="true">→</span></button></div><details><summary>Chơi lại cùng hành trình</summary><label for="mobile-seed">Mã hành trình</label><input id="mobile-seed" placeholder="Để trống để khám phá ván mới" maxLength="128" value=""/><p>Giữ mã này để chơi lại cùng hành trình và lựa chọn ban đầu.</p></details></dialog>'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/Fall25_Ki8/EXE-boardgame/xoay-vong-tien-lui/scripts/diagnostics/language-cleanup-ui.test.ts:43:43)
+    async Test.run (node:internal/test_runner/test:980:9)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# (node:14136) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# 4:51:22 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+# 4:51:24 PM [vite] (client) [optimizer] scanning dependencies...
+# Subtest: Mobile final UI contracts use the official engine, board and financial previews
+    # Subtest: fresh player sees onboarding without creating a game; returning player sees setup
+    ok 1 - fresh player sees onboarding without creating a game; returning player sees setup
+      ---
+      duration_ms: 77.5835
+      ...
+    # Subtest: term cards show per-START and total simple interest correctly
+    ok 2 - term cards show per-START and total simple interest correctly
+      ---
+      duration_ms: 2.9368
+      ...
+    # Subtest: purchase tiles never offer voluntary selling even when holdings exist
+    ok 3 - purchase tiles never offer voluntary selling even when holdings exist
+      ---
+      duration_ms: 52.7335
+      ...
+    # Subtest: result uses lawful proceeds and never liquidates or claims four laps for insolvency
+    ok 4 - result uses lawful proceeds and never liquidates or claims four laps for insolvency
+      ---
+      duration_ms: 14.2104
+      ...
+    # Subtest: tutorial keeps six steps and rulebook displays every official C20 tile
+    ok 5 - tutorial keeps six steps and rulebook displays every official C20 tile
+      ---
+      duration_ms: 20.0878
+      ...
+    # Subtest: stock completion and Bank lots remain atomic through the Mobile controller
+    ok 6 - stock completion and Bank lots remain atomic through the Mobile controller
+      ---
+      duration_ms: 3.968
+      ...
+    # Subtest: Business purchase ends encounter; same-turn sale/upgrade blocked, later upgrade allowed once
+    ok 7 - Business purchase ends encounter; same-turn sale/upgrade blocked, later upgrade allowed once
+      ---
+      duration_ms: 11.783
+      ...
+    1..7
+ok 11 - Mobile final UI contracts use the official engine, board and financial previews
+  ---
+  duration_ms: 36996.3727
+  ...
+# (node:27164) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Desktop/Mobile share exact course cards and preserve legacy single-course UI/board
+ok 12 - Desktop/Mobile share exact course cards and preserve legacy single-course UI/board
+  ---
+  duration_ms: 31717.5022
+  ...
+# (node:30536) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: shared glossary renders on Desktop and Mobile, escapes selector text, and leaves state untouched
+ok 13 - shared glossary renders on Desktop and Mobile, escapes selector text, and leaves state untouched
+  ---
+  duration_ms: 35914.7405
+  ...
+1..13
+# tests 62
+# suites 0
+# pass 56
+# fail 6
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 386102.7625

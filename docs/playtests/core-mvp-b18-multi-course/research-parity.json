@@ -1,0 +1,387 @@
+{
+  "sourceRef": "a44686e988540fdee04498d547b0703c221e7b24",
+  "config": "I2-choice__L3-bonds",
+  "games": 13,
+  "sources": [
+    {
+      "ref": "a44686e988540fdee04498d547b0703c221e7b24",
+      "path": "docs/research/multi-course/screen/I2-choice__L3-bonds.config.json",
+      "local": "docs/playtests/core-mvp-b18-multi-course/research-source/screen-I2-choice__L3-bonds.config.json",
+      "bytes": 1209,
+      "sha256": "3789e38738fd77fe8d0166cb2c5af80f0ce832560c18fe5d6d3f44ea48e16b75"
+    },
+    {
+      "ref": "a44686e988540fdee04498d547b0703c221e7b24",
+      "path": "docs/research/multi-course/screen/I2-choice__L3-bonds.replays.json.gz",
+      "local": "docs/playtests/core-mvp-b18-multi-course/research-source/screen-I2-choice__L3-bonds.replays.json.gz",
+      "bytes": 44658,
+      "sha256": "74ed3b73ef0420ccbddb9f36a3a121e79ea5298a4fe070a07e2629f62a601cf9"
+    },
+    {
+      "ref": "a44686e988540fdee04498d547b0703c221e7b24",
+      "path": "docs/research/multi-course/shortlist/I2-choice__L3-bonds.config.json",
+      "local": "docs/playtests/core-mvp-b18-multi-course/research-source/shortlist-I2-choice__L3-bonds.config.json",
+      "bytes": 1209,
+      "sha256": "3789e38738fd77fe8d0166cb2c5af80f0ce832560c18fe5d6d3f44ea48e16b75"
+    },
+    {
+      "ref": "a44686e988540fdee04498d547b0703c221e7b24",
+      "path": "docs/research/multi-course/shortlist/I2-choice__L3-bonds.replays.json.gz",
+      "local": "docs/playtests/core-mvp-b18-multi-course/research-source/shortlist-I2-choice__L3-bonds.replays.json.gz",
+      "bytes": 315272,
+      "sha256": "62139a2429549e6200f788a60329a1955442fcaa04daa127745b8c44c5a1784f"
+    },
+    {
+      "ref": "a44686e988540fdee04498d547b0703c221e7b24",
+      "path": "docs/research/multi-course/holdout/I2-choice__L3-bonds.config.json",
+      "local": "docs/playtests/core-mvp-b18-multi-course/research-source/holdout-I2-choice__L3-bonds.config.json",
+      "bytes": 1209,
+      "sha256": "3789e38738fd77fe8d0166cb2c5af80f0ce832560c18fe5d6d3f44ea48e16b75"
+    },
+    {
+      "ref": "a44686e988540fdee04498d547b0703c221e7b24",
+      "path": "docs/research/multi-course/holdout/I2-choice__L3-bonds.replays.json.gz",
+      "local": "docs/playtests/core-mvp-b18-multi-course/research-source/holdout-I2-choice__L3-bonds.replays.json.gz",
+      "bytes": 373250,
+      "sha256": "4feffea7f702a6ba92947d8575bb3a35fa543f609e0477259acd7426e606f604"
+    }
+  ],
+  "intentionalDifferences": [
+    "Explicit gameplay/curriculum/board metadata and ownedCourses instead of research ownership derived from logs.",
+    "Decision IDs c1/c2 mapped to basic/advanced; researchCourse annotation replaced by explicit snapshots and frozen courseConfig.",
+    "Vietnamese player-facing course narrative replaces research-only text; all non-course narrative and financial effects identical.",
+    "Schema7 production envelope instead of research wrapper; old saved-game profiles are not migrated."
+  ],
+  "compared": "Every log before/after economic snapshot, action metadata/effects, ownership mapping, summaries, fees, salary timing/counts, market/credit/RNG, final proceeds and outcome; exact equality after only listed identity/text mapping.",
+  "results": [
+    {
+      "phase": "screen",
+      "policy": "cash-roi",
+      "seed": "B18-MULTICOURSE-SCREEN-0",
+      "actions": 34,
+      "checkedSnapshots": 166,
+      "courses": [
+        {
+          "id": "advanced",
+          "lap": 1,
+          "turn": 2,
+          "sequence": 7,
+          "cost": 10000000,
+          "boost": 4000000,
+          "paidStarts": 4,
+          "salaryReceived": 16000000
+        },
+        {
+          "id": "basic",
+          "lap": 1,
+          "turn": 3,
+          "sequence": 10,
+          "cost": 6000000,
+          "boost": 2000000,
+          "paidStarts": 4,
+          "salaryReceived": 8000000
+        }
+      ],
+      "proceeds": 86000000,
+      "won": false,
+      "rng": 496346791,
+      "marketAndCreditEqual": true
+    },
+    {
+      "phase": "shortlist",
+      "policy": "cash-roi",
+      "seed": "B18-MULTICOURSE-SHORTLIST-0",
+      "actions": 36,
+      "checkedSnapshots": 172,
+      "courses": [
+        {
+          "id": "advanced",
+          "lap": 1,
+          "turn": 1,
+          "sequence": 4,
+          "cost": 10000000,
+          "boost": 4000000,
+          "paidStarts": 4,
+          "salaryReceived": 16000000
+        }
+      ],
+      "proceeds": 88000000,
+      "won": false,
+      "rng": 2867456843,
+      "marketAndCreditEqual": true
+    },
+    {
+      "phase": "shortlist",
+      "policy": "savings-all",
+      "seed": "B18-MULTICOURSE-SHORTLIST-0",
+      "actions": 36,
+      "checkedSnapshots": 172,
+      "courses": [
+        {
+          "id": "basic",
+          "lap": 1,
+          "turn": 1,
+          "sequence": 4,
+          "cost": 6000000,
+          "boost": 2000000,
+          "paidStarts": 4,
+          "salaryReceived": 8000000
+        },
+        {
+          "id": "advanced",
+          "lap": 3,
+          "turn": 11,
+          "sequence": 50,
+          "cost": 10000000,
+          "boost": 4000000,
+          "paidStarts": 2,
+          "salaryReceived": 8000000
+        }
+      ],
+      "proceeds": 83938000,
+      "won": false,
+      "rng": 2867456843,
+      "marketAndCreditEqual": true
+    },
+    {
+      "phase": "shortlist",
+      "policy": "business-roi",
+      "seed": "B18-MULTICOURSE-SHORTLIST-0",
+      "actions": 38,
+      "checkedSnapshots": 176,
+      "courses": [
+        {
+          "id": "advanced",
+          "lap": 1,
+          "turn": 1,
+          "sequence": 4,
+          "cost": 10000000,
+          "boost": 4000000,
+          "paidStarts": 4,
+          "salaryReceived": 16000000
+        }
+      ],
+      "proceeds": 101599002,
+      "won": true,
+      "rng": 2867456843,
+      "marketAndCreditEqual": true
+    },
+    {
+      "phase": "shortlist",
+      "policy": "diversified-roi",
+      "seed": "B18-MULTICOURSE-SHORTLIST-0",
+      "actions": 43,
+      "checkedSnapshots": 186,
+      "courses": [
+        {
+          "id": "advanced",
+          "lap": 1,
+          "turn": 1,
+          "sequence": 4,
+          "cost": 10000000,
+          "boost": 4000000,
+          "paidStarts": 4,
+          "salaryReceived": 16000000
+        }
+      ],
+      "proceeds": 104469965,
+      "won": true,
+      "rng": 2867456843,
+      "marketAndCreditEqual": true
+    },
+    {
+      "phase": "shortlist",
+      "policy": "risk-aware-roi",
+      "seed": "B18-MULTICOURSE-SHORTLIST-0",
+      "actions": 40,
+      "checkedSnapshots": 180,
+      "courses": [
+        {
+          "id": "advanced",
+          "lap": 1,
+          "turn": 1,
+          "sequence": 4,
+          "cost": 10000000,
+          "boost": 4000000,
+          "paidStarts": 4,
+          "salaryReceived": 16000000
+        }
+      ],
+      "proceeds": 105231518,
+      "won": true,
+      "rng": 2867456843,
+      "marketAndCreditEqual": true
+    },
+    {
+      "phase": "shortlist",
+      "policy": "novice",
+      "seed": "B18-MULTICOURSE-SHORTLIST-0",
+      "actions": 42,
+      "checkedSnapshots": 184,
+      "courses": [
+        {
+          "id": "basic",
+          "lap": 3,
+          "turn": 11,
+          "sequence": 52,
+          "cost": 6000000,
+          "boost": 2000000,
+          "paidStarts": 2,
+          "salaryReceived": 4000000
+        }
+      ],
+      "proceeds": 88742754,
+      "won": false,
+      "rng": 2867456843,
+      "marketAndCreditEqual": true
+    },
+    {
+      "phase": "holdout",
+      "policy": "cash-roi",
+      "seed": "B18-MULTICOURSE-HOLDOUT-0",
+      "actions": 35,
+      "checkedSnapshots": 174,
+      "courses": [
+        {
+          "id": "advanced",
+          "lap": 1,
+          "turn": 2,
+          "sequence": 7,
+          "cost": 10000000,
+          "boost": 4000000,
+          "paidStarts": 4,
+          "salaryReceived": 16000000
+        }
+      ],
+      "proceeds": 92000000,
+      "won": true,
+      "rng": 1480792709,
+      "marketAndCreditEqual": true
+    },
+    {
+      "phase": "holdout",
+      "policy": "savings-all",
+      "seed": "B18-MULTICOURSE-HOLDOUT-0",
+      "actions": 35,
+      "checkedSnapshots": 174,
+      "courses": [
+        {
+          "id": "basic",
+          "lap": 1,
+          "turn": 2,
+          "sequence": 7,
+          "cost": 6000000,
+          "boost": 2000000,
+          "paidStarts": 4,
+          "salaryReceived": 8000000
+        },
+        {
+          "id": "advanced",
+          "lap": 3,
+          "turn": 10,
+          "sequence": 49,
+          "cost": 10000000,
+          "boost": 4000000,
+          "paidStarts": 2,
+          "salaryReceived": 8000000
+        }
+      ],
+      "proceeds": 93803000,
+      "won": true,
+      "rng": 1480792709,
+      "marketAndCreditEqual": true
+    },
+    {
+      "phase": "holdout",
+      "policy": "business-roi",
+      "seed": "B18-MULTICOURSE-HOLDOUT-0",
+      "actions": 36,
+      "checkedSnapshots": 176,
+      "courses": [
+        {
+          "id": "advanced",
+          "lap": 1,
+          "turn": 2,
+          "sequence": 7,
+          "cost": 10000000,
+          "boost": 4000000,
+          "paidStarts": 4,
+          "salaryReceived": 16000000
+        }
+      ],
+      "proceeds": 97948689,
+      "won": true,
+      "rng": 1480792709,
+      "marketAndCreditEqual": true
+    },
+    {
+      "phase": "holdout",
+      "policy": "diversified-roi",
+      "seed": "B18-MULTICOURSE-HOLDOUT-0",
+      "actions": 38,
+      "checkedSnapshots": 180,
+      "courses": [
+        {
+          "id": "advanced",
+          "lap": 1,
+          "turn": 2,
+          "sequence": 7,
+          "cost": 10000000,
+          "boost": 4000000,
+          "paidStarts": 4,
+          "salaryReceived": 16000000
+        }
+      ],
+      "proceeds": 96451171,
+      "won": true,
+      "rng": 1480792709,
+      "marketAndCreditEqual": true
+    },
+    {
+      "phase": "holdout",
+      "policy": "risk-aware-roi",
+      "seed": "B18-MULTICOURSE-HOLDOUT-0",
+      "actions": 38,
+      "checkedSnapshots": 180,
+      "courses": [
+        {
+          "id": "advanced",
+          "lap": 1,
+          "turn": 2,
+          "sequence": 7,
+          "cost": 10000000,
+          "boost": 4000000,
+          "paidStarts": 4,
+          "salaryReceived": 16000000
+        }
+      ],
+      "proceeds": 93927582,
+      "won": true,
+      "rng": 1480792709,
+      "marketAndCreditEqual": true
+    },
+    {
+      "phase": "holdout",
+      "policy": "novice",
+      "seed": "B18-MULTICOURSE-HOLDOUT-0",
+      "actions": 41,
+      "checkedSnapshots": 186,
+      "courses": [
+        {
+          "id": "advanced",
+          "lap": 3,
+          "turn": 10,
+          "sequence": 49,
+          "cost": 10000000,
+          "boost": 4000000,
+          "paidStarts": 2,
+          "salaryReceived": 8000000
+        }
+      ],
+      "proceeds": 77104109,
+      "won": false,
+      "rng": 1480792709,
+      "marketAndCreditEqual": true
+    }
+  ]
+}

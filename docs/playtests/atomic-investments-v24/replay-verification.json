@@ -1,0 +1,367 @@
+{
+  "seed": "atomic-history-fixture",
+  "encounterRulesVersion": "v2.4-atomic-investments",
+  "laps": 4,
+  "diceRolls": 23,
+  "entries": 97,
+  "purchases": {
+    "stocks": 2,
+    "bonds": 4,
+    "gold": 2
+  },
+  "lawfulProceeds": 90107737,
+  "victory": {
+    "wealth": true,
+    "liquidity": true,
+    "won": true
+  },
+  "fullStateReplay": true,
+  "onePurchasePerTurn": true,
+  "exactPurchaseFinancials": true,
+  "unchangedPurchaseRngAndPrices": true,
+  "newsReadOnly": true,
+  "reviews": [
+    {
+      "lap": 1,
+      "forecastId": "uncertain",
+      "headline": "Thị trường thận trọng",
+      "startTurn": 0,
+      "endTurn": 4,
+      "settled": true,
+      "assets": [
+        {
+          "asset": "stocks",
+          "label": "Cổ phiếu",
+          "icon": "chart",
+          "characteristic": "Mỗi mã có thể đi khác hướng",
+          "lesson": "Tín hiệu tích cực không loại bỏ rủi ro giảm giá. Đừng dùng tiền sắp cần chi.",
+          "forecast": "Dễ biến động",
+          "returnRate": -0.12663166666666667,
+          "instruments": [
+            {
+              "label": "FPT",
+              "returnRate": -0.12661999999999995
+            },
+            {
+              "label": "CMG",
+              "returnRate": -0.07916999999999996
+            },
+            {
+              "label": "VCB",
+              "returnRate": -0.14708
+            },
+            {
+              "label": "TCB",
+              "returnRate": -0.17317000000000005
+            },
+            {
+              "label": "HPG",
+              "returnRate": -0.17262
+            },
+            {
+              "label": "BMP",
+              "returnRate": -0.06113000000000002
+            }
+          ]
+        },
+        {
+          "asset": "bonds",
+          "label": "Trái phiếu",
+          "icon": "receipt",
+          "characteristic": "Coupon 5% · Giá bán có thể giảm",
+          "lesson": "Coupon và biến động giá là hai phần khác nhau. Bán trước hạn có thể thu về ít hơn vốn.",
+          "forecast": "Khá ổn định",
+          "returnRate": 0.044950000000000045,
+          "instruments": [
+            {
+              "label": "Trái phiếu",
+              "returnRate": 0.044950000000000045
+            }
+          ]
+        },
+        {
+          "asset": "gold",
+          "label": "Vàng",
+          "icon": "gold",
+          "characteristic": "Không có lãi định kỳ · Có chênh lệch giá bán",
+          "lesson": "Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.",
+          "forecast": "Được quan tâm",
+          "returnRate": 0.10901399999999994,
+          "instruments": [
+            {
+              "label": "Vàng",
+              "returnRate": 0.10901399999999994
+            }
+          ]
+        }
+      ],
+      "shocks": []
+    },
+    {
+      "lap": 2,
+      "forecastId": "recovery",
+      "headline": "Tín hiệu phục hồi",
+      "startTurn": 4,
+      "endTurn": 12,
+      "settled": true,
+      "assets": [
+        {
+          "asset": "stocks",
+          "label": "Cổ phiếu",
+          "icon": "chart",
+          "characteristic": "Mỗi mã có thể đi khác hướng",
+          "lesson": "Tín hiệu tích cực không loại bỏ rủi ro giảm giá. Đừng dùng tiền sắp cần chi.",
+          "forecast": "Có cơ hội phục hồi",
+          "returnRate": 0.08371235090799123,
+          "instruments": [
+            {
+              "label": "FPT",
+              "returnRate": 0.06259589182257441
+            },
+            {
+              "label": "CMG",
+              "returnRate": 0.0902229510333068
+            },
+            {
+              "label": "VCB",
+              "returnRate": 0.061506354640529004
+            },
+            {
+              "label": "TCB",
+              "returnRate": 0.07960523928739893
+            },
+            {
+              "label": "HPG",
+              "returnRate": 0.11963064130145762
+            },
+            {
+              "label": "BMP",
+              "returnRate": 0.08871302736268061
+            }
+          ]
+        },
+        {
+          "asset": "bonds",
+          "label": "Trái phiếu",
+          "icon": "receipt",
+          "characteristic": "Coupon 5% · Giá bán có thể giảm",
+          "lesson": "Coupon và biến động giá là hai phần khác nhau. Bán trước hạn có thể thu về ít hơn vốn.",
+          "forecast": "Tăng trưởng nhẹ",
+          "returnRate": 0.04739939710033969,
+          "instruments": [
+            {
+              "label": "Trái phiếu",
+              "returnRate": 0.04739939710033969
+            }
+          ]
+        },
+        {
+          "asset": "gold",
+          "label": "Vàng",
+          "icon": "gold",
+          "characteristic": "Không có lãi định kỳ · Có chênh lệch giá bán",
+          "lesson": "Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.",
+          "forecast": "Đi ngang",
+          "returnRate": -0.03122864093690436,
+          "instruments": [
+            {
+              "label": "Vàng",
+              "returnRate": -0.03122864093690436
+            }
+          ]
+        }
+      ],
+      "shocks": []
+    },
+    {
+      "lap": 3,
+      "forecastId": "uncertain",
+      "headline": "Thị trường thận trọng",
+      "startTurn": 12,
+      "endTurn": 19,
+      "settled": true,
+      "assets": [
+        {
+          "asset": "stocks",
+          "label": "Cổ phiếu",
+          "icon": "chart",
+          "characteristic": "Mỗi mã có thể đi khác hướng",
+          "lesson": "Tín hiệu tích cực không loại bỏ rủi ro giảm giá. Đừng dùng tiền sắp cần chi.",
+          "forecast": "Dễ biến động",
+          "returnRate": -0.0679108389374548,
+          "instruments": [
+            {
+              "label": "FPT",
+              "returnRate": -0.09865847745272349
+            },
+            {
+              "label": "CMG",
+              "returnRate": -0.03402695460748473
+            },
+            {
+              "label": "VCB",
+              "returnRate": -0.09183989043274643
+            },
+            {
+              "label": "TCB",
+              "returnRate": -0.05302190108105076
+            },
+            {
+              "label": "HPG",
+              "returnRate": -0.11718986139297893
+            },
+            {
+              "label": "BMP",
+              "returnRate": -0.012727948657744403
+            }
+          ]
+        },
+        {
+          "asset": "bonds",
+          "label": "Trái phiếu",
+          "icon": "receipt",
+          "characteristic": "Coupon 5% · Giá bán có thể giảm",
+          "lesson": "Coupon và biến động giá là hai phần khác nhau. Bán trước hạn có thể thu về ít hơn vốn.",
+          "forecast": "Khá ổn định",
+          "returnRate": 0.031001023317009047,
+          "instruments": [
+            {
+              "label": "Trái phiếu",
+              "returnRate": 0.031001023317009047
+            }
+          ]
+        },
+        {
+          "asset": "gold",
+          "label": "Vàng",
+          "icon": "gold",
+          "characteristic": "Không có lãi định kỳ · Có chênh lệch giá bán",
+          "lesson": "Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.",
+          "forecast": "Được quan tâm",
+          "returnRate": 0.04606001036876117,
+          "instruments": [
+            {
+              "label": "Vàng",
+              "returnRate": 0.04606001036876117
+            }
+          ]
+        }
+      ],
+      "shocks": []
+    },
+    {
+      "lap": 4,
+      "forecastId": "growth",
+      "headline": "Nhịp tăng trưởng",
+      "startTurn": 19,
+      "endTurn": 23,
+      "settled": true,
+      "assets": [
+        {
+          "asset": "stocks",
+          "label": "Cổ phiếu",
+          "icon": "chart",
+          "characteristic": "Mỗi mã có thể đi khác hướng",
+          "lesson": "Tín hiệu tích cực không loại bỏ rủi ro giảm giá. Đừng dùng tiền sắp cần chi.",
+          "forecast": "Xu hướng tăng",
+          "returnRate": -0.03768165983972612,
+          "instruments": [
+            {
+              "label": "FPT",
+              "returnRate": -0.04402921732477372
+            },
+            {
+              "label": "CMG",
+              "returnRate": -0.040464037122969865
+            },
+            {
+              "label": "VCB",
+              "returnRate": -0.05491164272770388
+            },
+            {
+              "label": "TCB",
+              "returnRate": -0.04903468508967024
+            },
+            {
+              "label": "HPG",
+              "returnRate": -0.034360479334800687
+            },
+            {
+              "label": "BMP",
+              "returnRate": -0.0032898974384383273
+            }
+          ]
+        },
+        {
+          "asset": "bonds",
+          "label": "Trái phiếu",
+          "icon": "receipt",
+          "characteristic": "Coupon 5% · Giá bán có thể giảm",
+          "lesson": "Coupon và biến động giá là hai phần khác nhau. Bán trước hạn có thể thu về ít hơn vốn.",
+          "forecast": "Khá ổn định",
+          "returnRate": -0.015960510807242034,
+          "instruments": [
+            {
+              "label": "Trái phiếu",
+              "returnRate": -0.015960510807242034
+            }
+          ]
+        },
+        {
+          "asset": "gold",
+          "label": "Vàng",
+          "icon": "gold",
+          "characteristic": "Không có lãi định kỳ · Có chênh lệch giá bán",
+          "lesson": "Giá tăng chưa chắc đủ bù chênh lệch và phí bán. Hãy xem số tiền thực nhận.",
+          "forecast": "Có thể hạ nhiệt",
+          "returnRate": 0.20273662274984505,
+          "instruments": [
+            {
+              "label": "Vàng",
+              "returnRate": 0.20273662274984505
+            }
+          ]
+        }
+      ],
+      "shocks": [
+        {
+          "eventId": "credit-tightening",
+          "label": "Tín dụng thắt chặt",
+          "turn": 19
+        }
+      ]
+    }
+  ],
+  "historical": [
+    {
+      "file": "docs\\playtests\\atomic-investments-v24\\historical-multi-purchase.json.gz",
+      "encounterRulesVersion": "v2.4-business-purchase-complete",
+      "fullStateReplay": true,
+      "repeated": {
+        "gold": 2,
+        "bonds": 5
+      },
+      "sha256": "c57fd98b7f9500129b0a174840c15357eab31372cd0dbfd8802f77a0a4755b59"
+    },
+    {
+      "file": "docs/playtests/encounter-limits-v2_3/browser-game-log.json.gz",
+      "encounterRulesVersion": "v2.3-single-action",
+      "fullStateReplay": true,
+      "repeated": {
+        "gold": 0,
+        "bonds": 0
+      },
+      "sha256": "dd1e4e353cf6c82d7fab2a2838590f2498efd7645c69bb707e5457c5779ca336"
+    },
+    {
+      "file": "docs/playtests/economic-news-v1/browser-game-log.json.gz",
+      "encounterRulesVersion": "v2.4-business-purchase-complete",
+      "fullStateReplay": true,
+      "repeated": {
+        "gold": 0,
+        "bonds": 0
+      },
+      "sha256": "7feb4de915dcee387f656f5b33bf5cdb6a887754a457a4fd62f4affc05bb181e"
+    }
+  ]
+}

@@ -1,0 +1,1052 @@
+{
+  "url": "http://localhost:5184",
+  "build": "Mobile production preview",
+  "widths": [
+    320,
+    390,
+    430
+  ],
+  "checks": [
+    {
+      "type": "layout",
+      "screen": "tutorial",
+      "dialogs": [
+        {
+          "height": 589,
+          "overflow": false,
+          "scroll": 589
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 320
+    },
+    {
+      "type": "layout",
+      "screen": "tutorial",
+      "dialogs": [
+        {
+          "height": 655,
+          "overflow": false,
+          "scroll": 655
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 390
+    },
+    {
+      "type": "layout",
+      "screen": "tutorial",
+      "dialogs": [
+        {
+          "height": 655,
+          "overflow": false,
+          "scroll": 655
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 430
+    },
+    {
+      "type": "official-C20-rulebook",
+      "tiles": [
+        {
+          "label": "Xuất phát",
+          "number": "1"
+        },
+        {
+          "label": "Ngân hàng",
+          "number": "2"
+        },
+        {
+          "label": "Cổ phiếu",
+          "number": "3"
+        },
+        {
+          "label": "Sinh hoạt",
+          "number": "4"
+        },
+        {
+          "label": "Đầu tư bản thân",
+          "number": "5"
+        },
+        {
+          "label": "Kinh tế",
+          "number": "6"
+        },
+        {
+          "label": "Trái phiếu",
+          "number": "7"
+        },
+        {
+          "label": "Biến cố cá nhân",
+          "number": "8"
+        },
+        {
+          "label": "Kinh doanh",
+          "number": "9"
+        },
+        {
+          "label": "Vàng",
+          "number": "10"
+        },
+        {
+          "label": "Dòng tiền",
+          "number": "11"
+        },
+        {
+          "label": "Cổ phiếu",
+          "number": "12"
+        },
+        {
+          "label": "Ngân hàng",
+          "number": "13"
+        },
+        {
+          "label": "Kinh doanh",
+          "number": "14"
+        },
+        {
+          "label": "Sinh hoạt",
+          "number": "15"
+        },
+        {
+          "label": "Kinh doanh",
+          "number": "16"
+        },
+        {
+          "label": "Đầu tư bản thân",
+          "number": "17"
+        },
+        {
+          "label": "Biến cố cá nhân",
+          "number": "18"
+        },
+        {
+          "label": "Vàng",
+          "number": "19"
+        },
+        {
+          "label": "Trái phiếu",
+          "number": "20"
+        }
+      ]
+    },
+    {
+      "type": "first-six-steps-and-returning",
+      "passed": true
+    },
+    {
+      "type": "layout",
+      "screen": "setup",
+      "dialogs": [
+        {
+          "height": 606,
+          "overflow": false,
+          "scroll": 692
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 320
+    },
+    {
+      "type": "layout",
+      "screen": "setup",
+      "dialogs": [
+        {
+          "height": 666,
+          "overflow": false,
+          "scroll": 666
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 390
+    },
+    {
+      "type": "layout",
+      "screen": "setup",
+      "dialogs": [
+        {
+          "height": 666,
+          "overflow": false,
+          "scroll": 666
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 430
+    },
+    {
+      "type": "setup-overlay-preservation-keyboard-focus",
+      "focus": "Mở sổ tay",
+      "savings": "10.000.000",
+      "term": "2"
+    },
+    {
+      "type": "layout",
+      "screen": "board",
+      "dialogs": [],
+      "horizontalOverflow": false,
+      "width": 320
+    },
+    {
+      "type": "layout",
+      "screen": "board",
+      "dialogs": [],
+      "horizontalOverflow": false,
+      "width": 390
+    },
+    {
+      "type": "layout",
+      "screen": "board",
+      "dialogs": [],
+      "horizontalOverflow": false,
+      "width": 430
+    },
+    {
+      "type": "bank-overlay-state-preserved",
+      "amount": "5.000.000",
+      "term": "2"
+    },
+    {
+      "type": "layout",
+      "screen": "bank",
+      "dialogs": [
+        {
+          "height": 606,
+          "overflow": false,
+          "scroll": 703
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 320
+    },
+    {
+      "type": "layout",
+      "screen": "bank",
+      "dialogs": [
+        {
+          "height": 680,
+          "overflow": false,
+          "scroll": 680
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 390
+    },
+    {
+      "type": "layout",
+      "screen": "bank",
+      "dialogs": [
+        {
+          "height": 680,
+          "overflow": false,
+          "scroll": 680
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 430
+    },
+    {
+      "type": "bank-atomic-double-tap",
+      "passed": true
+    },
+    {
+      "type": "layout",
+      "screen": "stocks",
+      "dialogs": [
+        {
+          "height": 606,
+          "overflow": false,
+          "scroll": 720
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 320
+    },
+    {
+      "type": "layout",
+      "screen": "stocks",
+      "dialogs": [
+        {
+          "height": 723,
+          "overflow": false,
+          "scroll": 723
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 390
+    },
+    {
+      "type": "layout",
+      "screen": "stocks",
+      "dialogs": [
+        {
+          "height": 723,
+          "overflow": false,
+          "scroll": 723
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 430
+    },
+    {
+      "type": "layout",
+      "screen": "business",
+      "dialogs": [
+        {
+          "height": 606,
+          "overflow": false,
+          "scroll": 678
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 320
+    },
+    {
+      "type": "layout",
+      "screen": "business",
+      "dialogs": [
+        {
+          "height": 667,
+          "overflow": false,
+          "scroll": 667
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 390
+    },
+    {
+      "type": "layout",
+      "screen": "business",
+      "dialogs": [
+        {
+          "height": 667,
+          "overflow": false,
+          "scroll": 667
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 430
+    },
+    {
+      "type": "layout",
+      "screen": "result",
+      "dialogs": [
+        {
+          "height": 606,
+          "overflow": false,
+          "scroll": 648
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 320
+    },
+    {
+      "type": "layout",
+      "screen": "result",
+      "dialogs": [
+        {
+          "height": 676,
+          "overflow": false,
+          "scroll": 676
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 390
+    },
+    {
+      "type": "layout",
+      "screen": "result",
+      "dialogs": [
+        {
+          "height": 645,
+          "overflow": false,
+          "scroll": 645
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 430
+    },
+    {
+      "type": "restart-no-tutorial",
+      "passed": true
+    },
+    {
+      "type": "skip-persists",
+      "passed": true
+    },
+    {
+      "type": "layout",
+      "screen": "funding",
+      "dialogs": [
+        {
+          "height": 606,
+          "overflow": false,
+          "scroll": 888
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 320
+    },
+    {
+      "type": "layout",
+      "screen": "funding",
+      "dialogs": [
+        {
+          "height": 810,
+          "overflow": false,
+          "scroll": 923
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 390
+    },
+    {
+      "type": "layout",
+      "screen": "funding",
+      "dialogs": [
+        {
+          "height": 871,
+          "overflow": false,
+          "scroll": 871
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 430
+    },
+    {
+      "type": "dev-fixture-funding",
+      "doubleTapAtomic": true,
+      "savings": 3000000,
+      "lostInterest": 540000,
+      "goldNet": 1920600,
+      "debt": 79400,
+      "passed": true
+    },
+    {
+      "type": "dev-fixture-rapid-trade",
+      "afterDoubleTap": 41000000,
+      "afterLaterTap": 35000000,
+      "passed": true
+    },
+    {
+      "type": "dev-fixture-business-upgrade-once",
+      "income": 4700000,
+      "passed": true
+    },
+    {
+      "type": "layout",
+      "screen": "business-upgraded",
+      "dialogs": [
+        {
+          "height": 606,
+          "overflow": false,
+          "scroll": 1211
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 320
+    },
+    {
+      "type": "layout",
+      "screen": "business-upgraded",
+      "dialogs": [
+        {
+          "height": 810,
+          "overflow": false,
+          "scroll": 1140
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 390
+    },
+    {
+      "type": "layout",
+      "screen": "business-upgraded",
+      "dialogs": [
+        {
+          "height": 898,
+          "overflow": false,
+          "scroll": 1080
+        }
+      ],
+      "horizontalOverflow": false,
+      "width": 430
+    },
+    {
+      "type": "dev-fixture-bank-independent-lots",
+      "lots": [
+        "deposit-1: 3.000.000 ₫ · 6% lãi game/vòng · đáo hạn START 3",
+        "deposit-2: 10.000.000 ₫ · 4% lãi game/vòng · đáo hạn START 1"
+      ],
+      "passed": true
+    }
+  ],
+  "events": [
+    "Trái phiếu",
+    "Cổ phiếu",
+    "Quán của bạn",
+    "Vàng",
+    "Khép lại vòng 1",
+    "Ghé ví tại START",
+    "Dự báo vòng 2",
+    "Ngân hàng",
+    "Chi phí sinh hoạt",
+    "Trái phiếu",
+    "Chiếc xe cần sửa",
+    "Quán của bạn",
+    "Quán của bạn",
+    "Đến kỳ thanh toán",
+    "Chi phí sinh hoạt",
+    "Vàng",
+    "Khép lại vòng 2",
+    "Ghé ví tại START",
+    "Dự báo vòng 3",
+    "Khóa học chuyên môn",
+    "Vàng",
+    "Quán của bạn",
+    "Quán của bạn",
+    "Khóa học chuyên môn",
+    "Vàng",
+    "Khép lại vòng 3",
+    "Ghé ví tại START",
+    "Dự báo vòng 4",
+    "Ngân hàng",
+    "Khóa học chuyên môn",
+    "Quán của bạn",
+    "Quán của bạn",
+    "Ngân hàng",
+    "Quán của bạn",
+    "Quán của bạn",
+    "Trái phiếu",
+    "Khép lại vòng 4",
+    "Ghé ví tại START",
+    "Thêm một bước trưởng thành"
+  ],
+  "models": [
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 541.190673828125,
+        "height": 59.74468994140625,
+        "left": 169.27659606933594,
+        "right": 220.7234039306641,
+        "top": 481.4459838867187,
+        "width": 51.446807861328125,
+        "x": 169.27659606933594,
+        "y": 481.4459838867187
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 518.3715209960938,
+        "height": 59.74468994140625,
+        "left": 137.74468994140625,
+        "right": 189.1914978027344,
+        "top": 458.6268310546875,
+        "width": 51.446807861328125,
+        "x": 137.74468994140625,
+        "y": 458.6268310546875
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 518.3715209960938,
+        "height": 59.74468994140625,
+        "left": 137.74468994140625,
+        "right": 189.1914978027344,
+        "top": 458.6268310546875,
+        "width": 51.446807861328125,
+        "x": 137.74468994140625,
+        "y": 458.6268310546875
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 404.6906433105469,
+        "height": 59.74468994140625,
+        "left": 43.1489372253418,
+        "right": 94.5957489013672,
+        "top": 344.9459533691406,
+        "width": 51.44681167602539,
+        "x": 43.1489372253418,
+        "y": 344.9459533691406
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 337.4778747558594,
+        "height": 59.74468994140625,
+        "left": 199.56382751464844,
+        "right": 251.0106506347656,
+        "top": 277.7331848144531,
+        "width": 51.44682312011719,
+        "x": 199.56382751464844,
+        "y": 277.7331848144531
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 427.0949096679687,
+        "height": 59.74468994140625,
+        "left": 320.7127685546875,
+        "right": 372.1595764160156,
+        "top": 367.3502197265625,
+        "width": 51.446807861328125,
+        "x": 320.7127685546875,
+        "y": 367.3502197265625
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 495.5523376464844,
+        "height": 59.744659423828125,
+        "left": 229.85107421875,
+        "right": 281.2978820800781,
+        "top": 435.80767822265625,
+        "width": 51.446807861328125,
+        "x": 229.85107421875,
+        "y": 435.80767822265625
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 518.3715209960938,
+        "height": 59.74468994140625,
+        "left": 137.74468994140625,
+        "right": 189.1914978027344,
+        "top": 458.6268310546875,
+        "width": 51.446807861328125,
+        "x": 137.74468994140625,
+        "y": 458.6268310546875
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 472.7332153320313,
+        "height": 59.74468994140625,
+        "left": 74.68085479736328,
+        "right": 126.1276626586914,
+        "top": 412.988525390625,
+        "width": 51.446807861328125,
+        "x": 74.68085479736328,
+        "y": 412.988525390625
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 404.6906433105469,
+        "height": 59.74468994140625,
+        "left": 43.1489372253418,
+        "right": 94.5957489013672,
+        "top": 344.9459533691406,
+        "width": 51.44681167602539,
+        "x": 43.1489372253418,
+        "y": 344.9459533691406
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 382.2864074707031,
+        "height": 59.74468994140625,
+        "left": 74.68085479736328,
+        "right": 126.1276626586914,
+        "top": 322.5417175292969,
+        "width": 51.446807861328125,
+        "x": 74.68085479736328,
+        "y": 322.5417175292969
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 359.88214111328125,
+        "height": 59.74468994140625,
+        "left": 106.2127685546875,
+        "right": 157.65957641601562,
+        "top": 300.137451171875,
+        "width": 51.446807861328125,
+        "x": 106.2127685546875,
+        "y": 300.137451171875
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 315.0736389160156,
+        "height": 59.74468994140625,
+        "left": 169.27659606933594,
+        "right": 220.7234039306641,
+        "top": 255.32894897460935,
+        "width": 51.446807861328125,
+        "x": 169.27659606933594,
+        "y": 255.32894897460935
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 404.6906433105469,
+        "height": 59.74468994140625,
+        "left": 290.425537109375,
+        "right": 341.8723449707031,
+        "top": 344.9459533691406,
+        "width": 51.446807861328125,
+        "x": 290.425537109375,
+        "y": 344.9459533691406
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 495.5523376464844,
+        "height": 59.744659423828125,
+        "left": 229.85107421875,
+        "right": 281.2978820800781,
+        "top": 435.80767822265625,
+        "width": 51.446807861328125,
+        "x": 229.85107421875,
+        "y": 435.80767822265625
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 541.190673828125,
+        "height": 59.74468994140625,
+        "left": 169.27659606933594,
+        "right": 220.7234039306641,
+        "top": 481.4459838867187,
+        "width": 51.446807861328125,
+        "x": 169.27659606933594,
+        "y": 481.4459838867187
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 449.9140625,
+        "height": 59.74468994140625,
+        "left": 43.1489372253418,
+        "right": 94.5957489013672,
+        "top": 390.16937255859375,
+        "width": 51.44681167602539,
+        "x": 43.1489372253418,
+        "y": 390.16937255859375
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 337.4778747558594,
+        "height": 59.74468994140625,
+        "left": 137.74468994140625,
+        "right": 189.1914978027344,
+        "top": 277.7331848144531,
+        "width": 51.446807861328125,
+        "x": 137.74468994140625,
+        "y": 277.7331848144531
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 382.2864074707031,
+        "height": 59.74468994140625,
+        "left": 260.1383056640625,
+        "right": 311.5851135253906,
+        "top": 322.5417175292969,
+        "width": 51.446807861328125,
+        "x": 260.1383056640625,
+        "y": 322.5417175292969
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 449.9140625,
+        "height": 59.74468994140625,
+        "left": 290.425537109375,
+        "right": 341.8723449707031,
+        "top": 390.16937255859375,
+        "width": 51.446807861328125,
+        "x": 290.425537109375,
+        "y": 390.16937255859375
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 495.5523376464844,
+        "height": 59.744659423828125,
+        "left": 229.85107421875,
+        "right": 281.2978820800781,
+        "top": 435.80767822265625,
+        "width": 51.446807861328125,
+        "x": 229.85107421875,
+        "y": 435.80767822265625
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 518.3715209960938,
+        "height": 59.74468994140625,
+        "left": 137.74468994140625,
+        "right": 189.1914978027344,
+        "top": 458.6268310546875,
+        "width": 51.446807861328125,
+        "x": 137.74468994140625,
+        "y": 458.6268310546875
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 449.9140625,
+        "height": 59.74468994140625,
+        "left": 43.1489372253418,
+        "right": 94.5957489013672,
+        "top": 390.16937255859375,
+        "width": 51.44681167602539,
+        "x": 43.1489372253418,
+        "y": 390.16937255859375
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 359.88214111328125,
+        "height": 59.74468994140625,
+        "left": 106.2127685546875,
+        "right": 157.65957641601562,
+        "top": 300.137451171875,
+        "width": 51.446807861328125,
+        "x": 106.2127685546875,
+        "y": 300.137451171875
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 359.88214111328125,
+        "height": 59.74468994140625,
+        "left": 229.85107421875,
+        "right": 281.2978820800781,
+        "top": 300.137451171875,
+        "width": 51.446807861328125,
+        "x": 229.85107421875,
+        "y": 300.137451171875
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 427.0949096679687,
+        "height": 59.74468994140625,
+        "left": 320.7127685546875,
+        "right": 372.1595764160156,
+        "top": 367.3502197265625,
+        "width": 51.446807861328125,
+        "x": 320.7127685546875,
+        "y": 367.3502197265625
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "canvasCount": 2,
+      "nativeLoaded": "true",
+      "rect": {
+        "bottom": 518.3715209960938,
+        "height": 59.74468994140625,
+        "left": 199.56382751464844,
+        "right": 251.0106506347656,
+        "top": 458.6268310546875,
+        "width": 51.44682312011719,
+        "x": 199.56382751464844,
+        "y": 458.6268310546875
+      },
+      "status": "ready",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    }
+  ],
+  "rolls": 26,
+  "productionConsoleErrors": [],
+  "devFixtureConsoleErrors": [],
+  "final320TypographyCheck": {
+    "dialogOverflow": false,
+    "termText": [
+      "Tổng 4% cuối kỳ",
+      "Tổng 10% cuối kỳ",
+      "Tổng 18% cuối kỳ"
+    ],
+    "width": 320
+  }
+}

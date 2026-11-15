@@ -1,0 +1,23 @@
+{
+  "scope": "UI literals and read-only presentation selectors; identifiers/imports omitted",
+  "findings": [],
+  "exceptions": [
+    {
+      "file": "src/components/glossary.ts",
+      "line": 11,
+      "text": "'Thời điểm thu nhập tăng thêm tích lũy đủ bù số tiền ban đầu đã bỏ ra. Đây là thời gian bù vốn, khác tỷ suất sinh lời (ROI); không phải cam kết lợi nhuận.'",
+      "matches": [
+        "ROI"
+      ],
+      "reason": "Phân biệt thời gian hoàn vốn với tỷ suất sinh lời; không dùng ROI làm đồng nghĩa với thời gian"
+    }
+  ],
+  "intentional": [
+    "START: tên ô, giải thích Ô Xuất phát",
+    "AI Coach: tên tính năng",
+    "JSON: định dạng xuất/nhập và dữ liệu kỹ thuật mở rộng",
+    "AA/B/CCC/D và mã cổ phiếu: giữ mã mô phỏng",
+    "Tên doanh nghiệp hư cấu: giữ nguyên",
+    "Tên tiếng Anh trong phần đối chiếu Sổ tay: dùng từ điển tập trung"
+  ]
+}

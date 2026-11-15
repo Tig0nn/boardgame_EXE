@@ -1,0 +1,142 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "flow": "onboarding-personal-funding-resume",
+      "source": "savings",
+      "lostInterest": 9000000,
+      "turn": 1
+    },
+    {
+      "width": 390,
+      "flow": "onboarding-personal-funding-resume",
+      "source": "debt",
+      "lostInterest": 0,
+      "turn": 1
+    },
+    {
+      "flow": "historical-import-reload-resume",
+      "kind": "B18-single",
+      "seed": "B18-FUND-11",
+      "profile": "core-mvp-b18-v1",
+      "board": "B18",
+      "unchangedPortfolioAndRng": true
+    },
+    {
+      "flow": "historical-import-reload-resume",
+      "kind": "C20",
+      "seed": "atomic-history-fixture",
+      "profile": "legacy",
+      "board": "C20",
+      "unchangedPortfolioAndRng": true
+    },
+    {
+      "flow": "historical-import-reload-resume",
+      "kind": "B18-multi",
+      "seed": "TRADING-AB-MAIN-0",
+      "profile": "core-mvp-b18-multi-course-v1",
+      "board": "B18",
+      "unchangedPortfolioAndRng": true
+    },
+    {
+      "flow": "quota-failure-return-to-setup",
+      "latestInMemoryPreserved": true,
+      "storageFailureSimulated": true
+    }
+  ],
+  "layout": [
+    {
+      "name": "320-personal",
+      "width": 320,
+      "scroll": 320,
+      "dialog": [
+        {
+          "w": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "name": "320-funding-savings",
+      "width": 320,
+      "scroll": 320,
+      "dialog": [
+        {
+          "w": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "name": "390-personal",
+      "width": 390,
+      "scroll": 390,
+      "dialog": [
+        {
+          "w": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "name": "390-funding-debt",
+      "width": 390,
+      "scroll": 390,
+      "dialog": [
+        {
+          "w": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "name": "import-B18-single",
+      "width": 390,
+      "scroll": 390,
+      "dialog": []
+    },
+    {
+      "name": "import-C20",
+      "width": 390,
+      "scroll": 390,
+      "dialog": [
+        {
+          "w": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "name": "import-B18-multi",
+      "width": 390,
+      "scroll": 390,
+      "dialog": [
+        {
+          "w": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    },
+    {
+      "name": "save-failed-return-to-setup",
+      "width": 390,
+      "scroll": 390,
+      "dialog": [
+        {
+          "w": 354,
+          "scroll": 352,
+          "client": 352
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "realUi": true,
+  "forcedGameStates": false
+}

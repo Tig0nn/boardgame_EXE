@@ -1,0 +1,49 @@
+TAP version 13
+# (node:20740) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: mobile controller matches web after every decision and replays four laps: mobile-parity-1
+ok 1 - mobile controller matches web after every decision and replays four laps: mobile-parity-1
+  ---
+  duration_ms: 1374.6535
+  ...
+# Subtest: mobile controller matches web after every decision and replays four laps: mobile-parity-2
+ok 2 - mobile controller matches web after every decision and replays four laps: mobile-parity-2
+  ---
+  duration_ms: 1341.8645
+  ...
+# Subtest: mobile controller matches web after every decision and replays four laps: mobile-parity-3
+ok 3 - mobile controller matches web after every decision and replays four laps: mobile-parity-3
+  ---
+  duration_ms: 1127.1853
+  ...
+# Subtest: animation path crosses START without mutating engine or drawing randomness
+ok 4 - animation path crosses START without mutating engine or drawing randomness
+  ---
+  duration_ms: 2.9897
+  ...
+# (node:28308) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: new player games use verified Vietnamese identifiers and versioned simulated history
+ok 5 - new player games use verified Vietnamese identifiers and versioned simulated history
+  ---
+  duration_ms: 11.841
+  ...
+# Subtest: catalog identity does not change historical RNG draw order or price dynamics
+ok 6 - catalog identity does not change historical RNG draw order or price dynamics
+  ---
+  duration_ms: 4.1069
+  ...
+# Subtest: replay rejects inconsistent or unsupported catalog metadata
+ok 7 - replay rejects inconsistent or unsupported catalog metadata
+  ---
+  duration_ms: 5.135
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4216.1406

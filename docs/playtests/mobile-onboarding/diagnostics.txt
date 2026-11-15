@@ -1,0 +1,125 @@
+TAP version 13
+# (node:11532) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: AI Coach emitted ESM function loads shared modules and rejects GET without provider credentials
+ok 1 - AI Coach emitted ESM function loads shared modules and rejects GET without provider credentials
+  ---
+  duration_ms: 469.2962
+  ...
+# (node:37308) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: experimental boards restore shared data, including after a failure
+ok 2 - experimental boards restore shared data, including after a failure
+  ---
+  duration_ms: 12.6441
+  ...
+# Subtest: B/C replace exactly one category; D preserves every count
+ok 3 - B/C replace exactly one category; D preserves every count
+  ---
+  duration_ms: 1.7032
+  ...
+# Subtest: control reproduces the old runner; diagnostics count encounters before transactions
+ok 4 - control reproduces the old runner; diagnostics count encounters before transactions
+  ---
+  duration_ms: 54.7322
+  ...
+# Subtest: same-size layouts retain paired dice paths; 16/24 preserve engine terminal semantics
+ok 5 - same-size layouts retain paired dice paths; 16/24 preserve engine terminal semantics
+  ---
+  duration_ms: 167.8392
+  ...
+# Subtest: renewal calculation agrees with an analytically enumerable single six-tile circuit
+ok 6 - renewal calculation agrees with an analytically enumerable single six-tile circuit
+  ---
+  duration_ms: 1.3942
+  ...
+# (node:30952) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: diagnostic horizon is process-local and restores official rules after success or failure
+ok 7 - diagnostic horizon is process-local and restores official rules after success or failure
+  ---
+  duration_ms: 30.4113
+  ...
+# Subtest: diagnostic cash baseline matches the published 5000-seed representative outcome
+ok 8 - diagnostic cash baseline matches the published 5000-seed representative outcome
+  ---
+  duration_ms: 29.6996
+  ...
+# Subtest: six-lap runs settle once per lap, reconcile money, and keep paired dice paths
+ok 9 - six-lap runs settle once per lap, reconcile money, and keep paired dice paths
+  ---
+  duration_ms: 30.409
+  ...
+# Subtest: deposits opened after lap three mature once at the correct START
+ok 10 - deposits opened after lap three mature once at the correct START
+  ---
+  duration_ms: 4.4056
+  ...
+# Subtest: post-lap-three trend changes preserve upgrades and deterministic macro histories
+ok 11 - post-lap-three trend changes preserve upgrades and deterministic macro histories
+  ---
+  duration_ms: 2.6617
+  ...
+# Subtest: sixth-lap debt is capitalized once and terminal proceeds use lawful quotes
+ok 12 - sixth-lap debt is capitalized once and terminal proceeds use lawful quotes
+  ---
+  duration_ms: 4.6042
+  ...
+# Subtest: final sixth-lap overshoot discards its destination while earlier overshoot resolves once
+ok 13 - final sixth-lap overshoot discards its destination while earlier overshoot resolves once
+  ---
+  duration_ms: 3.1223
+  ...
+# Subtest: twelve-lap replay is deterministic and does not persist experimental horizon
+ok 14 - twelve-lap replay is deterministic and does not persist experimental horizon
+  ---
+  duration_ms: 60.3674
+  ...
+# Subtest: savings control excludes course spending and uses the same legal seeded path
+ok 15 - savings control excludes course spending and uses the same legal seeded path
+  ---
+  duration_ms: 24.5071
+  ...
+# Subtest: bonds bought after lap three receive coupons and principal exactly once
+ok 16 - bonds bought after lap three receive coupons and principal exactly once
+  ---
+  duration_ms: 4.3287
+  ...
+# (node:15972) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: explicit C20 mode is audited using C20 encounters, with identical cash result to A20
+ok 17 - explicit C20 mode is audited using C20 encounters, with identical cash result to A20
+  ---
+  duration_ms: 43.1561
+  ...
+# Subtest: versioned rate policies never mutate config; all focused policies reconcile and replay exactly
+ok 18 - versioned rate policies never mutate config; all focused policies reconcile and replay exactly
+  ---
+  duration_ms: 1498.8442
+  ...
+# Subtest: default hooks preserve every historical run field; policy can override initial allocation
+ok 19 - default hooks preserve every historical run field; policy can override initial allocation
+  ---
+  duration_ms: 6.0098
+  ...
+# Subtest: conditional diagnostic metrics exclude null and do not depend on the first seed
+ok 20 - conditional diagnostic metrics exclude null and do not depend on the first seed
+  ---
+  duration_ms: 1.2761
+  ...
+# (node:24492) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Mobile production bundle shares one React instance across root and Mobile components
+ok 21 - Mobile production bundle shares one React instance across root and Mobile components
+  ---
+  duration_ms: 885.1204
+  ...
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2396.3754

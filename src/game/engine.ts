@@ -1,7 +1,10 @@
 import { ECONOMY, MACRO_EVENTS, RULES, SCENARIOS } from '../data/config.ts'
 import { boardFor } from '../data/board.ts'
 import { gameMode } from '../data/modes.ts'
-import { EVENTS } from '../data/events.ts'
+import { eventsForGame } from '../data/events.ts'
+import { isCoreMvp, isMultiCourse, rulesForGame } from './rules-profile.ts'
+import { canBuyCourse } from './courses.ts'
+import { MULTI_COURSES } from '../data/courses.ts'
 import { hashSeed } from './random.ts'
 import { copyState, draw, record, snapshot } from './state.ts'
 import { collectPayment, fundSource, openDeposit, resolveInsolvency } from './transactions.ts'
@@ -11,7 +14,11 @@ import { createSavingsProfile, savingsProfileForMode } from './savings.ts'
 import { businessRulesForGame } from './business.ts'
 import { encounterRulesForGame } from './encounters.ts'
 import { customerPreferenceForLap } from './customer-preferences.ts'
-import type { BusinessRulesVersion, EncounterRulesVersion, FundingSource, GameModeId, GameState, Option, Term, SavingsProfileId } from './types.ts'
+import { bondRulesForGame, initializeBondCredit } from './bond-credit.ts'
+import { hasPeriodicLiving, PERIODIC_BOARD_REVISION, validateLivingBoard } from './living-expenses.ts'
+import type { LivingExpenseRulesVersion, GameplayProfile } from './types.ts'
+import type { BondRulesVersion } from './types.ts'
+import type { BusinessRulesVersion, EncounterRulesVersion, FundingSource, GameModeId, GameState, Option, Term, SavingsProfileId, StockCatalogVersion } from './types.ts'
 export { snapshot } from './state.ts'
 export { netWorth, totalWorth, victory } from './selectors.ts'
 export { rebalance, transact, withdrawSavings, fundingSources } from './transactions.ts'
@@ -27,27 +34,40 @@ function forecast(s: GameState): GameState {
   }
   return next
 }
-export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId, replayProfile?: SavingsProfileId, businessRulesVersion: BusinessRulesVersion = 'v2.4-customer-preferences', encounterRulesVersion: EncounterRulesVersion = 'v2.4-business-purchase-complete'): GameState {
-  if (!Number.isFinite(savings) || !Number.isInteger(savings) || savings < 0 || savings > RULES.startingCapital) throw new Error('Phân bổ tiết kiệm không hợp lệ.')
+export function createGame(seed: string, savings: number, term: Term = 1, mode?: GameModeId, replayProfile?: SavingsProfileId, businessRulesVersion: BusinessRulesVersion = 'v2.4-customer-preferences', encounterRulesVersion: EncounterRulesVersion = 'v2.4-business-purchase-complete', stockCatalogVersion?: StockCatalogVersion, bondRulesVersion?: BondRulesVersion, livingExpenseRulesVersion?: LivingExpenseRulesVersion, gameplayProfile?: GameplayProfile): GameState {
+  const mvp = isCoreMvp({ gameplayProfile }), rules = rulesForGame({ gameplayProfile })
+  if (mvp && (encounterRulesVersion !== 'b18-tile-trading-v1' || bondRulesVersion !== 'v2.5-credit-risk' || businessRulesVersion !== 'v2.4-customer-preferences' || stockCatalogVersion !== 'vn-v1' || livingExpenseRulesVersion !== 'b18-periodic-start-v1' || mode !== 'experimental-b' || replayProfile && replayProfile !== 'v2.2-c20')) throw new Error('Metadata tạo ván B18 không hợp lệ.')
+  if (!mvp && encounterRulesVersion === 'b18-tile-trading-v1') throw new Error('Thiếu profile giao dịch B18.')
+  if (!Number.isFinite(savings) || !Number.isInteger(savings) || savings < 0 || savings > rules.startingCapital) throw new Error('Phân bổ tiết kiệm không hợp lệ.')
   const selected = gameMode(mode ?? 'original')
+  bondRulesForGame({ bondRulesVersion })
+  const multi = isMultiCourse({ gameplayProfile })
+  const livingMetadata = mvp ? { gameplayProfile, goalRulesVersion:'single-90m-v1' as const, livingExpenseRulesVersion, boardRevision:multi ? 'b18-l3-bonds-v1' as const : 'b18-core-v1' as const } : { ...(livingExpenseRulesVersion ? { livingExpenseRulesVersion } : {}),
+    ...(hasPeriodicLiving({ livingExpenseRulesVersion }) ? { boardRevision: PERIODIC_BOARD_REVISION } : {}) }
+  const boardLayout = mvp ? 'B18' as const : selected.boardLayout
+  validateLivingBoard({ ...livingMetadata, boardLayout })
   const state: GameState = {
+    ...livingMetadata,
+    ...(multi ? { courseRulesVersion: 'b18-i2-choice-v1' as const, ownedCourses: [] } : {}),
+    ...(bondRulesVersion ? { bondRulesVersion } : {}),
+    ...(bondRulesVersion === 'v2.5-credit-risk' ? { bondCredit: initializeBondCredit(seed.trim() || 'xoay-vong') } : {}),
     encounterRulesVersion: encounterRulesForGame({ encounterRulesVersion }),
     businessRulesVersion: businessRulesForGame({ businessRulesVersion }),
     ...(businessRulesVersion === 'v2.4-customer-preferences' ? { customerPreferenceId: customerPreferenceForLap(seed.trim() || 'xoay-vong', 1) } : {}),
     savingsProfile: replayProfile ? createSavingsProfile(replayProfile) : savingsProfileForMode(selected.id),
-    gameMode:selected.id, boardLayout:selected.boardLayout,
+    gameMode:selected.id, boardLayout,
     // Legacy offline diagnostics can still scope RULES.laps before creating a game.
     // Browser setup always passes an explicit mode and never mutates shared config.
-    totalLaps:mode ? selected.totalLaps : RULES.laps, businessPurchaseTurn:null,
+    totalLaps:mvp ? rules.laps : mode ? selected.totalLaps : RULES.laps, businessPurchaseTurn:null,
     seed: seed.trim() || 'xoay-vong', rng: hashSeed(seed.trim() || 'xoay-vong'), lap: 1,
     position: 0, turn: 0, phase: 'forecast', scenarioId: '', dice: 0, eventId: null,
-    savingsEligible: true, savingsMatured: false, recurringIncome: RULES.recurringIncome,
+    savingsEligible: true, savingsMatured: false, recurringIncome: rules.recurringIncome,
     unlockedAssets: [], pendingCost: 0, pendingPayment: null, settlement: null,
     obligations: 0, pendingLanding: false, summaries: [], log: [],
-    deposits: [], market: initializeMarket(seed.trim() || 'xoay-vong'), stockHoldings: {}, goldUnits: 0, goldCostBasis: 0, bondLots: [],
+    deposits: [], market: initializeMarket(seed.trim() || 'xoay-vong', stockCatalogVersion), stockHoldings: {}, goldUnits: 0, goldCostBasis: 0, bondLots: [],
     business: { capital: 0, recoverableCapital: 0, upgrades: {}, economicMultiplier: 1 },
-    coursePurchased: false, borrowingLimit: RULES.borrowingLimit, termination: null,
-    portfolio: { cash: RULES.startingCapital, savings: 0, stocks: 0, bonds: 0, gold: 0, business: 0, debt: 0 },
+    coursePurchased: false, borrowingLimit: rules.borrowingLimit, termination: null,
+    portfolio: { cash: rules.startingCapital, savings: 0, stocks: 0, bonds: 0, gold: 0, business: 0, debt: 0 },
   }
   const initial = snapshot(state)
   if (![1, 2, 3].includes(term)) throw new Error('Kỳ hạn không hợp lệ.')
@@ -62,7 +82,7 @@ function encounter(s: GameState): GameState {
   if (tile === 'start') return { ...next, phase: 'rolling', eventId: null }
   const ids = tile === 'personal' ? ['medical', 'repair', 'family'] : tile === 'obligation' ? ['bills', 'contract', 'bonus']
     : tile === 'macro' ? MACRO_EVENTS.map(event => event.id) : [tile]
-  const candidates = EVENTS.filter(e => ids.includes(e.id))
+  const candidates = eventsForGame(next).filter(e => ids.includes(e.id))
   next.eventId = candidates[Math.floor(draw(next) * candidates.length)].id
   if (['stocks', 'bonds', 'gold', 'business'].includes(tile)) next.unlockedAssets = [...new Set([...s.unlockedAssets, tile as 'stocks' | 'bonds' | 'gold' | 'business'])]
   next = record(next,before,{kind:'encounter',eventId:next.eventId!,title:`Dừng ô ${s.position+1}: ${boardFor(s)[s.position].label}`,
@@ -95,9 +115,10 @@ export function advance(state: GameState): GameState {
   return state
 }
 export function canChoose(state: GameState, optionId: string): boolean {
-  const event = EVENTS.find(e => e.id === state.eventId)
+  if (state.eventId === 'course' && isMultiCourse(state) && optionId !== 'skip') return canBuyCourse(state,optionId)
+  const event = eventsForGame(state).find(e => e.id === state.eventId)
   const option = event?.options.find(o => o.id === optionId)
-  return state.phase === 'event' && !!option && !(event!.id === 'course' && option.id === 'upgrade' && (state.coursePurchased || state.portfolio.cash < RULES.courseCost))
+  return state.phase === 'event' && !!option && !(event!.id === 'course' && option.id === 'upgrade' && (state.coursePurchased || state.portfolio.cash < rulesForGame(state).courseCost!))
 }
 function applyOption(s: GameState, option: Option): GameState {
   s.portfolio.cash += option.income ?? 0
@@ -108,13 +129,17 @@ function applyOption(s: GameState, option: Option): GameState {
   s.obligations += option.obligation ?? 0
   s.recurringIncome += option.recurringIncomeIncrease ?? 0
   if (option.recurringIncomeIncrease) s.coursePurchased = true
+  if (isMultiCourse(s) && option.id.startsWith('course-')) {
+    const course = MULTI_COURSES.find(c => option.id === `course-${c.id}`)!
+    s.ownedCourses = [...s.ownedCourses!,course.id]
+  }
   s.eventId = null
   s.phase = 'rolling'
   return s
 }
 export function decide(state: GameState, optionId: string): GameState {
   if (state.phase !== 'event') return state
-  const event = EVENTS.find(e => e.id === state.eventId)!
+  const event = eventsForGame(state).find(e => e.id === state.eventId)!
   const option = event.options.find(o => o.id === optionId)
   if (!option) throw new Error('Lựa chọn không hợp lệ.')
   if (!canChoose(state, optionId)) throw new Error('Không thể chọn: khóa học đã mua hoặc không đủ tiền mặt.')
@@ -135,7 +160,7 @@ export function fundPayment(state: GameState, source: FundingSource, amount: num
   const before = snapshot(s)
   s = { ...s, pendingPayment: null, pendingCost: 0 }
   if (payment.origin === 'settlement') return continueSettlement(s)
-  const event = EVENTS.find(e => e.id === payment.eventId)!
+  const event = eventsForGame(s).find(e => e.id === payment.eventId)!
   const option = event.options.find(o => o.id === payment.decisionId)!
   s = applyOption(s, option)
   return record(s, before, { kind: 'event_resolution', title: event.title,

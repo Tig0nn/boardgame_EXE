@@ -1,3 +1,5 @@
+> **SUPERSEDED** — Prompt triển khai V2 trước tích hợp Mobile/AI; không phải chỉ dẫn phát triển hiện hành. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](docs/CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # CODEX IMPLEMENTATION PROMPT — XOAY VONG TIEN LUI V2
 
 You are working inside the EXISTING React + TypeScript + Vite repository for the Vietnamese financial board game **Xoay Vòng Tiến Lui**.

@@ -1,0 +1,1330 @@
+
+> xoay-vong-tien-lui@0.0.0 test
+> node --experimental-strip-types --test tests/*.test.ts
+
+TAP version 13
+# (node:24588) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: AI Coach Facts: ném lỗi nếu game chưa kết thúc (game.phase !== "finished")
+ok 1 - AI Coach Facts: ném lỗi nếu game chưa kết thúc (game.phase !== "finished")
+  ---
+  duration_ms: 20.0347
+  ...
+# Subtest: AI Coach Facts: kịch bản THẮNG đạt trên 90M hợp lệ
+ok 2 - AI Coach Facts: kịch bản THẮNG đạt trên 90M hợp lệ
+  ---
+  duration_ms: 3.725
+  ...
+# Subtest: AI Coach Facts: kịch bản THUA do vốn kẹt trong kinh doanh (Liquidity Gap & Locked Business)
+ok 3 - AI Coach Facts: kịch bản THUA do vốn kẹt trong kinh doanh (Liquidity Gap & Locked Business)
+  ---
+  duration_ms: 6.3688
+  ...
+# Subtest: AI Coach Facts: kịch bản RÚT TIẾT KIỆM SỚM mất lãi
+ok 4 - AI Coach Facts: kịch bản RÚT TIẾT KIỆM SỚM mất lãi
+  ---
+  duration_ms: 4.2454
+  ...
+# Subtest: AI Coach Facts: kịch bản VAY NỢ và PHÁ SẢN (Insolvent)
+ok 5 - AI Coach Facts: kịch bản VAY NỢ và PHÁ SẢN (Insolvent)
+  ---
+  duration_ms: 5.0709
+  ...
+# Subtest: AI Coach Facts: kiểm tra toàn vẹn dữ liệu, kích thước payload < 10KB và giới hạn 8 evidences
+ok 6 - AI Coach Facts: kiểm tra toàn vẹn dữ liệu, kích thước payload < 10KB và giới hạn 8 evidences
+  ---
+  duration_ms: 3.7735
+  ...
+# (node:13812) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: AI Rate Limiter: giới hạn tối đa 5 requests trong 60 giây
+ok 7 - AI Rate Limiter: giới hạn tối đa 5 requests trong 60 giây
+  ---
+  duration_ms: 7.2946
+  ...
+# Subtest: AI Handler: trả về 429 khi bị chặn bởi Rate Limiter
+ok 8 - AI Handler: trả về 429 khi bị chặn bởi Rate Limiter
+  ---
+  duration_ms: 3.5918
+  ...
+# Subtest: AI Schema: validateCoachFacts từ chối payload sai format hoặc vượt quá 10KB
+ok 9 - AI Schema: validateCoachFacts từ chối payload sai format hoặc vượt quá 10KB
+  ---
+  duration_ms: 1.6244
+  ...
+# Subtest: AI Schema: validateAndGroundCoachOutput loại bỏ bằng chứng giả mạo (Hallucination)
+ok 10 - AI Schema: validateAndGroundCoachOutput loại bỏ bằng chứng giả mạo (Hallucination)
+  ---
+  duration_ms: 2.7136
+  ...
+# Subtest: AI Schema: từ chối phản hồi nếu 100% insights đều không có bằng chứng hợp lệ
+ok 11 - AI Schema: từ chối phản hồi nếu 100% insights đều không có bằng chứng hợp lệ
+  ---
+  duration_ms: 2.2203
+  ...
+# Subtest: AI Handler: trả về 503 khi chưa có API Key
+ok 12 - AI Handler: trả về 503 khi chưa có API Key
+  ---
+  duration_ms: 4.4565
+  ...
+# Subtest: AI Handler: xử lý phản hồi thành công khi gọi với custom Mock API
+ok 13 - AI Handler: xử lý phản hồi thành công khi gọi với custom Mock API
+  ---
+  duration_ms: 16.6217
+  ...
+# (node:23708) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: new player policy is explicit; historical createGame and stored sessions keep their old version
+ok 14 - new player policy is explicit; historical createGame and stored sessions keep their old version
+  ---
+  duration_ms: 25.3674
+  ...
+# Subtest: stocks: success ends encounter with one transaction, preserving price/units/fees and RNG
+ok 15 - stocks: success ends encounter with one transaction, preserving price/units/fees and RNG
+  ---
+  duration_ms: 10.9148
+  ...
+# Subtest: stocks: rapid calls and artificially reopened JSON encounter cannot buy twice
+ok 16 - stocks: rapid calls and artificially reopened JSON encounter cannot buy twice
+  ---
+  duration_ms: 8.5939
+  ...
+# Subtest: stocks: invalid purchases consume nothing; a subsequent valid purchase still works
+ok 17 - stocks: invalid purchases consume nothing; a subsequent valid purchase still works
+  ---
+  duration_ms: 5.3188
+  ...
+# Subtest: stocks: skip has no financial effects and later visit permits another purchase
+ok 18 - stocks: skip has no financial effects and later visit permits another purchase
+  ---
+  duration_ms: 34.2423
+  ...
+# Subtest: stocks: START and wrong tiles remain illegal purchase locations
+ok 19 - stocks: START and wrong tiles remain illegal purchase locations
+  ---
+  duration_ms: 2.259
+  ...
+# Subtest: gold: success ends encounter with one transaction, preserving price/units/fees and RNG
+ok 20 - gold: success ends encounter with one transaction, preserving price/units/fees and RNG
+  ---
+  duration_ms: 4.3843
+  ...
+# Subtest: gold: rapid calls and artificially reopened JSON encounter cannot buy twice
+ok 21 - gold: rapid calls and artificially reopened JSON encounter cannot buy twice
+  ---
+  duration_ms: 8.0463
+  ...
+# Subtest: gold: invalid purchases consume nothing; a subsequent valid purchase still works
+ok 22 - gold: invalid purchases consume nothing; a subsequent valid purchase still works
+  ---
+  duration_ms: 3.4554
+  ...
+# Subtest: gold: skip has no financial effects and later visit permits another purchase
+ok 23 - gold: skip has no financial effects and later visit permits another purchase
+  ---
+  duration_ms: 1.7312
+  ...
+# Subtest: gold: START and wrong tiles remain illegal purchase locations
+ok 24 - gold: START and wrong tiles remain illegal purchase locations
+  ---
+  duration_ms: 0.8734
+  ...
+# Subtest: bonds: success ends encounter with one transaction, preserving price/units/fees and RNG
+ok 25 - bonds: success ends encounter with one transaction, preserving price/units/fees and RNG
+  ---
+  duration_ms: 2.5863
+  ...
+# Subtest: bonds: rapid calls and artificially reopened JSON encounter cannot buy twice
+ok 26 - bonds: rapid calls and artificially reopened JSON encounter cannot buy twice
+  ---
+  duration_ms: 32.9861
+  ...
+# Subtest: bonds: invalid purchases consume nothing; a subsequent valid purchase still works
+ok 27 - bonds: invalid purchases consume nothing; a subsequent valid purchase still works
+  ---
+  duration_ms: 6.9612
+  ...
+# Subtest: bonds: skip has no financial effects and later visit permits another purchase
+ok 28 - bonds: skip has no financial effects and later visit permits another purchase
+  ---
+  duration_ms: 1.3755
+  ...
+# Subtest: bonds: START and wrong tiles remain illegal purchase locations
+ok 29 - bonds: START and wrong tiles remain illegal purchase locations
+  ---
+  duration_ms: 0.5965
+  ...
+# Subtest: Bank, Customer Preferences and START sale/repayment retain their financial behavior
+ok 30 - Bank, Customer Preferences and START sale/repayment retain their financial behavior
+  ---
+  duration_ms: 3.6856
+  ...
+# Subtest: frozen pre-change V2.4 log with repeated Gold and Bonds purchases replays exactly
+ok 31 - frozen pre-change V2.4 log with repeated Gold and Bonds purchases replays exactly
+  ---
+  duration_ms: 3867.6873
+  ...
+# Subtest: V2.3 historical replay remains exact and legacy Gold/Bonds explicit completion is rejected
+ok 32 - V2.3 historical replay remains exact and legacy Gold/Bonds explicit completion is rejected
+  ---
+  duration_ms: 1165.8204
+  ...
+# Subtest: new policy still leaves all Economic News selectors read-only
+ok 33 - new policy still leaves all Economic News selectors read-only
+  ---
+  duration_ms: 4.4789
+  ...
+# Subtest: new four-round game records all three completed asset buys and replays full state exactly
+ok 34 - new four-round game records all three completed asset buys and replays full state exactly
+  ---
+  duration_ms: 1127.4967
+  ...
+# (node:12776) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: both historical layouts keep all 20 tile faces and pawns inside the playable crop
+ok 35 - both historical layouts keep all 20 tile faces and pawns inside the playable crop
+  ---
+  duration_ms: 2.6954
+  ...
+# Subtest: the four board corners stay inside the approved lawn, in artwork coordinates
+ok 36 - the four board corners stay inside the approved lawn, in artwork coordinates
+  ---
+  duration_ms: 0.5144
+  ...
+# (node:25504) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: new player sessions select Bond V2.5 explicitly; stored historical sessions keep original bond version
+ok 37 - new player sessions select Bond V2.5 explicitly; stored historical sessions keep original bond version
+  ---
+  duration_ms: 16.0478
+  ...
+# Subtest: public news/cards never reveal future or draw RNG; insufficient data stays explicit
+ok 38 - public news/cards never reveal future or draw RNG; insufficient data stays explicit
+  ---
+  duration_ms: 52.8182
+  ...
+# Subtest: START credit review reports only that lap, separating due/paid/claims/loss from price returns
+ok 39 - START credit review reports only that lap, separating due/paid/claims/loss from price returns
+  ---
+  duration_ms: 157.3646
+  ...
+# Subtest: AI facts include grounded credit outcomes and purchase warning, fit existing size/schema limits
+ok 40 - AI facts include grounded credit outcomes and purchase warning, fit existing size/schema limits
+  ---
+  duration_ms: 72.7953
+  ...
+# Subtest: V2.5 rapid Mobile bond taps are atomic across different issuer choices
+ok 41 - V2.5 rapid Mobile bond taps are atomic across different issuer choices
+  ---
+  duration_ms: 3.3483
+  ...
+# (node:6960) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: bond version defaults to historical; V2.5 is explicit and has its own deterministic RNG
+ok 42 - bond version defaults to historical; V2.5 is explicit and has its own deterministic RNG
+  ---
+  duration_ms: 17.4963
+  ...
+# Subtest: buy an-tam: one atomic lot, contractual amounts separate, no RNG draw
+ok 43 - buy an-tam: one atomic lot, contractual amounts separate, no RNG draw
+  ---
+  duration_ms: 34.6191
+  ...
+# Subtest: buy but-pha: one atomic lot, contractual amounts separate, no RNG draw
+ok 44 - buy but-pha: one atomic lot, contractual amounts separate, no RNG draw
+  ---
+  duration_ms: 5.4809
+  ...
+# Subtest: invalid issuer, distressed issuer or amount leaves state untouched and opportunity available
+ok 45 - invalid issuer, distressed issuer or amount leaves state untouched and opportunity available
+  ---
+  duration_ms: 6.8756
+  ...
+# Subtest: credit market is independent, idempotent, macro stress public, stock/gold/dice RNG unchanged
+ok 46 - credit market is independent, idempotent, macro stress public, stock/gold/dice RNG unchanged
+  ---
+  duration_ms: 5.2598
+  ...
+# Subtest: performing two-START contract pays coupons and face once; no cash from repeated settlement
+ok 47 - performing two-START contract pays coupons and face once; no cash from repeated settlement
+  ---
+  duration_ms: 3.2503
+  ...
+# Subtest: delayed coupons and principal are claims; cure after maturity pays arrears without extra coupons
+ok 48 - delayed coupons and principal are claims; cure after maturity pays arrears without extra coupons
+  ---
+  duration_ms: 4.5254
+  ...
+# Subtest: partial default writes down immediately; recovery next START only, never twice
+ok 49 - partial default writes down immediately; recovery next START only, never twice
+  ---
+  duration_ms: 44.0001
+  ...
+# Subtest: START cursor and lap guards protect coupon, market and salary on reentry
+ok 50 - START cursor and lap guards protect coupon, market and salary on reentry
+  ---
+  duration_ms: 14.3261
+  ...
+# Subtest: partial sale affects only selected issuer/lot and transfers arrears without creating coupon cash
+ok 51 - partial sale affects only selected issuer/lot and transfers arrears without creating coupon cash
+  ---
+  duration_ms: 4.4357
+  ...
+# Subtest: default claims are unavailable for funding and victory; executable sales use per-lot fees
+ok 52 - default claims are unavailable for funding and victory; executable sales use per-lot fees
+  ---
+  duration_ms: 17.0977
+  ...
+# Subtest: hundreds of deterministic fractional sales conserve principal and accrued coupon rights
+ok 53 - hundreds of deterministic fractional sales conserve principal and accrued coupon rights
+  ---
+  duration_ms: 595.2089
+  ...
+# Subtest: mandatory living funding composes savings, stocks, gold, partial Bond sale and capped debt
+ok 54 - mandatory living funding composes savings, stocks, gold, partial Bond sale and capped debt
+  ---
+  duration_ms: 10.5274
+  ...
+# Subtest: settlement pause after credit cash cannot duplicate outcomes or payments when debt funding resumes
+ok 55 - settlement pause after credit cash cannot duplicate outcomes or payments when debt funding resumes
+  ---
+  duration_ms: 8.4109
+  ...
+# Subtest: unpaid default claims cannot prevent insolvency or be valued as full face at game end
+ok 56 - unpaid default claims cannot prevent insolvency or be valued as full face at game end
+  ---
+  duration_ms: 54.6458
+  ...
+# Subtest: V2.5 four-lap complete state replay: issuer-a
+ok 57 - V2.5 four-lap complete state replay: issuer-a
+  ---
+  duration_ms: 2142.7861
+  ...
+# Subtest: V2.5 four-lap complete state replay: issuer-b
+ok 58 - V2.5 four-lap complete state replay: issuer-b
+  ---
+  duration_ms: 1498.5522
+  ...
+# Subtest: V2.5 four-lap complete state replay: mixed-bonds
+ok 59 - V2.5 four-lap complete state replay: mixed-bonds
+  ---
+  duration_ms: 1106.1796
+  ...
+# Subtest: V2.5 four-lap complete state replay: liquidity
+ok 60 - V2.5 four-lap complete state replay: liquidity
+  ---
+  duration_ms: 1114.0406
+  ...
+# Subtest: V2.5 four-lap complete state replay: balanced
+ok 61 - V2.5 four-lap complete state replay: balanced
+  ---
+  duration_ms: 1014.2537
+  ...
+# Subtest: V2.5 replay rejects a misdeclared credit configuration instead of silently accepting new rates
+ok 62 - V2.5 replay rejects a misdeclared credit configuration instead of silently accepting new rates
+  ---
+  duration_ms: 14.5786
+  ...
+# Subtest: historical full-state replay unchanged: encounter-limits-v2_3/browser-game-log.json.gz
+ok 63 - historical full-state replay unchanged: encounter-limits-v2_3/browser-game-log.json.gz
+  ---
+  duration_ms: 834.1959
+  ...
+# Subtest: historical full-state replay unchanged: economic-news-v1/browser-game-log.json.gz
+ok 64 - historical full-state replay unchanged: economic-news-v1/browser-game-log.json.gz
+  ---
+  duration_ms: 694.6408
+  ...
+# Subtest: historical full-state replay unchanged: atomic-investments-v24/historical-multi-purchase.json.gz
+ok 65 - historical full-state replay unchanged: atomic-investments-v24/historical-multi-purchase.json.gz
+  ---
+  duration_ms: 830.7659
+  ...
+# Subtest: historical full-state replay unchanged: atomic-investments-v24/browser-game-log.json.gz
+ok 66 - historical full-state replay unchanged: atomic-investments-v24/browser-game-log.json.gz
+  ---
+  duration_ms: 655.0464
+  ...
+# (node:25468) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: business purchase records once and atomically returns to rolling, with no Skip or RNG draw
+ok 67 - business purchase records once and atomically returns to rolling, with no Skip or RNG draw
+  ---
+  duration_ms: 17.8155
+  ...
+# Subtest: new purchase encounter rejects sale/upgrade even if reopened directly or after JSON continuation
+ok 68 - new purchase encounter rejects sale/upgrade even if reopened directly or after JSON continuation
+  ---
+  duration_ms: 35.1335
+  ...
+# Subtest: later Business encounter allows one upgrade and then sale at the original quote
+ok 69 - later Business encounter allows one upgrade and then sale at the original quote
+  ---
+  duration_ms: 2.4563
+  ...
+# Subtest: V2.3 purchase/sale in one encounter remains valid and the historical browser log replays
+ok 70 - V2.3 purchase/sale in one encounter remains valid and the historical browser log replays
+  ---
+  duration_ms: 1853.2991
+  ...
+# (node:17108) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: bulletin reflects official growth forecast, with three financial assets only
+ok 71 - bulletin reflects official growth forecast, with three financial assets only
+  ---
+  duration_ms: 14.5603
+  ...
+# Subtest: bulletin reflects official uncertain forecast, with three financial assets only
+ok 72 - bulletin reflects official uncertain forecast, with three financial assets only
+  ---
+  duration_ms: 2.234
+  ...
+# Subtest: bulletin reflects official recovery forecast, with three financial assets only
+ok 73 - bulletin reflects official recovery forecast, with three financial assets only
+  ---
+  duration_ms: 71.8073
+  ...
+# Subtest: no observations means unavailable, never historical pre-game returns or zero
+ok 74 - no observations means unavailable, never historical pre-game returns or zero
+  ---
+  duration_ms: 13.1948
+  ...
+# Subtest: normal START update uses actual first/last prices, not portfolio returns
+ok 75 - normal START update uses actual first/last prices, not portfolio returns
+  ---
+  duration_ms: 3.8691
+  ...
+# Subtest: macro shocks compound with normal prices once and remain separately attributed
+ok 76 - macro shocks compound with normal prices once and remain separately attributed
+  ---
+  duration_ms: 12.2519
+  ...
+# Subtest: unsettled partial shock observations are marked partial, not final results
+ok 77 - unsettled partial shock observations are marked partial, not final results
+  ---
+  duration_ms: 1.6691
+  ...
+# Subtest: original forecast and old round outcome survive a different next forecast and shocks
+ok 78 - original forecast and old round outcome survive a different next forecast and shocks
+  ---
+  duration_ms: 6.5684
+  ...
+# Subtest: no future round, future timestamp, or hidden event leaks into bulletin/review
+ok 79 - no future round, future timestamp, or hidden event leaks into bulletin/review
+  ---
+  duration_ms: 27.5527
+  ...
+# Subtest: current stock signal follows selected symbol and actual quote, no invented market price
+ok 80 - current stock signal follows selected symbol and actual quote, no invented market price
+  ---
+  duration_ms: 7.4014
+  ...
+# Subtest: missing forecast or broken/missing observations fail closed
+ok 81 - missing forecast or broken/missing observations fail closed
+  ---
+  duration_ms: 21.6002
+  ...
+# Subtest: reading all news selectors is deterministic and leaves RNG, snapshots and legal state intact
+ok 82 - reading all news selectors is deterministic and leaves RNG, snapshots and legal state intact
+  ---
+  duration_ms: 37.3181
+  ...
+# Subtest: truncated logs or a missing opening shock never masquerade as complete round returns
+ok 83 - truncated logs or a missing opening shock never masquerade as complete round returns
+  ---
+  duration_ms: 73.3915
+  ...
+# Subtest: four complete rounds with news opened at every step keep full-state replay and START boundaries
+ok 84 - four complete rounds with news opened at every step keep full-state replay and START boundaries
+  ---
+  duration_ms: 14357.5108
+  ...
+# (node:29932) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Bank deposit atomically completes and records once; direct duplicate cannot reopen encounter
+ok 85 - Bank deposit atomically completes and records once; direct duplicate cannot reopen encounter
+  ---
+  duration_ms: 83.9882
+  ...
+# Subtest: later Bank encounters retain independent existing lots, rates and maturities
+ok 86 - later Bank encounters retain independent existing lots, rates and maturities
+  ---
+  duration_ms: 3.231
+  ...
+# Subtest: one business upgrade per later encounter, including JSON continuation and duplicate calls
+ok 87 - one business upgrade per later encounter, including JSON continuation and duplicate calls
+  ---
+  duration_ms: 12.8025
+  ...
+# Subtest: legacy encounter rules retain multiple deposits/upgrades without changing V2.3 income version
+ok 88 - legacy encounter rules retain multiple deposits/upgrades without changing V2.3 income version
+  ---
+  duration_ms: 4.1444
+  ...
+# Subtest: pre-limit V2.3 browser log with multiple upgrades replays and re-exports unchanged
+ok 89 - pre-limit V2.3 browser log with multiple upgrades replays and re-exports unchanged
+  ---
+  duration_ms: 3371.4153
+  ...
+# Subtest: historical multi-deposit encounter replays with explicit or missing encounter metadata
+ok 90 - historical multi-deposit encounter replays with explicit or missing encounter metadata
+  ---
+  duration_ms: 155.8139
+  ...
+# Subtest: invalid encounter version and conflicting exported metadata fail closed
+ok 91 - invalid encounter version and conflicting exported metadata fail closed
+  ---
+  duration_ms: 14.6231
+  ...
+# Subtest: direct callers cannot bypass encounter limits using an unrelated optional asset
+ok 92 - direct callers cannot bypass encounter limits using an unrelated optional asset
+  ---
+  duration_ms: 1.7735
+  ...
+# Subtest: new Bank atomic and stock atomic actions replay exactly with explicit encounter version
+ok 93 - new Bank atomic and stock atomic actions replay exactly with explicit encounter version
+  ---
+  duration_ms: 1196.2628
+  ...
+# (node:22808) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: allocation preserves starting capital and rejects invalid inputs
+ok 94 - allocation preserves starting capital and rejects invalid inputs
+  ---
+  duration_ms: 81.1675
+  ...
+# Subtest: a complete three-lap game is reproducible with the same seed and decisions
+ok 95 - a complete three-lap game is reproducible with the same seed and decisions
+  ---
+  duration_ms: 234.4383
+  ...
+# Subtest: dice and ordinary tile events do not apply market returns
+ok 96 - dice and ordinary tile events do not apply market returns
+  ---
+  duration_ms: 2.7704
+  ...
+# Subtest: early withdrawal forfeits savings interest and records the decision
+ok 97 - early withdrawal forfeits savings interest and records the decision
+  ---
+  duration_ms: 3.4182
+  ...
+# Subtest: lap settlement pays salary and savings maturity before debt without fixed living costs
+ok 98 - lap settlement pays salary and savings maturity before debt without fixed living costs
+  ---
+  duration_ms: 33.8157
+  ...
+# Subtest: settlement shortfalls pause for funding without automatically borrowing
+ok 99 - settlement shortfalls pause for funding without automatically borrowing
+  ---
+  duration_ms: 2.2335
+  ...
+# Subtest: optional investment without cash is rejected and skip snapshots remain independent
+ok 100 - optional investment without cash is rejected and skip snapshots remain independent
+  ---
+  duration_ms: 2.4337
+  ...
+# Subtest: board has 20 unique perimeter positions and all four event categories
+ok 101 - board has 20 unique perimeter positions and all four event categories
+  ---
+  duration_ms: 0.3498
+  ...
+# Subtest: crossing start preserves overshoot and requires forecast before landing event
+ok 102 - crossing start preserves overshoot and requires forecast before landing event
+  ---
+  duration_ms: 1.4619
+  ...
+# Subtest: final crossing ends after third settlement without a fourth forecast or event
+ok 103 - final crossing ends after third settlement without a fourth forecast or event
+  ---
+  duration_ms: 3.1145
+  ...
+# Subtest: deferred expenses reduce net worth immediately and are settled once
+ok 104 - deferred expenses reduce net worth immediately and are settled once
+  ---
+  duration_ms: 4.8839
+  ...
+# Subtest: every sample event has an affordable choice even with zero liquidity
+ok 105 - every sample event has an affordable choice even with zero liquidity
+  ---
+  duration_ms: 2.5795
+  ...
+# Subtest: VND formatting normalizes negative zero
+ok 106 - VND formatting normalizes negative zero
+  ---
+  duration_ms: 0.5727
+  ...
+# Subtest: SAIGON-2026 replay terminates with the updated financial rules
+ok 107 - SAIGON-2026 replay terminates with the updated financial rules
+  ---
+  duration_ms: 13.3538
+  ...
+# Subtest: exported JSON retains the seed and independent financial decision snapshots
+ok 108 - exported JSON retains the seed and independent financial decision snapshots
+  ---
+  duration_ms: 801.8665
+  ...
+# (node:20296) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: victory requires 90M lawful proceeds and excludes locked business and unpaid obligations
+ok 109 - victory requires 90M lawful proceeds and excludes locked business and unpaid obligations
+  ---
+  duration_ms: 76.0498
+  ...
+# Subtest: a shortage spends available cash but never automatically withdraws or borrows
+ok 110 - a shortage spends available cash but never automatically withdraws or borrows
+  ---
+  duration_ms: 2.6878
+  ...
+# Subtest: player can combine funding sources; early withdrawal logs lost interest once
+ok 111 - player can combine funding sources; early withdrawal logs lost interest once
+  ---
+  duration_ms: 3.9879
+  ...
+# Subtest: stocks funding sells actual units at the current net quote and records proceeds
+ok 112 - stocks funding sells actual units at the current net quote and records proceeds
+  ---
+  duration_ms: 5.1417
+  ...
+# Subtest: bonds funding sells actual units at the current net quote and records proceeds
+ok 113 - bonds funding sells actual units at the current net quote and records proceeds
+  ---
+  duration_ms: 3.3124
+  ...
+# Subtest: gold funding sells actual units at the current net quote and records proceeds
+ok 114 - gold funding sells actual units at the current net quote and records proceeds
+  ---
+  duration_ms: 2.3867
+  ...
+# Subtest: business cannot fund expenses or be sold at START, and rebalancing is checkpoint-only
+ok 115 - business cannot fund expenses or be sold at START, and rebalancing is checkpoint-only
+  ---
+  duration_ms: 3.1419
+  ...
+# Subtest: recurring income upgrade changes each remaining settlement without immediate cash
+ok 116 - recurring income upgrade changes each remaining settlement without immediate cash
+  ---
+  duration_ms: 59.2616
+  ...
+# Subtest: bank transfers preserve worth and prior encounters never grant checkpoint purchase rights
+ok 117 - bank transfers preserve worth and prior encounters never grant checkpoint purchase rights
+  ---
+  duration_ms: 5.5467
+  ...
+# Subtest: checkpoint debt repayment charges interest rather than offering free borrowing
+ok 118 - checkpoint debt repayment charges interest rather than offering free borrowing
+  ---
+  duration_ms: 2.5801
+  ...
+# Subtest: invalid funding and rebalancing values are rejected without mutating state
+ok 119 - invalid funding and rebalancing values are rejected without mutating state
+  ---
+  duration_ms: 15.2651
+  ...
+# Subtest: early withdrawal forfeits the whole lot term interest at settlement
+ok 120 - early withdrawal forfeits the whole lot term interest at settlement
+  ---
+  duration_ms: 3.3479
+  ...
+# Subtest: settlement can pause twice without repeating income or charging newly borrowed principal
+ok 121 - settlement can pause twice without repeating income or charging newly borrowed principal
+  ---
+  duration_ms: 4.01
+  ...
+# Subtest: mature savings and business income fund obligations without clawing back earned interest
+ok 122 - mature savings and business income fund obligations without clawing back earned interest
+  ---
+  duration_ms: 3.6135
+  ...
+# Subtest: debt first borrowed during final settlement includes its contractual interest in final net worth
+ok 123 - debt first borrowed during final settlement includes its contractual interest in final net worth
+  ---
+  duration_ms: 54.9316
+  ...
+# Subtest: optional course requires cash and grants its recurring benefit only once
+ok 124 - optional course requires cash and grants its recurring benefit only once
+  ---
+  duration_ms: 2.3978
+  ...
+# Subtest: buying at matching tiles and selling all holdings at START moves the quoted net cash
+ok 125 - buying at matching tiles and selling all holdings at START moves the quoted net cash
+  ---
+  duration_ms: 3.6463
+  ...
+# Subtest: financial decisions never alter seeded dice, event selection or economic draws
+ok 126 - financial decisions never alter seeded dice, event selection or economic draws
+  ---
+  duration_ms: 20.1149
+  ...
+# Subtest: all categories and deferred payment choices have clear financial trade-offs
+ok 127 - all categories and deferred payment choices have clear financial trade-offs
+  ---
+  duration_ms: 0.7403
+  ...
+# (node:33932) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: mobile 7M payment consumes 2M, pauses for 5M, accepts several sources and rejects repeat taps
+ok 128 - mobile 7M payment consumes 2M, pauses for 5M, accepts several sources and rejects repeat taps
+  ---
+  duration_ms: 34.7678
+  ...
+# Subtest: whole-lot withdrawal keeps surplus cash and leaves other savings lots independent
+ok 129 - whole-lot withdrawal keeps surplus cash and leaves other savings lots independent
+  ---
+  duration_ms: 15.9683
+  ...
+# Subtest: mobile stocks funding uses official net fees
+ok 130 - mobile stocks funding uses official net fees
+  ---
+  duration_ms: 2.1276
+  ...
+# Subtest: mobile bonds funding uses official net fees
+ok 131 - mobile bonds funding uses official net fees
+  ---
+  duration_ms: 3.4551
+  ...
+# Subtest: mobile exhausts valid sources before insolvency; business cannot fund emergency payments
+ok 132 - mobile exhausts valid sources before insolvency; business cannot fund emergency payments
+  ---
+  duration_ms: 10.4226
+  ...
+# (node:32236) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: mobile controller matches web after every decision and replays four laps: mobile-parity-1
+ok 133 - mobile controller matches web after every decision and replays four laps: mobile-parity-1
+  ---
+  duration_ms: 5272.8042
+  ...
+# Subtest: mobile controller matches web after every decision and replays four laps: mobile-parity-2
+ok 134 - mobile controller matches web after every decision and replays four laps: mobile-parity-2
+  ---
+  duration_ms: 3224.6033
+  ...
+# Subtest: mobile controller matches web after every decision and replays four laps: mobile-parity-3
+ok 135 - mobile controller matches web after every decision and replays four laps: mobile-parity-3
+  ---
+  duration_ms: 2207.1152
+  ...
+# Subtest: animation path crosses START without mutating engine or drawing randomness
+ok 136 - animation path crosses START without mutating engine or drawing randomness
+  ---
+  duration_ms: 4.3737
+  ...
+# (node:13000) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: a fresh device sees the tutorial; completing or skipping it persists across visits
+ok 137 - a fresh device sees the tutorial; completing or skipping it persists across visits
+  ---
+  duration_ms: 6.5268
+  ...
+# Subtest: unavailable or blocked browser storage never prevents playing
+ok 138 - unavailable or blocked browser storage never prevents playing
+  ---
+  duration_ms: 1.2075
+  ...
+# Subtest: unrecognized tutorial markers are treated as first visits without changing other storage
+ok 139 - unrecognized tutorial markers are treated as first visits without changing other storage
+  ---
+  duration_ms: 1.4881
+  ...
+# (node:27600) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: every player game gets fresh cryptographic entropy, including mobile restarts
+ok 140 - every player game gets fresh cryptographic entropy, including mobile restarts
+  ---
+  duration_ms: 162.5673
+  ...
+# Subtest: explicit developer seeds preserve full web/mobile deterministic state
+ok 141 - explicit developer seeds preserve full web/mobile deterministic state
+  ---
+  duration_ms: 13.6786
+  ...
+# (node:16940) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: research Policy B restricts only the decision policy; production still accepts a second lot
+ok 142 - research Policy B restricts only the decision policy; production still accepts a second lot
+  ---
+  duration_ms: 50.2344
+  ...
+# Subtest: simulation compaction preserves all financial states, metrics and dice paths
+ok 143 - simulation compaction preserves all financial states, metrics and dice paths
+  ---
+  duration_ms: 1119.5772
+  ...
+# (node:29788) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: new player games use verified Vietnamese identifiers and versioned simulated history
+ok 144 - new player games use verified Vietnamese identifiers and versioned simulated history
+  ---
+  duration_ms: 78.903
+  ...
+# Subtest: catalog identity does not change historical RNG draw order or price dynamics
+ok 145 - catalog identity does not change historical RNG draw order or price dynamics
+  ---
+  duration_ms: 14.7213
+  ...
+# Subtest: replay rejects inconsistent or unsupported catalog metadata
+ok 146 - replay rejects inconsistent or unsupported catalog metadata
+  ---
+  duration_ms: 14.7678
+  ...
+# (node:32548) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: stock purchase completes once, preserves finances and RNG, and has no skip record
+ok 147 - stock purchase completes once, preserves finances and RNG, and has no skip record
+  ---
+  duration_ms: 41.4997
+  ...
+# Subtest: explicit completion remains stock-only; legacy bank encounters allow independent lots
+ok 148 - explicit completion remains stock-only; legacy bank encounters allow independent lots
+  ---
+  duration_ms: 2.9316
+  ...
+# Subtest: new completed purchases replay exactly from a real seeded encounter, including purchase metrics
+ok 149 - new completed purchases replay exactly from a real seeded encounter, including purchase metrics
+  ---
+  duration_ms: 187.4298
+  ...
+# Subtest: Vietnamese money input preserves exact integer dong and rejects malformed values
+ok 150 - Vietnamese money input preserves exact integer dong and rejects malformed values
+  ---
+  duration_ms: 1.0461
+  ...
+# Subtest: read-only trade previews agree with executed business upgrades and recorded prices
+ok 151 - read-only trade previews agree with executed business upgrades and recorded prices
+  ---
+  duration_ms: 17.0974
+  ...
+# (node:15064) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: V2 START pays 14M salary without deducting a fixed living expense
+ok 152 - V2 START pays 14M salary without deducting a fixed living expense
+  ---
+  duration_ms: 15.7401
+  ...
+# Subtest: V2 self investment costs 6M and increases subsequent START salary by 3M
+ok 153 - V2 self investment costs 6M and increases subsequent START salary by 3M
+  ---
+  duration_ms: 6.9441
+  ...
+# Subtest: V2 START never permits an asset purchase even after a prior asset encounter
+ok 154 - V2 START never permits an asset purchase even after a prior asset encounter
+  ---
+  duration_ms: 2.6402
+  ...
+# Subtest: V2 80M item plus 10M retained cash requires 90M lawful proceeds
+ok 155 - V2 80M item plus 10M retained cash requires 90M lawful proceeds
+  ---
+  duration_ms: 1.1537
+  ...
+# Subtest: V2 locked business cannot satisfy the final purchase goal
+ok 156 - V2 locked business cannot satisfy the final purchase goal
+  ---
+  duration_ms: 1.3088
+  ...
+# Subtest: V2 board retains 20 unique perimeter tiles and covers every dedicated opportunity
+ok 157 - V2 board retains 20 unique perimeter tiles and covers every dedicated opportunity
+  ---
+  duration_ms: 42.6807
+  ...
+# Subtest: V2 historical prices contain 12 past points for six fictional symbols in three sectors
+ok 158 - V2 historical prices contain 12 past points for six fictional symbols in three sectors
+  ---
+  duration_ms: 5.0118
+  ...
+# Subtest: V2 historical chart creation and viewing never consume future dice RNG
+ok 159 - V2 historical chart creation and viewing never consume future dice RNG
+  ---
+  duration_ms: 13.7362
+  ...
+# Subtest: V2 historical stock returns share sector movement and retain distinct idiosyncratic paths
+ok 160 - V2 historical stock returns share sector movement and retain distinct idiosyncratic paths
+  ---
+  duration_ms: 54.8646
+  ...
+# Subtest: V2 two macro shocks change all listed prices immediately without owning assets
+ok 161 - V2 two macro shocks change all listed prices immediately without owning assets
+  ---
+  duration_ms: 5.7996
+  ...
+# Subtest: V2 reopening the same macro event does not apply its shock twice
+ok 162 - V2 reopening the same macro event does not apply its shock twice
+  ---
+  duration_ms: 9.6856
+  ...
+# Subtest: V2 normal market updates compound from the current post-shock price
+ok 163 - V2 normal market updates compound from the current post-shock price
+  ---
+  duration_ms: 2.2708
+  ...
+# Subtest: V2 stock quotes, chart values and portfolio valuation use the same engine price
+ok 164 - V2 stock quotes, chart values and portfolio valuation use the same engine price
+  ---
+  duration_ms: 1.7108
+  ...
+# Subtest: V2 symbols in a sector retain distinct idiosyncratic normal returns
+ok 165 - V2 symbols in a sector retain distinct idiosyncratic normal returns
+  ---
+  duration_ms: 0.7025
+  ...
+# Subtest: V2 same-sector prices share market movement across independent seeds
+ok 166 - V2 same-sector prices share market movement across independent seeds
+  ---
+  duration_ms: 64.6032
+  ...
+# Subtest: V2 stocks can be purchased only at its corresponding landed tile
+ok 167 - V2 stocks can be purchased only at its corresponding landed tile
+  ---
+  duration_ms: 1.2753
+  ...
+# Subtest: V2 stocks emergency and START sales use the identical net quote
+ok 168 - V2 stocks emergency and START sales use the identical net quote
+  ---
+  duration_ms: 3.2607
+  ...
+# Subtest: V2 bonds can be purchased only at its corresponding landed tile
+ok 169 - V2 bonds can be purchased only at its corresponding landed tile
+  ---
+  duration_ms: 3.352
+  ...
+# Subtest: V2 bonds emergency and START sales use the identical net quote
+ok 170 - V2 bonds emergency and START sales use the identical net quote
+  ---
+  duration_ms: 3.499
+  ...
+# Subtest: V2 gold can be purchased only at its corresponding landed tile
+ok 171 - V2 gold can be purchased only at its corresponding landed tile
+  ---
+  duration_ms: 3.6301
+  ...
+# Subtest: V2 gold emergency and START sales use the identical net quote
+ok 172 - V2 gold emergency and START sales use the identical net quote
+  ---
+  duration_ms: 0.9484
+  ...
+# Subtest: V2 gold has a disclosed sale spread and no periodic coupon
+ok 173 - V2 gold has a disclosed sale spread and no periodic coupon
+  ---
+  duration_ms: 0.9721
+  ...
+# Subtest: V2 bond coupons and maturity principal are paid once per lot and lap
+ok 174 - V2 bond coupons and maturity principal are paid once per lot and lap
+  ---
+  duration_ms: 2.5454
+  ...
+# Subtest: V2 a fully sold bond lot receives no subsequent coupon or maturity payment
+ok 175 - V2 a fully sold bond lot receives no subsequent coupon or maturity payment
+  ---
+  duration_ms: 3.3049
+  ...
+# Subtest: V2 savings terms accept only 1, 2 and 3 laps and never create free money
+ok 176 - V2 savings terms accept only 1, 2 and 3 laps and never create free money
+  ---
+  duration_ms: 4.8464
+  ...
+# Subtest: V2 bank deposits are separate lots and mature once on their respective START
+ok 177 - V2 bank deposits are separate lots and mature once on their respective START
+  ---
+  duration_ms: 2.6874
+  ...
+# Subtest: V2 deposits beyond the remaining horizon remain separate and disclose late maturity
+ok 178 - V2 deposits beyond the remaining horizon remain separate and disclose late maturity
+  ---
+  duration_ms: 1.6563
+  ...
+# Subtest: V2 emergency savings withdrawal redeems the whole lot and leaves unused proceeds in cash
+ok 179 - V2 emergency savings withdrawal redeems the whole lot and leaves unused proceeds in cash
+  ---
+  duration_ms: 29.2079
+  ...
+# Subtest: V2 START is sell-only and cannot open a new deposit or withdraw outside mandatory funding
+ok 180 - V2 START is sell-only and cannot open a new deposit or withdraw outside mandatory funding
+  ---
+  duration_ms: 1.9343
+  ...
+# Subtest: V2 maturity is credited before obligations and settlement retries never duplicate income
+ok 181 - V2 maturity is credited before obligations and settlement retries never duplicate income
+  ---
+  duration_ms: 1.953
+  ...
+# Subtest: V2 paused START obligations resume once without rerunning market or salary
+ok 182 - V2 paused START obligations resume once without rerunning market or salary
+  ---
+  duration_ms: 2.6716
+  ...
+# Subtest: V2 after a maturity the player may choose stock sale and borrowing to finish START obligations
+ok 183 - V2 after a maturity the player may choose stock sale and borrowing to finish START obligations
+  ---
+  duration_ms: 4.1674
+  ...
+# Subtest: V2 purchased course is permanent and may never be purchased twice
+ok 184 - V2 purchased course is permanent and may never be purchased twice
+  ---
+  duration_ms: 5.917
+  ...
+# Subtest: V2 business upgrades preserve base income and retain tiers for multiple trends
+ok 185 - V2 business upgrades preserve base income and retain tiers for multiple trends
+  ---
+  duration_ms: 1.5771
+  ...
+# Subtest: V2 business pays at the next START and sale recovers less than nominal invested capital
+ok 186 - V2 business pays at the next START and sale recovers less than nominal invested capital
+  ---
+  duration_ms: 1.8831
+  ...
+# Subtest: V2 final liquidatable funds subtract outstanding debt and exclude unsold business
+ok 187 - V2 final liquidatable funds subtract outstanding debt and exclude unsold business
+  ---
+  duration_ms: 0.7468
+  ...
+# Subtest: V2 financial assets count after sale costs and savings count without unearned interest
+ok 188 - V2 financial assets count after sale costs and savings count without unearned interest
+  ---
+  duration_ms: 0.7838
+  ...
+# Subtest: V2 borrowing is capped and exhausted liquidity produces explicit insolvency
+ok 189 - V2 borrowing is capped and exhausted liquidity produces explicit insolvency
+  ---
+  duration_ms: 29.9937
+  ...
+# Subtest: V2 an unfundable mandatory expense ends immediately instead of leaving a trapped dialog
+ok 190 - V2 an unfundable mandatory expense ends immediately instead of leaving a trapped dialog
+  ---
+  duration_ms: 0.7413
+  ...
+# Subtest: V2 overshoot settles once before the pending destination and final lap keeps sell checkpoint
+ok 191 - V2 overshoot settles once before the pending destination and final lap keeps sell checkpoint
+  ---
+  duration_ms: 14.2463
+  ...
+# Subtest: V2 landing exactly on living expenses charges once while passing over them charges nothing
+ok 192 - V2 landing exactly on living expenses charges once while passing over them charges nothing
+  ---
+  duration_ms: 1.6025
+  ...
+# Subtest: V2 a START overshoot into living expenses pays salary before charging the destination once
+ok 193 - V2 a START overshoot into living expenses pays salary before charging the destination once
+  ---
+  duration_ms: 2.0682
+  ...
+# Subtest: V2 JSON replay preserves deterministic future state and immutable financial snapshots
+ok 194 - V2 JSON replay preserves deterministic future state and immutable financial snapshots
+  ---
+  duration_ms: 72.4209
+  ...
+# Subtest: V2 rejected transactions leave prices, RNG, holdings and log unchanged
+ok 195 - V2 rejected transactions leave prices, RNG, holdings and log unchanged
+  ---
+  duration_ms: 10.0781
+  ...
+# Subtest: V2 financial log deltas reconcile allocation, trades, funding, shocks and all START stages
+ok 196 - V2 financial log deltas reconcile allocation, trades, funding, shocks and all START stages
+  ---
+  duration_ms: 9.0228
+  ...
+# Subtest: V2 final START debt repayment never charges interest twice after capitalization
+ok 197 - V2 final START debt repayment never charges interest twice after capitalization
+  ---
+  duration_ms: 5.523
+  ...
+# Subtest: V2 SAIGON-2026 engine replay matches the completed three-lap 320px browser game
+ok 198 - V2 SAIGON-2026 engine replay matches the completed three-lap 320px browser game
+  ---
+  duration_ms: 22.9232
+  ...
+# (node:35392) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: V2.1 default original mode matches explicit original and leaves finances untouched
+ok 199 - V2.1 default original mode matches explicit original and leaves finances untouched
+  ---
+  duration_ms: 56.7593
+  ...
+# Subtest: V2.1 C20 differs from A20 only at tile14 with original coordinates preserved
+ok 200 - V2.1 C20 differs from A20 only at tile14 with original coordinates preserved
+  ---
+  duration_ms: 3.2088
+  ...
+# Subtest: V2.1 original completes once per lap and survives JSON continuation
+ok 201 - V2.1 original completes once per lap and survives JSON continuation
+  ---
+  duration_ms: 536.3221
+  ...
+# Subtest: V2.1 experimental-a completes once per lap and survives JSON continuation
+ok 202 - V2.1 experimental-a completes once per lap and survives JSON continuation
+  ---
+  duration_ms: 548.1848
+  ...
+# Subtest: V2.1 experimental-b completes once per lap and survives JSON continuation
+ok 203 - V2.1 experimental-b completes once per lap and survives JSON continuation
+  ---
+  duration_ms: 612.973
+  ...
+# Subtest: V2.1 business initial purchase blocks immediate upgrade without state mutation
+ok 204 - V2.1 business initial purchase blocks immediate upgrade without state mutation
+  ---
+  duration_ms: 8.5821
+  ...
+# Subtest: V2.1 subsequent encounter permits upgrades; sale clears state and repurchase locks again
+ok 205 - V2.1 subsequent encounter permits upgrades; sale clears state and repurchase locks again
+  ---
+  duration_ms: 1.579
+  ...
+# Subtest: V2.1 a real seeded return to business permits upgrading in the same lap or later
+ok 206 - V2.1 a real seeded return to business permits upgrading in the same lap or later
+  ---
+  duration_ms: 44.7055
+  ...
+# Subtest: V2.1 final START funding resumes once in every mode without shared horizon mutation
+ok 207 - V2.1 final START funding resumes once in every mode without shared horizon mutation
+  ---
+  duration_ms: 50.5982
+  ...
+# (node:37544) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: V2.2 original: term 1 uses simple interest and matures once
+ok 208 - V2.2 original: term 1 uses simple interest and matures once
+  ---
+  duration_ms: 14.7982
+  ...
+# Subtest: V2.2 original: term 2 uses simple interest and matures once
+ok 209 - V2.2 original: term 2 uses simple interest and matures once
+  ---
+  duration_ms: 3.9085
+  ...
+# Subtest: V2.2 original: term 3 uses simple interest and matures once
+ok 210 - V2.2 original: term 3 uses simple interest and matures once
+  ---
+  duration_ms: 3.5941
+  ...
+# Subtest: V2.2 experimental-a: term 1 uses simple interest and matures once
+ok 211 - V2.2 experimental-a: term 1 uses simple interest and matures once
+  ---
+  duration_ms: 2.5747
+  ...
+# Subtest: V2.2 experimental-a: term 2 uses simple interest and matures once
+ok 212 - V2.2 experimental-a: term 2 uses simple interest and matures once
+  ---
+  duration_ms: 28.1705
+  ...
+# Subtest: V2.2 experimental-a: term 3 uses simple interest and matures once
+ok 213 - V2.2 experimental-a: term 3 uses simple interest and matures once
+  ---
+  duration_ms: 2.7715
+  ...
+# Subtest: V2.2 experimental-b: term 1 uses simple interest and matures once
+ok 214 - V2.2 experimental-b: term 1 uses simple interest and matures once
+  ---
+  duration_ms: 2.3509
+  ...
+# Subtest: V2.2 experimental-b: term 2 uses simple interest and matures once
+ok 215 - V2.2 experimental-b: term 2 uses simple interest and matures once
+  ---
+  duration_ms: 2.6709
+  ...
+# Subtest: V2.2 experimental-b: term 3 uses simple interest and matures once
+ok 216 - V2.2 experimental-b: term 3 uses simple interest and matures once
+  ---
+  duration_ms: 3.1031
+  ...
+# Subtest: V2.2 independently priced lots retain their timing through JSON continuation
+ok 217 - V2.2 independently priced lots retain their timing through JSON continuation
+  ---
+  duration_ms: 18.2873
+  ...
+# Subtest: V2.2 emergency withdrawal forfeits the lot interest once and still requires the whole lot
+ok 218 - V2.2 emergency withdrawal forfeits the lot interest once and still requires the whole lot
+  ---
+  duration_ms: 35.9453
+  ...
+# Subtest: V2.2 terminal lawful proceeds include active principal, never unearned interest
+ok 219 - V2.2 terminal lawful proceeds include active principal, never unearned interest
+  ---
+  duration_ms: 2.4424
+  ...
+# Subtest: V2.2 profiles are isolated from global config, other games, snapshots and JSON logs
+ok 220 - V2.2 profiles are isolated from global config, other games, snapshots and JSON logs
+  ---
+  duration_ms: 11.836
+  ...
+# Subtest: V2.1 state without a profile keeps legacy rates for new lots even on C20
+ok 221 - V2.1 state without a profile keeps legacy rates for new lots even on C20
+  ---
+  duration_ms: 10.0671
+  ...
+# Subtest: Historical V2.1 original-log.json replays every financial snapshot using legacy profile
+ok 222 - Historical V2.1 original-log.json replays every financial snapshot using legacy profile
+  ---
+  duration_ms: 760.5146
+  ...
+# Subtest: Historical V2.1 a-log.json replays every financial snapshot using legacy profile
+ok 223 - Historical V2.1 a-log.json replays every financial snapshot using legacy profile
+  ---
+  duration_ms: 1353.9862
+  ...
+# Subtest: Historical V2.1 b-log.json replays every financial snapshot using legacy profile
+ok 224 - Historical V2.1 b-log.json replays every financial snapshot using legacy profile
+  ---
+  duration_ms: 1030.3111
+  ...
+# Subtest: V2.2 schema5 seeded replay preserves profile and all snapshots, including an in-progress export
+ok 225 - V2.2 schema5 seeded replay preserves profile and all snapshots, including an in-progress export
+  ---
+  duration_ms: 15.7605
+  ...
+# Subtest: V2.1 C20 state can be re-exported as schema5 without changing any historical finances
+ok 226 - V2.1 C20 state can be re-exported as schema5 without changing any historical finances
+  ---
+  duration_ms: 1470.258
+  ...
+# (node:31784) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: V2.3 new games explicitly version business rules in state, snapshots, copies and logs
+ok 227 - V2.3 new games explicitly version business rules in state, snapshots, copies and logs
+  ---
+  duration_ms: 43.9721
+  ...
+# Subtest: V2.3 fixed 3M base in growth, with no income outside START
+ok 228 - V2.3 fixed 3M base in growth, with no income outside START
+  ---
+  duration_ms: 2.0353
+  ...
+# Subtest: V2.3 fixed 3M base in uncertain, with no income outside START
+ok 229 - V2.3 fixed 3M base in uncertain, with no income outside START
+  ---
+  duration_ms: 1.1523
+  ...
+# Subtest: V2.3 fixed 3M base in recovery, with no income outside START
+ok 230 - V2.3 fixed 3M base in recovery, with no income outside START
+  ---
+  duration_ms: 3.0879
+  ...
+# Subtest: V2.3 each macro shock changes recovery exactly as before, never operating income
+ok 231 - V2.3 each macro shock changes recovery exactly as before, never operating income
+  ---
+  duration_ms: 5.9751
+  ...
+# Subtest: V2.3 upgrade examples and scenario matching retain permanent bonuses
+ok 232 - V2.3 upgrade examples and scenario matching retain permanent bonuses
+  ---
+  duration_ms: 2.1117
+  ...
+# Subtest: V2.3 normal market recovery and RNG exactly match legacy rules
+ok 233 - V2.3 normal market recovery and RNG exactly match legacy rules
+  ---
+  duration_ms: 35.3955
+  ...
+# Subtest: V2.3 purchase lock, upgrades on later encounters, sale and liquidity restrictions remain intact
+ok 234 - V2.3 purchase lock, upgrades on later encounters, sale and liquidity restrictions remain intact
+  ---
+  duration_ms: 15.8678
+  ...
+# Subtest: V2.3 START pays once, including paused obligation funding and JSON continuation
+ok 235 - V2.3 START pays once, including paused obligation funding and JSON continuation
+  ---
+  duration_ms: 31.4507
+  ...
+# Subtest: missing or explicit legacy version preserves trend and shock income, including re-export
+ok 236 - missing or explicit legacy version preserves trend and shock income, including re-export
+  ---
+  duration_ms: 36.6294
+  ...
+# Subtest: V2.3 replays unchanged historical original-log.json
+ok 237 - V2.3 replays unchanged historical original-log.json
+  ---
+  duration_ms: 1580.3523
+  ...
+# Subtest: V2.3 replays unchanged historical a-log.json
+ok 238 - V2.3 replays unchanged historical a-log.json
+  ---
+  duration_ms: 2028.7425
+  ...
+# Subtest: V2.3 replays unchanged historical b-log.json
+ok 239 - V2.3 replays unchanged historical b-log.json
+  ---
+  duration_ms: 1555.2327
+  ...
+# Subtest: V2.3 replays unchanged historical v2_2-b-log.json
+ok 240 - V2.3 replays unchanged historical v2_2-b-log.json
+  ---
+  duration_ms: 1278.6328
+  ...
+# Subtest: V2.3 replays historical atomic stock log without applying new business rules
+ok 241 - V2.3 replays historical atomic stock log without applying new business rules
+  ---
+  duration_ms: 674.2756
+  ...
+# Subtest: V2.3 seeded four-lap game with business and atomic stocks replays complete state
+ok 242 - V2.3 seeded four-lap game with business and atomic stocks replays complete state
+  ---
+  duration_ms: 877.7224
+  ...
+# (node:26576) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: V2.4 independently versions income and persists a strongly typed customer preference
+ok 243 - V2.4 independently versions income and persists a strongly typed customer preference
+  ---
+  duration_ms: 51.6428
+  ...
+# Subtest: preference depends only on seed and lap; changes deterministically across laps without gameplay RNG
+ok 244 - preference depends only on seed and lap; changes deterministically across laps without gameplay RNG
+  ---
+  duration_ms: 6.4022
+  ...
+# Subtest: V2.4 checkin: permanent +700k and matching +1M track customer preference only
+ok 245 - V2.4 checkin: permanent +700k and matching +1M track customer preference only
+  ---
+  duration_ms: 24.4264
+  ...
+# Subtest: V2.4 budget: permanent +700k and matching +1M track customer preference only
+ok 246 - V2.4 budget: permanent +700k and matching +1M track customer preference only
+  ---
+  duration_ms: 2.3785
+  ...
+# Subtest: V2.4 taste: permanent +700k and matching +1M track customer preference only
+ok 247 - V2.4 taste: permanent +700k and matching +1M track customer preference only
+  ---
+  duration_ms: 14.3836
+  ...
+# Subtest: V2.4 rejects macro specialization keys, invalid preferences and missing preference metadata
+ok 248 - V2.4 rejects macro specialization keys, invalid preferences and missing preference metadata
+  ---
+  duration_ms: 1.515
+  ...
+# Subtest: macro shocks and normal markets preserve operating income/preference, still changing recovery
+ok 249 - macro shocks and normal markets preserve operating income/preference, still changing recovery
+  ---
+  duration_ms: 46.8784
+  ...
+# Subtest: V2.3 still matches scenario keys and never silently reinterprets them as preferences
+ok 250 - V2.3 still matches scenario keys and never silently reinterprets them as preferences
+  ---
+  duration_ms: 3906.4739
+  ...
+# Subtest: V2.4 JSON continuation keeps the lap preference during paused START and pays business once
+ok 251 - V2.4 JSON continuation keeps the lap preference during paused START and pays business once
+  ---
+  duration_ms: 23.7254
+  ...
+# Subtest: real V2.3 log buying and immediately selling in one encounter replays exactly
+ok 252 - real V2.3 log buying and immediately selling in one encounter replays exactly
+  ---
+  duration_ms: 103.5875
+  ...
+# Subtest: V2.4 complete game replays all snapshots, preferences, Bank/stock atomics and business actions
+ok 253 - V2.4 complete game replays all snapshots, preferences, Bank/stock atomics and business actions
+  ---
+  duration_ms: 899.1404
+  ...
+# Subtest: V2.4 Bank single deposits across encounters and atomic stocks remain protected
+ok 254 - V2.4 Bank single deposits across encounters and atomic stocks remain protected
+  ---
+  duration_ms: 3.8693
+  ...
+1..254
+# tests 254
+# suites 0
+# pass 254
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 16425.338

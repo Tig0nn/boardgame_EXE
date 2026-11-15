@@ -1,72 +1,51 @@
+> **CURRENT** — Điểm vào repository; nguồn mô tả sản phẩm chuẩn là [CURRENT_MVP.md](docs/CURRENT_MVP.md), cập nhật 13/10/2026.
+
 # Xoay Vòng Tiến Lui
 
-A single-player Vietnamese financial board game built with React, TypeScript and Vite. The deterministic engine runs entirely in browser memory; refreshing the page starts over.
+Candidate Mobile hiện tại: [Periodic Living V2.6](docs/PERIODIC_LIVING_EXPENSES_IMPLEMENTATION_REPORT.md), nhánh `codex/periodic-living-expenses`. Ván mới thu 7M tại mỗi START hoàn tất (không thu setup), ô4 Stocks/15 Gold; root Web và phiên lịch sử giữ on-landing. [Balance18.000 ván](docs/PERIODIC_LIVING_EXPENSES_BALANCE_REPORT.md) và [designer handoff](docs/PERIODIC_LIVING_EXPENSES_DESIGN.md) đang chờ owner quyết mức tiền/layout/artwork cuối; candidate chưa merge/deploy.
 
-## Run and verify
+Game tài chính tiếng Việt một người chơi, React/TypeScript/Vite. Hai ứng dụng **root Web** và **illustrated Mobile** dùng chung engine V2.4; state ở bộ nhớ trình duyệt, chưa có autosave/import UI/multiplayer. AI Coach là backend tùy chọn sau ván, không quyết định tài chính.
 
-Verified with Node 22.14.0 and npm 10.9.2. The test and simulation scripts use Node's experimental TypeScript stripping:
+## Bắt đầu
+
+Dùng Node 22.14 trở lên trong dòng 22.x (CI đã qua ở 22.23.3). Từ repository root:
 
 ```sh
-npm install
-npm run dev
+npm ci
+npm ci --prefix mobile_app
+npm run dev --prefix mobile_app
+```
+
+Mở Mobile tại http://localhost:5174 hoặc URL Vite in ra. Web/API dev: chạy `npm run dev` ở terminal root khác, mặc định http://localhost:5173. Mobile proxy API cố định tới 5173; Vite static preview không tự chạy Function. Không cần AI key để chơi. Khi cần AI local, key chỉ đặt trong root `.env.local` bị ignore; xem [AI handoff](AI_COACH_HANDOFF.md). Dừng Vite trước `npm ci` nếu Windows giữ native binding.
+
+## Sản phẩm và hosting hiện tại
+
+Entry point hai UI dùng Experimental B, C20, 20 ô/4 vòng, vốn 50 triệu, lương 14 triệu/START, mục tiêu mua 80 triệu còn 10 triệu dự phòng. Luật đầy đủ về business, savings, đầu tư, funding, catalog thật với giá giả lập, crypto seed và replay nằm ở [CURRENT_MVP.md](docs/CURRENT_MVP.md); không dùng đặc tả V2 cũ làm mặc định hiện tại.
+
+| Ứng dụng | URL | Phạm vi xác minh |
+| --- | --- | --- |
+| Root Web — `boardgame-exe` | https://boardgame-exe.vercel.app | Project/output Web gốc giữ riêng; không bị thay bởi Mobile |
+| Illustrated Mobile — `boardgame-exe-mobile-preview` | https://boardgame-exe-mobile-preview.vercel.app | User xác minh setup/board/HUD/3D/dice; audit đọc HTTP 200 và GET API 405 JSON |
+
+Deployment Mobile hiện được gắn **Production trong project Mobile riêng**, dù tên có “preview”; điều này không có nghĩa Web production bị thay hoặc PR đã merge. Chưa xác minh full online game, real AI response hoặc điện thoại Android/iOS thật. [PR #8](https://github.com/Tig0nn/boardgame_EXE/pull/8) trên `feat/mobile-v2-4-engine-integration` vẫn mở, chưa merge.
+
+## Kiểm tra
+
+```sh
 npm test
+node --experimental-strip-types --test scripts/diagnostics/*.test.ts
 npm run lint
 npm run build
-npm run simulate:v2 -- 5000
+npm run build --prefix mobile_app
 ```
 
-The development URL defaults to http://localhost:5173. The simulation command generates `docs/V2_BALANCE_REPORT.md` and `docs/simulations/v2-results.json`: five strategies with 5,000 identical seeds each, plus six sensitivity runs with 5,000 seeds each (55,000 games total). Sensitivity variants affect only the simulation process and do not edit gameplay configuration. No deployment is required.
+[CI run 38421516083](https://github.com/Tig0nn/boardgame_EXE/actions/runs/38421516083) tại `13c9c7c`: **186 product tests + 21 diagnostics**, hai clean install, lint và hai build qua trên Linux/Node 22.23.3. Đây là mốc kiểm chứng trước audit tài liệu, không phải kết quả được gán cho SHA mới. Workflow [PR checks](.github/workflows/pr-checks.yml) chạy PR nhắm main, không cần AI keys. Không chạy simulation để kiểm tra docs; runner lịch sử có thể ghi đè artifacts.
 
-## Gameplay V2
+## Tài liệu và mã nguồn
 
-Base rules are in [XVTL_GAME_SPEC_V2.md](docs/XVTL_GAME_SPEC_V2.md); new-game business income and purchase flow follow the approved [V2.4 update](docs/V2_4_BUSINESS_UX_REPORT.md). The primary Web MVP uses Experimental B: 50M VND, four laps on C20, and 4/5/6% simple savings rates for 1/2/3-START terms. Original (three laps, A20) and Experimental A remain available internally for historical replay and regression tests. Winning requires enough lawful proceeds to buy an 80M item and retain 10M after purchase. The calculation includes net sale quotes and redeemable savings principal, subtracts outstanding debt and obligations, and excludes unsold business capital.
+- [Nguồn chuẩn MVP](docs/CURRENT_MVP.md), [chỉ mục đầy đủ](docs/README.md), [inventory và ma trận mâu thuẫn](docs/DOCUMENTATION_AUDIT.md).
+- [Mobile handoff](MOBILE_APP_HANDOFF.md), [AI handoff](AI_COACH_HANDOFF.md), [PR8 review và follow-up deployment](docs/PR8_FINAL_REVIEW.md).
+- [Roadmap hiện tại](tasks/current.md): online playthrough, thiết bị thật, icon C20 Mobile, provider AI thật và quyết định merge.
+- Engine/data: [src/game/engine.ts](src/game/engine.ts), [src/data/config.ts](src/data/config.ts), [src/data/modes.ts](src/data/modes.ts). UI: [Web App](src/App.tsx), [Mobile App](mobile_app/src/App.tsx).
 
-- The data-driven 20-tile board has dedicated bank, stock, bond, gold, business, course, living expense, personal shock, macro and obligation tiles, plus START. Living expenses apply only on exact landing.
-- START processes normal market changes, 14M salary (plus a purchased course's 3M increase), business cashflow, deposit maturities and bond schedules, then debt and obligations. A sell-only checkpoint follows every lap, including the last. Overshoot resolves after settlement and the next forecast; final-lap overshoot is discarded.
-- A course costs 6M once per game and increases salary from the next START. Voluntary purchases require cash and the corresponding landed tile; START allows only financial asset sales and debt repayment.
-- Savings are separate deposit lots with 1/2/3-lap terms and configurable simple interest. Maturity pays once. Mandatory funding may redeem a whole lot early, forfeiting its unpaid term interest; a late maturity is disclosed.
-- Six fictional stocks in three sectors share deterministic market and sector movement plus individual variation. Twelve historical points use a separate RNG stream. Charts, trades and portfolio valuation use the same current price.
-- Macro events immediately update stock, bond, gold and business state once. START compounds normal returns from those updated prices. Bonds have coupons and principal schedules; gold has a disclosed sale spread.
-- New V2.4 games pay 3M per START plus 700k per upgrade and 1M per upgrade matching the current customer preference: check-in space, affordability or drink quality. Preferences come from a separate deterministic seed/lap source and stay fixed through each lap. Economic forecasts and shocks affect resale value, not operating income. Buying a business atomically ends its encounter; later Business encounters allow one upgrade and an eligible sale. V2.3 keeps scenario-based matching; V2.1/V2.2 retain their historical income formula. Unsold business capital remains risky and illiquid.
-- Mandatory shortages let the player combine whole-lot savings withdrawals, financial asset sales and capped borrowing. Business cannot be sold through emergency funding. Exhausted sources end in explicit insolvency.
-
-Economic parameters remain experimental and are centralized in `src/data/config.ts`. A lap is a game unit, not a real-world year. Companies, prices and histories are fictional; there is no live market data, backend, login, real AI or multiplayer.
-
-## Structure
-
-| Path | Purpose |
-| --- | --- |
-| `src/data/` | Configurable rules, board and event content |
-| `src/game/engine.ts` | Seeded turns, encounters and phase transitions |
-| `src/game/settlement.ts` | Resumable, once-only START processing |
-| `src/game/transactions.ts` | Trading gates, deposits, quotes and funding |
-| `src/game/market.ts`, `business.ts` | Market evolution and business cashflow |
-| `src/game/selectors.ts`, `state.ts`, `log.ts` | Goal calculation, snapshots and JSON export |
-| `src/components/` | Vietnamese board, dialogs, charts and portfolio UI |
-| `tests/*.test.ts` | Engine, financial and V2 regression tests |
-| `scripts/simulate-v2.ts` | Seeded strategy comparison and sensitivity analysis |
-
-## Reproducibility and verification
-
-The same seed and actions reproduce the same state and ordered logs. Viewing charts does not advance the future RNG. Schema 5 JSON exports contain the versioned savings profile, full state, before/after snapshots and lap summaries. Historical V2.1 profiles and replays remain supported. There is no UI import or automatic persistence. Browser JSON download and complete snapshot replay are verified.
-
-Verification on 11 October 2026: 155/155 product tests, 19/19 behavior diagnostics, ESLint, TypeScript app/harness and production build passed. V2.4 browser checks cover 320/390/430/768/1024/1440px, including atomic business purchase, keyboard-accessible specialization choices, one upgrade and later sale. A complete four-lap C20 game included one purchase/upgrade/sale and three atomic stock purchases (25 rolls, 85,128,031 VND lawful proceeds); downloaded snapshots replay exactly and dice/RNG/movement match the V2.3 reference. A second game covers deposits on different Bank encounters (26 rolls, 103,921,205 VND). See the [V2.4 report](docs/V2_4_BUSINESS_UX_REPORT.md) and [browser evidence](docs/playtests/business-v2_4/preferences/verification.json). The old V2.2 artifact checksum verifier still reports a UI manifest mismatch; behavioral diagnostics pass.
-
-Schema 5 declares independent income and encounter rules. New games use `businessRulesVersion: v2.4-customer-preferences`, `encounterRulesVersion: v2.4-business-purchase-complete` and a typed `customerPreferenceId` in state/snapshots. Missing historical metadata retains legacy rules. Existing `v2.3-fixed-income`, `v2.3-single-action` and old multi-action encounters remain replayable without reinterpreting their upgrade keys. Historical fixtures are unchanged.
-
-Stock purchases still use `buy-stocks-complete`. Each Bank encounter permits one new deposit with atomic completion; different encounters retain independent lots/rates/maturities. New business purchases use one `buy-business` record whose versioned transition returns to rolling, with no Skip, upgrade or sale in that purchase encounter. Later encounters allow one upgrade and selling afterward. Bonds/gold trading, financial amounts, valuation, maturity and RNG are unchanged.
-
-Additional checks:
-
-```sh
-node --experimental-strip-types --test scripts/diagnostics/*.test.ts
-npx tsc -b
-node --experimental-strip-types scripts/verify-mobile-ui.mjs
-node --experimental-strip-types scripts/verify-transaction-inputs.mjs
-node scripts/verify-business-purchase.mjs
-node --experimental-strip-types scripts/verify-business-v2_4.mjs
-```
-
-The UI script needs a running Vite server and an existing Playwright installation with Chrome. Set `PLAYWRIGHT_MODULE` to its absolute module directory when using a bundled installation; `UI_URL` defaults to `http://localhost:5173`. No production dependency is added. The script saves screenshots, downloads a real browser log, replays every snapshot, and stores the verified log as gzip under `docs/playtests/business-v2_4/regression/` (the focused V2.4 script uses `docs/playtests/business-v2_4/preferences/`). Financial harness cases are explicitly synthetic and development-only.
-
-See the Vietnamese [implementation report](docs/V2_IMPLEMENTATION_REPORT.md), [balance report](docs/V2_BALANCE_REPORT.md), and [320px final-result screenshot](docs/screenshots/v2-result-320.jpg) for evidence, exact assumptions and remaining manual checks.
+Báo cáo V2–V2.4 trong docs được đánh dấu HISTORICAL/SUPERSEDED theo phạm vi; giữ nguyên số liệu, seeds và phương pháp. “Mobile” trong báo cáo responsive root Web không đồng nghĩa ứng dụng `mobile_app/`. Kết quả heuristic offline không phải đo lường production/người chơi.

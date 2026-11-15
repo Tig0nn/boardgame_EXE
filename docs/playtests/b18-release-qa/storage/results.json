@@ -1,0 +1,146 @@
+{
+  "checks": [
+    {
+      "label": "desktop-reload",
+      "setupReturned": true,
+      "resumeControls": 0,
+      "importControls": 0,
+      "storedGame": false,
+      "completedDeposit": 6000000,
+      "exportedLog": true
+    },
+    {
+      "label": "schema4-c20",
+      "importedThroughUi": true,
+      "fixture": "docs/playtests/a-log.json",
+      "schema": 4,
+      "phase": "finished",
+      "reloadExact": true,
+      "naturalFullGame": false
+    },
+    {
+      "label": "schema5-c20",
+      "importedThroughUi": true,
+      "fixture": "docs/playtests/atomic-investments-v24/browser-game-log.json.gz",
+      "schema": 5,
+      "phase": "finished",
+      "reloadExact": true,
+      "naturalFullGame": false
+    },
+    {
+      "label": "schema6-b18",
+      "importedThroughUi": true,
+      "fixture": "docs/playtests/core-mvp-b18/browser-390-savings.json.gz",
+      "schema": 6,
+      "phase": "finished",
+      "reloadExact": true,
+      "naturalFullGame": false
+    },
+    {
+      "label": "schema7-multi",
+      "importedThroughUi": true,
+      "fixture": "docs/playtests/core-mvp-b18-multi-course/browser-390-trades.json.gz",
+      "schema": 7,
+      "phase": "finished",
+      "reloadExact": true,
+      "naturalFullGame": false
+    },
+    {
+      "label": "credit-delayed",
+      "importedThroughUi": true,
+      "fixture": "docs/playtests/b18-terminology/delayed-checkpoint.json",
+      "schema": 5,
+      "phase": "summary",
+      "reloadExact": true,
+      "naturalFullGame": false
+    },
+    {
+      "label": "credit-defaulted",
+      "importedThroughUi": true,
+      "fixture": "docs/playtests/b18-terminology/defaulted-checkpoint.json",
+      "schema": 5,
+      "phase": "summary",
+      "reloadExact": true,
+      "naturalFullGame": false
+    },
+    {
+      "label": "funding-savings",
+      "importedThroughUi": true,
+      "fixture": "docs/playtests/core-mvp-b18/browser-funding-savings.json.gz",
+      "schema": 6,
+      "phase": "rolling",
+      "reloadExact": true,
+      "naturalFullGame": false
+    },
+    {
+      "label": "funding-debt",
+      "importedThroughUi": true,
+      "fixture": "docs/playtests/core-mvp-b18/browser-funding-debt.json.gz",
+      "schema": 6,
+      "phase": "rolling",
+      "reloadExact": true,
+      "naturalFullGame": false
+    },
+    {
+      "label": "unsold-business",
+      "importedThroughUi": true,
+      "fixture": "docs/playtests/core-mvp-b18-multi-course/frozen-holdout-novice.json.gz",
+      "schema": 7,
+      "phase": "finished",
+      "reloadExact": true,
+      "naturalFullGame": false
+    },
+    {
+      "label": "desktop-to-mobile-manual",
+      "importedThroughUi": true,
+      "fixture": "docs/playtests/b18-release-qa/storage/desktop-before-reload.json.gz",
+      "schema": 7,
+      "phase": "rolling",
+      "reloadExact": true,
+      "naturalFullGame": false
+    },
+    {
+      "label": "import-malformed",
+      "rejected": true,
+      "stateCreated": false
+    },
+    {
+      "label": "import-unsupported",
+      "rejected": true,
+      "stateCreated": false
+    },
+    {
+      "label": "corrupt",
+      "appUsable": true,
+      "noFalseResume": true,
+      "stateInjected": false
+    },
+    {
+      "label": "quota",
+      "warningVisible": true,
+      "canExport": true,
+      "stateInjected": false
+    },
+    {
+      "label": "read-denied",
+      "appUsable": true,
+      "noFalseResume": true,
+      "stateInjected": false
+    }
+  ],
+  "issues": [
+    {
+      "id": "RQA-01",
+      "severity": "P0",
+      "label": "Desktop loses natural in-progress game on reload",
+      "url": "https://boardgame-r8ukc7g79-tris-projects-2888207c.vercel.app",
+      "seed": "LANG-0",
+      "reproduction": "Start > advance > roll 6 to Bank > deposit 6M > reload. Setup returns with no resume or import.",
+      "source": "src/App.tsx holds game only in React state; Desktop Setup has no restore/import route.",
+      "backup": "JSON can be downloaded before leaving; importing it is available on Mobile, not Desktop."
+    }
+  ],
+  "errors": [],
+  "realPreview": true,
+  "automaticCrossOriginSaveTransfer": false
+}

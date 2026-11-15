@@ -1,0 +1,52 @@
+[
+  {
+    "id": "family",
+    "path": "docs/playtests/b18-financial-decision-copy/checkpoints/family.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding.json.gz",
+    "seed": "RELEASE-ASSET-FUND-3",
+    "turn": 1,
+    "lap": 1,
+    "cash": 50000000,
+    "method": "Exact legal archived replay prefix, imported through product UI. No injected state fields."
+  },
+  {
+    "id": "medical",
+    "path": "docs/playtests/b18-financial-decision-copy/checkpoints/medical.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding.json.gz",
+    "seed": "RELEASE-ASSET-FUND-3",
+    "turn": 6,
+    "lap": 2,
+    "cash": 0,
+    "method": "Exact legal archived replay prefix, imported through product UI. No injected state fields."
+  },
+  {
+    "id": "stocks",
+    "path": "docs/playtests/b18-financial-decision-copy/checkpoints/stocks.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding.json.gz",
+    "seed": "RELEASE-ASSET-FUND-3",
+    "turn": 15,
+    "lap": 3,
+    "cash": 0,
+    "method": "Exact legal archived replay prefix, imported through product UI. No injected state fields."
+  },
+  {
+    "id": "repair",
+    "path": "docs/playtests/b18-financial-decision-copy/checkpoints/repair.json.gz",
+    "source": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding.json.gz",
+    "seed": "RELEASE-ASSET-FUND-3",
+    "turn": 18,
+    "lap": 4,
+    "cash": 9355471,
+    "method": "Exact legal archived replay prefix, imported through product UI. No injected state fields."
+  },
+  {
+    "id": "bank",
+    "path": "docs/playtests/b18-financial-decision-copy/checkpoints/bank.json.gz",
+    "source": "docs/playtests/b18-beginner-ux/after/browser-320-basic-first.json.gz",
+    "seed": "TRADING-AB-MAIN-0",
+    "turn": 4,
+    "lap": 1,
+    "cash": 44000000,
+    "method": "Exact legal archived replay prefix, imported through product UI. No injected state fields."
+  }
+]

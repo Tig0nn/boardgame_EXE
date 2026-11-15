@@ -1,0 +1,692 @@
+{
+  "url": "http://127.0.0.1:5187/",
+  "seed": "atomic-history-fixture",
+  "initialSavings": 0,
+  "productionBuild": true,
+  "rolls": 23,
+  "events": [
+    {
+      "check": "invalidAmountKeepsEncounter",
+      "asset": "bonds",
+      "turn": 1,
+      "pass": true
+    },
+    {
+      "check": "helpPreservesInvestmentForm",
+      "asset": "bonds",
+      "pass": true
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "bonds",
+      "turn": 1,
+      "before": 50000000,
+      "after": 49000000,
+      "closed": true,
+      "pass": true
+    },
+    {
+      "check": "decision",
+      "title": "Đến kỳ thanh toán",
+      "choice": "Thanh toán 2.000.000 ₫\nNếu thiếu tiền, bạn chọn nguồn thanh toán.",
+      "turn": 2
+    },
+    {
+      "check": "skipBonds",
+      "turn": 5,
+      "before": "61.050.000 ₫",
+      "after": "61.050.000 ₫",
+      "pass": true
+    },
+    {
+      "check": "decision",
+      "title": "Gia đình cần hỗ trợ",
+      "choice": "Thanh toán 3.000.000 ₫\nNếu thiếu tiền, bạn chọn nguồn thanh toán.",
+      "turn": 6
+    },
+    {
+      "check": "invalidAmountKeepsEncounter",
+      "asset": "gold",
+      "turn": 7,
+      "pass": true
+    },
+    {
+      "check": "helpPreservesInvestmentForm",
+      "asset": "gold",
+      "pass": true
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "gold",
+      "turn": 7,
+      "before": 58050000,
+      "after": 57050000,
+      "closed": true,
+      "pass": true
+    },
+    {
+      "check": "decision",
+      "title": "Khoản phí hợp đồng",
+      "choice": "Thanh toán 1.500.000 ₫\nNếu thiếu tiền, bạn chọn nguồn thanh toán.",
+      "turn": 8
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "bonds",
+      "turn": 11,
+      "before": 55550000,
+      "after": 54550000,
+      "closed": true,
+      "pass": true
+    },
+    {
+      "check": "invalidAmountKeepsEncounter",
+      "asset": "stocks",
+      "turn": 12,
+      "pass": true
+    },
+    {
+      "check": "helpPreservesInvestmentForm",
+      "asset": "stocks",
+      "pass": true
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "stocks",
+      "turn": 12,
+      "before": 69647849,
+      "after": 68647849,
+      "closed": true,
+      "pass": true
+    },
+    {
+      "check": "decision",
+      "title": "Chi phí sinh hoạt",
+      "choice": "Thanh toán 7.000.000 ₫\nNếu thiếu tiền, bạn chọn nguồn thanh toán.",
+      "turn": 13
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "gold",
+      "turn": 14,
+      "before": 61647849,
+      "after": 60647849,
+      "closed": true,
+      "pass": true
+    },
+    {
+      "check": "decision",
+      "title": "Khóa học chuyên môn",
+      "choice": "Tham gia khóa học 6.000.000 ₫\nLương +3.000.000 ₫/vòng từ START kế tiếp.",
+      "turn": 17
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "bonds",
+      "turn": 18,
+      "before": 54647849,
+      "after": 53647849,
+      "closed": true,
+      "pass": true
+    },
+    {
+      "check": "decision",
+      "title": "Tín dụng thắt chặt",
+      "choice": "Đi tiếp",
+      "turn": 19
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "stocks",
+      "turn": 20,
+      "before": 71698366,
+      "after": 70698366,
+      "closed": true,
+      "pass": true
+    },
+    {
+      "check": "decision",
+      "title": "Gia đình cần hỗ trợ",
+      "choice": "Thanh toán 3.000.000 ₫\nNếu thiếu tiền, bạn chọn nguồn thanh toán.",
+      "turn": 21
+    },
+    {
+      "check": "atomicDoubleTap",
+      "asset": "bonds",
+      "turn": 22,
+      "before": 67698366,
+      "after": 66698366,
+      "closed": true,
+      "pass": true
+    },
+    {
+      "check": "result320CaptureDimensionsCorrected",
+      "pass": true
+    }
+  ],
+  "layouts": [
+    {
+      "name": "bulletin",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "height": 640,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "bulletin",
+      "dialog": {
+        "height": 711.9140625,
+        "width": 354,
+        "x": 18,
+        "y": 66.0390625
+      },
+      "height": 844,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "bulletin",
+      "dialog": {
+        "height": 674.21875,
+        "width": 394,
+        "x": 18,
+        "y": 128.890625
+      },
+      "height": 932,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    },
+    {
+      "name": "bonds-before",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "height": 640,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "bonds-before",
+      "dialog": {
+        "height": 619.6328125,
+        "width": 354,
+        "x": 18,
+        "y": 112.1796875
+      },
+      "height": 844,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "bonds-before",
+      "dialog": {
+        "height": 619.6328125,
+        "width": 394,
+        "x": 18,
+        "y": 156.1796875
+      },
+      "height": 932,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    },
+    {
+      "name": "bonds-signals",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "height": 640,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "bonds-signals",
+      "dialog": {
+        "height": 812,
+        "width": 354,
+        "x": 18,
+        "y": 16
+      },
+      "height": 844,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "bonds-signals",
+      "dialog": {
+        "height": 854.8046875,
+        "width": 394,
+        "x": 18,
+        "y": 38.59375
+      },
+      "height": 932,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    },
+    {
+      "name": "bonds-after",
+      "dialog": null,
+      "height": 640,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "bonds-after",
+      "dialog": null,
+      "height": 844,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "bonds-after",
+      "dialog": null,
+      "height": 932,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    },
+    {
+      "name": "summary",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "height": 640,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "summary",
+      "dialog": {
+        "height": 812,
+        "width": 354,
+        "x": 18,
+        "y": 16
+      },
+      "height": 844,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "summary",
+      "dialog": {
+        "height": 866.9296875,
+        "width": 394,
+        "x": 18,
+        "y": 32.53125
+      },
+      "height": 932,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    },
+    {
+      "name": "gold-before",
+      "dialog": {
+        "height": 591.171875,
+        "width": 286,
+        "x": 17,
+        "y": 24.4140625
+      },
+      "height": 640,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "gold-before",
+      "dialog": {
+        "height": 619.6328125,
+        "width": 354,
+        "x": 18,
+        "y": 112.1796875
+      },
+      "height": 844,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "gold-before",
+      "dialog": {
+        "height": 619.6328125,
+        "width": 394,
+        "x": 18,
+        "y": 156.1796875
+      },
+      "height": 932,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    },
+    {
+      "name": "gold-signals",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "height": 640,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "gold-signals",
+      "dialog": {
+        "height": 812,
+        "width": 354,
+        "x": 18,
+        "y": 16
+      },
+      "height": 844,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "gold-signals",
+      "dialog": {
+        "height": 854.8046875,
+        "width": 394,
+        "x": 18,
+        "y": 38.59375
+      },
+      "height": 932,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    },
+    {
+      "name": "gold-after",
+      "dialog": null,
+      "height": 640,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "gold-after",
+      "dialog": null,
+      "height": 844,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "gold-after",
+      "dialog": null,
+      "height": 932,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    },
+    {
+      "name": "stocks-before",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "height": 640,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "stocks-before",
+      "dialog": {
+        "height": 783.1328125,
+        "width": 354,
+        "x": 18,
+        "y": 30.4296875
+      },
+      "height": 844,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "stocks-before",
+      "dialog": {
+        "height": 783.1328125,
+        "width": 394,
+        "x": 18,
+        "y": 74.4296875
+      },
+      "height": 932,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    },
+    {
+      "name": "stocks-signals",
+      "dialog": {
+        "height": 608,
+        "width": 286,
+        "x": 17,
+        "y": 16
+      },
+      "height": 640,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "stocks-signals",
+      "dialog": {
+        "height": 812,
+        "width": 354,
+        "x": 18,
+        "y": 16
+      },
+      "height": 844,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "stocks-signals",
+      "dialog": {
+        "height": 900,
+        "width": 394,
+        "x": 18,
+        "y": 16
+      },
+      "height": 932,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    },
+    {
+      "name": "stocks-after",
+      "dialog": null,
+      "height": 640,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "stocks-after",
+      "dialog": null,
+      "height": 844,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "stocks-after",
+      "dialog": null,
+      "height": 932,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    },
+    {
+      "name": "result",
+      "dialog": {
+        "height": 597.578125,
+        "width": 286,
+        "x": 17,
+        "y": 21.2109375
+      },
+      "height": 640,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 320
+    },
+    {
+      "name": "result",
+      "dialog": {
+        "height": 622.8359375,
+        "width": 354,
+        "x": 18,
+        "y": 110.578125
+      },
+      "height": 844,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "name": "result",
+      "dialog": {
+        "height": 622.8359375,
+        "width": 394,
+        "x": 18,
+        "y": 154.578125
+      },
+      "height": 932,
+      "modelLoaded": "true",
+      "overflow": false,
+      "pageOverflow": false,
+      "width": 430
+    }
+  ],
+  "summaries": [
+    {
+      "lap": 1,
+      "text": "Dự báo vs. Thực tế\n\nThị trường thận trọng · Giá đầu vòng → sau START\n\n Cổ phiếu\n-12,66%\nDự báo: Dễ biến động\n Trái phiếu\n+4,5%\nDự báo: Khá ổn định\n Vàng\n+10,9%\nDự báo: Được quan tâm\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\nChưa ghi nhận cú sốc kinh tế trong dữ liệu vòng này.\n\nĐiều bạn học được"
+    },
+    {
+      "lap": 2,
+      "text": "Dự báo vs. Thực tế\n\nTín hiệu phục hồi · Giá đầu vòng → sau START\n\n Cổ phiếu\n+8,37%\nDự báo: Có cơ hội phục hồi\n Trái phiếu\n+4,74%\nDự báo: Tăng trưởng nhẹ\n Vàng\n-3,12%\nDự báo: Đi ngang\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\nChưa ghi nhận cú sốc kinh tế trong dữ liệu vòng này.\n\nĐiều bạn học được"
+    },
+    {
+      "lap": 3,
+      "text": "Dự báo vs. Thực tế\n\nThị trường thận trọng · Giá đầu vòng → sau START\n\n Cổ phiếu\n-6,79%\nDự báo: Dễ biến động\n Trái phiếu\n+3,1%\nDự báo: Khá ổn định\n Vàng\n+4,61%\nDự báo: Được quan tâm\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\nChưa ghi nhận cú sốc kinh tế trong dữ liệu vòng này.\n\nĐiều bạn học được"
+    },
+    {
+      "lap": 4,
+      "text": "Dự báo vs. Thực tế\n\nNhịp tăng trưởng · Giá đầu vòng → sau START\n\n Cổ phiếu\n-3,77%\nDự báo: Xu hướng tăng\n Trái phiếu\n-1,6%\nDự báo: Khá ổn định\n Vàng\n+20,27%\nDự báo: Có thể hạ nhiệt\n\nBiến động giá, không phải lãi của bạn; chưa trừ phí và không gồm coupon.\n\n1 sự kiện kinh tế đã tác động; xem bên dưới.\n\nĐiều bạn học được"
+    }
+  ],
+  "screenshots": [
+    "320-bulletin.jpg",
+    "390-bulletin.jpg",
+    "430-bulletin.jpg",
+    "320-bonds-before.jpg",
+    "390-bonds-before.jpg",
+    "430-bonds-before.jpg",
+    "320-bonds-signals.jpg",
+    "390-bonds-signals.jpg",
+    "430-bonds-signals.jpg",
+    "320-bonds-after.jpg",
+    "390-bonds-after.jpg",
+    "430-bonds-after.jpg",
+    "320-summary.jpg",
+    "390-summary.jpg",
+    "430-summary.jpg",
+    "320-gold-before.jpg",
+    "390-gold-before.jpg",
+    "430-gold-before.jpg",
+    "320-gold-signals.jpg",
+    "390-gold-signals.jpg",
+    "430-gold-signals.jpg",
+    "320-gold-after.jpg",
+    "390-gold-after.jpg",
+    "430-gold-after.jpg",
+    "320-stocks-before.jpg",
+    "390-stocks-before.jpg",
+    "430-stocks-before.jpg",
+    "320-stocks-signals.jpg",
+    "390-stocks-signals.jpg",
+    "430-stocks-signals.jpg",
+    "320-stocks-after.jpg",
+    "390-stocks-after.jpg",
+    "430-stocks-after.jpg",
+    "320-result.jpg",
+    "390-result.jpg",
+    "430-result.jpg"
+  ],
+  "purchases": {
+    "stocks": 2,
+    "gold": 2,
+    "bonds": 4
+  },
+  "skippedBond": true,
+  "consoleErrors": [],
+  "finalVisible": "Sổ tay\nVòng 4/4\n🏆\nBạn đã chạm đích!\nNguồn tiền về đích · Sau phí & nợ\n90.107.737 ₫\n100% mục tiêu\n90.000.000 ₫\n\nĐủ cho ước mơ và một khoản dự phòng!\n\nChơi hành trình mới\nNhìn lại hành trình\nChi tiết kết quả & nhật ký"
+}

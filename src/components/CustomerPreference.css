@@ -1,0 +1,6 @@
+.preference-summary { margin-block: 12px; min-width: 0; overflow-wrap: anywhere; }
+.preference-summary > span { display: block; font-size: 10px; font-weight: 800; }
+.preference-summary > strong { display: block; font-size: 16px; line-height: 1.4; margin-block: 3px; }
+.modal .preference-summary p { font-size: 12px; line-height: 1.4; margin: 4px 0 0; }
+.preference-upgrades { list-style: none; padding: 0; margin: 8px 0 0; font-size: 12px; line-height: 1.5; }
+.preference-upgrades li + li { margin-top: 4px; }

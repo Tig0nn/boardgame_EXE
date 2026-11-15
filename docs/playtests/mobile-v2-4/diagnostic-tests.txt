@@ -1,0 +1,111 @@
+TAP version 13
+# (node:29676) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: experimental boards restore shared data, including after a failure
+ok 1 - experimental boards restore shared data, including after a failure
+  ---
+  duration_ms: 9.7518
+  ...
+# Subtest: B/C replace exactly one category; D preserves every count
+ok 2 - B/C replace exactly one category; D preserves every count
+  ---
+  duration_ms: 1.0455
+  ...
+# Subtest: control reproduces the old runner; diagnostics count encounters before transactions
+ok 3 - control reproduces the old runner; diagnostics count encounters before transactions
+  ---
+  duration_ms: 52.2587
+  ...
+# Subtest: same-size layouts retain paired dice paths; 16/24 preserve engine terminal semantics
+ok 4 - same-size layouts retain paired dice paths; 16/24 preserve engine terminal semantics
+  ---
+  duration_ms: 174.0533
+  ...
+# Subtest: renewal calculation agrees with an analytically enumerable single six-tile circuit
+ok 5 - renewal calculation agrees with an analytically enumerable single six-tile circuit
+  ---
+  duration_ms: 2.2683
+  ...
+# (node:21752) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: diagnostic horizon is process-local and restores official rules after success or failure
+ok 6 - diagnostic horizon is process-local and restores official rules after success or failure
+  ---
+  duration_ms: 35.2927
+  ...
+# Subtest: diagnostic cash baseline matches the published 5000-seed representative outcome
+ok 7 - diagnostic cash baseline matches the published 5000-seed representative outcome
+  ---
+  duration_ms: 27.5716
+  ...
+# Subtest: six-lap runs settle once per lap, reconcile money, and keep paired dice paths
+ok 8 - six-lap runs settle once per lap, reconcile money, and keep paired dice paths
+  ---
+  duration_ms: 33.4041
+  ...
+# Subtest: deposits opened after lap three mature once at the correct START
+ok 9 - deposits opened after lap three mature once at the correct START
+  ---
+  duration_ms: 5.3551
+  ...
+# Subtest: post-lap-three trend changes preserve upgrades and deterministic macro histories
+ok 10 - post-lap-three trend changes preserve upgrades and deterministic macro histories
+  ---
+  duration_ms: 3.1484
+  ...
+# Subtest: sixth-lap debt is capitalized once and terminal proceeds use lawful quotes
+ok 11 - sixth-lap debt is capitalized once and terminal proceeds use lawful quotes
+  ---
+  duration_ms: 3.1189
+  ...
+# Subtest: final sixth-lap overshoot discards its destination while earlier overshoot resolves once
+ok 12 - final sixth-lap overshoot discards its destination while earlier overshoot resolves once
+  ---
+  duration_ms: 4.2894
+  ...
+# Subtest: twelve-lap replay is deterministic and does not persist experimental horizon
+ok 13 - twelve-lap replay is deterministic and does not persist experimental horizon
+  ---
+  duration_ms: 61.765
+  ...
+# Subtest: savings control excludes course spending and uses the same legal seeded path
+ok 14 - savings control excludes course spending and uses the same legal seeded path
+  ---
+  duration_ms: 18.4683
+  ...
+# Subtest: bonds bought after lap three receive coupons and principal exactly once
+ok 15 - bonds bought after lap three receive coupons and principal exactly once
+  ---
+  duration_ms: 4.2154
+  ...
+# (node:15676) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: explicit C20 mode is audited using C20 encounters, with identical cash result to A20
+ok 16 - explicit C20 mode is audited using C20 encounters, with identical cash result to A20
+  ---
+  duration_ms: 46.3196
+  ...
+# Subtest: versioned rate policies never mutate config; all focused policies reconcile and replay exactly
+ok 17 - versioned rate policies never mutate config; all focused policies reconcile and replay exactly
+  ---
+  duration_ms: 1716.2293
+  ...
+# Subtest: default hooks preserve every historical run field; policy can override initial allocation
+ok 18 - default hooks preserve every historical run field; policy can override initial allocation
+  ---
+  duration_ms: 15.2801
+  ...
+# Subtest: conditional diagnostic metrics exclude null and do not depend on the first seed
+ok 19 - conditional diagnostic metrics exclude null and do not depend on the first seed
+  ---
+  duration_ms: 1.3457
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2518.8147

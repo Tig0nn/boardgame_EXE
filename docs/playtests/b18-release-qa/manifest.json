@@ -1,0 +1,4329 @@
+{
+  "format": "b18-release-readiness-qa-v1",
+  "date": "2026-10-20",
+  "timezone": "Asia/Bangkok",
+  "branch": "codex/mvp-b18-release-qa",
+  "base": "927e53e2189bd6d901ed494791d9dc7e912358a6",
+  "verdict": "NO-GO",
+  "openIssues": [
+    {
+      "id": "RQA-01",
+      "severity": "P0",
+      "label": "Desktop loses natural in-progress game on reload",
+      "url": "https://boardgame-r8ukc7g79-tris-projects-2888207c.vercel.app",
+      "seed": "LANG-0",
+      "reproduction": "Start > advance > roll 6 to Bank > deposit 6M > reload. Setup returns with no resume or import.",
+      "source": "src/App.tsx holds game only in React state; Desktop Setup has no restore/import route.",
+      "backup": "JSON can be downloaded before leaving; importing it is available on Mobile, not Desktop."
+    }
+  ],
+  "deployments": [
+    {
+      "kind": "mobile",
+      "id": "dpl_DtQYn1xSUpSamKqJLjx6wbPYeQgY",
+      "url": "boardgame-exe-mobile-preview-7y72c042b-tris-projects-2888207c.vercel.app",
+      "readyState": "READY",
+      "sha": "927e53e2189bd6d901ed494791d9dc7e912358a6"
+    },
+    {
+      "kind": "desktop",
+      "id": "dpl_DmJw97ahvKXwMvjcWPaSHJg2zVXS",
+      "url": "boardgame-r8ukc7g79-tris-projects-2888207c.vercel.app",
+      "readyState": "READY",
+      "sha": "927e53e2189bd6d901ed494791d9dc7e912358a6"
+    }
+  ],
+  "verified": {
+    "product": 349,
+    "ssr": 46,
+    "historicalReplays": 81,
+    "researchGames": 13,
+    "researchSnapshots": 2306,
+    "newExportedLogs": 16,
+    "naturalCompleteUiGames": 13,
+    "surfaceChecks": 268,
+    "storageChecks": 16,
+    "probeCases": 6,
+    "pageErrors": 0,
+    "probeConsoleErrors": 0,
+    "lint": true,
+    "desktopBuild": true,
+    "mobileBuild": true,
+    "historicalArtifacts": 471
+  },
+  "browsers": [
+    {
+      "browser": "chromium",
+      "version": "149.0.7827.55"
+    },
+    {
+      "browser": "firefox",
+      "version": "153.0"
+    },
+    {
+      "browser": "webkit",
+      "version": "26.5"
+    }
+  ],
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "historical": [
+    {
+      "manifest": {
+        "path": "docs/playtests/b18-language-cleanup/manifest.json",
+        "bytes": 30496,
+        "sha256": "e7f5777296d7654aebd297a5913570299e0d291520bd510712dc58abc1834b08"
+      },
+      "artifacts": 90
+    },
+    {
+      "manifest": {
+        "path": "docs/playtests/b18-terminology/manifest.json",
+        "bytes": 26427,
+        "sha256": "f46b439beb1c107f1dd2453d0c85b80c99c00013f927ea5f4a0a8dbcdabe1379"
+      },
+      "artifacts": 79
+    },
+    {
+      "manifest": {
+        "path": "docs/playtests/b18-beginner-ux/manifest.json",
+        "bytes": 42692,
+        "sha256": "2042d948efca3c53cbc7e884d88c1a83dac2d9216b6ba5268f754034d2c6f4ed"
+      },
+      "artifacts": 187
+    },
+    {
+      "manifest": {
+        "path": "docs/playtests/core-mvp-b18-multi-course/manifest.json",
+        "bytes": 30280,
+        "sha256": "74d4bfb77a163c2a7bf650edbe45035698bb5b2bf3d403508e7d8fbaf1e6ef71"
+      },
+      "artifacts": 115
+    }
+  ],
+  "limitations": [
+    "WebKit Windows is not native Safari/iOS. Physical devices unverified.",
+    "Viewport resize approximates rotation/virtual keyboard; CSS zoom is not native browser zoom.",
+    "Firefox/WebKit full games cover Mobile; Desktop there is covered through first transaction and viewport matrix.",
+    "Initial Desktop harness selector failures remain documented, then rerun successfully.",
+    "One bounded legal-engine seed planning pass is not UI evidence; selected seed was played independently. Stocks fixture is a replay prefix, not a complete new UI game."
+  ],
+  "scope": {
+    "productSourceChanged": false,
+    "economicsChanged": false,
+    "engineChanged": false,
+    "schemaChanged": false,
+    "goldenChanged": false,
+    "researchStudy": false,
+    "humanPlaytest": false,
+    "merged": false,
+    "manualDeployment": false,
+    "productionPromoted": false,
+    "aliasChanged": false,
+    "ownerApprovalPending": true
+  },
+  "hashing": "Source normalized UTF8 LF; raw-byte artifact SHA256. Manifest excludes itself. Archived source checks use the exact candidate manifest only.",
+  "sourceFiles": [
+    {
+      "path": "docs/B18_MVP_RELEASE_READINESS_REPORT.md",
+      "bytes": 18317,
+      "sha256": "32c2c8f70e0d006fde3d223ca04e057145cf53a55505cf11645f971a34151803"
+    },
+    {
+      "path": "scripts/diagnostics/plan-release-funding.ts",
+      "bytes": 2368,
+      "sha256": "d651c43104f123b12c9d757dd6dfcd509edc6a0fb933f969f88c4da0ee2d1a1c"
+    },
+    {
+      "path": "scripts/diagnostics/release-qa-gameplay.mjs",
+      "bytes": 14368,
+      "sha256": "cc63c50bf5366196f98753f5048980be21325552b158ff1c4f164cfb3c3b5251"
+    },
+    {
+      "path": "scripts/diagnostics/release-qa-probe.mjs",
+      "bytes": 2470,
+      "sha256": "08e183c22e412c8d24bfd20326229b388cd47a44176579b050476b8c970458c5"
+    },
+    {
+      "path": "scripts/diagnostics/release-qa-storage.mjs",
+      "bytes": 9491,
+      "sha256": "c839aee5712c18c5ddf6a0d64b46e245b42bb13b5b5c3ed09472a8162bd020fb"
+    },
+    {
+      "path": "scripts/diagnostics/release-qa-surfaces.mjs",
+      "bytes": 6983,
+      "sha256": "af493ea96814ed94e1fcfc6e715b98ca02b09ee3650d32c4a70889f6d297bd82"
+    },
+    {
+      "path": "scripts/diagnostics/release-stock-checkpoint.ts",
+      "bytes": 2079,
+      "sha256": "743ceb7b7250d32a4b646aa802163151a12d2f63a760d92cca3db23644908229"
+    },
+    {
+      "path": "scripts/diagnostics/release-stock-resale.mjs",
+      "bytes": 2326,
+      "sha256": "93c111c79719d56aa301d08a463e8c028abdd12569b8ef813d4e836544eea353"
+    },
+    {
+      "path": "scripts/diagnostics/verify-release-gameplay.ts",
+      "bytes": 4760,
+      "sha256": "3429c25fe032dbd0e7fa039f55906969a9741a39c32cc389f9824989f926109a"
+    },
+    {
+      "path": "scripts/diagnostics/verify-release-replays.ts",
+      "bytes": 1038,
+      "sha256": "7293197a5940a0b53216163a7b6a95a655a7990fc3610439c994ffbd123179cd"
+    },
+    {
+      "path": "scripts/verify-b18-release-qa-evidence.mjs",
+      "bytes": 7381,
+      "sha256": "0291cdac0876c75816e4a4dc7257571854805dd13a8e347aa94dff24810492a3"
+    },
+    {
+      "path": "tasks/b18-release-qa.md",
+      "bytes": 1663,
+      "sha256": "422a7e5b2961f166afa322bcb132f496cfe9a9f3688d1666197d05b6f43d1b78"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/playtests/b18-release-qa/.gitattributes",
+      "bytes": 92,
+      "sha256": "a8be36eb3b48839a370917a1c7d53156349419321a109e3e4c8c0140b236139e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/asset-funding-run.txt",
+      "bytes": 5898,
+      "sha256": "eab816044f5ff79424945d1a468b0b98e3c3af6b1905b530cb4b9f47c175170f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/base-integrity.txt",
+      "bytes": 115,
+      "sha256": "24d977a835d28451098da64a5095e9b0533a46c59c0aa253b386b5d5753a3a52"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/browser-install.txt",
+      "bytes": 4530,
+      "sha256": "56efd230d2556e7364ccca34beac6489b51407479379cc284494d326ca4d2cc3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/browser-probe-run.txt",
+      "bytes": 2249,
+      "sha256": "77431ab6b72ab78dd5fb078332fc6a13c3c87d782efc50804a442c2e67592e83"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/browser-probe.json",
+      "bytes": 2904,
+      "sha256": "670006f13afb478c37618ff27500a10946d993417f3eee4d7bff634901332c5a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/build-desktop.txt",
+      "bytes": 423,
+      "sha256": "fa5215751997e19c5e27a4c8f478f7bc3b32b8e7b69114ddec35ed05ac6c7d0a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/build-mobile.txt",
+      "bytes": 421,
+      "sha256": "6c16a9ea5b6057afe34ff454e2fbeef59270e4c0a5c547f686abb9de588d60cd"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/desktop-defeat-run.txt",
+      "bytes": 51,
+      "sha256": "52e787d0a1a818546543dee6bd7f2965c75955cd40679e24adcb04b5d6f70e3b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/desktop-deployment.json",
+      "bytes": 2197,
+      "sha256": "050a8deb45dce013bdaa7d292df95ab21fcc286e11dc41ac9b64355a1f0ade02"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/desktop-provenance.json",
+      "bytes": 556,
+      "sha256": "feece4204063949109b1cb7a06110b537be8b6879f4e08b6d2a33a4b565bd3b3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/desktop-victory-run.txt",
+      "bytes": 51,
+      "sha256": "52e787d0a1a818546543dee6bd7f2965c75955cd40679e24adcb04b5d6f70e3b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/firefox-gameplay-run.txt",
+      "bytes": 5873,
+      "sha256": "9f3653e7190942a37a15acbd8b20b9450b70830469d7c4681ffa2b10b1e83795"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/funding-scenario-plan.json",
+      "bytes": 472,
+      "sha256": "10ed42c53f750355d5ed177e227e50d2882dde577e41ef135aac2d31c30f4eb4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay-run.txt",
+      "bytes": 37824,
+      "sha256": "1b1887508698d6f2d0036fe52b88c6401ec0b9f9739205b48977780d71bf0104"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-defeat-FAILURE.png",
+      "bytes": 253524,
+      "sha256": "ae319f9f9ca3f361c935c7231f27161a60c00c51d554bd30ae569305af80906f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-defeat-FAILURE.txt",
+      "bytes": 3297,
+      "sha256": "c39ba02741c8076a62dc7f55821abcf2db504d5e58407a00fd1fa0762fa4f884"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-defeat-result.png",
+      "bytes": 285491,
+      "sha256": "e9b8785c1a4c22bae372995f7ae2983e9701399bac4ad346f2538da14402cea8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-defeat-result.txt",
+      "bytes": 3060,
+      "sha256": "efac0d5800f9f624e85a1449a4e0375ddf2814b3cedcaa26145821e5421fbbb2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-defeat-setup.png",
+      "bytes": 122745,
+      "sha256": "92b898ba811ee8ee89fec3c901c2a57073ad23876621929200b294f928dd0057"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-defeat-setup.txt",
+      "bytes": 1936,
+      "sha256": "b733ae3b310a44d919b6b57695490c8136f61c3e8cfdbb984aae5a0aa72fae9e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-defeat-trace.zip",
+      "bytes": 4400237,
+      "sha256": "c3c937a26eab2b51fc87802a16bab6468370779cf81c17e8cf2c0c5d732c75f3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-defeat.json.gz",
+      "bytes": 1631790,
+      "sha256": "6d379d1a1cd8cde9f201179af8e92535d2ca957ea2e67082fb6cac174d55da18"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-savings-victory-result.png",
+      "bytes": 279405,
+      "sha256": "077dc7a7bdde9ed1eb583717e3515dacbc4e940ba75a3693bd10f340b4c632cf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-savings-victory-result.txt",
+      "bytes": 3135,
+      "sha256": "1bb79665f3d8ba1d0f6c97f8509e8fd7ee9fef4fe0776d69f9839c1a9aa0470d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-savings-victory-setup.png",
+      "bytes": 124247,
+      "sha256": "ce7e4c32f9e08935379cad902f3033df94a8efb60e28be9bb554a640386a3603"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-savings-victory-setup.txt",
+      "bytes": 1953,
+      "sha256": "6a21860b8b395258c9e0ccfb031652e38b88c1714e318f70334a1af9ed4d6857"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-savings-victory.json.gz",
+      "bytes": 1663797,
+      "sha256": "cb0a04800c1165b0e6b379b03052be6363e7fa794649c6e6f18a7c910da7de14"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-victory-FAILURE.png",
+      "bytes": 261717,
+      "sha256": "149e689ceeb282338b02c6d17e2c5bf309263197e8cbef6a4b6495f7252fea02"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-victory-FAILURE.txt",
+      "bytes": 3026,
+      "sha256": "e6a09aebe8359e8b5414bd9062f4e3a1928beaafd074d174029101838bcfa8be"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-victory-result.png",
+      "bytes": 278945,
+      "sha256": "7067f15c27e312a90f7e8b8365c3cf0bd9bca4cf5056d28e07627fd56afc5c15"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-victory-result.txt",
+      "bytes": 3142,
+      "sha256": "99813a1b81291d6c76597dbf2fd0662ddc0390160b408fd194581cfd2a3bea47"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-victory-setup.png",
+      "bytes": 125132,
+      "sha256": "039f22ae0b7a07366e9aba38a32132ec31924b9386a745c93fad07b68ea9674b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-victory-setup.txt",
+      "bytes": 1936,
+      "sha256": "b733ae3b310a44d919b6b57695490c8136f61c3e8cfdbb984aae5a0aa72fae9e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-victory-trace.zip",
+      "bytes": 4397982,
+      "sha256": "4ca0eb6d6cc9aa487e07fb3aeb34bb0748f18ccc417ba0c0a1c868c6e669232a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/desktop-victory.json.gz",
+      "bytes": 1638427,
+      "sha256": "d23e52dd2ad8673dd67180920fa30d0c304c01dd1e5c8be831383c5cd857b4e7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-bank.png",
+      "bytes": 58410,
+      "sha256": "d34a606bf41ec7ac882539484469041d47191383443aebb9629db7772a005e30"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-bank.txt",
+      "bytes": 1228,
+      "sha256": "27adf72718e982f9bb41fb2d28ae8a87fac062e39f9023c13bb2f93bad035d27"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-bonds.png",
+      "bytes": 61265,
+      "sha256": "97a183739c2b2e2bda5603945636b4c41b2c64fdfeb87a6d0cc46cb5f170d5bc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-bonds.txt",
+      "bytes": 1705,
+      "sha256": "ffcf7b611541af1597e58c8b9fe3850cb5b37759852d3816f7f95736ddbb8b58"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-business.png",
+      "bytes": 57767,
+      "sha256": "829bd0ff9e57ce17dfac55c845a399b873a4a8f01adf0560b3152a7d460d48a0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-business.txt",
+      "bytes": 1249,
+      "sha256": "4429621da6402f713e689da96f2947cad7d21906b7f8b6d24eae6e64dc424ed8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-course.png",
+      "bytes": 57648,
+      "sha256": "5986bbc03ea82a40cf28b9ebbfa7bf29ddc5ccdd77d51e2f06c1788f419812fa"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-course.txt",
+      "bytes": 1177,
+      "sha256": "46c9e4fd6fc73f60cb80c63a4348394380d39fb079d6a1d138b79aaa6999b955"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-demand-boom.png",
+      "bytes": 68176,
+      "sha256": "3f6273a09d81294a6005ebd2832c60e7340dbf7db74debc7550583ba3d26b555"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-demand-boom.txt",
+      "bytes": 1405,
+      "sha256": "0adf9d28301dc8cb2850b9b7c78ac6bab8f97b9dea2cf2752bcbbd79d3920464"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-gold.png",
+      "bytes": 56395,
+      "sha256": "c2c95020c022fe7e9149e946dd6e49bcadfcb6dac65bca84f747b79436db2349"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-gold.txt",
+      "bytes": 1014,
+      "sha256": "d887efe385e1db7a15ec5af8a9de10b7dcc1a07c5ce51705ff2d90d0d5b5df65"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-stocks.png",
+      "bytes": 54387,
+      "sha256": "82f6a4b42ab82cf668338c6c083defb735a63579148119c38be7bb17a9f9c376"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-event-stocks.txt",
+      "bytes": 1107,
+      "sha256": "02cde3e18e081e4b9376b69f61e40ac12cb52d0a130d166f05127fb6e14d475e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-result.png",
+      "bytes": 55347,
+      "sha256": "b1290a6761f56a07ec0fc27161a9d77a1f7ae50bcc25e7314f66400c79555dbc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-result.txt",
+      "bytes": 986,
+      "sha256": "9944ecd5432692208eba6d67a2c30da00e6b083aa14795ae7d85f01309d670f0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-resumed.png",
+      "bytes": 123367,
+      "sha256": "668153b33c9996bb987f538ecad28864104ffc21f1fc7a64ae5685c75986ce15"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-resumed.txt",
+      "bytes": 559,
+      "sha256": "a5289520a871ba641b3da62c65e962c70bbd6b2bb50f10559db228f1c2f7331b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-setup.png",
+      "bytes": 62213,
+      "sha256": "7cda85f6dbc338292a9fe31ef9d00a988ad996ce9652926a8b736e9738a17ed4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-setup.txt",
+      "bytes": 1347,
+      "sha256": "287c00daf136180dc3fe33c8c473a2b72c2c4c9db753935ac6272c5f5233f6f0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-summary-1.png",
+      "bytes": 66167,
+      "sha256": "368309c29828fc5cae4760e332c220cb8e4598e17a5d4f302ec1232d602d9c5d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-summary-1.txt",
+      "bytes": 1182,
+      "sha256": "0454ae54c991de3304d03f12b5961a5133bc3b5136c36a8d7277ba4c0c1610f7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-summary-2.png",
+      "bytes": 65527,
+      "sha256": "0c2eb747001365e48c3736320d618c6f5c34747e0a0d7c9cc8874af04dfa9e6b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-summary-2.txt",
+      "bytes": 1182,
+      "sha256": "b8fa17168027b435f369345824f2616b105ebb89de0327f74900df4f91fd7450"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-summary-3.png",
+      "bytes": 65232,
+      "sha256": "a4a99dc1fc2c495e5005561ec5c266fe5eafa96e7d4d8c085db821452a57819c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-summary-3.txt",
+      "bytes": 1180,
+      "sha256": "bdd615330501987808b6118949a7c25a5cc3beba8000a6ba16661f76d037d6e5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-summary-4.png",
+      "bytes": 64783,
+      "sha256": "349744710107e446cad76f1dd17cccc03cb4098b6977a61613ce95eb8cd0c94d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first-summary-4.txt",
+      "bytes": 1180,
+      "sha256": "1c9e8c390320dca1ef2b3e66c779b411fe866856320efdb63c7a4d11acb09f72"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/mobile-basic-first.json.gz",
+      "bytes": 1638312,
+      "sha256": "cf8b8606ef3f2ebc59a35f7489ae476cbc8ff6f288c54a47477caa9f114295e2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/firefox/results.json",
+      "bytes": 3659,
+      "sha256": "a57f6338336de6bef854cf1dce2279183078997304f5b29aef453f4bb9232350"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-bank.png",
+      "bytes": 90743,
+      "sha256": "3a5ec1e2d35ac9aac9d035cca24dd2d1c4c1ceed50379177b0ee99f114d28f20"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-bank.txt",
+      "bytes": 1284,
+      "sha256": "533360783e61d8f1fc75ebc2c76d28d4c2cc485ea956a8270829b700fec96dbf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-bonds.png",
+      "bytes": 106699,
+      "sha256": "cdc97cb0a8b43a5e6a41b0256a4182a1644ba135eb0e405d163ea258c0f10e69"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-bonds.txt",
+      "bytes": 1760,
+      "sha256": "e00c816abd37c09920826495c9d9def45f8584734d4d91240509c7c7b74fa3f3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-business.png",
+      "bytes": 91148,
+      "sha256": "51763cb8ae8cad7ac70ffc2725ccbe6f8de9d477cb8dc2d2e8e8e887e7f10f01"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-business.txt",
+      "bytes": 1304,
+      "sha256": "d7d61713170adcdb6631ba3c732905aa961a6573ee7dc0926ab7b8f14b702903"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-course.png",
+      "bytes": 82117,
+      "sha256": "aa56a0801737b7d93083e3abcec6101fd10cb4cd6a38e3dbec88454e5a9b57ab"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-course.txt",
+      "bytes": 1233,
+      "sha256": "2148714b1ef09ea062d23be391a4ba5bb8fdb6e1e6233318f18fc6cdca468917"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-demand-boom.png",
+      "bytes": 99723,
+      "sha256": "b51181abb076ac8b7d4882a679f61df3b68725c88659eaebc9df63fcbed6b837"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-demand-boom.txt",
+      "bytes": 1461,
+      "sha256": "bd895c95b004d9158812f63f5b67c7239a3b0f7fd97bdc05ad75b4df58a4d5c3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-gold.png",
+      "bytes": 78340,
+      "sha256": "42f9b65bb7e26d5ebbebaf2560b39d932acd6a7195635c0e2bbc129ac246614f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-gold.txt",
+      "bytes": 1070,
+      "sha256": "3d9087191762c13c69d6e005b840b497094cd7455bc1d76de3c8b8374583ddc8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-stocks.png",
+      "bytes": 82117,
+      "sha256": "57e0683b96acdf5347bd44a07d2cea3c7e9ba82b9ea43a5c5061d101f7e05cf7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-event-stocks.txt",
+      "bytes": 1309,
+      "sha256": "aea3cc373e12cad482292de9e7cfd803e926ee360b785337a185bbac1d6f1ac8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-result.png",
+      "bytes": 82779,
+      "sha256": "61ad3aca2633088ac6752df9d46fc5410cabe65e1ec6ce1b62b5315624c9f4f4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-result.txt",
+      "bytes": 1041,
+      "sha256": "3bc2296b2744f42cf700f1d75a6bdaa8297d3a103ce483e2996dc848ea278f26"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-resumed.png",
+      "bytes": 137867,
+      "sha256": "ad28c04a638b4cdd32327d7e2d6c65eb8b78011b9df8053897245302b6769aaf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-resumed.txt",
+      "bytes": 615,
+      "sha256": "254461effb14baf9f04d76eb8f035474ab28dd6b85ea07672329a9dc15b33b40"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-setup.png",
+      "bytes": 97912,
+      "sha256": "043be30685f29c50404615cac8acdc01bb4aee8a2c24f78536d7595387df6f2d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-setup.txt",
+      "bytes": 1403,
+      "sha256": "11d74dc1e563f5ad7d88cdd12a184fd04f56d65fd2e5850547efda203e6b6c7d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-summary-1.png",
+      "bytes": 104180,
+      "sha256": "f280d53797e6cec2346463b896ddc6d6d429519472b8b62399c2af77f7a7e8fc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-summary-1.txt",
+      "bytes": 1237,
+      "sha256": "2fc344eb41f4a23606671483892e2f220640c0845fdbf201645e55486fc280e0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-summary-2.png",
+      "bytes": 99971,
+      "sha256": "ab305260d7c8994dbf5175ad76f97be97d6318570fc1aba8cce819a96ea7acf3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-summary-2.txt",
+      "bytes": 1237,
+      "sha256": "d211182801746aab48282b785b142e67e02aadcbd4b6bcbd2413af27c4ca55c5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-summary-3.png",
+      "bytes": 104274,
+      "sha256": "2a6557590f42a038a9a8c38c1adbb8f2b4d0bb2166c1f845e240a2a6c17f3120"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-summary-3.txt",
+      "bytes": 1235,
+      "sha256": "b327169cd8848d16feb1abee9dbe7f6ded3fc7ac14fc8baec05959b49dad7626"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-summary-4.png",
+      "bytes": 103911,
+      "sha256": "bd88de8dbf05c302ca8c26ed3e7651a22521071d0fd68ac353da06021f37c21f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first-summary-4.txt",
+      "bytes": 1235,
+      "sha256": "f3518534410e3a1decf63d5dd674ce4b985c4953f87a4d36b1bba01cdfc2d45d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-advanced-first.json.gz",
+      "bytes": 1639059,
+      "sha256": "129d5bb9bb7e782f70256d57cb4939777ca10bca5d4c2380b413925163f65aff"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-bonds.png",
+      "bytes": 104192,
+      "sha256": "735f76513936cb673c977811d851b206f17f69556346b742c7e36af197a83522"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-bonds.txt",
+      "bytes": 1763,
+      "sha256": "e77ddca012abc831bc0b3057275645f238436ed9613186042d7f0815a194086a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-business.png",
+      "bytes": 93176,
+      "sha256": "ee4534aa311e13f68f2568dd2d9334bc9b60db5f09ef0de4ca66cb03adb7b882"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-business.txt",
+      "bytes": 1355,
+      "sha256": "a9f29886cffc0a82bed447c20fa869d6562bd8a2d559b9a68fdb026a33c470c6"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-course.png",
+      "bytes": 84079,
+      "sha256": "29e5e5c9e364010fd4761adda714ab52f78a9486ef8aa89699c9005ad5e5ea86"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-course.txt",
+      "bytes": 1266,
+      "sha256": "70139c19561f086941b0b5ec4e0fe0fa9b69ea7d54d8fa6394083e99c1e2c0eb"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-family.png",
+      "bytes": 102363,
+      "sha256": "eec376e65f4b6f329b8ec00bf7a9697557fda7bfcd0c4a1b263e89e220ebb3e1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-family.txt",
+      "bytes": 936,
+      "sha256": "79ccc8cb0ef585c27b09978eed8330b010868f082890ca821e6ef7b493304c95"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-gold.png",
+      "bytes": 77952,
+      "sha256": "acc13eb6da4536f32e6bcbf20ec6aa308b5a2170aea1e6b03b296e2d834f9943"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-gold.txt",
+      "bytes": 1087,
+      "sha256": "fac3c90b92d98115f5132f480a145dd7a09eaa1a2adc4834bbe3ec5eec6ddd63"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-medical.png",
+      "bytes": 102030,
+      "sha256": "1e0c78629a0bf071ccb04d3579b91315450ee0030bb67a8bba6c2b6099ad6e5c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-medical.txt",
+      "bytes": 990,
+      "sha256": "6a47fc9c1a34d537680190dde174d380d9a2e66196dfce2ba76015e3da5013e3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-repair.png",
+      "bytes": 101848,
+      "sha256": "d228baf4e255709929bff54747066420a55df7b4788f6eb5b81a440aa58c4724"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-repair.txt",
+      "bytes": 982,
+      "sha256": "d25b021554546028de075c495b7b9d14a52c1d2007c7e87a1e76a83d38525fac"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-stocks.png",
+      "bytes": 80350,
+      "sha256": "7dff242cab807174af4133c6273d7276a3a2b8d830a88b57cb3cf26865854877"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-event-stocks.txt",
+      "bytes": 1296,
+      "sha256": "ec4081e45342a06be0e60f7f851ce1e05cfd00f925e865acb50fb29a963fa69e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-funding-0.png",
+      "bytes": 91096,
+      "sha256": "318b0f1bec6bbac9951612fbb3756dbcde425d5918a39c715db8181be856d33e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-funding-0.txt",
+      "bytes": 1362,
+      "sha256": "0c47941c45b83caaa6b7f7323dddc2f4ca9f044efff1796d373804005c898d8b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-funding-1.png",
+      "bytes": 90765,
+      "sha256": "b73c6c86e930ef8109aa98a0d8917d7fbf47129fbb1020b3065b00c60fe545c1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-funding-1.txt",
+      "bytes": 1445,
+      "sha256": "0c243b4b4ce3d12f3302e1e1947df29fa353762daf9cbb9b58f5ebb46c6f925c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-funding-2.png",
+      "bytes": 91800,
+      "sha256": "07554f2500706ef36a9e5c587ec9de9dbb31e77983bedde4641d30849bd85f91"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-funding-2.txt",
+      "bytes": 1362,
+      "sha256": "9e5bfbf4f037ef4ae3dd8a868beb9b57abd5753f79a23cf8886a9723ae8f0e38"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-funding-choice-0.png",
+      "bytes": 91096,
+      "sha256": "318b0f1bec6bbac9951612fbb3756dbcde425d5918a39c715db8181be856d33e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-funding-choice-0.txt",
+      "bytes": 1362,
+      "sha256": "0c47941c45b83caaa6b7f7323dddc2f4ca9f044efff1796d373804005c898d8b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-funding-choice-1.png",
+      "bytes": 90765,
+      "sha256": "b73c6c86e930ef8109aa98a0d8917d7fbf47129fbb1020b3065b00c60fe545c1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-funding-choice-1.txt",
+      "bytes": 1445,
+      "sha256": "0c243b4b4ce3d12f3302e1e1947df29fa353762daf9cbb9b58f5ebb46c6f925c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-funding-choice-2.png",
+      "bytes": 91800,
+      "sha256": "07554f2500706ef36a9e5c587ec9de9dbb31e77983bedde4641d30849bd85f91"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-funding-choice-2.txt",
+      "bytes": 1362,
+      "sha256": "9e5bfbf4f037ef4ae3dd8a868beb9b57abd5753f79a23cf8886a9723ae8f0e38"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-result.png",
+      "bytes": 82085,
+      "sha256": "9c1a5eb6dea2a54cbb5b898b364d1fdb52e3b4bab25b39e51522374587253e4f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-result.txt",
+      "bytes": 1068,
+      "sha256": "1e94d875988b467d64c071d4ac03b823763352519f0eeba4e96254da95c97e7f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-resumed.png",
+      "bytes": 135227,
+      "sha256": "3ab523162435887e106e9ebdaf828d6aeb79a0fac9d9dcdd1543d53c17b85095"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-resumed.txt",
+      "bytes": 591,
+      "sha256": "79b07a72ee01dc559fa218f94190f4888234182cd6a08915ca564112717d5cd1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-setup.png",
+      "bytes": 98115,
+      "sha256": "c127ad1c4a0bc1cf4d5374c11178ef9669136ee14cae2e3d82a09b8fc6805c19"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-setup.txt",
+      "bytes": 1403,
+      "sha256": "11d74dc1e563f5ad7d88cdd12a184fd04f56d65fd2e5850547efda203e6b6c7d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-summary-1.png",
+      "bytes": 102267,
+      "sha256": "c0ee4318d2089b1e4026b8570aac7e59bb126b53aa84b8ea60fe3ca874389d5f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-summary-1.txt",
+      "bytes": 1175,
+      "sha256": "64fc1ea7ffd654247e91bba7ee6998ed0675c6bd29a4955d24c3c01d06f7e316"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-summary-2.png",
+      "bytes": 98591,
+      "sha256": "eb4f84c6d483da74e919cce70750d06feaebd879b585e65bc07ff1bd72c7d537"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-summary-2.txt",
+      "bytes": 1401,
+      "sha256": "2e422b6db8314d812e82e5c4ea4eeb894c11d58f5c06e8472f3b94718bfc8637"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-summary-3.png",
+      "bytes": 96958,
+      "sha256": "1b5b08fdb913747c427647f969585c0718ae78adcdb2b91a50d6f7c38b585922"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-summary-3.txt",
+      "bytes": 1400,
+      "sha256": "5054294864fdd7d05ade80bff7c527bda6d365c1fdcc1928c102e41baee1669c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-summary-4.png",
+      "bytes": 100469,
+      "sha256": "542e6c7d58076eee48d3be9f1a1a0989d29ca0fb4c417ba632bdf7baa0b9d874"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding-summary-4.txt",
+      "bytes": 1439,
+      "sha256": "1136f8f00fe2cfe7c3f9c50e29544e5094eeb80f8496accd5108eee3ae1bc7a6"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-asset-funding.json.gz",
+      "bytes": 1706036,
+      "sha256": "35b4037d8ce10a857c0e70e1898600442b2cdefe52b0ddb26be2749102a3d413"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-bank.png",
+      "bytes": 82886,
+      "sha256": "976c90da5e5bf8badcd2522456b695624d8676ad1ea9e07d673596909b2570b2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-bank.txt",
+      "bytes": 1284,
+      "sha256": "c75db56659507148c266bcd3fecc61f0529f69d2a4bbb58b49f3b5f8b1672488"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-bonds.png",
+      "bytes": 95187,
+      "sha256": "b0f53b290158b03b91e0493cdb2aad9e3bf04ff7af51740bbaabe71ecc4fa15d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-bonds.txt",
+      "bytes": 1761,
+      "sha256": "4e62021b6e026fda37660ebdd4b896113bccb631619e384021c0bbf8f3da4d7b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-business.png",
+      "bytes": 84107,
+      "sha256": "6b4994e254b21958d4b4fe67135d80ec5ec2cd0590e10ef6322f32f23845c51e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-business.txt",
+      "bytes": 1305,
+      "sha256": "809dab69f6a9de26a65b9a2ed6ae06fb21d0cdf2ea4c4c7eeebdb10bacbf3761"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-course.png",
+      "bytes": 78540,
+      "sha256": "4eb45c557897115c04f4a898c7413d7d2ac92bd2d32df8b38fdba65288915376"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-course.txt",
+      "bytes": 1233,
+      "sha256": "2148714b1ef09ea062d23be391a4ba5bb8fdb6e1e6233318f18fc6cdca468917"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-demand-boom.png",
+      "bytes": 98964,
+      "sha256": "38272ea27403e50027a7fff86b163c117be09bd74270b2ea7bca01e1e871c470"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-demand-boom.txt",
+      "bytes": 1461,
+      "sha256": "bd895c95b004d9158812f63f5b67c7239a3b0f7fd97bdc05ad75b4df58a4d5c3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-gold.png",
+      "bytes": 77131,
+      "sha256": "52349020d5ac3bd89b3e83a478a820aebbbe959c9239448e78346284bd437662"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-gold.txt",
+      "bytes": 1070,
+      "sha256": "ab7ddb4484aa4a6c119333e095c9b9d8f8bc3c3601d63bc44e4dfa4414c41155"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-stocks.png",
+      "bytes": 76943,
+      "sha256": "29866be8af6690617b7b40999fe44ec82309899a329d937581bb40f01dda23eb"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-event-stocks.txt",
+      "bytes": 1310,
+      "sha256": "af218e5a39c2b1250f1b6d1831abfce741b1f8eec958bc943223e8e17ff0ca8c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-result.png",
+      "bytes": 76192,
+      "sha256": "7281589db17751a137e8fc4a526d810bafe59e736312dd40b69a046c3c39e443"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-result.txt",
+      "bytes": 1042,
+      "sha256": "ff21ad7a4e2a854a4ac694ad1e0fb87e64cc39101540786e4e671f18eea24488"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-resumed.png",
+      "bytes": 118623,
+      "sha256": "862044903e2dc79efa8b4b8003e31ac499a2e253ed1eb2a11d84a2e95826f849"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-resumed.txt",
+      "bytes": 615,
+      "sha256": "4521f8a2c232236b161b1c783d26558014c4a35cdd372f71ddab7a22ace804c7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-setup.png",
+      "bytes": 88240,
+      "sha256": "cdf03722e4689d6f20bc2c5ee6f81964224dbfaa4f87c3ea6db77f2523b4dca8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-setup.txt",
+      "bytes": 1403,
+      "sha256": "11d74dc1e563f5ad7d88cdd12a184fd04f56d65fd2e5850547efda203e6b6c7d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-summary-1.png",
+      "bytes": 93491,
+      "sha256": "7dd1d6151b586f3fe04d3adb8969053c8055459ccb044b5c0bdb9126573b8754"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-summary-1.txt",
+      "bytes": 1238,
+      "sha256": "9ec44bc477922c9a75b5088f2238cb8f16a4f56715daf8955aa2c5fba4b7ded6"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-summary-2.png",
+      "bytes": 93408,
+      "sha256": "cdae91834bb1688e4407ba87c35b8009029da555c8eaeb5597eae197daac8362"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-summary-2.txt",
+      "bytes": 1238,
+      "sha256": "ff15eda78f95b41422657bf78fb30496351851c32a7fbb963a9beb3c81ce1349"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-summary-3.png",
+      "bytes": 93352,
+      "sha256": "82a25db9e504826053e9312d1ce9fd32ee6121e59417cbd15a15a02e47903582"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-summary-3.txt",
+      "bytes": 1236,
+      "sha256": "239d3e88e47bb1092a04a07d0dd714ab3186b3d893bd220bbe73338660cd6ac1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-summary-4.png",
+      "bytes": 93151,
+      "sha256": "ef5d95f5849578fb973b6c2f656d060ac8571cd454b85ad78f2b2ae6fe2fe54d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first-summary-4.txt",
+      "bytes": 1236,
+      "sha256": "a0a8001fd0632a01e3e23e5ad88841b835977360370cacac9bb4ee92a03552f5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-basic-first.json.gz",
+      "bytes": 1638312,
+      "sha256": "cf8b8606ef3f2ebc59a35f7489ae476cbc8ff6f288c54a47477caa9f114295e2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-bank.png",
+      "bytes": 113754,
+      "sha256": "0b22a1a33a78226b7b6ae13549a6d4700a71d748d7093f966b56298efad24c46"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-bank.txt",
+      "bytes": 1284,
+      "sha256": "c75db56659507148c266bcd3fecc61f0529f69d2a4bbb58b49f3b5f8b1672488"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-bonds.png",
+      "bytes": 127436,
+      "sha256": "ec3fbbac60ce4991d182fc7f5b3a65577e85ef31ecd0d0f550e4a26d3047fd16"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-bonds.txt",
+      "bytes": 1763,
+      "sha256": "06a60e30e45fa537eda545e02cdd238676f6496b80c3e9ea255879e28c868a3d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-business.png",
+      "bytes": 110645,
+      "sha256": "f75481d123135d4a5774b6ded8f510b1c62a07c53aba0d8813f1049845b63315"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-business.txt",
+      "bytes": 1305,
+      "sha256": "809dab69f6a9de26a65b9a2ed6ae06fb21d0cdf2ea4c4c7eeebdb10bacbf3761"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-course.png",
+      "bytes": 119277,
+      "sha256": "52087c47e8867c9a59b473762266b3e75cde4779887862989b30fb88d3c344fc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-course.txt",
+      "bytes": 1233,
+      "sha256": "2148714b1ef09ea062d23be391a4ba5bb8fdb6e1e6233318f18fc6cdca468917"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-demand-boom.png",
+      "bytes": 121902,
+      "sha256": "d2e5a62c6c988d0013de15494f1c607a9c4a760d18979c58fcdcdce03590fa54"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-demand-boom.txt",
+      "bytes": 1461,
+      "sha256": "bd895c95b004d9158812f63f5b67c7239a3b0f7fd97bdc05ad75b4df58a4d5c3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-gold.png",
+      "bytes": 102149,
+      "sha256": "9ae332dbebd7ad2bd7bf3632c2d9105c0057fae17c41428be560bdf2c15cff65"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-gold.txt",
+      "bytes": 1070,
+      "sha256": "ab7ddb4484aa4a6c119333e095c9b9d8f8bc3c3601d63bc44e4dfa4414c41155"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-stocks.png",
+      "bytes": 100136,
+      "sha256": "3a1d955fb3b532a3df0aec8f814b0f6006ae8e42ffb10cabe98bd348595f5e02"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-event-stocks.txt",
+      "bytes": 1312,
+      "sha256": "03b1c7be29625b659ee9d95887728e142a6fac90365f442122152fb5bef43674"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-result.png",
+      "bytes": 103441,
+      "sha256": "4eeead1ae287eb911db1cbd304610df2fbbe8d4c59a5f52d31f2959512ba3a06"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-result.txt",
+      "bytes": 1035,
+      "sha256": "3ed33a99b681b17f54be8ea2da6bf3636501ac6f2a639d2d672b8aaae2028e1e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-resumed.png",
+      "bytes": 165398,
+      "sha256": "d8a46074e358dffff17ed3f09505e5d37be0f338a21eba0a366aa666cb81dcf5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-resumed.txt",
+      "bytes": 615,
+      "sha256": "4521f8a2c232236b161b1c783d26558014c4a35cdd372f71ddab7a22ace804c7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-setup.png",
+      "bytes": 107481,
+      "sha256": "753955e8f1bc2666071d5dea99c07217300c659585989b24a8c6189b3f6cbc65"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-setup.txt",
+      "bytes": 1403,
+      "sha256": "11d74dc1e563f5ad7d88cdd12a184fd04f56d65fd2e5850547efda203e6b6c7d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-summary-1.png",
+      "bytes": 116802,
+      "sha256": "7561f24ecc1d193cb71ffa2fe07ad15da7e333136d90953bbd4f2927a3e533ca"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-summary-1.txt",
+      "bytes": 1240,
+      "sha256": "606b47d4c8550022b59715296be7a481cce2253a658264c859ff52c9973ccef4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-summary-2.png",
+      "bytes": 116494,
+      "sha256": "5a44c9346771ad422dc825febb64d86b714ad4eac34618ca73a19999b0168e26"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-summary-2.txt",
+      "bytes": 1240,
+      "sha256": "9d1a9af5a4a4a5320279749fe9fc4b136975b49f2cfbd2f560534181809e94db"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-summary-3.png",
+      "bytes": 116791,
+      "sha256": "4ab23e701c74de9647198ba7161d052b507c50a1b2b4f194ec059f0151de4976"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-summary-3.txt",
+      "bytes": 1238,
+      "sha256": "6bf0e277625050f0dfb2c465e9195c3566cb588e7ccb8c71f1b624888d99c5aa"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-summary-4.png",
+      "bytes": 116778,
+      "sha256": "55f2f6bf7c11409a6f64371a109b3513082754b56e8311c39fde833999a5d75a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business-summary-4.txt",
+      "bytes": 1238,
+      "sha256": "6f0168d94a0f850f5495a04999a23f9f9be4d212302dc971946a03547d642cef"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-business.json.gz",
+      "bytes": 1666725,
+      "sha256": "7f6853de4ef06035d6e20a155da67a8e029a7e74f1376fcd9945b5105be80ab8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-event-bank.png",
+      "bytes": 90588,
+      "sha256": "02f31a950df636e520734f05494d41e42ffa526f9c296811e7842a15da490b58"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-event-bank.txt",
+      "bytes": 1300,
+      "sha256": "22a89f9e6dfd7209ef5adc519e6a1d5ccce26425b2064ad301559a2564cffec7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-event-bonds.png",
+      "bytes": 105890,
+      "sha256": "308788cefea40c7db9d736144fadc558fde9358791d8a4a22bc8c608f137262f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-event-bonds.txt",
+      "bytes": 1776,
+      "sha256": "311fbf99daca78e45baeee0635d60ced116e44983cacf6ca92de7de410bc63be"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-event-business.png",
+      "bytes": 91397,
+      "sha256": "42f4c6e4e936eedde4eb95307b57b53d6f2f0dc6aa1526df4599dc48d59c9506"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-event-business.txt",
+      "bytes": 1325,
+      "sha256": "04124b5c6e6c97925ebd3bb7ac2fb943160d14b6816b9e4ffba04de8e5df6991"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-event-course.png",
+      "bytes": 82677,
+      "sha256": "b0c7c67f9caac108b0e4d99de9d4619c910c1a3f74edb9e47b74dffbb6dc6249"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-event-course.txt",
+      "bytes": 1231,
+      "sha256": "0796b565882dea4cc19d1d2274b39ef50d7553ccc3369d436e53b7ef4f19fca3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-event-repair.png",
+      "bytes": 99125,
+      "sha256": "5c3b361cbb3e9ef9ba867a924e5a11b378b6b9cccdacc60671209091c81c0ce4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-event-repair.txt",
+      "bytes": 1067,
+      "sha256": "1e5a2fba393b9b3bffc1ea068caa1607bb1963195293dcb1e071a82f77bd54f3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-event-stocks.png",
+      "bytes": 80426,
+      "sha256": "6eb61b24ed823cc42beb1d97eb00248f671de5e4e0ad22f811cab9e11fefe87c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-event-stocks.txt",
+      "bytes": 1295,
+      "sha256": "5890d1460ccec2bb710e9dbc85e008f90c30dfb0d0db8d57375ed1d00bf16235"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-funding-0.png",
+      "bytes": 93161,
+      "sha256": "0d0513599232da55e553bf6e30ccdfe5e23b1c43ad6d78ef5d30ff4b897ee193"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-funding-0.txt",
+      "bytes": 1361,
+      "sha256": "4d2b1fb49a082dfef2d13b228dffe78c92a35b88d77a5b90520ad68c1ac68095"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-funding-choice-0.png",
+      "bytes": 91602,
+      "sha256": "018a466bf8a3f5a6d1afb6ad2c84a591b9814d6b0d4c00811c6c8018597bb9fc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-funding-choice-0.txt",
+      "bytes": 1289,
+      "sha256": "bb62a2dacebf5541a21457f84ce73492cb31189b9df497d82428ef14e6f7382b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-result.png",
+      "bytes": 78660,
+      "sha256": "efe260ef15c79a2b21a7ff59f8bef0e84d90243cc14e48259c1cd84ac4993223"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-result.txt",
+      "bytes": 1008,
+      "sha256": "46317cd852fd7f0ffdb57672efefa95c7812ccf0388a658fce8174ec4dde90e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-resumed.png",
+      "bytes": 136027,
+      "sha256": "43d7ba946d1774508521a1d2a92d48669ee97d6dd496ed5d714c3409d0fa6060"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-resumed.txt",
+      "bytes": 606,
+      "sha256": "56cd640403e8dd5c8bf22c12119bece1771b0957141dc32ea15987abb79dc765"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-setup.png",
+      "bytes": 105586,
+      "sha256": "4492964f4152ce199707f928ae369ad0a6bcf0cd50ef0ad047bf57150337512d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-setup.txt",
+      "bytes": 1589,
+      "sha256": "b306d818c4f40cf33a070e15cfc6d50b07ba2ada549fd734c1487ca1eff42218"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-summary-1.png",
+      "bytes": 102125,
+      "sha256": "c04948effe6717871d3074b87ee958c12d25505801c3c2308c7fea102653f0db"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-summary-1.txt",
+      "bytes": 1175,
+      "sha256": "cd863461c9369e513dc5236b35c81017f5928a54b52ab66578194334fd81f746"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-summary-2.png",
+      "bytes": 97897,
+      "sha256": "3c5be792f9ec131377624e37790c25e7c6d02aed9bfce743f97c8d464fa5edc2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-summary-2.txt",
+      "bytes": 1409,
+      "sha256": "904f9fab8e9fcd9f9a0333b4735a0c8fae22712af24d335db0ff854e7409a613"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-summary-3.png",
+      "bytes": 106188,
+      "sha256": "181ea2b003841f124a5ab35f2b83ecd419e21c76da8688016cda99139f744011"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-summary-3.txt",
+      "bytes": 1495,
+      "sha256": "86d2109c6edd755838ad4264c221e3bb5443da212281353e1c2f18afc403f549"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-summary-4.png",
+      "bytes": 102862,
+      "sha256": "b442babf207b42d4c9aaa0e9892cf8f846a9461c5737c6d71ce3e6678d5d8b04"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding-summary-4.txt",
+      "bytes": 1191,
+      "sha256": "0eca6d407baac3f89ce232da090f80350aeda24ebd40f55c2575a2fbc33658fe"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-credit-funding.json.gz",
+      "bytes": 1303690,
+      "sha256": "ee28246e12192a47365f5e3c857f127c71c9dfa4f181e0188e5f42f08ef3e727"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-bank.png",
+      "bytes": 90872,
+      "sha256": "af91262b49a1cc42d1629f3b3786bca96b114f7389c80941b0297d8c22d6486c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-bank.txt",
+      "bytes": 1284,
+      "sha256": "6e8cf8ca9b8164273766413941e7028c9ba26256eb5c68d2b68c9465b14d3f11"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-bonds.png",
+      "bytes": 106799,
+      "sha256": "e26ff9e563072433d0f32de977cba537ec87efd5b21b9fbe5636feb3d17db436"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-bonds.txt",
+      "bytes": 1763,
+      "sha256": "76643cb6dd05d1c09f801101a5ad6f1e020d16753ae07987c7954d586509fa96"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-business.png",
+      "bytes": 92907,
+      "sha256": "57b6959bbbad4457e02759f1f53775befc5722ad01281ef61ccba8407140e25a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-business.txt",
+      "bytes": 1354,
+      "sha256": "d90412ca64d4dd4fc9056bf62782535d97f8e1369fd75449c9c7f34756efa7b0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-course.png",
+      "bytes": 82104,
+      "sha256": "349c31fd23b1f75bb1235233c9f80f17ea3ddf9c48d9ab3bccfdeae6857cd1c1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-course.txt",
+      "bytes": 1233,
+      "sha256": "8544797304d28b1146e4155d77824e85d31bec4b3f3f09d69d8ffcf7bf7c2f9e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-demand-boom.png",
+      "bytes": 99726,
+      "sha256": "65d809615805f249f43e2f6faf7c9db7d3287d8676159e1b6301a498cc796787"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-demand-boom.txt",
+      "bytes": 1461,
+      "sha256": "ee4f2a57e82291825e2294c468dfcc1e079158a2a292abf0d8279934d6c0f87b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-gold.png",
+      "bytes": 78421,
+      "sha256": "22672a390a6242c14447067bb3f9a896d69548cbeeeca0a7839d212a4e778184"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-gold.txt",
+      "bytes": 1070,
+      "sha256": "9f3a2e82f1e856ba8ef3d481608e38b395113e5ba4a91682dd6907392ca93e9c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-stocks.png",
+      "bytes": 82000,
+      "sha256": "0f812c8467fb55914d0e5bece200930fbe4a7c18da6d69135ba7a0ae6fd0e6f8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-event-stocks.txt",
+      "bytes": 1312,
+      "sha256": "266dcb113d77e5431c2bf675876ffe88570c6a7e18878f87d98908b547f86832"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-result.png",
+      "bytes": 82816,
+      "sha256": "796450552fa1821294976f78e38c6f34936b54ae582e9cbc031bec0c5c8c0b33"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-result.txt",
+      "bytes": 1042,
+      "sha256": "e67a76dc22f843e4c8c62fa18426318152d7e221c601411ff5858c47a1df27c5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-resumed.png",
+      "bytes": 138109,
+      "sha256": "7be3374529c9cf2cfab789c479890d73626875bf4077e534846a880770d797b1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-resumed.txt",
+      "bytes": 615,
+      "sha256": "d1a8f88eacbdb5918848d3ae4d6048225ca9c8cb477a0b28ffd785603ea596b5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-setup.png",
+      "bytes": 100287,
+      "sha256": "4f3b65d18587dfb38aa30edcc82574f17349ec4c227e55eb4d93f544fa039523"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-setup.txt",
+      "bytes": 1403,
+      "sha256": "81ce6a7a63df41883caae03ff1cdee58e5c305deba7ca51995fdb99a85f2f99e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-summary-1.png",
+      "bytes": 105556,
+      "sha256": "c6055fb221c5bd4d54d3c0a20d4ab66939a75773ed3de4727eaeecd79909bd3a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-summary-1.txt",
+      "bytes": 1298,
+      "sha256": "1f7f0b786ba1acfef0acc1dbff223f96a93571b727dd0d882acb5ed664b5006a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-summary-2.png",
+      "bytes": 99562,
+      "sha256": "eee8e1a2d4af4202abbefc3260ecb9a0e98cd39a95590c34079dae7853f50ec0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-summary-2.txt",
+      "bytes": 1295,
+      "sha256": "a8cee96918c377ed77fe8792ad96d95e4cd7fdc0bb96757e92752cc26c355876"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-summary-3.png",
+      "bytes": 104337,
+      "sha256": "c93146f82a24b5aef8ef315032965883c581195076a461d43054cc8c1d3a3602"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-summary-3.txt",
+      "bytes": 1236,
+      "sha256": "1551ce656154b21b16b30ca541878381022c8c2cd7ab2c8c2d47085d778d1406"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-summary-4.png",
+      "bytes": 103962,
+      "sha256": "8dc0ad3e28e28b17b48377049d694d549b85d3a57c4cd9cf6432df32921772ac"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-summary-4.txt",
+      "bytes": 1236,
+      "sha256": "a4a27851cee1170eb3bdd0bc2c23e7813e0dee5602a85d4f3e21a48ad4ad9a4b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-term-2.png",
+      "bytes": 92735,
+      "sha256": "14437009f70724d97afa1b4eb1484d5df58360bdc7308a4ed0f8f417377c25c2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings-term-2.txt",
+      "bytes": 1283,
+      "sha256": "49290aec17047ee19eee43bc1e87b0d7c2c199c4cfd61f474fd5e6e0db597b2e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-savings.json.gz",
+      "bytes": 1681146,
+      "sha256": "bc259888d0e9d5e945258ee7c13fb6d9665439c06921f2d6b467ef3af607d035"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-bank.png",
+      "bytes": 91768,
+      "sha256": "75b03446ec359e5a486346dfa8b81b8e984d9745e4f71f25c1d1993463e13318"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-bank.txt",
+      "bytes": 1301,
+      "sha256": "4ef25a5669dd09a3e5182fb99c145f10cddc425b903b484cb774cacb0f9c5cc6"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-bonds.png",
+      "bytes": 105263,
+      "sha256": "fa0c21f3283865c9e51ae79d88d1008b53e1276784bd76c0051b3d040b40d668"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-bonds.txt",
+      "bytes": 1774,
+      "sha256": "1c08dde71d70ed3f3beac4f81a05c960b10b6885a11cbd2aa6659f3e67d096ed"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-business.png",
+      "bytes": 91094,
+      "sha256": "f7a0b9b275468ef98c58f58928d9b7bf958ad9b27900e18b89512b3dc69c3d1a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-business.txt",
+      "bytes": 1308,
+      "sha256": "c4133d1e53fefb266392c5816365574f89d5cadbc736451a0b97bd5909c88860"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-course.png",
+      "bytes": 82890,
+      "sha256": "bc8fa95cc3cd8eff1d4194d2dd18431703d3a0d7397ae874b38fa72caa7ffdd3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-course.txt",
+      "bytes": 1252,
+      "sha256": "4eda5a60fb365370ec634bd689dbb06be2c13c0de0e1ba12b4aeaa0a1b825463"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-credit-tightening.png",
+      "bytes": 103792,
+      "sha256": "395a817028c58daab6019bfecff2785a740660bcc56481b48a147cff9a85a1bd"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-credit-tightening.txt",
+      "bytes": 1593,
+      "sha256": "b335781922ad5e1fa4a83d1b2a21cab7be36a6a07ae6a7f1f670c09b310f549a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-gold.png",
+      "bytes": 77981,
+      "sha256": "2be3e99a83c3d3bdd5b94b7d1e6449a2745caadcc52d0cd1a8d935123daf62ea"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-gold.txt",
+      "bytes": 1072,
+      "sha256": "9d221baa6beeafc093bf30d171fa9044a64dc331012d7d8a658441a65804b92e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-stocks.png",
+      "bytes": 82925,
+      "sha256": "7cc47c45826ff09ce75d7af287721f3c7ce03ee814a6b525fd91372277576315"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-event-stocks.txt",
+      "bytes": 1310,
+      "sha256": "09ba65d0c8727721d6a4f3021832c8dca170e0e44617bcb1510ad793d1388729"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-result.png",
+      "bytes": 84215,
+      "sha256": "4593ada23df8a32b13d6f589e298d324163b4e15da6afa27cbc3f6273eb9f1a4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-result.txt",
+      "bytes": 1090,
+      "sha256": "50817e045e33a63909e3f601df002b7454f681a90dd145549d747ee4017f3747"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-resumed.png",
+      "bytes": 137084,
+      "sha256": "918dcf2778729e318a91abb2a5cc836a043d7d7a5fc1858e215b35444b12c7d6"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-resumed.txt",
+      "bytes": 605,
+      "sha256": "47811e8890b9d48036eda15d3a8d374488c6aa4a5505cfeee2c77c44c4ff6268"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-sale-bonds.png",
+      "bytes": 92673,
+      "sha256": "dd8de3292c8b7d69c95b5d4c4c86c7db7adb63c5a9314bb4fab3b6437d97dc00"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-sale-bonds.txt",
+      "bytes": 1262,
+      "sha256": "144109a8925b7eb6188853d2108b33caba411292ebee78204547f8fd7fc6a866"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-sale-gold.png",
+      "bytes": 90157,
+      "sha256": "8dfee8518b4f4e346e9beeb724e61ef8f3dcc3dd7b879870c35d2e3662ab8ff1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-sale-gold.txt",
+      "bytes": 1152,
+      "sha256": "98001c40460b9221b76ed86326c42b3dc35e91f7e76b9885acfef6161c53661b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-setup.png",
+      "bytes": 97836,
+      "sha256": "fdf3cae130c632382f9caa0a753730a1bacb13abd3a93194677796326422e2e7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-setup.txt",
+      "bytes": 1403,
+      "sha256": "11d74dc1e563f5ad7d88cdd12a184fd04f56d65fd2e5850547efda203e6b6c7d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-start-sale-bonds.png",
+      "bytes": 93795,
+      "sha256": "1fbf788868d2731b5d5f5a0e26b16adde6effdb4d75182cf48ad67526fdd140f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-start-sale-bonds.txt",
+      "bytes": 1348,
+      "sha256": "bc44410647f69a6ebb028a97df87d111963f1d8b28f57a33c6c2d1b3327c4a86"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-start-sale-stocks.png",
+      "bytes": 87407,
+      "sha256": "1b39ad881e6f563b5da3bf2cd466cd5b160caaef9008c974322eca26a618ab3d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-start-sale-stocks.txt",
+      "bytes": 1134,
+      "sha256": "83505b297f4580f74d88699873b9c2b38621b393ef52825a903f935cff210211"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-summary-1.png",
+      "bytes": 103106,
+      "sha256": "6f16a4663943b67f27a199db638fe04386da52ae07ba0087f31870acf52cc838"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-summary-1.txt",
+      "bytes": 1192,
+      "sha256": "8ec1ce22a006df3fe0eb59860bc5ed5705a0c88f6cf84cd7b9ab424e0a399cc3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-summary-2.png",
+      "bytes": 100224,
+      "sha256": "58a48fa0f539c9fd12ab173321a7d64a31c0a3047050b3712ea3c5c3feb0139e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-summary-2.txt",
+      "bytes": 1456,
+      "sha256": "141bfda58edca6b7d9fa559aa5f39a839ee390648d442c1d79d928d9855caa29"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-summary-3.png",
+      "bytes": 101972,
+      "sha256": "fb250fec6a13b9062dd5b87978a5f4b3477c04e3f3c4202362c96ad7b4bfd130"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-summary-3.txt",
+      "bytes": 1500,
+      "sha256": "30e756c321318ef94f13c444ba19039562e60599a2d37e6dce7d3109f43eceb7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-summary-4.png",
+      "bytes": 101546,
+      "sha256": "026269e8f87c25fe6dade294d167617813941532e0855672268bb44bc0d9c90e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades-summary-4.txt",
+      "bytes": 1469,
+      "sha256": "0dea9f878f4157eccc5d55695c96d604afbded9d867f937409f7eefbe1068ab3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-trades.json.gz",
+      "bytes": 1621440,
+      "sha256": "a533ab3f57255df8d5f0a01f929b59d349e29656e54fd37c3bacd17dc294d542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-event-bank.png",
+      "bytes": 91035,
+      "sha256": "5f3e51168d8eefa56750c77b508f03dfdaafa9d073a306470ae3a4efad3bf6ce"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-event-bank.txt",
+      "bytes": 1286,
+      "sha256": "6a44346e5457a4f00cd3cfa0634227773297c032f60a5cf110e4c0e2a7f98281"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-event-bonds.png",
+      "bytes": 105781,
+      "sha256": "65881d65c523298b755c82ced08f4ceb8c9a009424ebaaf54740748e476a7526"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-event-bonds.txt",
+      "bytes": 1769,
+      "sha256": "01162d43a9c730d6e9d25d4e6fe7483b4af34491c2475bc0b44a53871b58acba"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-event-business.png",
+      "bytes": 90764,
+      "sha256": "829b9f387a26112c02281e74ffe537efa73cf1ddab4d1811816a0ffb9e3a9926"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-event-business.txt",
+      "bytes": 1294,
+      "sha256": "5215bac2f306e0006f3c4a0866989b03644d2412d3dcd5f7f8149d689ac140d0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-event-course.png",
+      "bytes": 82173,
+      "sha256": "5dea064009b88c0bd9d909107beebf93713e7e1ccc4064745503b68f896dc00d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-event-course.txt",
+      "bytes": 1249,
+      "sha256": "50d9ac7b59bbfeaf38db42bce9f4e15c80204039806c7a46eef53c1078e11da3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-event-repair.png",
+      "bytes": 99113,
+      "sha256": "8d6508a5bff9739a33674cfda88937386bd134227984e56518c159778d78ad01"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-event-repair.txt",
+      "bytes": 1067,
+      "sha256": "1e5a2fba393b9b3bffc1ea068caa1607bb1963195293dcb1e071a82f77bd54f3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-event-stocks.png",
+      "bytes": 81294,
+      "sha256": "fbeb08b5de67eafcffa037a975c0dab89725537c7f7979e4c41503b477e92416"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-event-stocks.txt",
+      "bytes": 1293,
+      "sha256": "4b87ff9fdad853d7f8f57e2e0b4b9e5dd1228f2a1b5ee8a0612ad439806f0b8f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-funding-0.png",
+      "bytes": 93161,
+      "sha256": "0d0513599232da55e553bf6e30ccdfe5e23b1c43ad6d78ef5d30ff4b897ee193"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-funding-0.txt",
+      "bytes": 1361,
+      "sha256": "4d2b1fb49a082dfef2d13b228dffe78c92a35b88d77a5b90520ad68c1ac68095"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-funding-choice-0.png",
+      "bytes": 93161,
+      "sha256": "0d0513599232da55e553bf6e30ccdfe5e23b1c43ad6d78ef5d30ff4b897ee193"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-funding-choice-0.txt",
+      "bytes": 1361,
+      "sha256": "4d2b1fb49a082dfef2d13b228dffe78c92a35b88d77a5b90520ad68c1ac68095"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-result.png",
+      "bytes": 78254,
+      "sha256": "3ac5d38d93f2d86102e7fc5f7257ab3a1b17fd69a823ebf49aada70c8d2b72d1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-result.txt",
+      "bytes": 1009,
+      "sha256": "ec47c0c3f93cfa97dbcac391305550f75f25f0e107da07c0b136f5ccdf549ffd"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-resumed.png",
+      "bytes": 138152,
+      "sha256": "c7c5272526c0d6ff08bde5d3493bffe4efe2edbf5677065df222d2b5b7ecdc0f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-resumed.txt",
+      "bytes": 615,
+      "sha256": "585a49bdc7916c262cd613508fab59d47efc85d334472b1bf1c95747242c7f79"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-setup.png",
+      "bytes": 105588,
+      "sha256": "1f7e155c8466bfc0755e2ff512c03c6f65f6f458db66b3327d8abe7e1bc22da1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-setup.txt",
+      "bytes": 1589,
+      "sha256": "b306d818c4f40cf33a070e15cfc6d50b07ba2ada549fd734c1487ca1eff42218"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-summary-1.png",
+      "bytes": 102527,
+      "sha256": "90b60cf1d48ae6ad4a4c292da2adce7773520869eb9e671d2318986f1ff74b7a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-summary-1.txt",
+      "bytes": 1175,
+      "sha256": "be53b322236433e6804b776792ae70009453a8a84dd2587e8c84023aa29cae96"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-summary-2.png",
+      "bytes": 103013,
+      "sha256": "4b92ba959dd11be2ae9f39d4887873125b2e12d271c1d3d70d1842bdf14a039a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-summary-2.txt",
+      "bytes": 1185,
+      "sha256": "589b020832424ea019f5fc81f084e694a778f476110123619eb5fb131eb2690a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-summary-3.png",
+      "bytes": 103138,
+      "sha256": "bab51744068faeb6efcb9a7a9e222f37076c8a41a3d28c068bee9cae6b65971f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-summary-3.txt",
+      "bytes": 1175,
+      "sha256": "a3ad0979fd66329c48f672bfee7f4e41dbe196865825d5216456fbf1e625c472"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-summary-4.png",
+      "bytes": 102935,
+      "sha256": "6a3adb64ca72e997d474c9a5ff77f6fef411403a1459d8f2ff9033c35c61afed"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal-summary-4.txt",
+      "bytes": 1189,
+      "sha256": "0242d32c3664471f439937d0fb76a6d550d01657078b34407aa78e06aa63da4f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/mobile-withdrawal.json.gz",
+      "bytes": 1209550,
+      "sha256": "96613675e6b325033d27889fe381b396fe7b17aa2e923eef06d10d3a9de6e4c5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/results-desktop-defeat.json",
+      "bytes": 868,
+      "sha256": "8278d2a79898538fdd848efad467cc072963aebb651846eaf6ff414dbf093e04"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/results-desktop-savings-victory.json",
+      "bytes": 1139,
+      "sha256": "6cfa33e738eab8e40c013f9bd65fef7e69e96963b9d7db01363af5a16b2b02f2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/results-desktop-victory.json",
+      "bytes": 928,
+      "sha256": "7a70085c3deb7945d2641c2084d40b1124e6df75b91164db19928ca1b892f6b0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/results-mobile-asset-funding.json",
+      "bytes": 5090,
+      "sha256": "0c2f78ce7e67f0d10d73cf2062a4025337b327ed2445da3ad888ab5db35e6c35"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/results.json",
+      "bytes": 27840,
+      "sha256": "a2e63d9836744fd2cbb96b2ecda5a4f96703d452e5bbf885d6cb66da38470c44"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-bank.png",
+      "bytes": 48457,
+      "sha256": "053d5cd8724c9b7ce4224730746a912820692a370487049d2fd24a4c6e8a2d0b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-bank.txt",
+      "bytes": 1284,
+      "sha256": "533360783e61d8f1fc75ebc2c76d28d4c2cc485ea956a8270829b700fec96dbf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-bonds.png",
+      "bytes": 53198,
+      "sha256": "a37fa01ffe2ae519e2fdc4cb60b7385067354e681fdc81e5b8e58c1175bf78c4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-bonds.txt",
+      "bytes": 1759,
+      "sha256": "4d4912dd5b646f5e248e49db66e293d61ff5d9681b00a891e4dc8949de910b13"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-business.png",
+      "bytes": 47324,
+      "sha256": "cd39a01fe6f0740a91861fc630683dc67d198be24a12e2a256dd10dd98d8d3e2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-business.txt",
+      "bytes": 1303,
+      "sha256": "09ccb44c639786eb3d32f3ebdfbdb94bb9fa37ac7574909bbf107c98a8a226c9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-course.png",
+      "bytes": 45959,
+      "sha256": "29456c4003d5838848ad0597082cc4ddfd87e4eefdd0475ad2d25177e812b9f3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-course.txt",
+      "bytes": 1233,
+      "sha256": "2148714b1ef09ea062d23be391a4ba5bb8fdb6e1e6233318f18fc6cdca468917"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-demand-boom.png",
+      "bytes": 51772,
+      "sha256": "e7496aaa3212e7c8f08ac5a2b756eddb9e374ee7103e68404b8a78c1f9915151"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-demand-boom.txt",
+      "bytes": 1461,
+      "sha256": "bd895c95b004d9158812f63f5b67c7239a3b0f7fd97bdc05ad75b4df58a4d5c3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-gold.png",
+      "bytes": 44856,
+      "sha256": "bb930314fe3f8b133057b644ca90ec0efc02bec967ca7a601fcdca494c8d5101"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-gold.txt",
+      "bytes": 1070,
+      "sha256": "3d9087191762c13c69d6e005b840b497094cd7455bc1d76de3c8b8374583ddc8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-stocks.png",
+      "bytes": 44206,
+      "sha256": "2eb8a5a11af72f1279bd361ac5742704063a17d7c1f09fd92285f50afc264f24"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-event-stocks.txt",
+      "bytes": 1308,
+      "sha256": "3ff8b356400f2c93bc8933cd41d22e371089d2612224a4f93acd4da6539516e4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-result.png",
+      "bytes": 47080,
+      "sha256": "ed350436daeb25e14fbf83b520c4810dea1c41b930055ea837384ffff5a2abd1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-result.txt",
+      "bytes": 1040,
+      "sha256": "d10ddce0d5c582c0e2c32eed67fdf186d811687a1598346c2ed6853661ba6d2c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-resumed.png",
+      "bytes": 101741,
+      "sha256": "b13b1e46abf54c4461b35c779c40d8eedd115320e3c3a5e3f3497a385914f8d3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-resumed.txt",
+      "bytes": 615,
+      "sha256": "254461effb14baf9f04d76eb8f035474ab28dd6b85ea07672329a9dc15b33b40"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-setup.png",
+      "bytes": 52545,
+      "sha256": "3961fb5e1ce2c324a1216805959379bf59c76eeb735b83202c38628a6b614778"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-setup.txt",
+      "bytes": 1404,
+      "sha256": "2fc8a5dfccef436a257188e8f0a29cbbb7475049ee2e42ee3e97e88f201390d1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-summary-1.png",
+      "bytes": 59785,
+      "sha256": "10c5b95e102f6935ed01409fc84d1ff264f6583fc11336e62f47c67cbf2a6faf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-summary-1.txt",
+      "bytes": 1236,
+      "sha256": "133420ae24a22557901b947aa8b3005cdf819e497a4b2c9636f721a5346cf46f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-summary-2.png",
+      "bytes": 56768,
+      "sha256": "a2dbb9424bb4a75f7332b945078c7be049dc9b809831839c9088cd1b17ebb925"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-summary-2.txt",
+      "bytes": 1236,
+      "sha256": "5795e7e6788eceb20598e84daecdba393ee6895e5f6303cb47e31672af1ff708"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-summary-3.png",
+      "bytes": 59789,
+      "sha256": "b4232f349c4adb3392a2fe152fa154711e3d1b558f314df31f75c5e820edb08b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-summary-3.txt",
+      "bytes": 1234,
+      "sha256": "e2866cd0a113c00fd1efc142b35e1bba9a18d4ae5810d4625a2f85b3749e2ea2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-summary-4.png",
+      "bytes": 59540,
+      "sha256": "b6cfe5ac2991d133a59a5a6d0928ca98d2c33b77482099db836e7a2686cd4776"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first-summary-4.txt",
+      "bytes": 1234,
+      "sha256": "647f9abb2710d4a76fdf1672bed8929564f79c55bbc13e3f2ad1edd977389b2b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/mobile-advanced-first.json.gz",
+      "bytes": 1639059,
+      "sha256": "129d5bb9bb7e782f70256d57cb4939777ca10bca5d4c2380b413925163f65aff"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/gameplay/webkit/results.json",
+      "bytes": 3706,
+      "sha256": "1b9b139c212931764806f06116afdc35310ef82d71160f76a50122bfffdac9fc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/historical-replays.json",
+      "bytes": 16141,
+      "sha256": "554073857a62881dcec8f1fc175f3c0b28c1790c480f380ffd34f13d4fd8b5dc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/historical-replays.txt",
+      "bytes": 206,
+      "sha256": "87eac3b8190a5dc5017cad4cd5b663a8dc5fe59dade4bdcbb4507475ee592d00"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/lint.txt",
+      "bytes": 49,
+      "sha256": "91526960bb95dcdaf6283bf94b32949ed4d61c703f06493d01f9b777a25401f1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/mobile-deployment.json",
+      "bytes": 2327,
+      "sha256": "cb2d290d9981e23cc5fd41e88e163e7e170ef58528e2001465bf5178aedf224a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/mobile-provenance.json",
+      "bytes": 575,
+      "sha256": "36c18b8699a30ac332378526fd37fd2216500c1e8221d2c92a29603fa6417245"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/natural-game-results.csv",
+      "bytes": 1314,
+      "sha256": "d1b230d883f54c23a0aedf2b3a7983f38d99d77cef0ca673cd40007c6539dd5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/new-game-verification.json",
+      "bytes": 24858,
+      "sha256": "5e71fa54f0cdb4d7ebe338b9551cae32faeedcedef620938d49d69a0c4992399"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/new-game-verification.txt",
+      "bytes": 227,
+      "sha256": "7b560ad07f3917de1a49c531157a978627654bab154616f159293a04e5da2cbf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/parity.txt",
+      "bytes": 250,
+      "sha256": "a47db80e49c5945ff88a1f277f5e6edb6e81be625ff4221877570b52eb516833"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/probe-chromium-desktop.png",
+      "bytes": 112515,
+      "sha256": "a7a446b4997dedcc029bade9b14fffd0a65f7d95432a23d7a8181c922468cd07"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/probe-chromium-desktop.txt",
+      "bytes": 1193,
+      "sha256": "2faf28e59320038e92bf77060c6eb860e4c066b6bda063891cbd87279bf3119a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/probe-chromium-mobile.png",
+      "bytes": 100856,
+      "sha256": "11595f39fd49fa2cb3661bcef5e0f57e92b825580332814d635f3ac7b9ebadba"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/probe-chromium-mobile.txt",
+      "bytes": 809,
+      "sha256": "0641a77b2baecee10665612c2971d0a472b705b740d84bc5d86ba57da871644e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/probe-firefox-desktop.png",
+      "bytes": 105843,
+      "sha256": "418fcd0eb70212531f4aa8fdd0781f105ffeca1850d327b8381ea3e490f87bd9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/probe-firefox-desktop.txt",
+      "bytes": 1193,
+      "sha256": "2faf28e59320038e92bf77060c6eb860e4c066b6bda063891cbd87279bf3119a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/probe-firefox-mobile.png",
+      "bytes": 152550,
+      "sha256": "72d8fec405c82a774072b1a894ee31be9c976add4552d20564fe8b64e9f1a489"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/probe-firefox-mobile.txt",
+      "bytes": 753,
+      "sha256": "9694976f5352012e6875c43ebea1943714522fed56a27c9f0c3f8ce3f7bb2b5c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/probe-webkit-desktop.png",
+      "bytes": 93604,
+      "sha256": "5ca6c847d2c861730b18cc819c153a6f7ec40d97de9a230251a7c8a92d7180c1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/probe-webkit-desktop.txt",
+      "bytes": 1193,
+      "sha256": "2faf28e59320038e92bf77060c6eb860e4c066b6bda063891cbd87279bf3119a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/probe-webkit-mobile.png",
+      "bytes": 142648,
+      "sha256": "994b51b2d8a08f01f022a74ceb7ae1765d18c31fb39cf8fc65addefafafdf7ef"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/probe-webkit-mobile.txt",
+      "bytes": 809,
+      "sha256": "0641a77b2baecee10665612c2971d0a472b705b740d84bc5d86ba57da871644e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/product-tests.txt",
+      "bytes": 81458,
+      "sha256": "8afa6e2ac178f8d8af1af4d869a8b6fc234a8caf91776b128261743767d92f1b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/ssr-tests.txt",
+      "bytes": 14306,
+      "sha256": "b3f57c14aaa076a3fbe5ef914eaacf82d4ef56a897d6dcfc38ef3829818e3ee6"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/stock-checkpoint-provenance.txt",
+      "bytes": 340,
+      "sha256": "42ad8a8c9c484c2babf0ded2dd05132cff9e64f385d7b3b1f0d22b3ac63298d1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/stock-resale-checkpoint.json",
+      "bytes": 4428900,
+      "sha256": "dc8a0a11de0e2372edc374fc4e33d845931a200a6b96fe766fd042e2fa471243"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/stock-resale-run.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/stock-resale/results.json",
+      "bytes": 165,
+      "sha256": "b372ca1bf2c73808447c1fd41f12a3356d5f4a98aa860de0851129edf59a0a61"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/stock-resale/stock-resale-after.json.gz",
+      "bytes": 347864,
+      "sha256": "e597d4d99b03c170c0ec2d3b83463a3fb2fd5221c20085197ac4179ab9146c09"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/stock-resale/stock-sale-preview.png",
+      "bytes": 93167,
+      "sha256": "a4378231e2f90d12d2299f151364b9a6f3fe303103e1446597ea5547f2cc65d6"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/stock-resale/stock-sale-preview.txt",
+      "bytes": 1206,
+      "sha256": "d18037c36207c835898e4c3487d7d32d7f646daa5efce5a5b72f60346cac8e7e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage-run.txt",
+      "bytes": 37,
+      "sha256": "4b488d7122d4823b0ac11fb208e12fb5d99b88922793457988012149d3e75886"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/credit-defaulted-details.png",
+      "bytes": 120353,
+      "sha256": "cc849e486cd9283229771f4ac2e039e2caa4c2cc2f14e912fbd902639e143180"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/credit-defaulted-details.txt",
+      "bytes": 2589,
+      "sha256": "112b482f69ef3ed4edae8153e5121428dc6d1999afb25b919064ee8d2f80a381"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/credit-defaulted-imported.png",
+      "bytes": 120735,
+      "sha256": "69fc244af02be5c3dab2f010379582a63fa2d2919ce60d81f4953c0cf04bc2d4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/credit-defaulted-imported.txt",
+      "bytes": 1136,
+      "sha256": "e812b7ee6bf1acca5b6a8468b1e5cacb34f8fe10304d5c81555608e371bb810b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/credit-delayed-details.png",
+      "bytes": 115393,
+      "sha256": "ba46247c6b064382069952aa0d70e640702d16de90568513d7a8b3e85a581824"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/credit-delayed-details.txt",
+      "bytes": 2812,
+      "sha256": "fa751bc56e2ccc6d63c37497c4e325a9e8b4a670650fc9a1fe0da9ece0cf4087"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/credit-delayed-imported.png",
+      "bytes": 110053,
+      "sha256": "266a784b15f4c52fefc9411f499714c0c3ce2fc2a4cae01f140e98a38812db0e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/credit-delayed-imported.txt",
+      "bytes": 1011,
+      "sha256": "95efc713c9ab51ea9267c183f319c34e8be34036f3c66a248f2ed07dd1539542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/desktop-after-reload.png",
+      "bytes": 107589,
+      "sha256": "2a26bccd925619aa272cbe39880b013a7460d2c8d1f8693610688fec59794674"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/desktop-after-reload.txt",
+      "bytes": 1193,
+      "sha256": "2faf28e59320038e92bf77060c6eb860e4c066b6bda063891cbd87279bf3119a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/desktop-before-reload.json.gz",
+      "bytes": 28186,
+      "sha256": "e6845a1fd8cc74e1e381cc8c6fec1cc5d1368b9dc47773f45d13aaa762c03587"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/desktop-reload-trace.zip",
+      "bytes": 3571489,
+      "sha256": "eb6c13dbb5a02459fd9976a8119817d7ba5f4d7e09e3348e6130a4833edeb044"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/desktop-to-mobile-manual-imported.png",
+      "bytes": 138678,
+      "sha256": "fd6c7976f284b616030c847f5b75f25bd7ab5bc2a7789de08273b4100da89487"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/desktop-to-mobile-manual-imported.txt",
+      "bytes": 604,
+      "sha256": "e907e798995550f4629951a41b8b8ca7b526d863094ddb55d251fa3b6d33eee9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/desktop-transaction-before-reload.png",
+      "bytes": 158778,
+      "sha256": "93bdf79aa330fd69c8e21b44b7fddde652eddc42ef915009aa80317a33dd4831"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/desktop-transaction-before-reload.txt",
+      "bytes": 3085,
+      "sha256": "0e8d838f7809bd306b60880a3e284bb9ca8de8eabe8dcc8f9ff3e57149733916"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/funding-debt-imported.png",
+      "bytes": 137003,
+      "sha256": "1dedd4b0758cfc06bee83f341d68fe5da8b237b70a19fb324e8739ee974474b3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/funding-debt-imported.txt",
+      "bytes": 614,
+      "sha256": "29b4ff81b5346342973df54365ea9f7122f26dbdff73c522af8d96dd0bf40c17"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/funding-savings-imported.png",
+      "bytes": 136986,
+      "sha256": "3b464e348eef4e1238cbd224395e81b06b5b3bc0661950a94b80264635831020"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/funding-savings-imported.txt",
+      "bytes": 623,
+      "sha256": "30977a33612da0644b1511765dd4edca9114f4efbf8a600d72d90894f978b79f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/import-malformed.png",
+      "bytes": 97287,
+      "sha256": "9d984baead928022a3d20d55921265f121d136671a281eb39d8992021aae3909"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/import-malformed.txt",
+      "bytes": 1462,
+      "sha256": "af082507289180e1c5cbbee26534b5a942ed1c550c4e560f82864478c2ddff0b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/import-unsupported.png",
+      "bytes": 97319,
+      "sha256": "7ad76bde8c79bf98023cff50171bbd8fbfc015f44bb60da78c567423b515c200"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/import-unsupported.txt",
+      "bytes": 1419,
+      "sha256": "a9f2b48521feb4b068a323533a26ca2d49491c04b8a8eb04f59b31d9a3af1531"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/quota-recovery-export.json.gz",
+      "bytes": 12452,
+      "sha256": "2ddf51f33a997ef17dce3071b0d16b36b65c0685c3b241326077edae1578f4f9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/quota-warning.png",
+      "bytes": 87453,
+      "sha256": "cc4859cf8dc1ef7cebb829187cf32bfb410eb905d7e55a31fd8405fb95d31426"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/quota-warning.txt",
+      "bytes": 1739,
+      "sha256": "a3cceb61ac39600edec149eb7bc478c0b1b9d3481ae235f42fbee61684442a7e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/results.json",
+      "bytes": 4081,
+      "sha256": "3cdab259124d371ae6b6fdee6d5c8fa63da3c95229e8cc9ca9a187ee5f6fe833"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/schema4-c20-imported.png",
+      "bytes": 96529,
+      "sha256": "066997954f7dc28fc5f995d2cb38cd94da4a4d2530ebd1f393cfc6c05fca228e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/schema4-c20-imported.txt",
+      "bytes": 655,
+      "sha256": "aef03cdaa998031fb0bd2f5c793ab1e1a1e611537b83794bd8b19a661e7f6281"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/schema5-c20-imported.png",
+      "bytes": 96525,
+      "sha256": "2385ae12388e0e4295dee0573641092594991a241510056ed4a431095939916b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/schema5-c20-imported.txt",
+      "bytes": 654,
+      "sha256": "3adbacce94edcf11bbeaee1842286c6588f9725c92eb1b8711b81553e334847f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/schema6-b18-imported.png",
+      "bytes": 83650,
+      "sha256": "15948d7ac2ed50c3ae8162cdc661622c9b9f1911bb3dbfb30ea9e2e716428e04"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/schema6-b18-imported.txt",
+      "bytes": 1036,
+      "sha256": "9c027d593042d54f5e21daf0915028e4ef78211805c0153bd81849b2a3c97523"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/schema7-multi-imported.png",
+      "bytes": 83944,
+      "sha256": "c508ab38aa001d85a74b59ad78b313aa79a180be26b9e4b653b944826731a650"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/schema7-multi-imported.txt",
+      "bytes": 1075,
+      "sha256": "75c4fc3e563fcadb94b63d3714cf675a969ce1803b929bb67b9b6af07de57b18"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/storage-corrupt.png",
+      "bytes": 101133,
+      "sha256": "d0e5b6853919b13e4404d090e56d5dd4565d3771016e0de13e9f7ae10f7238a0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/storage-corrupt.txt",
+      "bytes": 1317,
+      "sha256": "74ef648572b25341b0512cbec0969a833e8c790061ffbfc59f9a9e151674b78b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/storage-read-denied.png",
+      "bytes": 101133,
+      "sha256": "d0e5b6853919b13e4404d090e56d5dd4565d3771016e0de13e9f7ae10f7238a0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/storage-read-denied.txt",
+      "bytes": 1317,
+      "sha256": "74ef648572b25341b0512cbec0969a833e8c790061ffbfc59f9a9e151674b78b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/unsold-business-excluded-from-goal.png",
+      "bytes": 90302,
+      "sha256": "f9436e6506ec027918b31b3525efee1abd36a333fc91354010a3ed158c61c3b2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/unsold-business-excluded-from-goal.txt",
+      "bytes": 1712,
+      "sha256": "8ac3e715fc722f932af85d8e7bde7cee238f4808772404b77f47ee4a441380df"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/unsold-business-imported.png",
+      "bytes": 90198,
+      "sha256": "56fe740dca25f95fa392cd4c4621a205cb97f41d51bc8b440ff76574efd3858d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/storage/unsold-business-imported.txt",
+      "bytes": 1140,
+      "sha256": "ecec18c3adcb2596cfa980a79fa0476c078ad9f5bf93344ece932e0c99b11e17"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces-run.txt",
+      "bytes": 38,
+      "sha256": "aff0a66615f1184574a469f897f17127a297fbe9b779a35edeb60a689c495dcc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-1440-bond-dialog.png",
+      "bytes": 247098,
+      "sha256": "4e78450347de19f65160c4f5d24d3c2063843f336f4c719bc04dbef4324c4e1f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-1440-bond-dialog.txt",
+      "bytes": 3889,
+      "sha256": "dfbb586637014e4d9ef0440e891f0271af989b9cc5e7238c34725a7a4c9a86f0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-1440-css-zoom-200.png",
+      "bytes": 161427,
+      "sha256": "04ac70cb4c44e385f9af0e1dcf03c5bc9ace5e81117afcbdf2dcc9ae3ae3500b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-1440-css-zoom-200.txt",
+      "bytes": 3889,
+      "sha256": "dfbb586637014e4d9ef0440e891f0271af989b9cc5e7238c34725a7a4c9a86f0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-1440-landscape.png",
+      "bytes": 234708,
+      "sha256": "8f61a8377b5de5ed5ed391848f6be0a17fa0c570dc46e761101020e0ac52ca52"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-1440-landscape.txt",
+      "bytes": 3866,
+      "sha256": "4a44d734ad4dd087fa57e105c4672459f0056f5a717eff30985c7834a23e7542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-1440-setup.png",
+      "bytes": 88163,
+      "sha256": "64827d060537929f8198f9f2ec76dc04c64fff3197842e290270f4ff4dc08f6e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-1440-setup.txt",
+      "bytes": 1936,
+      "sha256": "b733ae3b310a44d919b6b57695490c8136f61c3e8cfdbb984aae5a0aa72fae9e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-1440-short-height.png",
+      "bytes": 138974,
+      "sha256": "de93f6eb8a5926a81cdbdb72be3ce8e3935d9d24575c1f44f8fa7df2c76bf254"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-1440-short-height.txt",
+      "bytes": 3889,
+      "sha256": "dfbb586637014e4d9ef0440e891f0271af989b9cc5e7238c34725a7a4c9a86f0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-1440-tooltip-hover.png",
+      "bytes": 263197,
+      "sha256": "bb156448711e9c5ebf25d00017769254881d53275bf16c50c2805a38723ff4a2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-1440-tooltip-hover.txt",
+      "bytes": 3641,
+      "sha256": "52d86b426238a3ae0c5780f00146df0a7ec9ba2243656a2df8037684a487537c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-320-bond-dialog.png",
+      "bytes": 63002,
+      "sha256": "54902576241a311e03fa4c9081d2b98b1d0416e7dbae7b8ca5cb78c63c863504"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-320-bond-dialog.txt",
+      "bytes": 2162,
+      "sha256": "a1cc9a9e06121407fb41232a6c1d65b0815efc3d6d85b02bae2412a7a135a273"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-320-landscape.png",
+      "bytes": 62864,
+      "sha256": "db11a2cd8c01ed695910281ad6280d49f5bcd367261c7382dc060d9410324a97"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-320-landscape.txt",
+      "bytes": 3866,
+      "sha256": "4a44d734ad4dd087fa57e105c4672459f0056f5a717eff30985c7834a23e7542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-320-setup.png",
+      "bytes": 49191,
+      "sha256": "f09951ec6a8f4cea4abd4409f73b2589b9e900bfd77323e1079c53ab8772c418"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-320-setup.txt",
+      "bytes": 1774,
+      "sha256": "b0cbb14822712444a5f56621d909f75147f76746050e54cfe20eb73062e88416"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-320-short-height.png",
+      "bytes": 28858,
+      "sha256": "436c290f9953cae2fec7731e75bff14024290256554422ebf97bd63a9a0d5fa0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-320-short-height.txt",
+      "bytes": 2162,
+      "sha256": "a1cc9a9e06121407fb41232a6c1d65b0815efc3d6d85b02bae2412a7a135a273"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-320-tooltip-touch.png",
+      "bytes": 53948,
+      "sha256": "6e7a38aa5066ef9f0130a6cda42e597e1cfa5f82c9b8a0b9a43b93cb6179f1c4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-320-tooltip-touch.txt",
+      "bytes": 1649,
+      "sha256": "14f2a850ed623bbb08cbe852bbca078bea38dd9900b26778d132911e06319bad"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-390-bond-dialog.png",
+      "bytes": 60424,
+      "sha256": "0a728f759b72e11a14c5d2ba26a7c1182ad89a511af3a8297f46bf55670a213f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-390-bond-dialog.txt",
+      "bytes": 2162,
+      "sha256": "a1cc9a9e06121407fb41232a6c1d65b0815efc3d6d85b02bae2412a7a135a273"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-390-landscape.png",
+      "bytes": 85130,
+      "sha256": "c8eb7273b6665ffe290d6778d3e5e03d40d1edbccd4feb3e765fa8e7e1f460c6"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-390-landscape.txt",
+      "bytes": 3866,
+      "sha256": "4a44d734ad4dd087fa57e105c4672459f0056f5a717eff30985c7834a23e7542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-390-setup.png",
+      "bytes": 50672,
+      "sha256": "d46ebadacbd6f91221e8b244cb3dd20b5fa1d0df40478ca0e7611a911b6f9458"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-390-setup.txt",
+      "bytes": 1774,
+      "sha256": "b0cbb14822712444a5f56621d909f75147f76746050e54cfe20eb73062e88416"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-390-short-height.png",
+      "bytes": 29589,
+      "sha256": "052b3d2fa7c11091319e39359029f230d0de50af3c50fcf417a7ccaa2eae246a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-390-short-height.txt",
+      "bytes": 2162,
+      "sha256": "a1cc9a9e06121407fb41232a6c1d65b0815efc3d6d85b02bae2412a7a135a273"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-390-tooltip-touch.png",
+      "bytes": 64601,
+      "sha256": "9477b55a45da2b6154ecb5f294c043df0ca621f87ee83722bf211c0d4ec83fac"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-390-tooltip-touch.txt",
+      "bytes": 1649,
+      "sha256": "14f2a850ed623bbb08cbe852bbca078bea38dd9900b26778d132911e06319bad"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-768-bond-dialog.png",
+      "bytes": 138245,
+      "sha256": "75cc3e4f61dfac0b69d341334ae8315b51d7ac9f9720ec11fb35d73dbf03fb70"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-768-bond-dialog.txt",
+      "bytes": 3866,
+      "sha256": "4a44d734ad4dd087fa57e105c4672459f0056f5a717eff30985c7834a23e7542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-768-landscape.png",
+      "bytes": 138114,
+      "sha256": "cfcd12464d55168f14a97055c073b805955e05a8371fd3ac1bc59cf1381dd987"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-768-landscape.txt",
+      "bytes": 3866,
+      "sha256": "4a44d734ad4dd087fa57e105c4672459f0056f5a717eff30985c7834a23e7542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-768-setup.png",
+      "bytes": 69936,
+      "sha256": "b38ec34861674daebc39f61869e62e1402f45a6821e2d874e675cfbed8821afc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-768-setup.txt",
+      "bytes": 1913,
+      "sha256": "25b570894b973dc11e17a9e150405436e935ff6ecd79ffef0ad7d38d5cab56ed"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-768-short-height.png",
+      "bytes": 65216,
+      "sha256": "d2584c7a20f1060d7f53d1688bf4182e1f8e7768c6539da71ae513b5f9d08c14"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-768-short-height.txt",
+      "bytes": 3866,
+      "sha256": "4a44d734ad4dd087fa57e105c4672459f0056f5a717eff30985c7834a23e7542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-768-tooltip-hover.png",
+      "bytes": 163940,
+      "sha256": "2071f23267fca2f14228f7b41c8e84f51f73a8140699e8b3abdb4f1736e9c0f3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-desktop-768-tooltip-hover.txt",
+      "bytes": 3618,
+      "sha256": "48b540a143ff716145e08ad1371bf8f69332a176b14137891d26ceec068d5298"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-1440-bond-dialog.png",
+      "bytes": 126633,
+      "sha256": "22019cbe22b983aa488fc83b1e3e4d2659f16e1f720c5236870abf5335c83cfc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-1440-bond-dialog.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-1440-css-zoom-200.png",
+      "bytes": 152730,
+      "sha256": "177e0cd399b7382f15abaffbabf5037cd55e3fe21decaab158076bff0427d16f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-1440-css-zoom-200.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-1440-landscape.png",
+      "bytes": 177629,
+      "sha256": "f0b3429d914fd5566300eed9ec75bd98e7568b9e8102f08be91a6e32293e795c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-1440-landscape.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-1440-setup.png",
+      "bytes": 126240,
+      "sha256": "befff8a9921dbb224bbbb2d2384a9302aab3636e748d11b7c71c2a2df7fa8765"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-1440-setup.txt",
+      "bytes": 1317,
+      "sha256": "74ef648572b25341b0512cbec0969a833e8c790061ffbfc59f9a9e151674b78b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-1440-short-height.png",
+      "bytes": 48976,
+      "sha256": "c980478cec177c53655b6d6488360172bf2d186876edb34f6960fa06b9422c51"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-1440-short-height.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-1440-tooltip-hover.png",
+      "bytes": 134382,
+      "sha256": "d4b77fa9c36ccce5a318297c26214393a7fc72ec841a60043ab01316ea0d0367"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-1440-tooltip-hover.txt",
+      "bytes": 1829,
+      "sha256": "dad9dce057779599bb4fb6415018526ced3213ea7c96c6f19e718606589f365a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-bond-dialog.png",
+      "bytes": 93883,
+      "sha256": "235c484f05f9c93c1826b982fe684a3fd23c117d6abdeb553aa6924ce52cf962"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-bond-dialog.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-landscape.png",
+      "bytes": 37027,
+      "sha256": "8b90727542321e811185f49f9c4b65b33444dcefcea8958afa5da1c810de5a2e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-landscape.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-onboarding-1.png",
+      "bytes": 101341,
+      "sha256": "bd4ac1ed4a8f1375418a941d1d2f6b450ddaf2ba82efa1dd0a12d3a7d95ca6f7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-onboarding-1.txt",
+      "bytes": 809,
+      "sha256": "0641a77b2baecee10665612c2971d0a472b705b740d84bc5d86ba57da871644e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-onboarding-2.png",
+      "bytes": 113028,
+      "sha256": "993ca1246ff6b4ce0325e37a210d924fc600da49b634d8e880c84f63d1a8b4d3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-onboarding-2.txt",
+      "bytes": 965,
+      "sha256": "8671fe0f8ba1553411bee046a35c89af45e8c6a01722ef0b1ee807a4ddcddfaa"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-onboarding-3.png",
+      "bytes": 107902,
+      "sha256": "de5bbfaf45e413286cb59d7522d6066d4d6e69e61086e7546adda1596d6e21fc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-onboarding-3.txt",
+      "bytes": 845,
+      "sha256": "7d8ed115eb88b528141bf8d8f61f942cdf2d3c7efd913a5eac5278f1b267caf1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-onboarding-4.png",
+      "bytes": 117318,
+      "sha256": "2a899d537497970b674472cab95f19ae76f0cb9b1a15d47e60f25c40e9cf1c3f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-onboarding-4.txt",
+      "bytes": 1152,
+      "sha256": "d9858405ac2e6961616fc6c0fcbc95cc7b48f28b0925b481e649411ceaaa37f3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-onboarding-5.png",
+      "bytes": 105251,
+      "sha256": "c9468c90883af3f477308dbb850dfdd0daaa81ba7a1427e04da13a4825d406ec"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-onboarding-5.txt",
+      "bytes": 858,
+      "sha256": "7b57851bfe327ec3dc476fda563fb54dd3762e4353b54601922c0ea480f0af61"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-onboarding-6.png",
+      "bytes": 104345,
+      "sha256": "ed68fc5007032962ebc110c174499b0060e0dc35c3a3e71764dad0c43c8387af"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-onboarding-6.txt",
+      "bytes": 780,
+      "sha256": "0cb9387b99a84d679f86fca7309546b71e7504866b2827bb2f5d2e270c7bafe4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-setup.png",
+      "bytes": 92274,
+      "sha256": "b63119b793aa59cbe9d6fd55b9592864da0fc5688e784c2d48509fad94754f27"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-setup.txt",
+      "bytes": 1317,
+      "sha256": "74ef648572b25341b0512cbec0969a833e8c790061ffbfc59f9a9e151674b78b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-short-height.png",
+      "bytes": 33873,
+      "sha256": "2597fa3cd21c95b514160e2c612639ed2a8e91b61335cfe0521e476e6d512b5d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-short-height.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-1.png",
+      "bytes": 94977,
+      "sha256": "8bcdfc67a6963f202771f1e57af6f79e79b2cb3d570f8722799b54da42baa824"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-1.txt",
+      "bytes": 888,
+      "sha256": "09c8bc0190e527d879de8c6952161175269aa986095fdf4cae45b2c801a5163f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-2.png",
+      "bytes": 92996,
+      "sha256": "4d0a31920278dfca8104c5f61c55c600abc3a918287f9f21bc1c1faec160b751"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-2.txt",
+      "bytes": 814,
+      "sha256": "6dba70de489604679d47fdb0c7973d8563a86124bec164a70766793821dad3d1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-3.png",
+      "bytes": 94838,
+      "sha256": "247840fd4b2ae8e9956338fa9f79856dcdb939502e4d20b9372a1d7a64a44cb1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-3.txt",
+      "bytes": 897,
+      "sha256": "fed0f86c9988374a531dc750a89c64a3a5f5f06e31536c499f7f131b4001366f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-4.png",
+      "bytes": 96134,
+      "sha256": "c2fac93a7be8a34c0682824cb755e1cb8030e7c1b93bae2dae0e249fc3a5c91f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-4.txt",
+      "bytes": 886,
+      "sha256": "34778f839e75d51866e9ac47c9b8423a2d0eb4f396371e5f62c6c2cc884c32e5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-5.png",
+      "bytes": 98606,
+      "sha256": "1be9a379cb8d79f271efd1a854482376de8ed00e337c17ccb14ea47c3c975bc2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-5.txt",
+      "bytes": 905,
+      "sha256": "027058a0fe9357dba328472b29522d095a1700af8aced5e63e712b6653d13cbf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-6.png",
+      "bytes": 94843,
+      "sha256": "f27306a6ae4622d3b5980b8cb0678bceb078d2b11e9f53e0b017c63783977e6f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-6.txt",
+      "bytes": 805,
+      "sha256": "778ed5364b5ce538fb294be9120444acd50cb580fbb279cbb62bbbd70c780ddf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-7.png",
+      "bytes": 95034,
+      "sha256": "d1bf35e70684c344d4c2850825d7757b9a00b5740fb13b76f670be8f10c21bae"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-7.txt",
+      "bytes": 846,
+      "sha256": "2382a9478d2e6aa1b0eeb316f22a43013db34efffa7011b6f4299a35886f1e8a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-8.png",
+      "bytes": 94094,
+      "sha256": "2dd75b76a3cf910053a5bffa2146e0b863d98263347512c5a2c63c1b4c44ead1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-8.txt",
+      "bytes": 841,
+      "sha256": "99ed92db3dfa13d1aae9c8767b48f1cf9a9dd959e61be0f6e09c2e93c2660c8d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-9.png",
+      "bytes": 93453,
+      "sha256": "5b861876d45e7161636c4f6c01cf43a6726aafc903e3af7e1ec747ce6f47d484"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tile-9.txt",
+      "bytes": 805,
+      "sha256": "1ed532483ce36fda661fd881d364c0e999760ec297a09e1b430d6959c66d8800"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tooltip-touch.png",
+      "bytes": 101371,
+      "sha256": "ddcb72c4c16ce335ef84f1b736df2e33cd8d2f9340058c636b7a6d8f0d69abd7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-320-tooltip-touch.txt",
+      "bytes": 1594,
+      "sha256": "30ab93ae877a742afc2d42def84c697cb37b088227444aa71d72246c675e9a3a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-bond-dialog.png",
+      "bytes": 105105,
+      "sha256": "322a6c1de36e5f390e7564b7770e62f376addd329bd2dfde7688655270b1a8fa"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-bond-dialog.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-landscape.png",
+      "bytes": 49597,
+      "sha256": "6ecb852a0d1526df0c9d2e07c45390f2113b2247e2b061db806f4a10775d8f31"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-landscape.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-setup.png",
+      "bytes": 101133,
+      "sha256": "d0e5b6853919b13e4404d090e56d5dd4565d3771016e0de13e9f7ae10f7238a0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-setup.txt",
+      "bytes": 1317,
+      "sha256": "74ef648572b25341b0512cbec0969a833e8c790061ffbfc59f9a9e151674b78b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-short-height.png",
+      "bytes": 34177,
+      "sha256": "e48850fcf5e0bfa5be353c26d52d544344c0e62fcb231bdf5052ea1768c7fb62"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-short-height.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-1.png",
+      "bytes": 116975,
+      "sha256": "3adf64a7811dc9e369d59cf21b99eed63bd27887cec370b75540ccb67e894001"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-1.txt",
+      "bytes": 888,
+      "sha256": "09c8bc0190e527d879de8c6952161175269aa986095fdf4cae45b2c801a5163f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-2.png",
+      "bytes": 114482,
+      "sha256": "41c30e3d711c56d5e2502c99a86f3956f9d7f7e05ce5f6e866bae298f0bbd2e9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-2.txt",
+      "bytes": 814,
+      "sha256": "6dba70de489604679d47fdb0c7973d8563a86124bec164a70766793821dad3d1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-3.png",
+      "bytes": 116463,
+      "sha256": "315f178b258e360980dccd3fb1ca9b8c964b76bf1c321b22a65c221b529d1dfb"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-3.txt",
+      "bytes": 897,
+      "sha256": "fed0f86c9988374a531dc750a89c64a3a5f5f06e31536c499f7f131b4001366f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-4.png",
+      "bytes": 116678,
+      "sha256": "e62db964d80c340d394377b6702b031f4fef3d1e475a1a11836ca2084c09ad25"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-4.txt",
+      "bytes": 886,
+      "sha256": "34778f839e75d51866e9ac47c9b8423a2d0eb4f396371e5f62c6c2cc884c32e5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-5.png",
+      "bytes": 119875,
+      "sha256": "df6eed6eeb038c7f4378f4d1a6587b3207ae166fc268a75d1a9565790397df83"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-5.txt",
+      "bytes": 905,
+      "sha256": "027058a0fe9357dba328472b29522d095a1700af8aced5e63e712b6653d13cbf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-6.png",
+      "bytes": 114674,
+      "sha256": "f6247704f046f1e121cfcf37a4981f006c6dac440fb27584e3bc82bdabd928f9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-6.txt",
+      "bytes": 805,
+      "sha256": "778ed5364b5ce538fb294be9120444acd50cb580fbb279cbb62bbbd70c780ddf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-7.png",
+      "bytes": 117019,
+      "sha256": "c81c9d77091d988e197e23138d310260ac00be3d06629458009ea33d0c5f2389"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-7.txt",
+      "bytes": 846,
+      "sha256": "2382a9478d2e6aa1b0eeb316f22a43013db34efffa7011b6f4299a35886f1e8a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-8.png",
+      "bytes": 115220,
+      "sha256": "19b07fec78b7d7922dbb06f5c4730cfe10f0a08f2f6e74bb1055c2fad5fa9205"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-8.txt",
+      "bytes": 841,
+      "sha256": "99ed92db3dfa13d1aae9c8767b48f1cf9a9dd959e61be0f6e09c2e93c2660c8d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-9.png",
+      "bytes": 113677,
+      "sha256": "ad3a7ca1e8bfffcc41e90a5489f951efd6300d4e2c6ee3f50629284f60058c5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tile-9.txt",
+      "bytes": 805,
+      "sha256": "1ed532483ce36fda661fd881d364c0e999760ec297a09e1b430d6959c66d8800"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tooltip-touch.png",
+      "bytes": 103392,
+      "sha256": "c23e8ff652f6072a3106b24cd6b04f13e1eac5557eed334b3080b7ef7299a8bc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-390-tooltip-touch.txt",
+      "bytes": 1594,
+      "sha256": "30ab93ae877a742afc2d42def84c697cb37b088227444aa71d72246c675e9a3a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-768-bond-dialog.png",
+      "bytes": 127159,
+      "sha256": "286bdb1f6f2c955f05c8fa186c3179fa28adb69f4d8f58b53a514e5ce56e6c73"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-768-bond-dialog.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-768-landscape.png",
+      "bytes": 91577,
+      "sha256": "639cec3fcdf40dcb169f75202cbc59b5eb32f0b62487c64ea1aaa95a108cb9db"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-768-landscape.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-768-setup.png",
+      "bytes": 109687,
+      "sha256": "c6a8bd924a2acb9400aed4b0480da916d930e0a0df44b82e298cff90d10402bd"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-768-setup.txt",
+      "bytes": 1317,
+      "sha256": "74ef648572b25341b0512cbec0969a833e8c790061ffbfc59f9a9e151674b78b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-768-short-height.png",
+      "bytes": 56077,
+      "sha256": "1021aa65bf9a256940d1a716e8cd76897fb415f676f4c8a07a2e8891e785c39f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-768-short-height.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-768-tooltip-hover.png",
+      "bytes": 134869,
+      "sha256": "3afdadb12746bf0723073178e57738ad9c14a620aa4287c2d47836b4484e2274"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/chromium-mobile-768-tooltip-hover.txt",
+      "bytes": 1829,
+      "sha256": "dad9dce057779599bb4fb6415018526ced3213ea7c96c6f19e718606589f365a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-1440-bond-dialog.png",
+      "bytes": 180184,
+      "sha256": "2d0c72956127b1960ba5fd7ad66f27e4df69eef24634734a32af452e2bf9b011"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-1440-bond-dialog.txt",
+      "bytes": 3854,
+      "sha256": "cdbed25870b553a70da57c2edcb855b2e535e18b7f66202c30f9a672ddad0a10"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-1440-landscape.png",
+      "bytes": 196351,
+      "sha256": "bf2d39c8691a8fe2c1210358ba278052ac9e1b8c1fc0869684320bff05ee62d9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-1440-landscape.txt",
+      "bytes": 3831,
+      "sha256": "1a40c3a08b9acf0e9b101414e3f360c4f3650ce6befa48de98268e3c2dc994c4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-1440-setup.png",
+      "bytes": 88191,
+      "sha256": "8d16568028899e39ad7fe61c8ba0da46410a52bf2c18279ccdea132d8e13422a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-1440-setup.txt",
+      "bytes": 1828,
+      "sha256": "faa43cf9730273d1da3e49c1149779ebadc356f3fb864b0b210a6c8cadea302a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-1440-short-height.png",
+      "bytes": 100556,
+      "sha256": "37487a50b3c72f575c97286f73c34637c2ac2b5b74ec03e37798fbb32a5b2be6"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-1440-short-height.txt",
+      "bytes": 3854,
+      "sha256": "cdbed25870b553a70da57c2edcb855b2e535e18b7f66202c30f9a672ddad0a10"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-1440-tooltip-hover.png",
+      "bytes": 195695,
+      "sha256": "178f56d00e53ce39b8608623768b0cd4a24062006795f890c35b27f8a4bbb53c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-1440-tooltip-hover.txt",
+      "bytes": 3606,
+      "sha256": "5eb06b2654aff940506fc046355bb431d724800156fd2c537464daa51038bf34"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-320-bond-dialog.png",
+      "bytes": 42963,
+      "sha256": "560bbd5ec807a0daaa37dc75dc1e3c5f13b05e042bd54d07b6ef93ec1fe0b5de"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-320-bond-dialog.txt",
+      "bytes": 2145,
+      "sha256": "2419c607966c1364bbf721e169cb55ce452267fcf86771da82407a93d7abbba5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-320-landscape.png",
+      "bytes": 61172,
+      "sha256": "70a0e946146b8c3769c0fe49c4f61a09837151fac2ebe659812a45c1712d4add"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-320-landscape.txt",
+      "bytes": 3831,
+      "sha256": "1a40c3a08b9acf0e9b101414e3f360c4f3650ce6befa48de98268e3c2dc994c4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-320-setup.png",
+      "bytes": 42618,
+      "sha256": "6982b983a8c9688d86db120a57d873e1d50e18d3afd1bd835a90228f20d32b20"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-320-setup.txt",
+      "bytes": 1666,
+      "sha256": "7cc95f1fe166c4034dcd7cb387cf9ae1b9a67a57036f0351eb9e1e7cc0a76657"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-320-short-height.png",
+      "bytes": 20761,
+      "sha256": "6bfc80d27f3aa5fcb2997d2f6544a8aacc837980c820b127b913796ad0182051"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-320-short-height.txt",
+      "bytes": 2145,
+      "sha256": "2419c607966c1364bbf721e169cb55ce452267fcf86771da82407a93d7abbba5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-320-tooltip-touch.png",
+      "bytes": 48744,
+      "sha256": "61e17170a3e228b757a8d023348ec64f5d1b20295e11fa563aa257b837f26a9a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-320-tooltip-touch.txt",
+      "bytes": 1867,
+      "sha256": "8cbf0da67866b69c85d16d36d9d4a6b74092f6ae3e49024b600a855392ba8510"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-390-bond-dialog.png",
+      "bytes": 42071,
+      "sha256": "fb4fb8d1fb109d2806f1faac0c2490ad5525033fe228938b83366dce591e6e6a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-390-bond-dialog.txt",
+      "bytes": 2145,
+      "sha256": "2419c607966c1364bbf721e169cb55ce452267fcf86771da82407a93d7abbba5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-390-landscape.png",
+      "bytes": 83012,
+      "sha256": "a5a8ee6466e0dc803d94595a4af19f87f1b5350d1adb94760bca622aadbf3e52"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-390-landscape.txt",
+      "bytes": 3831,
+      "sha256": "1a40c3a08b9acf0e9b101414e3f360c4f3650ce6befa48de98268e3c2dc994c4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-390-setup.png",
+      "bytes": 44659,
+      "sha256": "ec786d2836e6da2bb863eb63a3806b9534d858cfe9aaaa09b28eba908e41d0cc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-390-setup.txt",
+      "bytes": 1666,
+      "sha256": "7cc95f1fe166c4034dcd7cb387cf9ae1b9a67a57036f0351eb9e1e7cc0a76657"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-390-short-height.png",
+      "bytes": 20154,
+      "sha256": "46648d6c924e34406a2affbe83e66b2b9fdc870c2eed777d699d6a8149fec711"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-390-short-height.txt",
+      "bytes": 2145,
+      "sha256": "2419c607966c1364bbf721e169cb55ce452267fcf86771da82407a93d7abbba5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-390-tooltip-touch.png",
+      "bytes": 55622,
+      "sha256": "c0ce44f60802b21b46078950ea33acadb8ff26a6ff641c067344e56541ba2d8f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-390-tooltip-touch.txt",
+      "bytes": 1867,
+      "sha256": "8cbf0da67866b69c85d16d36d9d4a6b74092f6ae3e49024b600a855392ba8510"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-768-bond-dialog.png",
+      "bytes": 121196,
+      "sha256": "f705c98c36b4c9d9e377c1a45f8b3ff84f405f87442e0bdaf04f5f1fb81eca1c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-768-bond-dialog.txt",
+      "bytes": 3831,
+      "sha256": "1a40c3a08b9acf0e9b101414e3f360c4f3650ce6befa48de98268e3c2dc994c4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-768-landscape.png",
+      "bytes": 119619,
+      "sha256": "d3b3240d8e81cc9456bf24a7fea131e649bdfe0bf5bb77eea5b8f6179219607f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-768-landscape.txt",
+      "bytes": 3831,
+      "sha256": "1a40c3a08b9acf0e9b101414e3f360c4f3650ce6befa48de98268e3c2dc994c4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-768-setup.png",
+      "bytes": 63392,
+      "sha256": "2fba65de98ba27c68e5abdf4c9f18533830e20751b85c42f853867a2c02eb5d1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-768-setup.txt",
+      "bytes": 1805,
+      "sha256": "fb8eb0ad2ce6e01dc218ab90e29ae1f5bbf03015a3767a795ef2726c87f77a99"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-768-short-height.png",
+      "bytes": 62459,
+      "sha256": "727ac9de9481d8da7a5a964ac91effbd0223a31df8ba5991a04aeaea7c862604"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-768-short-height.txt",
+      "bytes": 3831,
+      "sha256": "1a40c3a08b9acf0e9b101414e3f360c4f3650ce6befa48de98268e3c2dc994c4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-768-tooltip-hover.png",
+      "bytes": 142196,
+      "sha256": "6786c2f8f653fcb6f82f06c6bbdf51aff4efdb2fae12947cea26d3cc6eeeaa0b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-desktop-768-tooltip-hover.txt",
+      "bytes": 3583,
+      "sha256": "b7f95d2df96790b770ad229c43e20f54e17cc2efde4e7723d94f148008d84007"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-1440-bond-dialog.png",
+      "bytes": 161694,
+      "sha256": "1d95daf532d6e8c3accb2d8bb0cff0e7d89fb18e791b05a332302094bc65d9b8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-1440-bond-dialog.txt",
+      "bytes": 1714,
+      "sha256": "b320840ba43bd79600df5103cab4b8113dc5a834e24cc81941b9d7c5c8a0b3e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-1440-landscape.png",
+      "bytes": 176372,
+      "sha256": "ebedf105ca5d0e32867460dc636bc387560c917f95fa499de6c9d21b002f35c7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-1440-landscape.txt",
+      "bytes": 1714,
+      "sha256": "b320840ba43bd79600df5103cab4b8113dc5a834e24cc81941b9d7c5c8a0b3e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-1440-setup.png",
+      "bytes": 165089,
+      "sha256": "445f3c4baf3f1fbb5e4440106f279713e5b837f60e18b36df16bb2e31f85844a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-1440-setup.txt",
+      "bytes": 1261,
+      "sha256": "cdad190132cf415b4b4eb4045fbb47957d9a1e0c5e8693e77c73a0bdb1cefc09"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-1440-short-height.png",
+      "bytes": 78548,
+      "sha256": "3993be0e385dd99d7ae60448b6eb6eae3b8ef72f776e879e09b2fab8664cca51"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-1440-short-height.txt",
+      "bytes": 1714,
+      "sha256": "b320840ba43bd79600df5103cab4b8113dc5a834e24cc81941b9d7c5c8a0b3e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-1440-tooltip-hover.png",
+      "bytes": 175202,
+      "sha256": "5f11bed060106551c17d1131cbb53b2755c474dcf833b64b596eb35894be49b9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-1440-tooltip-hover.txt",
+      "bytes": 1773,
+      "sha256": "da05b0811228ece9f31d9f31916e7ce4e9a8ec0248faa76811f0987b10679939"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-bond-dialog.png",
+      "bytes": 60108,
+      "sha256": "00a9ae3f9982e218dc5b32dc7401772ed711399e1445119c0f08a915919a2bcb"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-bond-dialog.txt",
+      "bytes": 1714,
+      "sha256": "b320840ba43bd79600df5103cab4b8113dc5a834e24cc81941b9d7c5c8a0b3e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-landscape.png",
+      "bytes": 44463,
+      "sha256": "ef5531c97c0d5a9fae91ab758c8dc534f462b3f366132b3c135d4786c65fd2a9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-landscape.txt",
+      "bytes": 1714,
+      "sha256": "b320840ba43bd79600df5103cab4b8113dc5a834e24cc81941b9d7c5c8a0b3e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-onboarding-1.png",
+      "bytes": 100864,
+      "sha256": "ce26f9055a4ca406945d3f21fc88ecd92744dedfc078ad29f4537f5383636812"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-onboarding-1.txt",
+      "bytes": 753,
+      "sha256": "9694976f5352012e6875c43ebea1943714522fed56a27c9f0c3f8ce3f7bb2b5c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-onboarding-2.png",
+      "bytes": 110675,
+      "sha256": "bb083e60765ddb8ecee4a7c2c9116fd5203ce6ae9546dc006f5b3b5456cde800"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-onboarding-2.txt",
+      "bytes": 909,
+      "sha256": "027552a7f90597e7e56fea347f2edefb43d57a7c1d6b0445a99d470f6a72d9bd"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-onboarding-3.png",
+      "bytes": 106682,
+      "sha256": "56d4ad4601c5e117d2f834731171aa84a4b4d3346418fb3844986626fa5e5673"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-onboarding-3.txt",
+      "bytes": 789,
+      "sha256": "0d5e0f6ec8854985b899beef6c516776bc954e522420878ba9716f7bb083a084"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-onboarding-4.png",
+      "bytes": 115489,
+      "sha256": "084b91a04da5741292ca14c5ed3769fa93e741f66e2e6c91780dfbff64fe708f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-onboarding-4.txt",
+      "bytes": 1096,
+      "sha256": "f63432837a1672ff96338fde41c9d43a94020f531de923f41d2cd49d63336073"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-onboarding-5.png",
+      "bytes": 104539,
+      "sha256": "f874ba643a8f798af87e34c8389a04bde297da315faa6fdcecf3e6ef3cdce540"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-onboarding-5.txt",
+      "bytes": 802,
+      "sha256": "2faccea2b8aaecab4f46837df3573295dde23211db00c89cbd4d9bbefdb70c16"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-onboarding-6.png",
+      "bytes": 102754,
+      "sha256": "7f4748a7f42d3379334a559646f6a510985b3e7739211cc1f303d6a982eb999c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-onboarding-6.txt",
+      "bytes": 724,
+      "sha256": "db7dd0aa7e586000a732181c08f249ea35508ecee9bad59e1ddd88997eaf2ad2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-setup.png",
+      "bytes": 63593,
+      "sha256": "666e01bcbf761dfe64023fe3066af244b3582738911c5843fcce2586ba5790c5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-setup.txt",
+      "bytes": 1261,
+      "sha256": "cdad190132cf415b4b4eb4045fbb47957d9a1e0c5e8693e77c73a0bdb1cefc09"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-short-height.png",
+      "bytes": 25905,
+      "sha256": "f3c46f0027bd123fd5f09477a1e22324ebc1da1d4ebfd78629e32357fb4a5df9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-short-height.txt",
+      "bytes": 1714,
+      "sha256": "b320840ba43bd79600df5103cab4b8113dc5a834e24cc81941b9d7c5c8a0b3e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-1.png",
+      "bytes": 93216,
+      "sha256": "ce8e1fc41d38a9e40525e7e85701a72b569784242528ece2dd2e0bdd1ca0f3dc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-1.txt",
+      "bytes": 832,
+      "sha256": "87e50d2db992f42011c5ba894151ebd527a62fe1f11e298014ca2bd90581bce6"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-2.png",
+      "bytes": 99612,
+      "sha256": "cd5fc1685801239729260d02044f629d5c034f6ac7b3b689a80f22342260e083"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-2.txt",
+      "bytes": 758,
+      "sha256": "7f732a6f2e62b96ee924fcef4052ff2c6db68a77276e40ba32d58fa8f4fda2b5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-3.png",
+      "bytes": 96072,
+      "sha256": "c391c9c7746a221db4c32c39547ecaffd64379695f71ca816818a9c2f386e08f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-3.txt",
+      "bytes": 841,
+      "sha256": "4df62e3b349fd5da9c2ea08a10e9bbecd7d99f1f914e8d68db3b31d51c0017e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-4.png",
+      "bytes": 93412,
+      "sha256": "face117aac670fceb433226ce61e162a858e7bfad6c40f83f999f113543ec5e1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-4.txt",
+      "bytes": 830,
+      "sha256": "3c8b3ae338c30d5ebb43668b04fad2b5a30adfe109d94e3ddbeb97eee5a2dac3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-5.png",
+      "bytes": 93314,
+      "sha256": "0f17de3c4625dce79535e9b929cb695f861df2282ad9d122c501965111fcfbca"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-5.txt",
+      "bytes": 849,
+      "sha256": "9110f60fa5364b71342afa0dfb2ccc35773e44e2f4dd12f95c5129ab1834608d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-6.png",
+      "bytes": 96798,
+      "sha256": "71d9ead87e573f7b436dc80f7175e9a565e51cdae0cf126b8bd4511b815fcf39"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-6.txt",
+      "bytes": 749,
+      "sha256": "d72b314ebb95df8cb3d0d95787b17a8051e2addb767dc05fa3100eca3d870f21"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-7.png",
+      "bytes": 98801,
+      "sha256": "36aaaec5570a7b735390bb42d66053ce54918578389234d13f15dd8872e98916"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-7.txt",
+      "bytes": 790,
+      "sha256": "21ec22ac0735df03bbdb43ee7a13c809642df02edc0cb23e2c8e6aa75316e5df"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-8.png",
+      "bytes": 98625,
+      "sha256": "a66daa48e496abf260e4422c6dac0984f2ce136275731bafed84f240569e0d6d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-8.txt",
+      "bytes": 785,
+      "sha256": "c5af76a30ad10d08bd7c8c21bc27aca1117456a9a9700ca93f1ed484ae8eea12"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-9.png",
+      "bytes": 96195,
+      "sha256": "d8d598bdb20e11996cb1039c3a0a49729bfdfda2f47e089ce238e0e5ac3f2a31"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tile-9.txt",
+      "bytes": 749,
+      "sha256": "4d6a9d2c954d9755209d607313c8518225b83c194489d278606fe4ab980e84e4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tooltip-touch.png",
+      "bytes": 71185,
+      "sha256": "e0784860877f27842168f014ad2b3ee1dc9c2445c5e81a94d98d86ad6f9d9325"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-320-tooltip-touch.txt",
+      "bytes": 1773,
+      "sha256": "da05b0811228ece9f31d9f31916e7ce4e9a8ec0248faa76811f0987b10679939"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-bond-dialog.png",
+      "bytes": 70020,
+      "sha256": "dfe10aab05c80385014106b5148bc18068a9f2af8a70455683164d3e294f05f8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-bond-dialog.txt",
+      "bytes": 1714,
+      "sha256": "b320840ba43bd79600df5103cab4b8113dc5a834e24cc81941b9d7c5c8a0b3e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-landscape.png",
+      "bytes": 55991,
+      "sha256": "96261381f577d5451ad16b61a91cac6b013c7b98afb52321e3332f5ee0b30211"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-landscape.txt",
+      "bytes": 1714,
+      "sha256": "b320840ba43bd79600df5103cab4b8113dc5a834e24cc81941b9d7c5c8a0b3e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-setup.png",
+      "bytes": 67390,
+      "sha256": "1737557ca6a5da50c88db88c3aac5119695447806a806e1f0745a6c6a62fb60e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-setup.txt",
+      "bytes": 1261,
+      "sha256": "cdad190132cf415b4b4eb4045fbb47957d9a1e0c5e8693e77c73a0bdb1cefc09"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-short-height.png",
+      "bytes": 25754,
+      "sha256": "5fbb7ea0e42ecfb12106627e5388833a53f7239ee622aee68fddc5614c9f23f0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-short-height.txt",
+      "bytes": 1714,
+      "sha256": "b320840ba43bd79600df5103cab4b8113dc5a834e24cc81941b9d7c5c8a0b3e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-1.png",
+      "bytes": 111454,
+      "sha256": "2f2d09807e1d108b7c01afa925bba2cefcd2e3a9fee9cd497298994f5dc8aae7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-1.txt",
+      "bytes": 832,
+      "sha256": "87e50d2db992f42011c5ba894151ebd527a62fe1f11e298014ca2bd90581bce6"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-2.png",
+      "bytes": 114481,
+      "sha256": "535f4f9cf452d6004997fb2a95aef580440455d04a504c0e48da9970ad9a4d8a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-2.txt",
+      "bytes": 758,
+      "sha256": "7f732a6f2e62b96ee924fcef4052ff2c6db68a77276e40ba32d58fa8f4fda2b5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-3.png",
+      "bytes": 112104,
+      "sha256": "e306db5fc76d93012ecc947cda2f727800774a55c26fa74c9358d7a28ca59832"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-3.txt",
+      "bytes": 841,
+      "sha256": "4df62e3b349fd5da9c2ea08a10e9bbecd7d99f1f914e8d68db3b31d51c0017e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-4.png",
+      "bytes": 112125,
+      "sha256": "d58603d671b8e4bb3e09e1cb9ddefdadc915c9055b185a9d47da73d2f959d41d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-4.txt",
+      "bytes": 830,
+      "sha256": "3c8b3ae338c30d5ebb43668b04fad2b5a30adfe109d94e3ddbeb97eee5a2dac3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-5.png",
+      "bytes": 116053,
+      "sha256": "3951e4e772c65ddaccd3400d452857f70cfb8f6a9bd293d6bc04b671602c71cf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-5.txt",
+      "bytes": 849,
+      "sha256": "9110f60fa5364b71342afa0dfb2ccc35773e44e2f4dd12f95c5129ab1834608d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-6.png",
+      "bytes": 113553,
+      "sha256": "cc031db628cfa6e99d2517eef2c8895a65e7e7ffceb24207e672a7f26ca918ae"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-6.txt",
+      "bytes": 749,
+      "sha256": "d72b314ebb95df8cb3d0d95787b17a8051e2addb767dc05fa3100eca3d870f21"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-7.png",
+      "bytes": 112167,
+      "sha256": "4993a115e4abba7a1f01d27ef0294705fac888e9657dcef0c91965bb61d0c2dc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-7.txt",
+      "bytes": 790,
+      "sha256": "21ec22ac0735df03bbdb43ee7a13c809642df02edc0cb23e2c8e6aa75316e5df"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-8.png",
+      "bytes": 109953,
+      "sha256": "c894a807c2f38dce3410a9eaf4fca672d4fa68782f81312dfc0b064d0a1eb64a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-8.txt",
+      "bytes": 785,
+      "sha256": "c5af76a30ad10d08bd7c8c21bc27aca1117456a9a9700ca93f1ed484ae8eea12"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-9.png",
+      "bytes": 113715,
+      "sha256": "7205a23a6bb138a03b642fd326a72f1899c3c661bbc64ff4579d4f2ec7209ba2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tile-9.txt",
+      "bytes": 749,
+      "sha256": "4d6a9d2c954d9755209d607313c8518225b83c194489d278606fe4ab980e84e4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tooltip-touch.png",
+      "bytes": 79017,
+      "sha256": "dcef446e272f007f4f74ed0889adf061e224873e945d2f99b9e46fc6646d70d9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-390-tooltip-touch.txt",
+      "bytes": 1773,
+      "sha256": "da05b0811228ece9f31d9f31916e7ce4e9a8ec0248faa76811f0987b10679939"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-768-bond-dialog.png",
+      "bytes": 94467,
+      "sha256": "781954ddb62ef753ff94becc13d1f07f348faf3a7dec7a5ed6b6efde770a8226"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-768-bond-dialog.txt",
+      "bytes": 1714,
+      "sha256": "b320840ba43bd79600df5103cab4b8113dc5a834e24cc81941b9d7c5c8a0b3e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-768-landscape.png",
+      "bytes": 102170,
+      "sha256": "2fef977fd8c521017f1efd83fd102774ba4872dd93fb138d3efc99fa6d9e6ab6"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-768-landscape.txt",
+      "bytes": 1714,
+      "sha256": "b320840ba43bd79600df5103cab4b8113dc5a834e24cc81941b9d7c5c8a0b3e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-768-setup.png",
+      "bytes": 80105,
+      "sha256": "72f2b371f8ea5dc6ac83f32591d61beed5d989e93ee1d828f51e86b319396eff"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-768-setup.txt",
+      "bytes": 1261,
+      "sha256": "cdad190132cf415b4b4eb4045fbb47957d9a1e0c5e8693e77c73a0bdb1cefc09"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-768-short-height.png",
+      "bytes": 50193,
+      "sha256": "43a67057cc12f068f72686258dcc0ca2d78b21b16dbe3270017bbfc5a9ab004d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-768-short-height.txt",
+      "bytes": 1714,
+      "sha256": "b320840ba43bd79600df5103cab4b8113dc5a834e24cc81941b9d7c5c8a0b3e8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-768-tooltip-hover.png",
+      "bytes": 108045,
+      "sha256": "8712ff798190e7a161e87f5704b435b7a0bcca64da1bd9d2c7b313e0d0c72dbc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/firefox-mobile-768-tooltip-hover.txt",
+      "bytes": 1773,
+      "sha256": "da05b0811228ece9f31d9f31916e7ce4e9a8ec0248faa76811f0987b10679939"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/results.json",
+      "bytes": 49180,
+      "sha256": "d56df62f3d90fa783f80ba161cf7b49778e332c16162b3f4ed0b34de5b4e8ef9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-1440-bond-dialog.png",
+      "bytes": 160863,
+      "sha256": "931b74420555045b79abcf65f971df4f9c0dd63bcb2554a05c43e65c4970dbe2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-1440-bond-dialog.txt",
+      "bytes": 3889,
+      "sha256": "dfbb586637014e4d9ef0440e891f0271af989b9cc5e7238c34725a7a4c9a86f0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-1440-landscape.png",
+      "bytes": 167225,
+      "sha256": "57795ad425c457f9e49fbae0fcdee9c765a33feec1af9f4b5acaf9f12d6a0bf4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-1440-landscape.txt",
+      "bytes": 3866,
+      "sha256": "4a44d734ad4dd087fa57e105c4672459f0056f5a717eff30985c7834a23e7542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-1440-setup.png",
+      "bytes": 74798,
+      "sha256": "50e69f893e636d627f0c2503ff763db7cf7df824f3b21bb975b1cac6791a8f71"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-1440-setup.txt",
+      "bytes": 1938,
+      "sha256": "40dff951ef86e7722b0c950a51de6c0f317b5be23d6393fa26cfe6cdb661e587"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-1440-short-height.png",
+      "bytes": 93254,
+      "sha256": "43525ac896f61e904896ad59b37916d85de4462d2c2d27aa0bdbc2cd1fb7f927"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-1440-short-height.txt",
+      "bytes": 3889,
+      "sha256": "dfbb586637014e4d9ef0440e891f0271af989b9cc5e7238c34725a7a4c9a86f0"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-1440-tooltip-hover.png",
+      "bytes": 176337,
+      "sha256": "89a1b1a5c4cdbd40b6c91c616ec2ce3fef32395b772f84a1d2e3cb2f89a806ca"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-1440-tooltip-hover.txt",
+      "bytes": 3641,
+      "sha256": "52d86b426238a3ae0c5780f00146df0a7ec9ba2243656a2df8037684a487537c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-320-bond-dialog.png",
+      "bytes": 42735,
+      "sha256": "dde9873023626bde2dcea71fb025bf1fee6818bbfb621079736aeb2ab821338d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-320-bond-dialog.txt",
+      "bytes": 2161,
+      "sha256": "e037a14b22bb69c5d62ab1d61cbebca1544d677af26cf4181c517d621813b47f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-320-landscape.png",
+      "bytes": 52770,
+      "sha256": "ed27a0a7b35b2a06bd2a35e10a2ba13add71ba0228a5afe3edc58dc1c60eab75"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-320-landscape.txt",
+      "bytes": 3866,
+      "sha256": "4a44d734ad4dd087fa57e105c4672459f0056f5a717eff30985c7834a23e7542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-320-setup.png",
+      "bytes": 42340,
+      "sha256": "eb6b9fc23c72ef353c3cd235ca54dfb45110027897b2877bf0ea3374f3e1600e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-320-setup.txt",
+      "bytes": 1776,
+      "sha256": "cd6244e082f4385d749f3698150d4dea1da53d37760b7285e93e06b52018cdc9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-320-short-height.png",
+      "bytes": 19400,
+      "sha256": "782f20e274bf1a16ab4d44e78b2828e40dabeafb8c8e29c74a37e825c4794092"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-320-short-height.txt",
+      "bytes": 2161,
+      "sha256": "e037a14b22bb69c5d62ab1d61cbebca1544d677af26cf4181c517d621813b47f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-320-tooltip-touch.png",
+      "bytes": 48901,
+      "sha256": "22aebad050972412c247f62f862cc4720941c843640ad16f430af4cae5f548c1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-320-tooltip-touch.txt",
+      "bytes": 1883,
+      "sha256": "15fb9ce4cc22aec41a96d5f5a6eda0e70cd699cb1b55da04d4c5962466cdf0df"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-390-bond-dialog.png",
+      "bytes": 44632,
+      "sha256": "682bb126d09c611377726e1d39c498b23037145ca48957f081f62603124cd9b9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-390-bond-dialog.txt",
+      "bytes": 2162,
+      "sha256": "a1cc9a9e06121407fb41232a6c1d65b0815efc3d6d85b02bae2412a7a135a273"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-390-landscape.png",
+      "bytes": 57011,
+      "sha256": "469fb247096556b3f789c860d78b45137a4817b1c768e25bdd5afb0f48b40418"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-390-landscape.txt",
+      "bytes": 3866,
+      "sha256": "4a44d734ad4dd087fa57e105c4672459f0056f5a717eff30985c7834a23e7542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-390-setup.png",
+      "bytes": 44428,
+      "sha256": "acd8322c26610b6b6b5981e2d9d4363e573f76403f577a37a664db958f4b266d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-390-setup.txt",
+      "bytes": 1776,
+      "sha256": "cd6244e082f4385d749f3698150d4dea1da53d37760b7285e93e06b52018cdc9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-390-short-height.png",
+      "bytes": 21341,
+      "sha256": "59b7ea6771a4d2c6353c6525b610a7bd6768e800591b5260f2eb947b57d93f97"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-390-short-height.txt",
+      "bytes": 2162,
+      "sha256": "a1cc9a9e06121407fb41232a6c1d65b0815efc3d6d85b02bae2412a7a135a273"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-390-tooltip-touch.png",
+      "bytes": 58612,
+      "sha256": "ab2d3b63f1858719d761fba3e93dc7011a1b9cbde39b632f306ef88505928583"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-390-tooltip-touch.txt",
+      "bytes": 1884,
+      "sha256": "9487242a5f501d5fbd5936feaa09e9a621785d70745c9ce78c6fd084699045de"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-768-bond-dialog.png",
+      "bytes": 98728,
+      "sha256": "6804f03935330d3ee7562c2fd6366267bcc81dd4815682e7d7e6934561595259"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-768-bond-dialog.txt",
+      "bytes": 3866,
+      "sha256": "4a44d734ad4dd087fa57e105c4672459f0056f5a717eff30985c7834a23e7542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-768-landscape.png",
+      "bytes": 107828,
+      "sha256": "6e75c5052e8e49d4ef39246dc1452522cdb2b2751dd18aa83973c76baffb24b5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-768-landscape.txt",
+      "bytes": 3866,
+      "sha256": "4a44d734ad4dd087fa57e105c4672459f0056f5a717eff30985c7834a23e7542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-768-setup.png",
+      "bytes": 62670,
+      "sha256": "d1f8cfee59e64a968a1e1c0f585e6968f1c2cb5d8005441f6dc1ae63592cfc09"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-768-setup.txt",
+      "bytes": 1915,
+      "sha256": "b8cc53562bd076d77f95914d7ee07d093dccb72019eb4a3c5c25cda0fe298de7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-768-short-height.png",
+      "bytes": 58577,
+      "sha256": "5420ab45b2e6a7542eadb438ada4f3337fc32f0eb2c0e1dd4bdd3f4416370e00"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-768-short-height.txt",
+      "bytes": 3866,
+      "sha256": "4a44d734ad4dd087fa57e105c4672459f0056f5a717eff30985c7834a23e7542"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-768-tooltip-hover.png",
+      "bytes": 118124,
+      "sha256": "c7674c75644eef706df3132da46839a92b38ae353076ee90bfee6066b942e363"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-desktop-768-tooltip-hover.txt",
+      "bytes": 3618,
+      "sha256": "48b540a143ff716145e08ad1371bf8f69332a176b14137891d26ceec068d5298"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-1440-bond-dialog.png",
+      "bytes": 84552,
+      "sha256": "c6e6a0a86ebf1528e4764f62e5c1466ea35a8d0bfbf79ea5c163e8745a7ed721"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-1440-bond-dialog.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-1440-landscape.png",
+      "bytes": 105290,
+      "sha256": "0aa296734027338be9d3e3d61e9b389caf58d1b0ae906834cc4371ddeb924ad9"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-1440-landscape.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-1440-setup.png",
+      "bytes": 87132,
+      "sha256": "497e1671526cd85d0349fd672f1b0d7cf2179e54c8b3eee6e3895b66d4972e7d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-1440-setup.txt",
+      "bytes": 1317,
+      "sha256": "74ef648572b25341b0512cbec0969a833e8c790061ffbfc59f9a9e151674b78b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-1440-short-height.png",
+      "bytes": 39695,
+      "sha256": "ed606dc3b856b2cb8619c07f2ad80e2ed6a30fce5d6d344bbb27444a8a125bfd"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-1440-short-height.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-1440-tooltip-hover.png",
+      "bytes": 94118,
+      "sha256": "67019685bdca3a0feeb2fd4747ac8c5b1340b0fe01079c4bc1aa3627628efe55"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-1440-tooltip-hover.txt",
+      "bytes": 1829,
+      "sha256": "dad9dce057779599bb4fb6415018526ced3213ea7c96c6f19e718606589f365a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-bond-dialog.png",
+      "bytes": 45052,
+      "sha256": "9a238eea254eff530d529d2ae39153c78f4e091dcede2dcbdcf852d154cb01a8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-bond-dialog.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-landscape.png",
+      "bytes": 27733,
+      "sha256": "d9174ead2aee48f259571171cf470c96c9aab0b00c4a3f1708d1d2fd6833dcc4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-landscape.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-onboarding-1.png",
+      "bytes": 41881,
+      "sha256": "81ef83a2d6c3e802944099abf45882e32c7f83ab82b753b7e4c5e4030d228f67"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-onboarding-1.txt",
+      "bytes": 809,
+      "sha256": "0641a77b2baecee10665612c2971d0a472b705b740d84bc5d86ba57da871644e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-onboarding-2.png",
+      "bytes": 99334,
+      "sha256": "f878dcf92aba40c5d080a9c9ae1357f5c8df18d9ac553df0939f2e33161a12e5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-onboarding-2.txt",
+      "bytes": 965,
+      "sha256": "8671fe0f8ba1553411bee046a35c89af45e8c6a01722ef0b1ee807a4ddcddfaa"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-onboarding-3.png",
+      "bytes": 95807,
+      "sha256": "e5dc63ad41e43cea292d6b4d261520419c7f3cb2c4119975b0775061ce32f8cb"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-onboarding-3.txt",
+      "bytes": 845,
+      "sha256": "7d8ed115eb88b528141bf8d8f61f942cdf2d3c7efd913a5eac5278f1b267caf1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-onboarding-4.png",
+      "bytes": 101212,
+      "sha256": "f78c3d062983c295a4f693836f6e335a52e94ec451d0973ae2169d5be9d3a4bc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-onboarding-4.txt",
+      "bytes": 1152,
+      "sha256": "d9858405ac2e6961616fc6c0fcbc95cc7b48f28b0925b481e649411ceaaa37f3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-onboarding-5.png",
+      "bytes": 94475,
+      "sha256": "4f8b1dc37706be4835e69be145fc2d1bfb3a28a0e49cb0d7275b2d1e4e5e687c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-onboarding-5.txt",
+      "bytes": 858,
+      "sha256": "7b57851bfe327ec3dc476fda563fb54dd3762e4353b54601922c0ea480f0af61"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-onboarding-6.png",
+      "bytes": 93776,
+      "sha256": "4dca8f497320aa098b00f5b9796ab5741c049cd2476df931165f91cca8119bff"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-onboarding-6.txt",
+      "bytes": 780,
+      "sha256": "0cb9387b99a84d679f86fca7309546b71e7504866b2827bb2f5d2e270c7bafe4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-setup.png",
+      "bytes": 48388,
+      "sha256": "f4ae256a06657c67d55f13305b17b63c27b54d877f322f5db0e70650943beffb"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-setup.txt",
+      "bytes": 1317,
+      "sha256": "74ef648572b25341b0512cbec0969a833e8c790061ffbfc59f9a9e151674b78b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-short-height.png",
+      "bytes": 20377,
+      "sha256": "bd135af5e76d065caf2d90776813618fec17d9ccdeda33b0eb19f6fe7cf03646"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-short-height.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-1.png",
+      "bytes": 72204,
+      "sha256": "557bb27e0aada9aae43298f52160b2f09f5aa238c0fba314997c319dfa4729ae"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-1.txt",
+      "bytes": 888,
+      "sha256": "09c8bc0190e527d879de8c6952161175269aa986095fdf4cae45b2c801a5163f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-2.png",
+      "bytes": 71472,
+      "sha256": "94da8b63311c21f5afca31d3c6a86a1d312bef513f9bd38ac1a3392fe8741649"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-2.txt",
+      "bytes": 814,
+      "sha256": "6dba70de489604679d47fdb0c7973d8563a86124bec164a70766793821dad3d1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-3.png",
+      "bytes": 70764,
+      "sha256": "d767b0fb2da7dd2e7f5d1951dbc956217968ffe7b81160e3b8c779d81b8c9c59"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-3.txt",
+      "bytes": 897,
+      "sha256": "fed0f86c9988374a531dc750a89c64a3a5f5f06e31536c499f7f131b4001366f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-4.png",
+      "bytes": 72658,
+      "sha256": "6ec7a4586d7272757ce89fdf919004873a092e2aff100c897fb71c9131956fcc"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-4.txt",
+      "bytes": 886,
+      "sha256": "34778f839e75d51866e9ac47c9b8423a2d0eb4f396371e5f62c6c2cc884c32e5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-5.png",
+      "bytes": 70699,
+      "sha256": "8eefdbf7737279f0247c1bb2817d404cfae663eac940fb8c38bd01513a9684e2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-5.txt",
+      "bytes": 905,
+      "sha256": "027058a0fe9357dba328472b29522d095a1700af8aced5e63e712b6653d13cbf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-6.png",
+      "bytes": 71233,
+      "sha256": "2a25aae67a3ddf19022df05282a2bb35a7cdd6ea88071dd7e1e362d0c37ce1c2"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-6.txt",
+      "bytes": 805,
+      "sha256": "778ed5364b5ce538fb294be9120444acd50cb580fbb279cbb62bbbd70c780ddf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-7.png",
+      "bytes": 72145,
+      "sha256": "0f1b214cc770e5321f97d0a61c774ce0ed020896637f8e5e72cd60baaef188b4"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-7.txt",
+      "bytes": 846,
+      "sha256": "2382a9478d2e6aa1b0eeb316f22a43013db34efffa7011b6f4299a35886f1e8a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-8.png",
+      "bytes": 73183,
+      "sha256": "5580f04047f92aadb4b0fe97761658d4bc85d0c5975e5a2ba3c57a270cd9d02e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-8.txt",
+      "bytes": 841,
+      "sha256": "99ed92db3dfa13d1aae9c8767b48f1cf9a9dd959e61be0f6e09c2e93c2660c8d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-9.png",
+      "bytes": 72723,
+      "sha256": "e68ad3cb0c026f1b56778ad9fc45cb099880978cd47ddd94d1a762f7bb5bb795"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tile-9.txt",
+      "bytes": 805,
+      "sha256": "1ed532483ce36fda661fd881d364c0e999760ec297a09e1b430d6959c66d8800"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tooltip-touch.png",
+      "bytes": 52348,
+      "sha256": "e22562085892cd0d5e14ded30e8ccf75c2e596c10d5cadd241cbb30055ccf20f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-320-tooltip-touch.txt",
+      "bytes": 1829,
+      "sha256": "dad9dce057779599bb4fb6415018526ced3213ea7c96c6f19e718606589f365a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-bond-dialog.png",
+      "bytes": 52732,
+      "sha256": "207ed6452c3ed40882abfbaf5021edb3c718500893ea607109d31c6ac7f95d70"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-bond-dialog.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-landscape.png",
+      "bytes": 33515,
+      "sha256": "4691dd4ec27002fa255ac18522ee78618000185e226fd1b6f36aa20787af169d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-landscape.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-setup.png",
+      "bytes": 51831,
+      "sha256": "b7f53258fcd2f83271238f47380367096bf56db0f3bf671825ff94bae7334b0d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-setup.txt",
+      "bytes": 1317,
+      "sha256": "74ef648572b25341b0512cbec0969a833e8c790061ffbfc59f9a9e151674b78b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-short-height.png",
+      "bytes": 20139,
+      "sha256": "2de3c67a9f7a0dc7c5b63f9894f6ef5b6265540f4ebf136320ba3f7003828971"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-short-height.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-1.png",
+      "bytes": 83000,
+      "sha256": "7492c7670e99631202eca243a8e905cdd7a873d6990968744f3ec9a552abc6c7"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-1.txt",
+      "bytes": 888,
+      "sha256": "09c8bc0190e527d879de8c6952161175269aa986095fdf4cae45b2c801a5163f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-2.png",
+      "bytes": 84961,
+      "sha256": "296769c986d441d0c9e80d2d4eb6cd2b90bfa194b5f01fb17c5cb9e4bc1ccbdd"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-2.txt",
+      "bytes": 814,
+      "sha256": "6dba70de489604679d47fdb0c7973d8563a86124bec164a70766793821dad3d1"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-3.png",
+      "bytes": 84173,
+      "sha256": "5fed808d276b0d183459d2ec7f9de84178592ce32a1dfefc3368f63b0dd650ec"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-3.txt",
+      "bytes": 897,
+      "sha256": "fed0f86c9988374a531dc750a89c64a3a5f5f06e31536c499f7f131b4001366f"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-4.png",
+      "bytes": 82662,
+      "sha256": "e5bf76ebbfecb43bffc6f3e793ede08573d91c178561de063df62f3bfc9c0a59"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-4.txt",
+      "bytes": 886,
+      "sha256": "34778f839e75d51866e9ac47c9b8423a2d0eb4f396371e5f62c6c2cc884c32e5"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-5.png",
+      "bytes": 82913,
+      "sha256": "fb036d70b853219d60409a9767ff6fbb3812dd89b6b8c79d3cdf8dde85d46636"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-5.txt",
+      "bytes": 905,
+      "sha256": "027058a0fe9357dba328472b29522d095a1700af8aced5e63e712b6653d13cbf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-6.png",
+      "bytes": 81899,
+      "sha256": "573fd28b446e2209671cc905d85aa70264ec8bb2c3048a90724cbb3c00a07a69"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-6.txt",
+      "bytes": 805,
+      "sha256": "778ed5364b5ce538fb294be9120444acd50cb580fbb279cbb62bbbd70c780ddf"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-7.png",
+      "bytes": 84401,
+      "sha256": "55b79d5328ed9559b41e12f39035a2f8a1f6351a5bb714492d2b0e5eaad52e5a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-7.txt",
+      "bytes": 846,
+      "sha256": "2382a9478d2e6aa1b0eeb316f22a43013db34efffa7011b6f4299a35886f1e8a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-8.png",
+      "bytes": 82756,
+      "sha256": "cbe7c211a88e03bcfabb696580cd1847921c40e85440eb49ac07542c030b653c"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-8.txt",
+      "bytes": 841,
+      "sha256": "99ed92db3dfa13d1aae9c8767b48f1cf9a9dd959e61be0f6e09c2e93c2660c8d"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-9.png",
+      "bytes": 81605,
+      "sha256": "c1cbd11f8bc60936a5286228fa8a0929447e0332244c2b4017290f2ca3c86947"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tile-9.txt",
+      "bytes": 805,
+      "sha256": "1ed532483ce36fda661fd881d364c0e999760ec297a09e1b430d6959c66d8800"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tooltip-touch.png",
+      "bytes": 58217,
+      "sha256": "5d95aa7f901bac77dd2f7e3723470a174c6ed13e4f149e6557a27b7043b07712"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-390-tooltip-touch.txt",
+      "bytes": 1829,
+      "sha256": "dad9dce057779599bb4fb6415018526ced3213ea7c96c6f19e718606589f365a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-768-bond-dialog.png",
+      "bytes": 66200,
+      "sha256": "e54605aec4650f1d5820a42194cab3134d919c677b3e655eac731ef01b710d7b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-768-bond-dialog.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-768-landscape.png",
+      "bytes": 58748,
+      "sha256": "7edade8fdd02db9572025a12173f70e1c35e541ab242fddb29a674bf5278194a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-768-landscape.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-768-setup.png",
+      "bytes": 58583,
+      "sha256": "c9d3c023910cf5798e47d93740d3c3fb761215c4689039fcc032f89ae4244f69"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-768-setup.txt",
+      "bytes": 1317,
+      "sha256": "74ef648572b25341b0512cbec0969a833e8c790061ffbfc59f9a9e151674b78b"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-768-short-height.png",
+      "bytes": 35249,
+      "sha256": "1e68bcb519daeb67190fe9ac1e6085b903efe7181fb736d9a95f709dce9647c3"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-768-short-height.txt",
+      "bytes": 1770,
+      "sha256": "beffaacb766eb06fc087b446332aea53bd82bd7d0c225903f73456de5add0d5e"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-768-tooltip-hover.png",
+      "bytes": 75185,
+      "sha256": "f2eb61c388a1c044a3c9fe0ae7a67874be7106da67b2c3b03b8c826ecd2940a8"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/surfaces/webkit-mobile-768-tooltip-hover.txt",
+      "bytes": 1829,
+      "sha256": "dad9dce057779599bb4fb6415018526ced3213ea7c96c6f19e718606589f365a"
+    },
+    {
+      "path": "docs/playtests/b18-release-qa/webkit-gameplay-run.txt",
+      "bytes": 6050,
+      "sha256": "15520a2a05ed39cd6248264745fa262c5808866eb89734609c2d3683e743ee01"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "label": "gold-owned",
+    "path": "docs/playtests/b18-compact-financial-ui/checkpoints/gold-owned.json.gz",
+    "source": "docs/playtests/b18-beginner-ux/after/browser-390-trades.json.gz",
+    "seed": "B18-UI-TRADES",
+    "turn": 6,
+    "lap": 2,
+    "phase": "event",
+    "event": "gold",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "bonds-late",
+    "path": "docs/playtests/b18-compact-financial-ui/checkpoints/bonds-late.json.gz",
+    "source": "docs/playtests/b18-beginner-ux/after/browser-390-trades.json.gz",
+    "seed": "B18-UI-TRADES",
+    "turn": 19,
+    "lap": 4,
+    "phase": "event",
+    "event": "bonds",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  },
+  {
+    "label": "bank-late",
+    "path": "docs/playtests/b18-compact-financial-ui/checkpoints/bank-late.json.gz",
+    "source": "docs/playtests/core-mvp-b18-multi-course/frozen-shortlist-business-roi.json.gz",
+    "seed": "B18-MULTICOURSE-SHORTLIST-0",
+    "turn": 16,
+    "lap": 4,
+    "phase": "event",
+    "event": "bank",
+    "method": "Exact legal engine replay prefix of archived UI game; no state injection. Import fixture, not a newly played full UI game."
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "results": [
+    {
+      "asset": "bonds",
+      "seed": "B18-TILE-45",
+      "partialFlow": true,
+      "sameLap": true,
+      "buyTurn": 1,
+      "sellTurn": 3,
+      "net": 1970000
+    },
+    {
+      "asset": "stocks",
+      "seed": "B18-TILE-56",
+      "partialFlow": true,
+      "sameLap": true,
+      "buyTurn": 3,
+      "sellTurn": 5,
+      "net": 1980000
+    }
+  ],
+  "layout": [
+    {
+      "label": "320-sale-preview-bonds",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    },
+    {
+      "label": "320-sale-preview-stocks",
+      "viewport": 320,
+      "body": 320,
+      "dialogs": [
+        {
+          "width": 286,
+          "scroll": 284,
+          "client": 284
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "actualUiActions": true,
+  "forcedStates": false,
+  "partialFlows": true
+}

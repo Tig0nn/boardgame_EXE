@@ -1,3 +1,5 @@
+> **HISTORICAL** — Triển khai V2 ngày 10–11/10/2026; số test, ba vòng và giới hạn backend/Git ghi nhận mốc cũ. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # Báo cáo triển khai V2
 
 ## Kiểm kê trước khi sửa (10/10/2026)

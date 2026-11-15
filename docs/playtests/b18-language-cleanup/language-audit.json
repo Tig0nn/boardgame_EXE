@@ -1,0 +1,32 @@
+{
+  "scope": "All UI JSX text, human literals, accessibility copy, read-only presentation selectors and direct rendered lot IDs. Includes English-only alt/title labels; excludes imports, code identifiers, native select values and React keys.",
+  "files": 59,
+  "findings": [],
+  "exceptions": [
+    {
+      "file": "src/components/glossary.ts",
+      "line": 12,
+      "text": "'Thời điểm thu nhập tăng thêm tích lũy đủ bù số tiền ban đầu đã bỏ ra. Đây là thời gian bù vốn, khác tỷ suất sinh lời (ROI); không phải cam kết lợi nhuận.'",
+      "matches": [
+        "ROI"
+      ],
+      "reason": "Explicit technical explanation / ROI distinction in shared glossary"
+    },
+    {
+      "file": "src/components/glossary.ts",
+      "line": 14,
+      "text": "'Mốc quyết toán vòng: thị trường, lương và các khoản đến hạn. Đi ngang ô này cũng quyết toán theo luật của ván. START là tên kỹ thuật trong dữ liệu.'",
+      "matches": [
+        "START"
+      ],
+      "reason": "Explicit technical explanation / ROI distinction in shared glossary"
+    }
+  ],
+  "intentional": [
+    "Tên thương hiệu, tên doanh nghiệp và mã cổ phiếu giữ nguyên.",
+    "JSON là tên định dạng tải/nhập; payload xuất/nhập nguyên bản.",
+    "AA/B/CCC/D là mã xếp hạng mô phỏng; B18/C20 và phiên bản xác định ván lịch sử.",
+    "Tên tiếng Anh đối chiếu trong mục glossary mở rộng. START chỉ là tên kỹ thuật trong giải thích từ điển, không phải nhãn ô.",
+    "IDs trong key/value/DOM hooks/callback không phải nhãn hiển thị; dữ liệu engine/log/replay không được dịch."
+  ]
+}

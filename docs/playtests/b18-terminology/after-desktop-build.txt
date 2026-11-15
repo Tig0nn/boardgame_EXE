@@ -1,0 +1,14 @@
+
+> xoay-vong-tien-lui@0.0.0 build
+> tsc -b && vite build
+
+vite v8.3.3 building client environment for production...
+transforming...
+✓ 82 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.74 kB │ gzip:   0.46 kB
+dist/assets/index-2Y83V9qc.css   50.50 kB │ gzip:  11.32 kB
+dist/assets/index-urZpuf_b.js   382.47 kB │ gzip: 114.41 kB
+
+✓ built in 710ms

@@ -1,0 +1,38 @@
+TAP version 13
+# (node:15696) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: beginner course disclosure, factual result feedback and ended-vs-running saved game labels
+ok 1 - beginner course disclosure, factual result feedback and ended-vs-running saved game labels
+  ---
+  duration_ms: 28020.3523
+  ...
+# (node:14512) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: B18 shared goal, setup, board and completed course render without legacy target or20-tile art
+ok 2 - B18 shared goal, setup, board and completed course render without legacy target or20-tile art
+  ---
+  duration_ms: 33721.2178
+  ...
+# (node:27784) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Desktop/Mobile share exact course cards and preserve legacy single-course UI/board
+ok 3 - Desktop/Mobile share exact course cards and preserve legacy single-course UI/board
+  ---
+  duration_ms: 25255.9219
+  ...
+# (node:26960) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: shared glossary renders on Desktop and Mobile, escapes selector text, and leaves state untouched
+ok 4 - shared glossary renders on Desktop and Mobile, escapes selector text, and leaves state untouched
+  ---
+  duration_ms: 15130.1429
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 107803.6972

@@ -1,0 +1,43 @@
+{
+  "browser": "chromium",
+  "results": [
+    {
+      "name": "desktop-defeat",
+      "url": "https://boardgame-r8ukc7g79-tris-projects-2888207c.vercel.app",
+      "seed": "TRADING-AB-MAIN-0",
+      "actualUi": true,
+      "injectedState": false,
+      "completed": true,
+      "result": {
+        "status": "defeat",
+        "won": false,
+        "lawfulProceeds": 86000000,
+        "termination": "completed"
+      },
+      "courses": []
+    }
+  ],
+  "errors": [],
+  "layout": [
+    {
+      "label": "desktop-defeat-setup",
+      "viewport": 1440,
+      "scroll": 1440,
+      "dialogs": []
+    },
+    {
+      "label": "desktop-defeat-result",
+      "viewport": 1440,
+      "scroll": 1440,
+      "dialogs": [
+        {
+          "client": 505,
+          "scroll": 505
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "actualPreview": true,
+  "humanPlaytest": false
+}

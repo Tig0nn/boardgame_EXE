@@ -1,0 +1,68 @@
+{
+  "widths": [
+    320,
+    390,
+    430,
+    1440
+  ],
+  "moves": 26,
+  "bankDeposits": 4,
+  "stockBuys": 1,
+  "businessPurchases": 1,
+  "upgrades": 0,
+  "checkpoints": [
+    {
+      "lap": 1,
+      "cash": 60000000,
+      "lawfulProceeds": 64057168
+    },
+    {
+      "lap": 2,
+      "cash": 37200000,
+      "lawfulProceeds": 41305629
+    },
+    {
+      "lap": 3,
+      "cash": 67192833,
+      "lawfulProceeds": 71857069
+    },
+    {
+      "lap": 4,
+      "cash": 84592833,
+      "lawfulProceeds": 89450169
+    }
+  ],
+  "fourLaps": true,
+  "fullStateParity": true,
+  "snapshotReplay": true,
+  "seed": "mobile-browser-v24",
+  "victory": {
+    "wealth": true,
+    "liquidity": false,
+    "won": false
+  },
+  "lawfulProceeds": 89450169,
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+  ],
+  "keyboardStart": true,
+  "freshPlayerSeeds": [
+    "947d38e19268f32849ec6b6e8d3898ed",
+    "23f75ccba4f80cdd37e40d48d13213c9"
+  ],
+  "aiFailureNonBlocking": true,
+  "fundingDoubleTapGuard": true,
+  "combinedFunding": {
+    "savings": 3000000,
+    "goldGross": 2000000,
+    "goldNet": 1920600,
+    "debt": 79400
+  },
+  "businessUpgradeOnce": true,
+  "matchingIncome": 4700000,
+  "multipleSavingsLots": true,
+  "tradingUnlockAfterRejectedTap": true,
+  "animations": "real 800ms dice + 400ms pause + 280ms per hop",
+  "realPhone": "not available"
+}

@@ -1,0 +1,103 @@
+{
+  "reviewDate": "2026-10-13",
+  "branch": "feat/mobile-v2-4-engine-integration",
+  "initialHead": "8e53aa52beb8b34b84f7e4aa5249fec470ea20bd",
+  "verifiedCodeHead": "91e530c9daa3c239ec1b8b0f853c39943d8a32f6",
+  "githubActions": {
+    "runUrl": "https://github.com/Tig0nn/boardgame_EXE/actions/runs/38382349925",
+    "job": {
+      "id": 115245619593,
+      "head_sha": "91e530c9daa3c239ec1b8b0f853c39943d8a32f6",
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "node": "22.23.3",
+    "runner": "ubuntu-24.04",
+    "productTests": 186,
+    "diagnosticTests": 21,
+    "failedTests": 0,
+    "requiredCommands": [
+      "npm ci",
+      "npm ci --prefix mobile_app",
+      "npm test",
+      "node --experimental-strip-types --test scripts/diagnostics/*.test.ts",
+      "npm run lint",
+      "npm run build",
+      "npm run build --prefix mobile_app"
+    ],
+    "allPassed": true,
+    "providerLogTruncated": false
+  },
+  "local": {
+    "node": "22.14.0",
+    "cleanInstalls": "both passed, audit 0 vulnerabilities; Mobile first attempt EPERM from running Vite, then passed after stopping that process",
+    "productTests": 186,
+    "diagnosticTests": 21,
+    "lint": "passed",
+    "rootBuild": "passed",
+    "mobileBuild": "passed",
+    "mobileBuildBeforeFix": "blank screen; useRef null; index-DA6YqOjF.js",
+    "mobileBuildAfterFix": {
+      "bundle": "index-DYThO3rs.js",
+      "url": "http://127.0.0.1:5187/",
+      "title": "Xoay Vòng Tiến Lui — Mobile App",
+      "illustratedBoard": true,
+      "character3DVisuallyRendered": true,
+      "diceAndEvent": true,
+      "bankDepositVnd": 10000000,
+      "cashBeforeVnd": 30000000,
+      "cashAfterVnd": 20000000
+    },
+    "negativeControls": {
+      "reactDedupeDisabled": "two React module roots, assertion failed as expected",
+      "emittedApiBeforeFix": "ERR_MODULE_NOT_FOUND handler.ts; test failed"
+    },
+    "newRegressions": "actual bundle module graph and emitted ESM entry point; no API keys"
+  },
+  "preservation": {
+    "protectedFinancialModulesDiffEmpty": true,
+    "artworkCharacterAudioDiffEmpty": true,
+    "historicalReplayTestsPassed": true,
+    "rapidTradeTapFixCommit": "7fb3ac2",
+    "rapidTradeTapEvidence": "docs/playtests/mobile-v2-4/browser-verification.json: tradingUnlockAfterRejectedTap=true",
+    "simulationRerun": false,
+    "simulationGames": 180000,
+    "simulationSeconds": 257.829,
+    "simulationResultsUnchanged": true
+  },
+  "vercel": {
+    "webProject": "boardgame-exe",
+    "webPreviewUrl": "https://boardgame-exe-git-feat-mobile-v2-15692e-tris-projects-2888207c.vercel.app",
+    "webPreviewServes": "root Web MVP; verified browser, build npm run build/output dist",
+    "webProductionSettingsChanged": false,
+    "localProjectLinkChanged": false,
+    "mobileProject": "boardgame-exe-mobile-preview",
+    "mobileProjectId": "prj_mNqBP0UOsodb1WifpfNuFfKLmUpG",
+    "rootDirectory": ".",
+    "installCommand": "npm ci && npm ci --prefix mobile_app",
+    "buildCommand": "npm run build --prefix mobile_app",
+    "outputDirectory": "mobile_app/dist",
+    "gitConnected": false,
+    "mobileVerifiedPreviewUrl": null,
+    "attempt": {
+      "requestedTarget": "preview",
+      "reportedTarget": "production",
+      "deploymentId": "dpl_6wNznVNQQNnwoZ78ieD44kUNwfcL",
+      "status": "ERROR then removed",
+      "cause": "temporary upload filter public/ also excluded mobile_app/public; /model-viewer.min.js absent",
+      "removed": true,
+      "deploymentsRemaining": 0
+    },
+    "apiBeforeFix": "HTTP 500 FUNCTION_INVOCATION_FAILED; Vercel log ERR_MODULE_NOT_FOUND /var/task/src/ai/server/handler.ts",
+    "apiAfterFix": {
+      "webPreviewGetStatus": 405,
+      "webPreviewInvalidPostStatus": 400,
+      "providerSuccessVerified": false,
+      "mobileHostedRouteVerified": false
+    },
+    "environmentPull": "automatic approval review rejected vercel pull --environment=preview because it could retrieve secrets; no retry, no secret retrieval"
+  },
+  "verdict": "BLOCKED",
+  "blocker": "No verified hosted Mobile Preview; owner must establish Preview-only target and verify Mobile/API before merge"
+}

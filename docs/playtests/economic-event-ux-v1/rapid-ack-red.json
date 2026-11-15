@@ -1,0 +1,30 @@
+{
+  "reproduced": true,
+  "issue": "Second acknowledgement click reaches the board roll button after the popup unmounts.",
+  "layouts": [
+    {
+      "width": 320,
+      "height": 640,
+      "afterRapidAcknowledgement": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 20.000.000 ₫\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 29,5 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- generic: \"🎲 Vừa Gieo: 4\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"",
+      "returnedToBoard": true,
+      "passed": false,
+      "unexpectedDiceRoll": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "afterRapidAcknowledgement": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 20.000.000 ₫\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 29,5 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- generic: \"🎲 Vừa Gieo: 4\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"",
+      "returnedToBoard": true,
+      "passed": false,
+      "unexpectedDiceRoll": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "afterRapidAcknowledgement": "- img \"Main Background\"\n- img \"Playboard Isometric\"\n- img \"Section Play Board\"\n- generic: 01 / 04\n- banner:\n  - generic: TIỀN MẶT\n  - strong: 20.000.000 ₫\n  - button \"Tắt âm thanh\": 🔊\n  - generic: 🏁 Về đích\n  - strong: 29,5 / 90 triệu\n  - progressbar \"Tiến độ nguồn tiền hợp lệ về đích\"\n- generic: \"🎲 Vừa Gieo: 4\"\n- button \"💼\"\n- button \"Gieo xúc xắc\" [disabled]\n- button \"📜\"",
+      "returnedToBoard": true,
+      "passed": false,
+      "unexpectedDiceRoll": true
+    }
+  ]
+}

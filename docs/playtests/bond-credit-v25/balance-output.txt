@@ -1,0 +1,18 @@
+(node:27604) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+bank-first: 2000 games complete; wins=1093
+issuer-a: 2000 games complete; wins=794
+issuer-b: 2000 games complete; wins=836
+mixed-bonds: 2000 games complete; wins=784
+liquidity: 2000 games complete; wins=674
+balanced: 2000 games complete; wins=940
+┌─────────────┬─────────┬──────────┬──────────┬────────┬─────────┐
+│ (index)     │ winRate │ mean     │ median   │ delay  │ default │
+├─────────────┼─────────┼──────────┼──────────┼────────┼─────────┤
+│ bank-first  │ 0.5465  │ 90962929 │ 91424404 │ 0      │ 0       │
+│ issuer-a    │ 0.397   │ 86208679 │ 86794923 │ 0.1115 │ 0.0305  │
+│ issuer-b    │ 0.418   │ 86198255 │ 86863345 │ 0.266  │ 0.123   │
+│ mixed-bonds │ 0.392   │ 86034339 │ 86500000 │ 0.1995 │ 0.086   │
+│ liquidity   │ 0.337   │ 84657171 │ 85055290 │ 0.078  │ 0.0205  │
+│ balanced    │ 0.47    │ 89120583 │ 89081912 │ 0.188  │ 0.0785  │
+└─────────────┴─────────┴──────────┴──────────┴────────┴─────────┘
