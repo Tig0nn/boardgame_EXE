@@ -42,6 +42,6 @@ export function createMobileSession(initial: GameState) {
   }
 }
 
-export function movementPath(before: GameState, after: GameState): number[] {
+export function movementPath(before: Parameters<typeof boardFor>[0] & Pick<GameState, 'position'>, after: Pick<GameState, 'dice'>): number[] {
   return Array.from({ length: after.dice }, (_, step) => (before.position + step + 1) % boardFor(before).length)
 }

@@ -1,0 +1,281 @@
+import { palette, styles } from './theme'
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
+import { BackHandler, TextInput, View } from 'react-native'
+import { Image } from 'expo-image'
+import { randomUUID } from 'expo-crypto'
+import * as Haptics from 'expo-haptics'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { money, signedMoney } from '../../../src/game/format'
+import { tileInformation } from '../../../src/components/tile-information'
+import { localizePlayerText } from '../../../src/components/player-language'
+import { GAME_SAVE_KEY, saveGameLocally } from '../../../src/game/saved-game'
+import { parseMoneyInput } from '../../../src/ui/money-input'
+import { depositPreview, purchasePreview } from '../../../src/game/selectors'
+import type { GameState } from '../../../src/game/types'
+import { createMobileSession, type MobileCommand } from '../../src/game/session'
+import { actionRequest, apiMessage, createServerSession, type createGameApi, type SessionDetail } from '../../src/game/server-session'
+import { getLapQuarterInsight, marketBulletin } from '../../src/game/market-news'
+import { evaluateMascotSignals, type MascotInsight } from '../../src/game/mascot-coach'
+import { art } from './assets'
+import { Action, Copy, Eye, Fox, Panel } from './ui'
+import { Board } from './board'
+import { assetLabel, fromLocal, fromServer, localQuote, setAmount, tileLabel, type Arena, type TradeChoice } from './arena-model'
+import { CoachContent, PortfolioContent, WhatIfContent } from './coach-and-what-if'
+
+type Api = ReturnType<typeof createGameApi>
+type Session = ReturnType<typeof createServerSession>
+type Screen = 'wallet' | 'guide' | 'coach' | 'what-if' | 'tile'
+type ChoiceState = { item: TradeChoice; raw: string }
+const isDecision = (arena: Arena) => arena.phase !== 'rolling' && arena.phase !== 'finished'
+const moneyInputs = [
+  ['cashAfterVnd', 'Tiền mặt sau thao tác'], ['cashAfter', 'Tiền mặt sau thao tác'],
+  ['interestVnd', 'Lãi'], ['interest', 'Lãi'], ['netProceedsVnd', 'Thực nhận'],
+  ['net', 'Thực nhận'], ['feeVnd', 'Phí'], ['fee', 'Phí'], ['debtAfterVnd', 'Dư nợ sau thao tác'],
+] as const
+
+function quoteLines(quote: unknown) {
+  if (typeof quote !== 'object' || quote === null) return []
+  const fields = quote as Record<string, unknown>
+  const shown = new Map<string, string>()
+  for (const [key, label] of moneyInputs) if (typeof fields[key] === 'number') shown.set(label, money(fields[key]))
+  return [...shown].map(([label, text]) => label + ' · ' + text)
+}
+
+function FinancialChoices({ arena, confirm, locked, quote }: {
+  arena: Arena; confirm: (command: MobileCommand) => void; locked: boolean
+  quote?: (command: MobileCommand, signal: AbortSignal) => Promise<unknown>
+}) {
+  const [selection, setSelection] = useState<ChoiceState>()
+  const [preview, setPreview] = useState<string[]>()
+  const [message, setMessage] = useState('')
+  const [pricing, setPricing] = useState(false)
+  const request = useRef<AbortController | null>(null)
+  useEffect(() => () => request.current?.abort(), [])
+  const amount = selection ? parseMoneyInput(selection.raw) : 0
+  const valid = !!selection && typeof amount === 'number' && Number.isSafeInteger(amount) && amount >= selection.item.min && amount <= selection.item.max
+  const command = valid ? setAmount(selection.item, amount) : null
+  const selectedTrade = command?.type === 'trade' ? command.action : null
+  const fixed = arena.fixed.filter(item => !item.skip)
+  const skip = arena.fixed.find(item => item.skip)
+  function clearQuote() {
+    request.current?.abort()
+    request.current = null
+    setPreview(undefined); setMessage(''); setPricing(false)
+  }
+  function showQuote() {
+    if (!command || !quote || pricing) return
+    setPricing(true)
+    setMessage('')
+    const controller = new AbortController()
+    request.current = controller
+    void quote(command, controller.signal).then(reply => {
+      if (!controller.signal.aborted) setPreview(quoteLines(reply))
+    }).catch(problem => {
+      if (!controller.signal.aborted) setMessage(apiMessage(problem))
+    }).finally(() => { if (!controller.signal.aborted) setPricing(false) })
+  }
+  const localPreview = !arena.local || !selectedTrade ? undefined : selectedTrade.kind === 'deposit'
+    ? { ...depositPreview(arena.local, selectedTrade.amount, selectedTrade.term ?? 1), ...purchasePreview(arena.local, selectedTrade.amount) }
+    : selectedTrade.kind === 'buy' ? purchasePreview(arena.local, selectedTrade.amount) : localQuote(arena.local, selectedTrade)
+  return <>
+    {arena.note && <Copy>{arena.note}</Copy>}
+    {arena.phase === 'forecast' && <Market arena={arena}/>}
+    {arena.phase === 'summary' && arena.summary && <Settlement arena={arena}/>}
+    {arena.phase === 'event' && <View style={styles.card}><Copy variant="note">Tiền mặt hiện có</Copy><Copy variant="heading">{money(arena.portfolio.cash)}</Copy></View>}
+    {arena.trades.map((item, i) => <Action key={i} label={item.label} disabled={locked} selected={selection?.item === item}
+      onPress={() => { clearQuote(); setSelection({ item, raw: String(item.min === item.max ? item.min : Math.min(1_000_000, item.max)) }) }}>
+      {item.note && <Copy variant="note">{item.note}</Copy>}
+    </Action>)}
+    {selection && <View style={styles.card}>
+      <Copy variant="heading">{selection.item.label}</Copy>
+      <Copy variant="note">{selection.item.min === selection.item.max
+        ? 'Số tiền · ' + money(selection.item.max) : 'Tối đa · ' + money(selection.item.max)}</Copy>
+      {selection.item.min !== selection.item.max && <TextInput accessibilityLabel="Số tiền" value={selection.raw}
+        keyboardType="number-pad" style={styles.input} editable={!locked} onChangeText={raw => { clearQuote(); setSelection({ ...selection, raw }) }}/>}
+      {quote && command?.type === 'trade' && <Action label={pricing ? 'Đang tải báo giá…' : 'Xem báo giá'}
+        disabled={!valid || pricing || locked} onPress={showQuote}/>}
+      {message ? <Copy accessibilityRole="alert">{message}</Copy> : null}
+      {preview?.map(line => <Copy key={line}>{line}</Copy>)}
+      {localPreview && quoteLines(localPreview).map(line => <Copy key={line}>{line}</Copy>)}
+      {command && <Action label={'Xác nhận · ' + money(amount ?? 0)} tone="primary" disabled={locked}
+        onPress={() => confirm(command)}/>}
+    </View>}
+    {fixed.map((item, i) => <Action key={i} label={item.label} onPress={() => confirm(item.command)} disabled={locked} tone="primary">
+      {item.note && <Copy variant="note">{item.note}</Copy>}
+    </Action>)}
+    {skip && <Action label="BỎ QUA CƠ HỘI" disabled={locked} onPress={() => confirm(skip.command)}/>}
+  </>
+}
+
+function Market({ arena }: { arena: Arena }) {
+  const info = getLapQuarterInsight(arena.lap)
+  const bulletin = arena.local ? marketBulletin(arena.local) : null
+  return <View style={styles.card}>
+    <Copy variant="note">{info.quarterLabel}</Copy>
+    <Copy variant="heading">{info.macroTheme}</Copy>
+    <Copy>{info.actionableAdvice}</Copy>
+    {bulletin?.available && bulletin.assets.map(item => <Copy key={item.asset}>{assetLabel(item.asset)} · {item.forecast}</Copy>)}
+  </View>
+}
+function Settlement({ arena }: { arena: Arena }) {
+  const data = arena.summary
+  if (!data) return null
+  return <>
+    <View style={[styles.card, { backgroundColor: '#dff8e9' }]}>
+      <Copy variant="note">Dòng tiền ròng vòng {data.lap}</Copy><Copy variant="title">{signedMoney(data.after - data.before)}</Copy>
+    </View>
+    <View style={styles.card}>
+      {data.lines.map((line, index) => <View key={index} style={[styles.footer, { justifyContent: 'space-between' }]}>
+        <Copy style={{ flex: 1 }}>{localizePlayerText(line.label)}</Copy>
+        <Copy style={{ color: line.amount < 0 ? palette.red : palette.green }}>{signedMoney(line.amount)}</Copy>
+      </View>)}
+      <Copy variant="heading">Tiền mặt sau quyết toán · {money(data.after)}</Copy>
+      {data.fundingNotes.map((note, index) => <Copy key={index} variant="note">{localizePlayerText(note)}</Copy>)}
+    </View>
+  </>
+}
+
+export function GuideContent({ arena }: { arena?: Arena }) {
+  const [section, setSection] = useState<'game' | 'board'>('game')
+  return <>
+    <View style={styles.footer}><Action label="Luật chơi" selected={section === 'game'} onPress={() => setSection('game')}/>
+      <Action label="Các ô bàn cờ" selected={section === 'board'} onPress={() => setSection('board')}/></View>
+    {section === 'game' ? <View style={styles.card}>
+      <Copy variant="heading">Cờ tỷ phú tài chính B18</Copy>
+      <Copy>Mục tiêu là đạt {money(arena?.target ?? 90_000_000)} nguồn huy động hợp lệ sau bốn vòng.</Copy>
+      <Copy>Mỗi lượt gieo xúc xắc D6 rồi xử lý ô dừng. Đi qua ô Xuất phát sẽ quyết toán các khoản thu, chi và nghĩa vụ đến hạn.</Copy>
+      <Copy>Quản lý tiền mặt, tiết kiệm, cổ phiếu, trái phiếu, vàng, kinh doanh và dư nợ. Chỉ giao dịch ở những ô game cho phép.</Copy>
+      <Copy variant="note">Nhấn icon mắt trong quyết định để xem bàn cờ và trở lại bản nháp.</Copy>
+    </View> : arena?.board.map((tile, index) => <View key={tile.index} style={styles.card}>
+      <Copy variant="heading">{index + 1} · {tileLabel(arena, index)}</Copy><Copy>{tileInformation(tile.type, arena.local)}</Copy>
+    </View>)}
+  </>
+}
+
+function Endgame({ arena, onExit, onNew, onWhatIf, onWallet, onCoach }: {
+  arena: Arena; onExit: () => void; onNew: () => void; onWhatIf?: () => void; onWallet: () => void; onCoach: () => void
+}) {
+  const result = arena.result
+  if (!result) return null
+  const won = result.outcome === 'victory'
+  return <Panel title={won ? 'Hoàn thành mục tiêu' : result.outcome === 'insolvent' ? 'Mất khả năng thanh toán' : 'Kết quả hành trình'}
+    subtitle={'Hoàn tất ' + arena.finishedLaps + '/' + arena.totalLaps + ' vòng'} header={<Action label="Đóng" onPress={onExit}/>}>
+    <Image source={won ? art.trophy : art.result} style={{ height: 106 }} contentFit="contain"/>
+    <View style={styles.card}><Copy variant="note">Nguồn huy động hợp lệ</Copy>
+      <Copy variant="title">{money(Number(result.lawfulProceedsVnd))}</Copy>
+      <Copy>Mục tiêu · {money(arena.target)}</Copy><Copy>Tài sản ròng · {money(arena.totalWorth)}</Copy></View>
+    {onWhatIf && result.outcome !== 'insolvent' && <Action label="Nếu chọn khác thì sao?" onPress={onWhatIf} tone="primary"/>}
+    <Action label="Xem tài sản và nhật ký" onPress={onWallet}/>
+    <Action label="Cáo giải thích kết quả" onPress={onCoach}/>
+    <Action label="Ván mới" onPress={onNew}/>
+  </Panel>
+}
+
+function ArenaScreen({ arena, revision, busy, pendingRetry, message, confirm, retry, exit, newGame, activateSound, playSound, api, sessionId, insight }: {
+  arena: Arena; revision: string | number; busy: boolean; pendingRetry: boolean; message: string; confirm: (command: MobileCommand) => void
+  retry: () => void; exit: () => void; newGame: () => void; activateSound: () => void; playSound: () => void
+  api?: Api; sessionId?: string; insight?: MascotInsight | null
+}) {
+  const [peek, setPeek] = useState(false)
+  const [screen, setScreen] = useState<Screen>()
+  const [tile, setTile] = useState(0)
+  const locked = busy || pendingRetry
+  const quote = api && sessionId ? async (action: MobileCommand, signal: AbortSignal) => {
+    if (typeof revision !== 'number' || action.type !== 'trade') return null
+    const input = actionRequest(action, revision)
+    const namespace = ['deposit', 'repay'].includes(action.action.kind) ? 'bank-quote'
+      : action.action.asset === 'business' ? 'business-quote' : 'trade-quote'
+    return api.quote(sessionId, namespace, namespace === 'bank-quote' ? input
+      : { expectedStateVersion: revision, payload: input.payload }, signal)
+  } : undefined
+  const close = () => setScreen(undefined)
+  const send = (command: MobileCommand) => {
+    if (locked || peek || screen) return
+    void Haptics.selectionAsync().catch(() => {})
+    playSound()
+    confirm(command)
+  }
+  useEffect(() => {
+    const listener = BackHandler.addEventListener('hardwareBackPress', () => {
+      if (screen) { setScreen(undefined); return true }
+      if (peek) { setPeek(false); return true }
+      if (locked || isDecision(arena)) return true
+      exit()
+      return true
+    })
+    return () => listener.remove()
+  }, [arena, exit, locked, peek, screen])
+  return <View style={{ flex: 1 }}>
+    <Board arena={arena} peek={peek} blocked={locked || !!screen || isDecision(arena)} onRoll={() => send({ type: 'roll' })}
+      onReturn={() => setPeek(false)} onHome={exit} onWallet={() => setScreen('wallet')} onGuide={() => setScreen('guide')}
+      onSound={activateSound} onTile={position => { setTile(position); setScreen('tile') }}/>
+    {arena.phase === 'rolling' && !peek && !screen && <View style={{ position: 'absolute', left: 12, bottom: 101 }}>
+      <Action label="Cáo EXE" onPress={() => setScreen('coach')}><Fox size={34}/></Action>
+    </View>}
+    {isDecision(arena) && <Panel title={arena.title} subtitle={'Vòng ' + arena.lap + '/' + arena.totalLaps}
+      visible={!peek && !screen} locked={locked} header={!locked && <Eye open={false} onPress={() => setPeek(true)}/>}>
+      <Action label="Cáo EXE" onPress={() => setScreen('coach')}><Fox size={31}/></Action>
+      <FinancialChoices key={revision} arena={arena} confirm={send} locked={locked} quote={quote}/>
+    </Panel>}
+    {arena.phase === 'finished' && !screen && <Endgame arena={arena} onExit={exit} onNew={newGame}
+      onWhatIf={api ? () => setScreen('what-if') : undefined} onWallet={() => setScreen('wallet')} onCoach={() => setScreen('coach')}/>}
+    {screen === 'wallet' && <Panel title="Ví và nhật ký" header={<Action label="Đóng" onPress={close}/>}><PortfolioContent arena={arena}/></Panel>}
+    {screen === 'guide' && <Panel title="Sổ tay chiến lược" header={<Action label="Đóng" onPress={close}/>}><GuideContent arena={arena}/></Panel>}
+    {screen === 'coach' && <Panel title="Cáo EXE" header={<Action label="Đóng" onPress={close}/>}><CoachContent arena={arena} insight={insight}/></Panel>}
+    {screen === 'what-if' && api && sessionId && <Panel title="Nếu chọn khác thì sao?" header={<Action label="Đóng" onPress={close}/>}>
+      <WhatIfContent api={api} sessionId={sessionId}/>
+    </Panel>}
+    {screen === 'tile' && <Panel title={tileLabel(arena, tile)} header={<Action label="Đóng" onPress={close}/>}>
+      <Copy>{tileInformation(arena.board[tile].type, arena.local)}</Copy>
+    </Panel>}
+    {!!message && <View accessibilityLiveRegion="polite" style={[styles.card, { position: 'absolute', top: 4, left: 14, right: 14, zIndex: 20 }]}>
+      <Copy accessibilityRole="alert">{message}</Copy>
+      {pendingRetry && <Action label="Thử lại" disabled={busy} onPress={retry}/>}
+    </View>}
+  </View>
+}
+
+export function LocalGame({ initial, ownerExit, sound, playSound, restart }: {
+  initial: GameState; ownerExit: () => void; sound: () => void; playSound: () => void; restart: () => void
+}) {
+  const [controller] = useState(() => createMobileSession(initial))
+  const game = useSyncExternalStore(controller.subscribe, controller.getSnapshot)
+  const [message, setMessage] = useState('')
+  const [insight, setInsight] = useState<MascotInsight | null>(null)
+  const arena = useMemo(() => fromLocal(game), [game])
+  const saves = useRef(Promise.resolve())
+  function persist(state: GameState) {
+    let data = ''
+    if (!saveGameLocally(state, { setItem(_key, value) { data = value } })) {
+      setMessage('Không thể chuẩn bị bản lưu trên thiết bị.')
+      return
+    }
+    saves.current = saves.current.catch(() => {}).then(() => AsyncStorage.setItem(GAME_SAVE_KEY, data))
+    void saves.current.catch(() => setMessage('Chưa lưu được trên thiết bị. Hãy thử lại.'))
+  }
+  const confirm = (command: MobileCommand) => {
+    setMessage('')
+    try {
+      if (!controller.dispatch(command, game)) { setMessage('Lựa chọn này chưa khả dụng.'); return }
+      const next = controller.getSnapshot()
+      setInsight(evaluateMascotSignals(game, next)[0] ?? null)
+      persist(next)
+    } catch {
+      setMessage('Số tiền hoặc lựa chọn chưa hợp lệ. Hãy kiểm tra lại.')
+    }
+  }
+  return <ArenaScreen arena={arena} revision={game.log.at(-1)?.sequence ?? 0} busy={false} pendingRetry={false}
+    message={message} confirm={confirm} retry={() => persist(game)} exit={ownerExit} newGame={restart} activateSound={sound} playSound={playSound} insight={insight}/>
+}
+
+export function CloudGame({ initial, api, ownerExit, sound, playSound, restart }: {
+  initial: SessionDetail; api: Api; ownerExit: () => void; sound: () => void; playSound: () => void; restart: () => void
+}) {
+  const [controller] = useState<Session>(() => createServerSession(api, initial, randomUUID))
+  const view = useSyncExternalStore(controller.subscribe, controller.getSnapshot)
+  const arena = useMemo(() => fromServer(view.detail.state, view.detail.result), [view.detail])
+  return <ArenaScreen arena={arena} revision={view.detail.session.stateVersion} busy={view.busy} pendingRetry={view.retryable || view.needsReload}
+    message={view.message} confirm={command => { void controller.send(command, view.detail.session.stateVersion) }}
+    retry={() => { void (view.needsReload ? controller.reload() : controller.retry()) }} exit={ownerExit}
+    newGame={restart} activateSound={sound} playSound={playSound} api={api} sessionId={initial.session.id}/>
+}

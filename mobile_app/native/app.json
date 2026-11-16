@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "EXE · Mỏ Hỗn",
+    "slug": "exe-boardgame-native",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "exe-boardgame",
+    "android": {
+      "package": "vn.exe.boardgame.nativeapp",
+      "adaptiveIcon": {
+        "backgroundColor": "#214237"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "vn.exe.boardgame.nativeapp",
+      "supportsTablet": true
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-dev-client",
+      "expo-image",
+      "expo-font",
+      "expo-audio",
+      "expo-asset"
+    ],
+    "icon": "../public/assets/cropped/app-logo.png"
+  }
+}
