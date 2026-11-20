@@ -86,8 +86,7 @@ export const gameSnapshots = pgTable('game_snapshots', {
   check('game_snapshots_state_version_check', sql`${table.stateVersion} >= 0`),
   check('game_snapshots_schema_version_check', sql`
     ${table.schemaVersion} > 0
-    AND jsonb_typeof(${table.payload}::jsonb) = 'object'
-    AND (${table.payload}::jsonb->'schemaVersion' = to_jsonb(${table.schemaVersion})) IS TRUE
+    AND (${table.payload}::jsonb @> jsonb_build_object('schemaVersion', ${table.schemaVersion})) IS TRUE
   `),
 ])
 

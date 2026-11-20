@@ -1,0 +1,378 @@
+{
+  "description": "Synthetic Android B18 recorded actions; no account or session credentials",
+  "seed": "4549829d9e82f92e3f7da8fefc4b86b3",
+  "setup": {
+    "savingsTerm": 1,
+    "initialSavings": 0
+  },
+  "actions": [
+    {
+      "sequence": 1,
+      "action_type": "advance",
+      "payload": {}
+    },
+    {
+      "sequence": 2,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 3,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "acknowledge"
+      }
+    },
+    {
+      "sequence": 4,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 5,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "course-basic"
+      }
+    },
+    {
+      "sequence": 6,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 7,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 8,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 9,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 10,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 11,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 12,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 13,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 14,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 15,
+      "action_type": "advance",
+      "payload": {}
+    },
+    {
+      "sequence": 16,
+      "action_type": "advance",
+      "payload": {}
+    },
+    {
+      "sequence": 17,
+      "action_type": "advance",
+      "payload": {}
+    },
+    {
+      "sequence": 18,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 19,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 20,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 21,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 22,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 23,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 24,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 25,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 26,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 27,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 28,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 29,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 30,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 31,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 32,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 33,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 34,
+      "action_type": "advance",
+      "payload": {}
+    },
+    {
+      "sequence": 35,
+      "action_type": "advance",
+      "payload": {}
+    },
+    {
+      "sequence": 36,
+      "action_type": "advance",
+      "payload": {}
+    },
+    {
+      "sequence": 37,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "full"
+      }
+    },
+    {
+      "sequence": 38,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 39,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 40,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 41,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 42,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 43,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 44,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 45,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 46,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 47,
+      "action_type": "advance",
+      "payload": {}
+    },
+    {
+      "sequence": 48,
+      "action_type": "advance",
+      "payload": {}
+    },
+    {
+      "sequence": 49,
+      "action_type": "advance",
+      "payload": {}
+    },
+    {
+      "sequence": 50,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 51,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 52,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 53,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 54,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 55,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 56,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 57,
+      "action_type": "choose",
+      "payload": {
+        "optionId": "skip"
+      }
+    },
+    {
+      "sequence": 58,
+      "action_type": "roll",
+      "payload": {}
+    },
+    {
+      "sequence": 59,
+      "action_type": "advance",
+      "payload": {}
+    },
+    {
+      "sequence": 60,
+      "action_type": "advance",
+      "payload": {}
+    }
+  ],
+  "hashes": [
+    {
+      "state_version": 0,
+      "schema_version": 7,
+      "sha256": "bb7da47cd627b85cb8dfb9bf899786a0cc3c80d622987deb506e36517bb1208c"
+    },
+    {
+      "state_version": 35,
+      "schema_version": 7,
+      "sha256": "299193224dc5fab66aa2795476f432f84f6dc9c8d32ad96691658bbfe2baf559"
+    },
+    {
+      "state_version": 36,
+      "schema_version": 7,
+      "sha256": "8a7b87f5100ad27b028a947c06a23da01c518785574581186fbddc177e4fc899"
+    },
+    {
+      "state_version": 60,
+      "schema_version": 7,
+      "sha256": "d9b88f24250eb6cb8832245ef1337a627fcc222228fa65c9120571b4da237613"
+    }
+  ]
+}

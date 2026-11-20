@@ -99,7 +99,7 @@ test('V1 foundation on PostgreSQL', async t => {
     ])
     assert.deepEqual(await database.db.select().from(scenarioVersions), [b18Scenario])
     const applied = await database.pool.query('SELECT id FROM drizzle.__drizzle_migrations')
-    assert.equal(applied.rowCount, 5)
+    assert.equal(applied.rowCount, 6)
     const client = await database.pool.connect()
     try {
       await verifyMigrationJournal(client)
