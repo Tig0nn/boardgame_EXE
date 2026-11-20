@@ -231,7 +231,8 @@ test('Phase 2A actions on PostgreSQL', { timeout: 90_000 }, async t => {
       }
       assert.ok(blocked?.blockers.includes(pid))
       const response = await request
-      assert.equal(response.statusCode, 500, response.body)
+      assert.equal(response.statusCode, 503, response.body)
+      assert.equal(response.json().error.code, 'DATABASE_BUSY')
       assert.equal((await session(id)).stateVersion, 0)
       assert.equal((await actions(id)).length, 0)
       assert.equal((await snapshots(id)).length, 1)

@@ -35,6 +35,9 @@ export function sendError(error: unknown, reply: FastifyReply) {
     problem = new ApiError(415, 'UNSUPPORTED_MEDIA_TYPE', 'Use application/json')
   } else if (status && status >= 400 && status < 500) {
     problem = new ApiError(status, 'INVALID_REQUEST', 'Invalid request')
+  } else if (postgresFailure(error)?.sqlState === '57014') {
+    reply.log.warn({ event: 'request_failed', ...postgresFailure(error) })
+    problem = new ApiError(503, 'DATABASE_BUSY', 'Database operation interrupted; retry the same request')
   } else {
     reply.log.error({ event: 'request_failed', category: 'internal', ...postgresFailure(error) })
     problem = new ApiError(500, 'INTERNAL_ERROR', 'Internal server error')
