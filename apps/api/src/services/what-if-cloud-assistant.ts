@@ -11,6 +11,7 @@ import { sessionRepository } from '../repositories/game-sessions.ts'
 import { assertSupportedB18 } from './game-state.ts'
 import { evaluateVerifiedWhatIf, loadVerifiedWhatIf } from './what-if.ts'
 import { WhatIfBudget } from './what-if-replay.ts'
+import type { WhatIfTrace } from './what-if-timing.ts'
 import { buildProposalCandidates, recordedKind } from './what-if-proposals.ts'
 
 type Assistance = AssistantFailure | 'not-requested' | 'used' | 'not-applicable'
@@ -33,7 +34,7 @@ function localClaim(facts: ExplanationFacts) {
 }
 
 export async function assistSavedWhatIf(db: Database, userId: string, id: string,
-  input: WhatIfAssistantRequest, assistant?: WhatIfAssistant, signal?: AbortSignal) {
+  input: WhatIfAssistantRequest, assistant?: WhatIfAssistant, signal?: AbortSignal, trace?: WhatIfTrace) {
   let assistance: Assistance = input.allowGemini ? 'disabled' : 'not-requested'
   const provider = input.allowGemini ? assistant : undefined
   const base = { version: 1 as const, stateVersion: input.stateVersion }
@@ -41,7 +42,7 @@ export async function assistSavedWhatIf(db: Database, userId: string, id: string
   if (input.operation === 'explain') {
     const { operation, stateVersion, sequence, alternative } = input
     const request = { stateVersion, sequence, alternative }
-    const budget = new WhatIfBudget(signal)
+    const budget = new WhatIfBudget(signal, 2500, trace)
     const source = await loadVerifiedWhatIf(db, userId, id, budget, stateVersion, sequence)
     const evaluation = await evaluateVerifiedWhatIf(source, request, budget)
     if (evaluation.status === 'limited') return {
@@ -65,7 +66,7 @@ export async function assistSavedWhatIf(db: Database, userId: string, id: string
   }
 
   const source = input.operation === 'propose'
-    ? await loadVerifiedWhatIf(db, userId, id, new WhatIfBudget(signal), input.stateVersion) : undefined
+    ? await loadVerifiedWhatIf(db, userId, id, new WhatIfBudget(signal, 2500, trace), input.stateVersion) : undefined
   if (!source) {
     // Parsing language needs only version, eligibility and ownership.
     const header = await sessionRepository(db).findOwnedHeader(userId, id)

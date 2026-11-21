@@ -14,6 +14,7 @@ import { publicBankState } from './b18-bank.ts'
 import { publicBusinessState } from './b18-business.ts'
 import { b18TradingAsset } from './b18-trading.ts'
 import type { TradePayload, BankPayload, BusinessPayload } from '../validation.ts'
+import type { WhatIfStage, WhatIfTrace } from './what-if-timing.ts'
 
 export const maxHistory = 512
 export const whatIfPolicy = 'retain-legal-then-required-v1'
@@ -21,25 +22,40 @@ export const whatIfPolicy = 'retain-legal-then-required-v1'
 export class WhatIfBudget {
   private readonly started = performance.now()
   private steps = 0
-  constructor(signal?: AbortSignal, milliseconds = 2500) {
+  constructor(signal?: AbortSignal, milliseconds = 2500, trace?: WhatIfTrace) {
     this.signal = signal
     this.milliseconds = milliseconds
+    this.trace = trace
   }
+  readonly trace?: WhatIfTrace
   private readonly signal?: AbortSignal
   private readonly milliseconds: number
   check() {
     if (this.signal?.aborted || performance.now() - this.started >= this.milliseconds || this.steps > 1536) {
-      throw new ApiError(503, 'WHAT_IF_BUDGET_EXCEEDED', 'Analysis was interrupted; try again')
+      const error = new ApiError(503, 'WHAT_IF_BUDGET_EXCEEDED', 'Analysis was interrupted; try again')
+      this.trace?.record('budget', this.started, 'error', {
+        reason: this.signal?.aborted ? 'aborted' : this.steps > 1536 ? 'step-limit' : 'deadline',
+        lastStage: this.trace.lastStage,
+      }, error)
+      throw error
     }
   }
   async step() {
     if (++this.steps % 8 === 0) await setImmediate()
     this.check()
   }
+  time<T>(stage: WhatIfStage, operation: () => T, fields?: { payloadBytes?: number }): T {
+    return this.trace ? this.trace.sync(stage, operation, fields) : operation()
+  }
+  run<T>(stage: WhatIfStage, operation: () => Promise<T>, fields?: (value: T) => { payloadBytes?: number }): Promise<T> {
+    return this.trace ? this.trace.run(stage, operation, fields) : operation()
+  }
 }
 
-export function snapshotDigest(game: GameState) {
-  return createHash('sha256').update(serializeLog(game)).digest('hex')
+export function snapshotDigest(game: GameState, trace?: WhatIfTrace) {
+  const payload = trace ? trace.sync('canonical_serialization', () => serializeLog(game)) : serializeLog(game)
+  const hash = () => createHash('sha256').update(payload).digest('hex')
+  return trace ? trace.sync('canonical_sha256', hash, { payloadBytes: Buffer.byteLength(payload) }) : hash()
 }
 
 const contextKey = (game: GameState) => JSON.stringify([

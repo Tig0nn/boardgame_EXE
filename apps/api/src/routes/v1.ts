@@ -15,6 +15,7 @@ import { quoteGameTrade } from '../services/trading-quotes.ts'
 import type { WhatIfAssistant } from '../services/what-if-assistance.ts'
 import { assistSavedWhatIf } from '../services/what-if-cloud-assistant.ts'
 import { analyzeSavedGame } from '../services/what-if.ts'
+import { WhatIfTrace } from '../services/what-if-timing.ts'
 import type { FoxAssist } from '../services/fox-assistance.ts'
 import { readFoxCoach, learnWithFox } from '../services/fox-coach.ts'
 import { readGameState } from '../services/game-state.ts'
@@ -42,11 +43,51 @@ function snapshotObserver(request: FastifyRequest): SnapshotObserver {
 export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAuthConfig | undefined, foxAssist?: FoxAssist, whatIfAssist?: WhatIfAssistant) {
   const authenticate = createAuthenticator(auth)
   const sessions = sessionRepository(db)
+  const timings = new WeakMap<FastifyRequest, { trace: WhatIfTrace; started: number; serialization?: number }>()
   api.decorateRequest('playerId', null)
 
   api.addHook('onRequest', async (request, reply) => {
     reply.header('Cache-Control', 'no-store')
-    request.playerId = await authenticate(request.headers.authorization)
+    const route = request.routeOptions.url
+    const isWhatIf = route?.endsWith('/what-if') || route?.endsWith('/what-if/assistant')
+    if (isWhatIf) {
+      const trace = new WhatIfTrace(event => {
+        const fields = { event: 'what_if_timing', ...event }
+        if (event.outcome === 'error') request.log.warn(fields)
+        else request.log.info(fields)
+      })
+      timings.set(request, { trace, started: performance.now() })
+      request.playerId = await trace.run('authentication', () => authenticate(request.headers.authorization))
+    } else request.playerId = await authenticate(request.headers.authorization)
+  })
+  api.addHook('onError', async (request, _reply, error) => {
+    const timing = timings.get(request)
+    timing?.trace.record('analysis', timing.started, 'error', {}, error)
+  })
+  api.addHook('preSerialization', async (request, _reply, payload) => {
+    const timing = timings.get(request)
+    if (timing) timing.serialization = performance.now()
+    return payload
+  })
+  api.addHook('onSend', async (request, _reply, payload) => {
+    const timing = timings.get(request)
+    if (timing?.serialization !== undefined) {
+      let errorCode: string | undefined
+      if (_reply.statusCode >= 400 && typeof payload === 'string' && payload.length <= 4096) {
+        try {
+          const value: unknown = JSON.parse(payload)
+          if (value && typeof value === 'object' && 'error' in value && value.error && typeof value.error === 'object' &&
+              'code' in value.error && typeof value.error.code === 'string') errorCode = value.error.code
+        } catch { /* A non-JSON error response is still returned unchanged. */ }
+      }
+      timing.trace.record('response_serialization', timing.serialization, _reply.statusCode >= 400 ? 'error' : 'ok',
+        { payloadBytes: typeof payload === 'string' ? Buffer.byteLength(payload) : undefined, errorCode })
+    }
+    return payload
+  })
+  api.addHook('onResponse', async (request, reply) => {
+    const timing = timings.get(request)
+    timing?.trace.record('analysis', timing.started, reply.statusCode < 400 ? 'ok' : 'error')
   })
 
   api.get('/me', async request => ({
@@ -115,7 +156,7 @@ export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAu
       const onClose = () => abort.abort()
       reply.raw.once('close', onClose)
       try {
-        return await analyzeSavedGame(db, playerId(request), id, input, abort.signal)
+        return await analyzeSavedGame(db, playerId(request), id, input, abort.signal, timings.get(request)?.trace)
       } finally {
         reply.raw.off('close', onClose)
       }
@@ -129,7 +170,7 @@ export async function registerV1(api: FastifyInstance, db: Database, auth: JwtAu
     const onClose = () => abort.abort()
     reply.raw.once('close', onClose)
     try {
-      return await assistSavedWhatIf(db, playerId(request), id, input, whatIfAssist, abort.signal)
+      return await assistSavedWhatIf(db, playerId(request), id, input, whatIfAssist, abort.signal, timings.get(request)?.trace)
     } finally {
       reply.raw.off('close', onClose)
     }
