@@ -1,9 +1,7 @@
-import { createHash } from 'node:crypto'
 import { setImmediate } from 'node:timers/promises'
 import { isDeepStrictEqual } from 'node:util'
 import { eventsForGame } from '../../../../src/data/events.ts'
 import { canChoose } from '../../../../src/game/engine.ts'
-import { serializeLog } from '../../../../src/game/log.ts'
 import { totalWorth } from '../../../../src/game/selectors.ts'
 import type { GameState } from '../../../../src/game/types.ts'
 import { ApiError } from '../errors.ts'
@@ -15,6 +13,7 @@ import { publicBusinessState } from './b18-business.ts'
 import { b18TradingAsset } from './b18-trading.ts'
 import type { TradePayload, BankPayload, BusinessPayload } from '../validation.ts'
 import type { WhatIfStage, WhatIfTrace } from './what-if-timing.ts'
+import { createWhatIfSnapshotDigester } from './what-if-digest.ts'
 
 export const maxHistory = 512
 export const whatIfPolicy = 'retain-legal-then-required-v1'
@@ -53,9 +52,7 @@ export class WhatIfBudget {
 }
 
 export function snapshotDigest(game: GameState, trace?: WhatIfTrace) {
-  const payload = trace ? trace.sync('canonical_serialization', () => serializeLog(game)) : serializeLog(game)
-  const hash = () => createHash('sha256').update(payload).digest('hex')
-  return trace ? trace.sync('canonical_sha256', hash, { payloadBytes: Buffer.byteLength(payload) }) : hash()
+  return createWhatIfSnapshotDigester(trace).digest(game)
 }
 
 const contextKey = (game: GameState) => JSON.stringify([

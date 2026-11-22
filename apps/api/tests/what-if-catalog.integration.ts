@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict'
 import { createHash, randomBytes, randomUUID } from 'node:crypto'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
-import { dirname, isAbsolute, relative, sep } from 'node:path'
+import { dirname, isAbsolute, join, relative, sep } from 'node:path'
 import { test } from 'node:test'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 import { eq } from 'drizzle-orm'
 import { PgDialect } from 'drizzle-orm/pg-core'
 import { eventsForGame } from '../../../src/data/events.ts'
@@ -38,7 +38,7 @@ type Fixture = {
 const hash = (payload: string) => createHash('sha256').update(payload).digest('hex')
 
 test('Android B18 What-if catalog verifies all 60 actions without changing its canonical history', {
-  timeout: process.env.EXE_WHATIF_BENCHMARK === '1' ? 600_000 : 180_000,
+  timeout: process.env.EXE_WHATIF_BENCHMARK === '1' || process.env.EXE_WHATIF_ASSISTANT_BENCHMARK === '1' ? 600_000 : 180_000,
 }, async t => {
   // The guard rejects cloud hosts and existing game databases. Every write below
   // targets a newly created, uniquely named disposable database on loopback.
@@ -65,8 +65,9 @@ test('Android B18 What-if catalog verifies all 60 actions without changing its c
   assert.deepEqual(fixture.hashes.map(row => row.state_version), Array.from({ length: 61 }, (_, i) => i))
   assert.ok(fixture.hashes.every(row => row.schema_version === 7))
   const owner = randomUUID(), id = randomUUID()
-  const authorization = 'Bearer ' + await issuer.sign(owner, { exp: Math.floor(Date.now() / 1000) + 240 })
-  const outsider = 'Bearer ' + await issuer.sign(randomUUID(), { exp: Math.floor(Date.now() / 1000) + 240 })
+  const tokenLifetime = process.env.EXE_WHATIF_ASSISTANT_BENCHMARK === '1' ? 900 : 240
+  const authorization = 'Bearer ' + await issuer.sign(owner, { exp: Math.floor(Date.now() / 1000) + tokenLifetime })
+  const outsider = 'Bearer ' + await issuer.sign(randomUUID(), { exp: Math.floor(Date.now() / 1000) + tokenLifetime })
   const path = '/v1/game-sessions/' + id + '/what-if'
   const catalog = (bearer = authorization, sessionId = id) => app.inject({
     method: 'GET', url: '/v1/game-sessions/' + sessionId + '/what-if', headers: { authorization: bearer },
@@ -75,6 +76,10 @@ test('Android B18 What-if catalog verifies all 60 actions without changing its c
     alternative: { mode: 'replace', action: { actionId: 'choose', payload: { optionId: 'course-advanced' } } } }
   const simulate = (payload: object = simulation, bearer = authorization) => app.inject({
     method: 'POST', url: path, payload, headers: { authorization: bearer },
+  })
+  const explain = (payload: object = simulation, bearer = authorization) => app.inject({
+    method: 'POST', url: path + '/assistant', headers: { authorization: bearer },
+    payload: { ...payload, operation: 'explain', allowGemini: false },
   })
 
   const expectedDecisions: { sequence: number; phase: string; lap: number; turn: number; position: number;
@@ -220,6 +225,26 @@ test('Android B18 What-if catalog verifies all 60 actions without changing its c
         ' AND state_version=$' + (compiled.params.length + 2), [...compiled.params, id, version])
     }
   }
+  await t.test('assistant explains the Android alternative with a grounded deterministic claim and no writes', async () => {
+    const response = await explain()
+    assert.equal(response.statusCode, 200, response.body)
+    const body = response.json()
+    assert.equal(body.version, 1)
+    assert.equal(body.operation, 'explain')
+    assert.equal(body.assistance, 'not-requested')
+    assert.equal(body.status, 'completed')
+    assert.equal(body.evaluation.stateVersion, 60)
+    assert.equal(body.evaluation.sequence, 53)
+    assert.deepEqual(body.evaluation.alternative.completedLaps, [1, 2, 3, 4])
+    assert.equal(body.evaluation.actual.lawfulProceedsVnd, '84000000')
+    assert.equal(body.evaluation.alternative.lawfulProceedsVnd, '78000000')
+    assert.equal(body.claim.basis, 'verified-final-cash')
+    assert.match(body.claim.text, /thấp hơn/)
+    assert.equal((await explain(simulation, outsider)).statusCode, 404)
+    assert.equal((await explain({ ...simulation, stateVersion: 59 })).statusCode, 409)
+    assert.equal((await explain({ ...simulation, sequence: 1 })).statusCode, 422)
+    assert.deepEqual(await storedRows(), before)
+  })
   for (const [label, version, run] of [
     ['final', 60, catalog], ['genesis', 0, catalog], ['fork', 52, simulate],
   ] as const) {
@@ -319,6 +344,63 @@ test('Android B18 What-if catalog verifies all 60 actions without changing its c
         'The unchanged analysis budget must serve the Android catalog at 4 MiB/s: ' +
         JSON.stringify(bounded.samples.map(({ status, errorCode }) => ({ status, errorCode }))))
       assert.deepEqual(await storedRows(), before)
+    })
+  }
+  if (process.env.EXE_WHATIF_ASSISTANT_BENCHMARK === '1') {
+    await t.test('compares V1 and V2 HTTP paths serially on the same Android fixture and database', async () => {
+      const output = process.env.EXE_WHATIF_BENCHMARK_OUTPUT
+      const baselineRoot = process.env.EXE_WHATIF_BENCHMARK_BASELINE_ROOT
+      assert.ok(output && isAbsolute(output) && baselineRoot && isAbsolute(baselineRoot))
+      const root = fileURLToPath(new URL('../../../', import.meta.url))
+      const outputRelative = relative(root, output)
+      assert.ok(outputRelative.startsWith('..' + sep) || isAbsolute(outputRelative))
+      const baselineModule = await import(pathToFileURL(join(baselineRoot, 'apps/api/src/app.ts')).href) as { buildApp: typeof buildApp }
+      // This app borrows the pool; only the outer fixture owns its lifecycle.
+      const baselineApp = baselineModule.buildApp({ ...database, close: async () => {} }, issuer.config)
+      const count = 20
+      const results: { variant: string; route: string; p50: number; p95: number;
+        samples: { ms: number; status: number; errorCode?: string; responseBytes: number }[] }[] = []
+      try {
+        for (const [route, method, endpoint, payload] of [
+          ['catalog', 'GET', path, undefined],
+          ['simulation', 'POST', path, simulation],
+          ['assistant', 'POST', path + '/assistant', { ...simulation, operation: 'explain', allowGemini: false }],
+        ] as const) {
+          const measure = async (server: typeof app) => {
+            const started = performance.now()
+            const response = await server.inject({ method, url: endpoint, payload, headers: { authorization } })
+            const ms = performance.now() - started
+            const body = response.json()
+            if (response.statusCode === 200) {
+              assert.equal(body.stateVersion, 60)
+              if (route !== 'catalog') {
+                const evaluation = route === 'assistant' ? body.evaluation : body
+                assert.equal(evaluation.actual.lawfulProceedsVnd, '84000000')
+                assert.equal(evaluation.alternative.lawfulProceedsVnd, '78000000')
+              }
+            }
+            return { ms, status: response.statusCode, responseBytes: Buffer.byteLength(response.body),
+              ...(body.error ? { errorCode: String(body.error.code) } : {}) }
+          }
+          // Two warmups per variant; alternate measured requests to reduce
+          // temporal bias. Real PostgreSQL and JWT validation, no provider calls.
+          for (let index = 0; index < 2; index++) { await measure(baselineApp); await measure(app) }
+          const beforeSamples = [], afterSamples = []
+          for (let index = 0; index < count; index++) {
+            if (index % 2 === 0) { beforeSamples.push(await measure(baselineApp)); afterSamples.push(await measure(app)) }
+            else { afterSamples.push(await measure(app)); beforeSamples.push(await measure(baselineApp)) }
+          }
+          for (const [variant, samples] of [['V1-e8526d', beforeSamples], ['V2-local', afterSamples]] as const) {
+            const sorted = samples.map(item => item.ms).sort((a, b) => a - b)
+            results.push({ variant, route, p50: sorted[Math.ceil(count * 0.5) - 1], p95: sorted[Math.ceil(count * 0.95) - 1], samples })
+          }
+        }
+        await mkdir(dirname(output), { recursive: true })
+        await writeFile(output, JSON.stringify({ count, warmupsPerVariantAndRoute: 2,
+          scope: 'local serial HTTP inject, real JWT/JWKS and isolated PostgreSQL; not Render Free evidence', results }, null, 2))
+        assert.ok(results.filter(item => item.variant === 'V2-local').every(item => item.samples.every(sample => sample.status === 200)))
+        assert.deepEqual(await storedRows(), before)
+      } finally { await baselineApp.close() }
     })
   }
 })
