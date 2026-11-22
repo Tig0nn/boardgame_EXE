@@ -2,7 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
-      "codex/exe-backend-whatif-reliability": false
+      "codex/exe-backend-whatif-reliability": false,
+      "codex/exe-whatif-assistant-performance": false
     }
   }
 }
