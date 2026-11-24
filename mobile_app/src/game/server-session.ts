@@ -78,7 +78,10 @@ export function createGameApi(accessToken: AccessToken, send: typeof fetch = fet
         const value = await response.json().catch(() => null)
         throw new ApiError(response.status, value?.error?.code ?? 'REQUEST_FAILED')
       }
-      return await response.json() as T
+      const value = await response.json() as T
+      // The account may change while a request is in flight.
+      if (!await accessToken()) throw new ApiError(401, 'UNAUTHORIZED')
+      return value
     } finally {
       clearTimeout(timer)
       signal?.removeEventListener('abort', cancel)
