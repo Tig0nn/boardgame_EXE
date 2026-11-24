@@ -7,6 +7,12 @@
     "scheme": "exe-boardgame",
     "android": {
       "package": "vn.exe.boardgame.nativeapp",
+      "blockedPermissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.SYSTEM_ALERT_WINDOW"
+      ],
       "adaptiveIcon": {
         "backgroundColor": "#214237"
       }
@@ -20,7 +26,15 @@
       "expo-dev-client",
       "expo-image",
       "expo-font",
-      "expo-audio",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": false,
+          "recordAudioAndroid": false,
+          "enableBackgroundRecording": false,
+          "enableBackgroundPlayback": false
+        }
+      ],
       "expo-asset"
     ],
     "icon": "../public/assets/cropped/app-logo.png"
