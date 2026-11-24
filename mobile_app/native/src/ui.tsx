@@ -1,8 +1,9 @@
 import { Image, type ImageSource } from 'expo-image'
 import { LinearGradient } from 'expo-linear-gradient'
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View, type TextProps } from 'react-native'
+import { ActivityIndicator, Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, View, type TextProps } from 'react-native'
 import Svg, { Circle, Path } from 'react-native-svg'
-import type { ReactNode } from 'react'
+import { useEffect, type ReactNode } from 'react'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { palette, styles } from './theme'
 
@@ -16,7 +17,7 @@ export function Action({ label, onPress, disabled, tone = 'secondary', selected,
   const primary = tone === 'primary'
   return <Pressable testID={testID} accessibilityRole="button" accessibilityLabel={label}
     accessibilityState={{ disabled, selected }} disabled={disabled} onPress={onPress}
-    style={({ pressed }) => ({ minHeight: 46, borderRadius: 13, overflow: 'hidden', borderWidth: 1,
+    style={({ pressed }) => ({ minHeight: 48, borderRadius: 13, overflow: 'hidden', borderWidth: 1,
       borderColor: selected ? '#aa550a' : palette.gold, opacity: disabled ? .5 : pressed ? .79 : 1,
       backgroundColor: selected ? '#ffeed0' : palette.paper })}>
     {primary && <LinearGradient colors={['#ffd66d', '#f48220', '#cf490b']} style={StyleSheet.absoluteFill} />}
@@ -32,8 +33,9 @@ export function ArtButton({ label, icon, onPress, disabled, size = 44 }: {
 }) {
   return <Pressable accessibilityLabel={label} accessibilityRole="button" accessibilityState={{ disabled }}
     disabled={disabled} onPress={onPress} style={({ pressed }) => ({
-      width: size, height: size, opacity: disabled ? .42 : pressed ? .76 : 1,
-    })}><Image source={icon} style={{ width: '100%', height: '100%' }} contentFit="contain" /></Pressable>
+      width: Math.max(48, size), height: Math.max(48, size), alignItems: 'center', justifyContent: 'center',
+      opacity: disabled ? .42 : pressed ? .76 : 1,
+    })}><Image source={icon} style={{ width: size, height: size }} contentFit="contain" /></Pressable>
 }
 
 export function Eye({ open, onPress }: { open: boolean; onPress: () => void }) {
@@ -61,7 +63,10 @@ export function Panel({ title, subtitle, header, children, footer, visible = tru
   title: string; subtitle?: string; header?: ReactNode; children: ReactNode; footer?: ReactNode;
   visible?: boolean; locked?: boolean
 }) {
-  return <View accessibilityViewIsModal={visible} importantForAccessibility={visible ? 'auto' : 'no-hide-descendants'}
+  const insets = useSafeAreaInsets()
+  useEffect(() => { if (!visible) Keyboard.dismiss() }, [visible])
+  return <KeyboardAvoidingView enabled={visible} behavior={Platform.OS === 'ios' ? 'padding' : 'height'} keyboardVerticalOffset={insets.top}
+    accessibilityViewIsModal={visible} importantForAccessibility={visible ? 'auto' : 'no-hide-descendants'}
     pointerEvents={visible ? 'auto' : 'none'} style={[StyleSheet.absoluteFill, {
       display: visible ? 'flex' : 'none', zIndex: 10, justifyContent: 'center', padding: 13, backgroundColor: '#0a111cd6',
     }]}>
@@ -72,7 +77,7 @@ export function Panel({ title, subtitle, header, children, footer, visible = tru
           {header}
         </View>
         <ScrollView style={{ flexShrink: 1 }} contentContainerStyle={{ gap: 10, paddingBottom: 4 }}
-          keyboardShouldPersistTaps="handled" nestedScrollEnabled>
+          keyboardShouldPersistTaps="handled" keyboardDismissMode="on-drag" nestedScrollEnabled>
           <View pointerEvents={locked ? 'none' : 'auto'} importantForAccessibility={locked ? 'no-hide-descendants' : 'auto'}
             style={{ gap: 10 }}>{children}</View>
         </ScrollView>
@@ -81,5 +86,5 @@ export function Panel({ title, subtitle, header, children, footer, visible = tru
         </View> : footer}
       </View>
     </LinearGradient>
-  </View>
+  </KeyboardAvoidingView>
 }
