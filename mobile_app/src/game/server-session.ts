@@ -12,6 +12,26 @@ export type SessionDetail = { session: SessionHeader; state: ServerState; result
 export type ActionReply = { sessionId: string; stateVersion: number; state: ServerState; result: OfficialResult }
 type Simulation = { evaluation: WhatIfEvaluation; explanation?: string }
 
+function verifiedExplanation(reply: Extract<WhatIfAssistantReply, { operation: 'explain' }>) {
+  const { claim } = reply
+  if (reply.status !== 'completed' || reply.evaluation.status !== 'completed' ||
+      claim?.basis !== 'verified-final-cash' || typeof claim.id !== 'string' || !claim.id.trim() ||
+      typeof claim.text !== 'string' || !claim.text.trim()) return undefined
+  // Provider availability is independent of the server's verified cash comparison.
+  switch (reply.assistance) {
+    case 'not-requested':
+    case 'used':
+    case 'disabled':
+    case 'unavailable':
+    case 'timeout':
+    case 'rate-limited':
+    case 'output-rejected':
+      return claim.text
+    default:
+      return undefined
+  }
+}
+
 export class ApiError extends Error {
   readonly status: number
   readonly code: string
@@ -78,8 +98,7 @@ export function createGameApi(accessToken: AccessToken, send: typeof fetch = fet
           reply.evaluation.stateVersion !== input.stateVersion || reply.evaluation.sequence !== input.sequence) {
         throw new Error('Mô phỏng không khớp quyết định đã chọn.')
       }
-      return { evaluation: reply.evaluation,
-        explanation: reply.assistance === 'used' ? reply.claim?.text : undefined }
+      return { evaluation: reply.evaluation, explanation: verifiedExplanation(reply) }
     }, async (error: unknown) => {
       if (error instanceof ApiError && error.status < 500) throw error
       const evaluation = await request<WhatIfEvaluation>(path, input)

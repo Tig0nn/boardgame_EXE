@@ -55,7 +55,7 @@ export function CoachContent({ arena, insight }: { arena: Arena; insight?: Masco
 type Result = { evaluation: WhatIfEvaluation; explanation?: string }
 const outcomes = { victory: 'Đạt mục tiêu', defeat: 'Chưa đạt mục tiêu', insolvent: 'Mất khả năng thanh toán' }
 
-function Comparison({ result, original, alternative }: { result: Result; original: string; alternative: string }) {
+export function Comparison({ result, original, alternative }: { result: Result; original: string; alternative: string }) {
   const [details, setDetails] = useState(false)
   const replay = result.evaluation
   const completed = replay.status === 'completed'
