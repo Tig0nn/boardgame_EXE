@@ -43,6 +43,14 @@ adb install -r app/build/outputs/apk/release/app-release.apk
 
 The generated Expo template signs this test APK with the local debug signing key. Launch **EXE · Mỏ Hỗn** from Android with Metro disconnected. The test APK has the same application ID as the debug client and can replace it on devices using the same signing key.
 
+## Android Beta distribution gate
+
+The release command above builds both `arm64-v8a` (64-bit Android devices) and `x86_64` (the QA emulator). It embeds JavaScript, fonts, audio and board assets; Metro is not required. Check the final APK with Android SDK `aapt dump badging`, `aapt dump permissions` and `apksigner verify --print-certs`, not just the Gradle task name. The current package/version is `vn.exe.boardgame.nativeapp`, `1.0.0` / code `1`; minimum Android API 24 and target API 36 must also be checked in the generated APK.
+
+EXE uses foreground sound effects, not microphone recording, background playback, shared-storage access or display-over-other-apps. App configuration disables these audio capabilities and blocks microphone, legacy storage and overlay permissions so dependency manifests cannot add them back. Retain Internet, vibration and the library permissions required for playback, network and SecureStore. Release builds must remain non-debuggable with cleartext traffic disabled by the target-SDK default. Confirm the installed build starts without a Metro connection and uses only the intended staging API/Auth configuration, with What-if Gemini disabled.
+
+**The template debug certificate is for internal QA only. Do not distribute this artifact as the Beta release.** Before distributing to testers, Owner must choose and retain a dedicated Beta signing key in protected storage, approve its signing configuration, and define monotonically increasing version codes. Do not generate or replace the official key automatically. An APK signed with a different certificate cannot update the existing QA app in place; preserve EXE_QA data and use a separate test device for that transition. Real ARM64 installation/startup and staging Auth, Cloud Save and Result smoke remain required if only an x86_64 emulator has been tested. Never package passwords, database keys, service-role keys, tokens, QA observers or backups.
+
 ## Structure
 
 | Native area | Reuses |
