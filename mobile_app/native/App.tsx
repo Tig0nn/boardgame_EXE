@@ -1,6 +1,6 @@
 import { palette, styles } from './src/theme'
 import { useEffect, useRef, useState } from 'react'
-import { BackHandler, Pressable, ScrollView, StyleSheet, TextInput, View, useWindowDimensions } from 'react-native'
+import { BackHandler, Pressable, ScrollView, StyleSheet, View, useWindowDimensions } from 'react-native'
 import { Image } from 'expo-image'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
@@ -12,14 +12,15 @@ import { GAME_SAVE_KEY, restoreSavedGame } from '../../src/game/saved-game'
 import { createMultiCourseGame } from '../../src/game/new-game'
 import type { GameState } from '../../src/game/types'
 import { MAP_1_NODES } from '../src/game/map-progress'
-import { apiMessage, recoverable, type SessionDetail, type SessionHeader } from '../src/game/server-session'
+import { apiMessage } from '../src/game/server-session'
 import { useAccount } from './src/account'
 import { art } from './src/assets'
-import { CloudGame, GuideContent, LocalGame } from './src/game'
+import { GuideContent, LocalGame } from './src/game'
+import { CloudSaveFlow } from './src/cloud-saves'
 import { Action, ArtButton, Copy, Panel } from './src/ui'
 import { fromLocal } from './src/arena-model'
 
-type Route = 'entrance' | 'map' | 'auth' | 'saves' | 'local' | 'cloud'
+type Route = 'entrance' | 'map' | 'local' | 'online'
 
 function Landing({ open, guide }: { open: () => void; guide: () => void }) {
   return <View style={{ flex: 1, backgroundColor: palette.dark }}>
@@ -66,46 +67,16 @@ function ChapterMap({ open, online, account, guide, back, continueGame, saved }:
   </View>
 }
 
-function AccountForm({ busy, message, configured, onSubmit }: {
-  busy: boolean; message: string; configured: boolean; onSubmit: (email: string, password: string, register: boolean) => void
-}) {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [register, setRegister] = useState(false)
-  if (!configured) return <Copy>Cấu hình dịch vụ tài khoản chưa có trên bản cài này. Bạn có thể chơi và lưu trên thiết bị.</Copy>
-  return <>
-    <TextInput style={styles.input} autoCapitalize="none" autoComplete="email" keyboardType="email-address" placeholder="Email"
-      accessibilityLabel="Email" placeholderTextColor={palette.muted} value={email} onChangeText={setEmail} editable={!busy}/>
-    <TextInput style={styles.input} secureTextEntry autoComplete={register ? 'new-password' : 'password'} placeholder="Mật khẩu"
-      accessibilityLabel="Mật khẩu" placeholderTextColor={palette.muted} value={password} onChangeText={setPassword} editable={!busy}/>
-    {message && <Copy accessibilityRole="alert">{message}</Copy>}
-    <Action label={register ? 'Tạo tài khoản' : 'Đăng nhập'} disabled={busy || !email.trim() || !password}
-      onPress={() => onSubmit(email.trim(), password, register)} tone="primary"/>
-    <Action label={register ? 'Đã có tài khoản' : 'Tạo tài khoản mới'} disabled={busy} onPress={() => setRegister(!register)}/>
-  </>
-}
-
 function Journey() {
-  const [requestedRoute, setRoute] = useState<Route>('entrance')
+  const [route, setRoute] = useState<Route>('entrance')
   const [guide, setGuide] = useState(false)
   const [local, setLocal] = useState<GameState>()
   const [saved, setSaved] = useState(false)
-  const [cloudSave, setCloud] = useState<{ owner: string; detail: SessionDetail }>()
-  const [cloudList, setList] = useState<{ owner: string; sessions: SessionHeader[] }>()
-  const [hasMore, setHasMore] = useState(false)
-  const [busy, setBusy] = useState(false)
   const [failure, setFailure] = useState('')
   const [muted, setMuted] = useState(false)
   const actionAudio = useAudioPlayer(art.confirm)
   const lock = useRef(false)
-  const creation = useRef<{ owner: string; key: string; id?: string } | null>(null)
   const account = useAccount()
-  const api = account.api
-  const owner = account.session?.user.id
-  const cloud = cloudSave?.owner === owner ? cloudSave?.detail : undefined
-  const list = cloudList?.owner === owner ? cloudList?.sessions : undefined
-  const route = requestedRoute === 'cloud' && (!cloud || !api) || requestedRoute === 'saves' && !api
-    ? 'auth' : requestedRoute
   const practice = () => {
     if (lock.current) return
     setLocal(createMultiCourseGame(randomUUID(), 0, 1))
@@ -122,48 +93,15 @@ function Journey() {
   }
   async function run(work: () => Promise<unknown>, error?: string) {
     if (lock.current) return
-    lock.current = true; setBusy(true); setFailure('')
+    lock.current = true; setFailure('')
     try { await work() } catch (problem) { setFailure(error ?? apiMessage(problem)) }
-    finally { lock.current = false; setBusy(false) }
+    finally { lock.current = false }
   }
   const playSound = () => {
     if (!muted) void actionAudio.seekTo(0).then(() => actionAudio.play()).catch(() => {})
   }
   const toggleSound = () => { if (!muted) actionAudio.pause(); setMuted(!muted) }
-  const leaveGame = () => setRoute(route === 'cloud' ? 'saves' : 'map')
-  const openCloud = (id: string) => {
-    if (!api || !owner) return
-    void run(async () => { setCloud({ owner, detail: await api.read(id) }); setRoute('cloud') })
-  }
-  const loadCloud = (more = false) => {
-    if (!api || !owner) return
-    void run(async () => {
-      const rows = await api.list(more ? list?.length ?? 0 : 0)
-      setList(prev => ({ owner, sessions: more && prev?.owner === owner
-        ? [...new Map([...prev.sessions, ...rows.sessions].map(item => [item.id, item])).values()] : rows.sessions }))
-      setHasMore(rows.sessions.length === 20)
-    })
-  }
-  const newCloud = () => {
-    if (!api || !owner || lock.current) return
-    const attempt = creation.current?.owner === owner ? creation.current : { owner, key: randomUUID() }
-    creation.current = attempt
-    void run(async () => {
-      try {
-        attempt.id ??= (await api.create(attempt.key)).session.id
-        const newSave = await api.read(attempt.id)
-        creation.current = null
-        setCloud({ owner, detail: newSave }); setRoute('cloud')
-      } catch (error) {
-        if (!attempt.id && !recoverable(error)) creation.current = null
-        throw error
-      }
-    })
-  }
-  const routeToCloud = () => {
-    setFailure('')
-    if (api) { setRoute('saves'); loadCloud() } else setRoute('auth')
-  }
+  const leaveGame = () => setRoute('map')
   useEffect(() => {
     if (route !== 'map') return
     let live = true
@@ -171,42 +109,23 @@ function Journey() {
     return () => { live = false }
   }, [route])
   useEffect(() => {
-    if (route === 'local' || route === 'cloud') return
+    if (route === 'local' || route === 'online') return
     const back = BackHandler.addEventListener('hardwareBackPress', () => {
       if (guide) { setGuide(false); return true }
-      if (busy) return true
+      if (lock.current) return true
       if (route !== 'entrance') { setRoute(route === 'map' ? 'entrance' : 'map'); return true }
       return false
     })
     return () => back.remove()
-  }, [busy, guide, route])
+  }, [guide, route])
 
   return <SafeAreaView style={{ flex: 1, backgroundColor: palette.dark }}>
     <StatusBar style="light"/>
     {route === 'entrance' && <Landing open={() => setRoute('map')} guide={() => setGuide(true)}/>}
-    {route === 'map' && <ChapterMap open={practice} online={routeToCloud} account={!!account.session} guide={() => setGuide(true)}
+    {route === 'map' && <ChapterMap open={practice} online={() => setRoute('online')} account={!!account.session} guide={() => setGuide(true)}
       back={() => setRoute('entrance')} saved={saved} continueGame={resume}/>}
-    {(route === 'auth' || route === 'saves') && <Image source={art.map} style={StyleSheet.absoluteFill} contentFit="cover"/>}
-    {route === 'auth' && <Panel title="Tài khoản EXE" header={<Action label="Đóng" disabled={busy} onPress={() => setRoute('map')}/>}>
-      {api ? <Action label="Mở Cloud Save" onPress={routeToCloud} tone="primary"/> : <AccountForm busy={busy || !account.ready} message={account.message}
-        configured={account.configured} onSubmit={(email, password, register) => { void run(() => account.authenticate(email, password, register)) }}/>}
-    </Panel>}
-    {route === 'saves' && <Panel title="Ván chơi của bạn" header={<Action label="Bản đồ" disabled={busy} onPress={() => setRoute('map')}/>}>
-      <Action label="Tạo ván mới" onPress={newCloud} disabled={busy} tone="primary"/>
-      {busy && <Copy accessibilityLiveRegion="polite">Đang tải ván…</Copy>}
-      {(failure || account.message) && <Copy accessibilityRole="alert">{failure || account.message}</Copy>}
-      {list?.length === 0 && <Copy>Bạn chưa có ván trực tuyến.</Copy>}
-      {list?.map(item => <Action key={item.id} label={(item.status === 'completed' ? 'Xem kết quả' : item.status === 'abandoned' ? 'Đã bỏ ván' : 'Tiếp tục ván')
-        + ' · ' + new Date(item.updatedAt).toLocaleString('vi-VN')} disabled={busy || item.status === 'abandoned'} onPress={() => openCloud(item.id)}/>)}
-      {hasMore && <Action label="Xem thêm ván" disabled={busy} onPress={() => loadCloud(true)}/>}
-      <Action label="Tải lại danh sách" onPress={() => loadCloud()} disabled={busy}/>
-      <Action label="Đăng xuất" disabled={busy} onPress={() => { void run(async () => {
-        if (!await account.signOut()) return
-        creation.current = null; setCloud(undefined); setList(undefined); setRoute('auth')
-      }) }}/>
-    </Panel>}
+    {route === 'online' && <CloudSaveFlow account={account} back={leaveGame} sound={toggleSound} playSound={playSound}/>}
     {route === 'local' && local && <LocalGame key={local.seed} initial={local} ownerExit={leaveGame} sound={toggleSound} playSound={playSound} restart={practice}/>}
-    {route === 'cloud' && cloud && api && <CloudGame key={cloud.session.id} initial={cloud} api={api} ownerExit={leaveGame} sound={toggleSound} playSound={playSound} restart={newCloud}/>}
     {route === 'map' && !!failure && <Panel title="Ván lưu trên thiết bị" header={<Action label="Đóng" onPress={() => setFailure('')}/>}><Copy>{failure}</Copy></Panel>}
     {guide && <Panel title="Sổ tay chiến lược" header={<Action label="Đóng" onPress={() => setGuide(false)}/>}>
       <GuideContent arena={fromLocal(createMultiCourseGame('rulebook', 0, 1))}/>

@@ -1,5 +1,5 @@
 import { palette, styles } from './theme'
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import { BackHandler, TextInput, View } from 'react-native'
 import { Image } from 'expo-image'
 import { randomUUID } from 'expo-crypto'
@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { money, signedMoney } from '../../../src/game/format'
 import { tileInformation } from '../../../src/components/tile-information'
 import { localizePlayerText } from '../../../src/components/player-language'
-import { GAME_SAVE_KEY, saveGameLocally } from '../../../src/game/saved-game'
+import { GAME_SAVE_KEY } from '../../../src/game/saved-game'
 import { parseMoneyInput } from '../../../src/ui/money-input'
 import { depositPreview, purchasePreview } from '../../../src/game/selectors'
 import type { GameState } from '../../../src/game/types'
@@ -21,6 +21,9 @@ import { Action, Copy, Eye, Fox, Panel } from './ui'
 import { Board } from './board'
 import { assetLabel, fromLocal, fromServer, localQuote, setAmount, tileLabel, type Arena, type TradeChoice } from './arena-model'
 import { CoachContent, PortfolioContent, WhatIfContent } from './coach-and-what-if'
+import { createLocalSaveQueue } from './local-save'
+
+const saveLocalGame = createLocalSaveQueue(payload => AsyncStorage.setItem(GAME_SAVE_KEY, payload))
 
 type Api = ReturnType<typeof createGameApi>
 type Session = ReturnType<typeof createServerSession>
@@ -241,19 +244,31 @@ export function LocalGame({ initial, ownerExit, sound, playSound, restart }: {
   const [controller] = useState(() => createMobileSession(initial))
   const game = useSyncExternalStore(controller.subscribe, controller.getSnapshot)
   const [message, setMessage] = useState('')
+  const [saveFailed, setSaveFailed] = useState(false)
+  const [leaving, setLeaving] = useState(false)
   const [insight, setInsight] = useState<MascotInsight | null>(null)
   const arena = useMemo(() => fromLocal(game), [game])
-  const saves = useRef(Promise.resolve())
-  function persist(state: GameState) {
-    let data = ''
-    if (!saveGameLocally(state, { setItem(_key, value) { data = value } })) {
-      setMessage('Không thể chuẩn bị bản lưu trên thiết bị.')
-      return
-    }
-    saves.current = saves.current.catch(() => {}).then(() => AsyncStorage.setItem(GAME_SAVE_KEY, data))
-    void saves.current.catch(() => setMessage('Chưa lưu được trên thiết bị. Hãy thử lại.'))
+  const exiting = useRef(false)
+  const saves = useRef(Promise.resolve(false))
+  const persist = useCallback((state: GameState) => {
+    saves.current = saveLocalGame(state).then(() => {
+      setSaveFailed(false); setMessage('')
+      return true
+    }, () => {
+      setSaveFailed(true); setMessage('Chưa lưu được trên thiết bị. Hãy thử lại.')
+      return false
+    })
+    return saves.current
+  }, [])
+  useEffect(() => { void persist(initial) }, [initial, persist])
+  async function leave(next: () => void) {
+    if (exiting.current) return
+    exiting.current = true; setLeaving(true)
+    try { if (await saves.current) next() }
+    finally { exiting.current = false; setLeaving(false) }
   }
   const confirm = (command: MobileCommand) => {
+    if (exiting.current || saveFailed) return
     setMessage('')
     try {
       if (!controller.dispatch(command, game)) { setMessage('Lựa chọn này chưa khả dụng.'); return }
@@ -264,8 +279,9 @@ export function LocalGame({ initial, ownerExit, sound, playSound, restart }: {
       setMessage('Số tiền hoặc lựa chọn chưa hợp lệ. Hãy kiểm tra lại.')
     }
   }
-  return <ArenaScreen arena={arena} revision={game.log.at(-1)?.sequence ?? 0} busy={false} pendingRetry={false}
-    message={message} confirm={confirm} retry={() => persist(game)} exit={ownerExit} newGame={restart} activateSound={sound} playSound={playSound} insight={insight}/>
+  return <ArenaScreen arena={arena} revision={game.log.at(-1)?.sequence ?? 0} busy={leaving} pendingRetry={saveFailed}
+    message={message} confirm={confirm} retry={() => { void persist(game) }} exit={() => { void leave(ownerExit) }}
+    newGame={() => { void leave(restart) }} activateSound={sound} playSound={playSound} insight={insight}/>
 }
 
 export function CloudGame({ initial, api, ownerExit, sound, playSound, restart }: {
@@ -276,6 +292,6 @@ export function CloudGame({ initial, api, ownerExit, sound, playSound, restart }
   const arena = useMemo(() => fromServer(view.detail.state, view.detail.result), [view.detail])
   return <ArenaScreen arena={arena} revision={view.detail.session.stateVersion} busy={view.busy} pendingRetry={view.retryable || view.needsReload}
     message={view.message} confirm={command => { void controller.send(command, view.detail.session.stateVersion) }}
-    retry={() => { void (view.needsReload ? controller.reload() : controller.retry()) }} exit={ownerExit}
-    newGame={restart} activateSound={sound} playSound={playSound} api={api} sessionId={initial.session.id}/>
+    retry={() => { void (view.needsReload ? controller.reload() : controller.retry()) }} exit={() => { if (!controller.getSnapshot().busy) ownerExit() }}
+    newGame={() => { if (!controller.getSnapshot().busy) restart() }} activateSound={sound} playSound={playSound} api={api} sessionId={initial.session.id}/>
 }
