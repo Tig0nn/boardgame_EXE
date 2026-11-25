@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import { createMultiCourseGame } from '../../../src/game/new-game.ts'
 import { serializeLog } from '../../../src/game/log.ts'
-import { businessOverview } from '../../../src/game/selectors.ts'
+import { businessOverview, purchasePreview } from '../../../src/game/selectors.ts'
 import { currentCustomerPreference } from '../../../src/game/customer-preferences.ts'
 import { ECONOMY } from '../../../src/data/config.ts'
 import { createMobileSession } from '../../src/game/session.ts'
@@ -22,6 +22,9 @@ test('business artwork details project canonical values without changing a state
     assert.equal(details.initialSaleValue, canonical.initialSale)
     assert.equal(details.currentSaleValue, canonical.sale)
     assert.equal(details.currentStartIncome, canonical.income)
+    assert.equal(details.baseIncome, ECONOMY.business.baseIncome)
+    assert.equal(details.matchingBonus, ECONOMY.business.matchingBonus)
+    assert.equal(details.cashAfterPurchase, purchasePreview(game, ECONOMY.business.cost).cashAfter)
     assert.equal(details.owned, game.business.capital > 0)
     assert.deepEqual(details.currentCustomerPreference, currentCustomerPreference(game))
     assert.equal(serializeLog(game), before)

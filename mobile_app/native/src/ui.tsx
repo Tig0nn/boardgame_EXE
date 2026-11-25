@@ -29,14 +29,15 @@ export function Action({ label, onPress, disabled, tone = 'secondary', selected,
   </Pressable>
 }
 
-export function ArtButton({ label, icon, onPress, disabled, size = 44 }: {
-  label: string; icon: ImageSource | number; onPress: () => void; disabled?: boolean; size?: number
+export function ArtButton({ label, icon, onPress, disabled, selected, size = 44, width = size, height = size }: {
+  label: string; icon: ImageSource | number; onPress: () => void; disabled?: boolean; selected?: boolean; size?: number; width?: number; height?: number
 }) {
-  return <Pressable accessibilityLabel={label} accessibilityRole="button" accessibilityState={{ disabled }}
+  return <Pressable accessibilityLabel={label} accessibilityRole="button" accessibilityState={{ disabled, selected }}
     disabled={disabled} onPress={onPress} style={({ pressed }) => ({
-      width: Math.max(48, size), height: Math.max(48, size), alignItems: 'center', justifyContent: 'center',
-      opacity: disabled ? .42 : pressed ? .76 : 1,
-    })}><Image source={icon} style={{ width: size, height: size }} contentFit="contain" /></Pressable>
+      width: Math.max(48, width), height: Math.max(48, height), alignItems: 'center', justifyContent: 'center',
+      opacity: disabled ? .42 : pressed || selected ? .76 : 1,
+      transform: [{ scale: pressed ? .94 : 1 }],
+    })}><Image source={icon} style={{ width, height }} contentFit="contain" /></Pressable>
 }
 
 export function Eye({ open, onPress }: { open: boolean; onPress: () => void }) {
