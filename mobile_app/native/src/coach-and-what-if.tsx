@@ -12,12 +12,12 @@ import { ApiError, apiMessage } from '../../src/game/server-session'
 import { explainMascot, explanationContext } from '../../src/game/mascot-explanation'
 import type { MascotInsight } from '../../src/game/mascot-coach'
 import { assetLabel, type Arena } from './arena-model'
-import { Action, Copy, Fox } from './ui'
+import { Action, Copy, Fox, Panel } from './ui'
 
 type Api = ReturnType<typeof createGameApi>
 
 
-export function CoachContent({ arena, insight }: { arena: Arena; insight?: MascotInsight | null }) {
+export function CoachPanel({ arena, insight, onClose }: { arena: Arena; insight?: MascotInsight | null; onClose: () => void }) {
   const [question, setQuestion] = useState('')
   const [reply, setReply] = useState<ReturnType<typeof composeLearningAnswer>>()
   const [questionError, setQuestionError] = useState(false)
@@ -31,7 +31,14 @@ export function CoachContent({ arena, insight }: { arena: Arena; insight?: Masco
     const cards = learningCards(arena.learning)
     setReply(composeLearningAnswer(offlineLearning(text, cards) ?? fallbackLearning(text, cards, arena.learning)))
   }
-  return <>
+  const composer = <View style={{ gap: 10 }}>
+    <TextInput accessibilityLabel="Câu hỏi về ván" placeholder="Ví dụ: Thanh khoản là gì?" placeholderTextColor={palette.muted}
+      value={question} onChangeText={text => { setQuestion(text); setReply(undefined); setQuestionError(false) }}
+      maxLength={QUESTION_LIMIT} style={styles.input}/>
+    <Action label="Hỏi Cáo" disabled={!question.trim()} onPress={ask} tone="primary"/>
+    {questionError && <Copy accessibilityRole="alert">Nhập câu hỏi từ 3 đến {QUESTION_LIMIT} ký tự.</Copy>}
+  </View>
+  return <Panel title="Cáo EXE" header={<Action label="Đóng" onPress={onClose}/>} footer={composer}>
     <View style={[styles.card, { flexDirection: 'row', alignItems: 'center' }]}>
       <Fox size={48}/><Copy style={{ flex: 1 }}>{insight?.message ?? 'Bạn muốn xem lại quyết định hay tìm hiểu một thuật ngữ?'}</Copy>
     </View>
@@ -41,16 +48,11 @@ export function CoachContent({ arena, insight }: { arena: Arena; insight?: Masco
       {reasoning.facts.map(fact => <Copy variant="note" key={fact.label}>{fact.label} · {fact.value}</Copy>)}
     </View>}
     {arena.coachCards.map(card => <View key={card.id} style={styles.card}><Copy variant="heading">{card.title}</Copy><Copy>{localizePlayerText(card.text)}</Copy></View>)}
-    <TextInput accessibilityLabel="Câu hỏi về ván" placeholder="Ví dụ: Thanh khoản là gì?" placeholderTextColor={palette.muted}
-      value={question} onChangeText={text => { setQuestion(text); setReply(undefined); setQuestionError(false) }}
-      maxLength={QUESTION_LIMIT} style={styles.input}/>
-    <Action label="Hỏi Cáo" disabled={!question.trim()} onPress={ask} tone="primary"/>
-    {questionError && <Copy accessibilityRole="alert">Nhập câu hỏi từ 3 đến {QUESTION_LIMIT} ký tự.</Copy>}
     {reply?.length === 0 && <View accessibilityLiveRegion="polite" style={styles.card}><Copy>{INSUFFICIENT}</Copy></View>}
     {reply?.map((card, index) => <View key={card.id + index} style={styles.card}>
       <Copy variant="note">{card.source}</Copy><Copy>{card.text}</Copy>
     </View>)}
-  </>
+  </Panel>
 }
 type Result = { evaluation: WhatIfEvaluation; explanation?: string }
 const outcomes = { victory: 'Đạt mục tiêu', defeat: 'Chưa đạt mục tiêu', insolvent: 'Mất khả năng thanh toán' }

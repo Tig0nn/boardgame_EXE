@@ -20,7 +20,7 @@ import { art } from './assets'
 import { Action, Copy, Eye, Fox, Panel } from './ui'
 import { Board } from './board'
 import { assetLabel, fromLocal, fromServer, localQuote, setAmount, tileLabel, type Arena, type TradeChoice } from './arena-model'
-import { CoachContent, PortfolioContent, WhatIfContent } from './coach-and-what-if'
+import { CoachPanel, PortfolioContent, WhatIfContent } from './coach-and-what-if'
 import { createLocalSaveQueue } from './local-save'
 
 const saveLocalGame = createLocalSaveQueue(payload => AsyncStorage.setItem(GAME_SAVE_KEY, payload))
@@ -224,7 +224,7 @@ function ArenaScreen({ arena, revision, busy, pendingRetry, message, confirm, re
       onWhatIf={api ? () => setScreen('what-if') : undefined} onWallet={() => setScreen('wallet')} onCoach={() => setScreen('coach')}/>}
     {screen === 'wallet' && <Panel title="Ví và nhật ký" header={<Action label="Đóng" onPress={close}/>}><PortfolioContent arena={arena}/></Panel>}
     {screen === 'guide' && <Panel title="Sổ tay chiến lược" header={<Action label="Đóng" onPress={close}/>}><GuideContent arena={arena}/></Panel>}
-    {screen === 'coach' && <Panel title="Cáo EXE" header={<Action label="Đóng" onPress={close}/>}><CoachContent arena={arena} insight={insight}/></Panel>}
+    {screen === 'coach' && <CoachPanel arena={arena} insight={insight} onClose={close}/>}
     {screen === 'what-if' && api && sessionId && <Panel title="Nếu chọn khác thì sao?" header={<Action label="Đóng" onPress={close}/>}>
       <WhatIfContent api={api} sessionId={sessionId}/>
     </Panel>}

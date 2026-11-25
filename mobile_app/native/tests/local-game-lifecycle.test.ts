@@ -22,7 +22,7 @@ test('local screen saves on entry and waits for storage before exiting', async (
         if (id === '\0expo-crypto') return "export const randomUUID=()=> 'fixture'"
         if (id === '\0expo-haptics') return "export const selectionAsync=async()=>{}"
         if (id === '\0./assets') return "export const art={}"
-        if (id === '\0./coach-and-what-if') return "export const CoachContent=()=>null,PortfolioContent=()=>null,WhatIfContent=()=>null"
+        if (id === '\0./coach-and-what-if') return "export const CoachPanel=()=>null,PortfolioContent=()=>null,WhatIfContent=()=>null"
         if (id === '\0./ui') return `
           import {createElement} from 'react'
           export const Copy='text',Eye='eye',Fox='fox'
