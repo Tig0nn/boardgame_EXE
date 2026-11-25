@@ -3,12 +3,13 @@ import { ECONOMY } from '../../../src/data/config.ts'
 import { eventsForGame } from '../../../src/data/events.ts'
 import { canChoose } from '../../../src/game/engine.ts'
 import { businessMatchingKey, businessUpgradeUnlocked } from '../../../src/game/business.ts'
+import { currentCustomerPreference } from '../../../src/game/customer-preferences.ts'
 import { creditBondLots } from '../../../src/game/bond-credit.ts'
 import { encounterActionUsed, investmentPurchaseUsed } from '../../../src/game/encounters.ts'
 import { money, percent } from '../../../src/game/format.ts'
 import { goalForGame } from '../../../src/game/rules-profile.ts'
 import { savingsProfileForGame } from '../../../src/game/savings.ts'
-import { businessOverview, liquidatableFunds, saleQuote, totalWorth, victory } from '../../../src/game/selectors.ts'
+import { businessOverview, liquidatableFunds, purchasePreview, saleQuote, totalWorth, victory } from '../../../src/game/selectors.ts'
 import { borrowingAvailable, fundingSources } from '../../../src/game/transactions.ts'
 import type { GameState, RebalanceAction, Term, FundingSource, Portfolio, LapSummary } from '../../../src/game/types.ts'
 import { paymentOptionCopy } from '../../../src/components/financial-decision-copy.ts'
@@ -30,6 +31,9 @@ export type Arena = {
   result: OfficialResult; finishedLaps: number; local?: GameState
   learning: ReturnType<typeof projectLearningContext>
   coachCards: { id: string; title: string; text: string }[]
+  businessDetails?: Pick<ServerState['business'], 'owned' | 'purchaseCost' | 'initialSaleValue' | 'currentSaleValue' | 'currentStartIncome' | 'currentCustomerPreference'> & {
+    baseIncome: number; matchingBonus: number; cashAfterPurchase?: number | null
+  }
 }
 const fundingNames: Record<FundingSource, string> = {
   savings: 'Rút tiết kiệm', bonds: 'Bán trái phiếu', stocks: 'Bán cổ phiếu', gold: 'Bán vàng', debt: 'Vay nợ',
@@ -123,6 +127,7 @@ export function fromServer(state: ServerState, result: OfficialResult): Arena {
   if (state.phase === 'rebalancing') choices.push(...state.start.sales.map(sale))
   if (state.bank.canRepay) choices.push(repay(Math.min(state.portfolio.cash, state.portfolio.debt)))
   return { ...base(state), ...header, fixed, trades: enabled(choices), journal: state.journal,
+    businessDetails: { ...state.business, baseIncome: ECONOMY.business.baseIncome, matchingBonus: ECONOMY.business.matchingBonus },
     proceeds: state.bank.liquidatableFunds, totalWorth: state.bank.totalWorth, target: goalForGame(state).target,
     summary: state.start.summary ?? state.summaries.at(-1), result, finishedLaps: state.summaries.length,
     learning: state.fox?.learningContext ?? null, coachCards: state.fox?.cards ?? [] }
@@ -176,7 +181,13 @@ export function fromLocal(game: GameState): Arena {
   }
   if (game.phase === 'rebalancing' && game.portfolio.debt) choices.push(repay(Math.min(cash, game.portfolio.debt)))
   const proceeds = liquidatableFunds(game)
+  const business = businessOverview(game)
   return { ...base(game), ...header, fixed, trades: enabled(choices), local: game, journal: game.log,
+    businessDetails: game.customerPreferenceId ? { owned: game.business.capital > 0, purchaseCost: ECONOMY.business.cost,
+      initialSaleValue: business.initialSale, currentSaleValue: business.sale, currentStartIncome: business.income,
+      baseIncome: ECONOMY.business.baseIncome, matchingBonus: ECONOMY.business.matchingBonus,
+      cashAfterPurchase: purchasePreview(game, ECONOMY.business.cost).cashAfter,
+      currentCustomerPreference: currentCustomerPreference(game) } : undefined,
     proceeds, totalWorth: totalWorth(game), target: goalForGame(game).target,
     summary: game.summaries.at(-1), finishedLaps: game.summaries.length,
     result: game.phase === 'finished' ? { outcome: game.termination === 'insolvent' ? 'insolvent' : victory(game).won ? 'victory' : 'defeat',
