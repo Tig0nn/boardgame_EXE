@@ -16,6 +16,11 @@ import dice from '../../public/assets/dice-icon.png'
 import money from '../../public/assets/money-icon.png'
 import goal from '../../public/assets/goal-icon.png'
 import result from '../../public/assets/winner-people.png'
+import loser from '../../public/assets/loser-icon.png'
+import winnerGoal from '../../public/assets/winner-goal-icon.png'
+import shop from '../../public/assets/shop-icon.png'
+import knowledge from '../../public/assets/knowledge-icon.png'
+import repair from '../../public/assets/broken-bike.png'
 import trophy from '../../public/assets/champion-icon.png'
 import bank from '../../public/assets/bank-icon.png'
 import stocks from '../../public/assets/stock-icon.png'
@@ -25,4 +30,4 @@ import parchment from '../../public/assets/layer-2-clean.webp'
 import pawn from '../../public/assets/character.glb'
 import confirm from '../assets/confirm.wav'
 
-export const art = { splash, city, board, map, pin, play, home, boardHome, round, wallet, guide, settings, sound, roll, dice, money, goal, result, trophy, bank, stocks, bonds, gold, parchment, pawn, confirm } as const
+export const art = { splash, city, board, map, pin, play, home, boardHome, round, wallet, guide, settings, sound, roll, dice, money, goal, result, loser, winnerGoal, shop, knowledge, repair, trophy, bank, stocks, bonds, gold, parchment, pawn, confirm } as const

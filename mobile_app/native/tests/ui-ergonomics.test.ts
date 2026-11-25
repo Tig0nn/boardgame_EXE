@@ -58,17 +58,21 @@ test('native controls keep usable targets and keyboard-safe decision drafts', as
               useEffect(()=>{mounts++;return()=>{unmounts++}},[])
               return createElement('input',{value,onChangeText:setValue})
             }
-            const element=visible=>createElement(Panel,{title:'Quyết định',visible},createElement(Draft))
+            const element=visible=>createElement(Panel,{title:'Quyết định',subtitle:'VÒNG 2 / 4',lap:2,icon:7,visible,
+              footer:createElement('button',{label:'BỎ QUA CƠ HỘI'})},createElement(Draft))
             await act(async()=>{screen=create(element(true))})
             await act(async()=>{screen.root.findByType('input').props.onChangeText('25000000')})
             const container=screen.root.findAllByType('keyboard-view')[0]
             const scroll=screen.root.findByType('scroll').props
+            const footerOutside=screen.root.findByType('scroll').findAllByType('button').length===0
+            const frame=screen.root.findAllByType('gradient').find(n=>n.props.testID==='native-panel-frame').props.style
+            const icon=screen.root.findByType('image').props.source
             const keyboard=container && {behavior:container.props.behavior,offset:container.props.keyboardVerticalOffset}
             const before=dismisses
             await act(async()=>screen.update(element(false)))
             const dismissed=dismisses-before
             await act(async()=>screen.update(element(true)))
-            const result={keyboard,scrollMode:scroll.keyboardDismissMode,taps:scroll.keyboardShouldPersistTaps,
+            const result={keyboard,scrollMode:scroll.keyboardDismissMode,taps:scroll.keyboardShouldPersistTaps,footerOutside,frame,icon,
               draft:screen.root.findByType('input').props.value,mounts,unmounts,dismissed}
             await act(async()=>screen.unmount())
             return result
@@ -102,6 +106,9 @@ test('native controls keep usable targets and keyboard-safe decision drafts', as
       assert.equal(result.mounts, 1)
       assert.equal(result.unmounts, 0)
       assert.equal(result.dismissed, 1)
+      assert.equal(result.footerOutside, true, 'decision footer remains outside the long body scroll')
+      assert.equal(result.frame.maxWidth, 370)
+      assert.equal(result.icon, 7, 'the original transaction artwork remains in the header')
     })
   } finally { await server.close() }
 })

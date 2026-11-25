@@ -6,19 +6,21 @@ import { createServer } from 'vite'
 test('local screen saves on entry and waits for storage before exiting', async () => {
   const server = await createServer({
     root: fileURLToPath(new URL('../', import.meta.url)), configFile: false,
-    ssr: { noExternal: ['react-native', 'expo-image', 'expo-crypto', 'expo-haptics', '@react-native-async-storage/async-storage'] },
+    ssr: { noExternal: ['react-native', 'expo-image', 'expo-linear-gradient', 'expo-crypto', 'expo-haptics', '@react-native-async-storage/async-storage'] },
     resolve: { dedupe: ['react'] }, optimizeDeps: { noDiscovery: true, include: [] },
     server: { middlewareMode: true, ws: false }, appType: 'custom',
     plugins: [{
       name: 'local-game-device-host', enforce: 'pre',
       resolveId(id, importer) {
         if (id === 'fixture:new-game') return fileURLToPath(new URL('../../../src/game/new-game.ts', import.meta.url))
-        if (id === 'virtual:local' || ['react-native', 'expo-image', 'expo-crypto', 'expo-haptics', '@react-native-async-storage/async-storage'].includes(id)) return '\0' + id
+        if (id === 'virtual:local' || ['react-native', 'expo-image', 'expo-linear-gradient', 'expo-crypto', 'expo-haptics', '@react-native-async-storage/async-storage'].includes(id)) return '\0' + id
+        if (importer?.includes('/src/') && ['./ui', './assets'].includes(id)) return '\0' + id
         if (importer?.endsWith('/src/game.tsx') && ['./board', './ui', './assets', './coach-and-what-if'].includes(id)) return '\0' + id
       },
       load(id) {
         if (id === '\0react-native') return "export const View='view',TextInput='input',StyleSheet={create:x=>x},BackHandler={addEventListener:()=>({remove(){}})}"
         if (id === '\0expo-image') return "export const Image='image'"
+        if (id === '\0expo-linear-gradient') return "export const LinearGradient='gradient'"
         if (id === '\0expo-crypto') return "export const randomUUID=()=> 'fixture'"
         if (id === '\0expo-haptics') return "export const selectionAsync=async()=>{}"
         if (id === '\0./assets') return "export const art={}"

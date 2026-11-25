@@ -6,6 +6,7 @@ import { useEffect, type ReactNode } from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { palette, styles } from './theme'
+import { foil, panelTheme } from './panel-theme'
 
 export function Copy({ variant = 'body', style, ...props }: TextProps & { variant?: 'title' | 'heading' | 'body' | 'note' }) {
   return <Text {...props} style={[styles[variant], style]} />
@@ -18,11 +19,11 @@ export function Action({ label, onPress, disabled, tone = 'secondary', selected,
   return <Pressable testID={testID} accessibilityRole="button" accessibilityLabel={label}
     accessibilityState={{ disabled, selected }} disabled={disabled} onPress={onPress}
     style={({ pressed }) => ({ minHeight: 48, borderRadius: 13, overflow: 'hidden', borderWidth: 1,
-      borderColor: selected ? '#aa550a' : palette.gold, opacity: disabled ? .5 : pressed ? .79 : 1,
-      backgroundColor: selected ? '#ffeed0' : palette.paper })}>
-    {primary && <LinearGradient colors={['#ffd66d', '#f48220', '#cf490b']} style={StyleSheet.absoluteFill} />}
-    <View style={{ paddingVertical: 10, paddingHorizontal: 12, gap: 3 }}>
-      <Copy variant="heading" style={primary ? { color: '#3e1705' } : undefined}>{label}</Copy>
+      borderColor: selected ? '#059669' : primary ? '#fb923c' : '#cbd5e1', opacity: disabled ? .5 : pressed ? .79 : 1,
+      borderBottomWidth: primary ? 4 : 1, backgroundColor: selected ? '#ecfdf5' : palette.paper })}>
+    {primary && <LinearGradient colors={['#FBBF24', '#F97316', '#EA580C']} locations={[0, .48, 1]} style={StyleSheet.absoluteFill} />}
+    <View style={{ paddingVertical: 11, paddingHorizontal: 12, gap: 4 }}>
+      <Copy variant="heading" style={primary ? { color: '#2d1003', textAlign: 'center' } : undefined}>{label}</Copy>
       {children}
     </View>
   </Pressable>
@@ -59,31 +60,46 @@ export function Fox({ size = 38 }: { size?: number }) {
   </Svg>
 }
 
-export function Panel({ title, subtitle, header, children, footer, visible = true, locked = false }: {
+export function Panel({ title, subtitle, header, children, footer, lap, icon, hero, visible = true, locked = false }: {
   title: string; subtitle?: string; header?: ReactNode; children: ReactNode; footer?: ReactNode;
-  visible?: boolean; locked?: boolean
+  lap?: number; icon?: ImageSource | number; hero?: ReactNode; visible?: boolean; locked?: boolean
 }) {
   const insets = useSafeAreaInsets()
+  const theme = panelTheme(lap)
   useEffect(() => { if (!visible) Keyboard.dismiss() }, [visible])
   return <KeyboardAvoidingView enabled={visible} behavior={Platform.OS === 'ios' ? 'padding' : 'height'} keyboardVerticalOffset={insets.top}
     accessibilityViewIsModal={visible} importantForAccessibility={visible ? 'auto' : 'no-hide-descendants'}
     pointerEvents={visible ? 'auto' : 'none'} style={[StyleSheet.absoluteFill, {
-      display: visible ? 'flex' : 'none', zIndex: 10, justifyContent: 'center', padding: 13, backgroundColor: '#0a111cd6',
+      display: visible ? 'flex' : 'none', zIndex: 10, justifyContent: 'center', padding: 8, backgroundColor: '#0a0f1dd1',
     }]}>
-    <LinearGradient colors={['#edc891', '#a26344', '#e9be7b']} style={{ maxHeight: '92%', borderRadius: 25, padding: 4 }}>
-      <View style={{ borderRadius: 22, backgroundColor: palette.parchment, gap: 8, padding: 12, flexShrink: 1 }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, justifyContent: 'space-between' }}>
-          <View style={{ flex: 1, gap: 2 }}>{subtitle && <Copy variant="note">{subtitle}</Copy>}<Copy variant="title">{title}</Copy></View>
+    <LinearGradient colors={lap ? foil : ['#edc891', '#a26344', '#e9be7b']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
+      testID="native-panel-frame" style={{ width: '94%', maxWidth: 370, alignSelf: 'center', height: lap ? '82%' : undefined,
+        maxHeight: lap ? 690 : '92%', borderRadius: 28, padding: 3, flexShrink: 1 }}>
+      <View style={{ borderRadius: 25, backgroundColor: palette.parchment, borderWidth: 1, borderColor: '#b4530940',
+        gap: 10, padding: 13, paddingTop: subtitle && lap ? 22 : 12, flexShrink: 1, flexGrow: 1, minHeight: 0 }}>
+        {subtitle && lap && <LinearGradient colors={theme.ribbon} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+          testID="native-panel-ribbon" style={{ position: 'absolute', top: -13, alignSelf: 'center', maxWidth: '94%',
+            borderRadius: 22, borderWidth: 1, borderColor: theme.edge, paddingVertical: 5, paddingHorizontal: 12, zIndex: 1 }}>
+          <Copy variant="note" style={{ color: '#fff', textAlign: 'center', fontFamily: 'Fredoka700', textShadowColor: '#0008', textShadowRadius: 2 }}>{subtitle}</Copy>
+        </LinearGradient>}
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, justifyContent: 'space-between', flexShrink: 0 }}>
+          {icon !== undefined && <Image source={icon} contentFit="contain" style={{ width: 30, height: 30 }} accessibilityIgnoresInvertColors/>}
+          <View style={{ flex: 1, gap: 2 }}>{subtitle && !lap && <Copy variant="note">{subtitle}</Copy>}
+            <Copy variant="heading" accessibilityRole="header" style={{ color: '#1e1b4b', textAlign: header ? 'left' : 'center', fontSize: 18 }}>{title}</Copy></View>
           {header}
         </View>
-        <ScrollView style={{ flexShrink: 1 }} contentContainerStyle={{ gap: 10, paddingBottom: 4 }}
+        {hero}
+        <ScrollView style={{ flexShrink: 1, flexGrow: lap ? 1 : 0, minHeight: 0 }} contentContainerStyle={{ gap: 10, paddingBottom: 4 }}
           keyboardShouldPersistTaps="handled" keyboardDismissMode="on-drag" nestedScrollEnabled>
           <View pointerEvents={locked ? 'none' : 'auto'} importantForAccessibility={locked ? 'no-hide-descendants' : 'auto'}
             style={{ gap: 10 }}>{children}</View>
         </ScrollView>
+        {(locked || footer) && <View testID="native-panel-footer" style={{ flexShrink: 0, borderTopWidth: 1,
+          borderStyle: 'dashed', borderTopColor: '#e2e8f0', paddingTop: 8, gap: 6 }}>
         {locked ? <View accessibilityLiveRegion="polite" style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}>
           <ActivityIndicator color={palette.green}/><Copy variant="note">Đang gửi quyết định…</Copy>
         </View> : footer}
+        </View>}
       </View>
     </LinearGradient>
   </KeyboardAvoidingView>

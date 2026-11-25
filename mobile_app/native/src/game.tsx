@@ -1,7 +1,6 @@
 import { palette, styles } from './theme'
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import { BackHandler, TextInput, View } from 'react-native'
-import { Image } from 'expo-image'
 import { randomUUID } from 'expo-crypto'
 import * as Haptics from 'expo-haptics'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -19,9 +18,11 @@ import { evaluateMascotSignals, type MascotInsight } from '../../src/game/mascot
 import { art } from './assets'
 import { Action, Copy, Eye, Fox, Panel } from './ui'
 import { Board } from './board'
-import { assetLabel, fromLocal, fromServer, localQuote, setAmount, tileLabel, type Arena, type TradeChoice } from './arena-model'
+import { fromLocal, fromServer, localQuote, setAmount, tileLabel, type Arena, type TradeChoice } from './arena-model'
 import { CoachPanel, PortfolioContent, WhatIfContent } from './coach-and-what-if'
 import { createLocalSaveQueue } from './local-save'
+import { BusinessCard, CashStrip, GoalMeter, MarketCard, ResultHero } from './decision-presentation'
+import { decisionPresentation } from './decision-heading'
 
 const saveLocalGame = createLocalSaveQueue(payload => AsyncStorage.setItem(GAME_SAVE_KEY, payload))
 
@@ -58,8 +59,7 @@ function FinancialChoices({ arena, confirm, locked, quote }: {
   const valid = !!selection && typeof amount === 'number' && Number.isSafeInteger(amount) && amount >= selection.item.min && amount <= selection.item.max
   const command = valid ? setAmount(selection.item, amount) : null
   const selectedTrade = command?.type === 'trade' ? command.action : null
-  const fixed = arena.fixed.filter(item => !item.skip)
-  const skip = arena.fixed.find(item => item.skip)
+  const fixed = arena.fixed.filter(item => !item.skip && item.command.type !== 'advance')
   function clearQuote() {
     request.current?.abort()
     request.current = null
@@ -81,10 +81,11 @@ function FinancialChoices({ arena, confirm, locked, quote }: {
     ? { ...depositPreview(arena.local, selectedTrade.amount, selectedTrade.term ?? 1), ...purchasePreview(arena.local, selectedTrade.amount) }
     : selectedTrade.kind === 'buy' ? purchasePreview(arena.local, selectedTrade.amount) : localQuote(arena.local, selectedTrade)
   return <>
-    {arena.note && <Copy>{arena.note}</Copy>}
+    {arena.note && arena.phase !== 'forecast' && <View style={[styles.card, { backgroundColor: '#f0fdf4', borderColor: '#bbf7d0' }]}><Copy>{arena.note}</Copy></View>}
     {arena.phase === 'forecast' && <Market arena={arena}/>}
     {arena.phase === 'summary' && arena.summary && <Settlement arena={arena}/>}
-    {arena.phase === 'event' && <View style={styles.card}><Copy variant="note">Tiền mặt hiện có</Copy><Copy variant="heading">{money(arena.portfolio.cash)}</Copy></View>}
+    {arena.phase === 'event' && <CashStrip cash={arena.portfolio.cash}/>}
+    {arena.phase === 'event' && arena.eventId === 'business' && arena.businessDetails && <BusinessCard details={arena.businessDetails}/>}
     {arena.trades.map((item, i) => <Action key={i} label={item.label} disabled={locked} selected={selection?.item === item}
       onPress={() => { clearQuote(); setSelection({ item, raw: String(item.min === item.max ? item.min : Math.min(1_000_000, item.max)) }) }}>
       {item.note && <Copy variant="note">{item.note}</Copy>}
@@ -104,21 +105,26 @@ function FinancialChoices({ arena, confirm, locked, quote }: {
         onPress={() => confirm(command)}/>}
     </View>}
     {fixed.map((item, i) => <Action key={i} label={item.label} onPress={() => confirm(item.command)} disabled={locked} tone="primary">
-      {item.note && <Copy variant="note">{item.note}</Copy>}
+      {item.note && <Copy variant="note" style={{ color: '#2d1003', textAlign: 'center' }}>{item.note}</Copy>}
     </Action>)}
-    {skip && <Action label="BỎ QUA CƠ HỘI" disabled={locked} onPress={() => confirm(skip.command)}/>}
   </>
 }
 
 function Market({ arena }: { arena: Arena }) {
   const info = getLapQuarterInsight(arena.lap)
   const bulletin = arena.local ? marketBulletin(arena.local) : null
-  return <View style={styles.card}>
-    <Copy variant="note">{info.quarterLabel}</Copy>
-    <Copy variant="heading">{info.macroTheme}</Copy>
-    <Copy>{info.actionableAdvice}</Copy>
-    {bulletin?.available && bulletin.assets.map(item => <Copy key={item.asset}>{assetLabel(item.asset)} · {item.forecast}</Copy>)}
-  </View>
+  return <>
+    <View style={[styles.card, { backgroundColor: '#dbeafe', borderColor: '#93c5fd' }]}>
+      <Copy variant="heading" style={{ color: '#1e40af' }}>{info.macroTheme}</Copy>
+      <Copy style={{ color: '#1e3a8a' }}>{info.actionableAdvice}</Copy>
+    </View>
+    {bulletin?.available && bulletin.assets.map(item => <MarketCard key={item.asset} asset={item.asset} forecast={item.forecast}/>)}
+    <View style={[styles.card, { backgroundColor: '#fffbeb', borderColor: '#fcd34d' }]}>
+      <Copy variant="heading">Mục tiêu về đích · {money(arena.target)}</Copy>
+      <GoalMeter proceeds={arena.proceeds} target={arena.target}/>
+      <Copy variant="note">Đã có · {money(arena.proceeds)}</Copy>
+    </View>
+  </>
 }
 function Settlement({ arena }: { arena: Arena }) {
   const data = arena.summary
@@ -162,15 +168,15 @@ function Endgame({ arena, onExit, onNew, onWhatIf, onWallet, onCoach }: {
   if (!result) return null
   const won = result.outcome === 'victory'
   return <Panel title={won ? 'Hoàn thành mục tiêu' : result.outcome === 'insolvent' ? 'Mất khả năng thanh toán' : 'Kết quả hành trình'}
+    lap={arena.lap} hero={<ResultHero arena={arena}/>} footer={<Action label="Ván mới" onPress={onNew} tone="primary"/>}
     subtitle={'Hoàn tất ' + arena.finishedLaps + '/' + arena.totalLaps + ' vòng'} header={<Action label="Đóng" onPress={onExit}/>}>
-    <Image source={won ? art.trophy : art.result} style={{ height: 106 }} contentFit="contain"/>
     <View style={styles.card}><Copy variant="note">Nguồn huy động hợp lệ</Copy>
       <Copy variant="title">{money(Number(result.lawfulProceedsVnd))}</Copy>
-      <Copy>Mục tiêu · {money(arena.target)}</Copy><Copy>Tài sản ròng · {money(arena.totalWorth)}</Copy></View>
+      <Copy>Mục tiêu · {money(arena.target)}</Copy><GoalMeter proceeds={Number(result.lawfulProceedsVnd)} target={arena.target}/>
+      <Copy>Tài sản ròng · {money(arena.totalWorth)}</Copy></View>
     {onWhatIf && result.outcome !== 'insolvent' && <Action label="Nếu chọn khác thì sao?" onPress={onWhatIf} tone="primary"/>}
     <Action label="Xem tài sản và nhật ký" onPress={onWallet}/>
     <Action label="Cáo giải thích kết quả" onPress={onCoach}/>
-    <Action label="Ván mới" onPress={onNew}/>
   </Panel>
 }
 
@@ -183,6 +189,8 @@ function ArenaScreen({ arena, revision, busy, pendingRetry, message, confirm, re
   const [screen, setScreen] = useState<Screen>()
   const [tile, setTile] = useState(0)
   const locked = busy || pendingRetry
+  const presentation = decisionPresentation(arena)
+  const skip = arena.fixed.find(item => item.skip)
   const quote = api && sessionId ? async (action: MobileCommand, signal: AbortSignal) => {
     if (typeof revision !== 'number' || action.type !== 'trade') return null
     const input = actionRequest(action, revision)
@@ -215,17 +223,24 @@ function ArenaScreen({ arena, revision, busy, pendingRetry, message, confirm, re
     {arena.phase === 'rolling' && !peek && !screen && <View style={{ position: 'absolute', left: 12, bottom: 101 }}>
       <Action label="Cáo EXE" onPress={() => setScreen('coach')}><Fox size={34}/></Action>
     </View>}
-    {isDecision(arena) && <Panel title={arena.title} subtitle={'Vòng ' + arena.lap + '/' + arena.totalLaps}
-      visible={!peek && !screen} locked={locked} header={!locked && <Eye open={false} onPress={() => setPeek(true)}/>}>
-      <Action label="Cáo EXE" onPress={() => setScreen('coach')}><Fox size={31}/></Action>
+    {isDecision(arena) && <Panel title={presentation.title} icon={presentation.icon} lap={arena.lap}
+      subtitle={'VÒNG ' + arena.lap + ' / ' + arena.totalLaps + (arena.phase === 'event' ? ' · Ô ' + (arena.position + 1) : '')}
+      visible={!peek && !screen} locked={locked} header={!locked && <Eye open={false} onPress={() => setPeek(true)}/>}
+      footer={<>
+        {arena.fixed.filter(item => item.command.type === 'advance').map(item => <Action key={item.label}
+          label={item.label} tone="primary" disabled={locked} onPress={() => send(item.command)}/>)}
+        {skip && <Action label="BỎ QUA CƠ HỘI" disabled={locked} onPress={() => send(skip.command)}/>}
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}><Fox size={28}/>
+          <View style={{ flex: 1 }}><Action label="Cáo EXE" disabled={locked} onPress={() => setScreen('coach')}/></View></View>
+      </>}>
       <FinancialChoices key={revision} arena={arena} confirm={send} locked={locked} quote={quote}/>
     </Panel>}
     {arena.phase === 'finished' && !screen && <Endgame arena={arena} onExit={exit} onNew={newGame}
       onWhatIf={api ? () => setScreen('what-if') : undefined} onWallet={() => setScreen('wallet')} onCoach={() => setScreen('coach')}/>}
-    {screen === 'wallet' && <Panel title="Ví và nhật ký" header={<Action label="Đóng" onPress={close}/>}><PortfolioContent arena={arena}/></Panel>}
-    {screen === 'guide' && <Panel title="Sổ tay chiến lược" header={<Action label="Đóng" onPress={close}/>}><GuideContent arena={arena}/></Panel>}
+    {screen === 'wallet' && <Panel title="Ví và nhật ký" icon={art.wallet} lap={arena.lap} header={<Action label="Đóng" onPress={close}/>}><PortfolioContent arena={arena}/></Panel>}
+    {screen === 'guide' && <Panel title="Sổ tay chiến lược" icon={art.guide} lap={arena.lap} header={<Action label="Đóng" onPress={close}/>}><GuideContent arena={arena}/></Panel>}
     {screen === 'coach' && <CoachPanel arena={arena} insight={insight} onClose={close}/>}
-    {screen === 'what-if' && api && sessionId && <Panel title="Nếu chọn khác thì sao?" header={<Action label="Đóng" onPress={close}/>}>
+    {screen === 'what-if' && api && sessionId && <Panel title="Nếu chọn khác thì sao?" lap={arena.lap} icon={art.goal} header={<Action label="Đóng" onPress={close}/>}>
       <WhatIfContent api={api} sessionId={sessionId}/>
     </Panel>}
     {screen === 'tile' && <Panel title={tileLabel(arena, tile)} header={<Action label="Đóng" onPress={close}/>}>

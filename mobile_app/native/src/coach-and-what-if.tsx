@@ -38,7 +38,7 @@ export function CoachPanel({ arena, insight, onClose }: { arena: Arena; insight?
     <Action label="Hỏi Cáo" disabled={!question.trim()} onPress={ask} tone="primary"/>
     {questionError && <Copy accessibilityRole="alert">Nhập câu hỏi từ 3 đến {QUESTION_LIMIT} ký tự.</Copy>}
   </View>
-  return <Panel title="Cáo EXE" header={<Action label="Đóng" onPress={onClose}/>} footer={composer}>
+  return <Panel title="Cáo EXE" lap={arena.lap} header={<Action label="Đóng" onPress={onClose}/>} footer={composer}>
     <View style={[styles.card, { flexDirection: 'row', alignItems: 'center' }]}>
       <Fox size={48}/><Copy style={{ flex: 1 }}>{insight?.message ?? 'Bạn muốn xem lại quyết định hay tìm hiểu một thuật ngữ?'}</Copy>
     </View>
