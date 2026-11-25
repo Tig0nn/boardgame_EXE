@@ -13,6 +13,7 @@ import type { Arena } from './arena-model'
 import { tileLabel } from './arena-model'
 import { art } from './assets'
 import { ArtButton, Copy, Eye } from './ui'
+import { Dice3D } from './dice-3d'
 
 const coordinate = (index: number, scale: number) => {
   const point = coords[index] ?? coords[0]
@@ -48,22 +49,6 @@ const styles = StyleSheet.create({
   icon: { width: 22, height: 22 },
   dock: { position: 'absolute', bottom: 6, left: 12, right: 12, alignItems: 'flex-end', flexDirection: 'row', justifyContent: 'space-between', alignSelf: 'center', maxWidth: 440 },
 })
-
-const diePips = [
-  [4], [0, 8], [0, 4, 8], [0, 2, 6, 8], [0, 2, 4, 6, 8], [0, 2, 3, 5, 6, 8],
-]
-
-function DiceFace({ value }: { value: number }) {
-  const pips = diePips[value - 1]
-  if (!pips) return null
-  return <View accessible accessibilityLabel={'Xúc xắc · ' + value}
-    style={{ width: 26, height: 26, borderRadius: 6, borderWidth: 1, borderColor: '#c0a888',
-      backgroundColor: '#fff9eb', elevation: 3 }}>
-    {pips.map(pip => <View key={pip} style={{ position: 'absolute', width: 4, height: 4, borderRadius: 2,
-      backgroundColor: pip === 4 && value === 1 ? '#bd2b28' : '#281a12',
-      left: 4 + (pip % 3) * 6, top: 4 + Math.floor(pip / 3) * 6 }}/>)}
-  </View>
-}
 
 export function Board({ arena, peek, blocked, onRoll, onReturn, onHome, onWallet, onGuide, onSound, onSettings, onTile }: {
   arena: Arena; peek: boolean; blocked: boolean; onRoll: () => void; onReturn: () => void; onHome: () => void
@@ -178,14 +163,15 @@ export function Board({ arena, peek, blocked, onRoll, onReturn, onHome, onWallet
       </View>
     </View>
     {peek && <View style={{ position: 'absolute', right: 14, bottom: 106 }}><Eye open onPress={onReturn}/></View>}
-    <View style={styles.dock}>
+    <View testID="native-board-dock" pointerEvents="box-none" style={styles.dock}>
       <ArtButton label="Túi đồ" icon={art.wallet} onPress={onWallet} disabled={peek} size={Math.max(56, Math.min(68, width * .16))}/>
       <View style={{ alignItems: 'center' }}>
         {arena.dice > 0 && <Animated.View pointerEvents="none" style={{ transform: [
           { translateY: tumble.interpolate({ inputRange: [0, .38, .7, 1], outputRange: [0, -80, -13, 0] }) },
           { rotate: tumble.interpolate({ inputRange: [0, 1], outputRange: ['-360deg', '0deg'] }) },
           { scale: tumble.interpolate({ inputRange: [0, .38, 1], outputRange: [.9, 1.7, 1] }) },
-        ] }}><View style={[styles.tray, { gap: 8, marginBottom: 6 }]}><DiceFace value={arena.dice}/>
+        ] }}><View style={[styles.tray, { gap: 2, marginBottom: 6 }]}>
+          <Dice3D value={arena.dice} rollSequence={rollSequence} motion={foreground && !reduceMotion}/>
           <Copy style={{ color: '#fff', fontSize: 20, fontFamily: 'Fredoka700' }}>{arena.dice}</Copy></View></Animated.View>}
         <ArtButton label="Lắc xúc xắc" icon={art.roll} onPress={onRoll} disabled={!canRoll || moving} width={rollWidth} height={rollHeight}/>
       </View>

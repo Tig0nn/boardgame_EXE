@@ -11,11 +11,13 @@ test('illustrated journey keeps navigation, locked chapters, save access and mot
     optimizeDeps: { noDiscovery: true, include: [] }, server: { middlewareMode: true, ws: false }, appType: 'custom',
     plugins: [{ name: 'journey-native-host', enforce: 'pre', resolveId(id, importer) {
       if (importer?.endsWith('/src/board.tsx') && id === 'three') return '\0three'
+      if (importer?.endsWith('/src/board.tsx') && id === './dice-3d') return '\0dice'
       if (id.startsWith('three/examples/')) return '\0gltf'
       if (id === 'virtual:journey' || host.includes(id)) return '\0' + id
       if (id === './assets') return '\0assets'
     }, load(id) {
       if (id === '\0assets') return 'export const art=new Proxy({},{get:(_,key)=>key})'
+      if (id === '\0dice') return "import{createElement}from'react';export const Dice3D=p=>createElement('view',{accessibilityLabel:'Xúc xắc · '+p.value})"
       if (id === '\0three') return 'export class AnimationMixer{};export class Box3{};export class Vector3{}'
       if (id === '\0gltf') return 'export class GLTFLoader{}'
       if (id === '\0expo-image') return "export const Image='image'"
@@ -76,6 +78,7 @@ test('illustrated journey keeps navigation, locked chapters, save access and mot
           const buttons=()=>screen.root.findAllByType('button')
           const roll=()=>buttons().find(n=>n.props.accessibilityLabel==='Lắc xúc xắc')
           const target=roll().props.style({pressed:false})
+          const dockPassThrough=screen.root.findAllByType('view').find(n=>n.props.testID==='native-board-dock')?.props.pointerEvents
           const tileTargets=buttons().filter(n=>n.props.accessibilityLabel?.startsWith('Ô ')).map(n=>n.props.style)
           const before=rolls
           await act(async()=>roll().props.onPress())
@@ -84,7 +87,7 @@ test('illustrated journey keeps navigation, locked chapters, save access and mot
           await act(async()=>buttons().find(n=>n.props.accessibilityLabel==='Quay lại quyết định').props.onPress())
           const diceLabel=screen.root.findAllByType('view').some(n=>n.props.accessibilityLabel==='Xúc xắc · 6')
           await act(async()=>screen.unmount())
-          return {before,rolls,returned,peekDisabled,target,tileTargets,diceLabel}
+          return {before,rolls,returned,peekDisabled,target,tileTargets,diceLabel,dockPassThrough}
         }
       `
     } }],
@@ -102,6 +105,7 @@ test('illustrated journey keeps navigation, locked chapters, save access and mot
     assert.equal(board.returned, 1)
     assert.equal(board.peekDisabled, true)
     assert.ok(board.diceLabel)
+    assert.equal(board.dockPassThrough, 'box-none', 'empty dock area must not intercept the Board Peek return control')
     assert.ok(board.target.width >= 128 && board.target.height >= 68)
     assert.equal(board.tileTargets.length, 18)
     assert.ok(board.tileTargets.every((target: { width: number; height: number }) => target.width >= 48 && target.height >= 48))
