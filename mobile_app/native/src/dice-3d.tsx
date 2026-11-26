@@ -11,26 +11,31 @@ const turns: Record<string, [number, number, number]> = {
   front: [0, 0, 0], back: [0, Math.PI, 0], right: [0, Math.PI / 2, 0], left: [0, -Math.PI / 2, 0],
 }
 
-export function DiceScene({ value, rollSequence, motion }: { value: number; rollSequence?: number; motion: boolean }) {
+type DiceProps = { value: number; rollSequence?: number; motion: boolean; animationId?: number; onSettled?: () => void }
+
+export function DiceScene({ value, rollSequence, motion, animationId, onSettled }: DiceProps) {
   const cube = useRef<Group>(null)
   const previous = useRef(rollSequence)
   const progress = useRef(1)
+  const settled = useRef(onSettled)
+  useEffect(() => { settled.current = onSettled }, [onSettled])
   const invalidate = useThree(state => state.invalidate)
   const geometry = useMemo(() => new RoundedBoxGeometry(2, 2, 2, 2, .18), [])
   useEffect(() => () => geometry.dispose(), [geometry])
   useEffect(() => {
     // Reloads and settings changes show the settled canonical roll. Only a new
     // history entry can start a tumble, including two successive equal rolls.
-    progress.current = motion && previous.current !== rollSequence ? 0 : 1
+    progress.current = motion && (animationId !== undefined || previous.current !== rollSequence) ? 0 : 1
     previous.current = rollSequence
     cube.current?.rotation.set(...diceRotation(progress.current))
     invalidate()
-  }, [motion, rollSequence, invalidate])
+  }, [animationId, motion, rollSequence, invalidate])
   useFrame((_state, delta) => {
     if (progress.current >= 1) return
     progress.current = Math.min(1, progress.current + Math.min(delta, .1) / .8)
     cube.current?.rotation.set(...diceRotation(progress.current))
     if (progress.current < 1) invalidate()
+    else settled.current?.()
   })
   const faces = diceFaces(value)
   if (!faces) return null
@@ -48,13 +53,14 @@ export function DiceScene({ value, rollSequence, motion }: { value: number; roll
   </group>
 }
 
-export function Dice3D({ value, rollSequence, motion }: { value: number; rollSequence?: number; motion: boolean }) {
+export function Dice3D(props: DiceProps) {
+  const { value } = props
   if (!diceFaces(value)) return null
   return <View accessible accessibilityLabel={'Xúc xắc · ' + value} pointerEvents="none" style={{ width: 64, height: 64 }}>
     <View style={{ position: 'absolute', left: 10, right: 10, bottom: 1, height: 9, borderRadius: 24, backgroundColor: '#07182f50' }}/>
     <Canvas orthographic camera={camera} frameloop="demand">
       <ambientLight intensity={1.8}/><directionalLight position={[-3, 7, 6]} intensity={2.2}/>
-      <DiceScene value={value} rollSequence={rollSequence} motion={motion}/>
+      <DiceScene {...props}/>
     </Canvas>
   </View>
 }

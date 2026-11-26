@@ -22,7 +22,7 @@ test('local screen saves on entry and waits for storage before exiting', async (
         if (importer?.endsWith('/src/game.tsx') && ['./board', './ui', './assets', './coach-and-what-if'].includes(id)) return '\0' + id
       },
       load(id) {
-        if (id === '\0react-native') return "export const View='view',TextInput='input',StyleSheet={create:x=>x},BackHandler={addEventListener:()=>({remove(){}})}"
+        if (id === '\0react-native') return "export const View='view',TextInput='input',StyleSheet={create:x=>x},BackHandler={addEventListener:()=>({remove(){}})},AppState={currentState:'active',addEventListener:()=>({remove(){}})},AccessibilityInfo={isReduceMotionEnabled:async()=>false,addEventListener:()=>({remove(){}})}"
         if (id === '\0expo-image') return "export const Image='image'"
         if (id === '\0expo-linear-gradient') return "export const LinearGradient='gradient'"
         if (id === '\0expo-crypto') return "export const randomUUID=()=> 'fixture'"

@@ -72,6 +72,16 @@ test('native visual effects settle, pause, release resources and never dispatch 
           await act(async()=>screen.unmount())
           return{victory,defeat,passive,reduced,paused,started:stats.started,stopped:stats.stopped,listeners:listeners()}
         }
+        export async function firstRoll(){
+          let screen,completed=0;const group=new Group()
+          await act(async()=>{screen=create(createElement(DiceScene,{value:3,rollSequence:1,animationId:1,motion:true,onSettled(){completed++}}),
+            {createNodeMock:n=>n.type==='group'?group:null})})
+          step();const spinning=group.rotation.toArray().slice(0,3)
+          for(let i=0;i<120;i++)step()
+          const settled=group.rotation.toArray().slice(0,3)
+          await act(async()=>screen.unmount())
+          return {spinning,settled,completed}
+        }
       `
     } }],
   })
@@ -86,6 +96,10 @@ test('native visual effects settle, pause, release resources and never dispatch 
     assert.deepEqual(die.reduced, [0, 0, 0])
     assert.equal(die.disposals, 1)
     assert.ok(die.noInventedRoll)
+    const first = await effects.firstRoll()
+    assert.notDeepEqual(first.spinning, [0, 0, 0], 'the first canonical roll must spin even when the canvas mounts with that sequence')
+    assert.deepEqual(first.settled, [0, 0, 0])
+    assert.equal(first.completed, 1, 'completion is reported once, after the final canonical orientation')
     const particles = await effects.result()
     assert.equal(particles.victory, 24)
     assert.equal(particles.defeat, 24)

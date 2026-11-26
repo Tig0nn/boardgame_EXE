@@ -23,6 +23,7 @@ import { CoachPanel, PortfolioContent, WhatIfContent } from './coach-and-what-if
 import { createLocalSaveQueue } from './local-save'
 import { BusinessCard, CashStrip, DecisionActions, GoalMeter, MarketCard, ResultFinances, ResultHero } from './decision-presentation'
 import { decisionPresentation } from './decision-heading'
+import { useRollPresentation } from './roll-presentation'
 
 const saveLocalGame = createLocalSaveQueue(payload => AsyncStorage.setItem(GAME_SAVE_KEY, payload))
 
@@ -201,7 +202,9 @@ function ArenaScreen({ arena, revision, busy, pendingRetry, message, confirm, re
   const [peek, setPeek] = useState(false)
   const [screen, setScreen] = useState<Screen>()
   const [tile, setTile] = useState(0)
-  const locked = busy || pendingRetry
+  const rollSequence = arena.journal.findLast(entry => entry.kind === 'roll')?.sequence
+  const roll = useRollPresentation(rollSequence, pendingRetry || !!message)
+  const locked = busy || pendingRetry || roll.active
   const quote = api && sessionId ? async (action: MobileCommand, signal: AbortSignal) => {
     if (typeof revision !== 'number' || action.type !== 'trade') return null
     const input = actionRequest(action, revision)
@@ -213,9 +216,10 @@ function ArenaScreen({ arena, revision, busy, pendingRetry, message, confirm, re
   const close = () => setScreen(undefined)
   const send = (command: MobileCommand) => {
     if (locked || peek || screen) return
+    if (command.type === 'roll' && !roll.begin(arena.position, rollSequence)) return
     void Haptics.selectionAsync().catch(() => {})
     playSound()
-    confirm(command)
+    try { confirm(command) } catch (problem) { roll.cancel(); throw problem }
   }
   useEffect(() => {
     const listener = BackHandler.addEventListener('hardwareBackPress', () => {
@@ -229,14 +233,15 @@ function ArenaScreen({ arena, revision, busy, pendingRetry, message, confirm, re
   }, [arena, exit, locked, peek, screen])
   return <View style={{ flex: 1 }}>
     <Board arena={arena} peek={peek} blocked={locked || !!screen || isDecision(arena)} onRoll={() => send({ type: 'roll' })}
+      presentation={roll.presentation} onPresentationComplete={roll.complete}
       onReturn={() => setPeek(false)} onHome={exit} onWallet={() => setScreen('wallet')} onGuide={() => setScreen('guide')}
       onSound={activateSound} onSettings={() => setScreen('settings')} onTile={position => { setTile(position); setScreen('tile') }}/>
-    {arena.phase === 'rolling' && !peek && !screen && <View style={{ position: 'absolute', left: 12, bottom: 106 }}>
+    {arena.phase === 'rolling' && !locked && !peek && !screen && <View style={{ position: 'absolute', left: 12, bottom: 106 }}>
       <Action label="Cáo EXE" onPress={() => setScreen('coach')}/>
     </View>}
     {isDecision(arena) && <DecisionPanel key={revision} arena={arena} confirm={send} locked={locked} quote={quote}
-      visible={!peek && !screen} onPeek={() => setPeek(true)} onCoach={() => setScreen('coach')}/>}
-    {arena.phase === 'finished' && !screen && <Endgame arena={arena} onExit={exit} onNew={newGame}
+      visible={!roll.active && !peek && !screen} onPeek={() => setPeek(true)} onCoach={() => setScreen('coach')}/>}
+    {arena.phase === 'finished' && !roll.active && !screen && <Endgame arena={arena} onExit={exit} onNew={newGame}
       onWhatIf={api ? () => setScreen('what-if') : undefined} onWallet={() => setScreen('wallet')} onCoach={() => setScreen('coach')}/>}
     {screen === 'wallet' && <Panel title="Ví và nhật ký" icon={art.wallet} lap={arena.lap} header={<Action label="Đóng" onPress={close}/>}><PortfolioContent arena={arena}/></Panel>}
     {screen === 'guide' && <Panel title="Sổ tay chiến lược" icon={art.guide} lap={arena.lap} header={<Action label="Đóng" onPress={close}/>}><GuideContent arena={arena}/></Panel>}

@@ -14,6 +14,7 @@ import { tileLabel } from './arena-model'
 import { art } from './assets'
 import { ArtButton, Copy, Eye } from './ui'
 import { Dice3D } from './dice-3d'
+import type { RollPresentation, RollStage } from './roll-presentation'
 
 const coordinate = (index: number, scale: number) => {
   const point = coords[index] ?? coords[0]
@@ -50,9 +51,10 @@ const styles = StyleSheet.create({
   dock: { position: 'absolute', bottom: 6, left: 12, right: 12, alignItems: 'flex-end', flexDirection: 'row', justifyContent: 'space-between', alignSelf: 'center', maxWidth: 440 },
 })
 
-export function Board({ arena, peek, blocked, onRoll, onReturn, onHome, onWallet, onGuide, onSound, onSettings, onTile }: {
+export function Board({ arena, peek, blocked, onRoll, onReturn, onHome, onWallet, onGuide, onSound, onSettings, onTile, presentation, onPresentationComplete }: {
   arena: Arena; peek: boolean; blocked: boolean; onRoll: () => void; onReturn: () => void; onHome: () => void
   onWallet: () => void; onGuide: () => void; onSound: () => void; onSettings?: () => void; onTile: (position: number) => void
+  presentation?: RollPresentation | null; onPresentationComplete?: (id: number, stage: RollStage) => void
 }) {
   const { width } = useWindowDimensions()
   const [pawnAsset] = useAssets([art.pawn])
@@ -62,10 +64,13 @@ export function Board({ arena, peek, blocked, onRoll, onReturn, onHome, onWallet
   const pawn = useMemo(() => new Animated.ValueXY(), [])
   const tumble = useMemo(() => new Animated.Value(1), [])
   const rollSequence = arena.journal.findLast(entry => entry.kind === 'roll')?.sequence
-  const previous = useRef({ position: arena.position, rollSequence })
+  const diceSettled = useRef(() => {})
+  const presentationId = presentation?.id
+  const presentationFrom = presentation?.from
+  const presentationStage = presentation?.stage
   const [reduceMotion, setReduceMotion] = useState(true)
   const [foreground, setForeground] = useState(() => AppState.currentState === 'active')
-  const [moving, setMoving] = useState(false)
+  const moving = presentationStage === 'pawn' && foreground && !reduceMotion
   useEffect(() => {
     const subscription = AppState.addEventListener('change', state => setForeground(state === 'active'))
     return () => subscription.remove()
@@ -81,29 +86,37 @@ export function Board({ arena, peek, blocked, onRoll, onReturn, onHome, onWallet
     setBox(current => current.width === width && current.height === height ? current : { width, height })
   }
   useEffect(() => {
-    const { position: from, rollSequence: previousRoll } = previous.current
-    previous.current = { position: arena.position, rollSequence }
-    if (from === arena.position || rollSequence === previousRoll || reduceMotion) {
-      setMoving(false)
-      pawn.setValue(coordinate(arena.position, scale))
+    let live = true
+    if (presentationId === undefined || presentationFrom === undefined || presentationStage === 'waiting' || reduceMotion || !foreground) {
+      pawn.setValue(coordinate(presentationStage === 'waiting' ? presentationFrom ?? arena.position : arena.position, scale))
       tumble.setValue(1)
       return
     }
+    pawn.setValue(coordinate(presentationFrom, scale))
+    if (presentationStage === 'dice') {
+      let bounceDone = false, spinDone = false
+      const finish = () => { if (live && bounceDone && spinDone) onPresentationComplete?.(presentationId, 'dice') }
+      diceSettled.current = () => { spinDone = true; finish() }
+      tumble.setValue(0)
+      const bounce = Animated.timing(tumble, { toValue: 1, duration: 700, easing: Easing.out(Easing.quad), useNativeDriver: true })
+      bounce.start(({ finished }) => { bounceDone = finished; finish() })
+      return () => { live = false; diceSettled.current = () => {}; bounce.stop() }
+    }
+    tumble.setValue(1)
+    if (presentationFrom === arena.position) { onPresentationComplete?.(presentationId, 'pawn'); return }
     const steps: Animated.CompositeAnimation[] = []
-    for (let p = (from + 1) % arena.board.length; ; p = (p + 1) % arena.board.length) {
+    for (let p = (presentationFrom + 1) % arena.board.length; ; p = (p + 1) % arena.board.length) {
       const toValue = coordinate(p, scale)
       steps.push(Animated.timing(pawn, { toValue, duration: 145, easing: Easing.out(Easing.quad), useNativeDriver: true }))
       if (p === arena.position) break
     }
-    tumble.setValue(0)
-    const movement = Animated.parallel([
-      Animated.sequence(steps),
-      Animated.timing(tumble, { toValue: 1, duration: 700, easing: Easing.out(Easing.quad), useNativeDriver: true }),
-    ])
-    setMoving(true)
-    movement.start(() => setMoving(false))
-    return () => movement.stop()
-  }, [arena.board.length, arena.position, pawn, reduceMotion, rollSequence, scale, tumble])
+    const movement = Animated.sequence(steps)
+    movement.start(({ finished }) => {
+      if (!live) return
+      if (finished) onPresentationComplete?.(presentationId, 'pawn')
+    })
+    return () => { live = false; movement.stop() }
+  }, [arena.board.length, arena.position, foreground, onPresentationComplete, pawn, presentationId, presentationFrom, presentationStage, reduceMotion, scale, tumble])
   const canRoll = arena.phase === 'rolling' && !blocked && !peek
   const animatePawn = foreground && !reduceMotion && (moving || peek || canRoll)
   const fill = Math.max(0, Math.min(100, arena.proceeds / arena.target * 100))
@@ -164,18 +177,19 @@ export function Board({ arena, peek, blocked, onRoll, onReturn, onHome, onWallet
     </View>
     {peek && <View style={{ position: 'absolute', right: 14, bottom: 106 }}><Eye open onPress={onReturn}/></View>}
     <View testID="native-board-dock" pointerEvents="box-none" style={styles.dock}>
-      <ArtButton label="Túi đồ" icon={art.wallet} onPress={onWallet} disabled={peek} size={Math.max(56, Math.min(68, width * .16))}/>
+      <ArtButton label="Túi đồ" icon={art.wallet} onPress={onWallet} disabled={peek || !!presentation} size={Math.max(56, Math.min(68, width * .16))}/>
       <View style={{ alignItems: 'center' }}>
         {arena.dice > 0 && <Animated.View pointerEvents="none" style={{ transform: [
           { translateY: tumble.interpolate({ inputRange: [0, .38, .7, 1], outputRange: [0, -80, -13, 0] }) },
           { rotate: tumble.interpolate({ inputRange: [0, 1], outputRange: ['-360deg', '0deg'] }) },
           { scale: tumble.interpolate({ inputRange: [0, .38, 1], outputRange: [.9, 1.7, 1] }) },
         ] }}><View style={[styles.tray, { gap: 2, marginBottom: 6 }]}>
-          <Dice3D value={arena.dice} rollSequence={rollSequence} motion={foreground && !reduceMotion}/>
+          <Dice3D value={arena.dice} rollSequence={rollSequence} motion={foreground && !reduceMotion}
+            animationId={presentation?.stage === 'dice' ? presentation.id : undefined} onSettled={() => diceSettled.current()}/>
           <Copy style={{ color: '#fff', fontSize: 20, fontFamily: 'Fredoka700' }}>{arena.dice}</Copy></View></Animated.View>}
         <ArtButton label="Lắc xúc xắc" icon={art.roll} onPress={onRoll} disabled={!canRoll || moving} width={rollWidth} height={rollHeight}/>
       </View>
-      <ArtButton label="Sổ tay" icon={art.mapGuide} onPress={onGuide} disabled={peek} size={Math.max(56, Math.min(68, width * .16))}/>
+      <ArtButton label="Sổ tay" icon={art.mapGuide} onPress={onGuide} disabled={peek || !!presentation} size={Math.max(56, Math.min(68, width * .16))}/>
     </View>
   </View>
 }

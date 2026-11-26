@@ -17,7 +17,7 @@ test('illustrated journey keeps navigation, locked chapters, save access and mot
       if (id === './assets') return '\0assets'
     }, load(id) {
       if (id === '\0assets') return 'export const art=new Proxy({},{get:(_,key)=>key})'
-      if (id === '\0dice') return "import{createElement}from'react';export const Dice3D=p=>createElement('view',{accessibilityLabel:'Xúc xắc · '+p.value})"
+      if (id === '\0dice') return "import{createElement}from'react';export const Dice3D=p=>createElement('view',{...p,accessibilityLabel:'Xúc xắc · '+p.value})"
       if (id === '\0three') return 'export class AnimationMixer{};export class Box3{};export class Vector3{}'
       if (id === '\0gltf') return 'export class GLTFLoader{}'
       if (id === '\0expo-image') return "export const Image='image'"
@@ -36,13 +36,14 @@ test('illustrated journey keeps navigation, locked chapters, save access and mot
         export const AccessibilityInfo={isReduceMotionEnabled:async()=>false,addEventListener(_,fn){motionListener=fn;return sub()}}
         export const reduce=value=>motionListener(value),background=()=>appListener('background')
         class Value{constructor(value){this.value=value}setValue(value){this.value=value}interpolate(){return this.value}getTranslateTransform(){return []}}
-        const animation=()=>({start(){stats.started++},stop(){stats.stopped++}})
-        export const Animated={Value,ValueXY:Value,View:'animated-view',timing:animation,loop:animation,sequence:animation}
+        export const jobs=[]
+        const animation=(kind,config)=>({kind,config,start(done){stats.started++;jobs.push({kind,config,done})},stop(){stats.stopped++}})
+        export const Animated={Value,ValueXY:Value,View:'animated-view',timing:(_,config)=>animation('timing',config),loop:()=>animation('loop'),sequence:steps=>animation('sequence',steps)}
         export const Easing={sin:x=>x,inOut:x=>x,out:x=>x,quad:x=>x}
       `
       if (id === '\0virtual:journey') return `
         import{createElement}from'react';import{create,act}from'react-test-renderer'
-        import{Landing,ChapterMap}from'/src/journey-screens.tsx';import{reduce,background,stats}from'react-native'
+        import{Landing,ChapterMap}from'/src/journey-screens.tsx';import{reduce,background,stats,jobs}from'react-native'
         import{Board}from'/src/board.tsx';import{fromLocal}from'/src/arena-model.ts';import{createMultiCourseGame}from'/@fs/${fileURLToPath(new URL('../../../src/game/new-game.ts', import.meta.url)).replaceAll('\\', '/')}'
         globalThis.IS_REACT_ACT_ENVIRONMENT=true
         export async function verify(){
@@ -89,6 +90,33 @@ test('illustrated journey keeps navigation, locked chapters, save access and mot
           await act(async()=>screen.unmount())
           return {before,rolls,returned,peekDisabled,target,tileTargets,diceLabel,dockPassThrough}
         }
+        export async function animationOrder(){
+          let screen;const completed=[]
+          const arena={...fromLocal(createMultiCourseGame('board-animation',0,1)),position:3,dice:3,phase:'event'}
+          const props={arena,peek:false,blocked:true,onRoll(){},onReturn(){},onHome(){},onWallet(){},onGuide(){},onSound(){},onTile(){},
+            onPresentationComplete(id,stage){completed.push(stage)}}
+          await act(async()=>{screen=create(createElement(Board,props))})
+          jobs.length=0
+          await act(async()=>screen.update(createElement(Board,{...props,presentation:{id:1,from:0,stage:'dice'}})))
+          const dice=()=>screen.root.findAllByType('view').find(n=>n.props.accessibilityLabel==='Xúc xắc · 3')
+          const lockedDock=screen.root.findAllByType('button').filter(n=>['Túi đồ','Sổ tay','Lắc xúc xắc'].includes(n.props.accessibilityLabel)).every(n=>n.props.disabled)
+          const before=completed.length,bounce=jobs.find(job=>job.kind==='timing')
+          await act(async()=>bounce.done({finished:true}))
+          const beforeSpin=completed.length
+          await act(async()=>dice().props.onSettled())
+          const afterSpin=[...completed]
+          jobs.length=0
+          await act(async()=>screen.update(createElement(Board,{...props,presentation:{id:1,from:0,stage:'pawn'}})))
+          const walk=jobs.find(job=>job.kind==='sequence'),durations=walk.config.map(step=>step.config.duration)
+          await act(async()=>walk.done({finished:false}))
+          const afterInterrupted=[...completed]
+          await act(async()=>walk.done({finished:true}))
+          const afterWalk=[...completed]
+          const late=walk.done
+          await act(async()=>screen.unmount())
+          await act(async()=>late({finished:true}))
+          return {before,beforeSpin,afterSpin,afterInterrupted,afterWalk,afterUnmount:completed,lockedDock,durations}
+        }
       `
     } }],
   })
@@ -109,5 +137,14 @@ test('illustrated journey keeps navigation, locked chapters, save access and mot
     assert.ok(board.target.width >= 128 && board.target.height >= 68)
     assert.equal(board.tileTargets.length, 18)
     assert.ok(board.tileTargets.every((target: { width: number; height: number }) => target.width >= 48 && target.height >= 48))
+    const order = await (await server.ssrLoadModule('virtual:journey')).animationOrder()
+    assert.equal(order.before, 0)
+    assert.equal(order.beforeSpin, 0, 'bounce completion must also wait for the 3D spin')
+    assert.deepEqual(order.afterSpin, ['dice'])
+    assert.deepEqual(order.durations, [145, 145, 145])
+    assert.deepEqual(order.afterInterrupted, ['dice'], 'an interrupted walk is released by the watchdog, not an early success callback')
+    assert.deepEqual(order.afterWalk, ['dice', 'pawn'])
+    assert.deepEqual(order.afterUnmount, ['dice', 'pawn'], 'late native callbacks are ignored after unmount')
+    assert.equal(order.lockedDock, true)
   } finally { await server.close() }
 })
