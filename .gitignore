@@ -35,3 +35,26 @@ app_ui_docs/
 .agents/*
 !.agents/rules/
 *.tsbuildinfo
+
+# Signing/build outputs and generated QA captures stay outside published source.
+*.apk
+*.aab
+*.jks
+*.keystore
+*.p12
+*.hbc
+/docs/playtests/**/*.png
+/docs/playtests/**/*.jpg
+/docs/playtests/**/*.jpeg
+/docs/playtests/**/*.txt
+/docs/playtests/**/*.tap
+/docs/playtests/**/*.csv
+/docs/playtests/**/*.zip
+/docs/playtests/**/*.json
+!/docs/playtests/**/*log*.json
+!/docs/playtests/**/*frozen*.json
+!/docs/playtests/**/*fixture*.json
+!/docs/playtests/**/*historical*.json
+# These archived states are required by language-cleanup-ui.test.ts.
+!/docs/playtests/b18-terminology/defaulted-checkpoint.json
+!/docs/playtests/b18-terminology/delayed-checkpoint.json
