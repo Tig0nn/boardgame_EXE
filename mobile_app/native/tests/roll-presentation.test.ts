@@ -48,8 +48,8 @@ test('roll presentation gates only the view, never the canonical mutation', asyn
         import{fromLocal}from'/src/arena-model.ts';import{app,reduce,listeners}from'react-native'
         import{useRollPresentation}from'/src/roll-presentation.ts';import{failNext}from'@react-native-async-storage/async-storage'
         globalThis.IS_REACT_ACT_ENVIRONMENT=true
-        export async function fixture(){
-          await act(async()=>{app('active');reduce(false)})
+        export async function fixture(reduced=false){
+          await act(async()=>{app('active');reduce(reduced)})
           const controller=createMobileSession(createMultiCourseGame('native-roll-polish',0,1))
           while(controller.getSnapshot().phase!=='rolling'){
             const state=controller.getSnapshot(),arena=fromLocal(state)
@@ -67,16 +67,26 @@ test('roll presentation gates only the view, never the canonical mutation', asyn
             async reduce(value){await act(async()=>reduce(value))},
             async app(state){await act(async()=>app(state))},
             failNext,
+            async finishDecision(){
+              for(let i=0;board().arena.phase!=='rolling'&&i<12;i++){
+                const arena=board().arena,choice=arena.fixed.find(item=>item.skip)??arena.fixed[0]
+                assert.ok(choice,'fixture decision must have a canonical fixed choice')
+                await act(async()=>decision().confirm(choice.command))
+              }
+              assert.equal(board().arena.phase,'rolling')
+            },
             async restore(){const state=board().arena.local;await act(async()=>screen.unmount());await act(async()=>{screen=create(createElement(LocalGame,{...props,initial:state}))})},
             async close(){await act(async()=>screen.unmount());assert.equal(listeners(),0)},act
           }
         }
-        export async function gate(){
-          await act(async()=>{app('active');reduce(false)})
+        export async function gate(reduced=false){
+          await act(async()=>{app('active');reduce(reduced)})
           function Host(props){return createElement('gate',useRollPresentation(props.sequence,props.failed))}
           let screen;await act(async()=>{screen=create(createElement(Host,{sequence:1,failed:false}))})
           return{value:()=>screen.root.findByType('gate').props,
             async update(sequence,failed=false){await act(async()=>screen.update(createElement(Host,{sequence,failed})))},
+            async reduce(value){await act(async()=>reduce(value))},
+            async app(state){await act(async()=>app(state))},
             async close(){await act(async()=>screen.unmount());assert.equal(listeners(),0)},act}
         }
       `
@@ -84,6 +94,19 @@ test('roll presentation gates only the view, never the canonical mutation', asyn
   })
   try {
     const { fixture, gate } = await server.ssrLoadModule('virtual:roll')
+    await t.test('S22 regression: Reduce Motion already ON permits two canonical rolls without cold start', async () => {
+      const f = await fixture(true)
+      try {
+        for(let i=1;i<=2;i++){
+          await f.roll() // double press each time, one accepted roll
+          assert.equal(f.board().arena.journal.filter((entry: {kind:string})=>entry.kind==='roll').length,f.before+i)
+          assert.equal(f.board().arena.dice,f.board().arena.local.dice)
+          assert.equal(f.board().presentation,null)
+          assert.equal(f.decision().visible,true)
+          await f.finishDecision()
+        }
+      } finally {await f.close()}
+    })
     await t.test('one roll commits once; dice then pawn complete before the modal appears', async () => {
       const f = await fixture()
       try {
@@ -120,8 +143,60 @@ test('roll presentation gates only the view, never the canonical mutation', asyn
           assert.equal(f.decision().visible, true)
           assert.equal(f.board().presentation, null)
           assert.equal(JSON.stringify(f.board().arena.local), state)
+          await f.finishDecision()
+          await f.roll()
+          assert.equal(f.board().arena.journal.filter((entry: {kind:string})=>entry.kind==='roll').length,f.before+2)
         } finally { await f.close() }
       }
+    })
+    await t.test('a pending server response stays locked under reduced motion or background, then releases on canonical receipt', async () => {
+      for(const mode of ['reduced','background']){
+        const g=await gate(mode==='reduced')
+        try{
+          await g.act(async()=>{assert.equal(g.value().begin(0,1),true)})
+          if(mode==='background') await g.app('background')
+          assert.equal(g.value().active,true)
+          assert.equal(g.value().presentation.stage,'waiting')
+          await g.act(async()=>assert.equal(g.value().begin(0,1),false))
+          await g.update(2)
+          assert.equal(g.value().active,false)
+          await g.app('active')
+          await g.act(async()=>{assert.equal(g.value().begin(4,2),true);assert.equal(g.value().begin(4,2),false)})
+          await g.update(3,true)
+          assert.equal(g.value().active,false)
+          await g.update(3)
+          await g.act(async()=>assert.equal(g.value().begin(6,3),true))
+        }finally{await g.close()}
+      }
+    })
+    await t.test('old completion and watchdog cannot release a newer generation; all terminal paths allow another roll', async () => {
+      t.mock.timers.enable({apis:['setTimeout']})
+      const g=await gate()
+      try{
+        await g.act(async()=>g.value().begin(0,1));await g.update(2)
+        const old=g.value().presentation.id
+        await g.act(async()=>t.mock.timers.tick(2400))
+        await g.act(async()=>g.value().complete(old,'dice'))
+        await g.act(async()=>g.value().complete(old,'pawn'))
+        await g.act(async()=>g.value().begin(4,2));await g.update(3)
+        const next=g.value().presentation.id
+        assert.notEqual(next,old)
+        await g.act(async()=>{g.value().complete(old,'pawn');g.value().cancel()})
+        await g.act(async()=>g.value().begin(7,3));await g.update(4)
+        const current=g.value().presentation.id
+        await g.act(async()=>{g.value().complete(old,'dice');g.value().complete(next,'pawn');t.mock.timers.tick(100)})
+        assert.equal(g.value().presentation.id,current)
+        assert.equal(g.value().presentation.stage,'dice')
+        await g.act(async()=>t.mock.timers.tick(2400))
+        assert.equal(g.value().presentation,null)
+        await g.act(async()=>g.value().begin(9,4));await g.update(5)
+        const newest=g.value().presentation.id
+        await g.act(async()=>{g.value().complete(current,'dice');g.value().complete(current,'pawn')})
+        assert.equal(g.value().presentation.id,newest)
+        const lateComplete=g.value().complete,lateBegin=g.value().begin
+        await g.close()
+        await g.act(async()=>{lateComplete(newest,'dice');t.mock.timers.tick(30_000);assert.equal(lateBegin(0,5),false)})
+      }finally{t.mock.timers.reset()}
     })
     await t.test('cold restore at a decision never replays the previous animation', async () => {
       const f = await fixture()
