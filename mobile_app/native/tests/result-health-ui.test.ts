@@ -42,7 +42,10 @@ test('Result report renders canonical scores and accessible, read-only accordion
           import {money} from ${JSON.stringify(fileURLToPath(new URL('../../../src/game/format.ts', import.meta.url)).replaceAll('\\', '/'))}
           globalThis.IS_REACT_ACT_ENVIRONMENT=true
           export async function currency(value){
-            const formatted=money(value);let screen
+            return currencyText(money(value))
+          }
+          export async function currencyText(formatted){
+            let screen
             await act(async()=>{screen=create(createElement(ResultCopy,{variant:'title',numberOfLines:1,adjustsFontSizeToFit:true},formatted))})
             const nodes=screen.root.findAllByType('text'),root=nodes[0]
             function content(node){return typeof node==='string'||typeof node==='number'?String(node):node.children.map(content).join('')}
@@ -95,12 +98,26 @@ test('Result report renders canonical scores and accessible, read-only accordion
     const ui = await server.ssrLoadModule('virtual:result-health')
     for (const value of [0,92_458_182,90_000_000,-3_000_000,Number.MAX_SAFE_INTEGER]) {
       const currency = await ui.currency(value)
-      assert.equal(currency.rendered,currency.formatted,'no separator, symbol or amount format changes')
+      assert.equal(currency.rendered,currency.formatted.replace(/ (₫)/gu,'\u00a0$1'),'the amount and symbol share a nonbreaking space in presentation')
+      assert.equal(currency.rendered.replaceAll('\u00a0',' '),currency.formatted,'only the presentation space changes')
       if (value === 92_458_182) assert.equal(currency.formatted,'92.458.182 ₫')
       assert.equal(currency.label,currency.formatted)
       assert.equal(currency.symbolStyle.fontFamily,'sans-serif')
       assert.equal(currency.symbolStyle.fontWeight,'400')
       assert.equal(currency.fit,true)
+    }
+    for (const sentence of [
+      'Thanh toán ngay cho biến cố cá nhân 5.000.000 ₫.',
+      'Học phí đã trả 9.000.000 ₫ · Lương thêm đã nhận 12.000.000 ₫.',
+      'Phí và chênh lệch giá mua và bán đã trả 125.000 ₫.',
+      'Nợ còn lại 10.000.000 ₫, đã trừ khỏi nguồn tiền về đích.',
+      'Tiền đã đầu tư còn nằm trong quán 20.000.000 ₫; quán chưa bán nên không tính vào mục tiêu.',
+      'Lương đã nhận 56.000.000 ₫. Sinh hoạt đã trả 20.000.000 ₫.',
+    ]) {
+      const currency = await ui.currencyText(sentence)
+      assert.equal(currency.rendered,sentence.replace(/ (₫)/gu,'\u00a0$1'))
+      assert.equal(currency.label,sentence,'accessibility retains the unmodified canonical review sentence')
+      assert.equal(currency.symbolStyle.fontFamily,'sans-serif')
     }
     for (const [width,height] of [[320,740],[384,824],[430,932]]) {
       const insets = { top: 24, bottom: 24, left: 0, right: 0 }

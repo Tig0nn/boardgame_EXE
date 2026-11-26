@@ -12,7 +12,8 @@ export function ResultCopy({ children, accessibilityLabel, style, ...props }: Pa
   const label = parts.every(part => typeof part === 'string' || typeof part === 'number') ? parts.join('') : undefined
   return <Copy {...props} accessibilityLabel={accessibilityLabel ?? label}
     style={[{ includeFontPadding: true, maxWidth: '100%' }, style]}>
-    {Children.map(children, part => typeof part !== 'string' ? part : part.split(/(₫)/u).map((text, index) => text === '₫'
+    {/* Keep the formatted amount and symbol together without changing the accessible source text. */}
+    {Children.map(children, part => typeof part !== 'string' ? part : part.replace(/(\d) (?=₫)/gu, '$1\u00a0').split(/(₫)/u).map((text, index) => text === '₫'
       ? <Text key={index} style={{ fontFamily: Platform.OS === 'ios' ? 'System' : 'sans-serif', fontWeight: '400', fontStyle: 'normal' }}>{text}</Text>
       : text))}
   </Copy>

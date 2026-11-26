@@ -36,6 +36,7 @@ test('score and grade boundary fixtures remain identical to the Web from D throu
     { cash: 50_000_000, assets: false, course: false, grade: 'D', score: 55 },
     { cash: 60_000_000, assets: false, course: false, grade: 'C', score: 60 },
     { cash: 80_000_000, assets: false, course: false, grade: 'B', score: 70 },
+    { cash: 81_000_000, assets: false, course: false, grade: 'B', score: 70 },
     { cash: 95_000_000, assets: true, course: false, grade: 'S', score: 95 },
     { cash: 95_000_000, assets: false, course: true, grade: 'A', score: 80 },
   ]
