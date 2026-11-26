@@ -6,6 +6,7 @@ import type { Arena, FixedChoice } from './arena-model'
 import { art } from './assets'
 import { Action, Copy } from './ui'
 import { palette } from './theme'
+import { ResultParticles } from './result-particles'
 
 export function CashStrip({ cash }: { cash: number }) {
   return <LinearGradient colors={['#fffbeb', '#fef3c7']} style={{ borderRadius: 16, borderWidth: 1.5,
@@ -97,6 +98,7 @@ export function ResultHero({ arena }: { arena: Arena }) {
   const insolvent = result.outcome === 'insolvent'
   return <LinearGradient colors={won ? ['#fef3c7', '#fde68a', '#fcd34d'] : ['#e0e7ff', '#c7d2fe', '#a5b4fc']}
     style={{ borderRadius: 18, padding: 12, gap: 8, alignItems: 'center', borderWidth: 1, borderColor: won ? '#f59e0b' : '#818cf8' }}>
+    <ResultParticles won={won}/>
     <Image source={won ? art.winnerGoal : art.loser} accessibilityLabel={won ? 'Chiến thắng' : 'Hẹn một hành trình mới'}
       style={{ width: 44, height: 44 }} contentFit="contain"/>
     <View style={{ paddingVertical: 5, paddingHorizontal: 12, borderRadius: 16, backgroundColor: won ? '#b45309' : '#4338ca', maxWidth: '100%' }}>
