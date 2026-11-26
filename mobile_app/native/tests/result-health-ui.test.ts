@@ -16,7 +16,9 @@ test('Result report renders canonical scores and accessible, read-only accordion
       },
       load(id) {
         if (id === '\0react-native') return `
-          export const Pressable='pressable', View='view', Text='text',StyleSheet={create:x=>x}
+          export const Pressable='pressable', View='view', Text='text',ScrollView='scroll',StyleSheet={create:x=>x,absoluteFill:{}}
+          let dimensions={width:384,height:824,fontScale:1};export const useWindowDimensions=()=>dimensions
+          export const setScreen=value=>{dimensions=value}
           export const AppState={currentState:'active',addEventListener:()=>({remove(){}})}
           export const AccessibilityInfo={isReduceMotionEnabled:async()=>true,addEventListener:()=>({remove(){}})}
           export const Animated={Value:class{setValue(){}}}
@@ -24,16 +26,37 @@ test('Result report renders canonical scores and accessible, read-only accordion
         if (id === '\0expo-image') return `export const Image='image'`
         if (id === '\0expo-linear-gradient') return `export const LinearGradient='gradient'`
         if (id === '\0react-native-svg') return `export default 'svg';export const Circle='circle',Path='path'`
-        if (id === '\0react-native-safe-area-context') return `export const useSafeAreaInsets=()=>({top:0,bottom:0})`
+        if (id === '\0react-native-safe-area-context') return `let insets={top:0,bottom:0,left:0,right:0};export const useSafeAreaInsets=()=>insets,setInsets=value=>{insets=value}`
         if (id === '\0virtual:result-health') return `
           import {createElement} from 'react'
           import {create,act} from 'react-test-renderer'
           import {ResultHealth} from '/src/result-health.tsx'
           import {ResultHero} from '/src/decision-presentation.tsx'
+          import {ResultLayout,ResultAction} from '/src/result-layout.tsx'
+          import {setScreen} from 'react-native'
+          import {setInsets} from 'react-native-safe-area-context'
           import {fromLocal} from '/src/arena-model.ts'
           import {createMultiCourseGame} from ${JSON.stringify(fileURLToPath(new URL('../../../src/game/new-game.ts', import.meta.url)).replaceAll('\\', '/'))}
           import {serializeLog} from ${JSON.stringify(fileURLToPath(new URL('../../../src/game/log.ts', import.meta.url)).replaceAll('\\', '/'))}
           globalThis.IS_REACT_ACT_ENVIRONMENT=true
+          export async function layout(width,height,insets){
+            setScreen({width,height,fontScale:1});setInsets(insets)
+            const arena=fromLocal(createMultiCourseGame('result-layout-host',0,1))
+            arena.result={outcome:'defeat',lawfulProceedsVnd:'84000000'}
+            let screen,closes=0,actions=0
+            await act(async()=>{screen=create(createElement(ResultLayout,{arena,onClose(){closes++},
+              footer:createElement(ResultAction,{label:'Ván mới',onPress(){actions++},primary:true})},createElement('body',null,'long report')))})
+            const frame=screen.root.find(n=>n.props.testID==='result-frame').props.style
+            const banner=screen.root.find(n=>n.props.testID==='result-banner').props.style
+            const scroll=screen.root.findByType('scroll')
+            const footerOutside=scroll.findAll(n=>n.props.testID==='result-footer').length===0
+            const buttons=screen.root.findAllByType('pressable')
+            const targets=buttons.map(n=>typeof n.props.style==='function'?n.props.style({pressed:false}):n.props.style)
+            await act(async()=>buttons.find(n=>n.props.accessibilityLabel==='Đóng').props.onPress())
+            await act(async()=>buttons.find(n=>n.props.accessibilityLabel==='Ván mới').props.onPress())
+            await act(async()=>screen.unmount())
+            return{frame,banner,footerOutside,targets,closes,actions}
+          }
           export async function check(online,outcome='defeat'){
             const game=createMultiCourseGame('result-report-host',0,1), before=serializeLog(game)
             const arena=fromLocal(game);if(online)delete arena.local
@@ -59,6 +82,20 @@ test('Result report renders canonical scores and accessible, read-only accordion
   })
   try {
     const ui = await server.ssrLoadModule('virtual:result-health')
+    for (const [width,height] of [[320,740],[384,824],[430,932]]) {
+      const insets = { top: 24, bottom: 24, left: 0, right: 0 }
+      const layout = await ui.layout(width,height,insets)
+      assert.equal(layout.frame.width, Math.min(340,(width-20)*.88))
+      assert.equal(layout.frame.height, Math.min(660,height*.8,height-68))
+      assert.equal(layout.frame.borderRadius, 30)
+      assert.equal(layout.banner.minHeight, 105)
+      assert.equal(layout.footerOutside, true)
+      assert.ok(layout.targets.every((target: { minHeight: number }) => target.minHeight >= 48))
+      assert.deepEqual([layout.closes,layout.actions],[1,1])
+    }
+    const constrained = await ui.layout(384,824,{top:80,bottom:160,left:20,right:20})
+    assert.equal(constrained.frame.height,564, 'frame fits the safe region without applying its insets twice')
+    assert.equal(constrained.frame.width,(384-40-20)*.88)
     const local = await ui.check(false)
     assert.equal(local.bars.length, 4)
     for (const bar of local.bars) { assert.equal(bar.max, 25); assert.ok(bar.now >= 0 && bar.now <= 25) }

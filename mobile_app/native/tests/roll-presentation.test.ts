@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { createServer } from 'vite'
 
 test('roll presentation gates only the view, never the canonical mutation', async t => {
-  const host = ['react-native', 'expo-image', 'expo-linear-gradient', 'expo-crypto', 'expo-haptics', '@react-native-async-storage/async-storage']
+  const host = ['react-native', 'react-native-safe-area-context', 'expo-image', 'expo-linear-gradient', 'expo-crypto', 'expo-haptics', '@react-native-async-storage/async-storage']
   const server = await createServer({
     root: fileURLToPath(new URL('../', import.meta.url)), configFile: false,
     ssr: { noExternal: host }, resolve: { dedupe: ['react'] },
@@ -18,7 +18,7 @@ test('roll presentation gates only the view, never the canonical mutation', asyn
       if (importer?.endsWith('/src/game.tsx') && id === './board') return '\0board'
     }, load(id) {
       if (id === '\0react-native') return `
-        export const View='view',TextInput='input',StyleSheet={create:x=>x}
+        export const View='view',TextInput='input',Pressable='button',ScrollView='scroll',useWindowDimensions=()=>({width:384,height:824}),StyleSheet={create:x=>x}
         const apps=new Set(),motions=new Set();let reduced=false
         export const AppState={currentState:'active',addEventListener(_,fn){apps.add(fn);return{remove(){apps.delete(fn)}}}}
         export const AccessibilityInfo={isReduceMotionEnabled:async()=>reduced,addEventListener(_,fn){motions.add(fn);return{remove(){motions.delete(fn)}}}}
@@ -27,6 +27,7 @@ test('roll presentation gates only the view, never the canonical mutation', asyn
         export const listeners=()=>apps.size+motions.size
         export const BackHandler={addEventListener:()=>({remove(){}})}
       `
+      if (id === '\0react-native-safe-area-context') return "export const useSafeAreaInsets=()=>({top:0,bottom:0,left:0,right:0})"
       if (id === '\0expo-image') return "export const Image='image'"
       if (id === '\0expo-linear-gradient') return "export const LinearGradient='gradient'"
       if (id === '\0expo-crypto') return "export const randomUUID=()=> 'fixture'"

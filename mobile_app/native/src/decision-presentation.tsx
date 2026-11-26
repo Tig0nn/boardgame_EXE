@@ -1,11 +1,10 @@
-import { View } from 'react-native'
+import { Pressable, View } from 'react-native'
 import { Image } from 'expo-image'
 import { LinearGradient } from 'expo-linear-gradient'
 import { money } from '../../../src/game/format'
 import type { Arena, FixedChoice } from './arena-model'
 import { art } from './assets'
 import { Action, Copy } from './ui'
-import { palette } from './theme'
 import { ResultParticles } from './result-particles'
 
 export function CashStrip({ cash }: { cash: number }) {
@@ -81,33 +80,43 @@ export function ResultFinances({ arena }: { arena: Arena }) {
   </View>
 }
 
-export function GoalMeter({ proceeds, target }: Pick<Arena, 'proceeds' | 'target'>) {
+export function GoalMeter({ proceeds, target, complete = false }: Pick<Arena, 'proceeds' | 'target'> & { complete?: boolean }) {
   const progress = target > 0 ? Math.max(0, Math.min(100, proceeds / target * 100)) : 0
   return <View accessible accessibilityRole="progressbar" accessibilityLabel="Tiến độ mục tiêu"
     accessibilityValue={{ min: 0, max: target, now: Math.max(0, Math.min(target, proceeds)), text: money(proceeds) + ' / ' + money(target) }}
     style={{ height: 7, borderRadius: 7, backgroundColor: '#e2e8f0', overflow: 'hidden' }}>
-    <LinearGradient colors={['#f59e0b', '#ea580c']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+    <LinearGradient colors={complete ? ['#10b981', '#059669'] : ['#f59e0b', '#ea580c']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
       style={{ height: 7, width: `${progress}%` }}/>
   </View>
 }
 
-export function ResultHero({ arena }: { arena: Arena }) {
+export function ResultHero({ arena, onClose }: { arena: Arena; onClose?: () => void }) {
   const result = arena.result
   if (!result) return null
   const won = result.outcome === 'victory'
   const insolvent = result.outcome === 'insolvent'
   return <LinearGradient colors={won ? ['#fef3c7', '#fde68a', '#fcd34d'] : ['#e0e7ff', '#c7d2fe', '#a5b4fc']}
-    style={{ borderRadius: 18, padding: 12, gap: 8, alignItems: 'center', borderWidth: 1, borderColor: won ? '#f59e0b' : '#818cf8' }}>
+    testID="result-banner" style={{ minHeight: 105, flexShrink: 0, paddingVertical: 6, paddingHorizontal: 12,
+      gap: 4, alignItems: 'center', justifyContent: 'center', overflow: 'hidden', borderBottomWidth: 1.5,
+      borderBottomColor: won ? '#f59e0b' : '#818cf8' }}>
     <ResultParticles won={won}/>
+    <Copy variant="note" style={{ color: won ? '#b45309' : '#4338ca', fontFamily: 'Fredoka700',
+      fontSize: 10, lineHeight: 13, letterSpacing: .5, textAlign: 'center', marginHorizontal: 36 }}>
+      VÒNG {arena.lap}/{arena.totalLaps} · {won ? 'HOÀN THÀNH' : 'KẾT THÚC'}
+    </Copy>
     <Image source={won ? art.winnerGoal : art.loser} accessibilityLabel={won ? 'Chiến thắng' : 'Hẹn một hành trình mới'}
-      style={{ width: 44, height: 44 }} contentFit="contain"/>
-    <View style={{ paddingVertical: 5, paddingHorizontal: 12, borderRadius: 16, backgroundColor: won ? '#b45309' : '#4338ca', maxWidth: '100%' }}>
-      <Copy variant="heading" style={{ color: '#fff', fontSize: 15, textAlign: 'center' }}>
+      style={{ width: won ? 44 : 38, height: won ? 44 : 38 }} contentFit="contain"/>
+    <View style={{ paddingVertical: 3, paddingHorizontal: 11, borderRadius: 16, backgroundColor: won ? '#b45309' : '#4338ca', maxWidth: '100%' }}>
+      <Copy variant="heading" accessibilityRole="header" style={{ color: '#fff', fontSize: 12, lineHeight: 16, textAlign: 'center' }}>
         {won ? 'CHIẾN THẮNG RỰC RỠ!' : insolvent ? 'HẸN MỘT HÀNH TRÌNH MỚI!' : 'TIẾC QUÁ, THỬ LẠI NHÉ!'}
       </Copy>
     </View>
-    <Copy variant="note" style={{ color: palette.ink, textAlign: 'center' }}>
-      {won ? 'Bạn đã hoàn thành mục tiêu của hành trình.' : insolvent ? 'Hành trình dừng vì không còn nguồn thanh toán khả dụng.' : 'Cùng nhìn lại quyết định và thử một phương án khác.'}
-    </Copy>
+    {onClose && <Pressable accessibilityRole="button" accessibilityLabel="Đóng" onPress={onClose}
+      style={({ pressed }) => ({ position: 'absolute', top: 0, right: 0, minHeight: 48, minWidth: 48,
+        alignItems: 'center', justifyContent: 'center', opacity: pressed ? .6 : 1 })}>
+      <View style={{ width: 26, height: 26, borderRadius: 13, backgroundColor: '#00000014', alignItems: 'center', justifyContent: 'center' }}>
+        <Copy style={{ color: '#475569', fontSize: 20, lineHeight: 24 }}>×</Copy>
+      </View>
+    </Pressable>}
   </LinearGradient>
 }
