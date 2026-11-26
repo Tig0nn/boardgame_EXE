@@ -1,14 +1,7 @@
 name: Deploy iOS PWA to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-      - codex/b18-compact-financial-ui
-    paths:
-      - 'mobile_app/**'
-      - 'src/**'
-      - '.github/workflows/deploy-ios-pwa-pages.yml'
+  # Preserve the existing Pages site until an explicit manual release.
   workflow_dispatch:
 
 permissions:

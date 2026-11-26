@@ -1,14 +1,7 @@
 name: Build Android APK (PlayBoard)
 
 on:
-  push:
-    branches:
-      - main
-      - codex/b18-compact-financial-ui
-    paths:
-      - 'mobile_app/**'
-      - 'src/**'
-      - '.github/workflows/build-android-apk.yml'
+  # Source consolidation must not publish an APK automatically.
   workflow_dispatch:
 
 permissions:
