@@ -26,6 +26,7 @@ import { decisionPresentation } from './decision-heading'
 import { useRollPresentation } from './roll-presentation'
 import { ResultAccordion, ResultHealth } from './result-health'
 import { ResultAction, ResultLayout } from './result-layout'
+import { ResultCopy } from './result-currency'
 
 const saveLocalGame = createLocalSaveQueue(payload => AsyncStorage.setItem(GAME_SAVE_KEY, payload))
 
@@ -196,11 +197,13 @@ function Endgame({ arena, onExit, onNew, onWhatIf, onWallet, onCoach }: {
         <Copy variant="note" style={{ color: '#94a3b8', fontSize: 10 }}>Sau phí & nợ</Copy>
       </View>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'baseline', gap: 4 }}>
-        <Copy variant="title" style={{ color: won ? '#047857' : '#1e293b', fontSize: 18, lineHeight: 24 }}>{money(Number(result.lawfulProceedsVnd))}</Copy>
-        <Copy variant="note" style={{ color: '#64748b', fontSize: 11, lineHeight: 16 }}>/ {money(arena.target)}</Copy>
+        <ResultCopy variant="title" numberOfLines={1} adjustsFontSizeToFit minimumFontScale={.7}
+          style={{ color: won ? '#047857' : '#1e293b', fontSize: 18 }}>{money(Number(result.lawfulProceedsVnd))}</ResultCopy>
+        <ResultCopy variant="note" numberOfLines={1} adjustsFontSizeToFit minimumFontScale={.7}
+          style={{ color: '#64748b', fontSize: 11 }}>/ {money(arena.target)}</ResultCopy>
       </View>
       <GoalMeter proceeds={Number(result.lawfulProceedsVnd)} target={arena.target} complete={won}/>
-      <Copy variant="note" style={{ color: '#64748b', fontSize: 10.5, lineHeight: 14 }}>Tài sản ròng · {money(arena.totalWorth)}</Copy></View>
+      <ResultCopy variant="note" style={{ color: '#64748b', fontSize: 10.5 }}>Tài sản ròng · {money(arena.totalWorth)}</ResultCopy></View>
     <ResultHealth arena={arena}/>
     <ResultAccordion title="Chi tiết tài sản và nghĩa vụ"><ResultFinances arena={arena}/></ResultAccordion>
   </ResultLayout>

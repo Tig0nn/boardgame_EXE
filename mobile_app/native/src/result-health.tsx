@@ -3,7 +3,7 @@ import { Pressable, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import type { Arena } from './arena-model'
 import { resultReview } from './result-review'
-import { Copy } from './ui'
+import { ResultCopy as Copy } from './result-currency'
 
 export function ResultAccordion({ title, children, initialOpen = false, dark = false }: {
   title: string; children: ReactNode; initialOpen?: boolean; dark?: boolean

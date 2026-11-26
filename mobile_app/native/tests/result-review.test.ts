@@ -65,6 +65,21 @@ test('online result never evaluates a portfolio as a full GameState or invents h
   assert.equal(JSON.stringify(arena), before)
 })
 
+test('the S22 currency fixture keeps canonical lawful proceeds and financial health B/75', () => {
+  const initial = createMultiCourseGame('s22-currency-result', 0, 1)
+  const game = { ...initial, phase: 'finished' as const, portfolio: { ...initial.portfolio, cash: 92_458_182 } }
+  const before = serializeLog(game)
+  const arena = fromLocal(game)
+  const official = structuredClone(arena.result)
+  assert.equal(official?.lawfulProceedsVnd, '92458182')
+  const report = resultReview(arena).health!
+  assert.equal(report.grade, 'B')
+  assert.equal(report.overallScore, 75)
+  assert.deepEqual(report, evaluateFinancialHealth(game))
+  assert.equal(serializeLog(game), before)
+  assert.deepEqual(arena.result, official)
+})
+
 test('an engine-confirmed insolvency keeps its official proceeds and obligations during review', () => {
   const initial = createMultiCourseGame('result-insolvency', 0, 1)
   const game = decide({ ...initial, phase: 'event', eventId: 'medical', borrowingLimit: 0,

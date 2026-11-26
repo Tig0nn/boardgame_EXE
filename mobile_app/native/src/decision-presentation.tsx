@@ -6,6 +6,7 @@ import type { Arena, FixedChoice } from './arena-model'
 import { art } from './assets'
 import { Action, Copy } from './ui'
 import { ResultParticles } from './result-particles'
+import { ResultCopy } from './result-currency'
 
 export function CashStrip({ cash }: { cash: number }) {
   return <LinearGradient colors={['#fffbeb', '#fef3c7']} style={{ borderRadius: 16, borderWidth: 1.5,
@@ -74,7 +75,7 @@ export function ResultFinances({ arena }: { arena: Arena }) {
   return <View style={{ borderRadius: 16, backgroundColor: '#f8fafc', borderColor: '#dbe4ef', borderWidth: 1, padding: 12, gap: 8 }}>
     <Copy variant="heading">Chi tiết tài sản và nghĩa vụ</Copy>
     {rows.map(([label, value]) => <View key={label} style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', gap: 6 }}>
-      <Copy variant="note">{label}</Copy><Copy>{money(value)}</Copy>
+      <Copy variant="note">{label}</Copy><ResultCopy numberOfLines={1} adjustsFontSizeToFit minimumFontScale={.7}>{money(value)}</ResultCopy>
     </View>)}
     <Copy variant="note">Nguồn huy động hợp lệ và tài sản ròng là hai chỉ số khác nhau; kết quả chính thức ở trên giữ nguyên từ ván.</Copy>
   </View>

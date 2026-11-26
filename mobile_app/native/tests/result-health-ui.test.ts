@@ -16,7 +16,7 @@ test('Result report renders canonical scores and accessible, read-only accordion
       },
       load(id) {
         if (id === '\0react-native') return `
-          export const Pressable='pressable', View='view', Text='text',ScrollView='scroll',StyleSheet={create:x=>x,absoluteFill:{}}
+          export const Pressable='pressable', View='view', Text='text',ScrollView='scroll',Platform={OS:'android'},StyleSheet={create:x=>x,absoluteFill:{}}
           let dimensions={width:384,height:824,fontScale:1};export const useWindowDimensions=()=>dimensions
           export const setScreen=value=>{dimensions=value}
           export const AppState={currentState:'active',addEventListener:()=>({remove(){}})}
@@ -33,12 +33,23 @@ test('Result report renders canonical scores and accessible, read-only accordion
           import {ResultHealth} from '/src/result-health.tsx'
           import {ResultHero} from '/src/decision-presentation.tsx'
           import {ResultLayout,ResultAction} from '/src/result-layout.tsx'
+          import {ResultCopy} from '/src/result-currency.tsx'
           import {setScreen} from 'react-native'
           import {setInsets} from 'react-native-safe-area-context'
           import {fromLocal} from '/src/arena-model.ts'
           import {createMultiCourseGame} from ${JSON.stringify(fileURLToPath(new URL('../../../src/game/new-game.ts', import.meta.url)).replaceAll('\\', '/'))}
           import {serializeLog} from ${JSON.stringify(fileURLToPath(new URL('../../../src/game/log.ts', import.meta.url)).replaceAll('\\', '/'))}
+          import {money} from ${JSON.stringify(fileURLToPath(new URL('../../../src/game/format.ts', import.meta.url)).replaceAll('\\', '/'))}
           globalThis.IS_REACT_ACT_ENVIRONMENT=true
+          export async function currency(value){
+            const formatted=money(value);let screen
+            await act(async()=>{screen=create(createElement(ResultCopy,{variant:'title',numberOfLines:1,adjustsFontSizeToFit:true},formatted))})
+            const nodes=screen.root.findAllByType('text'),root=nodes[0]
+            function content(node){return typeof node==='string'||typeof node==='number'?String(node):node.children.map(content).join('')}
+            const symbol=nodes.find(n=>n.children.length===1&&n.children[0]==='₫')
+            const result={formatted,rendered:content(root),label:root.props.accessibilityLabel,symbolStyle:symbol?.props.style,fit:root.props.adjustsFontSizeToFit}
+            await act(async()=>screen.unmount());return result
+          }
           export async function layout(width,height,insets){
             setScreen({width,height,fontScale:1});setInsets(insets)
             const arena=fromLocal(createMultiCourseGame('result-layout-host',0,1))
@@ -82,6 +93,15 @@ test('Result report renders canonical scores and accessible, read-only accordion
   })
   try {
     const ui = await server.ssrLoadModule('virtual:result-health')
+    for (const value of [0,92_458_182,90_000_000,-3_000_000,Number.MAX_SAFE_INTEGER]) {
+      const currency = await ui.currency(value)
+      assert.equal(currency.rendered,currency.formatted,'no separator, symbol or amount format changes')
+      if (value === 92_458_182) assert.equal(currency.formatted,'92.458.182 ₫')
+      assert.equal(currency.label,currency.formatted)
+      assert.equal(currency.symbolStyle.fontFamily,'sans-serif')
+      assert.equal(currency.symbolStyle.fontWeight,'400')
+      assert.equal(currency.fit,true)
+    }
     for (const [width,height] of [[320,740],[384,824],[430,932]]) {
       const insets = { top: 24, bottom: 24, left: 0, right: 0 }
       const layout = await ui.layout(width,height,insets)
