@@ -24,6 +24,7 @@ import { createLocalSaveQueue } from './local-save'
 import { BusinessCard, CashStrip, DecisionActions, GoalMeter, MarketCard, ResultFinances, ResultHero } from './decision-presentation'
 import { decisionPresentation } from './decision-heading'
 import { useRollPresentation } from './roll-presentation'
+import { ResultAccordion, ResultHealth } from './result-health'
 
 const saveLocalGame = createLocalSaveQueue(payload => AsyncStorage.setItem(GAME_SAVE_KEY, payload))
 
@@ -177,7 +178,7 @@ function Endgame({ arena, onExit, onNew, onWhatIf, onWallet, onCoach }: {
   if (!result) return null
   const won = result.outcome === 'victory'
   return <Panel title={won ? 'Hoàn thành mục tiêu' : result.outcome === 'insolvent' ? 'Mất khả năng thanh toán' : 'Kết quả hành trình'}
-    lap={arena.lap} hero={<ResultHero arena={arena}/>} footer={<>
+    lap={arena.lap} footer={<>
       {onWhatIf && result.outcome !== 'insolvent' && <Action label="Nếu chọn khác thì sao?" onPress={onWhatIf} tone="primary"/>}
       <View style={{ flexDirection: 'row', gap: 8 }}>
         <View style={{ flex: 1 }}><Action label="Xem tài sản và nhật ký" onPress={onWallet}/></View>
@@ -186,11 +187,17 @@ function Endgame({ arena, onExit, onNew, onWhatIf, onWallet, onCoach }: {
       <Action label="Ván mới" onPress={onNew}/>
     </>}
     subtitle={'Hoàn tất ' + arena.finishedLaps + '/' + arena.totalLaps + ' vòng'} header={<Action label="Đóng" onPress={onExit}/>}>
-    <View style={styles.card}><Copy variant="note">Nguồn huy động hợp lệ</Copy>
-      <Copy variant="title">{money(Number(result.lawfulProceedsVnd))}</Copy>
-      <Copy>Mục tiêu · {money(arena.target)}</Copy><GoalMeter proceeds={Number(result.lawfulProceedsVnd)} target={arena.target}/>
-      <Copy>Tài sản ròng · {money(arena.totalWorth)}</Copy></View>
-    <ResultFinances arena={arena}/>
+    <ResultHero arena={arena}/>
+    <View style={[styles.card, { backgroundColor: '#f8fafc', borderColor: '#e2e8f0' }]}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', gap: 4 }}>
+        <Copy variant="note" style={{ color: '#64748b' }}>Nguồn tiền về đích</Copy>
+        <Copy variant="note" style={{ color: '#64748b', fontSize: 11 }}>Sau phí & nợ</Copy>
+      </View>
+      <Copy variant="title" style={{ color: won ? '#047857' : '#1e293b', fontSize: 20 }}>{money(Number(result.lawfulProceedsVnd))}</Copy>
+      <Copy variant="note">Mục tiêu · {money(arena.target)}</Copy><GoalMeter proceeds={Number(result.lawfulProceedsVnd)} target={arena.target}/>
+      <Copy variant="note">Tài sản ròng · {money(arena.totalWorth)}</Copy></View>
+    <ResultHealth arena={arena}/>
+    <ResultAccordion title="Chi tiết tài sản và nghĩa vụ"><ResultFinances arena={arena}/></ResultAccordion>
   </Panel>
 }
 
