@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import test from 'node:test'
 import { createGameplayAnalytics, ANALYTICS_KEY, DAY_MS } from '../src/analytics/core.ts'
 import type { AnalyticsEvent } from '../src/analytics/schema.ts'
+import { GAME_SAVE_KEY } from '../../../src/game/saved-game.ts'
 
 function fixture(configured = true) {
   let now = Date.UTC(2026, 10, 27), counter = 0, offline = false
@@ -57,6 +58,8 @@ test('real transitions dedupe starts, laps, outcome and replay across cold resto
   assert.equal(events.filter(e => e.name === 'game_completed').length, 1)
   assert.equal(events.filter(e => e.name === 'replay_started').length, 1)
   assert.equal(new Set(events.map(e => e.id)).size, events.length)
+  assert.equal(new Set(events.map(e => e.anonymousId)).size, 1, 'two games and a cold restart retain one player')
+  assert.equal(new Set(events.map(e => e.properties.first_seen)).size, 1)
   assert.doesNotMatch(JSON.stringify(events), /synthetic-private-seed|different-game|email|lawfulProceeds|portfolio/)
 })
 
@@ -76,6 +79,8 @@ test('D1/D7 require actual return in elapsed 24h buckets; same-day opens never i
   f.advance(DAY_MS); f.core.background(); await f.core.activate(); await f.core.flush()
   f.advance(6 * DAY_MS); f.core.background(); await f.core.activate(); await f.core.activate(); await f.core.flush()
   assert.deepEqual(f.received.flat().filter(e => e.name === 'return_visit').map(e => e.properties.days_since_first_seen), [1, 7])
+  assert.equal(new Set(f.received.flat().map(e => e.anonymousId)).size, 1)
+  assert.equal(new Set(f.received.flat().map(e => e.properties.first_seen)).size, 1)
 })
 
 test('offline queue persists and retry uses exact UUID; gameplay inputs are never mutated', async () => {
@@ -87,6 +92,7 @@ test('offline queue persists and retry uses exact UUID; gameplay inputs are neve
   const restarted = createGameplayAnalytics(f.deps); await restarted.initialize()
   f.offline(false); f.advance(60_000); await restarted.flush()
   assert.deepEqual(f.received.flat().map(e => e.id), queued.map(e => e.id))
+  assert.deepEqual(f.received.flat().map(e => e.anonymousId), queued.map(e => e.anonymousId))
   assert.deepEqual({ before, after }, original)
   assert.equal(JSON.parse(f.data.get(ANALYTICS_KEY)!).outbox.length, 0)
 })
@@ -128,4 +134,50 @@ test('corrupt storage fails closed and rejects unexpected identity/payload field
   const f = fixture(); f.data.set(ANALYTICS_KEY, '{malformed')
   await f.core.initialize(); await f.core.activate(); await f.core.flush()
   assert.equal(f.core.getSnapshot().consent, 'unknown'); assert.equal(f.received.length, 0)
+})
+
+test('revocation discards offline retries, preserves the local save and starts a new consent epoch', async () => {
+  const f = fixture(), localSave = 'existing local game save must remain byte-for-byte unchanged'
+  f.data.set(GAME_SAVE_KEY, localSave)
+  await f.core.initialize(); await f.core.activate(); await f.core.setConsent(true); await f.core.flush()
+  const old = f.received.flat()[0]
+  f.offline(true); await f.core.gameStarted(state(), false); await f.core.flush()
+  assert.ok(JSON.parse(f.data.get(ANALYTICS_KEY)!).outbox.length)
+  await f.core.setConsent(false)
+  const writesAfterRevoke = f.data.get(ANALYTICS_KEY), sendsAfterRevoke = f.received.length
+  f.advance(7 * DAY_MS); f.offline(false)
+  await f.core.flush(); await f.core.activate(); await f.core.gameStarted(state(), false)
+  assert.equal(f.received.length, sendsAfterRevoke)
+  assert.equal(f.data.get(ANALYTICS_KEY), writesAfterRevoke)
+  await f.core.setConsent(true); await f.core.flush()
+  const renewed = f.received.at(-1)!
+  assert.equal(renewed.length, 1); assert.equal(renewed[0].name, 'app_open')
+  assert.notEqual(renewed[0].anonymousId, old.anonymousId)
+  assert.notEqual(renewed[0].properties.first_seen, old.properties.first_seen)
+  assert.equal(f.data.get(GAME_SAVE_KEY), localSave)
+  const restored = createGameplayAnalytics(f.deps)
+  await restored.initialize(); await restored.activate(); await restored.flush()
+  assert.equal(f.received.at(-1)![0].anonymousId, renewed[0].anonymousId)
+  assert.equal(f.received.at(-1)![0].properties.first_seen, renewed[0].properties.first_seen)
+  assert.equal(f.data.get(GAME_SAVE_KEY), localSave)
+})
+
+test('a late completion after revoke cannot remove or send events from the new consent epoch', async () => {
+  const f = fixture(); let entered: () => void = () => {}, release: () => void = () => {}, sends = 0
+  const started = new Promise<void>(resolve => { entered = resolve })
+  const finish = new Promise<void>(resolve => { release = resolve })
+  const core = createGameplayAnalytics({ ...f.deps, send: async (events, signal) => {
+    if (++sends === 1) { entered(); await finish; assert.equal(signal.aborted, true); return }
+    f.received.push(structuredClone(events))
+  } })
+  await core.initialize(); await core.activate(); await core.setConsent(true)
+  const firstIdentity = JSON.parse(f.data.get(ANALYTICS_KEY)!).anonymousId
+  const pending = core.flush(); await started
+  await core.setConsent(false); await core.setConsent(true)
+  const nextIdentity = JSON.parse(f.data.get(ANALYTICS_KEY)!).anonymousId
+  assert.notEqual(firstIdentity, nextIdentity)
+  release(); await pending; await core.flush()
+  assert.equal(f.received.flat().length, 1)
+  assert.equal(f.received.flat()[0].anonymousId, nextIdentity)
+  assert.equal(JSON.parse(f.data.get(ANALYTICS_KEY)!).outbox.length, 0)
 })

@@ -1,4 +1,4 @@
-import PostHog, { type PostHogOptions } from 'posthog-react-native'
+import PostHog, { PostHogPersistedProperty, type PostHogOptions } from 'posthog-react-native'
 import { sanitizeEvent, type AnalyticsEvent } from './schema.ts'
 
 export type PosthogConfig = { projectKey: string; host: string }
@@ -74,6 +74,13 @@ export async function sendPosthog(config: PosthogConfig, events: AnalyticsEvent[
   cached.context = context; client.consentSignal = signal; client.accepted = false
   try {
     await client.ready(); if (signal.aborted) throw Error('Consent withdrawn')
+    // Rehydrate the single identity owned by the durable consent/outbox record.
+    // This also replaces the old in-memory ID after revoke + explicit re-opt-in.
+    // identify() is intentionally never used: this is an anonymous installation.
+    client.setPersistedProperty(PostHogPersistedProperty.AnonymousId, anonymousId)
+    client.setPersistedProperty(PostHogPersistedProperty.DistinctId, null)
+    client.setPersistedProperty(PostHogPersistedProperty.PersonMode, 'anonymous')
+    if (client.getDistinctId() !== anonymousId) throw Error('Analytics identity mismatch')
     await client.optIn()
     for (const input of events) {
       const e = sanitizeEvent(input)
@@ -86,7 +93,9 @@ export async function sendPosthog(config: PosthogConfig, events: AnalyticsEvent[
   } finally {
     context.live = false
     await client.optOut().catch(() => {})
-    client.reset()
+    // Only EXE's bounded durable outbox owns retries. reset() rotates identity,
+    // clears opt-out and *preserves* the SDK queue, so it is unsafe cleanup here.
+    client.setPersistedProperty(PostHogPersistedProperty.Queue, [])
     cached.context = undefined; client.consentSignal = undefined
   }
 }
