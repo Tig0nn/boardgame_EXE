@@ -23,6 +23,54 @@ function fixture(configured = true) {
 }
 const state = (laps: number[] = [], outcome?: 'victory' | 'defeat' | 'insolvent') => ({ key: 'synthetic-private-seed', mode: 'local' as const, completedLaps: laps, outcome })
 
+test('friend profile emits all six event types as non-QA only after consent', async () => {
+  const f = fixture()
+  const core = createGameplayAnalytics({ ...f.deps, testMode: false, build: '12' })
+  const save = 'existing local save is not analytics storage'
+  f.data.set(GAME_SAVE_KEY, save)
+  await core.initialize(); await core.activate()
+  await core.gameStarted(state(), false); await core.flush()
+  assert.equal(f.received.length, 0)
+  assert.equal(f.data.get(ANALYTICS_KEY), undefined)
+  await core.setConsent(true)
+  await core.gameStarted(state(), false); await core.gameStarted(state(), false)
+  for (const lap of [1, 2, 3, 4]) {
+    const before = state(Array.from({ length: lap - 1 }, (_, i) => i + 1))
+    const after = state(Array.from({ length: lap }, (_, i) => i + 1), lap === 4 ? 'victory' : undefined)
+    await core.transition(before, after); await core.transition(before, after)
+  }
+  await core.gameStarted({ ...state(), key: 'friend-replay' }, true)
+  f.advance(DAY_MS); core.background(); await core.activate(); await core.flush()
+  const events = f.received.flat()
+  assert.deepEqual([...new Set(events.map(e => e.name))].sort(),
+    ['app_open', 'game_started', 'lap_completed', 'game_completed', 'replay_started', 'return_visit'].sort())
+  assert.ok(events.every(e => e.properties.test_mode === false && e.properties.app_build === '12'))
+  assert.equal(new Set(events.map(e => e.id)).size, events.length)
+  assert.equal(new Set(events.map(e => e.anonymousId)).size, 1)
+  assert.doesNotMatch(JSON.stringify(events), /synthetic-private-seed|friend-replay|email|auth_id|portfolio|cash|lawfulProceeds/)
+  assert.equal(f.data.get(GAME_SAVE_KEY), save)
+  const delivered = f.received.length
+  await core.setConsent(false); await core.gameStarted(state(), false); await core.flush()
+  assert.equal(f.received.length, delivered)
+})
+
+test('switching build profile preserves queued QA labels and UUIDs instead of relabeling them as friends', async () => {
+  const f = fixture()
+  f.offline(true)
+  await f.core.initialize(); await f.core.activate(); await f.core.setConsent(true); await f.core.flush()
+  const queued = JSON.parse(f.data.get(ANALYTICS_KEY)!).outbox as AnalyticsEvent[]
+  assert.equal(queued.length, 1); assert.equal(queued[0].properties.test_mode, true)
+  const friend = createGameplayAnalytics({ ...f.deps, testMode: false, build: '12' })
+  await friend.initialize(); await friend.activate()
+  f.offline(false); await friend.flush()
+  const events = f.received.flat()
+  assert.equal(events.length, 2)
+  assert.deepEqual(events[0], queued[0], 'pending QA event is not reclassified or assigned a new UUID')
+  assert.equal(events[1].properties.test_mode, false); assert.equal(events[1].properties.app_build, '12')
+  assert.equal(events[1].anonymousId, queued[0].anonymousId)
+  assert.equal(events[1].properties.first_seen, queued[0].properties.first_seen)
+})
+
 test('default/declined consent and absent provider collect no gameplay or identity', async () => {
   for (const configured of [true, false]) {
     const f = fixture(configured)

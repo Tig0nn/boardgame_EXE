@@ -10,12 +10,12 @@ Owner manages the provider account separately. Review retention/access controls 
 
 ## Schema v1
 
-Each event has a stable UUID, anonymous installation UUID (PostHog `distinct_id`), `schema_version=1`, `platform=android`, numeric `app_build`, `test_mode`, ISO `first_seen`, ISO `occurred_at`, and UUID `visit_id`. All additional properties are reconstructed from a whitelist, including when reading the disk outbox. No email, name, account ID, original Cloud Save ID, seed, amounts, journal or save payload is sent.
+Each event has a stable UUID, anonymous installation UUID (PostHog `distinct_id`), `schema_version=1`, `platform=android`, decimal-string `app_build`, boolean `test_mode`, ISO `first_seen`, ISO `occurred_at`, and UUID `visit_id`. All additional properties are reconstructed from a whitelist, including when reading the disk outbox. No email, name, account ID, original Cloud Save ID, seed, amounts, journal or save payload is sent.
 
 | Event | Additional fields | Trigger / deduplication |
 | --- | --- | --- |
 | `app_open` | `opening`: cold_start / foreground / consent_enabled | Cold start or new foreground session after >=30 minutes background; one per visit ID. Enabling consent while active starts the first measurable visit. |
-| `game_started` | `game_id`, `mode`: local/cloud, `start_reason`: fresh/replay | Committed fresh local game or acknowledged cloud creation/read, once per game. Restoring a saved game is not a start. |
+| `game_started` | `game_id`, `mode`: local/cloud, `start_reason`: fresh/replay | Committed fresh local game or new cloud creation followed by a successful read, once per game. Opening an existing cloud/local save is not a start. |
 | `lap_completed` | `game_id`, `mode`, `lap`: 1–4 | A newly added canonical lap summary, once per game/lap. Not current position or React renders. |
 | `game_completed` | `game_id`, `mode`, `outcome`: victory/defeat/insolvent, `completed_laps`: 0–4, `completed_four_laps` | Transition into canonical finished state, once per game. Insolvency before lap 4 is not a four-lap completion. |
 | `replay_started` | `game_id`, `mode` | Explicit new-game action from Result, once per new game; also emits game_started with start_reason=replay. |
@@ -35,6 +35,10 @@ The adapter never calls reset(): the pinned SDK's reset rotates identity, clears
 
 ## Verification and next APK
 
-Tests use deterministic clocks/storage plus the pinned SDK with a mocked HTTP boundary; no live PostHog, gameplay cloud writes or Gemini requests. Verify the actual batch-envelope distinct_id, not only the nested property, including after a failed batch and SDK process restart. Financial Health/Result v9, currency glyph fallback and wrapping fix are already present in main. Signing scripts/plugins stay unchanged. A new distributable APK still needs a new monotonically increasing versionCode (currently 10; the next acceptance build is v11), public provider settings, unsigned release build, existing Beta-key signing and authorized device acceptance. The identity fix is source-only until Android acceptance; v10 QA events already captured with split identities are not retroactively changed or linked. This change does not sign/install/distribute an APK or touch EXE_QA.
+Tests use deterministic clocks/storage plus the pinned SDK with a mocked HTTP boundary; no live PostHog, gameplay cloud writes or Gemini requests. Verify the actual batch-envelope distinct_id, not only the nested property, including after a failed batch and SDK process restart. Financial Health/Result v9, currency glyph fallback and wrapping fix are already present in main. Signing scripts/plugins stay unchanged.
+
+Android v11 was accepted on S22 for anonymous app_open identity, restart, offline delivery and revoke/re-consent. Five real QA events had stable IDs within each consent epoch, distinct UUIDs and test_mode=true. That acceptance does not cover gameplay-event delivery or elapsed real-time D1/D7 retention. Earlier v10 split-identity QA data is not repaired or linked retroactively.
+
+VersionCode 12 is a source-only friend candidate. Use an explicit private friend profile with EXPO_PUBLIC_EXE_ANALYTICS_TEST_MODE=0, while keeping QA configuration at 1. Missing test-mode configuration remains QA by default. Persisted QA events retain their original test_mode/app_build/UUID after an upgrade; they are never relabeled as friend traffic. Do not install the friend profile on a QA device to complete runtime coverage. See [FRIEND_BETA.md](./FRIEND_BETA.md) for release gates, filter and non-destructive test planning. No v12 APK has been built, signed, installed or distributed by this preparation.
 
 SDK references: https://posthog.com/docs/libraries/react-native and https://posthog.com/docs/references/posthog-react-native ; IP handling: https://posthog.com/docs/privacy/data-storage .
