@@ -27,6 +27,9 @@ import { useRollPresentation } from './roll-presentation'
 import { ResultAccordion, ResultHealth } from './result-health'
 import { ResultAction, ResultLayout } from './result-layout'
 import { ResultCopy } from './result-currency'
+import { AnalyticsSettings } from './analytics-settings'
+import { trackGameTransition } from './analytics/runtime'
+import { localGameSignal, cloudGameSignal } from './analytics/game-signal'
 
 const saveLocalGame = createLocalSaveQueue(payload => AsyncStorage.setItem(GAME_SAVE_KEY, payload))
 
@@ -270,6 +273,7 @@ function ArenaScreen({ arena, revision, busy, pendingRetry, message, confirm, re
     {screen === 'settings' && <Panel title="Cài đặt" icon={art.settings} header={<Action label="Đóng" onPress={close}/>}>
       <Action label="Bật / tắt âm thanh" onPress={activateSound}/><Action label="Sổ tay" onPress={() => setScreen('guide')}/>
       <Copy>Giảm chuyển động được điều khiển bằng cài đặt trợ năng của thiết bị.</Copy>
+      <AnalyticsSettings/>
     </Panel>}
     {!!message && <View accessibilityLiveRegion="polite" style={[styles.card, { position: 'absolute', top: 4, left: 14, right: 14, zIndex: 20 }]}>
       <Copy accessibilityRole="alert">{message}</Copy>
@@ -313,6 +317,7 @@ export function LocalGame({ initial, ownerExit, sound, playSound, restart }: {
     try {
       if (!controller.dispatch(command, game)) { setMessage('Lựa chọn này chưa khả dụng.'); return }
       const next = controller.getSnapshot()
+      trackGameTransition(() => [localGameSignal(game), localGameSignal(next)])
       setInsight(evaluateMascotSignals(game, next)[0] ?? null)
       persist(next)
     } catch {
@@ -329,6 +334,14 @@ export function CloudGame({ initial, api, ownerExit, sound, playSound, restart }
 }) {
   const [controller] = useState<Session>(() => createServerSession(api, initial, randomUUID))
   const view = useSyncExternalStore(controller.subscribe, controller.getSnapshot)
+  const previousAnalyticsDetail = useRef(initial)
+  useEffect(() => {
+    const before = previousAnalyticsDetail.current
+    previousAnalyticsDetail.current = view.detail
+    if (before.session.id === view.detail.session.id && before.session.stateVersion !== view.detail.session.stateVersion) {
+      trackGameTransition(() => [cloudGameSignal(before), cloudGameSignal(view.detail)])
+    }
+  }, [view.detail])
   const arena = useMemo(() => fromServer(view.detail.state, view.detail.result), [view.detail])
   return <ArenaScreen arena={arena} revision={view.detail.session.stateVersion} busy={view.busy} pendingRetry={view.retryable || view.needsReload}
     message={view.message} confirm={command => { void controller.send(command, view.detail.session.stateVersion) }}

@@ -8,6 +8,8 @@ import { art } from './assets'
 import { CloudGame } from './game'
 import { Action, Copy, Panel } from './ui'
 import { palette, styles } from './theme'
+import { trackGameStarted } from './analytics/runtime'
+import { cloudGameSignal } from './analytics/game-signal'
 
 type Props = {
   account: ReturnType<typeof useAccount>
@@ -50,7 +52,7 @@ function CloudWorkspace({ account, back, sound, playSound }: Props) {
     if (!api) return
     void run(async () => { setDetail(await api.read(id)); setRoute('cloud') })
   }
-  function newCloud() {
+  function newCloud(replay = false) {
     if (!api || lock.current) return
     const attempt = creation.current ?? { key: randomUUID() }
     creation.current = attempt
@@ -59,6 +61,7 @@ function CloudWorkspace({ account, back, sound, playSound }: Props) {
         attempt.id ??= (await api.create(attempt.key)).session.id
         const next = await api.read(attempt.id)
         creation.current = null
+        trackGameStarted(() => cloudGameSignal(next), replay)
         setDetail(next); setRoute('cloud')
       } catch (error) {
         if (!attempt.id && !recoverable(error)) creation.current = null
@@ -75,7 +78,7 @@ function CloudWorkspace({ account, back, sound, playSound }: Props) {
     return () => listener.remove()
   }, [route, back])
   if (route === 'cloud' && detail && api) return <CloudGame key={detail.session.id} initial={detail} api={api}
-    ownerExit={() => { if (!lock.current) loadCloud() }} restart={newCloud} sound={sound} playSound={playSound}/>
+    ownerExit={() => { if (!lock.current) loadCloud() }} restart={() => newCloud(true)} sound={sound} playSound={playSound}/>
   return <>
     <Image source={art.map} style={StyleSheet.absoluteFill} contentFit="cover"/>
     {route === 'auth' ? <Panel title="Tài khoản EXE" header={<Action label="Đóng" disabled={busy} onPress={back}/>}>
@@ -83,7 +86,7 @@ function CloudWorkspace({ account, back, sound, playSound }: Props) {
         <AccountForm busy={busy || !account.ready} message={account.message} configured={account.configured}
           onSubmit={(email, password, register) => { void run(() => account.authenticate(email, password, register)) }}/>}
     </Panel> : <Panel title="Ván chơi của bạn" header={<Action label="Bản đồ" disabled={busy} onPress={back}/>}>
-      <Action label="Tạo ván mới" onPress={newCloud} disabled={busy} tone="primary"/>
+      <Action label="Tạo ván mới" onPress={() => newCloud(false)} disabled={busy} tone="primary"/>
       {busy && <Copy accessibilityLiveRegion="polite">Đang tải ván…</Copy>}
       {(failure || account.message) && <Copy accessibilityRole="alert">{failure || account.message}</Copy>}
       {list?.length === 0 && <Copy>Bạn chưa có ván trực tuyến.</Copy>}

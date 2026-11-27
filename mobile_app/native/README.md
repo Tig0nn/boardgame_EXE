@@ -72,3 +72,7 @@ For the next Beta, increase `android.versionCode`, use a fresh output directory,
 | Device saves and accounts | Existing canonical save format and Fastify client, React Native storage adapters |
 
 Expo continuous native generation makes Android build output reproducible from the committed app configuration. Expo Go and a local development build can run the JS app. The local development build provides the EXE-specific package and confirmation deep link. iOS has a bundle identifier and scheme and requires its own build and runtime QA.
+
+## Optional gameplay analytics
+
+See [ANALYTICS.md](./ANALYTICS.md) for opt-in consent, six event schemas, offline retry, public provider configuration and the next APK acceptance gates.
