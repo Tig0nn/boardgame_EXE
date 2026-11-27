@@ -66,3 +66,12 @@ export const SCENARIOS: Scenario[] = [
     tendencies: { stocks: 'Có cơ hội phục hồi', bonds: 'Tăng trưởng nhẹ', gold: 'Đi ngang', business: 'Dần khởi sắc' },
     ranges: { stocks: [-0.12, 0.25], bonds: [0.03, 0.08], gold: [-0.08, 0.14], business: [0.05, 0.4] } },
 ]
+
+// Mô phỏng thực tế 2026 (RL 2026) cho chế độ chơi hiện đại B18 (PlayBoard 4 vòng):
+// Vàng bứt phá làm kênh trú ẩn (+12% ~ +26% trong giai đoạn thận trọng/lập đỉnh),
+// Cổ phiếu công nghệ tăng trưởng theo làn sóng AI (-5% ~ +35%).
+export const RL_2026_SCENARIO_RANGES: Record<string, Record<Asset, [number, number]>> = {
+  growth: { stocks: [-0.05, 0.35], bonds: [0.03, 0.07], gold: [-0.05, 0.15], business: [0.15, 0.5] },
+  uncertain: { stocks: [-0.22, 0.16], bonds: [0.02, 0.06], gold: [0.08, 0.26], business: [-0.08, 0.28] },
+  recovery: { stocks: [-0.12, 0.25], bonds: [0.03, 0.08], gold: [0.02, 0.18], business: [0.05, 0.4] },
+}

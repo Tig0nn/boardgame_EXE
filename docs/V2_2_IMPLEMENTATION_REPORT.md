@@ -1,3 +1,5 @@
+> **HISTORICAL** — Triển khai profile savings V2.2; số test và tình trạng hosting thuộc ngày 11/10/2026. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # V2.2 — Triển khai profile tiết kiệm đã duyệt
 
 Ngày: **11/10/2026**. Nhánh: **`feat/v2-2-savings-profile`**. Commit code/kiểm thử cục bộ: **`8d72753`**.

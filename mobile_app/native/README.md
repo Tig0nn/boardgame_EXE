@@ -1,0 +1,74 @@
+# EXE Android · React Native
+
+Baseline Mobile Web: `28f005c8f72af90673a43544c9877d5182a35b30`. The existing Vite entry under `mobile_app` stays available for parity and rollback. The native entry is `mobile_app/native/index.ts`.
+
+## Windows
+
+Install Node 22, JDK 17, Android SDK Platform 36 and NDK 27.1.12297006. For CMake/Ninja on Windows, use a short path for the checkout or a separate build copy (for example `C:\exe-rn\`). Set `JAVA_HOME` to JDK 17 for the build shell.
+
+```powershell
+cd mobile_app/native
+npm ci
+npm run typecheck
+npm test
+npx expo prebuild --platform android
+npx expo run:android
+```
+
+A debug APK built with `android\gradlew.bat :app:assembleDebug` is under `android/app/build/outputs/apk/debug/`. Start Metro with `npx expo start --dev-client` to load the local JavaScript bundle. Install using `adb install -r PATH_TO_APK`. Android/emulator networking uses `adb reverse` when Metro runs on localhost.
+
+On Windows, Android autolinking builds Expo GL from source so the APK contains the matching native library for both emulator and device. Metro resolves all Three.js imports to the same ESM instance for Hermes and the GLB loader.
+
+## Account and Cloud Save
+
+Copy `.env.example` to `.env.local` and use the publishable key for the configured Supabase staging project. Add `exe-boardgame://auth/callback` to the staged Supabase Auth redirect URL list before testing email confirmation on a real device. The API origin is the Fastify service. Game data is written through Fastify. The public key is used by Supabase Auth, with PKCE and token persistence using SecureStore. All attempts, canonical state, ownership and versions are enforced by Fastify. Local practice needs no account and saves with the existing schema 7 serializer.
+
+The app defaults to canonical What-if with deterministic feedback. The What-if explanation flag permits the existing Fastify assistant to use its separately configured provider. Cáo always uses deterministic on-device learning and the existing verified game evidence.
+
+For Android staging acceptance, use the confirmed test account directly in **Bắt đầu phiêu lưu → Đăng nhập để lưu ván**. Set `EXPO_PUBLIC_EXE_WHATIF_GEMINI=0` in the Metro environment. Keep the game synthetic and record its session ID and stateVersion before opening What-if. After confirming the alternative and viewing the comparison, reopen the original Cloud Save and compare those values and its official result. Sign out when done.
+
+For a connected emulator or USB-debugging device, run `adb reverse tcp:8092 tcp:8092` and start Metro with `npx expo start --dev-client --localhost --port 8092`. Install the debug APK, then open the Expo development server at `http://127.0.0.1:8092` in the app. The APK needs Metro to load application code.
+
+## Standalone Android staging test build
+
+In the short-path build checkout, configure the three public staging settings from `.env.example` for the build process and set `EXPO_PUBLIC_EXE_WHATIF_GEMINI=0`. Use the staging project's publishable key. Gradle embeds the production-mode Hermes bundle and its assets.
+
+```powershell
+cd mobile_app/native
+npx expo prebuild --platform android
+cd android
+.\gradlew.bat :app:assembleRelease '-PreactNativeArchitectures=x86_64,arm64-v8a'
+adb install -r app/build/outputs/apk/release/app-release.apk
+```
+
+The generated Expo template signs this test APK with the local debug signing key. Launch **EXE · Mỏ Hỗn** from Android with Metro disconnected. The test APK has the same application ID as the debug client and can replace it on devices using the same signing key.
+
+## Android Beta distribution gate
+
+The release command above builds both `arm64-v8a` (64-bit Android devices) and `x86_64` (the QA emulator). It embeds JavaScript, fonts, audio and board assets; Metro is not required. Check the final APK with Android SDK `aapt dump badging`, `aapt dump permissions` and `apksigner verify --print-certs`, not just the Gradle task name. The current package/version is `vn.exe.boardgame.nativeapp`, `1.0.0` / code `1`; minimum Android API 24 and target API 36 must also be checked in the generated APK.
+
+EXE uses foreground sound effects, not microphone recording, background playback, shared-storage access or display-over-other-apps. App configuration disables these audio capabilities and blocks microphone, legacy storage and overlay permissions so dependency manifests cannot add them back. Retain Internet, vibration and the library permissions required for playback, network and SecureStore. Release builds must remain non-debuggable with cleartext traffic disabled by the target-SDK default. Confirm the installed build starts without a Metro connection and uses only the intended staging API/Auth configuration, with What-if Gemini disabled.
+
+**The template debug certificate is for internal QA only. Do not distribute this artifact as the Beta release.** Before distributing to testers, Owner must choose and retain a dedicated Beta signing key in protected storage, approve its signing configuration, and define monotonically increasing version codes. Do not generate or replace the official key automatically. An APK signed with a different certificate cannot update the existing QA app in place; preserve EXE_QA data and use a separate test device for that transition. Real ARM64 installation/startup and staging Auth, Cloud Save and Result smoke remain required if only an x86_64 emulator has been tested. Never package passwords, database keys, service-role keys, tokens, QA observers or backups.
+
+## Owner-approved Beta signing (Windows PowerShell 7)
+
+The current internal visual-acceptance build is versionCode **4**. Keep the package unchanged. In a short-path build checkout, set the public staging API/Auth variables and `EXPO_PUBLIC_EXE_WHATIF_GEMINI=0` in the process environment. Run `./scripts/build-beta.ps1 -OutputDirectory "$env:LOCALAPPDATA/EXE/visual-v4"` from `mobile_app/native` (`-Offline` is optional when dependencies are cached). The script prebuilds Android with `EXE_ANDROID_BETA=1`; the config plugin removes the template debug signer from **release only** on every prebuild and fails closed if the package/version or Gradle template differs. Both ARM64 and x86_64 libraries are built into an **unsigned** APK. No password or private key is needed by Gradle.
+
+In a separate interactive PowerShell window, run `./scripts/sign-beta.ps1 -CreateKeystore -UnsignedApk <unsigned-apk-path> -ExpectedSha256 <hash-from-unsigned-manifest.json> -OutputApk <outside-Git-output.apk>`. Owner enters and confirms a strong password using hidden input. This creates `%LOCALAPPDATA%/EXE/signing/exe-beta.jks` (PKCS12, RSA 3072, alias `exe-beta`, validity 10,000 days) with owner-only directory permissions, refusing to overwrite an existing key or APK. The same password protects the keystore/private key; it exists only in the interactive process and the signing tool's child environment, never command-line values, Gradle files, logs or the verification JSON. The Java tools sign and verify with the Beta key and record only public fingerprints/checksums. Do not run the signer inside an agent-captured terminal or PowerShell transcription.
+
+For the next Beta, increase `android.versionCode`, use a fresh output directory, rebuild, and run the same signer **without** `-CreateKeystore` to reuse the retained key. Keep its password in a password manager. Make a separate encrypted offline backup of the keystore (for example with 7-Zip GUI, AES-256 and encrypted filenames); store that archive's password separately and verify it can be restored to a different private folder. Do not overwrite the active key during backup verification. Neither script installs the APK, contacts cloud infrastructure, uploads a key, publishes an APK or changes EXE_QA. First install the Beta-signed APK on a consenting physical ARM64 device with no conflicting debug-signed EXE package; complete runtime/staging acceptance before distribution.
+
+## Structure
+
+| Native area | Reuses |
+| --- | --- |
+| Entrance and chapter map | Original art, Fredoka, chapter node coordinates |
+| B18 board and HUD | 18 engine tiles, original background, board, pawn model, asset and dice controls |
+| Decision layer | Canonical choices, funding options, quote endpoints and existing financial wording |
+| START, recap and results | Canonical summaries, official Cloud Save result or canonical device selectors |
+| Board Peek | Existing D6 destinations and an in-place hidden decision layer |
+| Cáo and What-if | Local mascot learning and shared replay/alternative contracts |
+| Device saves and accounts | Existing canonical save format and Fastify client, React Native storage adapters |
+
+Expo continuous native generation makes Android build output reproducible from the committed app configuration. Expo Go and a local development build can run the JS app. The local development build provides the EXE-specific package and confirmation deep link. iOS has a bundle identifier and scheme and requires its own build and runtime QA.

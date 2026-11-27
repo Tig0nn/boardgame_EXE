@@ -1,3 +1,5 @@
+> **HISTORICAL** — Artwork root Web dùng public/art/city-background.webp và board SVG; không phải Mobile playboard.PNG/nhân vật 3D. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # Tích hợp artwork GD vào bàn cờ
 
 Ngày kiểm chứng: 12/10/2026 (Asia/Bangkok). Nhánh: `feat/gd-artwork-board-scene`.

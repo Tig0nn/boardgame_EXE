@@ -9,7 +9,9 @@
     "simulate:v2": "node --experimental-strip-types scripts/simulate-v2.ts",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ui:validate": "python .agents/scripts/validate_skills.py",
+    "ui:spec": "python .agents/scripts/validate_project.py specs/playboard"
   },
   "dependencies": {
     "react": "^19.2.8",

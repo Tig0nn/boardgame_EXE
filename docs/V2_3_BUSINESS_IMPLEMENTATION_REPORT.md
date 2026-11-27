@@ -1,3 +1,5 @@
+> **HISTORICAL** — Thu nhập matching theo scenario và giới hạn encounter V2.3; V2.4 dùng sở thích khách hàng riêng. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # Business V2.3 — Báo cáo triển khai
 
 Nhánh `feat/business-v2-3-fixed-income`, tạo từ `origin/main` tại `71e722d` sau fetch. Main đã có merge mobile MVP và transaction UX; working tree ban đầu sạch.

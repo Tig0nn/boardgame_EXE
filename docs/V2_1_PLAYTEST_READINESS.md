@@ -1,3 +1,5 @@
+> **HISTORICAL** — Kiểm chứng V2.1 trước khi Experimental B trở thành lựa chọn UI và trước V2.4/Mobile/AI. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # Xoay Vòng Tiến Lui V2.1 — Sẵn sàng playtest có kiểm soát
 
 Ngày xác minh: **11/10/2026**. Trạng thái: **SẴN SÀNG CHO PLAYTEST CÓ KIỂM SOÁT — CHỜ REVIEW**.

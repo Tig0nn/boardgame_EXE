@@ -1,3 +1,5 @@
+> **SUPERSEDED** — Đặc tả V2 ngày 10/10/2026; các mặc định, catalog và phạm vi AI đã có cập nhật. Nguồn chuẩn hiện tại: [CURRENT_MVP.md](CURRENT_MVP.md). Các phương pháp, kết quả và nội dung gốc bên dưới được giữ nguyên; lệnh lịch sử không được thực thi lại trong audit này.
+
 # XOAY VÒNG TIẾN LUI — ĐẶC TẢ GAMEPLAY V2
 
 **Ngày khóa bản làm việc:** 10/10/2026  

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "git": {
+    "deploymentEnabled": {
+      "codex/exe-react-native-migration": false,
+      "codex/exe-main-consolidation": false,
+      "main": false
+    }
+  }
+}
