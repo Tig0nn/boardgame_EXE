@@ -14,11 +14,13 @@ export type AnalyticsDependencies = {
 }
 const empty = (consent: State['consent'] = 'unknown'): State => ({ version: 1, consent, games: [], outbox: [] })
 const laps = (values: number[]) => [...new Set(values.filter(n => [1, 2, 3, 4].includes(n)))].sort()
-function restore(text: string | null): State {
+function restore(text: string | null, defaultEnabled: boolean): State {
+  if (text === null) return empty(defaultEnabled ? 'enabled' : 'unknown')
   if (!text || text.length > 256_000) return empty()
   try {
     const v = JSON.parse(text) as State
     if (v.version !== 1 || !['unknown', 'enabled', 'disabled'].includes(v.consent)) return empty()
+    if (v.consent === 'unknown' && defaultEnabled) return empty('enabled')
     if (v.consent !== 'enabled') return empty(v.consent)
     if (!v.anonymousId && !v.firstSeen) return empty('enabled')
     if (!isUUID(v.anonymousId) || !Number.isFinite(v.firstSeen) || !Array.isArray(v.games) || !Array.isArray(v.outbox)) return empty()
@@ -46,7 +48,10 @@ export function createGameplayAnalytics(deps: AnalyticsDependencies) {
   function failClosed() { blocked = true; gate = false; request?.abort(); publish() }
   function initialize() {
     ready ??= Promise.resolve().then(() => deps.storage.getItem(ANALYTICS_KEY)).then(text => {
-      state = restore(text); gate = wantedConsent ?? state.consent === 'enabled'; publish()
+      // Friend Beta defaults ON only without a saved choice. QA remains opt-in;
+      // saved OFF and malformed preferences never fall through to this default.
+      state = restore(text, deps.configured && !deps.testMode)
+      gate = wantedConsent ?? state.consent === 'enabled'; publish()
     }).catch(failClosed)
     return ready
   }

@@ -75,4 +75,4 @@ Expo continuous native generation makes Android build output reproducible from t
 
 ## Optional gameplay analytics
 
-See [ANALYTICS.md](./ANALYTICS.md) for opt-in consent, six event schemas, offline retry, public provider configuration and the next APK acceptance gates.
+See [ANALYTICS.md](./ANALYTICS.md) for Friend Beta default ON, persistent Settings opt-out, QA opt-in, six event schemas, offline retry, public provider configuration and the next APK acceptance gates.

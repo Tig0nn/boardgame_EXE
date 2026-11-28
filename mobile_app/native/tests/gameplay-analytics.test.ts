@@ -23,16 +23,13 @@ function fixture(configured = true) {
 }
 const state = (laps: number[] = [], outcome?: 'victory' | 'defeat' | 'insolvent') => ({ key: 'synthetic-private-seed', mode: 'local' as const, completedLaps: laps, outcome })
 
-test('friend profile emits all six event types as non-QA only after consent', async () => {
+test('friend profile defaults ON without a saved choice and emits only the six gameplay events', async () => {
   const f = fixture()
   const core = createGameplayAnalytics({ ...f.deps, testMode: false, build: '12' })
   const save = 'existing local save is not analytics storage'
   f.data.set(GAME_SAVE_KEY, save)
   await core.initialize(); await core.activate()
-  await core.gameStarted(state(), false); await core.flush()
-  assert.equal(f.received.length, 0)
-  assert.equal(f.data.get(ANALYTICS_KEY), undefined)
-  await core.setConsent(true)
+  assert.equal(core.getSnapshot().consent, 'enabled')
   await core.gameStarted(state(), false); await core.gameStarted(state(), false)
   for (const lap of [1, 2, 3, 4]) {
     const before = state(Array.from({ length: lap - 1 }, (_, i) => i + 1))
@@ -52,6 +49,93 @@ test('friend profile emits all six event types as non-QA only after consent', as
   const delivered = f.received.length
   await core.setConsent(false); await core.gameStarted(state(), false); await core.flush()
   assert.equal(f.received.length, delivered)
+})
+
+test('friend default keeps identity and event dedupe across batches, offline retry and cold restart', async () => {
+  const f = fixture(), friend = () => createGameplayAnalytics({ ...f.deps, testMode: false, build: '12' })
+  const core = friend()
+  await core.activate(); await core.activate(); await core.flush()
+  await core.gameStarted(state(), false); await core.gameStarted(state(), false); await core.flush()
+  f.offline(true)
+  await core.transition(state(), state([1])); await core.flush()
+  const queued = JSON.parse(f.data.get(ANALYTICS_KEY)!).outbox as AnalyticsEvent[]
+  assert.equal(queued.length, 1)
+  const restarted = friend(); await restarted.initialize()
+  f.offline(false); f.advance(60_000); await restarted.flush(); await restarted.activate()
+  await restarted.gameStarted(state(), false); await restarted.transition(state(), state([1]))
+  await restarted.gameStarted({ ...state(), key: 'friend-replay' }, true); await restarted.flush()
+  const events = f.received.flat()
+  assert.equal(events.filter(e => e.name === 'game_started').length, 2)
+  assert.equal(events.filter(e => e.name === 'lap_completed').length, 1)
+  assert.equal(events.filter(e => e.name === 'replay_started').length, 1)
+  assert.deepEqual(events.find(e => e.id === queued[0].id), queued[0])
+  assert.equal(new Set(events.map(e => e.id)).size, events.length)
+  assert.equal(new Set(events.map(e => e.anonymousId)).size, 1)
+  assert.equal(new Set(events.map(e => e.properties.first_seen)).size, 1)
+})
+
+test('friend default never overrides saved OFF, including upgrade from QA and repeated restarts', async () => {
+  const f = fixture()
+  await f.core.initialize(); await f.core.setConsent(false)
+  const off = f.data.get(ANALYTICS_KEY)
+  for (let i = 0; i < 2; i++) {
+    const core = createGameplayAnalytics({ ...f.deps, testMode: false, build: '12' })
+    await core.activate(); await core.gameStarted(state(), false); await core.flush()
+    assert.equal(core.getSnapshot().consent, 'disabled')
+    assert.equal(f.data.get(ANALYTICS_KEY), off)
+  }
+  assert.equal(f.received.length, 0)
+})
+
+test('turning friend analytics OFF clears retries and stays OFF after restart until Settings enables it', async () => {
+  const f = fixture(), friend = () => createGameplayAnalytics({ ...f.deps, testMode: false, build: '12' })
+  const core = friend(), save = 'local game must not change'
+  f.data.set(GAME_SAVE_KEY, save)
+  await core.activate(); await core.flush()
+  const originalIdentity = f.received.flat()[0]?.anonymousId
+  assert.ok(originalIdentity)
+  f.offline(true); await core.gameStarted(state(), false); await core.flush()
+  await core.setConsent(false)
+  const restarted = friend(); await restarted.activate()
+  f.offline(false); f.advance(DAY_MS)
+  await restarted.gameStarted(state(), false); await restarted.flush()
+  assert.equal(f.received.flat().length, 1)
+  assert.equal(restarted.getSnapshot().consent, 'disabled')
+  assert.doesNotMatch(f.data.get(ANALYTICS_KEY)!, /anonymousId|firstSeen|game_id|outbox.*app_open/)
+  await restarted.setConsent(true); await restarted.flush()
+  assert.equal(f.received.flat().length, 2)
+  assert.notEqual(f.received.flat()[1].anonymousId, originalIdentity)
+  assert.equal(f.data.get(GAME_SAVE_KEY), save)
+})
+
+test('only missing or valid unknown preferences enable friend defaults; bad storage stays closed', async () => {
+  const cases = [[null, 'enabled'], [JSON.stringify({ version: 1, consent: 'unknown' }), 'enabled'],
+    ['', 'unknown'], ['{malformed', 'unknown'], [JSON.stringify({ version: 1, consent: 'invalid' }), 'unknown'],
+    [JSON.stringify({ version: 2, consent: 'unknown' }), 'unknown']] as const
+  for (const [text, expected] of cases) {
+    const f = fixture()
+    if (text !== null) f.data.set(ANALYTICS_KEY, text)
+    const core = createGameplayAnalytics({ ...f.deps, testMode: false, build: '12' })
+    await core.activate(); await core.flush()
+    assert.equal(core.getSnapshot().consent, expected)
+    assert.equal(f.received.flat().length, core.getSnapshot().consent === 'enabled' ? 1 : 0)
+  }
+  const f = fixture(false), core = createGameplayAnalytics({ ...f.deps, testMode: false, build: '12' })
+  await core.activate(); await core.gameStarted(state(), false); await core.flush()
+  assert.equal(f.received.length, 0); assert.equal(f.data.size, 0)
+})
+
+test('friend OFF requested during initialization wins before default collection can begin', async () => {
+  const f = fixture()
+  let release!: (value: string | null) => void
+  const core = createGameplayAnalytics({ ...f.deps, testMode: false, build: '12', storage: {
+    ...f.deps.storage, getItem: () => new Promise<string | null>(resolve => { release = resolve }),
+  } })
+  const init = core.initialize(); await Promise.resolve()
+  const off = core.setConsent(false), active = core.activate()
+  release(null); await init; await off; await active; await core.flush()
+  assert.equal(core.getSnapshot().consent, 'disabled'); assert.equal(f.received.length, 0)
+  assert.doesNotMatch(f.data.get(ANALYTICS_KEY)!, /anonymousId|firstSeen/)
 })
 
 test('switching build profile preserves queued QA labels and UUIDs instead of relabeling them as friends', async () => {
